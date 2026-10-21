@@ -1,0 +1,52 @@
+{
+  "checkedAt": "2026-10-04T03:55:18.075Z",
+  "sourceArchive": "D:/Projects/Xiyou_EightyOne_Calamities(1).rar",
+  "sizeBytes": 237627562,
+  "modifiedAt": "2026-10-03T03:38:33.187Z",
+  "sha256": "d4e628b18903e8af08b48ee159ef57b9af720994203f21324828af78a05741e9",
+  "destination": "D:\\Projects\\Xiyou_Survivor_Commercial",
+  "legacyLocation": "legacy-source/",
+  "method": "UnRAR p -inul of four explicit archive members; raw Buffer.equals and SHA256",
+  "checks": [
+    {
+      "file": "prototype-2d/index.html",
+      "archiveMember": "Xiyou_EightyOne_Calamities\\prototype-2d\\index.html",
+      "bytes": 105622,
+      "sourceHash": "0b8b17e7e4cc047fcb29da8391ab0e894c2ab4726ba3e1f21bf5b45c1d00e1ab",
+      "copyHash": "0b8b17e7e4cc047fcb29da8391ab0e894c2ab4726ba3e1f21bf5b45c1d00e1ab",
+      "equal": true
+    },
+    {
+      "file": "prototype-2d/character-art.js",
+      "archiveMember": "Xiyou_EightyOne_Calamities\\prototype-2d\\character-art.js",
+      "bytes": 15364,
+      "sourceHash": "08938a8959bc2e116647cad95eb3bfe5bdc858aa8096e2a9583072260e67f947",
+      "copyHash": "08938a8959bc2e116647cad95eb3bfe5bdc858aa8096e2a9583072260e67f947",
+      "equal": true
+    },
+    {
+      "file": "prototype-2d/skills.js",
+      "archiveMember": "Xiyou_EightyOne_Calamities\\prototype-2d\\skills.js",
+      "bytes": 8742,
+      "sourceHash": "499b518f0bf6044925f6216cc3f15c5ff4c06ba53d7ed9cdcba6254f7ee4ea2c",
+      "copyHash": "499b518f0bf6044925f6216cc3f15c5ff4c06ba53d7ed9cdcba6254f7ee4ea2c",
+      "equal": true
+    },
+    {
+      "file": "wechat-miniprogram/miniprogram/pages/index/index.js",
+      "archiveMember": "Xiyou_EightyOne_Calamities\\wechat-miniprogram\\miniprogram\\pages\\index\\index.js",
+      "bytes": 65688,
+      "sourceHash": "cd09f24f6cf5e438e70f741272c9fa6edb5c867e3c41ee51c6f44bb063593614",
+      "copyHash": "cd09f24f6cf5e438e70f741272c9fa6edb5c867e3c41ee51c6f44bb063593614",
+      "equal": true
+    }
+  ],
+  "scope": "Four representative copied runtime files were compared; this is not a complete inventory comparison of every archive member.",
+  "copyPolicyExcluded": [
+    "source .git including unfinished merge index",
+    "work scratch duplicates",
+    "evidence/local",
+    "personal SSH public key"
+  ],
+  "result": "PASS: all four representative source files match the source archive byte-for-byte"
+}

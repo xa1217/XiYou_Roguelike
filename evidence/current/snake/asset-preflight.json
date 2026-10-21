@@ -1,0 +1,272 @@
+{
+  "generatedAt": "2026-10-10T18:48:28.290Z",
+  "input": "F:\\Project\\Xiyou_Survivor_Commercial\\prototype-2d\\assets\\enemy-snake-battle-v1-sheet.png",
+  "bytes": 2458204,
+  "sha256": "e17f187e0c6a733572f42cd722d99d8df6793b91c67ca6b66f08a5f9e6b02089",
+  "width": 1774,
+  "height": 887,
+  "alphaThreshold": 8,
+  "transparentPixels": 700686,
+  "visiblePixels": 667443,
+  "classifiedPixels": 667443,
+  "uniqueFrames": 16,
+  "rowSummary": [
+    {
+      "row": 0,
+      "top": 6,
+      "bottom": 223,
+      "frameCount": 8,
+      "minimumHorizontalGap": 18
+    },
+    {
+      "row": 1,
+      "top": 235,
+      "bottom": 440,
+      "frameCount": 7,
+      "minimumHorizontalGap": 10
+    },
+    {
+      "row": 2,
+      "top": 447,
+      "bottom": 876,
+      "frameCount": 1,
+      "minimumHorizontalGap": 0
+    }
+  ],
+  "frames": [
+    {
+      "index": 0,
+      "row": 0,
+      "column": 0,
+      "state": "idle",
+      "rect": {
+        "x": 14,
+        "y": 6,
+        "w": 196,
+        "h": 218
+      },
+      "visiblePixels": 22139,
+      "rgbaSha256": "caeeaa5ed5838e438dd9a120b489ae53381969c6c00c72411a6354052bb9f46d"
+    },
+    {
+      "index": 1,
+      "row": 0,
+      "column": 1,
+      "state": "idle",
+      "rect": {
+        "x": 237,
+        "y": 6,
+        "w": 199,
+        "h": 218
+      },
+      "visiblePixels": 22540,
+      "rgbaSha256": "f7b74bcb57e2f5dd52f8ad247cbbdaa4ebe4998affc4fbdec93ece1da48d9cd4"
+    },
+    {
+      "index": 2,
+      "row": 0,
+      "column": 2,
+      "state": "idle",
+      "rect": {
+        "x": 466,
+        "y": 9,
+        "w": 197,
+        "h": 215
+      },
+      "visiblePixels": 22770,
+      "rgbaSha256": "4c4ff0dab61cc12dc75575890d6d025ebd3bfae616cf0c2190d92b3d3ade5a85"
+    },
+    {
+      "index": 3,
+      "row": 0,
+      "column": 3,
+      "state": "idle",
+      "rect": {
+        "x": 682,
+        "y": 9,
+        "w": 201,
+        "h": 215
+      },
+      "visiblePixels": 22165,
+      "rgbaSha256": "cd90f7e9e51cc335927884a386ed91a278d1169b0cbe6ec02df73aed43fc4faf"
+    },
+    {
+      "index": 4,
+      "row": 0,
+      "column": 4,
+      "state": "idle",
+      "rect": {
+        "x": 905,
+        "y": 13,
+        "w": 209,
+        "h": 211
+      },
+      "visiblePixels": 22195,
+      "rgbaSha256": "c1f974c42a948519138a66472f5ea090786d66cabda3ec4950ca081f44bbea78"
+    },
+    {
+      "index": 5,
+      "row": 0,
+      "column": 5,
+      "state": "idle",
+      "rect": {
+        "x": 1134,
+        "y": 8,
+        "w": 201,
+        "h": 216
+      },
+      "visiblePixels": 22524,
+      "rgbaSha256": "8e4b0a38e731f78261667d16d3ca54faea6072847f5916f60cc18f03c8b1a904"
+    },
+    {
+      "index": 6,
+      "row": 0,
+      "column": 6,
+      "state": "idle",
+      "rect": {
+        "x": 1353,
+        "y": 8,
+        "w": 200,
+        "h": 216
+      },
+      "visiblePixels": 22020,
+      "rgbaSha256": "76187586a393f23e48bafb693d4dc929531d043a336ba4d2d573426b68e86a3f"
+    },
+    {
+      "index": 7,
+      "row": 0,
+      "column": 7,
+      "state": "idle",
+      "rect": {
+        "x": 1571,
+        "y": 9,
+        "w": 193,
+        "h": 215
+      },
+      "visiblePixels": 21967,
+      "rgbaSha256": "d4023e4fcd276d278dd507accc0e31263a375a4f1c594f657b3f3c6bafa05696"
+    },
+    {
+      "index": 8,
+      "row": 1,
+      "column": 0,
+      "state": "move",
+      "rect": {
+        "x": 5,
+        "y": 236,
+        "w": 220,
+        "h": 201
+      },
+      "visiblePixels": 22493,
+      "rgbaSha256": "af27ad432717a719e97ac321bf97db7e1f23d0d16ec6758c35ec3e7a76d6746c"
+    },
+    {
+      "index": 9,
+      "row": 1,
+      "column": 1,
+      "state": "move",
+      "rect": {
+        "x": 240,
+        "y": 241,
+        "w": 203,
+        "h": 196
+      },
+      "visiblePixels": 21472,
+      "rgbaSha256": "a2bf70f2b71f646cdb795399059e150876fad9305f008d893fee470c3e973b94"
+    },
+    {
+      "index": 10,
+      "row": 1,
+      "column": 2,
+      "state": "move",
+      "rect": {
+        "x": 457,
+        "y": 235,
+        "w": 427,
+        "h": 202
+      },
+      "visiblePixels": 42737,
+      "rgbaSha256": "280ff78bacaf914a377fc4e6550376b9140c86e2c52080b37016a739225d100a"
+    },
+    {
+      "index": 11,
+      "row": 1,
+      "column": 3,
+      "state": "move",
+      "rect": {
+        "x": 905,
+        "y": 241,
+        "w": 191,
+        "h": 200
+      },
+      "visiblePixels": 19893,
+      "rgbaSha256": "6374516edb495c04464a3a0c3c9d3c5c53ae8789e166c9c46b8ccb9e3632ec35"
+    },
+    {
+      "index": 12,
+      "row": 1,
+      "column": 4,
+      "state": "move",
+      "rect": {
+        "x": 1106,
+        "y": 241,
+        "w": 223,
+        "h": 198
+      },
+      "visiblePixels": 21614,
+      "rgbaSha256": "784480f9a283731f627bc23370d80dfe08ff22786767f44709e8f36c0d6a1e17"
+    },
+    {
+      "index": 13,
+      "row": 1,
+      "column": 5,
+      "state": "move",
+      "rect": {
+        "x": 1339,
+        "y": 245,
+        "w": 212,
+        "h": 194
+      },
+      "visiblePixels": 20613,
+      "rgbaSha256": "aeb04ce020f2f8e615c4b629aae2de63010c61c4be0c9c87493e6b3e245b6fa0"
+    },
+    {
+      "index": 14,
+      "row": 1,
+      "column": 6,
+      "state": "move",
+      "rect": {
+        "x": 1564,
+        "y": 243,
+        "w": 209,
+        "h": 194
+      },
+      "visiblePixels": 21316,
+      "rgbaSha256": "58468ffa7a2f234be9f0c4f8ea38d2c9f9a5b6d2a9f63d0b7d9fb81cf222eec3"
+    },
+    {
+      "index": 16,
+      "row": 2,
+      "column": 0,
+      "state": "attack",
+      "rect": {
+        "x": 19,
+        "y": 447,
+        "w": 1735,
+        "h": 430
+      },
+      "visiblePixels": 318985,
+      "rgbaSha256": "60ac8b40e292d44567fa05d1ccdb325fde3f98d0102545da79b485e89d172a33"
+    }
+  ],
+  "checks": {
+    "transparentBackground": true,
+    "fourIsolatedRows": false,
+    "eightIsolatedFiguresPerRow": false,
+    "thirtyTwoDistinctFrames": false,
+    "allVisiblePixelsAccountedFor": true,
+    "noCanvasEdgeClipping": false
+  },
+  "result": "REVIEW",
+  "scope": "Read-only PNG isolation/alpha/unique-pixel preflight. Distinct hashes are NOT evidence of smooth animation, consistent anatomy or runtime approval."
+}

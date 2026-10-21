@@ -1,0 +1,69 @@
+{
+  "verifiedAt": "2026-10-13T11:10:36.580Z",
+  "result": "REVIEW_DEATH_SEAM_DIAGNOSTIC_ONLY",
+  "scope": "Original death[1] to existing patch death[2/3] only; original death[2/3] are contaminated source controls, not runtime crops. Diagnostic ground/shoulder references, not authored roots, complete death animation, gameplay, FPS, device, ZIP or public approval.",
+  "browser": {
+    "version": "155.0.4283.45",
+    "generatedAt": "2026-10-13T11:05:40.965Z",
+    "finishedAt": "2026-10-13T11:05:43.212Z",
+    "closed": true,
+    "checks": {
+      "browserNodeMeasurementsMatch": true,
+      "decodedSizesMatch": true,
+      "noProductionReferences": true,
+      "orderedNonLoopingSeamsBothRatesSizesFacings": true,
+      "noErrorsOrNetwork": true
+    },
+    "screenshots": [
+      {
+        "file": "evidence/current/tiger-vanguard/death-seam/2026-10-13T11-05-40-965Z/death-source-and-shoulder-reference.png",
+        "bytes": 403059,
+        "sha256": "83dd58fce80654eda6a417b1a4e6cb5338a6818d0fdee66da5d06aee76e1640c"
+      },
+      {
+        "file": "evidence/current/tiger-vanguard/death-seam/2026-10-13T11-05-40-965Z/death-alignment-sensitivity-128.png",
+        "bytes": 280828,
+        "sha256": "03637b95f759a9e75d7b8185d5c2d02bf50aaa4c2b958d370100d616fa2e7297"
+      },
+      {
+        "file": "evidence/current/tiger-vanguard/death-seam/2026-10-13T11-05-40-965Z/death-seam-64-48-both-facings.png",
+        "bytes": 127456,
+        "sha256": "ba02c3c1a096eabebb8b3f140d822ba5518ff3da3f2ceab7b72d63f9f5bb19dc"
+      }
+    ]
+  },
+  "regression": {
+    "command": "npm test",
+    "exitCode": 0,
+    "date": "2026-10-13T11:06:26.580Z",
+    "result": "PASS",
+    "archiveMatchesCurrentJson": true,
+    "fullOutputArchived": true
+  },
+  "protectedFiles": 91,
+  "protectedChanged": [],
+  "files": {
+    "evidence/current/tiger-vanguard/death-seam/2026-10-13T11-05-40-965Z/browser.json": "eba2f56001dd8d688262dd1351a904768f08a4a4cd6d07194df17acb34d85590",
+    "evidence/current/tiger-vanguard/death-seam/2026-10-13T11-05-40-965Z/npm-validation.json": "d9553b4cf28c791a24a6049d929ec6ab8a020241990c7e395cc66bfbc7ed8702",
+    "evidence/current/tiger-vanguard/death-seam/2026-10-13T11-05-40-965Z/npm-test.txt": "b2cbe574e3d2d8b491ebd0172ed90021c1c82bee15ad3350c31d5e0945358e66",
+    "evidence/current/tiger-vanguard/death-seam/2026-10-13T11-05-40-965Z/review.md": "3bfb83a643c574add7f74f1b81cb49cea75735b681a9018a499951f731983814",
+    "scripts/browser-tiger-vanguard-death-seam.mjs": "7d94ebdb046f5256f5936ca21b69101ec99dce8a95152261e3c99a622708781b",
+    "evidence/current/tiger-vanguard/death-seam/2026-10-13T11-03-29-383Z/browser.json": "75dd067fb34d174ebb3af048d44173b18f0f99aa260cc843639766ec93f6c888",
+    "STATUS.md": "58c6182f710dc2800648e6ee28d640fa07e3792a114fa05f7fb42ad886bd005c",
+    "docs/REQUIREMENTS-ACCEPTANCE.md": "237f5a37c46de1f4132169d4c966ecc392e37999915258f9cc9ea04fa7167354",
+    "docs/FINAL-REPORT.md": "af40a22813871175b69e158e4f90141486b93c6166307db5c4de3db8fe665e4d",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md": "d9a84a394da84dba20d585c0477dcf483cb3c212a22e90e085830909a03c9f58"
+  },
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "releaseReady": false,
+  "deployAuthorized": false,
+  "newImageGenerationCalls": 0,
+  "productionChanges": 0,
+  "localServerStarted": false,
+  "humanReviewedStaticScreenshots": 3,
+  "humanReviewedMotionRecording": false,
+  "decision": "Preserve current sources and advance only to an evidence-only full32 candidate sequence preview. Not production animation approval.",
+  "nextStep": "Create an explicit REVIEW candidate table under evidence with29 original v1 regions plus existing patch7/30/31, whole-page scales, state order and provisional diagnostic pivots; do not repeat endpoint measurements or image generation."
+}

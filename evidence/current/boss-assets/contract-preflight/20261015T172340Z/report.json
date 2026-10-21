@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-15T17:23:40.5067712Z",
+  "scope": "evidence-only per-Boss contract preflight",
+  "scopeBosses": ["yin-general", "xiong-shanjun", "te-chushi"],
+  "result": "PASS_PRECHECK_NO_REUSABLE_BOSS_FRAMES",
+  "decision": "NO_ASSET_GENERATION_OR_RUNTIME_CHANGE",
+  "repositoryRoot": "F:/Project/Xiyou_Survivor_Commercial",
+  "searchScope": {
+    "productionAssetRoot": "prototype-2d/assets",
+    "dedicatedFrameJsonPatterns": [
+      "*yin*frames.json",
+      "*xiong*frames.json",
+      "*chushi*frames.json",
+      "*boss*frames.json",
+      "*寅将军*",
+      "*熊山君*",
+      "*特处士*"
+    ],
+    "dedicatedFrameJsonMatches": [],
+    "allFrameJsonInventory": [
+      "enemy-bear-battle-v1-frames.json",
+      "enemy-bull-battle-v1-frames.json",
+      "enemy-deer-battle-v1-frames.json",
+      "enemy-hawk-battle-v1-frames.json",
+      "enemy-monkey-battle-v1-frames.json",
+      "enemy-snake-battle-v3-frames.json",
+      "enemy-tiger-battle-v1-frames.json",
+      "enemy-wolf-battle-v1-frames.json"
+    ],
+    "note": "The inventory contains only ordinary stage-one contracts; no Boss-specific frame JSON is present in the production asset root."
+  },
+  "bossContracts": [
+    {
+      "bossId": "yin-general",
+      "actionId": "yin-general",
+      "name": "寅将军",
+      "variant": "tiger",
+      "identitySource": "prototype-2d/src/content.js:197-203",
+      "ordinaryAtlasAudit": {
+        "assetId": "enemy-tiger-battle-v1",
+        "sheet": {
+          "path": "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png",
+          "exists": true,
+          "size": [1774, 887],
+          "bytes": 1166282,
+          "sha256": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389"
+        },
+        "frameContract": {
+          "path": "prototype-2d/assets/enemy-tiger-battle-v1-frames.json",
+          "exists": true,
+          "bytes": 5394,
+          "sha256": "b66e62a1a40b00e36711523621c94d1b73b33a05f71ee46ec2094b4ae007156d",
+          "declaredPurpose": "普通虎妖32姿态；只绑定stage1+normal+tiger，精英/Boss不共用"
+        },
+        "runtimeGuards": [
+          "prototype-2d/src/battle-enemy-animation.js:13,23-29",
+          "prototype-2d/src/tiger-animation.js:1-10",
+          "prototype-2d/src/engine.js:327-330"
+        ],
+        "reusableForBoss": false,
+        "reason": "battleEnemySpriteId requires stage.id===1 and kind==='normal'; isBattleTiger accepts only kind==='normal' or a retained death with enemyKind==='normal'. A final Boss is kind==='boss' and carries bossIdentity, so this ordinary tiger sheet cannot satisfy the matcher."
+      },
+      "dedicatedFrameJson": null
+    },
+    {
+      "bossId": "xiong-shanjun",
+      "actionId": "xiong-shanjun",
+      "name": "熊山君",
+      "variant": "bear",
+      "identitySource": "prototype-2d/src/content.js:197-203",
+      "ordinaryAtlasAudit": {
+        "assetId": "enemy-bear-battle-v1",
+        "sheet": {
+          "path": "prototype-2d/assets/enemy-bear-battle-v1-sheet.png",
+          "exists": true,
+          "size": [1774, 887],
+          "bytes": 978099,
+          "sha256": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f"
+        },
+        "frameContract": {
+          "path": "prototype-2d/assets/enemy-bear-battle-v1-frames.json",
+          "exists": true,
+          "bytes": 5705,
+          "sha256": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+          "declaredPurpose": "普通熊妖32姿态；只绑定stage1+normal+bear，不用于熊山君或其他精英/Boss"
+        },
+        "runtimeGuards": [
+          "prototype-2d/src/battle-enemy-animation.js:14,23-29",
+          "prototype-2d/src/bear-animation.js:1-10",
+          "prototype-2d/src/engine.js:327-330"
+        ],
+        "reusableForBoss": false,
+        "reason": "battleEnemySpriteId requires stage.id===1 and kind==='normal'; isBattleBear accepts only kind==='normal' or a retained death with enemyKind==='normal'. A final Boss is kind==='boss' and carries bossIdentity, so this ordinary bear sheet cannot satisfy the matcher."
+      },
+      "dedicatedFrameJson": null
+    },
+    {
+      "bossId": "te-chushi",
+      "actionId": "te-chushi",
+      "name": "特处士",
+      "variant": "bull",
+      "identitySource": "prototype-2d/src/content.js:197-203",
+      "ordinaryAtlasAudit": {
+        "assetId": "enemy-bull-battle-v1",
+        "sheet": {
+          "path": "prototype-2d/assets/enemy-bull-battle-v1-sheet.png",
+          "exists": true,
+          "size": [1774, 887],
+          "bytes": 1137073,
+          "sha256": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb"
+        },
+        "frameContract": {
+          "path": "prototype-2d/assets/enemy-bull-battle-v1-frames.json",
+          "exists": true,
+          "bytes": 5917,
+          "sha256": "e32da6acfc9bbea64ffb74b6cfb06e30e736b7f2c042c1d8949348e506b11527",
+          "declaredPurpose": "普通野牛妖32姿态；仅绑定stage1+normal+bull，不用于特处士（待处士）或其他精英/Boss"
+        },
+        "runtimeGuards": [
+          "prototype-2d/src/battle-enemy-animation.js:15,23-29",
+          "prototype-2d/src/bull-animation.js:1-10",
+          "prototype-2d/src/engine.js:327-330"
+        ],
+        "reusableForBoss": false,
+        "reason": "battleEnemySpriteId requires stage.id===1 and kind==='normal'; isBattleBull accepts only kind==='normal' or a retained death with enemyKind==='normal'. A final Boss is kind==='boss' and carries bossIdentity, so this ordinary bull sheet cannot satisfy the matcher."
+      },
+      "dedicatedFrameJson": null
+    }
+  ],
+  "existingBossVisuals": [
+    {
+      "assetId": "enemy-boss",
+      "path": "prototype-2d/assets/enemy-boss.svg",
+      "exists": true,
+      "size": [220, 220],
+      "bytes": 883,
+      "sha256": "3878f941259a93790631307e0102600d8734326d9b529f4fb2b6cb5ac5cb48ee",
+      "purpose": "generic Boss transparent vector fallback",
+      "runtimeUse": "prototype-2d/native-app.js:112-115 loads enemy-boss.svg; renderer uses deterministic vector profiles",
+      "dedicatedFrameContract": false,
+      "reusableForDedicatedBossAnimation": false
+    },
+    {
+      "assetId": "enemy-boss-kr-v1",
+      "path": "prototype-2d/assets/enemy-boss-kr-v1.png",
+      "exists": true,
+      "size": [1374, 1145],
+      "bytes": 2297029,
+      "sha256": "15f5393abf19e83b2d0087d4ac0a068c5cec4ae45d740798cb5ec8c2807d8601",
+      "purpose": "historical single-pose Boss PNG",
+      "runtimeUse": "prototype-2d/assets/manifest.json:714-724 marks retired-from-playable-battle; gallery/history only",
+      "dedicatedFrameContract": false,
+      "reusableForDedicatedBossAnimation": false
+    },
+    {
+      "assetId": "enemy-yin-general-battle-v1-candidate",
+      "path": "evidence/current/boss-assets/yin-general-v1/enemy-yin-general-battle-v1-sheet.png",
+      "exists": true,
+      "size": [1774, 887],
+      "bytes": 2290719,
+      "sha256": "3bcfe483529722987ed7a919c56495132fa96e1ac6d2e83a69604fc29a70d057",
+      "purpose": "historical Yin General candidate only",
+      "preflight": "evidence/current/boss-assets/yin-general-v1/asset-preflight.json",
+      "preflightResult": "REVIEW",
+      "preflightReason": "5/8/6/6 isolated row regions, 25/32 independent frames, weapon cross-cell and edge contamination",
+      "runtimeUse": "evidence-only; not in prototype-2d/assets, manifest, loader, renderer, ZIP or deployment",
+      "reusableForDedicatedBossAnimation": false
+    }
+  ],
+  "runtimeReferences": [
+    {
+      "path": "prototype-2d/src/content.js",
+      "lines": "197-203",
+      "sha256": "7af8cfe07b8aea17ae4c2220918aefad7b97cc7bb547650e0f131e617af07f87",
+      "bytes": 39457,
+      "finding": "Three stable bossId/actionId contracts exist; comments explicitly state they do not point to ordinary animal sheets."
+    },
+    {
+      "path": "prototype-2d/src/engine.js",
+      "lines": "327-330,345-360",
+      "sha256": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+      "bytes": 67542,
+      "finding": "Ordinary battleSpriteId is assigned only through the normal-enemy gate; final Boss receives only bossIdentity."
+    },
+    {
+      "path": "prototype-2d/src/battle-enemy-animation.js",
+      "lines": "10-29",
+      "sha256": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+      "bytes": 2851,
+      "finding": "Registry contains ordinary tiger/bear/bull actors and explicitly rejects variant-only elite/Boss matches."
+    },
+    {
+      "path": "prototype-2d/src/renderer.js",
+      "lines": "69-77,1392-1397",
+      "sha256": "b0043ae2de03cac197342252043c4fe02fd633f4cf2b5ae713ee395802f1eeb5",
+      "bytes": 114248,
+      "finding": "Named Bosses currently render identity-scoped vector profiles; no Boss atlas/frame reader exists."
+    },
+    {
+      "path": "prototype-2d/native-app.js",
+      "lines": "112-118",
+      "sha256": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+      "bytes": 12286,
+      "finding": "Startup loads generic enemy-boss.svg; retired single-pose Boss PNGs are not fetched."
+    },
+    {
+      "path": "prototype-2d/assets/manifest.json",
+      "lines": "91,538-545,714-724,798-856,989,1006-1010",
+      "sha256": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+      "bytes": 45919,
+      "finding": "Only generic enemy-boss.svg and retired enemy-boss-kr-v1.png are Boss entries; tiger/bear/bull frame contracts are ordinary-only."
+    }
+  ],
+  "checks": {
+    "bossesAudited": 3,
+    "ordinarySheetsAudited": 3,
+    "ordinarySheetsReusableForBoss": false,
+    "dedicatedBossFrameJsonFound": false,
+    "dedicatedBossProductionAtlasFound": false,
+    "genericVectorBossFallbackPresent": true,
+    "historicalYinCandidateFound": true,
+    "historicalYinCandidateRuntimeApproved": false,
+    "productionWriteAttempted": false,
+    "runtimeWriteAttempted": false,
+    "zipWriteAttempted": false,
+    "deploymentAttempted": false
+  },
+  "nextSafeStep": "Keep the three Boss contracts isolated. If a new dedicated action sheet is later requested, process one Boss at a time through independent preflight; do not reuse or regenerate the ordinary tiger/bear/bull sheets and do not connect a candidate before a passing frame contract exists.",
+  "evidenceBoundary": "This report proves only current inventory, hash/size/use inspection and runtime-reference isolation. It is not approval of Boss animation quality, FPS, public deployment, ZIP freshness, or final release readiness."
+}

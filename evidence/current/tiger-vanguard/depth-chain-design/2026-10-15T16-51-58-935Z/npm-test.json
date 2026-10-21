@@ -1,0 +1,9 @@
+{
+  "startedAt": "2026-10-15T16:51:58.936Z",
+  "finishedAt": "2026-10-15T16:52:05.086Z",
+  "command": "npm test",
+  "exitCode": 0,
+  "error": null,
+  "outputCharacters": 49163,
+  "scope": "LOCAL_TEST_ONLY_NOT_BROWSER_PUBLIC_OR_ART_ACCEPTANCE"
+}

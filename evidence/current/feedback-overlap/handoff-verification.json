@@ -1,0 +1,114 @@
+{
+  "generatedAt": "2026-10-11T05:47:30.915Z",
+  "result": "PASS",
+  "checks": {
+    "baselineDefectRecorded": true,
+    "browserAfter": true,
+    "node": true,
+    "npm": true,
+    "fixtureGlyphsUnchanged": true,
+    "screenshotsMatch": true,
+    "mediaUnchanged": true,
+    "sourceHashes": true,
+    "engineUnchanged": true,
+    "originalRendererSaved": true,
+    "archivesUnchanged": true
+  },
+  "scope": "only status-badge avoidance of damage-label plus starburst rotated bounds; not global occlusion",
+  "browserBeforeAt": "2026-10-11T05:37:10.047Z",
+  "browserAfterAt": "2026-10-11T05:44:13.298Z",
+  "browserAfterFinishedAt": "2026-10-11T05:44:18.099Z",
+  "nodeAt": "2026-10-11T05:47:25.907Z",
+  "validationAt": "2026-10-11T05:47:30.589Z",
+  "fixtureGlyphs": [
+    {
+      "width": 390,
+      "height": 844,
+      "damageGlyphsUnchanged": true,
+      "beforeBadgeCount": 4,
+      "afterBadgeCount": 3,
+      "beforeOverlap": true,
+      "afterAvoidsDamage": true
+    },
+    {
+      "width": 360,
+      "height": 640,
+      "damageGlyphsUnchanged": true,
+      "beforeBadgeCount": 4,
+      "afterBadgeCount": 3,
+      "beforeOverlap": true,
+      "afterAvoidsDamage": true
+    }
+  ],
+  "sources": {
+    "prototype-2d/src/renderer.js": {
+      "expected": "84e596ece3b97b28b8e1215b3a4f797a61d7c62bf70324e5c8af4775ad2367f6",
+      "actual": "84e596ece3b97b28b8e1215b3a4f797a61d7c62bf70324e5c8af4775ad2367f6",
+      "matches": true
+    },
+    "prototype-2d/src/engine.js": {
+      "expected": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+      "actual": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+      "matches": true
+    },
+    "scripts/browser-feedback-overlap-smoke.mjs": {
+      "expected": "8ffa5619cdc4bf11a99a850ac1fa89d83372dca9b7bc7f1dea6136d25b9a2f4c",
+      "actual": "8ffa5619cdc4bf11a99a850ac1fa89d83372dca9b7bc7f1dea6136d25b9a2f4c",
+      "matches": true
+    }
+  },
+  "screenshotChecks": [
+    {
+      "file": "evidence/current/feedback-overlap/before/natural-damage.png",
+      "matches": true
+    },
+    {
+      "file": "evidence/current/feedback-overlap/before/fixture-390x844.png",
+      "matches": true
+    },
+    {
+      "file": "evidence/current/feedback-overlap/before/fixture-360x640.png",
+      "matches": true
+    },
+    {
+      "file": "evidence/current/feedback-overlap/after/natural-damage.png",
+      "matches": true
+    },
+    {
+      "file": "evidence/current/feedback-overlap/after/fixture-390x844.png",
+      "matches": true
+    },
+    {
+      "file": "evidence/current/feedback-overlap/after/fixture-360x640.png",
+      "matches": true
+    }
+  ],
+  "archives": [
+    {
+      "path": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "sha256": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+      "unchanged": true
+    },
+    {
+      "path": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "sha256": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+      "unchanged": true
+    }
+  ],
+  "mediaInventory": {
+    "source": "evidence/current/asset-dedup-audit.json",
+    "sourceGeneratedAt": "2026-10-11T05:02:24.506Z",
+    "checkedFiles": 80,
+    "changed": []
+  },
+  "failureRecordNote": "Initial sandbox Edge spawn EPERM retained under before/failure-*.json. Initial after-run gate selected the wrong same-column enemy for slot assertion; fixed the assertion only and reran without production changes. Original failure retained under after/failure-*.json. Subsequently expanded the star miter-stroke envelope from 0.6 to 1.6 and ran the final after-browser test on that production hash.",
+  "boundary": {
+    "publicInternetTested": false,
+    "currentArchiveBrowserTested": false,
+    "wechatDeviceTested": false,
+    "finalVisualApproved": false,
+    "deployed": false,
+    "bodyHudOrInterNumberAvoidance": false,
+    "naturalStatusDamageConflictClaimed": false
+  }
+}

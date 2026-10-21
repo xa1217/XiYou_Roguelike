@@ -1,0 +1,183 @@
+{
+  "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/browser.json",
+  "result": "FAIL",
+  "checks": {
+    "realPointerUiBeforeFixture": true,
+    "sixSynchronousFrames": true,
+    "oneOriginalPlayerExecutionEachMode": true,
+    "sameOriginalDepthOrder": true,
+    "fullRecordedFrameInvariantsEqual": true,
+    "allFullFrameChainsBalancedAndNoClip": true,
+    "allMethodsAndSourcesRecorded": true,
+    "mainDimensionsUnchanged": true,
+    "noProxyCanvasesCreated": true,
+    "uiAndRafStatic": true,
+    "controlledReadOrder": true,
+    "stateRngRendererElapsedUnchanged": true,
+    "rawReadBytesSaved": true,
+    "noProductionReferences": true,
+    "fixtureErrorsEmpty": true,
+    "noErrorsOrExternalNetwork": true,
+    "allSixPngPixelsStable": false,
+    "sameFramePngMatchesRawGetImageData": true
+  },
+  "comparisons": {
+    "adjacent": [
+      {
+        "from": 1,
+        "to": 2,
+        "changedPixels": 0,
+        "maxAbsChannelDelta": 0,
+        "bboxInclusive": null,
+        "maxDeltaDistribution": {
+          "exactly1": 0,
+          "exactly2": 0,
+          "atLeast3": 0
+        },
+        "changedChannelPixels": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "from": 2,
+        "to": 3,
+        "changedPixels": 0,
+        "maxAbsChannelDelta": 0,
+        "bboxInclusive": null,
+        "maxDeltaDistribution": {
+          "exactly1": 0,
+          "exactly2": 0,
+          "atLeast3": 0
+        },
+        "changedChannelPixels": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "from": 3,
+        "to": 4,
+        "changedPixels": 0,
+        "maxAbsChannelDelta": 0,
+        "bboxInclusive": null,
+        "maxDeltaDistribution": {
+          "exactly1": 0,
+          "exactly2": 0,
+          "atLeast3": 0
+        },
+        "changedChannelPixels": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "from": 4,
+        "to": 5,
+        "changedPixels": 0,
+        "maxAbsChannelDelta": 0,
+        "bboxInclusive": null,
+        "maxDeltaDistribution": {
+          "exactly1": 0,
+          "exactly2": 0,
+          "atLeast3": 0
+        },
+        "changedChannelPixels": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "from": 5,
+        "to": 6,
+        "changedPixels": 265010,
+        "maxAbsChannelDelta": 47,
+        "bboxInclusive": {
+          "minX": 0,
+          "maxX": 389,
+          "minY": 15,
+          "maxY": 824
+        },
+        "maxDeltaDistribution": {
+          "exactly1": 239969,
+          "exactly2": 20409,
+          "atLeast3": 4632
+        },
+        "changedChannelPixels": [
+          260897,
+          16434,
+          18267,
+          0
+        ]
+      }
+    ],
+    "pngVsGetImageData": [
+      {
+        "frameIndex": 4,
+        "changedPixels": 0,
+        "maxAbsChannelDelta": 0,
+        "bboxInclusive": null,
+        "maxDeltaDistribution": {
+          "exactly1": 0,
+          "exactly2": 0,
+          "atLeast3": 0
+        },
+        "changedChannelPixels": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "frameIndex": 5,
+        "changedPixels": 0,
+        "maxAbsChannelDelta": 0,
+        "bboxInclusive": null,
+        "maxDeltaDistribution": {
+          "exactly1": 0,
+          "exactly2": 0,
+          "atLeast3": 0
+        },
+        "changedChannelPixels": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "frameIndex": 6,
+        "changedPixels": 0,
+        "maxAbsChannelDelta": 0,
+        "bboxInclusive": null,
+        "maxDeltaDistribution": {
+          "exactly1": 0,
+          "exactly2": 0,
+          "atLeast3": 0
+        },
+        "changedChannelPixels": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "screenshots": 7,
+  "rawReads": 3,
+  "protectedFiles": 256,
+  "protectedUnchanged": true,
+  "browserClosed": true,
+  "serverClosed": true
+}
+

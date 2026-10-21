@@ -1,0 +1,80 @@
+{
+  "generatedAt": "2026-10-10T09:08:46.275Z",
+  "result": "PASS",
+  "scope": "Local HTTP delivery from bull ZIP extraction; not public-network acceptance",
+  "base": "http://127.0.0.1:8091",
+  "serveRoot": "work/release-validation/bull-20261010T090309Z/web",
+  "servePublic": true,
+  "contracts": [
+    {
+      "species": "tiger",
+      "path": "assets/enemy-tiger-battle-v1-frames.json",
+      "getStatus": 200,
+      "headStatus": 200,
+      "bytes": 4473,
+      "sha256": "77581b232993020de97dad596edbd2d22788c96e41160bda63ec425e264269e0",
+      "matchesArchiveExtractedBytes": true,
+      "fields": [
+        "size",
+        "referenceBodyHeight",
+        "previewRootXs",
+        "previewBaselines",
+        "states",
+        "sourceRects"
+      ],
+      "pass": true
+    },
+    {
+      "species": "bear",
+      "path": "assets/enemy-bear-battle-v1-frames.json",
+      "getStatus": 200,
+      "headStatus": 200,
+      "bytes": 4464,
+      "sha256": "c0d1b20804324ce22ff08f43f48aa4c0ec85e4ecc56ac4f2e0a3282ce05f1eaf",
+      "matchesArchiveExtractedBytes": true,
+      "fields": [
+        "size",
+        "referenceBodyHeight",
+        "previewRootXs",
+        "previewBaselines",
+        "states",
+        "sourceRects"
+      ],
+      "pass": true
+    },
+    {
+      "species": "bull",
+      "path": "assets/enemy-bull-battle-v1-frames.json",
+      "getStatus": 200,
+      "headStatus": 200,
+      "bytes": 4464,
+      "sha256": "bf8763ab31bdbd55fbd78e08839b7ff710010b2c752b6f01d8767d0068790196",
+      "matchesArchiveExtractedBytes": true,
+      "fields": [
+        "size",
+        "referenceBodyHeight",
+        "previewRootXs",
+        "previewBaselines",
+        "states",
+        "sourceRects"
+      ],
+      "pass": true
+    }
+  ],
+  "entries": [
+    {
+      "path": "native-app.js",
+      "status": 200,
+      "bytes": 11813,
+      "sha256": "ea9ba864aef61b3ac3a2ac12545d951ade310df7e79cbf34811352083417b8f5",
+      "matchesArchiveExtractedBytes": true
+    },
+    {
+      "path": "assets/enemy-bull-battle-v1-sheet.png",
+      "status": 200,
+      "bytes": 1137073,
+      "sha256": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+      "matchesArchiveExtractedBytes": true
+    }
+  ]
+}

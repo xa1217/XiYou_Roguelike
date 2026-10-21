@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-10-13T01:16:04.205Z",
+  "result": "READ_ONLY_BOUNDARY_AUDIT",
+  "scope": "Native Canvas HUD occlusion geometry and world/screen conversion; no runtime or asset changes",
+  "source": {
+    "nativeUi": "prototype-2d/src/native-ui.js: resize(), drawGame()",
+    "renderer": "prototype-2d/src/renderer.js: render(), _damageRectInView()"
+  },
+  "hudCssRects": {
+    "top": "[0,w] x [0, top+134]",
+    "bottom": "[0,w] x [h-bottom-90, h]",
+    "topRule": "top=max(12,safe.top||0)",
+    "bottomRule": "bottom=max(12,h-(safe.bottom||h))",
+    "safeBottomMeaning": "wx safeArea absolute y, not an inset"
+  },
+  "worldScreenTransform": {
+    "forward": "sx=(x-camera.x)*zoom+w/2; sy=(y-camera.y)*zoom+h/2",
+    "inverseRequiredForAvoidance": true,
+    "dprRule": "CSS HUD rectangles are not multiplied by dpr"
+  },
+  "knownGap": "Renderer _damageRectInView() only checks world _view; production NativeGame overlays HUD after renderer.showHud=false, so labels can be hidden by top/bottom HUD.",
+  "requiredBoundaryCases": [
+    "safe top/bottom absent, zero, negative and out-of-range",
+    "390x844 and 360x640",
+    "label box exactly at top+134 or bottom start and boxes crossing those edges",
+    "dpr=2 without double scaling",
+    "camera/zoom changes with inverse world conversion",
+    "upgrade/paused/won/lost modal overlays suppress or explicitly cover feedback"
+  ],
+  "nextSafeStep": "First normalize safe insets and add a renderer HUD-avoidance helper with deterministic Node boundary tests; do not claim global occlusion or web/native parity until real Edge evidence is rerun.",
+  "protectedChanged": []
+}

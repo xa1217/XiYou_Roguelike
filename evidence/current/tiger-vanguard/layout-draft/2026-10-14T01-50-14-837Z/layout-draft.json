@@ -1,0 +1,603 @@
+{
+  "schema": "xiyou-vanguard-layout-evidence/v1",
+  "scope": "EVIDENCE_ONLY_NOT_A_RUNTIME_CONTRACT",
+  "standingHeightInRadii": 3.2,
+  "groundOffsetInRadii": 0.7,
+  "gapWorld": 4,
+  "frames": [
+    {
+      "index": 0,
+      "state": "idle",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6352941176470588,
+        "right": 0.5882352941176471,
+        "top": -1.0235294117647058,
+        "bottom": 0.0058823529411764705
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6235294117647059,
+        "right": 0.5764705882352941,
+        "top": -1.011764705882353,
+        "bottom": -0.0058823529411764705
+      }
+    },
+    {
+      "index": 1,
+      "state": "idle",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6338235294117647,
+        "right": 0.6014705882352941,
+        "top": -1.0176470588235293,
+        "bottom": 0.011764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6220588235294118,
+        "right": 0.5897058823529412,
+        "top": -1.0058823529411764,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 2,
+      "state": "idle",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6029411764705882,
+        "right": 0.5852941176470589,
+        "top": -1.0235294117647058,
+        "bottom": 0.011764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.5911764705882353,
+        "right": 0.5735294117647058,
+        "top": -1.011764705882353,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 3,
+      "state": "idle",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6367647058823529,
+        "right": 0.586764705882353,
+        "top": -1.0176470588235293,
+        "bottom": 0.011764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.625,
+        "right": 0.575,
+        "top": -1.0058823529411764,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 4,
+      "state": "idle",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6,
+        "right": 0.5882352941176471,
+        "top": -1.0176470588235293,
+        "bottom": 0.011764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.5882352941176471,
+        "right": 0.5764705882352941,
+        "top": -1.0058823529411764,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 5,
+      "state": "idle",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6338235294117647,
+        "right": 0.5897058823529412,
+        "top": -1.0176470588235293,
+        "bottom": 0.011764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6220588235294118,
+        "right": 0.5779411764705882,
+        "top": -1.0058823529411764,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 6,
+      "state": "idle",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6323529411764706,
+        "right": 0.5852941176470589,
+        "top": -1.0058823529411764,
+        "bottom": 0.011764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6205882352941177,
+        "right": 0.5735294117647058,
+        "top": -0.9941176470588236,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 7,
+      "state": "idle",
+      "page": "patch",
+      "standingReferenceHeight": 443,
+      "draw": {
+        "left": -0.6159573761784624,
+        "right": 0.5781735493294383,
+        "top": -1.0045146726862302,
+        "bottom": 0.004514672686230248
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6114427034922321,
+        "right": 0.573658876643208,
+        "top": -1,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 8,
+      "state": "move",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6705882352941176,
+        "right": 0.43529411764705883,
+        "top": -1.011764705882353,
+        "bottom": -0.0058823529411764705
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6588235294117647,
+        "right": 0.4235294117647059,
+        "top": -1,
+        "bottom": -0.01764705882352941
+      }
+    },
+    {
+      "index": 9,
+      "state": "move",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6573529411764706,
+        "right": 0.5014705882352941,
+        "top": -1.0235294117647058,
+        "bottom": 0.0058823529411764705
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6455882352941177,
+        "right": 0.48970588235294116,
+        "top": -1.011764705882353,
+        "bottom": -0.0058823529411764705
+      }
+    },
+    {
+      "index": 10,
+      "state": "move",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6558823529411765,
+        "right": 0.5029411764705882,
+        "top": -1.0588235294117647,
+        "bottom": -0.0058823529411764705
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6441176470588236,
+        "right": 0.49117647058823527,
+        "top": -1.0470588235294118,
+        "bottom": -0.01764705882352941
+      }
+    },
+    {
+      "index": 11,
+      "state": "move",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6544117647058824,
+        "right": 0.4514705882352941,
+        "top": -1.0176470588235293,
+        "bottom": 0.011764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6426470588235295,
+        "right": 0.43970588235294117,
+        "top": -1.0058823529411764,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 12,
+      "state": "move",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6882352941176471,
+        "right": 0.4411764705882353,
+        "top": -1.0176470588235293,
+        "bottom": 0
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6764705882352942,
+        "right": 0.4294117647058823,
+        "top": -1.0058823529411764,
+        "bottom": -0.011764705882352941
+      }
+    },
+    {
+      "index": 13,
+      "state": "move",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6985294117647058,
+        "right": 0.5426470588235294,
+        "top": -1.0529411764705883,
+        "bottom": -0.047058823529411764
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6867647058823529,
+        "right": 0.5308823529411765,
+        "top": -1.0411764705882354,
+        "bottom": -0.058823529411764705
+      }
+    },
+    {
+      "index": 14,
+      "state": "move",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6617647058823529,
+        "right": 0.45588235294117646,
+        "top": -1.0176470588235293,
+        "bottom": 0.011764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.65,
+        "right": 0.4441176470588235,
+        "top": -1.0058823529411764,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 15,
+      "state": "move",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.7485294117647059,
+        "right": 0.3926470588235294,
+        "top": -1.0294117647058822,
+        "bottom": 0.0058823529411764705
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.736764705882353,
+        "right": 0.38088235294117645,
+        "top": -1.0176470588235293,
+        "bottom": -0.0058823529411764705
+      }
+    },
+    {
+      "index": 16,
+      "state": "attack",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6764705882352942,
+        "right": 0.5823529411764706,
+        "top": -1.035294117647059,
+        "bottom": -0.0058823529411764705
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6647058823529411,
+        "right": 0.5705882352941176,
+        "top": -1.0235294117647058,
+        "bottom": -0.01764705882352941
+      }
+    },
+    {
+      "index": 17,
+      "state": "attack",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6338235294117647,
+        "right": 0.5191176470588236,
+        "top": -0.8470588235294118,
+        "bottom": -0.0058823529411764705
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6220588235294118,
+        "right": 0.5073529411764706,
+        "top": -0.8352941176470589,
+        "bottom": -0.01764705882352941
+      }
+    },
+    {
+      "index": 18,
+      "state": "attack",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6617647058823529,
+        "right": 0.43823529411764706,
+        "top": -1.1352941176470588,
+        "bottom": 0.011764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.65,
+        "right": 0.4264705882352941,
+        "top": -1.1235294117647059,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 19,
+      "state": "attack",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.5955882352941176,
+        "right": 0.5985294117647059,
+        "top": -1.076470588235294,
+        "bottom": 0.0058823529411764705
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.5838235294117647,
+        "right": 0.586764705882353,
+        "top": -1.0647058823529412,
+        "bottom": -0.0058823529411764705
+      }
+    },
+    {
+      "index": 20,
+      "state": "attack",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6235294117647059,
+        "right": 0.5117647058823529,
+        "top": -1.0294117647058822,
+        "bottom": 0.011764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.611764705882353,
+        "right": 0.5,
+        "top": -1.0176470588235293,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 21,
+      "state": "attack",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.675,
+        "right": 0.4838235294117647,
+        "top": -1.011764705882353,
+        "bottom": 0.0058823529411764705
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.663235294117647,
+        "right": 0.47205882352941175,
+        "top": -1,
+        "bottom": -0.0058823529411764705
+      }
+    },
+    {
+      "index": 22,
+      "state": "attack",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6852941176470588,
+        "right": 0.5441176470588235,
+        "top": -1.076470588235294,
+        "bottom": -0.0058823529411764705
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6735294117647059,
+        "right": 0.5323529411764706,
+        "top": -1.0647058823529412,
+        "bottom": -0.01764705882352941
+      }
+    },
+    {
+      "index": 23,
+      "state": "attack",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6661764705882353,
+        "right": 0.5220588235294118,
+        "top": -1.0294117647058822,
+        "bottom": 0.0058823529411764705
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6544117647058824,
+        "right": 0.5102941176470588,
+        "top": -1.0176470588235293,
+        "bottom": -0.0058823529411764705
+      }
+    },
+    {
+      "index": 24,
+      "state": "hit",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6470588235294118,
+        "right": 0.5352941176470588,
+        "top": -1.0941176470588236,
+        "bottom": 0
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6352941176470588,
+        "right": 0.5235294117647059,
+        "top": -1.0823529411764705,
+        "bottom": -0.011764705882352941
+      }
+    },
+    {
+      "index": 25,
+      "state": "hit",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.5808823529411765,
+        "right": 0.5073529411764706,
+        "top": -1.0588235294117647,
+        "bottom": 0.011764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.5691176470588235,
+        "right": 0.49558823529411766,
+        "top": -1.0470588235294118,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 26,
+      "state": "hit",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6911764705882353,
+        "right": 0.31470588235294117,
+        "top": -0.9705882352941176,
+        "bottom": -0.01764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6794117647058824,
+        "right": 0.3029411764705882,
+        "top": -0.9588235294117647,
+        "bottom": -0.029411764705882353
+      }
+    },
+    {
+      "index": 27,
+      "state": "hit",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.7485294117647059,
+        "right": 0.5632352941176471,
+        "top": -1.0470588235294118,
+        "bottom": -0.01764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.736764705882353,
+        "right": 0.5514705882352942,
+        "top": -1.035294117647059,
+        "bottom": -0.029411764705882353
+      }
+    },
+    {
+      "index": 28,
+      "state": "death",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.6647058823529411,
+        "right": 0.5470588235294118,
+        "top": -0.8588235294117647,
+        "bottom": 0.011764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.6529411764705882,
+        "right": 0.5352941176470588,
+        "top": -0.8470588235294118,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 29,
+      "state": "death",
+      "page": "v1",
+      "standingReferenceHeight": 170,
+      "draw": {
+        "left": -0.7338235294117647,
+        "right": 0.5191176470588236,
+        "top": -0.7411764705882353,
+        "bottom": 0.011764705882352941
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.7220588235294118,
+        "right": 0.5073529411764706,
+        "top": -0.7294117647058823,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 30,
+      "state": "death",
+      "page": "patch",
+      "standingReferenceHeight": 443,
+      "draw": {
+        "left": -0.8068184836011155,
+        "right": 0.6017593945027219,
+        "top": -0.510158013544018,
+        "bottom": 0.004514672686230248
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.8023038109148853,
+        "right": 0.5972447218164917,
+        "top": -0.5056433408577878,
+        "bottom": 0
+      }
+    },
+    {
+      "index": 31,
+      "state": "death",
+      "page": "patch",
+      "standingReferenceHeight": 443,
+      "draw": {
+        "left": -0.8489941574824061,
+        "right": 0.6431051653166909,
+        "top": -0.43792325056433407,
+        "bottom": 0.004514672686230248
+      },
+      "visibleAlpha8Proxy": {
+        "left": -0.8444794847961758,
+        "right": 0.6385904926304607,
+        "top": -0.43340857787810383,
+        "bottom": 0
+      }
+    }
+  ],
+  "aliveDrawEnvelope": {
+    "left": -0.7485294117647059,
+    "right": 0.6014705882352941,
+    "top": -1.1352941176470588,
+    "bottom": 0.011764705882352941
+  },
+  "aliveVisibleAlpha8Envelope": {
+    "left": -0.736764705882353,
+    "right": 0.5897058823529412,
+    "top": -1.1235294117647059,
+    "bottom": 0
+  },
+  "includesUnsupportedAttackPosesConservatively": true,
+  "rootApproved": false,
+  "runtimeApproved": false,
+  "healthBarLayoutApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false
+}

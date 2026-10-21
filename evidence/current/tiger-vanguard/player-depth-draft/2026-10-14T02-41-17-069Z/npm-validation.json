@@ -1,0 +1,16 @@
+{
+  "startedAt": "2026-10-14T02:54:14.279Z",
+  "finishedAt": "2026-10-14T02:54:39.108Z",
+  "command": "npm test",
+  "exitCode": 0,
+  "result": "PASS",
+  "scope": "Fresh current workspace regression only. The evidence-only scheduling guard was separately run in node.json; npm PASS does not override the three browser depth FAILs or approve visual/natural gameplay/high-frame/FPS/public/ZIP/device acceptance.",
+  "fullOutputFile": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/npm-test.txt",
+  "outputCharacters": 49162,
+  "originalTokenCount": 12295,
+  "outputTruncated": false,
+  "buildMayRefreshDerivedEntrypoints": true,
+  "releaseZipRebuilt": false,
+  "publicRetested": false,
+  "publicPass": false
+}

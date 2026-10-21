@@ -1,0 +1,283 @@
+{
+  "generatedAt": "2026-10-11T08:24:52.568Z",
+  "result": "REVIEW_RECTANGULAR_CROP_CONTAMINATION",
+  "output": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/browser-2026-10-11T08-24-51-829Z",
+  "preflightSha256": "853e116b5ea0479331a081e5273665ae616c6ab2474046c524fcb05fa2fbd660",
+  "scriptSha256": "c62821a15d7e3b9622083ab72da3c8e0fd384280c1eb79b402968cf8f4a853c9",
+  "url": "http://127.0.0.1:8093/",
+  "scope": "local real Edge gameplay baseline plus unintegrated measured-crop previews; not a runtime fix, high-frame, public, archive or device gate",
+  "pageErrors": [],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/browser-2026-10-11T08-24-51-829Z/baseline-keyboard-sample.png",
+      "bytes": 41612,
+      "sha256": "3ba425399b080a26856be29f329f29012c764b1751fa2d85ce2b60bd76196051",
+      "metadata": {
+        "mode": "UI selection + wall-clock keyboard input, RAF frozen without changing simulation state; exact last-draw metadata attached",
+        "status": "playing",
+        "lastDraw": {
+          "time": 1.1786999999880756,
+          "state": "move",
+          "frameIndex": 3,
+          "sourceRect": [
+            443.5,
+            0,
+            443.5,
+            443.5
+          ],
+          "character": "wujing",
+          "radius": 18
+        },
+        "battleArtMode": "authoredFrames",
+        "battleSceneMode": "vector",
+        "mapAssetDraws": 0
+      }
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/browser-2026-10-11T08-24-51-829Z/source-overlay.png",
+      "bytes": 834069,
+      "sha256": "4e048e41052c6a549ed9cb45927599956e6ba2f0d32e5fcbb5fcee4f683d4913",
+      "metadata": {
+        "mode": "source-overlay",
+        "scope": "Unintegrated diagnostic display; per-cell fit is for inspection only, NOT a runtime scale/root proposal",
+        "draws": [
+          [
+            40,
+            140,
+            1360,
+            680
+          ]
+        ]
+      }
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/browser-2026-10-11T08-24-51-829Z/candidate-tight.png",
+      "bytes": 763797,
+      "sha256": "1f083b94a865e547505a42eca13957db9b4dbaa1e2b018a9b81cfd84414df5ba",
+      "metadata": {
+        "mode": "candidate-tight",
+        "scope": "Unintegrated diagnostic display; per-cell fit is for inspection only, NOT a runtime scale/root proposal",
+        "draws": [
+          [
+            16,
+            56,
+            354,
+            367,
+            50.547683923705705,
+            162,
+            274.9046321525886,
+            285
+          ],
+          [
+            376,
+            44,
+            388,
+            379,
+            397.1160949868074,
+            162,
+            291.7678100263852,
+            285
+          ],
+          [
+            740,
+            49,
+            364,
+            375,
+            759.6800000000001,
+            162,
+            276.64,
+            285
+          ],
+          [
+            1092,
+            77,
+            397,
+            347,
+            1098,
+            169.0214105793451,
+            310,
+            270.9571788413098
+          ],
+          [
+            1450,
+            51,
+            308,
+            373,
+            70.33243967828419,
+            552,
+            235.33512064343162,
+            285
+          ],
+          [
+            83,
+            485,
+            631,
+            339,
+            388,
+            611.2274167987322,
+            310,
+            166.54516640253567
+          ],
+          [
+            740,
+            468,
+            418,
+            358,
+            743,
+            561.7488038277512,
+            310,
+            265.5023923444976
+          ],
+          [
+            1206,
+            475,
+            484,
+            348,
+            1098,
+            583.0537190082645,
+            310,
+            222.89256198347107
+          ]
+        ]
+      }
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/browser-2026-10-11T08-24-51-829Z/candidate-padded.png",
+      "bytes": 755089,
+      "sha256": "cf88e2cb4dc146328280aa83ea17fd32dc1a4fa000a156db06d80bf897a9efa2",
+      "metadata": {
+        "mode": "candidate-padded",
+        "scope": "Unintegrated diagnostic display; per-cell fit is for inspection only, NOT a runtime scale/root proposal",
+        "draws": [
+          [
+            14,
+            54,
+            358,
+            371,
+            50.49326145552561,
+            162,
+            275.0134770889488,
+            285
+          ],
+          [
+            374,
+            42,
+            392,
+            383,
+            397.15143603133157,
+            162,
+            291.69712793733686,
+            285
+          ],
+          [
+            738,
+            47,
+            368,
+            379,
+            759.6358839050132,
+            162,
+            276.7282321899736,
+            285
+          ],
+          [
+            1090,
+            75,
+            401,
+            351,
+            1098,
+            168.82668329177056,
+            310,
+            271.3466334164589
+          ],
+          [
+            1448,
+            49,
+            312,
+            377,
+            70.06896551724138,
+            552,
+            235.86206896551724,
+            285
+          ],
+          [
+            81,
+            483,
+            635,
+            343,
+            388,
+            610.775590551181,
+            310,
+            167.4488188976378
+          ],
+          [
+            738,
+            466,
+            422,
+            362,
+            743,
+            561.5379146919431,
+            310,
+            265.92417061611377
+          ],
+          [
+            1204,
+            473,
+            488,
+            352,
+            1098,
+            582.6967213114754,
+            310,
+            223.60655737704917
+          ]
+        ]
+      }
+    }
+  ],
+  "runtimeApproved": false,
+  "rectangularIsolationApproved": false,
+  "server": {
+    "pid": 35900,
+    "stdout": "西游试玩 http://127.0.0.1:8093 ; 原生Canvas验证 http://127.0.0.1:8093/native.html\n",
+    "stderr": "",
+    "exitObserved": true,
+    "stopRequested": true,
+    "code": null,
+    "signal": "SIGTERM"
+  },
+  "browserVersion": "155.0.4283.45",
+  "natural": {
+    "mode": "UI selection + wall-clock keyboard input, RAF frozen without changing simulation state; exact last-draw metadata attached",
+    "status": "playing",
+    "lastDraw": {
+      "time": 1.1786999999880756,
+      "state": "move",
+      "frameIndex": 3,
+      "sourceRect": [
+        443.5,
+        0,
+        443.5,
+        443.5
+      ],
+      "character": "wujing",
+      "radius": 18
+    },
+    "battleArtMode": "authoredFrames",
+    "battleSceneMode": "vector",
+    "mapAssetDraws": 0
+  },
+  "asset": {
+    "src": "http://127.0.0.1:8093/assets/hero-wujing-battle-v3-sheet.png",
+    "width": 1774,
+    "height": 887
+  },
+  "checks": {
+    "expectedImage": true,
+    "realGameplaySample": true,
+    "candidateDrawsMatch": true,
+    "noErrors": true
+  },
+  "browserClosed": true,
+  "finishedAt": "2026-10-11T08:24:57.321Z"
+}

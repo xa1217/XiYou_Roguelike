@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-10-09T12:09:26.8911542Z",
+  "result": "PASS",
+  "scope": "Local candidate archives; not deployed",
+  "channels": [
+    {
+      "channel": "web",
+      "zip": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "bytes": 10553223,
+      "sha256": "0222fd98851d3ba99736fd51fb02af32aacbc70f0c843a330cec8580b09f4dcf",
+      "entries": 39,
+      "expectedEntries": 39,
+      "manifestMatches": true,
+      "bytesMatch": true,
+      "hashMatches": true,
+      "forbidden": [],
+      "contentFailures": []
+    },
+    {
+      "channel": "wechatGame",
+      "zip": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "bytes": 5042835,
+      "sha256": "5c21e1f2c6150e953e8ef8ee76301afa449e6c4f477c5214232d200bb192f386",
+      "entries": 25,
+      "expectedEntries": 25,
+      "manifestMatches": true,
+      "bytesMatch": true,
+      "hashMatches": true,
+      "forbidden": [],
+      "contentFailures": []
+    }
+  ],
+  "rendererSha256": "9c73a37f154c7c48ff56a2bb77257aaa96ef79aec64338c683fd9c8b3dccbec4",
+  "sourceRendererMatchesStaging": true,
+  "tigerPngSha256": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389"
+}

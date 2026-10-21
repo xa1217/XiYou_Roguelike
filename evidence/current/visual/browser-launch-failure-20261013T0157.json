@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-10-13T01:57:00.000Z",
+  "result": "BLOCKED",
+  "scope": "Local authorized Edge visual smoke retry",
+  "url": "http://127.0.0.1:8088/",
+  "error": "browserType.launch: spawn EPERM",
+  "server": "started and stopped locally; port 8088 verified free",
+  "previousVisualPassPreserved": true,
+  "publicPass": false,
+  "note": "The local browser process could not be launched in this runner; this does not invalidate prior real-browser evidence and is not a public-network acceptance claim."
+}

@@ -1,0 +1,252 @@
+{
+  "generatedAt": "2026-10-11T08:19:38.297Z",
+  "protected": {
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+    "legacy-source/prototype-2d/assets/apocalypse-characters.png": "dbf751af75178d1867506932af4acc3df101e9845a4ffa4d4cfd41b66a6ece40",
+    "legacy-source/prototype-2d/assets/apocalypse-environment.png": "2c5cc15ec07fe2f5a06c1f1b73ab2e11ebfabbdbb8d4d948a39d7eea90a9bcbd",
+    "legacy-source/prototype-2d/assets/cartoon-crawler-v1.png": "451d878961503ce57a2602afc319a51189a315d2ecc4ed73939036b664cc410b",
+    "legacy-source/prototype-2d/assets/cartoon-rig-v1.png": "0870ee9b1132f001f393b01c09275477e02dc3b1f51da26ec9ab0f2cbf396939",
+    "legacy-source/wechat-miniprogram/miniprogram/assets/cartoon-crawler-v1.png": "451d878961503ce57a2602afc319a51189a315d2ecc4ed73939036b664cc410b",
+    "legacy-source/wechat-miniprogram/miniprogram/assets/cartoon-rig-v1.png": "0870ee9b1132f001f393b01c09275477e02dc3b1f51da26ec9ab0f2cbf396939",
+    "prototype-2d/app.js": "fa954a54f3dbeecd3678f17b8d96726ef69d2749e42bf2f5df763fbb143ac395",
+    "prototype-2d/assets/README.md": "f2db10e10df7573a3e8fc2855cb8433dca35a121515dd278558a3dc86cbabbdc",
+    "prototype-2d/assets/artifact-diamond-snare.svg": "c0dd49e0d324d509573fccb0c847e63e69d014a375998143d768375bb7d7601d",
+    "prototype-2d/assets/artifact-golden-rope.svg": "2f7c85de5bf3ea8396002def45bebf18775380e6aa75b4262b2d3b951a48c0f7",
+    "prototype-2d/assets/artifact-iron-fan.svg": "60c256224ee13f5cf1eea868938bba3f8a6eefdea04502a1a9999601839b8347",
+    "prototype-2d/assets/artifact-lotus-lantern.svg": "61f888c1dd2425ff01127ee979bdb4241a6c171e5b7ab400cb64dc2c7bb2d528",
+    "prototype-2d/assets/artifact-moon-mirror.svg": "83c28876e88f5c6c6c0703db3a7ee334291b16f6c6c851d5d36bef1f5e69f2cd",
+    "prototype-2d/assets/artifact-nine-dragon.svg": "208984a5b25c26b18cf470c1e11e0193e26cef1eb96113207590f93b3e3b1dc5",
+    "prototype-2d/assets/artifact-purple-gourd.svg": "efc7b02dd2ad6991b5093fedef0e8447c44485c849d3ef4918f3739db5688a65",
+    "prototype-2d/assets/artifact-samadhi-fire.svg": "cb6011a7b5298253fe9a91d92c39b4ba027f2aa10cb803224089cd829514fcaf",
+    "prototype-2d/assets/enemy-bear-battle-v1-frames.json": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+    "prototype-2d/assets/enemy-bear-battle-v1-sheet.png": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+    "prototype-2d/assets/enemy-bird.svg": "0cdfbb376fef61809681e8a1c346ffcd079514721d8f31a1a5f4197b9908a580",
+    "prototype-2d/assets/enemy-boss-kr-v1.png": "15f5393abf19e83b2d0087d4ac0a068c5cec4ae45d740798cb5ec8c2807d8601",
+    "prototype-2d/assets/enemy-boss.svg": "3878f941259a93790631307e0102600d8734326d9b529f4fb2b6cb5ac5cb48ee",
+    "prototype-2d/assets/enemy-brute-kr-v1.png": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d",
+    "prototype-2d/assets/enemy-brute.svg": "625c5abc3730e7e176c8948d1da1524176f0b2e2c92f80156225ea23ed9bcb1c",
+    "prototype-2d/assets/enemy-bull-battle-v1-frames.json": "e32da6acfc9bbea64ffb74b6cfb06e30e736b7f2c042c1d8949348e506b11527",
+    "prototype-2d/assets/enemy-bull-battle-v1-sheet.png": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+    "prototype-2d/assets/enemy-creature-kr-v1.png": "5eb03be680a6e4a7b8aba3b53695d7eb22c2c5f19c1a31a710c711743ba8d102",
+    "prototype-2d/assets/enemy-creature.svg": "aea810adc49f2f2cfddf3b75f035bc4db4b1671f61278d00b322ffdfa827954f",
+    "prototype-2d/assets/enemy-deer-battle-v1-frames.json": "6bf255f4f3823b089585a3eeaed3534b9ac283660e863b72cb71035490cbe927",
+    "prototype-2d/assets/enemy-deer-battle-v1-sheet.png": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
+    "prototype-2d/assets/enemy-hawk-battle-v1-frames.json": "c2ac21f266056a976425e37a7e24e34fba6b7a1269d592da3354ca49ef6d60ec",
+    "prototype-2d/assets/enemy-hawk-battle-v1-sheet.png": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7",
+    "prototype-2d/assets/enemy-monkey-battle-v1-frames.json": "46dcb42789e67c95d640f26578d799c2c3e831bce062f9417d2dc2d0f097c21c",
+    "prototype-2d/assets/enemy-monkey-battle-v1-sheet.png": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44",
+    "prototype-2d/assets/enemy-snake-battle-v3-frames.json": "5c75ff4ebfdd765c0fbe3b1087b992426b708ca7634e370a6b984690e201ca70",
+    "prototype-2d/assets/enemy-snake-battle-v3-sheet.png": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+    "prototype-2d/assets/enemy-spider.svg": "575571fed6c63d3050ff0a60c86f1293501f6399f23448ba14661f99dbd8b5dd",
+    "prototype-2d/assets/enemy-tiger-battle-v1-frames.json": "b66e62a1a40b00e36711523621c94d1b73b33a05f71ee46ec2094b4ae007156d",
+    "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+    "prototype-2d/assets/enemy-wolf-battle-v1-frames.json": "777a2f232307a23bbda913feb17aec2ac680c10528c3f29bf1fe0e98823d4637",
+    "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299",
+    "prototype-2d/assets/generate-art-assets.mjs": "d56eb58a8fc8c5843f27465e3be6150830a4dc03488885056c9e8d07cd888fa3",
+    "prototype-2d/assets/hero-bajie-battle-v3-sheet.png": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b",
+    "prototype-2d/assets/hero-bajie.svg": "19eb81b91664409d54619eb3aefe48fe2add07b880a160c3d4756dd6ad2ad56a",
+    "prototype-2d/assets/hero-battle-v2-atlas.png": "589412a2857dcb34ef828cee24e31abb94acb8a3b6b8e37813051b06e03e8565",
+    "prototype-2d/assets/hero-cards-v1.png": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+    "prototype-2d/assets/hero-cards-v2-comic.png": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad",
+    "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61",
+    "prototype-2d/assets/hero-tangseng-kr-v1.png": "162fdcbbf62ba747e0cc9c8f6c89e695b2b0a6e5aabc74455e5d1705918b0a4f",
+    "prototype-2d/assets/hero-tangseng.svg": "481bd327822e262287684750ffee74316de807236b97cb7758815d6a3cc1335d",
+    "prototype-2d/assets/hero-wujing-battle-v3-sheet.png": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "prototype-2d/assets/hero-wujing.svg": "d78054b2dcdedfc127ddbd8a7bcfe5db7315d13e034b5d934cca7b6c8c0c81f6",
+    "prototype-2d/assets/hero-wukong-battle-v3-sheet.png": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+    "prototype-2d/assets/hero-wukong.svg": "0121755c5ed96abf2508d3ef8fb77804ac8e2e103d284f75d1403c7c8b9b732d",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "prototype-2d/assets/map-doublefork-high-ridge-v1.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-doublefork-v2-optimized.png": "e014fafd243bf430aa48d58634879a3077ba67697d1ad3b3f27262dd35e5a8e5",
+    "prototype-2d/assets/map-doublefork-v2.png": "690363b6757576103190cc6a7461f0231fbfe79c158381dfbb637cc7b8dde12b",
+    "prototype-2d/assets/map-doublefork-v3-optimized.png": "20174da20cf3df773f6f0665e928e06fe3ed73f9d40b81154649dce7455d9530",
+    "prototype-2d/assets/map-doublefork-v3.png": "79d3c48b57d319ff2b56c21b16e5ad207423f181fd4c119a0aadc9517bf866ca",
+    "prototype-2d/assets/map-doublefork-v4-high-ridge-candidate.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-forest-qv1.png": "2944c17b771ad04a2c0205722f72df6a6126bae5f6ebf2e3aac1b1485bb50f23",
+    "prototype-2d/assets/map-temple-qv1.png": "1d7627c6153e2583842821ca5b2fa9c36027a85fe2b888f440e4e1c58f067ef9",
+    "prototype-2d/assets/theme-fire.svg": "8669bc3310052658aa37623537ca37ef7a51d690521f604cf66f309c2b55a11d",
+    "prototype-2d/assets/theme-forest.svg": "aa116a57c9776189afbec44ef88be18f8ea21e423b9ce1a59feb6dcc2be25558",
+    "prototype-2d/assets/theme-sand.svg": "6a0ee4411722136d48ffeeac040bf78c255b94f1602b430a99d443fbd2c65604",
+    "prototype-2d/assets/theme-snow.svg": "56e23a7e861e54d309680469dfc5dd6d3c99206dc2a1ae45d4ef061650ff0997",
+    "prototype-2d/assets/theme-temple.svg": "ebc4f5149d7fe5064a03a0db5610af77e6e90848c1a0e1b52e984e780aa0bf8e",
+    "prototype-2d/assets/theme-water.svg": "399b5a854be22e373806fc4711d6392fa27f370eb1435eaf82162b897a19f093",
+    "prototype-2d/assets/weapon-skill-bajie.svg": "67b0841a9ad517ea9f7a83ef8c669f1d632f9df8796a32656c73f5773d0ec737",
+    "prototype-2d/assets/weapon-skill-tangseng.svg": "3bcf292f0e0c5de76f80573dc55eb8883142efcd48186d3981a31383289684a3",
+    "prototype-2d/assets/weapon-skill-wujing.svg": "baff2be3abbe0e1637457f0600c8a9f7e8bc0c7993d56075c79be19209d9582e",
+    "prototype-2d/assets/weapon-skill-wukong.svg": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27",
+    "prototype-2d/assets/xiyou-art-preview.png": "6517fd98be3b7cc81c4bd9e8a3a54d5371c8355eca4722102d78e5732655b9d0",
+    "prototype-2d/assets/xiyou-art-preview.svg": "c0f540a2b4b2021036a49d65d76e095643df74073a296527028e9f3f87372b2a",
+    "prototype-2d/index.html": "4b9f67a618da1e1466ea6e73e0a905aef2dbd15fbef120313ec79b125dddd750",
+    "prototype-2d/native-app.js": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+    "prototype-2d/native.html": "4b9f67a618da1e1466ea6e73e0a905aef2dbd15fbef120313ec79b125dddd750",
+    "prototype-2d/src/audio.js": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "prototype-2d/src/bear-animation.js": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+    "prototype-2d/src/bull-animation.js": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4",
+    "prototype-2d/src/content.js": "1383d25a9cfe36577de4cd1b0cbde56b408e4ab0328fce3d1b647da2533ec730",
+    "prototype-2d/src/deer-animation.js": "7fca4fc497bd38abe62afc1b3f051001888195035e22573a5b7e323d5988653b",
+    "prototype-2d/src/engine.js": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+    "prototype-2d/src/hawk-animation.js": "60e7cb55d6c2966223d54145af3134e4507a449a976fbc4a5c962a3a6dde0285",
+    "prototype-2d/src/monkey-animation.js": "99dec7c46f8615d09e9c9fd0381c7e8ebdb9e41504c9f5a41a5a59fa598e1fc6",
+    "prototype-2d/src/native-ui.js": "e1b8db4a47fb4b6d0ed31b21c23c5e4bb3c139e93a6403f2efa5d5c53377d4f4",
+    "prototype-2d/src/progression.js": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd",
+    "prototype-2d/src/renderer.js": "84e596ece3b97b28b8e1215b3a4f797a61d7c62bf70324e5c8af4775ad2367f6",
+    "prototype-2d/src/snake-animation.js": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13",
+    "prototype-2d/src/tiger-animation.js": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+    "prototype-2d/src/wolf-animation.js": "e677a1be849717d0790715b08a8fb8a4b76aff27e24930c7e8962f3e8574e85e",
+    "prototype-2d/styles.css": "ab457874fe898cfd19426a8be3056c61fa73d1c943c049bae40aa93499fbe0d1",
+    "prototype-2d/tests/bear-animation-smoke.mjs": "ab57ebd533ee3b868a55d8ded97457a41e08e66afb8db833c56c8e7e2521e68a",
+    "prototype-2d/tests/boss-pattern-smoke.mjs": "4b8bb5c3112e8ef29c0889d1fb5924bb6588c9b50f3804a623c04a9962e2ebd7",
+    "prototype-2d/tests/bull-animation-smoke.mjs": "106722365a4be44384853201d358d04eceb716e6541ca7d2ae800b65606dfa35",
+    "prototype-2d/tests/damage-label-smoke.mjs": "0bad54abd7a002b960dcae4b66c628abb0d1b75386a61d29a302ed8af00df6e5",
+    "prototype-2d/tests/deer-animation-smoke.mjs": "19af64a49425ab48eae6ea7b889ee9656d2878d5638928ff40bf80af2d8d1b7c",
+    "prototype-2d/tests/engine-smoke.mjs": "f0ab1cbe21e31430b6d8286c84ef3adcc2f43c4cb14938086a67a36b36c0ad92",
+    "prototype-2d/tests/feedback-overlap-smoke.mjs": "4f3d5f4657e99cef898f9cbc6a7f4648622afe243df3b8789d4880a8d5078d5f",
+    "prototype-2d/tests/full-run-smoke.mjs": "41953d486e6462ec177dde208cfe7952ccffc04a49e37cda4782e05128dbf32b",
+    "prototype-2d/tests/hawk-animation-smoke.mjs": "2e2343b38d8799352b92fa38db6c3b61ec673a003f6a9eaaa9379e9c66d416f4",
+    "prototype-2d/tests/monkey-animation-smoke.mjs": "deb163e945f5b8ea8f73c828a0e3268790b2b811e88aff991812e54ae1fac7cb",
+    "prototype-2d/tests/native-ui-motion-smoke.mjs": "614b17a8cfd90fdce43f44855de154cbf81a302fb1bc86e64bc244453c010fc0",
+    "prototype-2d/tests/normal-run-smoke.mjs": "55c193d4af97b8e737f7e67a5cb599cb03a76298af7f6178ab98a2a02a35732f",
+    "prototype-2d/tests/pool-smoke.mjs": "a1dba16ea681379417ea0ed3f0409785ddaaf2e7caed7ff310568e33ee83f175",
+    "prototype-2d/tests/render-smoke.mjs": "ad7a057f2f6279c087a67cd4f9c4e521dce9f8cf9a1e30630cb8d72f32d72e20",
+    "prototype-2d/tests/snake-animation-smoke.mjs": "a7c1fcf088d27227163728b94517ac831992f711419a1b1b2c13e241b1117c79",
+    "prototype-2d/tests/status-badge-smoke.mjs": "dc80832063dde85de968411986c6fe93c8728df67741586719b282c1d3ae53cb",
+    "prototype-2d/tests/tiger-animation-smoke.mjs": "b0ea20b13ef21a5b5b472be157846e278e9572eb8aeea2aeafa7058a3a983cf7",
+    "prototype-2d/tests/wolf-animation-smoke.mjs": "18e661ebd1b49d491e04f65b73710df891b619210de3b3331c88e2cab4847fc2",
+    "scripts/build.mjs": "b286f89168ec5e52cf5481b96cc7c68f7db6aa2cb6d4dc74ee5924e8b190b3b5",
+    "scripts/release.mjs": "4134cd0ccb13c27e940793bff3860eb3d0ab092a0fe542aa48ffa1f2b53a53de",
+    "scripts/runtime-frame-contract.mjs": "22793d976f92b1d9d0c3310c985c4ac41c0d9e02432bff576ba6dfc15b522f84",
+    "scripts/serve.mjs": "300f782732b7bde8590abe40a3c20feab92d4705432386967fd298430f6713d7",
+    "wechat-game/assets/audio/attack.wav": "52bf38c6394b1059a426cda79c39951418258a9a4aef831910583cfc07a73514",
+    "wechat-game/assets/audio/bgm-fire.wav": "46b088178e1204d64e6c45926c7c95f7e26d3af9fa7617575f2600a078144c59",
+    "wechat-game/assets/audio/bgm-forest.wav": "9ac7df22f2dc644a2cd851f3b07e414cf6c05fb2d1957c2bbe7fa31ac80d3db3",
+    "wechat-game/assets/audio/bgm-sand.wav": "493691c36f119e1d9ce6bb56a7ed5c5f64d3dd0ee659766bd4eb1894f056f6e9",
+    "wechat-game/assets/audio/bgm-snow.wav": "ae47faf7e286d7b122798e31ecd201961134b10830ca8807f2eb39c2f69ab65c",
+    "wechat-game/assets/audio/bgm-temple.wav": "d7dc5920bd2c55b4e22cd5361a8b949849771a1f88d0c0452c4d733707899077",
+    "wechat-game/assets/audio/bgm-water.wav": "40f6db2737a9b49c5a2b73d9fc4b53be8cdebecdba0f951bfcb1379e00f9c392",
+    "wechat-game/assets/audio/boss.wav": "8f382495e9ca3eb7ccd484bf4fb020980ff6e2bb78acd45467ad7b4e87331974",
+    "wechat-game/assets/audio/click.wav": "7ac3f611bd9f6990bf7d9b84ded5f9dc9bcec922604f68f97a6155612a28c13c",
+    "wechat-game/assets/audio/dash.wav": "97c469b1c0afd783955d9bf635d748ee6bdd929e2b37523191161ae460e0c6da",
+    "wechat-game/assets/audio/hit.wav": "5590eb5f13c45e979541b8c652612ba4255a8c1d542a68e39e25a36b4e67db1a",
+    "wechat-game/assets/audio/hurt.wav": "5b598d9fe9f929e6cd18d1446d481f43fd0ef4e460fe98b8b74864dfe226a9cb",
+    "wechat-game/assets/audio/kill.wav": "ed408746d25d84daacfc9cd2b1af4c3ee9b277879c3fc405809e0eabd0b904c5",
+    "wechat-game/assets/audio/level.wav": "096b35303048bc25729c917bf5a068b7eaa738963439df6055b031d6882a4d21",
+    "wechat-game/assets/audio/lose.wav": "db34b6b96a5edf19e7489057a7d460b7c4c26956579cc4fb0b7c5939f39276ad",
+    "wechat-game/assets/audio/pickup.wav": "f98dc4237232ce0e4a2483b7c3a1ba45422987bbbc97e0b445b19616516449be",
+    "wechat-game/assets/audio/win.wav": "88596b7ec2730948a6f55b176b06250bd82b55317366c34b31e569e6cad37842",
+    "wechat-game/illustrations/hero-cards-v1.png": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c"
+  },
+  "previousEvidence": [
+    {
+      "file": "evidence/current/asset-dedup-audit.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/asset-dedup-audit.json",
+      "sha256": "865cfd1fb56051b7f7f097c9198711ab2ee124d377be2cd7a63560acc28fa551"
+    },
+    {
+      "file": "evidence/current/bear/engine-runtime.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/bear/engine-runtime.json",
+      "sha256": "5d911310892f37877a092b821d9d5b64cbbc9d5d6e9f6e9425d272ddfc555bbc"
+    },
+    {
+      "file": "evidence/current/bear/public-contract-node.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/bear/public-contract-node.json",
+      "sha256": "5fa6322f027c273ebbfff5a383e7ea1d57ba942c6581afd89df252282df48252"
+    },
+    {
+      "file": "evidence/current/bull/engine-runtime.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/bull/engine-runtime.json",
+      "sha256": "6c5d212df7c8ce43e068381673d6318bfe820ec0fff45ad241258fb1e470f218"
+    },
+    {
+      "file": "evidence/current/bull/public-contract-node.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/bull/public-contract-node.json",
+      "sha256": "5fa6322f027c273ebbfff5a383e7ea1d57ba942c6581afd89df252282df48252"
+    },
+    {
+      "file": "evidence/current/damage-labels/node.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/damage-labels/node.json",
+      "sha256": "1bc59981f65091ef300cfc1df5461fa09dc31f3c9d3502395d00febe1d9410a8"
+    },
+    {
+      "file": "evidence/current/deer/engine-runtime.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/deer/engine-runtime.json",
+      "sha256": "8135479dc27e1bf08d50fd6e80d957a61516df18380f4493388f7d1405c52b58"
+    },
+    {
+      "file": "evidence/current/deer/public-contract-node.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/deer/public-contract-node.json",
+      "sha256": "5fa6322f027c273ebbfff5a383e7ea1d57ba942c6581afd89df252282df48252"
+    },
+    {
+      "file": "evidence/current/feedback-overlap/node.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/feedback-overlap/node.json",
+      "sha256": "382654d821bd8d4ae58fe72042bda5903089f68853fc9083f6b33a9d06f3539a"
+    },
+    {
+      "file": "evidence/current/full-run.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/full-run.json",
+      "sha256": "4b908795bc4d6532731e8d7ee44491fa09cf9c05d1486ee35622f87059e9e99b"
+    },
+    {
+      "file": "evidence/current/hawk/engine-runtime.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/hawk/engine-runtime.json",
+      "sha256": "fbefde1aa6c0173e94108c4c44f4308a00e31db2cb97b4509c7e4cc765eb7993"
+    },
+    {
+      "file": "evidence/current/hawk/public-contract-node.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/hawk/public-contract-node.json",
+      "sha256": "5fa6322f027c273ebbfff5a383e7ea1d57ba942c6581afd89df252282df48252"
+    },
+    {
+      "file": "evidence/current/monkey/engine-runtime.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/monkey/engine-runtime.json",
+      "sha256": "a6be0dd1c0e24d150632ebd94529ee93e169a6b5318e77d7914f051b8f980075"
+    },
+    {
+      "file": "evidence/current/monkey/public-contract-node.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/monkey/public-contract-node.json",
+      "sha256": "5fa6322f027c273ebbfff5a383e7ea1d57ba942c6581afd89df252282df48252"
+    },
+    {
+      "file": "evidence/current/normal-run.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/normal-run.json",
+      "sha256": "5351ac9e6ccd46b1d9e465a5d644ac986227a6880130a8170ec4c3aa82cafb3f"
+    },
+    {
+      "file": "evidence/current/platform.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/platform.json",
+      "sha256": "d2444ec691e600e29eee92c8652e8d44b5c7e04f30a586db83cf3c4cead3c240"
+    },
+    {
+      "file": "evidence/current/snake/engine-runtime.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/snake/engine-runtime.json",
+      "sha256": "9c360f868f1de1bf2daa5c5fa314ea42171192ddd0f555e94e10cceda594900b"
+    },
+    {
+      "file": "evidence/current/snake/public-contract-node.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/snake/public-contract-node.json",
+      "sha256": "5fa6322f027c273ebbfff5a383e7ea1d57ba942c6581afd89df252282df48252"
+    },
+    {
+      "file": "evidence/current/status-badges/node.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/status-badges/node.json",
+      "sha256": "39356f25128fc6ae41a8fabdb15ee99ef2433f3b409cec602c8028442bed9f64"
+    },
+    {
+      "file": "evidence/current/tiger/engine-runtime.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/tiger/engine-runtime.json",
+      "sha256": "6971835ba07c8d4cd88027274e1970a526e89dd982a11ac83e0596bded191a6d"
+    },
+    {
+      "file": "evidence/current/validation.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/validation.json",
+      "sha256": "5390c3d855bc0243b4b71ab89462cfcf0da0ce4335ab077109b7784163c73180"
+    },
+    {
+      "file": "evidence/current/wolf/engine-runtime.json",
+      "backup": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/previous-evidence/wolf/engine-runtime.json",
+      "sha256": "509e5620b1d9ca161b5ada0988fd16e7f76b22fdb7c53d750af89ee8a1b9eea1"
+    }
+  ]
+}

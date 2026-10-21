@@ -1,0 +1,2855 @@
+{
+  "generatedAt": "2026-10-14T01:07:09.754Z",
+  "result": "REVIEW_FROZEN_COMPOSITE_CONTINUOUS_PLAYBACK",
+  "scope": "Single normal-rate continuous playback of immutable historical-frozen-background composite bytes; not new UI, natural gameplay, human motion-quality, runtime or FPS acceptance.",
+  "input": {
+    "file": "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/browser.json",
+    "sha256": "13612e911efa2a7c74f3d13129372715188082ac13137cddb053af2d8dde7839"
+  },
+  "video": {
+    "file": "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/frozen-scene-full32-composite.webm",
+    "bytes": 281422,
+    "sha256": "01ba53ecb59c55549d57a740d3b3134640654df0ef06368338fe063a56df67e8",
+    "mimeType": "video/webm;codecs=vp9",
+    "includesHistoricalFrozenBackground": true
+  },
+  "sourceDrawingLogOnly": {
+    "indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "timeline": [
+      {
+        "state": "idle",
+        "durationMs": 1000,
+        "facing": 1
+      },
+      {
+        "state": "move",
+        "durationMs": 700,
+        "facing": 1
+      },
+      {
+        "state": "attack",
+        "durationMs": 500,
+        "facing": 1
+      },
+      {
+        "state": "hit",
+        "durationMs": 250,
+        "facing": -1
+      },
+      {
+        "state": "death",
+        "durationMs": 400,
+        "facing": 1
+      }
+    ],
+    "actionMs": 2850,
+    "fixtureReviewHoldMs": 250
+  },
+  "newGameInstance": false,
+  "realUiEntryThisRun": false,
+  "syntheticTimeline": true,
+  "pseudoHealthBar": true,
+  "recordingIncludesHistoricalFrozenBackground": true,
+  "observerMayAffectPresentation": true,
+  "humanMotionReviewed": false,
+  "rootApproved": false,
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "fpsAcceptance": false,
+  "publicPass": false,
+  "releaseReady": false,
+  "serverStarted": false,
+  "scriptSha256": "d60e7dd47c3d25fe55292343b9733bf7dde74f09de1a6de8fb4335486f36b6a5",
+  "protectedBefore": {
+    "prototype-2d/native-app.js": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+    "prototype-2d/src/audio.js": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "prototype-2d/src/bear-animation.js": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+    "prototype-2d/src/bull-animation.js": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4",
+    "prototype-2d/src/content.js": "7af8cfe07b8aea17ae4c2220918aefad7b97cc7bb547650e0f131e617af07f87",
+    "prototype-2d/src/deer-animation.js": "7fca4fc497bd38abe62afc1b3f051001888195035e22573a5b7e323d5988653b",
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/hawk-animation.js": "60e7cb55d6c2966223d54145af3134e4507a449a976fbc4a5c962a3a6dde0285",
+    "prototype-2d/src/monkey-animation.js": "99dec7c46f8615d09e9c9fd0381c7e8ebdb9e41504c9f5a41a5a59fa598e1fc6",
+    "prototype-2d/src/native-ui.js": "dd84edca168df81681667b76e897f54b347c42486166a72b1c143bcd2bcbbe5c",
+    "prototype-2d/src/progression.js": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/src/snake-animation.js": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13",
+    "prototype-2d/src/tiger-animation.js": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+    "prototype-2d/src/wolf-animation.js": "e677a1be849717d0790715b08a8fb8a4b76aff27e24930c7e8962f3e8574e85e",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "scripts/serve.mjs": "300f782732b7bde8590abe40a3c20feab92d4705432386967fd298430f6713d7",
+    "scripts/release.mjs": "4134cd0ccb13c27e940793bff3860eb3d0ab092a0fe542aa48ffa1f2b53a53de",
+    "scripts/runtime-frame-contract.mjs": "22793d976f92b1d9d0c3310c985c4ac41c0d9e02432bff576ba6dfc15b522f84",
+    "prototype-2d/assets/artifact-diamond-snare.svg": "c0dd49e0d324d509573fccb0c847e63e69d014a375998143d768375bb7d7601d",
+    "prototype-2d/assets/artifact-golden-rope.svg": "2f7c85de5bf3ea8396002def45bebf18775380e6aa75b4262b2d3b951a48c0f7",
+    "prototype-2d/assets/artifact-iron-fan.svg": "60c256224ee13f5cf1eea868938bba3f8a6eefdea04502a1a9999601839b8347",
+    "prototype-2d/assets/artifact-lotus-lantern.svg": "61f888c1dd2425ff01127ee979bdb4241a6c171e5b7ab400cb64dc2c7bb2d528",
+    "prototype-2d/assets/artifact-moon-mirror.svg": "83c28876e88f5c6c6c0703db3a7ee334291b16f6c6c851d5d36bef1f5e69f2cd",
+    "prototype-2d/assets/artifact-nine-dragon.svg": "208984a5b25c26b18cf470c1e11e0193e26cef1eb96113207590f93b3e3b1dc5",
+    "prototype-2d/assets/artifact-purple-gourd.svg": "efc7b02dd2ad6991b5093fedef0e8447c44485c849d3ef4918f3739db5688a65",
+    "prototype-2d/assets/artifact-samadhi-fire.svg": "cb6011a7b5298253fe9a91d92c39b4ba027f2aa10cb803224089cd829514fcaf",
+    "prototype-2d/assets/enemy-bear-battle-v1-frames.json": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+    "prototype-2d/assets/enemy-bear-battle-v1-sheet.png": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+    "prototype-2d/assets/enemy-bird.svg": "0cdfbb376fef61809681e8a1c346ffcd079514721d8f31a1a5f4197b9908a580",
+    "prototype-2d/assets/enemy-boss-kr-v1.png": "15f5393abf19e83b2d0087d4ac0a068c5cec4ae45d740798cb5ec8c2807d8601",
+    "prototype-2d/assets/enemy-boss.svg": "3878f941259a93790631307e0102600d8734326d9b529f4fb2b6cb5ac5cb48ee",
+    "prototype-2d/assets/enemy-brute-kr-v1.png": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d",
+    "prototype-2d/assets/enemy-brute.svg": "625c5abc3730e7e176c8948d1da1524176f0b2e2c92f80156225ea23ed9bcb1c",
+    "prototype-2d/assets/enemy-bull-battle-v1-frames.json": "e32da6acfc9bbea64ffb74b6cfb06e30e736b7f2c042c1d8949348e506b11527",
+    "prototype-2d/assets/enemy-bull-battle-v1-sheet.png": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+    "prototype-2d/assets/enemy-creature-kr-v1.png": "5eb03be680a6e4a7b8aba3b53695d7eb22c2c5f19c1a31a710c711743ba8d102",
+    "prototype-2d/assets/enemy-creature.svg": "aea810adc49f2f2cfddf3b75f035bc4db4b1671f61278d00b322ffdfa827954f",
+    "prototype-2d/assets/enemy-deer-battle-v1-frames.json": "6bf255f4f3823b089585a3eeaed3534b9ac283660e863b72cb71035490cbe927",
+    "prototype-2d/assets/enemy-deer-battle-v1-sheet.png": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
+    "prototype-2d/assets/enemy-hawk-battle-v1-frames.json": "c2ac21f266056a976425e37a7e24e34fba6b7a1269d592da3354ca49ef6d60ec",
+    "prototype-2d/assets/enemy-hawk-battle-v1-sheet.png": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7",
+    "prototype-2d/assets/enemy-monkey-battle-v1-frames.json": "46dcb42789e67c95d640f26578d799c2c3e831bce062f9417d2dc2d0f097c21c",
+    "prototype-2d/assets/enemy-monkey-battle-v1-sheet.png": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44",
+    "prototype-2d/assets/enemy-snake-battle-v3-frames.json": "5c75ff4ebfdd765c0fbe3b1087b992426b708ca7634e370a6b984690e201ca70",
+    "prototype-2d/assets/enemy-snake-battle-v3-sheet.png": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+    "prototype-2d/assets/enemy-spider.svg": "575571fed6c63d3050ff0a60c86f1293501f6399f23448ba14661f99dbd8b5dd",
+    "prototype-2d/assets/enemy-tiger-battle-v1-frames.json": "b66e62a1a40b00e36711523621c94d1b73b33a05f71ee46ec2094b4ae007156d",
+    "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+    "prototype-2d/assets/enemy-wolf-battle-v1-frames.json": "777a2f232307a23bbda913feb17aec2ac680c10528c3f29bf1fe0e98823d4637",
+    "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299",
+    "prototype-2d/assets/generate-art-assets.mjs": "d56eb58a8fc8c5843f27465e3be6150830a4dc03488885056c9e8d07cd888fa3",
+    "prototype-2d/assets/hero-bajie-battle-v3-sheet.png": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b",
+    "prototype-2d/assets/hero-bajie.svg": "19eb81b91664409d54619eb3aefe48fe2add07b880a160c3d4756dd6ad2ad56a",
+    "prototype-2d/assets/hero-battle-v2-atlas.png": "589412a2857dcb34ef828cee24e31abb94acb8a3b6b8e37813051b06e03e8565",
+    "prototype-2d/assets/hero-cards-v1.png": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+    "prototype-2d/assets/hero-cards-v2-comic.png": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad",
+    "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61",
+    "prototype-2d/assets/hero-tangseng-kr-v1.png": "162fdcbbf62ba747e0cc9c8f6c89e695b2b0a6e5aabc74455e5d1705918b0a4f",
+    "prototype-2d/assets/hero-tangseng.svg": "481bd327822e262287684750ffee74316de807236b97cb7758815d6a3cc1335d",
+    "prototype-2d/assets/hero-wujing-battle-v3-sheet.png": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "prototype-2d/assets/hero-wujing.svg": "d78054b2dcdedfc127ddbd8a7bcfe5db7315d13e034b5d934cca7b6c8c0c81f6",
+    "prototype-2d/assets/hero-wukong-battle-v3-sheet.png": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+    "prototype-2d/assets/hero-wukong.svg": "0121755c5ed96abf2508d3ef8fb77804ac8e2e103d284f75d1403c7c8b9b732d",
+    "prototype-2d/assets/map-doublefork-high-ridge-v1.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-doublefork-v2-optimized.png": "e014fafd243bf430aa48d58634879a3077ba67697d1ad3b3f27262dd35e5a8e5",
+    "prototype-2d/assets/map-doublefork-v2.png": "690363b6757576103190cc6a7461f0231fbfe79c158381dfbb637cc7b8dde12b",
+    "prototype-2d/assets/map-doublefork-v3-optimized.png": "20174da20cf3df773f6f0665e928e06fe3ed73f9d40b81154649dce7455d9530",
+    "prototype-2d/assets/map-doublefork-v3.png": "79d3c48b57d319ff2b56c21b16e5ad207423f181fd4c119a0aadc9517bf866ca",
+    "prototype-2d/assets/map-doublefork-v4-high-ridge-candidate.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-forest-qv1.png": "2944c17b771ad04a2c0205722f72df6a6126bae5f6ebf2e3aac1b1485bb50f23",
+    "prototype-2d/assets/map-temple-qv1.png": "1d7627c6153e2583842821ca5b2fa9c36027a85fe2b888f440e4e1c58f067ef9",
+    "prototype-2d/assets/README.md": "f2db10e10df7573a3e8fc2855cb8433dca35a121515dd278558a3dc86cbabbdc",
+    "prototype-2d/assets/theme-fire.svg": "8669bc3310052658aa37623537ca37ef7a51d690521f604cf66f309c2b55a11d",
+    "prototype-2d/assets/theme-forest.svg": "aa116a57c9776189afbec44ef88be18f8ea21e423b9ce1a59feb6dcc2be25558",
+    "prototype-2d/assets/theme-sand.svg": "6a0ee4411722136d48ffeeac040bf78c255b94f1602b430a99d443fbd2c65604",
+    "prototype-2d/assets/theme-snow.svg": "56e23a7e861e54d309680469dfc5dd6d3c99206dc2a1ae45d4ef061650ff0997",
+    "prototype-2d/assets/theme-temple.svg": "ebc4f5149d7fe5064a03a0db5610af77e6e90848c1a0e1b52e984e780aa0bf8e",
+    "prototype-2d/assets/theme-water.svg": "399b5a854be22e373806fc4711d6392fa27f370eb1435eaf82162b897a19f093",
+    "prototype-2d/assets/weapon-skill-bajie.svg": "67b0841a9ad517ea9f7a83ef8c669f1d632f9df8796a32656c73f5773d0ec737",
+    "prototype-2d/assets/weapon-skill-tangseng.svg": "3bcf292f0e0c5de76f80573dc55eb8883142efcd48186d3981a31383289684a3",
+    "prototype-2d/assets/weapon-skill-wujing.svg": "baff2be3abbe0e1637457f0600c8a9f7e8bc0c7993d56075c79be19209d9582e",
+    "prototype-2d/assets/weapon-skill-wukong.svg": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27",
+    "prototype-2d/assets/xiyou-art-preview.png": "6517fd98be3b7cc81c4bd9e8a3a54d5371c8355eca4722102d78e5732655b9d0",
+    "prototype-2d/assets/xiyou-art-preview.svg": "c0f540a2b4b2021036a49d65d76e095643df74073a296527028e9f3f87372b2a",
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+    "evidence/current/tiger-vanguard/candidate-v1-sheet.png": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+    "evidence/current/tiger-vanguard/candidate-v2-sheet.png": "03fadd27018012715d083fb92206dd7eb0967e54adaff84b45d6442cb1492e62",
+    "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/candidate-v1-three-frame-patch.png": "e04bdf485aae996872827efe6ad8ef9e575eb7671a7e101f70c5c8f54b510e5a",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+    "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/motion-draft.json": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/browser.json": "e7ac769f559981378af83df02e8dade496d07e015652f5ee6e77d749f1c4d87c",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/incontext-dynamic-overlay.webm": "bbb1880278853b09c4547e5ffe2e03eaa1f33ef3aca045ddfa47274dc99b9a7d",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/battle-scene-base-paused.png": "6c203a3b82f093e562db5e404c80e420ed99a95604bc9b4724226efd24c62f9f",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/dynamic-idle.png": "8513045f1d766e79e5bc5a52d70b0ee2ad6e029a71ed430ee84878025665d447",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/dynamic-move.png": "ed9f61f4d8a9e9c1fd4c3828859d6007c7f6c35d3aa923691907a7d8ae3895ca",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/dynamic-attack.png": "9414c8ef832f0cfba301ae3ae7627734594de1f77bfe70573fbe75474b237966",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/dynamic-hit.png": "21ffc6d00d35249c2f6cc6ad2dc767481537a3d0f110eb91542b0b178e20e033",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/dynamic-death.png": "9568f75af5c708997dfe323357996b8a2e74b218ca727480831d9b05f0c6d5d4",
+    "scripts/browser-tiger-vanguard-incontext-dynamic.mjs": "6e08f4d2e7eaf9a4feae99e46520716c4d00741b58919b0e049d3db68c3f1ab6",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/browser.json": "583ad3a56b2762cf6f82bc73990f9e99daaed96e84ecedb9ac9a2f3862551929",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/decoded-idle.png": "0fccd9addf3a2216e15b01880e11eeef95813c5b0fd82daa799236566b688ffa",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/decoded-move.png": "67ee8524d37bbb63a21be04386e9707aeda887d52277ffc95e55f13ee5099ab4",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/decoded-attack.png": "a86d26380fe81e4455e0e50eb7629f92a6cce82cde066328c69b7e07c9dfbd1d",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/decoded-hit.png": "a6da036e300fda9daa01fb76b087c5e223f0719f882938134a2e2b0caf7b794c",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/decoded-death.png": "4fe505339fa4c633703c8a8fdfbb21af28f6e4b6874888db1e568e62e04cd248",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/decoded-death-tail.png": "c1f66c1ec06b96a33dad6b85a85a7e0a73d410e4cd460c4b79b2dc7cc24e924a",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/decoded-contact-sheet.png": "dab7f97bd9074f3e041afe94a9528ac3a4361f6b0230687a7fabfaf527537e62",
+    "scripts/browser-tiger-vanguard-incontext-decode.mjs": "0dc078d51b76d8d5659a4112e818f7ae4da09b9bdf412fc0e994055fb5cd4068",
+    "evidence/current/tiger-vanguard/incontext-playback/2026-10-14T00-47-59-083Z/browser.json": "2340abd01070646d4885e637b8cb735023539806fb9badf1dac56984a2d3856c",
+    "scripts/browser-tiger-vanguard-recording-playback.mjs": "e0932f9ebbdc89afa9967f3720f53d905dcb0fb6e86502d124175b75706b0338",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/browser.json": "13612e911efa2a7c74f3d13129372715188082ac13137cddb053af2d8dde7839",
+    "scripts/browser-tiger-vanguard-composite-preview.mjs": "b79d2db336deabd6e05b38f763acfa41c78a662f23d6e1c5b7937782ba94cc5d",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/frozen-scene-full32-composite.webm": "01ba53ecb59c55549d57a740d3b3134640654df0ef06368338fe063a56df67e8",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/fixture-0.png": "972ad578cde04e3d700a2db461304254dddc6a0ebca8ec132106449979134a2c",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/fixture-7.png": "0c8723e7867e23104a869f531756b6e75cc63bc987a4eeb25e7e57efcabad486",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/fixture-13.png": "a89814dff37f6176cfa582320619cc282dd1a258a19a6b3de8d631a637c5bbe8",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/fixture-19.png": "eb8eeed7f1a8a17e1093b83b63f20fffc1448bbf0f79b93e9fbcf05b4c20676a",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/fixture-25.png": "bf42b3d47955bf4fbbfe7bd9f34bcf005bab1b5e0975b86d0172fabbcc1a07d2",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/fixture-31.png": "9df8b403a573552deeadd0e6ebf9546be0fbfe07ed7de3e7130994a608c6ae23",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/decoded-0.png": "ae4b15e171d66fdcafc795c7e171d82cbb8ff8ab35729e92ff72ebd63d0fb75e",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/decoded-1.png": "e2ec8b75c8cdaf964d488137d093fd95d7d51e4e336df86edb107a1fb4ff2dc3",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/decoded-2.png": "1c630d9b28fbbabb5abaee2ec55019341f0b0792979ac522a7330dbf216f5869",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/decoded-3.png": "029a10f664db7ba6be67d6c3d87d4761cc1c03364b4c21c3900872b894c7517e",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/decoded-4.png": "3929b81705c0eded1446495abe4b670dc917edc8cb56c4bd507f28f8b7145149",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/decoded-5.png": "6a0e3e5f1ba9a45a1337992cd05639653aa535ea121614c5b2f4cb5685b7bdea",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/decoded-6.png": "cbf2420186b8828cb0f84c71d84d0750bb40d5a39c43a493bb4cd8f53bd2737c",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/review.md": "07fda4c47528b3884641763a3a4bd5374c355bff28fb1d92ccb0a5483872dbe3",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/handoff.json": "2d6dfa6a049e24899a9a2dc5f99779c628aab83bfe85f1227f93360fc7f9360a"
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "externalRequests": [],
+  "screenshots": [
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/loadeddata-roi.png",
+      "bytes": 2059,
+      "sha256": "157868810171c05c2469d0adc6dcb1561c20fbb1b902d794355d6ce300aa58ef",
+      "kind": "actual-decoded-preplay-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-000.png",
+      "bytes": 58794,
+      "sha256": "69d256ecc48f4eb9e4735f519e3ba4931bcdd2cbf696a6bd2458bf5edade3478",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-001.png",
+      "bytes": 60523,
+      "sha256": "5d9df4b58ffcde92a4cc03d4336439eaaf4af45d24a22be400379ef1eab6932c",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-002.png",
+      "bytes": 61064,
+      "sha256": "124a9ef5533fab5b310808b0484abcec839defe4d2c918dbaffa1eb901e4de2f",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-003.png",
+      "bytes": 61447,
+      "sha256": "de519cf354081174d421e29b604e013809adec3a4943fbee3f81dd65eccf8d41",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-004.png",
+      "bytes": 61869,
+      "sha256": "14cdc7f5a6c9537ffad644c828e29647b7bac6fc8a5c470592035608fe4131e3",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-005.png",
+      "bytes": 63280,
+      "sha256": "69f787f289a4531b7703dd5c3fef8baa6cc08b82a42245fd856750eb5e28b10c",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-006.png",
+      "bytes": 63589,
+      "sha256": "4347047b7e38efb7396534084359df657dc1716397db91b15048d24fa4cfb4f0",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-007.png",
+      "bytes": 64647,
+      "sha256": "3854de4381651fd3149b010abd83315ba62bc71d38c454b3aaa0e5b7d90af304",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-008.png",
+      "bytes": 64065,
+      "sha256": "00f9f6cc2a53fffd2b01de0b7763cc73f43dc15dfc238fad8c5e49cb52953c51",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-009.png",
+      "bytes": 63817,
+      "sha256": "ab4b7a41f49c4c903bea79e8a177599df5f0c2fac344417253d9c13ee7d07b7a",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-010.png",
+      "bytes": 63754,
+      "sha256": "e16368686130fdb76f75038a3a4f75a5bc7947bd6575ae734fe6311db6255b2e",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-011.png",
+      "bytes": 63847,
+      "sha256": "21f91aae07c4aa59e9426d7e24e7834bec12d2941bbe7780b5098428ab7f08ba",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-012.png",
+      "bytes": 63649,
+      "sha256": "89d8b2b5d852e7a41f63c32937fdc867ef61b1b340e862c0d2bfb4a867df21e8",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-013.png",
+      "bytes": 63463,
+      "sha256": "82549a4c3da0599e665f8b1d241ad628375595e707ed3822ec4e58c7e17fe527",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-014.png",
+      "bytes": 63290,
+      "sha256": "55a6adeb717420ad4525260a6df011a5922044146f8c9b33267aa20b90e0715a",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-015.png",
+      "bytes": 63293,
+      "sha256": "6fd1873608e9d2c0bd6c1c9bdc3d46c661012b0044e0c36167791982c65ddeb8",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-016.png",
+      "bytes": 63212,
+      "sha256": "fc87199a27f6b508b3a91b3ac8e244ed0858c0001d308120c2fbd5f44adf3ffb",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-017.png",
+      "bytes": 62913,
+      "sha256": "cb634028710f06010ac54265125c79f5dd785b1e8c55060336d3dfc8d949cbe9",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-018.png",
+      "bytes": 60585,
+      "sha256": "3d0f2678519e607c848594d86ca3918cd4c7af51b5dc4a24083e5ab314292104",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-019.png",
+      "bytes": 60608,
+      "sha256": "51a28cf09d72451f192f8155c14c82289235f49a38d5c8b104ccaba30df6a34d",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-020.png",
+      "bytes": 60438,
+      "sha256": "4fb59d2346151a941321f409514af8febeab8e348fb1684e325187937eecf776",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-021.png",
+      "bytes": 60314,
+      "sha256": "e5e6fd604daea63339f4cc34d9ef178c5490333d6fba53a583f889eb99e9a847",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-022.png",
+      "bytes": 60308,
+      "sha256": "49a233fd5b1ff24dffd34ce982837084f61dd1787dbf7f325b4da6c840dad666",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-023.png",
+      "bytes": 59786,
+      "sha256": "a0e6a9ee318f008878789f7ae09b13489a32abef11b042ce6c27a28256eb3b15",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-024.png",
+      "bytes": 59643,
+      "sha256": "ce100c28ded8b3955457ca75d426d7bf3c0bf9f45daa37f38700262d10bad76a",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-025.png",
+      "bytes": 58918,
+      "sha256": "39c55f2bad39758d948ab38a13059f4c2c28c3620b4f876e51a0b2199d1bd45a",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-026.png",
+      "bytes": 57597,
+      "sha256": "819854411b7236dac19c3954731e124c80aee218e179477ec5db1d67104e6145",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-027.png",
+      "bytes": 57287,
+      "sha256": "ee7c5bc66d27d568d4b0095487957038ea75ae8765516ee556d14ba9e5b25d17",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-028.png",
+      "bytes": 57064,
+      "sha256": "797d1be7dd53f4504bf0aec1ff466a4dc8e70648067882f2496d5205f3257317",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-029.png",
+      "bytes": 56724,
+      "sha256": "6c2f2a66e3a1fe8b26f20ea253b2ee04e624fd6248a9a0c7c0ba07448441ec33",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-030.png",
+      "bytes": 57949,
+      "sha256": "068a4bd55f88feb4c8cc109d4489791e1da1fae10bae5b7b905e2ac591722b7c",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-031.png",
+      "bytes": 57999,
+      "sha256": "f1e2f8df3c7ea3efec666e107ad21effe6710a98a4a10780a56079fe0a4118e8",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-032.png",
+      "bytes": 55758,
+      "sha256": "9d5865825b8cda3719e32fa41bab83b584f560e9944336768387e58663c493af",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-033.png",
+      "bytes": 55508,
+      "sha256": "9f8671472635eac8c6cb240306cd35e0fe1705ab0b702b95ab5d815a6618c1b5",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-034.png",
+      "bytes": 56313,
+      "sha256": "a3c0aa05723a236729b60d3685a1d0368fd74f2ca6b24079797dd1b44a857cf7",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-035.png",
+      "bytes": 56262,
+      "sha256": "dbcd907804d38184058101861c423e16cd57733b1fb253e8029620128209ffb2",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-036.png",
+      "bytes": 57207,
+      "sha256": "46bbd4fdb36e71138e20fd8b5d5bb06683c018837f136dc52588ace32c6f7f1d",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-037.png",
+      "bytes": 57230,
+      "sha256": "5c5498f6efaa777963e98571d2f573022510732c19d67ac23d7b6bb9b1e47d24",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-038.png",
+      "bytes": 57089,
+      "sha256": "7e0424e2f73c3cc37131ba842f0ea9a7ceff1f403e2989dae2a9cbf6569dd1a7",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-039.png",
+      "bytes": 55871,
+      "sha256": "bd2f5cc2cd2f83536adb756154447ed474ad50fc8a9b17ef4624815453d6a931",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-040.png",
+      "bytes": 55689,
+      "sha256": "24159b7fc6c91bf4fa5f8b85ff1b813b50c086308d2f39c9c4337128d8ca0749",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-041.png",
+      "bytes": 56490,
+      "sha256": "04033041eae1bae7f32a1970af46fbc2680bc913572188eabd49dcc5bce6a192",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-042.png",
+      "bytes": 56411,
+      "sha256": "bfdfdd56b4d5482600a8c679ea5c249ce8699c53a9e44e74f1dd3f2d52c02e41",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-043.png",
+      "bytes": 56428,
+      "sha256": "ca4c01a4c6a2094b419bdd39d1e568567822dd2b89bff749da844738a0e6bfab",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-044.png",
+      "bytes": 56317,
+      "sha256": "edf41f200047019ad596c32998e0effdd9676f72e185b9cf5f166d6de07281c6",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-045.png",
+      "bytes": 57571,
+      "sha256": "8bfb9d57f099366e2d2dea73fd768b2efcc63d965cfd02212b147c9c66c20007",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-046.png",
+      "bytes": 57665,
+      "sha256": "223d4a4142c5369b62e588e63151b40f9c95c7e1e77f60dbebff8aa013403656",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-047.png",
+      "bytes": 55909,
+      "sha256": "2aa29b31dd613015be6860b48e72e962d97005351f98210bd1547180f96104a9",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-048.png",
+      "bytes": 55702,
+      "sha256": "4f237596e38602a4396b85a7d7104871943936df725fc3e8a56a579e03c1f488",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-049.png",
+      "bytes": 58925,
+      "sha256": "27e17f903028ad06ac9c148426604cb01c29fe458a59527b54870a5a9f22e985",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-050.png",
+      "bytes": 58995,
+      "sha256": "d8ed650e49dfcded385be516b1110c945cba4744dc69be57a6d04a137772458b",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-051.png",
+      "bytes": 58313,
+      "sha256": "de630d92273198cf958b258180aeaa8d658d7951c9489e67fac38ce28a457ac8",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-052.png",
+      "bytes": 58188,
+      "sha256": "35697fed748bd9f608844c652710337cb4294863b0340d89555f0d28db209399",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-053.png",
+      "bytes": 58190,
+      "sha256": "76b88a8e18a5571c02f815ebb8d9d8da7d980f2c723651dbdbc533d5d17b4958",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-054.png",
+      "bytes": 57437,
+      "sha256": "53a812a83a76a4f2debab2ea6e86892a35c2614df4bbf497f3f73c0029c49dd8",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-055.png",
+      "bytes": 57373,
+      "sha256": "7ab6f594c0d8fabae625fe53fbd8310b9ce4025bc2b105d2bd1d0339a3b37e7a",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-056.png",
+      "bytes": 58070,
+      "sha256": "f1639f4a203536072f9b8a557f5051f524cd1f8a2ef7e91aa9bcafa3298acda3",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-057.png",
+      "bytes": 57978,
+      "sha256": "48ccde9fe11c6bb77914b21d8e4df2827a086b2a713d45b4364198519bf20821",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-058.png",
+      "bytes": 57798,
+      "sha256": "93f0c83ae61634ca070ed5e4f3c504bdc27cd28d1867b098314349f0668398ab",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-059.png",
+      "bytes": 57771,
+      "sha256": "98e917f0261d340f819043a31f26fbecb5106ecc5e81031f5729a1bd9a345f49",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-060.png",
+      "bytes": 59907,
+      "sha256": "7c9baf856218b6ebbeb215edb247e3919873477fd690f798e7a1173ba5a75b84",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-061.png",
+      "bytes": 58586,
+      "sha256": "2ded7ab2d04fa35bb8d55b84fe120e30bce288a56070a7f2b9dbe3735e2ea3be",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-062.png",
+      "bytes": 58483,
+      "sha256": "4995fc654f379a4e2b1ea9b9ef755c7750125dfd7a5ba7b1630d33ee03b0e0f3",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-063.png",
+      "bytes": 56486,
+      "sha256": "cb3af46858a1d77bfedc956dadab25193435f82803be16ec912e06913167571b",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-064.png",
+      "bytes": 58134,
+      "sha256": "3d3a073e1d383f0c84213128af3a1ebf446256e00ffd06e231713d069bbade68",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-065.png",
+      "bytes": 57153,
+      "sha256": "e0031584ca73f37f85e859a8c54981708e66104e80da13e8e3bcc6cab89bdb00",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-066.png",
+      "bytes": 57032,
+      "sha256": "97fcc2b50c364af731817aed2dbab5dc547690309300485e7b26debd3c4fa065",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-067.png",
+      "bytes": 56967,
+      "sha256": "83a58e94be2ce8e61ac5b1b90aa97db4a946465745809df916a4c6341b18d9ae",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-068.png",
+      "bytes": 54730,
+      "sha256": "51dbbb55742641087fe4508d4ae56d50a41c4f77a784f35f52c53363fb85616a",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-069.png",
+      "bytes": 54747,
+      "sha256": "ea7b13cb505f4d4d0c634a8b3bf9ae547ee6f2fb81fb7ef687f260c3f55408bf",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-070.png",
+      "bytes": 54650,
+      "sha256": "35bcbca179191c06688d3ec7bcd29a119f73f4861c6dfb13513b5401e614d71c",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-071.png",
+      "bytes": 54416,
+      "sha256": "17bb363637809b1f6952fa191a78d5fb0ee87b112e1f452096aabbc2d9f17a51",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-072.png",
+      "bytes": 53286,
+      "sha256": "4ef432dd4077e1e3628f5a7015ad974abd0a7a792ddd5f4cd56a7c6fb8a50068",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-073.png",
+      "bytes": 53172,
+      "sha256": "ffc2c4fb2c5fe4888db98ae351054830ed96380265d5ed8e673780a53dd64bdc",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-074.png",
+      "bytes": 52739,
+      "sha256": "f12d293fc824b7095d2f9d3b13dcbdda6929cb7f769fcc9967e247c2a866dbcc",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-075.png",
+      "bytes": 52613,
+      "sha256": "0edcdcdead48b2e0a42e07765b6a32ca411311261250563d3e337d8a1bf17a42",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-076.png",
+      "bytes": 54200,
+      "sha256": "003564aecc9549710e310bbf968e0d4bff025f7a1713cc67cbca55fd8a8593b1",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-077.png",
+      "bytes": 54140,
+      "sha256": "3065a92e419f593dd6c7efb070cada7a488ec7137f2fe3174375062c4f6f59b6",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-078.png",
+      "bytes": 54127,
+      "sha256": "6493b7af6bc9c21c9604c21788fcbb9143dfcef21b571700ffc71b591568c84a",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-079.png",
+      "bytes": 54107,
+      "sha256": "26374e29768b74d5b5b96e09bbaa89a0044a07cdeb157fe0f192bdc969f6facb",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-080.png",
+      "bytes": 54133,
+      "sha256": "abba5e20dc6e71efaa2ccd0da2b938daf69d25d34b83dabe82ff00f416672e00",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-081.png",
+      "bytes": 54137,
+      "sha256": "053d3002abeba0e81b9bd72cdaf13b0cd06486dbe90bdb4ebdb77cb5f81597d7",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-082.png",
+      "bytes": 54125,
+      "sha256": "f01c2a2b546a8054e3c852f0dbbb8999fbf4777bbf2a7a39f4d41103ec1b72c1",
+      "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/contact-sheet-0.png",
+      "bytes": 1322978,
+      "sha256": "257a1f5866540bfdbbd08f69e6490375278c0fabaa34d40364b4cdbc909519ed",
+      "kind": "actual-presented-native-roi-contact-sheet"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/contact-sheet-1.png",
+      "bytes": 828310,
+      "sha256": "810e02e0df4e0518564b8089eba6731531c179072acce257d991082a000fb31c",
+      "kind": "actual-presented-native-roi-contact-sheet"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/contact-sheet-2.png",
+      "bytes": 580193,
+      "sha256": "d64b61a243b7b7f7cb1b8ebb602bb9ee7cca9185e21649fdf1cbeb8de5fa8552",
+      "kind": "actual-presented-native-roi-contact-sheet"
+    }
+  ],
+  "browser": "155.0.4283.45",
+  "playback": {
+    "width": 390,
+    "height": 844,
+    "durationReported": 3.126323,
+    "before": {
+      "currentTime": 0,
+      "paused": true,
+      "ended": false,
+      "playbackRate": 1
+    },
+    "after": {
+      "currentTime": 3.126323,
+      "paused": true,
+      "ended": true,
+      "readyState": 4
+    },
+    "preplay": {
+      "kind": "loadeddata-not-presented-callback",
+      "currentTime": 0,
+      "labelSignature": 3996078533,
+      "spriteSignature": 3258008693,
+      "backgroundRoiMeanRgb": [
+        0,
+        0,
+        0
+      ],
+      "maxBackgroundChannelDeviation": 131,
+      "snapshot": {
+        "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/loadeddata-roi.png",
+        "bytes": 2059,
+        "sha256": "157868810171c05c2469d0adc6dcb1561c20fbb1b902d794355d6ce300aa58ef",
+        "kind": "actual-decoded-preplay-label-and-sprite-native-roi"
+      }
+    },
+    "playbackWallMs": 3210.60000000149,
+    "events": [
+      {
+        "name": "loadeddata",
+        "wallTime": 231.39999999850988,
+        "currentTime": 0,
+        "readyState": 4
+      },
+      {
+        "name": "playing",
+        "wallTime": 288.8999999985099,
+        "currentTime": 0,
+        "readyState": 4
+      },
+      {
+        "name": "ended",
+        "wallTime": 3497.60000000149,
+        "currentTime": 3.126323,
+        "readyState": 4
+      }
+    ],
+    "frames": [
+      {
+        "sequence": 0,
+        "callbackWallTime": 403.6,
+        "mediaTime": 0.061,
+        "presentedFrames": 2,
+        "presentationTime": 407,
+        "expectedDisplayTime": 407.2,
+        "labelSignature": 3597165704,
+        "spriteSignature": 1128723868,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          118.33333333333333
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-000.png",
+          "bytes": 58794,
+          "sha256": "69d256ecc48f4eb9e4735f519e3ba4931bcdd2cbf696a6bd2458bf5edade3478",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 1,
+        "callbackWallTime": 454.7,
+        "mediaTime": 0.125,
+        "presentedFrames": 4,
+        "presentationTime": 454.7,
+        "expectedDisplayTime": 458.3,
+        "labelSignature": 1535544842,
+        "spriteSignature": 2582021145,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          118.33333333333333
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-001.png",
+          "bytes": 60523,
+          "sha256": "5d9df4b58ffcde92a4cc03d4336439eaaf4af45d24a22be400379ef1eab6932c",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 2,
+        "callbackWallTime": 487.7,
+        "mediaTime": 0.16,
+        "presentedFrames": 5,
+        "presentationTime": 487.8,
+        "expectedDisplayTime": 491.3,
+        "labelSignature": 3603500516,
+        "spriteSignature": 687305092,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-002.png",
+          "bytes": 61064,
+          "sha256": "124a9ef5533fab5b310808b0484abcec839defe4d2c918dbaffa1eb901e4de2f",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 3,
+        "callbackWallTime": 523.3,
+        "mediaTime": 0.195,
+        "presentedFrames": 6,
+        "presentationTime": 523.3,
+        "expectedDisplayTime": 526.9,
+        "labelSignature": 3822063964,
+        "spriteSignature": 2284108313,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-003.png",
+          "bytes": 61447,
+          "sha256": "de519cf354081174d421e29b604e013809adec3a4943fbee3f81dd65eccf8d41",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 4,
+        "callbackWallTime": 556.9,
+        "mediaTime": 0.227,
+        "presentedFrames": 7,
+        "presentationTime": 556.9,
+        "expectedDisplayTime": 560.5,
+        "labelSignature": 3697682608,
+        "spriteSignature": 1993881543,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-004.png",
+          "bytes": 61869,
+          "sha256": "14cdc7f5a6c9537ffad644c828e29647b7bac6fc8a5c470592035608fe4131e3",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 5,
+        "callbackWallTime": 588.5,
+        "mediaTime": 0.26,
+        "presentedFrames": 8,
+        "presentationTime": 588.6,
+        "expectedDisplayTime": 592.1,
+        "labelSignature": 3687705487,
+        "spriteSignature": 1153668559,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-005.png",
+          "bytes": 63280,
+          "sha256": "69f787f289a4531b7703dd5c3fef8baa6cc08b82a42245fd856750eb5e28b10c",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 6,
+        "callbackWallTime": 618.4,
+        "mediaTime": 0.29,
+        "presentedFrames": 9,
+        "presentationTime": 618.4,
+        "expectedDisplayTime": 622.1,
+        "labelSignature": 3769225558,
+        "spriteSignature": 2247241483,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-006.png",
+          "bytes": 63589,
+          "sha256": "4347047b7e38efb7396534084359df657dc1716397db91b15048d24fa4cfb4f0",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 7,
+        "callbackWallTime": 651.8,
+        "mediaTime": 0.36,
+        "presentedFrames": 10,
+        "presentationTime": 651.8,
+        "expectedDisplayTime": 684.4,
+        "labelSignature": 2281893404,
+        "spriteSignature": 300638041,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-007.png",
+          "bytes": 64647,
+          "sha256": "3854de4381651fd3149b010abd83315ba62bc71d38c454b3aaa0e5b7d90af304",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 8,
+        "callbackWallTime": 686.6,
+        "mediaTime": 0.395,
+        "presentedFrames": 11,
+        "presentationTime": 686.7,
+        "expectedDisplayTime": 719.3,
+        "labelSignature": 3398952794,
+        "spriteSignature": 1183990529,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-008.png",
+          "bytes": 64065,
+          "sha256": "00f9f6cc2a53fffd2b01de0b7763cc73f43dc15dfc238fad8c5e49cb52953c51",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 9,
+        "callbackWallTime": 719.4,
+        "mediaTime": 0.425,
+        "presentedFrames": 12,
+        "presentationTime": 719.5,
+        "expectedDisplayTime": 752.1,
+        "labelSignature": 1591412096,
+        "spriteSignature": 2359155974,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-009.png",
+          "bytes": 63817,
+          "sha256": "ab4b7a41f49c4c903bea79e8a177599df5f0c2fac344417253d9c13ee7d07b7a",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 10,
+        "callbackWallTime": 751.1,
+        "mediaTime": 0.459,
+        "presentedFrames": 13,
+        "presentationTime": 751.2,
+        "expectedDisplayTime": 783.7,
+        "labelSignature": 2990258135,
+        "spriteSignature": 3046178811,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-010.png",
+          "bytes": 63754,
+          "sha256": "e16368686130fdb76f75038a3a4f75a5bc7947bd6575ae734fe6311db6255b2e",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 11,
+        "callbackWallTime": 782.1,
+        "mediaTime": 0.492,
+        "presentedFrames": 14,
+        "presentationTime": 782.2,
+        "expectedDisplayTime": 814.9,
+        "labelSignature": 3910691542,
+        "spriteSignature": 2715296455,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-011.png",
+          "bytes": 63847,
+          "sha256": "21f91aae07c4aa59e9426d7e24e7834bec12d2941bbe7780b5098428ab7f08ba",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 12,
+        "callbackWallTime": 814.3,
+        "mediaTime": 0.525,
+        "presentedFrames": 15,
+        "presentationTime": 814.3,
+        "expectedDisplayTime": 847.1,
+        "labelSignature": 1325765579,
+        "spriteSignature": 601037564,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-012.png",
+          "bytes": 63649,
+          "sha256": "89d8b2b5d852e7a41f63c32937fdc867ef61b1b340e862c0d2bfb4a867df21e8",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 13,
+        "callbackWallTime": 847.9,
+        "mediaTime": 0.558,
+        "presentedFrames": 16,
+        "presentationTime": 847.9,
+        "expectedDisplayTime": 880.6,
+        "labelSignature": 1066797524,
+        "spriteSignature": 2968515604,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-013.png",
+          "bytes": 63463,
+          "sha256": "82549a4c3da0599e665f8b1d241ad628375595e707ed3822ec4e58c7e17fe527",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 14,
+        "callbackWallTime": 879,
+        "mediaTime": 0.591,
+        "presentedFrames": 17,
+        "presentationTime": 879,
+        "expectedDisplayTime": 911.7,
+        "labelSignature": 1074884038,
+        "spriteSignature": 1222522178,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-014.png",
+          "bytes": 63290,
+          "sha256": "55a6adeb717420ad4525260a6df011a5922044146f8c9b33267aa20b90e0715a",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 15,
+        "callbackWallTime": 913.4,
+        "mediaTime": 0.627,
+        "presentedFrames": 18,
+        "presentationTime": 913.5,
+        "expectedDisplayTime": 946.1,
+        "labelSignature": 3379810564,
+        "spriteSignature": 4057458620,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-015.png",
+          "bytes": 63293,
+          "sha256": "6fd1873608e9d2c0bd6c1c9bdc3d46c661012b0044e0c36167791982c65ddeb8",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 16,
+        "callbackWallTime": 948,
+        "mediaTime": 0.661,
+        "presentedFrames": 19,
+        "presentationTime": 948.1,
+        "expectedDisplayTime": 980.7,
+        "labelSignature": 128592749,
+        "spriteSignature": 3369319287,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-016.png",
+          "bytes": 63212,
+          "sha256": "fc87199a27f6b508b3a91b3ac8e244ed0858c0001d308120c2fbd5f44adf3ffb",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 17,
+        "callbackWallTime": 979.9,
+        "mediaTime": 0.691,
+        "presentedFrames": 20,
+        "presentationTime": 979.9,
+        "expectedDisplayTime": 1012.6,
+        "labelSignature": 1258832937,
+        "spriteSignature": 1019766412,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-017.png",
+          "bytes": 62913,
+          "sha256": "cb634028710f06010ac54265125c79f5dd785b1e8c55060336d3dfc8d949cbe9",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 18,
+        "callbackWallTime": 1045,
+        "mediaTime": 0.759,
+        "presentedFrames": 21,
+        "presentationTime": 1045,
+        "expectedDisplayTime": 1077.7,
+        "labelSignature": 3097862656,
+        "spriteSignature": 2470137311,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-018.png",
+          "bytes": 60585,
+          "sha256": "3d0f2678519e607c848594d86ca3918cd4c7af51b5dc4a24083e5ab314292104",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 19,
+        "callbackWallTime": 1078.4,
+        "mediaTime": 0.791,
+        "presentedFrames": 22,
+        "presentationTime": 1078.4,
+        "expectedDisplayTime": 1111.1,
+        "labelSignature": 2539144325,
+        "spriteSignature": 1028989923,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-019.png",
+          "bytes": 60608,
+          "sha256": "51a28cf09d72451f192f8155c14c82289235f49a38d5c8b104ccaba30df6a34d",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 20,
+        "callbackWallTime": 1113.8,
+        "mediaTime": 0.822,
+        "presentedFrames": 23,
+        "presentationTime": 1113.9,
+        "expectedDisplayTime": 1146.5,
+        "labelSignature": 3075351662,
+        "spriteSignature": 2809779830,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-020.png",
+          "bytes": 60438,
+          "sha256": "4fb59d2346151a941321f409514af8febeab8e348fb1684e325187937eecf776",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 21,
+        "callbackWallTime": 1148.3,
+        "mediaTime": 0.859,
+        "presentedFrames": 24,
+        "presentationTime": 1148.4,
+        "expectedDisplayTime": 1181,
+        "labelSignature": 1135677028,
+        "spriteSignature": 1416780945,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-021.png",
+          "bytes": 60314,
+          "sha256": "e5e6fd604daea63339f4cc34d9ef178c5490333d6fba53a583f889eb99e9a847",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 22,
+        "callbackWallTime": 1181.5,
+        "mediaTime": 0.893,
+        "presentedFrames": 25,
+        "presentationTime": 1181.6,
+        "expectedDisplayTime": 1214.3,
+        "labelSignature": 2389124227,
+        "spriteSignature": 3305125310,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-022.png",
+          "bytes": 60308,
+          "sha256": "49a233fd5b1ff24dffd34ce982837084f61dd1787dbf7f325b4da6c840dad666",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 23,
+        "callbackWallTime": 1248.6,
+        "mediaTime": 0.959,
+        "presentedFrames": 26,
+        "presentationTime": 1248.8,
+        "expectedDisplayTime": 1281.5,
+        "labelSignature": 1575334838,
+        "spriteSignature": 86163764,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-023.png",
+          "bytes": 59786,
+          "sha256": "a0e6a9ee318f008878789f7ae09b13489a32abef11b042ce6c27a28256eb3b15",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 24,
+        "callbackWallTime": 1283.8,
+        "mediaTime": 0.994,
+        "presentedFrames": 27,
+        "presentationTime": 1283.8,
+        "expectedDisplayTime": 1316.5,
+        "labelSignature": 1668060896,
+        "spriteSignature": 2912220303,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-024.png",
+          "bytes": 59643,
+          "sha256": "ce100c28ded8b3955457ca75d426d7bf3c0bf9f45daa37f38700262d10bad76a",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 25,
+        "callbackWallTime": 1316.4,
+        "mediaTime": 1.024,
+        "presentedFrames": 28,
+        "presentationTime": 1316.5,
+        "expectedDisplayTime": 1349.2,
+        "labelSignature": 3866520779,
+        "spriteSignature": 2443596218,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-025.png",
+          "bytes": 58918,
+          "sha256": "39c55f2bad39758d948ab38a13059f4c2c28c3620b4f876e51a0b2199d1bd45a",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 26,
+        "callbackWallTime": 1349.3,
+        "mediaTime": 1.055,
+        "presentedFrames": 29,
+        "presentationTime": 1349.4,
+        "expectedDisplayTime": 1382,
+        "labelSignature": 3560317490,
+        "spriteSignature": 757150206,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-026.png",
+          "bytes": 57597,
+          "sha256": "819854411b7236dac19c3954731e124c80aee218e179477ec5db1d67104e6145",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 27,
+        "callbackWallTime": 1381.9,
+        "mediaTime": 1.094,
+        "presentedFrames": 30,
+        "presentationTime": 1382.1,
+        "expectedDisplayTime": 1414.7,
+        "labelSignature": 1240259895,
+        "spriteSignature": 2771226261,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-027.png",
+          "bytes": 57287,
+          "sha256": "ee7c5bc66d27d568d4b0095487957038ea75ae8765516ee556d14ba9e5b25d17",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 28,
+        "callbackWallTime": 1413.2,
+        "mediaTime": 1.126,
+        "presentedFrames": 31,
+        "presentationTime": 1413.3,
+        "expectedDisplayTime": 1445.9,
+        "labelSignature": 3341789267,
+        "spriteSignature": 2238717353,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-028.png",
+          "bytes": 57064,
+          "sha256": "797d1be7dd53f4504bf0aec1ff466a4dc8e70648067882f2496d5205f3257317",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 29,
+        "callbackWallTime": 1479.9,
+        "mediaTime": 1.192,
+        "presentedFrames": 32,
+        "presentationTime": 1480,
+        "expectedDisplayTime": 1512.6,
+        "labelSignature": 2872321778,
+        "spriteSignature": 605196045,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-029.png",
+          "bytes": 56724,
+          "sha256": "6c2f2a66e3a1fe8b26f20ea253b2ee04e624fd6248a9a0c7c0ba07448441ec33",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 30,
+        "callbackWallTime": 1512.6,
+        "mediaTime": 1.226,
+        "presentedFrames": 33,
+        "presentationTime": 1512.7,
+        "expectedDisplayTime": 1545.4,
+        "labelSignature": 1845271399,
+        "spriteSignature": 72108790,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-030.png",
+          "bytes": 57949,
+          "sha256": "068a4bd55f88feb4c8cc109d4489791e1da1fae10bae5b7b905e2ac591722b7c",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 31,
+        "callbackWallTime": 1547.2,
+        "mediaTime": 1.258,
+        "presentedFrames": 34,
+        "presentationTime": 1547.3,
+        "expectedDisplayTime": 1579.9,
+        "labelSignature": 3366038903,
+        "spriteSignature": 1700105127,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-031.png",
+          "bytes": 57999,
+          "sha256": "f1e2f8df3c7ea3efec666e107ad21effe6710a98a4a10780a56079fe0a4118e8",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 32,
+        "callbackWallTime": 1580.1,
+        "mediaTime": 1.293,
+        "presentedFrames": 35,
+        "presentationTime": 1580.3,
+        "expectedDisplayTime": 1612.9,
+        "labelSignature": 1141295696,
+        "spriteSignature": 3718094950,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-032.png",
+          "bytes": 55758,
+          "sha256": "9d5865825b8cda3719e32fa41bab83b584f560e9944336768387e58663c493af",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 33,
+        "callbackWallTime": 1646,
+        "mediaTime": 1.358,
+        "presentedFrames": 36,
+        "presentationTime": 1646.1,
+        "expectedDisplayTime": 1678.7,
+        "labelSignature": 4256799677,
+        "spriteSignature": 3251596320,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-033.png",
+          "bytes": 55508,
+          "sha256": "9f8671472635eac8c6cb240306cd35e0fe1705ab0b702b95ab5d815a6618c1b5",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 34,
+        "callbackWallTime": 1677.4,
+        "mediaTime": 1.392,
+        "presentedFrames": 37,
+        "presentationTime": 1677.6,
+        "expectedDisplayTime": 1710.2,
+        "labelSignature": 2251655085,
+        "spriteSignature": 4198715776,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-034.png",
+          "bytes": 56313,
+          "sha256": "a3c0aa05723a236729b60d3685a1d0368fd74f2ca6b24079797dd1b44a857cf7",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 35,
+        "callbackWallTime": 1710.4,
+        "mediaTime": 1.425,
+        "presentedFrames": 38,
+        "presentationTime": 1710.4,
+        "expectedDisplayTime": 1743.1,
+        "labelSignature": 2088142221,
+        "spriteSignature": 4045459180,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-035.png",
+          "bytes": 56262,
+          "sha256": "dbcd907804d38184058101861c423e16cd57733b1fb253e8029620128209ffb2",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 36,
+        "callbackWallTime": 1745.1,
+        "mediaTime": 1.461,
+        "presentedFrames": 39,
+        "presentationTime": 1745.2,
+        "expectedDisplayTime": 1777.9,
+        "labelSignature": 2245444183,
+        "spriteSignature": 2572997123,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-036.png",
+          "bytes": 57207,
+          "sha256": "46bbd4fdb36e71138e20fd8b5d5bb06683c018837f136dc52588ace32c6f7f1d",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 37,
+        "callbackWallTime": 1779.8,
+        "mediaTime": 1.493,
+        "presentedFrames": 40,
+        "presentationTime": 1779.8,
+        "expectedDisplayTime": 1812.5,
+        "labelSignature": 1106099814,
+        "spriteSignature": 1218994311,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-037.png",
+          "bytes": 57230,
+          "sha256": "5c5498f6efaa777963e98571d2f573022510732c19d67ac23d7b6bb9b1e47d24",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 38,
+        "callbackWallTime": 1814.3,
+        "mediaTime": 1.528,
+        "presentedFrames": 41,
+        "presentationTime": 1814.4,
+        "expectedDisplayTime": 1847,
+        "labelSignature": 1326165521,
+        "spriteSignature": 1623989610,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-038.png",
+          "bytes": 57089,
+          "sha256": "7e0424e2f73c3cc37131ba842f0ea9a7ceff1f403e2989dae2a9cbf6569dd1a7",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 39,
+        "callbackWallTime": 1849.8,
+        "mediaTime": 1.558,
+        "presentedFrames": 42,
+        "presentationTime": 1849.9,
+        "expectedDisplayTime": 1882.6,
+        "labelSignature": 1659363280,
+        "spriteSignature": 1972969895,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-039.png",
+          "bytes": 55871,
+          "sha256": "bd2f5cc2cd2f83536adb756154447ed474ad50fc8a9b17ef4624815453d6a931",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 40,
+        "callbackWallTime": 1883.4,
+        "mediaTime": 1.594,
+        "presentedFrames": 43,
+        "presentationTime": 1883.5,
+        "expectedDisplayTime": 1916.1,
+        "labelSignature": 3341817969,
+        "spriteSignature": 4230241499,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-040.png",
+          "bytes": 55689,
+          "sha256": "24159b7fc6c91bf4fa5f8b85ff1b813b50c086308d2f39c9c4337128d8ca0749",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 41,
+        "callbackWallTime": 1918,
+        "mediaTime": 1.626,
+        "presentedFrames": 44,
+        "presentationTime": 1918.1,
+        "expectedDisplayTime": 1950.8,
+        "labelSignature": 800857843,
+        "spriteSignature": 1617966953,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-041.png",
+          "bytes": 56490,
+          "sha256": "04033041eae1bae7f32a1970af46fbc2680bc913572188eabd49dcc5bce6a192",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 42,
+        "callbackWallTime": 1952.5,
+        "mediaTime": 1.657,
+        "presentedFrames": 45,
+        "presentationTime": 1952.6,
+        "expectedDisplayTime": 1985.2,
+        "labelSignature": 4011786811,
+        "spriteSignature": 1539110718,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-042.png",
+          "bytes": 56411,
+          "sha256": "bfdfdd56b4d5482600a8c679ea5c249ce8699c53a9e44e74f1dd3f2d52c02e41",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 43,
+        "callbackWallTime": 1983.9,
+        "mediaTime": 1.688,
+        "presentedFrames": 46,
+        "presentationTime": 1984,
+        "expectedDisplayTime": 2016.7,
+        "labelSignature": 2288449913,
+        "spriteSignature": 1848438883,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-043.png",
+          "bytes": 56428,
+          "sha256": "ca4c01a4c6a2094b419bdd39d1e568567822dd2b89bff749da844738a0e6bfab",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 44,
+        "callbackWallTime": 2017.7,
+        "mediaTime": 1.727,
+        "presentedFrames": 47,
+        "presentationTime": 2017.7,
+        "expectedDisplayTime": 2050.3,
+        "labelSignature": 771525681,
+        "spriteSignature": 1472824198,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-044.png",
+          "bytes": 56317,
+          "sha256": "edf41f200047019ad596c32998e0effdd9676f72e185b9cf5f166d6de07281c6",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 45,
+        "callbackWallTime": 2051.8,
+        "mediaTime": 1.757,
+        "presentedFrames": 48,
+        "presentationTime": 2051.9,
+        "expectedDisplayTime": 2084.5,
+        "labelSignature": 3315341186,
+        "spriteSignature": 831667223,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-045.png",
+          "bytes": 57571,
+          "sha256": "8bfb9d57f099366e2d2dea73fd768b2efcc63d965cfd02212b147c9c66c20007",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 46,
+        "callbackWallTime": 2085.6,
+        "mediaTime": 1.794,
+        "presentedFrames": 49,
+        "presentationTime": 2085.6,
+        "expectedDisplayTime": 2118.4,
+        "labelSignature": 3489829591,
+        "spriteSignature": 690101070,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-046.png",
+          "bytes": 57665,
+          "sha256": "223d4a4142c5369b62e588e63151b40f9c95c7e1e77f60dbebff8aa013403656",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 47,
+        "callbackWallTime": 2117.1,
+        "mediaTime": 1.827,
+        "presentedFrames": 50,
+        "presentationTime": 2117.2,
+        "expectedDisplayTime": 2149.8,
+        "labelSignature": 2513137483,
+        "spriteSignature": 37418100,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-047.png",
+          "bytes": 55909,
+          "sha256": "2aa29b31dd613015be6860b48e72e962d97005351f98210bd1547180f96104a9",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 48,
+        "callbackWallTime": 2151,
+        "mediaTime": 1.857,
+        "presentedFrames": 51,
+        "presentationTime": 2150.9,
+        "expectedDisplayTime": 2183.6,
+        "labelSignature": 3742999297,
+        "spriteSignature": 925998673,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-048.png",
+          "bytes": 55702,
+          "sha256": "4f237596e38602a4396b85a7d7104871943936df725fc3e8a56a579e03c1f488",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 49,
+        "callbackWallTime": 2183.4,
+        "mediaTime": 1.887,
+        "presentedFrames": 52,
+        "presentationTime": 2183.5,
+        "expectedDisplayTime": 2216.2,
+        "labelSignature": 2904395898,
+        "spriteSignature": 2090559692,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-049.png",
+          "bytes": 58925,
+          "sha256": "27e17f903028ad06ac9c148426604cb01c29fe458a59527b54870a5a9f22e985",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 50,
+        "callbackWallTime": 2216.1,
+        "mediaTime": 1.925,
+        "presentedFrames": 53,
+        "presentationTime": 2216.2,
+        "expectedDisplayTime": 2248.9,
+        "labelSignature": 3601549386,
+        "spriteSignature": 1485065059,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-050.png",
+          "bytes": 58995,
+          "sha256": "d8ed650e49dfcded385be516b1110c945cba4744dc69be57a6d04a137772458b",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 51,
+        "callbackWallTime": 2247,
+        "mediaTime": 1.962,
+        "presentedFrames": 54,
+        "presentationTime": 2247.3,
+        "expectedDisplayTime": 2279.8,
+        "labelSignature": 1090439352,
+        "spriteSignature": 323948625,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-051.png",
+          "bytes": 58313,
+          "sha256": "de630d92273198cf958b258180aeaa8d658d7951c9489e67fac38ce28a457ac8",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 52,
+        "callbackWallTime": 2280.4,
+        "mediaTime": 1.991,
+        "presentedFrames": 55,
+        "presentationTime": 2280.6,
+        "expectedDisplayTime": 2313.1,
+        "labelSignature": 1905771879,
+        "spriteSignature": 3188334861,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-052.png",
+          "bytes": 58188,
+          "sha256": "35697fed748bd9f608844c652710337cb4294863b0340d89555f0d28db209399",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 53,
+        "callbackWallTime": 2315.6,
+        "mediaTime": 2.025,
+        "presentedFrames": 56,
+        "presentationTime": 2315.7,
+        "expectedDisplayTime": 2348.3,
+        "labelSignature": 1329230692,
+        "spriteSignature": 3424777532,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-053.png",
+          "bytes": 58190,
+          "sha256": "76b88a8e18a5571c02f815ebb8d9d8da7d980f2c723651dbdbc533d5d17b4958",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 54,
+        "callbackWallTime": 2349.1,
+        "mediaTime": 2.057,
+        "presentedFrames": 57,
+        "presentationTime": 2349.1,
+        "expectedDisplayTime": 2381.8,
+        "labelSignature": 2684668662,
+        "spriteSignature": 1682374998,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-054.png",
+          "bytes": 57437,
+          "sha256": "53a812a83a76a4f2debab2ea6e86892a35c2614df4bbf497f3f73c0029c49dd8",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 55,
+        "callbackWallTime": 2381.1,
+        "mediaTime": 2.094,
+        "presentedFrames": 58,
+        "presentationTime": 2381.2,
+        "expectedDisplayTime": 2413.8,
+        "labelSignature": 1715248128,
+        "spriteSignature": 3224066316,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-055.png",
+          "bytes": 57373,
+          "sha256": "7ab6f594c0d8fabae625fe53fbd8310b9ce4025bc2b105d2bd1d0339a3b37e7a",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 56,
+        "callbackWallTime": 2414.2,
+        "mediaTime": 2.124,
+        "presentedFrames": 59,
+        "presentationTime": 2414.2,
+        "expectedDisplayTime": 2447,
+        "labelSignature": 161272810,
+        "spriteSignature": 2987654027,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-056.png",
+          "bytes": 58070,
+          "sha256": "f1639f4a203536072f9b8a557f5051f524cd1f8a2ef7e91aa9bcafa3298acda3",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 57,
+        "callbackWallTime": 2447.5,
+        "mediaTime": 2.158,
+        "presentedFrames": 60,
+        "presentationTime": 2447.6,
+        "expectedDisplayTime": 2480.2,
+        "labelSignature": 2092555883,
+        "spriteSignature": 1123856151,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-057.png",
+          "bytes": 57978,
+          "sha256": "48ccde9fe11c6bb77914b21d8e4df2827a086b2a713d45b4364198519bf20821",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 58,
+        "callbackWallTime": 2478.6,
+        "mediaTime": 2.194,
+        "presentedFrames": 61,
+        "presentationTime": 2478.7,
+        "expectedDisplayTime": 2511.4,
+        "labelSignature": 1594245567,
+        "spriteSignature": 652084522,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-058.png",
+          "bytes": 57798,
+          "sha256": "93f0c83ae61634ca070ed5e4f3c504bdc27cd28d1867b098314349f0668398ab",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 59,
+        "callbackWallTime": 2541.3,
+        "mediaTime": 2.226,
+        "presentedFrames": 62,
+        "presentationTime": 2541.3,
+        "expectedDisplayTime": 2574,
+        "labelSignature": 1173982765,
+        "spriteSignature": 1456019012,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-059.png",
+          "bytes": 57771,
+          "sha256": "98e917f0261d340f819043a31f26fbecb5106ecc5e81031f5729a1bd9a345f49",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 60,
+        "callbackWallTime": 2575.4,
+        "mediaTime": 2.26,
+        "presentedFrames": 63,
+        "presentationTime": 2575.5,
+        "expectedDisplayTime": 2608.2,
+        "labelSignature": 2743268980,
+        "spriteSignature": 1386064715,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-060.png",
+          "bytes": 59907,
+          "sha256": "7c9baf856218b6ebbeb215edb247e3919873477fd690f798e7a1173ba5a75b84",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 61,
+        "callbackWallTime": 2609.7,
+        "mediaTime": 2.325,
+        "presentedFrames": 64,
+        "presentationTime": 2609.8,
+        "expectedDisplayTime": 2642.4,
+        "labelSignature": 1016495864,
+        "spriteSignature": 3773670854,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-061.png",
+          "bytes": 58586,
+          "sha256": "2ded7ab2d04fa35bb8d55b84fe120e30bce288a56070a7f2b9dbe3735e2ea3be",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 62,
+        "callbackWallTime": 2677,
+        "mediaTime": 2.36,
+        "presentedFrames": 65,
+        "presentationTime": 2677,
+        "expectedDisplayTime": 2709.7,
+        "labelSignature": 3298220462,
+        "spriteSignature": 134532779,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-062.png",
+          "bytes": 58483,
+          "sha256": "4995fc654f379a4e2b1ea9b9ef755c7750125dfd7a5ba7b1630d33ee03b0e0f3",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 63,
+        "callbackWallTime": 2711.5,
+        "mediaTime": 2.427,
+        "presentedFrames": 66,
+        "presentationTime": 2711.5,
+        "expectedDisplayTime": 2744.1,
+        "labelSignature": 4033202339,
+        "spriteSignature": 2771860280,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-063.png",
+          "bytes": 56486,
+          "sha256": "cb3af46858a1d77bfedc956dadab25193435f82803be16ec912e06913167571b",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 64,
+        "callbackWallTime": 2744.5,
+        "mediaTime": 2.46,
+        "presentedFrames": 67,
+        "presentationTime": 2744.6,
+        "expectedDisplayTime": 2777.3,
+        "labelSignature": 318516583,
+        "spriteSignature": 3565501772,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-064.png",
+          "bytes": 58134,
+          "sha256": "3d3a073e1d383f0c84213128af3a1ebf446256e00ffd06e231713d069bbade68",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 65,
+        "callbackWallTime": 2779.8,
+        "mediaTime": 2.494,
+        "presentedFrames": 68,
+        "presentationTime": 2779.9,
+        "expectedDisplayTime": 2812.5,
+        "labelSignature": 2809857993,
+        "spriteSignature": 6493488,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-065.png",
+          "bytes": 57153,
+          "sha256": "e0031584ca73f37f85e859a8c54981708e66104e80da13e8e3bcc6cab89bdb00",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 66,
+        "callbackWallTime": 2813.3,
+        "mediaTime": 2.527,
+        "presentedFrames": 69,
+        "presentationTime": 2813.3,
+        "expectedDisplayTime": 2845.9,
+        "labelSignature": 3468998452,
+        "spriteSignature": 2198654374,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-066.png",
+          "bytes": 57032,
+          "sha256": "97fcc2b50c364af731817aed2dbab5dc547690309300485e7b26debd3c4fa065",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 67,
+        "callbackWallTime": 2847.3,
+        "mediaTime": 2.558,
+        "presentedFrames": 70,
+        "presentationTime": 2847.3,
+        "expectedDisplayTime": 2879.9,
+        "labelSignature": 779637879,
+        "spriteSignature": 1899139246,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-067.png",
+          "bytes": 56967,
+          "sha256": "83a58e94be2ce8e61ac5b1b90aa97db4a946465745809df916a4c6341b18d9ae",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 68,
+        "callbackWallTime": 2880.6,
+        "mediaTime": 2.592,
+        "presentedFrames": 71,
+        "presentationTime": 2880.8,
+        "expectedDisplayTime": 2913.4,
+        "labelSignature": 3123830092,
+        "spriteSignature": 4158784257,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-068.png",
+          "bytes": 54730,
+          "sha256": "51dbbb55742641087fe4508d4ae56d50a41c4f77a784f35f52c53363fb85616a",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 69,
+        "callbackWallTime": 2914.9,
+        "mediaTime": 2.626,
+        "presentedFrames": 72,
+        "presentationTime": 2915,
+        "expectedDisplayTime": 2947.6,
+        "labelSignature": 1058876529,
+        "spriteSignature": 2829224044,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-069.png",
+          "bytes": 54747,
+          "sha256": "ea7b13cb505f4d4d0c634a8b3bf9ae547ee6f2fb81fb7ef687f260c3f55408bf",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 70,
+        "callbackWallTime": 2946,
+        "mediaTime": 2.657,
+        "presentedFrames": 73,
+        "presentationTime": 2946.1,
+        "expectedDisplayTime": 2978.8,
+        "labelSignature": 4230654642,
+        "spriteSignature": 1810430361,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-070.png",
+          "bytes": 54650,
+          "sha256": "35bcbca179191c06688d3ec7bcd29a119f73f4861c6dfb13513b5401e614d71c",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 71,
+        "callbackWallTime": 2979.4,
+        "mediaTime": 2.69,
+        "presentedFrames": 74,
+        "presentationTime": 2979.4,
+        "expectedDisplayTime": 3012,
+        "labelSignature": 2655794515,
+        "spriteSignature": 1940613862,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-071.png",
+          "bytes": 54416,
+          "sha256": "17bb363637809b1f6952fa191a78d5fb0ee87b112e1f452096aabbc2d9f17a51",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 72,
+        "callbackWallTime": 3013.5,
+        "mediaTime": 2.729,
+        "presentedFrames": 75,
+        "presentationTime": 3013.6,
+        "expectedDisplayTime": 3046.3,
+        "labelSignature": 2224295231,
+        "spriteSignature": 3529484466,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-072.png",
+          "bytes": 53286,
+          "sha256": "4ef432dd4077e1e3628f5a7015ad974abd0a7a792ddd5f4cd56a7c6fb8a50068",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 73,
+        "callbackWallTime": 3046.5,
+        "mediaTime": 2.762,
+        "presentedFrames": 76,
+        "presentationTime": 3046.5,
+        "expectedDisplayTime": 3079.2,
+        "labelSignature": 1378510594,
+        "spriteSignature": 4069287792,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-073.png",
+          "bytes": 53172,
+          "sha256": "ffc2c4fb2c5fe4888db98ae351054830ed96380265d5ed8e673780a53dd64bdc",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 74,
+        "callbackWallTime": 3110.8,
+        "mediaTime": 2.797,
+        "presentedFrames": 77,
+        "presentationTime": 3110.9,
+        "expectedDisplayTime": 3143.5,
+        "labelSignature": 1665676173,
+        "spriteSignature": 3768153851,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-074.png",
+          "bytes": 52739,
+          "sha256": "f12d293fc824b7095d2f9d3b13dcbdda6929cb7f769fcc9967e247c2a866dbcc",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 75,
+        "callbackWallTime": 3144.2,
+        "mediaTime": 2.858,
+        "presentedFrames": 78,
+        "presentationTime": 3144.3,
+        "expectedDisplayTime": 3177,
+        "labelSignature": 1643328805,
+        "spriteSignature": 863227633,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-075.png",
+          "bytes": 52613,
+          "sha256": "0edcdcdead48b2e0a42e07765b6a32ca411311261250563d3e337d8a1bf17a42",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 76,
+        "callbackWallTime": 3176.9,
+        "mediaTime": 2.892,
+        "presentedFrames": 79,
+        "presentationTime": 3177,
+        "expectedDisplayTime": 3209.7,
+        "labelSignature": 379964843,
+        "spriteSignature": 2131107640,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-076.png",
+          "bytes": 54200,
+          "sha256": "003564aecc9549710e310bbf968e0d4bff025f7a1713cc67cbca55fd8a8593b1",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 77,
+        "callbackWallTime": 3210.1,
+        "mediaTime": 2.921,
+        "presentedFrames": 80,
+        "presentationTime": 3210.3,
+        "expectedDisplayTime": 3242.9,
+        "labelSignature": 1216361471,
+        "spriteSignature": 450302906,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-077.png",
+          "bytes": 54140,
+          "sha256": "3065a92e419f593dd6c7efb070cada7a488ec7137f2fe3174375062c4f6f59b6",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 78,
+        "callbackWallTime": 3243.5,
+        "mediaTime": 2.957,
+        "presentedFrames": 81,
+        "presentationTime": 3243.5,
+        "expectedDisplayTime": 3276.2,
+        "labelSignature": 1147910389,
+        "spriteSignature": 450302906,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-078.png",
+          "bytes": 54127,
+          "sha256": "6493b7af6bc9c21c9604c21788fcbb9143dfcef21b571700ffc71b591568c84a",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 79,
+        "callbackWallTime": 3277.8,
+        "mediaTime": 2.992,
+        "presentedFrames": 82,
+        "presentationTime": 3277.8,
+        "expectedDisplayTime": 3310.5,
+        "labelSignature": 2214276156,
+        "spriteSignature": 450302906,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-079.png",
+          "bytes": 54107,
+          "sha256": "26374e29768b74d5b5b96e09bbaa89a0044a07cdeb157fe0f192bdc969f6facb",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 80,
+        "callbackWallTime": 3344.7,
+        "mediaTime": 3.027,
+        "presentedFrames": 83,
+        "presentationTime": 3344.8,
+        "expectedDisplayTime": 3377.4,
+        "labelSignature": 3592880092,
+        "spriteSignature": 450302906,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-080.png",
+          "bytes": 54133,
+          "sha256": "abba5e20dc6e71efaa2ccd0da2b938daf69d25d34b83dabe82ff00f416672e00",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 81,
+        "callbackWallTime": 3377.5,
+        "mediaTime": 3.092,
+        "presentedFrames": 84,
+        "presentationTime": 3377.6,
+        "expectedDisplayTime": 3410.2,
+        "labelSignature": 357486464,
+        "spriteSignature": 450302906,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-081.png",
+          "bytes": 54137,
+          "sha256": "053d3002abeba0e81b9bd72cdaf13b0cd06486dbe90bdb4ebdb77cb5f81597d7",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      },
+      {
+        "sequence": 82,
+        "callbackWallTime": 3411.9,
+        "mediaTime": 3.126,
+        "presentedFrames": 85,
+        "presentationTime": 3412,
+        "expectedDisplayTime": 3444.7,
+        "labelSignature": 1981021041,
+        "spriteSignature": 450302906,
+        "backgroundRoiMeanRgb": [
+          24,
+          132,
+          117
+        ],
+        "maxBackgroundChannelDeviation": 1,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/presented-082.png",
+          "bytes": 54125,
+          "sha256": "f01c2a2b546a8054e3c852f0dbbb8999fbf4777bbf2a7a39f4d41103ec1b72c1",
+          "kind": "actual-presented-recorded-label-and-sprite-native-roi"
+        }
+      }
+    ],
+    "sheets": [
+      {
+        "firstCallback": 0,
+        "lastCallback": 29,
+        "width": 1250,
+        "height": 1742,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/contact-sheet-0.png",
+          "bytes": 1322978,
+          "sha256": "257a1f5866540bfdbbd08f69e6490375278c0fabaa34d40364b4cdbc909519ed",
+          "kind": "actual-presented-native-roi-contact-sheet"
+        }
+      },
+      {
+        "firstCallback": 30,
+        "lastCallback": 59,
+        "width": 1250,
+        "height": 1742,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/contact-sheet-1.png",
+          "bytes": 828310,
+          "sha256": "810e02e0df4e0518564b8089eba6731531c179072acce257d991082a000fb31c",
+          "kind": "actual-presented-native-roi-contact-sheet"
+        }
+      },
+      {
+        "firstCallback": 60,
+        "lastCallback": 82,
+        "width": 1250,
+        "height": 1460,
+        "snapshot": {
+          "file": "evidence/current/tiger-vanguard/composite-playback/2026-10-14T01-07-09-754Z/contact-sheet-2.png",
+          "bytes": 580193,
+          "sha256": "d64b61a243b7b7f7cb1b8ebb602bb9ee7cca9185e21649fdf1cbeb8de5fa8552",
+          "kind": "actual-presented-native-roi-contact-sheet"
+        }
+      }
+    ],
+    "labelRoi": {
+      "x": 182,
+      "y": 260,
+      "width": 200,
+      "height": 72
+    },
+    "spriteRoi": {
+      "x": 158,
+      "y": 332,
+      "width": 225,
+      "height": 175
+    },
+    "backgroundRoi": {
+      "x": 80,
+      "y": 540,
+      "width": 24,
+      "height": 24
+    },
+    "samplerClearedPerCallback": true,
+    "noSeeking": true,
+    "continuousPlaybackEnded": true,
+    "callbackCountNotFps": 83,
+    "firstObservedMediaTime": 0.061,
+    "lastObservedMediaTime": 3.126,
+    "maxObservedMediaGapSeconds": 0.07,
+    "burnedLabelsAutomaticallyRecognized": false,
+    "spritePixelIdentityRecognitionPerformed": false,
+    "allEncodedFramesObservedApproved": false,
+    "zeroDroppedFramesApproved": false
+  },
+  "checks": {
+    "exactImmutableRecording": true,
+    "normalRateNoSeekRealEnded": true,
+    "monotonicObservedMediaTimes": true,
+    "nativeRecordedPixelsSavedPerObservedCallback": true,
+    "samplerCleared": true,
+    "historicalBackgroundRoiPresent": true,
+    "noErrorsOrExternalNetwork": true
+  },
+  "contextClosed": true,
+  "browserClosed": true,
+  "protectedAfter": {
+    "prototype-2d/native-app.js": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+    "prototype-2d/src/audio.js": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "prototype-2d/src/bear-animation.js": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+    "prototype-2d/src/bull-animation.js": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4",
+    "prototype-2d/src/content.js": "7af8cfe07b8aea17ae4c2220918aefad7b97cc7bb547650e0f131e617af07f87",
+    "prototype-2d/src/deer-animation.js": "7fca4fc497bd38abe62afc1b3f051001888195035e22573a5b7e323d5988653b",
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/hawk-animation.js": "60e7cb55d6c2966223d54145af3134e4507a449a976fbc4a5c962a3a6dde0285",
+    "prototype-2d/src/monkey-animation.js": "99dec7c46f8615d09e9c9fd0381c7e8ebdb9e41504c9f5a41a5a59fa598e1fc6",
+    "prototype-2d/src/native-ui.js": "dd84edca168df81681667b76e897f54b347c42486166a72b1c143bcd2bcbbe5c",
+    "prototype-2d/src/progression.js": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/src/snake-animation.js": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13",
+    "prototype-2d/src/tiger-animation.js": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+    "prototype-2d/src/wolf-animation.js": "e677a1be849717d0790715b08a8fb8a4b76aff27e24930c7e8962f3e8574e85e",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "scripts/serve.mjs": "300f782732b7bde8590abe40a3c20feab92d4705432386967fd298430f6713d7",
+    "scripts/release.mjs": "4134cd0ccb13c27e940793bff3860eb3d0ab092a0fe542aa48ffa1f2b53a53de",
+    "scripts/runtime-frame-contract.mjs": "22793d976f92b1d9d0c3310c985c4ac41c0d9e02432bff576ba6dfc15b522f84",
+    "prototype-2d/assets/artifact-diamond-snare.svg": "c0dd49e0d324d509573fccb0c847e63e69d014a375998143d768375bb7d7601d",
+    "prototype-2d/assets/artifact-golden-rope.svg": "2f7c85de5bf3ea8396002def45bebf18775380e6aa75b4262b2d3b951a48c0f7",
+    "prototype-2d/assets/artifact-iron-fan.svg": "60c256224ee13f5cf1eea868938bba3f8a6eefdea04502a1a9999601839b8347",
+    "prototype-2d/assets/artifact-lotus-lantern.svg": "61f888c1dd2425ff01127ee979bdb4241a6c171e5b7ab400cb64dc2c7bb2d528",
+    "prototype-2d/assets/artifact-moon-mirror.svg": "83c28876e88f5c6c6c0703db3a7ee334291b16f6c6c851d5d36bef1f5e69f2cd",
+    "prototype-2d/assets/artifact-nine-dragon.svg": "208984a5b25c26b18cf470c1e11e0193e26cef1eb96113207590f93b3e3b1dc5",
+    "prototype-2d/assets/artifact-purple-gourd.svg": "efc7b02dd2ad6991b5093fedef0e8447c44485c849d3ef4918f3739db5688a65",
+    "prototype-2d/assets/artifact-samadhi-fire.svg": "cb6011a7b5298253fe9a91d92c39b4ba027f2aa10cb803224089cd829514fcaf",
+    "prototype-2d/assets/enemy-bear-battle-v1-frames.json": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+    "prototype-2d/assets/enemy-bear-battle-v1-sheet.png": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+    "prototype-2d/assets/enemy-bird.svg": "0cdfbb376fef61809681e8a1c346ffcd079514721d8f31a1a5f4197b9908a580",
+    "prototype-2d/assets/enemy-boss-kr-v1.png": "15f5393abf19e83b2d0087d4ac0a068c5cec4ae45d740798cb5ec8c2807d8601",
+    "prototype-2d/assets/enemy-boss.svg": "3878f941259a93790631307e0102600d8734326d9b529f4fb2b6cb5ac5cb48ee",
+    "prototype-2d/assets/enemy-brute-kr-v1.png": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d",
+    "prototype-2d/assets/enemy-brute.svg": "625c5abc3730e7e176c8948d1da1524176f0b2e2c92f80156225ea23ed9bcb1c",
+    "prototype-2d/assets/enemy-bull-battle-v1-frames.json": "e32da6acfc9bbea64ffb74b6cfb06e30e736b7f2c042c1d8949348e506b11527",
+    "prototype-2d/assets/enemy-bull-battle-v1-sheet.png": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+    "prototype-2d/assets/enemy-creature-kr-v1.png": "5eb03be680a6e4a7b8aba3b53695d7eb22c2c5f19c1a31a710c711743ba8d102",
+    "prototype-2d/assets/enemy-creature.svg": "aea810adc49f2f2cfddf3b75f035bc4db4b1671f61278d00b322ffdfa827954f",
+    "prototype-2d/assets/enemy-deer-battle-v1-frames.json": "6bf255f4f3823b089585a3eeaed3534b9ac283660e863b72cb71035490cbe927",
+    "prototype-2d/assets/enemy-deer-battle-v1-sheet.png": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
+    "prototype-2d/assets/enemy-hawk-battle-v1-frames.json": "c2ac21f266056a976425e37a7e24e34fba6b7a1269d592da3354ca49ef6d60ec",
+    "prototype-2d/assets/enemy-hawk-battle-v1-sheet.png": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7",
+    "prototype-2d/assets/enemy-monkey-battle-v1-frames.json": "46dcb42789e67c95d640f26578d799c2c3e831bce062f9417d2dc2d0f097c21c",
+    "prototype-2d/assets/enemy-monkey-battle-v1-sheet.png": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44",
+    "prototype-2d/assets/enemy-snake-battle-v3-frames.json": "5c75ff4ebfdd765c0fbe3b1087b992426b708ca7634e370a6b984690e201ca70",
+    "prototype-2d/assets/enemy-snake-battle-v3-sheet.png": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+    "prototype-2d/assets/enemy-spider.svg": "575571fed6c63d3050ff0a60c86f1293501f6399f23448ba14661f99dbd8b5dd",
+    "prototype-2d/assets/enemy-tiger-battle-v1-frames.json": "b66e62a1a40b00e36711523621c94d1b73b33a05f71ee46ec2094b4ae007156d",
+    "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+    "prototype-2d/assets/enemy-wolf-battle-v1-frames.json": "777a2f232307a23bbda913feb17aec2ac680c10528c3f29bf1fe0e98823d4637",
+    "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299",
+    "prototype-2d/assets/generate-art-assets.mjs": "d56eb58a8fc8c5843f27465e3be6150830a4dc03488885056c9e8d07cd888fa3",
+    "prototype-2d/assets/hero-bajie-battle-v3-sheet.png": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b",
+    "prototype-2d/assets/hero-bajie.svg": "19eb81b91664409d54619eb3aefe48fe2add07b880a160c3d4756dd6ad2ad56a",
+    "prototype-2d/assets/hero-battle-v2-atlas.png": "589412a2857dcb34ef828cee24e31abb94acb8a3b6b8e37813051b06e03e8565",
+    "prototype-2d/assets/hero-cards-v1.png": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+    "prototype-2d/assets/hero-cards-v2-comic.png": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad",
+    "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61",
+    "prototype-2d/assets/hero-tangseng-kr-v1.png": "162fdcbbf62ba747e0cc9c8f6c89e695b2b0a6e5aabc74455e5d1705918b0a4f",
+    "prototype-2d/assets/hero-tangseng.svg": "481bd327822e262287684750ffee74316de807236b97cb7758815d6a3cc1335d",
+    "prototype-2d/assets/hero-wujing-battle-v3-sheet.png": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "prototype-2d/assets/hero-wujing.svg": "d78054b2dcdedfc127ddbd8a7bcfe5db7315d13e034b5d934cca7b6c8c0c81f6",
+    "prototype-2d/assets/hero-wukong-battle-v3-sheet.png": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+    "prototype-2d/assets/hero-wukong.svg": "0121755c5ed96abf2508d3ef8fb77804ac8e2e103d284f75d1403c7c8b9b732d",
+    "prototype-2d/assets/map-doublefork-high-ridge-v1.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-doublefork-v2-optimized.png": "e014fafd243bf430aa48d58634879a3077ba67697d1ad3b3f27262dd35e5a8e5",
+    "prototype-2d/assets/map-doublefork-v2.png": "690363b6757576103190cc6a7461f0231fbfe79c158381dfbb637cc7b8dde12b",
+    "prototype-2d/assets/map-doublefork-v3-optimized.png": "20174da20cf3df773f6f0665e928e06fe3ed73f9d40b81154649dce7455d9530",
+    "prototype-2d/assets/map-doublefork-v3.png": "79d3c48b57d319ff2b56c21b16e5ad207423f181fd4c119a0aadc9517bf866ca",
+    "prototype-2d/assets/map-doublefork-v4-high-ridge-candidate.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-forest-qv1.png": "2944c17b771ad04a2c0205722f72df6a6126bae5f6ebf2e3aac1b1485bb50f23",
+    "prototype-2d/assets/map-temple-qv1.png": "1d7627c6153e2583842821ca5b2fa9c36027a85fe2b888f440e4e1c58f067ef9",
+    "prototype-2d/assets/README.md": "f2db10e10df7573a3e8fc2855cb8433dca35a121515dd278558a3dc86cbabbdc",
+    "prototype-2d/assets/theme-fire.svg": "8669bc3310052658aa37623537ca37ef7a51d690521f604cf66f309c2b55a11d",
+    "prototype-2d/assets/theme-forest.svg": "aa116a57c9776189afbec44ef88be18f8ea21e423b9ce1a59feb6dcc2be25558",
+    "prototype-2d/assets/theme-sand.svg": "6a0ee4411722136d48ffeeac040bf78c255b94f1602b430a99d443fbd2c65604",
+    "prototype-2d/assets/theme-snow.svg": "56e23a7e861e54d309680469dfc5dd6d3c99206dc2a1ae45d4ef061650ff0997",
+    "prototype-2d/assets/theme-temple.svg": "ebc4f5149d7fe5064a03a0db5610af77e6e90848c1a0e1b52e984e780aa0bf8e",
+    "prototype-2d/assets/theme-water.svg": "399b5a854be22e373806fc4711d6392fa27f370eb1435eaf82162b897a19f093",
+    "prototype-2d/assets/weapon-skill-bajie.svg": "67b0841a9ad517ea9f7a83ef8c669f1d632f9df8796a32656c73f5773d0ec737",
+    "prototype-2d/assets/weapon-skill-tangseng.svg": "3bcf292f0e0c5de76f80573dc55eb8883142efcd48186d3981a31383289684a3",
+    "prototype-2d/assets/weapon-skill-wujing.svg": "baff2be3abbe0e1637457f0600c8a9f7e8bc0c7993d56075c79be19209d9582e",
+    "prototype-2d/assets/weapon-skill-wukong.svg": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27",
+    "prototype-2d/assets/xiyou-art-preview.png": "6517fd98be3b7cc81c4bd9e8a3a54d5371c8355eca4722102d78e5732655b9d0",
+    "prototype-2d/assets/xiyou-art-preview.svg": "c0f540a2b4b2021036a49d65d76e095643df74073a296527028e9f3f87372b2a",
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+    "evidence/current/tiger-vanguard/candidate-v1-sheet.png": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+    "evidence/current/tiger-vanguard/candidate-v2-sheet.png": "03fadd27018012715d083fb92206dd7eb0967e54adaff84b45d6442cb1492e62",
+    "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/candidate-v1-three-frame-patch.png": "e04bdf485aae996872827efe6ad8ef9e575eb7671a7e101f70c5c8f54b510e5a",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+    "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/motion-draft.json": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/browser.json": "e7ac769f559981378af83df02e8dade496d07e015652f5ee6e77d749f1c4d87c",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/incontext-dynamic-overlay.webm": "bbb1880278853b09c4547e5ffe2e03eaa1f33ef3aca045ddfa47274dc99b9a7d",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/battle-scene-base-paused.png": "6c203a3b82f093e562db5e404c80e420ed99a95604bc9b4724226efd24c62f9f",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/dynamic-idle.png": "8513045f1d766e79e5bc5a52d70b0ee2ad6e029a71ed430ee84878025665d447",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/dynamic-move.png": "ed9f61f4d8a9e9c1fd4c3828859d6007c7f6c35d3aa923691907a7d8ae3895ca",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/dynamic-attack.png": "9414c8ef832f0cfba301ae3ae7627734594de1f77bfe70573fbe75474b237966",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/dynamic-hit.png": "21ffc6d00d35249c2f6cc6ad2dc767481537a3d0f110eb91542b0b178e20e033",
+    "evidence/current/tiger-vanguard/incontext-dynamic/2026-10-13T15-47-17-378Z/dynamic-death.png": "9568f75af5c708997dfe323357996b8a2e74b218ca727480831d9b05f0c6d5d4",
+    "scripts/browser-tiger-vanguard-incontext-dynamic.mjs": "6e08f4d2e7eaf9a4feae99e46520716c4d00741b58919b0e049d3db68c3f1ab6",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/browser.json": "583ad3a56b2762cf6f82bc73990f9e99daaed96e84ecedb9ac9a2f3862551929",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/decoded-idle.png": "0fccd9addf3a2216e15b01880e11eeef95813c5b0fd82daa799236566b688ffa",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/decoded-move.png": "67ee8524d37bbb63a21be04386e9707aeda887d52277ffc95e55f13ee5099ab4",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/decoded-attack.png": "a86d26380fe81e4455e0e50eb7629f92a6cce82cde066328c69b7e07c9dfbd1d",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/decoded-hit.png": "a6da036e300fda9daa01fb76b087c5e223f0719f882938134a2e2b0caf7b794c",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/decoded-death.png": "4fe505339fa4c633703c8a8fdfbb21af28f6e4b6874888db1e568e62e04cd248",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/decoded-death-tail.png": "c1f66c1ec06b96a33dad6b85a85a7e0a73d410e4cd460c4b79b2dc7cc24e924a",
+    "evidence/current/tiger-vanguard/incontext-decode/2026-10-14T00-39-29-649Z/decoded-contact-sheet.png": "dab7f97bd9074f3e041afe94a9528ac3a4361f6b0230687a7fabfaf527537e62",
+    "scripts/browser-tiger-vanguard-incontext-decode.mjs": "0dc078d51b76d8d5659a4112e818f7ae4da09b9bdf412fc0e994055fb5cd4068",
+    "evidence/current/tiger-vanguard/incontext-playback/2026-10-14T00-47-59-083Z/browser.json": "2340abd01070646d4885e637b8cb735023539806fb9badf1dac56984a2d3856c",
+    "scripts/browser-tiger-vanguard-recording-playback.mjs": "e0932f9ebbdc89afa9967f3720f53d905dcb0fb6e86502d124175b75706b0338",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/browser.json": "13612e911efa2a7c74f3d13129372715188082ac13137cddb053af2d8dde7839",
+    "scripts/browser-tiger-vanguard-composite-preview.mjs": "b79d2db336deabd6e05b38f763acfa41c78a662f23d6e1c5b7937782ba94cc5d",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/frozen-scene-full32-composite.webm": "01ba53ecb59c55549d57a740d3b3134640654df0ef06368338fe063a56df67e8",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/fixture-0.png": "972ad578cde04e3d700a2db461304254dddc6a0ebca8ec132106449979134a2c",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/fixture-7.png": "0c8723e7867e23104a869f531756b6e75cc63bc987a4eeb25e7e57efcabad486",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/fixture-13.png": "a89814dff37f6176cfa582320619cc282dd1a258a19a6b3de8d631a637c5bbe8",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/fixture-19.png": "eb8eeed7f1a8a17e1093b83b63f20fffc1448bbf0f79b93e9fbcf05b4c20676a",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/fixture-25.png": "bf42b3d47955bf4fbbfe7bd9f34bcf005bab1b5e0975b86d0172fabbcc1a07d2",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/fixture-31.png": "9df8b403a573552deeadd0e6ebf9546be0fbfe07ed7de3e7130994a608c6ae23",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/decoded-0.png": "ae4b15e171d66fdcafc795c7e171d82cbb8ff8ab35729e92ff72ebd63d0fb75e",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/decoded-1.png": "e2ec8b75c8cdaf964d488137d093fd95d7d51e4e336df86edb107a1fb4ff2dc3",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/decoded-2.png": "1c630d9b28fbbabb5abaee2ec55019341f0b0792979ac522a7330dbf216f5869",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/decoded-3.png": "029a10f664db7ba6be67d6c3d87d4761cc1c03364b4c21c3900872b894c7517e",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/decoded-4.png": "3929b81705c0eded1446495abe4b670dc917edc8cb56c4bd507f28f8b7145149",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/decoded-5.png": "6a0e3e5f1ba9a45a1337992cd05639653aa535ea121614c5b2f4cb5685b7bdea",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/decoded-6.png": "cbf2420186b8828cb0f84c71d84d0750bb40d5a39c43a493bb4cd8f53bd2737c",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/review.md": "07fda4c47528b3884641763a3a4bd5374c355bff28fb1d92ccb0a5483872dbe3",
+    "evidence/current/tiger-vanguard/composite-preview/2026-10-14T00-56-08-837Z/handoff.json": "2d6dfa6a049e24899a9a2dc5f99779c628aab83bfe85f1227f93360fc7f9360a"
+  },
+  "protectedUnchanged": true,
+  "finishedAt": "2026-10-14T01:07:14.817Z"
+}

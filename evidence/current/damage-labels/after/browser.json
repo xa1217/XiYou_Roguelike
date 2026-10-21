@@ -1,0 +1,191 @@
+{
+  "generatedAt": "2026-10-11T05:22:28.377Z",
+  "phase": "after",
+  "result": "PASS",
+  "url": "http://127.0.0.1:8088/",
+  "scope": "local workspace real Edge; damage-label paint order only; not public internet, package, global occlusion or device approval",
+  "inputs": {
+    "prototype-2d/src/renderer.js": "6146169a3bbfdbfb19f1f80569656ba90ae7707e402d7145d05e910dc0e92874",
+    "prototype-2d/src/engine.js": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+    "scripts/browser-damage-label-smoke.mjs": "f782dbb338b16df4254ffcbc50ac839567c8e27a4bc97df840a9eab2b80750d4"
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "screenshots": [
+    {
+      "file": "evidence/current/damage-labels/after/natural-damage.png",
+      "bytes": 39948,
+      "sha256": "6ec5980515f9ec7441382c8806e025df58b468575be55a5fae19dea724e7b593"
+    },
+    {
+      "file": "evidence/current/damage-labels/after/label-fixture.png",
+      "bytes": 18541,
+      "sha256": "b1a053c70bc7c1be4d93f5a651fedaf20cbb056323f89a70006b837bf490207b"
+    }
+  ],
+  "browser": "155.0.4283.45",
+  "natural": {
+    "mode": "UI then legal-input accelerated production simulation; no forced damage or state mutation",
+    "sample": [
+      {
+        "x": 1102.6959062170242,
+        "y": 516.0497638038029,
+        "damage": 28,
+        "ttl": 1.25,
+        "maxTtl": 1.25,
+        "color": "#fff3b8",
+        "critical": false,
+        "size": 17
+      }
+    ],
+    "steps": 60,
+    "gameTime": 3.0226999999880766,
+    "status": "playing",
+    "battleArtMode": "authoredFrames",
+    "battleSceneMode": "vector",
+    "mapAssetDraws": 0
+  },
+  "fixture": {
+    "rows": [
+      {
+        "text": "23",
+        "critical": false,
+        "life": 1,
+        "textOnTop": true,
+        "burstBeforeText": true,
+        "outlineWidth": 2.799999952316284,
+        "valuePreserved": true,
+        "inputUnchanged": true,
+        "paintOrder": [
+          "fill",
+          "stroke",
+          "strokeText",
+          "fillText"
+        ]
+      },
+      {
+        "text": "23",
+        "critical": false,
+        "life": 0.5,
+        "textOnTop": true,
+        "burstBeforeText": true,
+        "outlineWidth": 2.799999952316284,
+        "valuePreserved": true,
+        "inputUnchanged": true,
+        "paintOrder": [
+          "fill",
+          "stroke",
+          "strokeText",
+          "fillText"
+        ]
+      },
+      {
+        "text": "105",
+        "critical": true,
+        "life": 1,
+        "textOnTop": true,
+        "burstBeforeText": true,
+        "outlineWidth": 3.5,
+        "valuePreserved": true,
+        "inputUnchanged": true,
+        "paintOrder": [
+          "fill",
+          "stroke",
+          "strokeText",
+          "fillText"
+        ]
+      },
+      {
+        "text": "105",
+        "critical": true,
+        "life": 0.5,
+        "textOnTop": true,
+        "burstBeforeText": true,
+        "outlineWidth": 3.5,
+        "valuePreserved": true,
+        "inputUnchanged": true,
+        "paintOrder": [
+          "fill",
+          "stroke",
+          "strokeText",
+          "fillText"
+        ]
+      },
+      {
+        "text": "0.8",
+        "critical": false,
+        "life": 1,
+        "textOnTop": true,
+        "burstBeforeText": true,
+        "outlineWidth": 2.799999952316284,
+        "valuePreserved": true,
+        "inputUnchanged": true,
+        "paintOrder": [
+          "fill",
+          "stroke",
+          "strokeText",
+          "fillText"
+        ]
+      },
+      {
+        "text": "0.8",
+        "critical": false,
+        "life": 0.5,
+        "textOnTop": true,
+        "burstBeforeText": true,
+        "outlineWidth": 2.799999952316284,
+        "valuePreserved": true,
+        "inputUnchanged": true,
+        "paintOrder": [
+          "fill",
+          "stroke",
+          "strokeText",
+          "fillText"
+        ]
+      },
+      {
+        "text": "999",
+        "critical": true,
+        "life": 1,
+        "textOnTop": true,
+        "burstBeforeText": true,
+        "outlineWidth": 3.5,
+        "valuePreserved": true,
+        "inputUnchanged": true,
+        "paintOrder": [
+          "fill",
+          "stroke",
+          "strokeText",
+          "fillText"
+        ]
+      },
+      {
+        "text": "999",
+        "critical": true,
+        "life": 0.5,
+        "textOnTop": true,
+        "burstBeforeText": true,
+        "outlineWidth": 3.5,
+        "valuePreserved": true,
+        "inputUnchanged": true,
+        "paintOrder": [
+          "fill",
+          "stroke",
+          "strokeText",
+          "fillText"
+        ]
+      }
+    ],
+    "note": "same 8 production-renderer samples before/after; normal/critical/integer/decimal at two lifetimes"
+  },
+  "checks": {
+    "naturalDamageObserved": true,
+    "mapModes": true,
+    "textOnTop": true,
+    "originalValuesAndOutline": true,
+    "noErrors": true
+  },
+  "browserClosed": true,
+  "finishedAt": "2026-10-11T05:22:30.930Z"
+}

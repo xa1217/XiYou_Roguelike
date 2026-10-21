@@ -1,0 +1,238 @@
+{
+  "checkedAt": "2026-10-14T06:39:10.583Z",
+  "result": "FAIL",
+  "scope": "Root offline recomputation only; not a completed independent-agent audit or new browser run.",
+  "browserFile": "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/browser.json",
+  "browserSha256": "9136f138dda131e6db5751282c1883ded40e5e4dfae826a0bb16f6998ec36a07",
+  "scriptSha256": "2c93f4971e1167a22549a875bdd52c601cc54dd8f8ef178c150a64f6e22af619",
+  "decodedPngCount": 9,
+  "recomputed": {
+    "main": {
+      "changedPixels": 5139,
+      "maxAbsChannelDelta": 243,
+      "bboxInclusive": {
+        "minX": 167,
+        "maxX": 260,
+        "minY": 362,
+        "maxY": 455
+      }
+    },
+    "playerLayer": {
+      "changedPixels": 0,
+      "maxAbsChannelDelta": 0,
+      "bboxInclusive": null
+    },
+    "playerSprite": {
+      "changedPixels": 0,
+      "maxAbsChannelDelta": 0,
+      "bboxInclusive": null
+    },
+    "candidate": {
+      "changedPixels": 0,
+      "maxAbsChannelDelta": 0,
+      "bboxInclusive": null
+    },
+    "outsidePlayerPaintSupport": 8,
+    "bodyAlphaOverlap": 4062,
+    "paintSupportPixels": 8449
+  },
+  "outsidePixels": [
+    {
+      "x": 191,
+      "y": 363,
+      "before": [
+        204,
+        145,
+        96,
+        255
+      ],
+      "after": [
+        203,
+        144,
+        96,
+        255
+      ],
+      "maxAbsChannelDelta": 1,
+      "beforeLayerAlpha": 0,
+      "afterLayerAlpha": 0,
+      "playerSpriteAlpha": 0,
+      "candidateAlpha": 253
+    },
+    {
+      "x": 176,
+      "y": 368,
+      "before": [
+        212,
+        175,
+        129,
+        255
+      ],
+      "after": [
+        211,
+        174,
+        128,
+        255
+      ],
+      "maxAbsChannelDelta": 1,
+      "beforeLayerAlpha": 0,
+      "afterLayerAlpha": 0,
+      "playerSpriteAlpha": 0,
+      "candidateAlpha": 251
+    },
+    {
+      "x": 182,
+      "y": 368,
+      "before": [
+        153,
+        67,
+        13,
+        255
+      ],
+      "after": [
+        152,
+        67,
+        13,
+        255
+      ],
+      "maxAbsChannelDelta": 1,
+      "beforeLayerAlpha": 0,
+      "afterLayerAlpha": 0,
+      "playerSpriteAlpha": 0,
+      "candidateAlpha": 252
+    },
+    {
+      "x": 176,
+      "y": 370,
+      "before": [
+        202,
+        171,
+        137,
+        255
+      ],
+      "after": [
+        201,
+        170,
+        136,
+        255
+      ],
+      "maxAbsChannelDelta": 1,
+      "beforeLayerAlpha": 0,
+      "afterLayerAlpha": 0,
+      "playerSpriteAlpha": 0,
+      "candidateAlpha": 252
+    },
+    {
+      "x": 213,
+      "y": 372,
+      "before": [
+        233,
+        193,
+        148,
+        255
+      ],
+      "after": [
+        232,
+        192,
+        147,
+        255
+      ],
+      "maxAbsChannelDelta": 1,
+      "beforeLayerAlpha": 0,
+      "afterLayerAlpha": 0,
+      "playerSpriteAlpha": 0,
+      "candidateAlpha": 252
+    },
+    {
+      "x": 214,
+      "y": 372,
+      "before": [
+        208,
+        161,
+        117,
+        255
+      ],
+      "after": [
+        207,
+        160,
+        117,
+        255
+      ],
+      "maxAbsChannelDelta": 1,
+      "beforeLayerAlpha": 0,
+      "afterLayerAlpha": 0,
+      "playerSpriteAlpha": 0,
+      "candidateAlpha": 252
+    },
+    {
+      "x": 168,
+      "y": 379,
+      "before": [
+        29,
+        145,
+        126,
+        255
+      ],
+      "after": [
+        29,
+        145,
+        127,
+        255
+      ],
+      "maxAbsChannelDelta": 1,
+      "beforeLayerAlpha": 0,
+      "afterLayerAlpha": 0,
+      "playerSpriteAlpha": 0,
+      "candidateAlpha": 5
+    },
+    {
+      "x": 236,
+      "y": 404,
+      "before": [
+        194,
+        97,
+        23,
+        255
+      ],
+      "after": [
+        193,
+        97,
+        23,
+        255
+      ],
+      "maxAbsChannelDelta": 1,
+      "beforeLayerAlpha": 0,
+      "afterLayerAlpha": 0,
+      "playerSpriteAlpha": 0,
+      "candidateAlpha": 253
+    }
+  ],
+  "playerCommandsEachMode": 50,
+  "sourceDrawAndPlayerCommandInvariantConfirmed": true,
+  "approvals": {
+    "humanMotionReviewed": false,
+    "rootApproved": false,
+    "healthBarLayoutApproved": false,
+    "playerReadabilityApproved": false,
+    "viewportEdgeApproved": false,
+    "statusBadgeGeometryUpdated": false,
+    "deathFeedbackObstaclesIntegrated": false,
+    "extremeMissingBarAt512Approved": false,
+    "attackEventSupported": false,
+    "attackPreviewed": false,
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "fpsAcceptance": false,
+    "publicPass": false,
+    "releaseReady": false,
+    "proxyEquivalentToActualMainPaintSupportProven": false
+  },
+  "limitations": [
+    "Transparent proxy alpha support is not proven equivalent to exact main-canvas paint support.",
+    "The new depth script uses per-command proxy getTransform/setTransform, not the stable baseline full original transform-chain mirror.",
+    "Only one before and one after main frame were captured in this run; no same-run A/A or B/B repeat control.",
+    "Full non-player main trace and initial native current-path/clip/stack equivalence are not proven.",
+    "No cause attributed to antialiasing, getImageData, GPU/CPU backend or draw order alone; threshold unchanged.",
+    "Real pointer UI followed by explicit 300-second/partial-subsystem fixture; not natural five-minute survival.",
+    "Single DPR1 hit26 pose, empty status badges, no death/attack/high-frame/FPS/public acceptance."
+  ]
+}

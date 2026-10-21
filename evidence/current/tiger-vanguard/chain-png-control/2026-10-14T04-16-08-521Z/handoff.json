@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-10-14 04:21:03 UTC",
+  "result": "EVIDENCE_BASELINE_REVIEW_ONLY_NOT_READY",
+  "evidenceDir": "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z",
+  "script": "scripts/browser-tiger-vanguard-chain-png-control.mjs",
+  "scriptSha256": "bbad11be3790f8b5228e419d9f26a4946046d2200cbb569c42c0420bf509619c",
+  "browserSha256": "19e342eb406f5310c70e840b34d9a872010925ed397429f1c6250824584f8a0b",
+  "browserResult": "REVIEW_EVIDENCE_ONLY_SAME_DEPTH_CHAIN_PNG_BASELINE",
+  "protectedFiles": 276,
+  "protectedChanged": [],
+  "oldFailureResults": [
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/browser.json",
+      "result": "FAIL",
+      "sha256": "2dd8a52966f50bd68af1a66995ea7aa6de8f1180df33c5a42233e961037509a5"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-browser.json",
+      "result": "FAIL",
+      "sha256": "bb68d2581256fe3caa2e212ae397d92dc75f0e77ab4669e1f5d968b28acdd020"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-detail-browser.json",
+      "result": "FAIL",
+      "sha256": "5f02002251719c9bef3c4198f6b6c0be8f2b22acf80d350ad0d4ba2f315d9b09"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/browser.json",
+      "result": "FAIL",
+      "sha256": "5a02e103726d2fc23531106ff9700d0a63ac64ad6bd2e922450e491fcc7c356e"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/browser.json",
+      "result": "FAIL",
+      "sha256": "89cf8cfe1680e62c207d364f3f31a7dc0cdc3f190892d6a9e8b6f1aa9b483a58"
+    }
+  ],
+  "mainAdjacentChangedPixels": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "proxyComparisons": {
+    "playerLayer": {
+      "frameIndices": [
+        4,
+        5,
+        6
+      ],
+      "alphaGreaterThanZeroCounts": [
+        8323,
+        8323,
+        8323
+      ],
+      "adjacentChangedPixels": [
+        0,
+        0
+      ]
+    },
+    "playerSprite": {
+      "frameIndices": [
+        4,
+        5,
+        6
+      ],
+      "alphaGreaterThanZeroCounts": [
+        7465,
+        7465,
+        7465
+      ],
+      "adjacentChangedPixels": [
+        0,
+        0
+      ]
+    },
+    "candidate": {
+      "frameIndices": [
+        4,
+        5,
+        6
+      ],
+      "alphaGreaterThanZeroCounts": [
+        10705,
+        10705,
+        10705
+      ],
+      "adjacentChangedPixels": [
+        0,
+        0
+      ]
+    }
+  },
+  "independentCountsMatch": true,
+  "npmTest": {
+    "startedAt": "2026-10-14 04:17:08 UTC",
+    "finishedAt": "2026-10-14 04:17:15 UTC",
+    "exitCode": 0,
+    "result": "PASS",
+    "command": "npm test",
+    "logFile": "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/npm-test.log",
+    "fullOutputCharacters": 49163,
+    "reusedHistoricalPass": false,
+    "browserOutcomeSeparate": true
+  },
+  "approvalFlags": {
+    "humanMotionReviewed": false,
+    "rootApproved": false,
+    "healthBarLayoutApproved": false,
+    "playerReadabilityApproved": false,
+    "viewportEdgeApproved": false,
+    "extremeMissingBarAt512Approved": false,
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "fpsAcceptance": false,
+    "publicPass": false,
+    "releaseReady": false,
+    "proxyEquivalentToActualMainPaintSupportProven": false
+  },
+  "rootVisualUniquePngsViewed": 5,
+  "totalPngsCoveredByExactBytes": 16,
+  "playerStillOccluded": true,
+  "publicRecheckPerformed": false,
+  "productionModified": false,
+  "assetsGeneratedOrModified": false,
+  "releasePackagesModified": false,
+  "depthRestoredThisTurn": false,
+  "noCausalBackendConclusion": true,
+  "nextSafeStep": "下一安全步：仅新增证据层“无额外main.getImageData、原玩家单次贴身深度对照”脚本，先在同一run保留同深度重复控制，再尝试原玩家路径延后至候选之后、反馈之前；不getter→setter回填矩阵，不新增第二次人物绘制。保存前后完整三proxy PNG、实际源参数/CTM/styles、数字/bar/engine/RNG/UI，关闭浏览器后精确解码；支持域外零变化及双方艺术可读性仍严格审查，任一FAIL保留匹配脚本，不放宽门槛、不接入/打包/部署。"
+}

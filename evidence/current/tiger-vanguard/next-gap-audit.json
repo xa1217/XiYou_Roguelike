@@ -1,0 +1,107 @@
+{
+  "generatedAt": "2026-10-12T20:01:35.2652365Z",
+  "result": "GAP_CONFIRMED",
+  "scope": "Read-only Tiger Vanguard v2 handoff audit; no asset generation, runtime integration, manifest edit, ZIP rebuild, deployment, or public acceptance.",
+  "sources": {
+    "handoffDocument": {
+      "path": "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md",
+      "lines": {
+        "v2Summary": 5,
+        "identityBoundary": 30
+      }
+    },
+    "v2Handoff": "evidence/current/tiger-vanguard/v2-handoff.json",
+    "v2AssetPreflight": "evidence/current/tiger-vanguard/asset-preflight-v2.json",
+    "v2BrowserPreflight": "evidence/current/tiger-vanguard/browser-candidate-v2-preflight.json"
+  },
+  "candidateV2": {
+    "path": "evidence/current/tiger-vanguard/candidate-v2-sheet.png",
+    "sha256": "03fadd27018012715d083fb92206dd7eb0967e54adaff84b45d6442cb1492e62",
+    "size": [1774, 887],
+    "bytes": 2101074,
+    "purpose": "Tiger Vanguard (虎先锋) 32-pose candidate only; evidence/preflight preview, not the ordinary tiger runtime atlas.",
+    "generationMode": "built-in imagegen; single serial call",
+    "preflight": {
+      "result": "REVIEW",
+      "uniqueFrames": 29,
+      "requiredFrames": 32,
+      "missingIndependentFrames": 3,
+      "rowFrameCounts": {
+        "idle": 8,
+        "move": 8,
+        "attack": 5,
+        "hit": 4,
+        "death": 8
+      },
+      "attackRowRegions": 5,
+      "checks": {
+        "transparentBackground": true,
+        "fourIsolatedRows": true,
+        "eightIsolatedFiguresPerRow": false,
+        "thirtyTwoDistinctFrames": false,
+        "allVisiblePixelsAccountedFor": true,
+        "noCanvasEdgeClipping": true
+      }
+    },
+    "browserPreflight": {
+      "decoded": true,
+      "distinctRenderedRegions": 29,
+      "pageErrors": 0,
+      "runtimeGameplay": false,
+      "runtimeApproved": false
+    },
+    "status": "REVIEW",
+    "runtimeApproved": false
+  },
+  "currentRuntimeArtifact": {
+    "sheet": {
+      "path": "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png",
+      "sha256": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+      "size": [1774, 887],
+      "bytes": 1166282,
+      "purpose": "Chapter 1 ordinary tiger only (stage1 + normal + tiger), 32 poses: idle8/move8/attack8/hit4/death4; not Tiger Vanguard or any boss."
+    },
+    "frameContract": {
+      "path": "prototype-2d/assets/enemy-tiger-battle-v1-frames.json",
+      "sha256": "b66e62a1a40b00e36711523621c94d1b73b33a05f71ee46ec2094b4ae007156d",
+      "size": [1774, 887],
+      "sourceRects": 32,
+      "approvedForRuntime": true,
+      "layout": "Irregular measured sourceRects; equal-grid slicing and per-frame stretch are forbidden."
+    },
+    "runtimeReferences": [
+      "prototype-2d/native-app.js:2,119-129 loads enemy-tiger-battle-v1-sheet.png plus its frame JSON and calls attachTigerFrames.",
+      "prototype-2d/src/tiger-animation.js:3-57 validates and draws the ordinary tiger contract.",
+      "prototype-2d/src/battle-enemy-animation.js imports tiger animation state selection.",
+      "scripts/serve.mjs:20 allowlists the v1 sheet and frame contract; public frame JSON is projected through runtime-frame-contract.mjs.",
+      "scripts/runtime-frame-contract.mjs:12 maps assets/enemy-tiger-battle-v1-frames.json to attachTigerFrames.",
+      "prototype-2d/assets/manifest.json:798-817 records the v1 asset, purpose, SHA, contract and runtime evidence; line 1006 includes the sheet in the release asset list."
+    ]
+  },
+  "candidateV2RuntimeReferences": {
+    "nativeLoader": false,
+    "publicAllowlist": false,
+    "runtimeFrameContract": false,
+    "manifestEntry": false,
+    "releaseAssetList": false,
+    "searchScope": "Repository paths excluding evidence/ and node_modules/ contain no candidate-v2-sheet or v2 SHA reference beyond the handoff document."
+  },
+  "minimumNextSafeStep": {
+    "action": "Do not generate a third repair immediately. Preserve both rejected candidates and evaluate a different asset layout strategy before any new serial generation.",
+    "requiredBeforeAnyGeneration": [
+      "Repeat SHA/size/purpose/runtime-reference dedup audit against existing assets.",
+      "Keep the new candidate in evidence/current/tiger-vanguard only until alpha/layout preflight proves 32 independent poses.",
+      "Do not bind the candidate by kind=elite and variant=tiger; Tiger Vanguard needs an independent birth identity from ordinary tiger, and bosses remain separate rigs.",
+      "Only after a candidate passes preflight may a separate runtime integration and real Edge gameplay gate be considered."
+    ],
+    "currentReleaseConclusion": "NOT_READY; v2 is not a release, public, ZIP, or gameplay PASS."
+  },
+  "mutationBoundary": {
+    "newAssetGeneratedThisAudit": false,
+    "runtimeModified": false,
+    "manifestModified": false,
+    "zipRebuilt": false,
+    "deployed": false,
+    "publicPassClaimed": false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "startedAt": "2026-10-14T03:57:19Z",
+  "finishedAt": "2026-10-14T03:57:26Z",
+  "command": "npm test",
+  "exitCode": 0,
+  "result": "PASS",
+  "scope": "Fresh workspace regression after the final main-readback evidence script and its failing real Edge control. It does not override repeat-PNG FAIL or approve depth, artistic/natural gameplay/high-frame/FPS/public/current-ZIP/device acceptance.",
+  "fullOutputFile": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/npm-test.txt",
+  "outputCharacters": 49163,
+  "originalTokenCount": 12295,
+  "outputTruncated": false,
+  "evidenceScriptSyntaxChecked": true,
+  "buildMayRefreshDerivedEntrypoints": true,
+  "releaseZipRebuilt": false,
+  "publicRetested": false,
+  "publicPass": false
+}

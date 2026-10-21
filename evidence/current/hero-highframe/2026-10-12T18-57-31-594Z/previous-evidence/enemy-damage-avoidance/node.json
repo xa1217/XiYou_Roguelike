@@ -1,0 +1,60 @@
+{
+  "ok": true,
+  "generatedAt": "2026-10-12T18:36:37.946Z",
+  "tests": [
+    {
+      "name": "ordinary, elite and boss labels leave finite body/health rectangles",
+      "result": "PASS"
+    },
+    {
+      "name": "authored and generic enemy obstacle buffers include health bars and reuse numeric slots",
+      "result": "PASS"
+    },
+    {
+      "name": "a distant label keeps its original position and does not count avoidance",
+      "result": "PASS"
+    },
+    {
+      "name": "crowded candidates fail closed and still draw the value",
+      "result": "PASS"
+    },
+    {
+      "name": "status badge placement remains compatible with moved damage rectangles",
+      "result": "PASS"
+    },
+    {
+      "name": "48-label bound, frozen input and repeated Canvas draws stay stable",
+      "result": "PASS"
+    }
+  ],
+  "totals": {
+    "tests": 6,
+    "passed": 6,
+    "failed": 0,
+    "repeatedFrozenFrames": 60
+  },
+  "runtime": {
+    "kind": "Node.js with deterministic Canvas command recording",
+    "nodeVersion": "v26.7.0"
+  },
+  "boundary": {
+    "realBrowser": false,
+    "pixelRendering": false,
+    "hudAvoidance": false,
+    "numberToNumberAvoidance": false,
+    "gpuPerformance": false,
+    "wechatDevice": false
+  },
+  "strategy": {
+    "obstacles": "authored/generic enemy body plus visible health bar",
+    "candidates": [
+      "above",
+      "left",
+      "right",
+      "below"
+    ],
+    "gap": 4,
+    "unresolved": "draw original label and count damageEnemyUnresolved"
+  },
+  "note": "Renderer-only finite enemy-body/health-bar avoidance. This is not a pixel, HUD, number-to-number, or global occlusion guarantee."
+}

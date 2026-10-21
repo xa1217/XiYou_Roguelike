@@ -1,0 +1,9 @@
+{
+  "capturedAt": "2026-10-10T12:32:58.2404901Z",
+  "availableBytes": null,
+  "totalBytes": null,
+  "edgeCount": 0,
+  "edgeIds": [],
+  "servicePorts": [],
+  "note": "Read-only post-validation snapshot; Edge and local validation ports are closed. CIM memory counters were unavailable in the restricted shell; no unrelated processes were terminated."
+}

@@ -1,0 +1,120 @@
+{
+  "generatedAt": "2026-10-11T06:06:08.071Z",
+  "step": "tiger-vanguard candidate only",
+  "result": "NEW_IDENTITY_GAP_CONFIRMED",
+  "scope": "Read-only SHA/dimension/purpose/runtime-reference inventory before the single built-in image generation request.",
+  "existingInventory": "evidence/current/asset-dedup-audit.json",
+  "priorEvidenceBackup": "work/tiger-vanguard-preflight-20261011T0552Z/evidence",
+  "countsBefore": {
+    "media": 80,
+    "uniqueSha256": 76,
+    "explainedDuplicateGroups": 4,
+    "currentChatGeneratedPng": 20
+  },
+  "existingCandidates": [
+    {
+      "path": "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png",
+      "size": [
+        1774,
+        887
+      ],
+      "bytes": 1166282,
+      "sha256": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+      "purpose": "32 poses ONLY stage1+normal+tiger; cannot use for Tiger Vanguard or Yin General"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-brute-kr-v1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 2447649,
+      "sha256": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d",
+      "purpose": "historical single-pose stone/plant armoured brute with mallet, not a tiger, not loaded by current gameplay"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-boss-kr-v1.png",
+      "size": [
+        1374,
+        1145
+      ],
+      "bytes": 2297029,
+      "sha256": "15f5393abf19e83b2d0087d4ac0a068c5cec4ae45d740798cb5ec8c2807d8601",
+      "purpose": "historical generic purple/red-horned gold-armoured boss; single pose, not Yin General nor Tiger Vanguard"
+    }
+  ],
+  "cacheResolution": {
+    "matchedInventory": 12,
+    "unmatched": [
+      {
+        "file": "exec-1d249e82-8cd2-4d34-ac6b-8685637791b8.png",
+        "purpose": "rejected bull draft",
+        "evidence": "evidence/current/bull/draft-preflight.json"
+      },
+      {
+        "file": "exec-32a9dc11-d31e-4d27-a8df-c93e552c3bda.png",
+        "purpose": "rejected bear draft",
+        "evidence": "evidence/current/bear/draft-preflight.json"
+      },
+      {
+        "file": "exec-3786a15d-7da7-4a79-9d96-59fedebcf0bf.png",
+        "purpose": "ordinary tiger rejected layout draft"
+      },
+      {
+        "file": "exec-637c200a-935a-43dc-ba00-ca7a6a513681.png",
+        "purpose": "hawk 4x8 sheet, visually inspected in current turn; bird wings/beak/talons, not tiger",
+        "sha256": "655a1e370a4f70a7f75a85a34394558a03ce2c251199e6c05c85e4d2ba3b3578"
+      },
+      {
+        "file": "exec-83a61486-a438-4bd4-80bc-e2c15270e18b.png",
+        "purpose": "hawk repair1",
+        "evidence": "evidence/current/hawk/asset-preflight-repair1.json"
+      },
+      {
+        "file": "exec-3a18d533-b82f-46d8-8a12-211bb3d71853.png",
+        "purpose": "hawk repair2",
+        "evidence": "evidence/current/hawk/asset-preflight-repair2.json"
+      },
+      {
+        "file": "exec-7db37ba9-d92e-4aa7-9835-d75c0881a4f6.png",
+        "purpose": "snake rejected v1",
+        "evidence": "evidence/current/snake/asset-preflight.json"
+      },
+      {
+        "file": "exec-4db702b3-2cbb-445c-ad33-045fd83d0596.png",
+        "purpose": "snake rejected v2",
+        "evidence": "evidence/current/snake/asset-preflight-v2.json"
+      }
+    ]
+  },
+  "legacy": "Read-only legacy inventory contains apocalypse characters/environment/cartoon rig/crawler, not a dedicated Tiger Vanguard sheet.",
+  "identity": {
+    "stageId": 1,
+    "encounterAt": 300,
+    "name": "双叉岭虎先锋",
+    "kind": "elite",
+    "variant": "tiger",
+    "radius": 25,
+    "excludes": [
+      "normal tiger",
+      "120/240/360/480s generic tiger elites",
+      "寅将军",
+      "熊山君",
+      "特处士/待处士",
+      "other stages"
+    ]
+  },
+  "futureIntegrationRisks": [
+    "elite+tiger is NOT sufficient identity; use a dedicated spawn marker without changing RNG/gameplay",
+    "current actor/image tables keyed by variant must not override normal tiger",
+    "current elite crown/aura needs explicit treatment; candidate prompt contains no crown",
+    "current named encounter has no authored attack/hit clocks; isolated preview is not natural engine animation"
+  ],
+  "generationPolicy": {
+    "builtInCallsPlanned": 1,
+    "serial": true,
+    "cliFallbackAuthorized": false,
+    "productionIntegration": false,
+    "deploy": false
+  }
+}

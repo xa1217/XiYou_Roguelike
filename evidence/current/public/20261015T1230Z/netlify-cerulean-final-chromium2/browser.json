@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-10-15T12:51:11.850Z",
+  "url": "https://cerulean-mandazi-90ad05.netlify.app/",
+  "networkScope": "public-url",
+  "buildTarget": "workspace",
+  "mode": "public-no-debug-normal-flow",
+  "screenshots": [],
+  "consoleMessages": [],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "httpErrors": [],
+  "fpsAcceptance": false,
+  "releaseReady": false,
+  "result": "FAIL",
+  "error": "browserType.launch: Executable doesn't exist at C:\\Users\\Administrator\\AppData\\Local\\ms-playwright\\chromium_headless_shell-1234\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝\n    at F:\\Project\\Xiyou_Survivor_Commercial\\scripts\\browser-public-smoke.mjs:34:39",
+  "completedAt": "2026-10-15T12:51:11.859Z"
+}

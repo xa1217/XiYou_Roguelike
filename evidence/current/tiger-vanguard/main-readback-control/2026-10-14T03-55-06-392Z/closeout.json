@@ -1,0 +1,105 @@
+{
+  "checkedAt": "2026-10-14T04:05:22.935Z",
+  "protectedFilesChecked": 256,
+  "protectedChanged": [],
+  "scriptUnchanged": true,
+  "browserHashUnchanged": true,
+  "screenshotChanged": [],
+  "rawReadChanged": [],
+  "oldFailureResults": [
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/browser.json",
+      "result": "FAIL",
+      "sha256": "2dd8a52966f50bd68af1a66995ea7aa6de8f1180df33c5a42233e961037509a5"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-browser.json",
+      "result": "FAIL",
+      "sha256": "bb68d2581256fe3caa2e212ae397d92dc75f0e77ab4669e1f5d968b28acdd020"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-detail-browser.json",
+      "result": "FAIL",
+      "sha256": "5f02002251719c9bef3c4198f6b6c0be8f2b22acf80d350ad0d4ba2f315d9b09"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/browser.json",
+      "result": "FAIL",
+      "sha256": "5a02e103726d2fc23531106ff9700d0a63ac64ad6bd2e922450e491fcc7c356e"
+    }
+  ],
+  "independentCountsMatch": true,
+  "allApprovalGatesRemainFalse": true,
+  "npmExitCode": 0,
+  "docChecks": [
+    {
+      "file": "STATUS.md",
+      "headHasCurrentFailure": true,
+      "sectionCount": 1,
+      "hasNextStep": true
+    },
+    {
+      "file": "docs/REQUIREMENTS-ACCEPTANCE.md",
+      "headHasCurrentFailure": true,
+      "sectionCount": 1,
+      "hasNextStep": true
+    },
+    {
+      "file": "docs/FINAL-REPORT.md",
+      "headHasCurrentFailure": true,
+      "sectionCount": 1,
+      "hasNextStep": true
+    },
+    {
+      "file": "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md",
+      "headHasCurrentFailure": true,
+      "sectionCount": 1,
+      "hasNextStep": true
+    }
+  ],
+  "sha256": {
+    "STATUS.md": "3920e70bc25d8576afbe8830c7a50dc94c6029f4029c70445bce6772707b1040",
+    "docs/REQUIREMENTS-ACCEPTANCE.md": "57e0487767fbf43ee8ebde9f910f500973813f52c9940d98fc8ac376f33cfa87",
+    "docs/FINAL-REPORT.md": "8921892b95cbe469a1c913198bbfac09346b47d63bad31599d8c404643b1ad67",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md": "916a8e281efef22ba63acf988d537f9f53ba91939b6249a4db3702ce8366eb43",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/browser-run.txt": "572045ba030ac027ba065cc23ecb9319d55353d1ecf1386f3309ed8b86e60af7",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/browser.json": "89cf8cfe1680e62c207d364f3f31a7dc0cdc3f190892d6a9e8b6f1aa9b483a58",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-1-png-only.png": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-2-png-only.png": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-3-png-only.png": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-4-main-getImageData.rgba": "83ee6554351d7f23ebbe61099fbf255805ecaaa885d09c3de592104e9f851998",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-4-png-plus-getImageData.png": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-5-main-getImageData.rgba": "83ee6554351d7f23ebbe61099fbf255805ecaaa885d09c3de592104e9f851998",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-5-png-plus-getImageData.png": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-6-main-getImageData.rgba": "23afe21220a1eb8ac3cd2c2da4eb0d284245af55578c1099740360e35e5bc964",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-6-png-plus-getImageData.png": "d2f1eefdd49d57ec9bad5cdd8beb5476ec4b0a75ba45116130f94c5e0f24359d",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/handoff.json": "539439b11314e2aec285c622b8a914d58b3a0fb609b393b689ab883362d1ccd3",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/independent-review.json": "07dff3dcad17ecda8a59b025214e26cd7a62b7c38077d671be2252e80c2fbbf1",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/npm-test.txt": "e799b36ab20d6e003fd036ec77dafa1e7c8afae67ced39ba297ad62c24f5640b",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/npm-validation.json": "c6d07d6d6a66112e8d8cea7ec1eb0c122d4c50a25e447e8ce025f2a1261c30d2",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/post-test-integrity.json": "b95705cb90126b1302a6177c2bf301a1b32bfe9d7479b4ebb47bbe2f5a8ddddf",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/real-ui-before-fixture.png": "6c203a3b82f093e562db5e404c80e420ed99a95604bc9b4724226efd24c62f9f",
+    "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/review.md": "cc66cbb681f03ad61c0584fec2ca2a20d11d6f0fe3656455a1a8da88a8ae0e59",
+    "scripts/browser-tiger-vanguard-main-readback-control.mjs": "52c00393e65a2d71314c068b24d783f4ebc49b268de85c35e472cae841df2ba3"
+  },
+  "browserResult": "FAIL",
+  "handoffResult": "FAIL",
+  "independentResult": "FAIL_CONFIRMED_READ_ONLY",
+  "archivedNpmCharacters": 49164,
+  "fullNpmLogMatchesCapturedOutput": true,
+  "archivedBrowserRunCharacters": 4030,
+  "fullBrowserLogMatchesCapturedOutput": true,
+  "result": "PASS_FAILURE_EVIDENCE_HANDOFF_INTEGRITY_ONLY",
+  "overall": "NOT_READY",
+  "assemblyIntegrityPassDoesNotApproveBrowserOrProduction": true,
+  "screenshotsChecked": 7,
+  "rawReadsChecked": 3,
+  "productionChanged": false,
+  "sourceImagesChanged": false,
+  "zipChanged": false,
+  "publicRetested": false,
+  "releaseReady": false,
+  "nextSafeStep": "仅建立证据层“无额外main.getImageData的同深度原链镜像基线”：单真实Edge六帧，原玩家各1次、原顺序，完整main/annotation/source trace保持；原始变换链镜像及proxy调用/读取另表，逐帧保存主/proxy PNG后在关闭浏览器后解码比较。main.toDataURL仍为readback，不称无读取或无干扰；另记console warning供诊断，不变主context创建/尺寸/阈值、不宣称跨run像素恒等或已证明读取因果。保留匹配FAIL，先确认该基线重复性，再另步恢复深度对照，不接入/打包/部署。",
+  "local8088ListenerCountAtCloseout": 0,
+  "branch": "work/codex/xiyou-commercial"
+}

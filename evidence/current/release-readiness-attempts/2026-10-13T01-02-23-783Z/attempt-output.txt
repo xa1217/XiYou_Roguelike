@@ -1,0 +1,25 @@
+{
+  "output": "evidence/current/release-readiness/2026-10-12T17-02-23-974Z/report.json",
+  "conclusion": "NOT_READY: current dist ZIPs are stale relative to the workspace runtime frame inventory, hero high-frame and boss action gates remain unresolved, and public internet has no current PASS. Do not deploy.",
+  "packages": {
+    "xiyou-survivor-web-v1.0.0.zip": {
+      "sha256": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+      "missingExpectedRuntimeAssets": [
+        "enemy-wolf-battle-v1-frames.json",
+        "enemy-monkey-battle-v1-frames.json",
+        "enemy-deer-battle-v1-frames.json",
+        "enemy-hawk-battle-v1-frames.json",
+        "enemy-snake-battle-v3-frames.json",
+        "enemy-wolf-battle-v1-sheet.png",
+        "enemy-monkey-battle-v1-sheet.png",
+        "enemy-deer-battle-v1-sheet.png",
+        "enemy-hawk-battle-v1-sheet.png",
+        "enemy-snake-battle-v3-sheet.png"
+      ]
+    },
+    "xiyou-survivor-wechat-game-v1.0.0.zip": {
+      "sha256": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+      "missingExpectedRuntimeAssets": []
+    }
+  }
+}

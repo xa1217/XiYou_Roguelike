@@ -1,0 +1,170 @@
+{
+  "recordedAt": "2026-10-14T03:17:17.319Z",
+  "result": "DIAGNOSTIC_COMPLETED_SAME_DEPTH_TRANSFORM_ROUND_TRIP",
+  "overall": "NOT_READY",
+  "evidenceDirectory": "evidence/current/tiger-vanguard/transform-control/2026-10-14T03-09-23-021Z/",
+  "scope": "Same-depth matrix round-trip diagnostic only; no depth, art, motion, FPS, public or release approval",
+  "scriptSha256": "6a18d26a3151751f7c45028c731edb7762329f92c4d4dfcf5d5f4050318b4843",
+  "browserReportSha256": "46382204b2f5191843f012d22bcdad701239b6a140f6013db223a6d6ffec770e",
+  "checks": {
+    "realPointerUiBeforeFixture": true,
+    "oneOriginalPlayerExecutionEachMode": true,
+    "sameOriginalDepthOrder": true,
+    "oneSixNumberEntrySetterOnlyInB": true,
+    "sameEntryBeforeSetter": true,
+    "setterDoesNotChangeStylesDash": true,
+    "nonTransformDrawSourceGeometryFeedbackUnchanged": true,
+    "sameStateRngRendererElapsed": true,
+    "allBeforeAfterMasksSaved": true,
+    "noProductionReferences": true,
+    "fixtureErrorsEmpty": true,
+    "noErrorsOrExternalNetwork": true
+  },
+  "strictEquality": {
+    "matrix": false,
+    "frame": true,
+    "masks": false
+  },
+  "originalPlayerCalls": [
+    1,
+    1
+  ],
+  "originalDepthOrderUnchanged": true,
+  "entryRoundTripApplications": [
+    0,
+    1
+  ],
+  "mainChangedPixels": 0,
+  "maskChangedPixels": {
+    "playerLayer": 56,
+    "playerSprite": 82,
+    "candidate": 0,
+    "union": 82
+  },
+  "masksAreRasterProxies": true,
+  "allBeforeAfterMasksSaved": true,
+  "independentlyRecomputed": true,
+  "sourcePlayerCTM": {
+    "before": {
+      "a": -1.5069032135010885,
+      "b": 0.08904666646730112,
+      "c": 0.08533436121152702,
+      "d": 1.5724581041688275,
+      "e": 195,
+      "f": 422.39389475496137
+    },
+    "after": {
+      "a": -1.5069032135010885,
+      "b": 0.08904666646730112,
+      "c": 0.08533436121152702,
+      "d": 1.5724581041688275,
+      "e": 195.00001621246338,
+      "f": 422.3938442102226
+    }
+  },
+  "entryWorldCTM": {
+    "before": {
+      "a": 1.547619104385376,
+      "b": 0,
+      "c": 0,
+      "d": 1.547619104385376,
+      "e": -1197.8571939468384,
+      "f": -1528.0000715255737
+    },
+    "after": {
+      "a": 1.547619104385376,
+      "b": 0,
+      "c": 0,
+      "d": 1.547619104385376,
+      "e": -1197.857177734375,
+      "f": -1528.0001220703125
+    }
+  },
+  "matrixDifferenceKinds": {
+    "player-entry-after": 1,
+    "player-source": 1,
+    "candidate-source": 1,
+    "player-command": 50,
+    "feedback-paint": 2,
+    "health-bar-entry": 1
+  },
+  "nonTransformInvariantDifferences": [],
+  "stateRngRendererElapsedUnchangedWithinPair": true,
+  "renderChecks": 27,
+  "consumerChecks": 6,
+  "rngCalls": 14,
+  "rendererElapsed": 1.0012999999970211,
+  "crossRunFixtureEqual": false,
+  "uniqueCauseOfPriorDepthFailProven": false,
+  "naturalFiveMinuteSurvival": false,
+  "partialEngineStepFixture": true,
+  "attackPreviewed": false,
+  "deathExercised": false,
+  "statusBadgesEmpty": true,
+  "originalCanvasExceptionCaptureComplete": false,
+  "pngKindHasStaleDepthLabel": true,
+  "rootStaticImagesViewed": 9,
+  "independentReviewer": "/root/player_depth_guard_review",
+  "protectedFilesChecked": 218,
+  "protectedChanged": [],
+  "screenshotsChecked": 9,
+  "screenshotChanged": [],
+  "cleanup": {
+    "context": true,
+    "browser": true,
+    "server": true,
+    "hooks": true,
+    "dispose": true
+  },
+  "errorCounts": {
+    "page": 0,
+    "console": 0,
+    "request": 0,
+    "http": 0,
+    "external": 0
+  },
+  "npm": {
+    "startedAt": "2026-10-14T03:11:48.194Z",
+    "finishedAt": "2026-10-14T03:13:17.910Z",
+    "command": "npm test",
+    "exitCode": 0,
+    "result": "PASS",
+    "scope": "Fresh current workspace regression after the final evidence-only script edit and browser control. Does not run the evidence script as an npm gate, or approve depth/artistic readability/natural gameplay/high-frame/FPS/public/ZIP/device acceptance.",
+    "fullOutputFile": "evidence/current/tiger-vanguard/transform-control/2026-10-14T03-09-23-021Z/npm-test.txt",
+    "outputCharacters": 49163,
+    "originalTokenCount": 12295,
+    "outputTruncated": false,
+    "evidenceScriptSyntaxChecked": true,
+    "buildMayRefreshDerivedEntrypoints": true,
+    "releaseZipRebuilt": false,
+    "publicRetested": false,
+    "publicPass": false
+  },
+  "keyLockedHashes": {
+    "prototype-2d/assets/hero-wukong-battle-v3-sheet.png": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+    "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/motion-draft.json": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/layout-draft.json": "35cc74c1353e0004948cf1c3c3dca72c23bc66bb27ea69dbd30d7a18a345023c"
+  },
+  "productionChanged": false,
+  "sourceImagesChanged": false,
+  "zipChanged": false,
+  "imageGeneration": false,
+  "recordingCreated": false,
+  "publicRetested": false,
+  "deployed": false,
+  "playerReadabilityApproved": false,
+  "enemyReadabilityApproved": false,
+  "healthBarLayoutApproved": false,
+  "viewportEdgeApproved": false,
+  "humanMotionReviewed": false,
+  "rootApproved": false,
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "fpsAcceptance": false,
+  "publicPass": false,
+  "releaseReady": false,
+  "nextSafeStep": "仅建立证据层原始变换调用链镜像草案（包含玩家入口前world链、原setTransform参数及translate/scale/rotate/save/restore），不逐命令从getter回填矩阵；先保持同深度、单次玩家原方法，核源矩阵逐值一致、主图与重复proxy稳定，原Canvas异常先登记再抛出并保存完整前后mask。稳定也不自动证明透明proxy是精确主Canvas支持域；完成控制后另步恢复深度对照，不本轮接入/打包/部署。"
+}

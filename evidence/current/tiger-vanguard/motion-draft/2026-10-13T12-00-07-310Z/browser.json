@@ -1,0 +1,2780 @@
+{
+  "generatedAt": "2026-10-13T12:00:07.310Z",
+  "result": "REVIEW_FULL_STATE_REGISTRATION_TIMING_DRAFT",
+  "scope": "Full-state source registration/timing draft, not a production contract or game/public/FPS acceptance",
+  "protectedBefore": {
+    "prototype-2d/native-app.js": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+    "prototype-2d/src/audio.js": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "prototype-2d/src/bear-animation.js": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+    "prototype-2d/src/bull-animation.js": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4",
+    "prototype-2d/src/content.js": "7af8cfe07b8aea17ae4c2220918aefad7b97cc7bb547650e0f131e617af07f87",
+    "prototype-2d/src/deer-animation.js": "7fca4fc497bd38abe62afc1b3f051001888195035e22573a5b7e323d5988653b",
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/hawk-animation.js": "60e7cb55d6c2966223d54145af3134e4507a449a976fbc4a5c962a3a6dde0285",
+    "prototype-2d/src/monkey-animation.js": "99dec7c46f8615d09e9c9fd0381c7e8ebdb9e41504c9f5a41a5a59fa598e1fc6",
+    "prototype-2d/src/native-ui.js": "dd84edca168df81681667b76e897f54b347c42486166a72b1c143bcd2bcbbe5c",
+    "prototype-2d/src/progression.js": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/src/snake-animation.js": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13",
+    "prototype-2d/src/tiger-animation.js": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+    "prototype-2d/src/wolf-animation.js": "e677a1be849717d0790715b08a8fb8a4b76aff27e24930c7e8962f3e8574e85e",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "scripts/serve.mjs": "300f782732b7bde8590abe40a3c20feab92d4705432386967fd298430f6713d7",
+    "scripts/release.mjs": "4134cd0ccb13c27e940793bff3860eb3d0ab092a0fe542aa48ffa1f2b53a53de",
+    "scripts/runtime-frame-contract.mjs": "22793d976f92b1d9d0c3310c985c4ac41c0d9e02432bff576ba6dfc15b522f84",
+    "prototype-2d/assets/artifact-diamond-snare.svg": "c0dd49e0d324d509573fccb0c847e63e69d014a375998143d768375bb7d7601d",
+    "prototype-2d/assets/artifact-golden-rope.svg": "2f7c85de5bf3ea8396002def45bebf18775380e6aa75b4262b2d3b951a48c0f7",
+    "prototype-2d/assets/artifact-iron-fan.svg": "60c256224ee13f5cf1eea868938bba3f8a6eefdea04502a1a9999601839b8347",
+    "prototype-2d/assets/artifact-lotus-lantern.svg": "61f888c1dd2425ff01127ee979bdb4241a6c171e5b7ab400cb64dc2c7bb2d528",
+    "prototype-2d/assets/artifact-moon-mirror.svg": "83c28876e88f5c6c6c0703db3a7ee334291b16f6c6c851d5d36bef1f5e69f2cd",
+    "prototype-2d/assets/artifact-nine-dragon.svg": "208984a5b25c26b18cf470c1e11e0193e26cef1eb96113207590f93b3e3b1dc5",
+    "prototype-2d/assets/artifact-purple-gourd.svg": "efc7b02dd2ad6991b5093fedef0e8447c44485c849d3ef4918f3739db5688a65",
+    "prototype-2d/assets/artifact-samadhi-fire.svg": "cb6011a7b5298253fe9a91d92c39b4ba027f2aa10cb803224089cd829514fcaf",
+    "prototype-2d/assets/enemy-bear-battle-v1-frames.json": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+    "prototype-2d/assets/enemy-bear-battle-v1-sheet.png": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+    "prototype-2d/assets/enemy-bird.svg": "0cdfbb376fef61809681e8a1c346ffcd079514721d8f31a1a5f4197b9908a580",
+    "prototype-2d/assets/enemy-boss-kr-v1.png": "15f5393abf19e83b2d0087d4ac0a068c5cec4ae45d740798cb5ec8c2807d8601",
+    "prototype-2d/assets/enemy-boss.svg": "3878f941259a93790631307e0102600d8734326d9b529f4fb2b6cb5ac5cb48ee",
+    "prototype-2d/assets/enemy-brute-kr-v1.png": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d",
+    "prototype-2d/assets/enemy-brute.svg": "625c5abc3730e7e176c8948d1da1524176f0b2e2c92f80156225ea23ed9bcb1c",
+    "prototype-2d/assets/enemy-bull-battle-v1-frames.json": "e32da6acfc9bbea64ffb74b6cfb06e30e736b7f2c042c1d8949348e506b11527",
+    "prototype-2d/assets/enemy-bull-battle-v1-sheet.png": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+    "prototype-2d/assets/enemy-creature-kr-v1.png": "5eb03be680a6e4a7b8aba3b53695d7eb22c2c5f19c1a31a710c711743ba8d102",
+    "prototype-2d/assets/enemy-creature.svg": "aea810adc49f2f2cfddf3b75f035bc4db4b1671f61278d00b322ffdfa827954f",
+    "prototype-2d/assets/enemy-deer-battle-v1-frames.json": "6bf255f4f3823b089585a3eeaed3534b9ac283660e863b72cb71035490cbe927",
+    "prototype-2d/assets/enemy-deer-battle-v1-sheet.png": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
+    "prototype-2d/assets/enemy-hawk-battle-v1-frames.json": "c2ac21f266056a976425e37a7e24e34fba6b7a1269d592da3354ca49ef6d60ec",
+    "prototype-2d/assets/enemy-hawk-battle-v1-sheet.png": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7",
+    "prototype-2d/assets/enemy-monkey-battle-v1-frames.json": "46dcb42789e67c95d640f26578d799c2c3e831bce062f9417d2dc2d0f097c21c",
+    "prototype-2d/assets/enemy-monkey-battle-v1-sheet.png": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44",
+    "prototype-2d/assets/enemy-snake-battle-v3-frames.json": "5c75ff4ebfdd765c0fbe3b1087b992426b708ca7634e370a6b984690e201ca70",
+    "prototype-2d/assets/enemy-snake-battle-v3-sheet.png": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+    "prototype-2d/assets/enemy-spider.svg": "575571fed6c63d3050ff0a60c86f1293501f6399f23448ba14661f99dbd8b5dd",
+    "prototype-2d/assets/enemy-tiger-battle-v1-frames.json": "b66e62a1a40b00e36711523621c94d1b73b33a05f71ee46ec2094b4ae007156d",
+    "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+    "prototype-2d/assets/enemy-wolf-battle-v1-frames.json": "777a2f232307a23bbda913feb17aec2ac680c10528c3f29bf1fe0e98823d4637",
+    "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299",
+    "prototype-2d/assets/generate-art-assets.mjs": "d56eb58a8fc8c5843f27465e3be6150830a4dc03488885056c9e8d07cd888fa3",
+    "prototype-2d/assets/hero-bajie-battle-v3-sheet.png": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b",
+    "prototype-2d/assets/hero-bajie.svg": "19eb81b91664409d54619eb3aefe48fe2add07b880a160c3d4756dd6ad2ad56a",
+    "prototype-2d/assets/hero-battle-v2-atlas.png": "589412a2857dcb34ef828cee24e31abb94acb8a3b6b8e37813051b06e03e8565",
+    "prototype-2d/assets/hero-cards-v1.png": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+    "prototype-2d/assets/hero-cards-v2-comic.png": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad",
+    "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61",
+    "prototype-2d/assets/hero-tangseng-kr-v1.png": "162fdcbbf62ba747e0cc9c8f6c89e695b2b0a6e5aabc74455e5d1705918b0a4f",
+    "prototype-2d/assets/hero-tangseng.svg": "481bd327822e262287684750ffee74316de807236b97cb7758815d6a3cc1335d",
+    "prototype-2d/assets/hero-wujing-battle-v3-sheet.png": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "prototype-2d/assets/hero-wujing.svg": "d78054b2dcdedfc127ddbd8a7bcfe5db7315d13e034b5d934cca7b6c8c0c81f6",
+    "prototype-2d/assets/hero-wukong-battle-v3-sheet.png": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+    "prototype-2d/assets/hero-wukong.svg": "0121755c5ed96abf2508d3ef8fb77804ac8e2e103d284f75d1403c7c8b9b732d",
+    "prototype-2d/assets/map-doublefork-high-ridge-v1.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-doublefork-v2-optimized.png": "e014fafd243bf430aa48d58634879a3077ba67697d1ad3b3f27262dd35e5a8e5",
+    "prototype-2d/assets/map-doublefork-v2.png": "690363b6757576103190cc6a7461f0231fbfe79c158381dfbb637cc7b8dde12b",
+    "prototype-2d/assets/map-doublefork-v3-optimized.png": "20174da20cf3df773f6f0665e928e06fe3ed73f9d40b81154649dce7455d9530",
+    "prototype-2d/assets/map-doublefork-v3.png": "79d3c48b57d319ff2b56c21b16e5ad207423f181fd4c119a0aadc9517bf866ca",
+    "prototype-2d/assets/map-doublefork-v4-high-ridge-candidate.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-forest-qv1.png": "2944c17b771ad04a2c0205722f72df6a6126bae5f6ebf2e3aac1b1485bb50f23",
+    "prototype-2d/assets/map-temple-qv1.png": "1d7627c6153e2583842821ca5b2fa9c36027a85fe2b888f440e4e1c58f067ef9",
+    "prototype-2d/assets/README.md": "f2db10e10df7573a3e8fc2855cb8433dca35a121515dd278558a3dc86cbabbdc",
+    "prototype-2d/assets/theme-fire.svg": "8669bc3310052658aa37623537ca37ef7a51d690521f604cf66f309c2b55a11d",
+    "prototype-2d/assets/theme-forest.svg": "aa116a57c9776189afbec44ef88be18f8ea21e423b9ce1a59feb6dcc2be25558",
+    "prototype-2d/assets/theme-sand.svg": "6a0ee4411722136d48ffeeac040bf78c255b94f1602b430a99d443fbd2c65604",
+    "prototype-2d/assets/theme-snow.svg": "56e23a7e861e54d309680469dfc5dd6d3c99206dc2a1ae45d4ef061650ff0997",
+    "prototype-2d/assets/theme-temple.svg": "ebc4f5149d7fe5064a03a0db5610af77e6e90848c1a0e1b52e984e780aa0bf8e",
+    "prototype-2d/assets/theme-water.svg": "399b5a854be22e373806fc4711d6392fa27f370eb1435eaf82162b897a19f093",
+    "prototype-2d/assets/weapon-skill-bajie.svg": "67b0841a9ad517ea9f7a83ef8c669f1d632f9df8796a32656c73f5773d0ec737",
+    "prototype-2d/assets/weapon-skill-tangseng.svg": "3bcf292f0e0c5de76f80573dc55eb8883142efcd48186d3981a31383289684a3",
+    "prototype-2d/assets/weapon-skill-wujing.svg": "baff2be3abbe0e1637457f0600c8a9f7e8bc0c7993d56075c79be19209d9582e",
+    "prototype-2d/assets/weapon-skill-wukong.svg": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27",
+    "prototype-2d/assets/xiyou-art-preview.png": "6517fd98be3b7cc81c4bd9e8a3a54d5371c8355eca4722102d78e5732655b9d0",
+    "prototype-2d/assets/xiyou-art-preview.svg": "c0f540a2b4b2021036a49d65d76e095643df74073a296527028e9f3f87372b2a",
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+    "evidence/current/tiger-vanguard/candidate-v1-sheet.png": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+    "evidence/current/tiger-vanguard/candidate-v2-sheet.png": "03fadd27018012715d083fb92206dd7eb0967e54adaff84b45d6442cb1492e62",
+    "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/candidate-v1-three-frame-patch.png": "e04bdf485aae996872827efe6ad8ef9e575eb7671a7e101f70c5c8f54b510e5a",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f"
+  },
+  "selfTests": [
+    "All32 input crops/pixels/page-scales retained; finite explicit draft pivots; no production approval",
+    "idle: all pose midpoints, start and exact end boundary",
+    "move: all pose midpoints, start and exact end boundary",
+    "attack: all pose midpoints, start and exact end boundary",
+    "hit: all pose midpoints, start and exact end boundary",
+    "death: all pose midpoints, start and exact end boundary",
+    "Death is terminal;400ms fits existing420ms effect TTL without changing it",
+    "Invalid clocks/states/resume rejected",
+    "Only per-page scale and horizontal mirror; move13 retains10 source-pixel airborne gap",
+    "Synthetic20/60Hz clocks visit all source poses; not browser/game performance"
+  ],
+  "screenshots": [
+    {
+      "file": "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/registration-64-right.png",
+      "sha256": "75e48c9adac49fdaaeafb12c616bac5d871628e29378c267ebee53b2f632b3c1",
+      "bytes": 565158
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/registration-48-left.png",
+      "sha256": "16064dd336b50854c6aa88f9e3a15b9fb5587624effb37afe51cdbd728286343",
+      "bytes": 365248
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/playback-final-held-death.png",
+      "sha256": "ef5a3d926339cc687755dbd57ea7b55c8b90762833b78e6c5437a2234e695638",
+      "bytes": 190762
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "externalRequests": [],
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "serverStarted": false,
+  "scriptSha256": "9789823d742efc7734edab2f07ad1ece10c8eac25ebd1b360dee29c141a0569a",
+  "helperSha256": "05d1f303d45258293222bd808687e4f84d516a244908576fd7c646acf59480b7",
+  "syntheticClocks": [
+    {
+      "stepMs": 16.666666666666668,
+      "state": "idle",
+      "seen": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "simulatedClockOnly": true
+    },
+    {
+      "stepMs": 16.666666666666668,
+      "state": "move",
+      "seen": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "simulatedClockOnly": true
+    },
+    {
+      "stepMs": 16.666666666666668,
+      "state": "attack",
+      "seen": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "simulatedClockOnly": true
+    },
+    {
+      "stepMs": 16.666666666666668,
+      "state": "hit",
+      "seen": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "simulatedClockOnly": true
+    },
+    {
+      "stepMs": 16.666666666666668,
+      "state": "death",
+      "seen": [
+        28,
+        29,
+        30,
+        31
+      ],
+      "simulatedClockOnly": true
+    },
+    {
+      "stepMs": 50,
+      "state": "idle",
+      "seen": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "simulatedClockOnly": true
+    },
+    {
+      "stepMs": 50,
+      "state": "move",
+      "seen": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "simulatedClockOnly": true
+    },
+    {
+      "stepMs": 50,
+      "state": "attack",
+      "seen": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "simulatedClockOnly": true
+    },
+    {
+      "stepMs": 50,
+      "state": "hit",
+      "seen": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "simulatedClockOnly": true
+    },
+    {
+      "stepMs": 50,
+      "state": "death",
+      "seen": [
+        28,
+        29,
+        30,
+        31
+      ],
+      "simulatedClockOnly": true
+    }
+  ],
+  "draft": {
+    "file": "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/motion-draft.json",
+    "sha256": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5"
+  },
+  "browser": "155.0.4283.45",
+  "decoded": {
+    "v1": [
+      1774,
+      887
+    ],
+    "patch": [
+      2172,
+      724
+    ]
+  },
+  "drift": {
+    "height": 64,
+    "meaning": "Whole-sprite alpha centroid displacement, sensitive to weapon/tail/pose. NOT pelvis motion, foot sliding or a quality score. No threshold-based animation approval.",
+    "positions": [
+      {
+        "index": 0,
+        "state": "idle",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 0.37553406880878193,
+          "y": -30.061706436805267
+        },
+        "draft": {
+          "x": -1.1303482841323944,
+          "y": -30.438177025040563
+        },
+        "draftVisibleBottomGap": 0.3764705882352941
+      },
+      {
+        "index": 1,
+        "state": "idle",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 0.906262729586508,
+          "y": -30.356685816913096
+        },
+        "draft": {
+          "x": -0.1290313880605508,
+          "y": -30.356685816913096
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 2,
+        "state": "idle",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": -0.23910995571881466,
+          "y": -30.517556997463494
+        },
+        "draft": {
+          "x": -0.8038158380717558,
+          "y": -30.517556997463494
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 3,
+        "state": "idle",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 1.2820446346783148,
+          "y": -30.303565138460126
+        },
+        "draft": {
+          "x": -0.31795536532168517,
+          "y": -30.303565138460126
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 4,
+        "state": "idle",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": -0.34948926705733624,
+          "y": -30.362993801302014
+        },
+        "draft": {
+          "x": -0.7259598552926303,
+          "y": -30.362993801302014
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 5,
+        "state": "idle",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 0.6283246555322661,
+          "y": -30.18994184215333
+        },
+        "draft": {
+          "x": -0.7834400503500868,
+          "y": -30.18994184215333
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 6,
+        "state": "idle",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 1.0871128896323117,
+          "y": -29.795701741656952
+        },
+        "draft": {
+          "x": -0.4187694633088647,
+          "y": -29.795701741656952
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 7,
+        "state": "idle",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 0.8729127261832293,
+          "y": -29.73284536525484
+        },
+        "draft": {
+          "x": -0.3361697329855404,
+          "y": -29.73284536525484
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 8,
+        "state": "move",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 3.4547088619825015,
+          "y": -31.798468141765486
+        },
+        "draft": {
+          "x": -4.074702902723381,
+          "y": -32.92787990647137
+        },
+        "draftVisibleBottomGap": 1.1294117647058823
+      },
+      {
+        "index": 9,
+        "state": "move",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 3.5353703037298736,
+          "y": -33.580847591951866
+        },
+        "draft": {
+          "x": -1.4528649903877735,
+          "y": -33.95731818018716
+        },
+        "draftVisibleBottomGap": 0.3764705882352941
+      },
+      {
+        "index": 10,
+        "state": "move",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 6.179183132390121,
+          "y": -34.59549498445952
+        },
+        "draft": {
+          "x": 1.2850654853312977,
+          "y": -35.724906749165406
+        },
+        "draftVisibleBottomGap": 1.1294117647058823
+      },
+      {
+        "index": 11,
+        "state": "move",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 1.8485816377535336,
+          "y": -34.48393370778695
+        },
+        "draft": {
+          "x": -4.64553600930529,
+          "y": -34.48393370778695
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 12,
+        "state": "move",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 2.9670709095201184,
+          "y": -32.45729684989517
+        },
+        "draft": {
+          "x": -4.9388114434210575,
+          "y": -33.21023802636576
+        },
+        "draftVisibleBottomGap": 0.7529411764705882
+      },
+      {
+        "index": 13,
+        "state": "move",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 5.583160129086135,
+          "y": -32.452227329101525
+        },
+        "draft": {
+          "x": 0.5949248349684881,
+          "y": -36.21693321145447
+        },
+        "draftVisibleBottomGap": 3.764705882352941
+      },
+      {
+        "index": 14,
+        "state": "move",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 3.516617266436536,
+          "y": -34.92673549257371
+        },
+        "draft": {
+          "x": -3.0716180276811107,
+          "y": -34.92673549257371
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 15,
+        "state": "move",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 6.058723208929046,
+          "y": -32.83491098288976
+        },
+        "draft": {
+          "x": -5.3295120851886,
+          "y": -33.21138157112505
+        },
+        "draftVisibleBottomGap": 0.3764705882352941
+      },
+      {
+        "index": 16,
+        "state": "attack",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 1.373914994609865,
+          "y": -30.710411990339537
+        },
+        "draft": {
+          "x": -1.637849711272488,
+          "y": -31.83982375504542
+        },
+        "draftVisibleBottomGap": 1.1294117647058823
+      },
+      {
+        "index": 17,
+        "state": "attack",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 1.8504902690134204,
+          "y": -25.74100647942435
+        },
+        "draft": {
+          "x": -1.820097966280697,
+          "y": -26.87041824413023
+        },
+        "draftVisibleBottomGap": 1.1294117647058823
+      },
+      {
+        "index": 18,
+        "state": "attack",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 1.5210597832980859,
+          "y": -33.52989403747423
+        },
+        "draft": {
+          "x": -5.6318813931725025,
+          "y": -33.52989403747423
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 19,
+        "state": "attack",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 1.8232938718514666,
+          "y": -30.02733337953862
+        },
+        "draft": {
+          "x": 1.9174115189102903,
+          "y": -30.403803967773914
+        },
+        "draftVisibleBottomGap": 0.3764705882352941
+      },
+      {
+        "index": 20,
+        "state": "attack",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 4.121052471109996,
+          "y": -34.24222263991367
+        },
+        "draft": {
+          "x": 0.5445818828747018,
+          "y": -34.24222263991367
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 21,
+        "state": "attack",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 2.297667491183181,
+          "y": -30.878253253602164
+        },
+        "draft": {
+          "x": -3.819979567640348,
+          "y": -31.254723841837457
+        },
+        "draftVisibleBottomGap": 0.3764705882352941
+      },
+      {
+        "index": 22,
+        "state": "attack",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": -1.2808853912343479,
+          "y": -31.547838110392096
+        },
+        "draft": {
+          "x": -5.798532450057877,
+          "y": -32.67724987509798
+        },
+        "draftVisibleBottomGap": 1.1294117647058823
+      },
+      {
+        "index": 23,
+        "state": "attack",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 3.0606998779001406,
+          "y": -30.9336376564354
+        },
+        "draft": {
+          "x": -1.5510648279822121,
+          "y": -31.310108244670698
+        },
+        "draftVisibleBottomGap": 0.3764705882352941
+      },
+      {
+        "index": 24,
+        "state": "hit",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": -1.4315152086672884,
+          "y": -32.53726414090771
+        },
+        "draft": {
+          "x": -5.007985796902583,
+          "y": -33.2902053173783
+        },
+        "draftVisibleBottomGap": 0.7529411764705882
+      },
+      {
+        "index": 25,
+        "state": "hit",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": -3.202225989540388,
+          "y": -33.08211572598439
+        },
+        "draft": {
+          "x": -5.5551671660109765,
+          "y": -33.08211572598439
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 26,
+        "state": "hit",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 6.000385649320458,
+          "y": -29.746763639272505
+        },
+        "draft": {
+          "x": -6.046673174208953,
+          "y": -31.629116580448976
+        },
+        "draftVisibleBottomGap": 1.8823529411764706
+      },
+      {
+        "index": 27,
+        "state": "hit",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": -1.401407286830181,
+          "y": -30.42974887151818
+        },
+        "draft": {
+          "x": -7.330819051536063,
+          "y": -32.31210181269465
+        },
+        "draftVisibleBottomGap": 1.8823529411764706
+      },
+      {
+        "index": 28,
+        "state": "death",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 2.636915058586665,
+          "y": -23.516819887637954
+        },
+        "draft": {
+          "x": -1.127790823766276,
+          "y": -23.516819887637954
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 29,
+        "state": "death",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 0.3694109367566157,
+          "y": -21.664989442810366
+        },
+        "draft": {
+          "x": -6.501177298537502,
+          "y": -21.664989442810366
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 30,
+        "state": "death",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 1.9369210559861896,
+          "y": -14.674999936972487
+        },
+        "draft": {
+          "x": -4.624969795162406,
+          "y": -14.674999936972487
+        },
+        "draftVisibleBottomGap": 0
+      },
+      {
+        "index": 31,
+        "state": "death",
+        "alphaCentroidNotAnatomical": true,
+        "control": {
+          "x": 5.372817650806762,
+          "y": -13.019451197731161
+        },
+        "draft": {
+          "x": -1.2156300984961221,
+          "y": -13.019451197731161
+        },
+        "draftVisibleBottomGap": 0
+      }
+    ],
+    "transitions": [
+      {
+        "state": "idle",
+        "from": 0,
+        "to": 1,
+        "controlDx": 0.5307286607777261,
+        "draftDx": 1.0013168960718435,
+        "controlDy": -0.2949793801078293,
+        "draftDy": 0.08149120812746702
+      },
+      {
+        "state": "idle",
+        "from": 1,
+        "to": 2,
+        "controlDx": -1.1453726853053228,
+        "draftDx": -0.674784450011205,
+        "controlDy": -0.16087118055039795,
+        "draftDy": -0.16087118055039795
+      },
+      {
+        "state": "idle",
+        "from": 2,
+        "to": 3,
+        "controlDx": 1.5211545903971295,
+        "draftDx": 0.48586047275007066,
+        "controlDy": 0.21399185900336803,
+        "draftDy": 0.21399185900336803
+      },
+      {
+        "state": "idle",
+        "from": 3,
+        "to": 4,
+        "controlDx": -1.631533901735651,
+        "draftDx": -0.40800448997094513,
+        "controlDy": -0.059428662841888524,
+        "draftDy": -0.059428662841888524
+      },
+      {
+        "state": "idle",
+        "from": 4,
+        "to": 5,
+        "controlDx": 0.9778139225896023,
+        "draftDx": -0.057480195057456496,
+        "controlDy": 0.1730519591486832,
+        "draftDy": 0.1730519591486832
+      },
+      {
+        "state": "idle",
+        "from": 5,
+        "to": 6,
+        "controlDx": 0.45878823410004554,
+        "draftDx": 0.36467058704122207,
+        "controlDy": 0.39424010049637914,
+        "draftDy": 0.39424010049637914
+      },
+      {
+        "state": "idle",
+        "from": 6,
+        "to": 7,
+        "controlDx": -0.21420016344908233,
+        "draftDx": 0.0825997303233243,
+        "controlDy": 0.06285637640211306,
+        "draftDy": 0.06285637640211306
+      },
+      {
+        "state": "idle",
+        "from": 7,
+        "to": 0,
+        "controlDx": -0.4973786573744474,
+        "draftDx": -0.794178551146854,
+        "controlDy": -0.32886107155042765,
+        "draftDy": -0.705331659785724
+      },
+      {
+        "state": "move",
+        "from": 8,
+        "to": 9,
+        "controlDx": 0.08066144174737211,
+        "draftDx": 2.6218379123356073,
+        "controlDy": -1.7823794501863794,
+        "draftDy": -1.0294382737157903
+      },
+      {
+        "state": "move",
+        "from": 9,
+        "to": 10,
+        "controlDx": 2.6438128286602476,
+        "draftDx": 2.737930475719071,
+        "controlDy": -1.014647392507655,
+        "draftDy": -1.7675885689782476
+      },
+      {
+        "state": "move",
+        "from": 10,
+        "to": 11,
+        "controlDx": -4.330601494636587,
+        "draftDx": -5.930601494636587,
+        "controlDy": 0.11156127667256754,
+        "draftDy": 1.240973041378453
+      },
+      {
+        "state": "move",
+        "from": 11,
+        "to": 12,
+        "controlDx": 1.1184892717665849,
+        "draftDx": -0.29327543411576773,
+        "controlDy": 2.0266368578917806,
+        "draftDy": 1.273695681421195
+      },
+      {
+        "state": "move",
+        "from": 12,
+        "to": 13,
+        "controlDx": 2.6160892195660166,
+        "draftDx": 5.533736278389545,
+        "controlDy": 0.0050695207936470865,
+        "draftDy": -3.0066951850887094
+      },
+      {
+        "state": "move",
+        "from": 13,
+        "to": 14,
+        "controlDx": -2.066542862649599,
+        "draftDx": -3.6665428626495986,
+        "controlDy": -2.474508163472187,
+        "draftDy": 1.290197718880755
+      },
+      {
+        "state": "move",
+        "from": 14,
+        "to": 15,
+        "controlDx": 2.54210594249251,
+        "draftDx": -2.2578940575074897,
+        "controlDy": 2.0918245096839527,
+        "draftDy": 1.71535392144866
+      },
+      {
+        "state": "move",
+        "from": 15,
+        "to": 8,
+        "controlDx": -2.6040143469465447,
+        "draftDx": 1.2548091824652197,
+        "controlDy": 1.0364428411242734,
+        "draftDy": 0.2835016646536843
+      },
+      {
+        "state": "attack",
+        "from": 16,
+        "to": 17,
+        "controlDx": 0.4765752744035554,
+        "draftDx": -0.18224825500820918,
+        "controlDy": 4.969405510915188,
+        "draftDy": 4.969405510915188
+      },
+      {
+        "state": "attack",
+        "from": 17,
+        "to": 18,
+        "controlDx": -0.3294304857153345,
+        "draftDx": -3.8117834268918056,
+        "controlDy": -7.788887558049879,
+        "draftDy": -6.659475793343997
+      },
+      {
+        "state": "attack",
+        "from": 18,
+        "to": 19,
+        "controlDx": 0.30223408855338074,
+        "draftDx": 7.549292912082793,
+        "controlDy": 3.5025606579356072,
+        "draftDy": 3.1260900697003144
+      },
+      {
+        "state": "attack",
+        "from": 19,
+        "to": 20,
+        "controlDx": 2.2977585992585294,
+        "draftDx": -1.3728296360355885,
+        "controlDy": -4.214889260375049,
+        "draftDy": -3.838418672139756
+      },
+      {
+        "state": "attack",
+        "from": 20,
+        "to": 21,
+        "controlDx": -1.8233849799268151,
+        "draftDx": -4.364561450515049,
+        "controlDy": 3.3639693863115063,
+        "draftDy": 2.9874987980762135
+      },
+      {
+        "state": "attack",
+        "from": 21,
+        "to": 22,
+        "controlDx": -3.5785528824175286,
+        "draftDx": -1.978552882417529,
+        "controlDy": -0.6695848567899318,
+        "draftDy": -1.422526033260521
+      },
+      {
+        "state": "attack",
+        "from": 22,
+        "to": 23,
+        "controlDx": 4.341585269134488,
+        "draftDx": 4.247467622075665,
+        "controlDy": 0.6142004539566948,
+        "draftDy": 1.3671416304272803
+      },
+      {
+        "state": "hit",
+        "from": 24,
+        "to": 25,
+        "controlDx": -1.7707107808730997,
+        "draftDx": -0.5471813691083938,
+        "controlDy": -0.5448515850766782,
+        "draftDy": 0.20808959139391447
+      },
+      {
+        "state": "hit",
+        "from": 25,
+        "to": 26,
+        "controlDx": 9.202611638860846,
+        "draftDx": -0.49150600819797674,
+        "controlDy": 3.3353520867118824,
+        "draftDy": 1.4529991455354114
+      },
+      {
+        "state": "hit",
+        "from": 26,
+        "to": 27,
+        "controlDx": -7.401792936150639,
+        "draftDx": -1.2841458773271102,
+        "controlDy": -0.6829852322456738,
+        "draftDy": -0.6829852322456738
+      },
+      {
+        "state": "death",
+        "from": 28,
+        "to": 29,
+        "controlDx": -2.2675041218300493,
+        "draftDx": -5.373386474771226,
+        "controlDy": 1.8518304448275877,
+        "draftDy": 1.8518304448275877
+      },
+      {
+        "state": "death",
+        "from": 29,
+        "to": 30,
+        "controlDx": 1.567510119229574,
+        "draftDx": 1.8762075033750953,
+        "controlDy": 6.98998950583788,
+        "draftDy": 6.98998950583788
+      },
+      {
+        "state": "death",
+        "from": 30,
+        "to": 31,
+        "controlDx": 3.435896594820572,
+        "draftDx": 3.409339696666284,
+        "controlDy": 1.6555487392413255,
+        "draftDy": 1.6555487392413255
+      }
+    ]
+  },
+  "clockProbes": [
+    {
+      "state": "idle",
+      "time": 0,
+      "result": {
+        "state": "idle",
+        "index": 0,
+        "held": false
+      }
+    },
+    {
+      "state": "idle",
+      "time": 999.999,
+      "result": {
+        "state": "idle",
+        "index": 7,
+        "held": false
+      }
+    },
+    {
+      "state": "idle",
+      "time": 1000,
+      "result": {
+        "state": "idle",
+        "index": 0,
+        "held": false
+      }
+    },
+    {
+      "state": "idle",
+      "time": 1100,
+      "result": {
+        "state": "idle",
+        "index": 0,
+        "held": false
+      }
+    },
+    {
+      "state": "idle",
+      "time": 10000,
+      "result": {
+        "state": "idle",
+        "index": 0,
+        "held": false
+      }
+    },
+    {
+      "state": "move",
+      "time": 0,
+      "result": {
+        "state": "move",
+        "index": 8,
+        "held": false
+      }
+    },
+    {
+      "state": "move",
+      "time": 666.6656666666667,
+      "result": {
+        "state": "move",
+        "index": 15,
+        "held": false
+      }
+    },
+    {
+      "state": "move",
+      "time": 666.6666666666666,
+      "result": {
+        "state": "move",
+        "index": 8,
+        "held": false
+      }
+    },
+    {
+      "state": "move",
+      "time": 766.6666666666666,
+      "result": {
+        "state": "move",
+        "index": 9,
+        "held": false
+      }
+    },
+    {
+      "state": "move",
+      "time": 10000,
+      "result": {
+        "state": "move",
+        "index": 8,
+        "held": false
+      }
+    },
+    {
+      "state": "attack",
+      "time": 0,
+      "result": {
+        "state": "attack",
+        "index": 16,
+        "held": false
+      }
+    },
+    {
+      "state": "attack",
+      "time": 499.999,
+      "result": {
+        "state": "attack",
+        "index": 23,
+        "held": false
+      }
+    },
+    {
+      "state": "attack",
+      "time": 500,
+      "result": {
+        "state": "move",
+        "index": 8,
+        "held": false
+      }
+    },
+    {
+      "state": "attack",
+      "time": 600,
+      "result": {
+        "state": "move",
+        "index": 9,
+        "held": false
+      }
+    },
+    {
+      "state": "attack",
+      "time": 10000,
+      "result": {
+        "state": "move",
+        "index": 10,
+        "held": false
+      }
+    },
+    {
+      "state": "hit",
+      "time": 0,
+      "result": {
+        "state": "hit",
+        "index": 24,
+        "held": false
+      }
+    },
+    {
+      "state": "hit",
+      "time": 249.999,
+      "result": {
+        "state": "hit",
+        "index": 27,
+        "held": false
+      }
+    },
+    {
+      "state": "hit",
+      "time": 250,
+      "result": {
+        "state": "move",
+        "index": 8,
+        "held": false
+      }
+    },
+    {
+      "state": "hit",
+      "time": 350,
+      "result": {
+        "state": "move",
+        "index": 9,
+        "held": false
+      }
+    },
+    {
+      "state": "hit",
+      "time": 10000,
+      "result": {
+        "state": "move",
+        "index": 13,
+        "held": false
+      }
+    },
+    {
+      "state": "death",
+      "time": 0,
+      "result": {
+        "state": "death",
+        "index": 28,
+        "held": false
+      }
+    },
+    {
+      "state": "death",
+      "time": 399.999,
+      "result": {
+        "state": "death",
+        "index": 31,
+        "held": false
+      }
+    },
+    {
+      "state": "death",
+      "time": 400,
+      "result": {
+        "state": "death",
+        "index": 31,
+        "held": true
+      }
+    },
+    {
+      "state": "death",
+      "time": 500,
+      "result": {
+        "state": "death",
+        "index": 31,
+        "held": true
+      }
+    },
+    {
+      "state": "death",
+      "time": 10000,
+      "result": {
+        "state": "death",
+        "index": 31,
+        "held": true
+      }
+    }
+  ],
+  "playback": {
+    "mimeType": "video/webm;codecs=vp9",
+    "elapsedMs": 5101.3,
+    "events": [
+      {
+        "at": 0,
+        "state": "idle"
+      },
+      {
+        "at": 1000,
+        "state": "move"
+      },
+      {
+        "at": 1700,
+        "state": "attack"
+      },
+      {
+        "at": 1900,
+        "state": "hit"
+      },
+      {
+        "at": 2150,
+        "state": "move"
+      },
+      {
+        "at": 2900,
+        "state": "attack"
+      },
+      {
+        "at": 3400,
+        "state": "move"
+      },
+      {
+        "at": 4100,
+        "state": "death"
+      }
+    ],
+    "transitions": [
+      {
+        "track": "idle",
+        "index": 0,
+        "elapsedMs": 0
+      },
+      {
+        "track": "move",
+        "index": 8,
+        "elapsedMs": 0
+      },
+      {
+        "track": "attack",
+        "index": 16,
+        "elapsedMs": 0
+      },
+      {
+        "track": "hit",
+        "index": 24,
+        "elapsedMs": 0
+      },
+      {
+        "track": "death",
+        "index": 28,
+        "elapsedMs": 0
+      },
+      {
+        "track": "timeline",
+        "state": "idle",
+        "index": 0,
+        "elapsedMs": 0
+      },
+      {
+        "track": "attack",
+        "index": 17,
+        "elapsedMs": 65.39999999999998
+      },
+      {
+        "track": "hit",
+        "index": 25,
+        "elapsedMs": 65.39999999999998
+      },
+      {
+        "track": "move",
+        "index": 9,
+        "elapsedMs": 83.60000000000002
+      },
+      {
+        "track": "death",
+        "index": 29,
+        "elapsedMs": 101.80000000000007
+      },
+      {
+        "track": "idle",
+        "index": 1,
+        "elapsedMs": 127.20000000000005
+      },
+      {
+        "track": "attack",
+        "index": 18,
+        "elapsedMs": 127.20000000000005
+      },
+      {
+        "track": "hit",
+        "index": 26,
+        "elapsedMs": 127.20000000000005
+      },
+      {
+        "track": "timeline",
+        "state": "idle",
+        "index": 1,
+        "elapsedMs": 127.20000000000005
+      },
+      {
+        "track": "move",
+        "index": 10,
+        "elapsedMs": 167.20000000000005
+      },
+      {
+        "track": "attack",
+        "index": 19,
+        "elapsedMs": 189.10000000000002
+      },
+      {
+        "track": "hit",
+        "index": 27,
+        "elapsedMs": 189.10000000000002
+      },
+      {
+        "track": "death",
+        "index": 30,
+        "elapsedMs": 203.5
+      },
+      {
+        "track": "idle",
+        "index": 2,
+        "elapsedMs": 250.80000000000007
+      },
+      {
+        "track": "move",
+        "index": 11,
+        "elapsedMs": 250.80000000000007
+      },
+      {
+        "track": "attack",
+        "index": 20,
+        "elapsedMs": 250.80000000000007
+      },
+      {
+        "track": "hit",
+        "index": 0,
+        "elapsedMs": 250.80000000000007
+      },
+      {
+        "track": "timeline",
+        "state": "idle",
+        "index": 2,
+        "elapsedMs": 250.80000000000007
+      },
+      {
+        "track": "death",
+        "index": 31,
+        "elapsedMs": 301.80000000000007
+      },
+      {
+        "track": "attack",
+        "index": 21,
+        "elapsedMs": 312.70000000000005
+      },
+      {
+        "track": "move",
+        "index": 12,
+        "elapsedMs": 334.5
+      },
+      {
+        "track": "idle",
+        "index": 3,
+        "elapsedMs": 378.1
+      },
+      {
+        "track": "attack",
+        "index": 22,
+        "elapsedMs": 378.1
+      },
+      {
+        "track": "hit",
+        "index": 1,
+        "elapsedMs": 378.1
+      },
+      {
+        "track": "timeline",
+        "state": "idle",
+        "index": 3,
+        "elapsedMs": 378.1
+      },
+      {
+        "track": "move",
+        "index": 13,
+        "elapsedMs": 418.1
+      },
+      {
+        "track": "attack",
+        "index": 23,
+        "elapsedMs": 439.9
+      },
+      {
+        "track": "idle",
+        "index": 4,
+        "elapsedMs": 501.69999999999993
+      },
+      {
+        "track": "move",
+        "index": 14,
+        "elapsedMs": 501.69999999999993
+      },
+      {
+        "track": "attack",
+        "index": 0,
+        "elapsedMs": 501.69999999999993
+      },
+      {
+        "track": "hit",
+        "index": 2,
+        "elapsedMs": 501.69999999999993
+      },
+      {
+        "track": "timeline",
+        "state": "idle",
+        "index": 4,
+        "elapsedMs": 501.69999999999993
+      },
+      {
+        "track": "move",
+        "index": 15,
+        "elapsedMs": 585.4
+      },
+      {
+        "track": "idle",
+        "index": 5,
+        "elapsedMs": 625.3000000000001
+      },
+      {
+        "track": "attack",
+        "index": 1,
+        "elapsedMs": 625.3000000000001
+      },
+      {
+        "track": "hit",
+        "index": 3,
+        "elapsedMs": 625.3000000000001
+      },
+      {
+        "track": "timeline",
+        "state": "idle",
+        "index": 5,
+        "elapsedMs": 625.3000000000001
+      },
+      {
+        "track": "move",
+        "index": 8,
+        "elapsedMs": 669.0000000000001
+      },
+      {
+        "track": "idle",
+        "index": 6,
+        "elapsedMs": 752.6
+      },
+      {
+        "track": "move",
+        "index": 9,
+        "elapsedMs": 752.6
+      },
+      {
+        "track": "attack",
+        "index": 2,
+        "elapsedMs": 752.6
+      },
+      {
+        "track": "hit",
+        "index": 4,
+        "elapsedMs": 752.6
+      },
+      {
+        "track": "timeline",
+        "state": "idle",
+        "index": 6,
+        "elapsedMs": 752.6
+      },
+      {
+        "track": "move",
+        "index": 10,
+        "elapsedMs": 836.1999999999999
+      },
+      {
+        "track": "idle",
+        "index": 7,
+        "elapsedMs": 876.1999999999999
+      },
+      {
+        "track": "attack",
+        "index": 3,
+        "elapsedMs": 876.1999999999999
+      },
+      {
+        "track": "hit",
+        "index": 5,
+        "elapsedMs": 876.1999999999999
+      },
+      {
+        "track": "timeline",
+        "state": "idle",
+        "index": 7,
+        "elapsedMs": 876.1999999999999
+      },
+      {
+        "track": "move",
+        "index": 11,
+        "elapsedMs": 919.9
+      },
+      {
+        "track": "idle",
+        "index": 0,
+        "elapsedMs": 1003.5000000000001
+      },
+      {
+        "track": "move",
+        "index": 12,
+        "elapsedMs": 1003.5000000000001
+      },
+      {
+        "track": "attack",
+        "index": 4,
+        "elapsedMs": 1003.5000000000001
+      },
+      {
+        "track": "hit",
+        "index": 6,
+        "elapsedMs": 1003.5000000000001
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 8,
+        "elapsedMs": 1003.5000000000001
+      },
+      {
+        "track": "move",
+        "index": 13,
+        "elapsedMs": 1083.5
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 9,
+        "elapsedMs": 1083.5
+      },
+      {
+        "track": "idle",
+        "index": 1,
+        "elapsedMs": 1127.1
+      },
+      {
+        "track": "attack",
+        "index": 5,
+        "elapsedMs": 1127.1
+      },
+      {
+        "track": "hit",
+        "index": 7,
+        "elapsedMs": 1127.1
+      },
+      {
+        "track": "move",
+        "index": 14,
+        "elapsedMs": 1167.1
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 10,
+        "elapsedMs": 1167.1
+      },
+      {
+        "track": "idle",
+        "index": 2,
+        "elapsedMs": 1250.8000000000002
+      },
+      {
+        "track": "move",
+        "index": 15,
+        "elapsedMs": 1250.8000000000002
+      },
+      {
+        "track": "attack",
+        "index": 6,
+        "elapsedMs": 1250.8000000000002
+      },
+      {
+        "track": "hit",
+        "index": 0,
+        "elapsedMs": 1250.8000000000002
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 11,
+        "elapsedMs": 1250.8000000000002
+      },
+      {
+        "track": "move",
+        "index": 8,
+        "elapsedMs": 1334.4
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 12,
+        "elapsedMs": 1334.4
+      },
+      {
+        "track": "idle",
+        "index": 3,
+        "elapsedMs": 1378
+      },
+      {
+        "track": "attack",
+        "index": 7,
+        "elapsedMs": 1378
+      },
+      {
+        "track": "hit",
+        "index": 1,
+        "elapsedMs": 1378
+      },
+      {
+        "track": "move",
+        "index": 9,
+        "elapsedMs": 1418
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 13,
+        "elapsedMs": 1418
+      },
+      {
+        "track": "idle",
+        "index": 4,
+        "elapsedMs": 1501.6
+      },
+      {
+        "track": "move",
+        "index": 10,
+        "elapsedMs": 1501.6
+      },
+      {
+        "track": "attack",
+        "index": 0,
+        "elapsedMs": 1501.6
+      },
+      {
+        "track": "hit",
+        "index": 2,
+        "elapsedMs": 1501.6
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 14,
+        "elapsedMs": 1501.6
+      },
+      {
+        "track": "move",
+        "index": 11,
+        "elapsedMs": 1585.2999999999997
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 15,
+        "elapsedMs": 1585.2999999999997
+      },
+      {
+        "track": "idle",
+        "index": 5,
+        "elapsedMs": 1625.1999999999998
+      },
+      {
+        "track": "attack",
+        "index": 1,
+        "elapsedMs": 1625.1999999999998
+      },
+      {
+        "track": "hit",
+        "index": 3,
+        "elapsedMs": 1625.1999999999998
+      },
+      {
+        "track": "move",
+        "index": 12,
+        "elapsedMs": 1668.7999999999997
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 8,
+        "elapsedMs": 1668.7999999999997
+      },
+      {
+        "track": "timeline",
+        "state": "attack",
+        "index": 16,
+        "elapsedMs": 1701.6
+      },
+      {
+        "track": "idle",
+        "index": 6,
+        "elapsedMs": 1752.5
+      },
+      {
+        "track": "move",
+        "index": 13,
+        "elapsedMs": 1752.5
+      },
+      {
+        "track": "attack",
+        "index": 2,
+        "elapsedMs": 1752.5
+      },
+      {
+        "track": "hit",
+        "index": 4,
+        "elapsedMs": 1752.5
+      },
+      {
+        "track": "timeline",
+        "state": "attack",
+        "index": 17,
+        "elapsedMs": 1763.4
+      },
+      {
+        "track": "timeline",
+        "state": "attack",
+        "index": 18,
+        "elapsedMs": 1825.2999999999997
+      },
+      {
+        "track": "move",
+        "index": 14,
+        "elapsedMs": 1836.1
+      },
+      {
+        "track": "idle",
+        "index": 7,
+        "elapsedMs": 1876.1999999999998
+      },
+      {
+        "track": "attack",
+        "index": 3,
+        "elapsedMs": 1876.1999999999998
+      },
+      {
+        "track": "hit",
+        "index": 5,
+        "elapsedMs": 1876.1999999999998
+      },
+      {
+        "track": "timeline",
+        "state": "attack",
+        "index": 19,
+        "elapsedMs": 1890.6999999999998
+      },
+      {
+        "track": "timeline",
+        "state": "hit",
+        "index": 24,
+        "elapsedMs": 1901.5
+      },
+      {
+        "track": "move",
+        "index": 15,
+        "elapsedMs": 1919.6999999999998
+      },
+      {
+        "track": "timeline",
+        "state": "hit",
+        "index": 25,
+        "elapsedMs": 1963.4
+      },
+      {
+        "track": "idle",
+        "index": 0,
+        "elapsedMs": 2003.4
+      },
+      {
+        "track": "move",
+        "index": 8,
+        "elapsedMs": 2003.4
+      },
+      {
+        "track": "attack",
+        "index": 4,
+        "elapsedMs": 2003.4
+      },
+      {
+        "track": "hit",
+        "index": 6,
+        "elapsedMs": 2003.4
+      },
+      {
+        "track": "timeline",
+        "state": "hit",
+        "index": 26,
+        "elapsedMs": 2025.2999999999997
+      },
+      {
+        "track": "move",
+        "index": 9,
+        "elapsedMs": 2087
+      },
+      {
+        "track": "timeline",
+        "state": "hit",
+        "index": 27,
+        "elapsedMs": 2090.6
+      },
+      {
+        "track": "idle",
+        "index": 1,
+        "elapsedMs": 2127
+      },
+      {
+        "track": "attack",
+        "index": 5,
+        "elapsedMs": 2127
+      },
+      {
+        "track": "hit",
+        "index": 7,
+        "elapsedMs": 2127
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 8,
+        "elapsedMs": 2152.5
+      },
+      {
+        "track": "move",
+        "index": 10,
+        "elapsedMs": 2167
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 9,
+        "elapsedMs": 2236.1
+      },
+      {
+        "track": "idle",
+        "index": 2,
+        "elapsedMs": 2250.7
+      },
+      {
+        "track": "move",
+        "index": 11,
+        "elapsedMs": 2250.7
+      },
+      {
+        "track": "attack",
+        "index": 6,
+        "elapsedMs": 2250.7
+      },
+      {
+        "track": "hit",
+        "index": 0,
+        "elapsedMs": 2250.7
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 10,
+        "elapsedMs": 2319.7999999999997
+      },
+      {
+        "track": "move",
+        "index": 12,
+        "elapsedMs": 2334.2999999999997
+      },
+      {
+        "track": "idle",
+        "index": 3,
+        "elapsedMs": 2377.9
+      },
+      {
+        "track": "attack",
+        "index": 7,
+        "elapsedMs": 2377.9
+      },
+      {
+        "track": "hit",
+        "index": 1,
+        "elapsedMs": 2377.9
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 11,
+        "elapsedMs": 2403.4
+      },
+      {
+        "track": "move",
+        "index": 13,
+        "elapsedMs": 2417.9
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 12,
+        "elapsedMs": 2483.4
+      },
+      {
+        "track": "idle",
+        "index": 4,
+        "elapsedMs": 2501.5
+      },
+      {
+        "track": "move",
+        "index": 14,
+        "elapsedMs": 2501.5
+      },
+      {
+        "track": "attack",
+        "index": 0,
+        "elapsedMs": 2501.5
+      },
+      {
+        "track": "hit",
+        "index": 2,
+        "elapsedMs": 2501.5
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 13,
+        "elapsedMs": 2567
+      },
+      {
+        "track": "move",
+        "index": 15,
+        "elapsedMs": 2585.2
+      },
+      {
+        "track": "idle",
+        "index": 5,
+        "elapsedMs": 2625.1
+      },
+      {
+        "track": "attack",
+        "index": 1,
+        "elapsedMs": 2625.1
+      },
+      {
+        "track": "hit",
+        "index": 3,
+        "elapsedMs": 2625.1
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 14,
+        "elapsedMs": 2650.6
+      },
+      {
+        "track": "move",
+        "index": 8,
+        "elapsedMs": 2668.7
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 15,
+        "elapsedMs": 2734.2
+      },
+      {
+        "track": "idle",
+        "index": 6,
+        "elapsedMs": 2752.4
+      },
+      {
+        "track": "move",
+        "index": 9,
+        "elapsedMs": 2752.4
+      },
+      {
+        "track": "attack",
+        "index": 2,
+        "elapsedMs": 2752.4
+      },
+      {
+        "track": "hit",
+        "index": 4,
+        "elapsedMs": 2752.4
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 8,
+        "elapsedMs": 2817.7999999999997
+      },
+      {
+        "track": "move",
+        "index": 10,
+        "elapsedMs": 2836.1
+      },
+      {
+        "track": "idle",
+        "index": 7,
+        "elapsedMs": 2876
+      },
+      {
+        "track": "attack",
+        "index": 3,
+        "elapsedMs": 2876
+      },
+      {
+        "track": "hit",
+        "index": 5,
+        "elapsedMs": 2876
+      },
+      {
+        "track": "timeline",
+        "state": "attack",
+        "index": 16,
+        "elapsedMs": 2901.4
+      },
+      {
+        "track": "move",
+        "index": 11,
+        "elapsedMs": 2919.7
+      },
+      {
+        "track": "timeline",
+        "state": "attack",
+        "index": 17,
+        "elapsedMs": 2963.2999999999997
+      },
+      {
+        "track": "idle",
+        "index": 0,
+        "elapsedMs": 3003.2
+      },
+      {
+        "track": "move",
+        "index": 12,
+        "elapsedMs": 3003.2
+      },
+      {
+        "track": "attack",
+        "index": 4,
+        "elapsedMs": 3003.2
+      },
+      {
+        "track": "hit",
+        "index": 6,
+        "elapsedMs": 3003.2
+      },
+      {
+        "track": "timeline",
+        "state": "attack",
+        "index": 18,
+        "elapsedMs": 3025.1
+      },
+      {
+        "track": "move",
+        "index": 13,
+        "elapsedMs": 3086.9
+      },
+      {
+        "track": "timeline",
+        "state": "attack",
+        "index": 19,
+        "elapsedMs": 3090.5
+      },
+      {
+        "track": "idle",
+        "index": 1,
+        "elapsedMs": 3126.9
+      },
+      {
+        "track": "attack",
+        "index": 5,
+        "elapsedMs": 3126.9
+      },
+      {
+        "track": "hit",
+        "index": 7,
+        "elapsedMs": 3126.9
+      },
+      {
+        "track": "timeline",
+        "state": "attack",
+        "index": 20,
+        "elapsedMs": 3152.5
+      },
+      {
+        "track": "move",
+        "index": 14,
+        "elapsedMs": 3166.9
+      },
+      {
+        "track": "timeline",
+        "state": "attack",
+        "index": 21,
+        "elapsedMs": 3214.2
+      },
+      {
+        "track": "idle",
+        "index": 2,
+        "elapsedMs": 3250.6
+      },
+      {
+        "track": "move",
+        "index": 15,
+        "elapsedMs": 3250.6
+      },
+      {
+        "track": "attack",
+        "index": 6,
+        "elapsedMs": 3250.6
+      },
+      {
+        "track": "hit",
+        "index": 0,
+        "elapsedMs": 3250.6
+      },
+      {
+        "track": "timeline",
+        "state": "attack",
+        "index": 22,
+        "elapsedMs": 3276
+      },
+      {
+        "track": "move",
+        "index": 8,
+        "elapsedMs": 3334.1
+      },
+      {
+        "track": "timeline",
+        "state": "attack",
+        "index": 23,
+        "elapsedMs": 3337.7999999999997
+      },
+      {
+        "track": "idle",
+        "index": 3,
+        "elapsedMs": 3377.7999999999997
+      },
+      {
+        "track": "attack",
+        "index": 7,
+        "elapsedMs": 3377.7999999999997
+      },
+      {
+        "track": "hit",
+        "index": 1,
+        "elapsedMs": 3377.7999999999997
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 8,
+        "elapsedMs": 3403.2
+      },
+      {
+        "track": "move",
+        "index": 9,
+        "elapsedMs": 3417.7999999999997
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 9,
+        "elapsedMs": 3486.9
+      },
+      {
+        "track": "idle",
+        "index": 4,
+        "elapsedMs": 3501.4
+      },
+      {
+        "track": "move",
+        "index": 10,
+        "elapsedMs": 3501.4
+      },
+      {
+        "track": "attack",
+        "index": 0,
+        "elapsedMs": 3501.4
+      },
+      {
+        "track": "hit",
+        "index": 2,
+        "elapsedMs": 3501.4
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 10,
+        "elapsedMs": 3566.9
+      },
+      {
+        "track": "move",
+        "index": 11,
+        "elapsedMs": 3585.1
+      },
+      {
+        "track": "idle",
+        "index": 5,
+        "elapsedMs": 3625.1
+      },
+      {
+        "track": "attack",
+        "index": 1,
+        "elapsedMs": 3625.1
+      },
+      {
+        "track": "hit",
+        "index": 3,
+        "elapsedMs": 3625.1
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 11,
+        "elapsedMs": 3650.4999999999995
+      },
+      {
+        "track": "move",
+        "index": 12,
+        "elapsedMs": 3668.6
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 12,
+        "elapsedMs": 3734.1
+      },
+      {
+        "track": "idle",
+        "index": 6,
+        "elapsedMs": 3752.2999999999997
+      },
+      {
+        "track": "move",
+        "index": 13,
+        "elapsedMs": 3752.2999999999997
+      },
+      {
+        "track": "attack",
+        "index": 2,
+        "elapsedMs": 3752.2999999999997
+      },
+      {
+        "track": "hit",
+        "index": 4,
+        "elapsedMs": 3752.2999999999997
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 13,
+        "elapsedMs": 3817.7999999999997
+      },
+      {
+        "track": "move",
+        "index": 14,
+        "elapsedMs": 3835.9
+      },
+      {
+        "track": "idle",
+        "index": 7,
+        "elapsedMs": 3875.9
+      },
+      {
+        "track": "attack",
+        "index": 3,
+        "elapsedMs": 3875.9
+      },
+      {
+        "track": "hit",
+        "index": 5,
+        "elapsedMs": 3875.9
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 14,
+        "elapsedMs": 3901.4
+      },
+      {
+        "track": "move",
+        "index": 15,
+        "elapsedMs": 3919.6
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 15,
+        "elapsedMs": 3984.9999999999995
+      },
+      {
+        "track": "idle",
+        "index": 0,
+        "elapsedMs": 4003.1
+      },
+      {
+        "track": "move",
+        "index": 8,
+        "elapsedMs": 4003.1
+      },
+      {
+        "track": "attack",
+        "index": 4,
+        "elapsedMs": 4003.1
+      },
+      {
+        "track": "hit",
+        "index": 6,
+        "elapsedMs": 4003.1
+      },
+      {
+        "track": "timeline",
+        "state": "move",
+        "index": 8,
+        "elapsedMs": 4068.7000000000003
+      },
+      {
+        "track": "move",
+        "index": 9,
+        "elapsedMs": 4086.7999999999997
+      },
+      {
+        "track": "timeline",
+        "state": "death",
+        "index": 28,
+        "elapsedMs": 4101.3
+      },
+      {
+        "track": "idle",
+        "index": 1,
+        "elapsedMs": 4126.8
+      },
+      {
+        "track": "attack",
+        "index": 5,
+        "elapsedMs": 4126.8
+      },
+      {
+        "track": "hit",
+        "index": 7,
+        "elapsedMs": 4126.8
+      },
+      {
+        "track": "move",
+        "index": 10,
+        "elapsedMs": 4166.900000000001
+      },
+      {
+        "track": "timeline",
+        "state": "death",
+        "index": 29,
+        "elapsedMs": 4203.1
+      },
+      {
+        "track": "idle",
+        "index": 2,
+        "elapsedMs": 4250.400000000001
+      },
+      {
+        "track": "move",
+        "index": 11,
+        "elapsedMs": 4250.400000000001
+      },
+      {
+        "track": "attack",
+        "index": 6,
+        "elapsedMs": 4250.400000000001
+      },
+      {
+        "track": "hit",
+        "index": 0,
+        "elapsedMs": 4250.400000000001
+      },
+      {
+        "track": "timeline",
+        "state": "death",
+        "index": 30,
+        "elapsedMs": 4301.3
+      },
+      {
+        "track": "move",
+        "index": 12,
+        "elapsedMs": 4334.1
+      },
+      {
+        "track": "idle",
+        "index": 3,
+        "elapsedMs": 4377.700000000001
+      },
+      {
+        "track": "attack",
+        "index": 7,
+        "elapsedMs": 4377.700000000001
+      },
+      {
+        "track": "hit",
+        "index": 1,
+        "elapsedMs": 4377.700000000001
+      },
+      {
+        "track": "timeline",
+        "state": "death",
+        "index": 31,
+        "elapsedMs": 4403.1
+      },
+      {
+        "track": "move",
+        "index": 13,
+        "elapsedMs": 4417.700000000001
+      },
+      {
+        "track": "idle",
+        "index": 4,
+        "elapsedMs": 4501.3
+      },
+      {
+        "track": "move",
+        "index": 14,
+        "elapsedMs": 4501.3
+      },
+      {
+        "track": "attack",
+        "index": 0,
+        "elapsedMs": 4501.3
+      },
+      {
+        "track": "hit",
+        "index": 2,
+        "elapsedMs": 4501.3
+      },
+      {
+        "track": "move",
+        "index": 15,
+        "elapsedMs": 4585
+      },
+      {
+        "track": "idle",
+        "index": 5,
+        "elapsedMs": 4625
+      },
+      {
+        "track": "attack",
+        "index": 1,
+        "elapsedMs": 4625
+      },
+      {
+        "track": "hit",
+        "index": 3,
+        "elapsedMs": 4625
+      },
+      {
+        "track": "move",
+        "index": 8,
+        "elapsedMs": 4668.6
+      },
+      {
+        "track": "idle",
+        "index": 6,
+        "elapsedMs": 4752.200000000001
+      },
+      {
+        "track": "move",
+        "index": 9,
+        "elapsedMs": 4752.200000000001
+      },
+      {
+        "track": "attack",
+        "index": 2,
+        "elapsedMs": 4752.200000000001
+      },
+      {
+        "track": "hit",
+        "index": 4,
+        "elapsedMs": 4752.200000000001
+      },
+      {
+        "track": "move",
+        "index": 10,
+        "elapsedMs": 4835.8
+      },
+      {
+        "track": "idle",
+        "index": 7,
+        "elapsedMs": 4875.8
+      },
+      {
+        "track": "attack",
+        "index": 3,
+        "elapsedMs": 4875.8
+      },
+      {
+        "track": "hit",
+        "index": 5,
+        "elapsedMs": 4875.8
+      },
+      {
+        "track": "move",
+        "index": 11,
+        "elapsedMs": 4919.5
+      },
+      {
+        "track": "idle",
+        "index": 0,
+        "elapsedMs": 5003.1
+      },
+      {
+        "track": "move",
+        "index": 12,
+        "elapsedMs": 5003.1
+      },
+      {
+        "track": "attack",
+        "index": 4,
+        "elapsedMs": 5003.1
+      },
+      {
+        "track": "hit",
+        "index": 6,
+        "elapsedMs": 5003.1
+      },
+      {
+        "track": "move",
+        "index": 13,
+        "elapsedMs": 5086.700000000001
+      }
+    ],
+    "seen": {
+      "idle": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "move": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "attack": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "hit": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "death": [
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    "final": {
+      "idle": 0,
+      "move": 13,
+      "attack": 4,
+      "hit": 6,
+      "death": 31,
+      "timeline": 31
+    },
+    "recordingRateRequested": 30,
+    "fpsAcceptance": false,
+    "tracksStopped": true
+  },
+  "video": {
+    "file": "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/motion-draft.webm",
+    "bytes": 1088504,
+    "sha256": "e75a826b6bed5ea044ae2aac43df830f563b59aa82d4152a2140647490fd2ff4",
+    "mimeType": "video/webm;codecs=vp9",
+    "humanMotionReviewed": false
+  },
+  "recordingDecode": {
+    "width": 1440,
+    "height": 1190,
+    "samples": [
+      {
+        "requestedTime": 0.2,
+        "actualTime": 0.2,
+        "signature": 3936051805
+      },
+      {
+        "requestedTime": 1.3,
+        "actualTime": 1.3,
+        "signature": 597339723
+      },
+      {
+        "requestedTime": 2,
+        "actualTime": 2,
+        "signature": 329455539
+      },
+      {
+        "requestedTime": 3.15,
+        "actualTime": 3.15,
+        "signature": 3741648853
+      },
+      {
+        "requestedTime": 4.8,
+        "actualTime": 4.8,
+        "signature": 3848541959
+      }
+    ],
+    "decodedDistinctSamples": 5,
+    "codecDecodeOnly": true
+  },
+  "checks": {
+    "all32InputRegionsUnchanged": true,
+    "fullStateTimingBoundaries": true,
+    "browserNodeClockProbesMatch": true,
+    "all32VisitedInRealBrowser": true,
+    "syntheticHitInterruptAndTerminalDeath": true,
+    "recordedVideoReDecoded": true,
+    "noErrorsOrNetwork": true
+  },
+  "contextClosed": true,
+  "browserClosed": true,
+  "protectedAfter": {
+    "prototype-2d/native-app.js": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+    "prototype-2d/src/audio.js": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "prototype-2d/src/bear-animation.js": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+    "prototype-2d/src/bull-animation.js": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4",
+    "prototype-2d/src/content.js": "7af8cfe07b8aea17ae4c2220918aefad7b97cc7bb547650e0f131e617af07f87",
+    "prototype-2d/src/deer-animation.js": "7fca4fc497bd38abe62afc1b3f051001888195035e22573a5b7e323d5988653b",
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/hawk-animation.js": "60e7cb55d6c2966223d54145af3134e4507a449a976fbc4a5c962a3a6dde0285",
+    "prototype-2d/src/monkey-animation.js": "99dec7c46f8615d09e9c9fd0381c7e8ebdb9e41504c9f5a41a5a59fa598e1fc6",
+    "prototype-2d/src/native-ui.js": "dd84edca168df81681667b76e897f54b347c42486166a72b1c143bcd2bcbbe5c",
+    "prototype-2d/src/progression.js": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/src/snake-animation.js": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13",
+    "prototype-2d/src/tiger-animation.js": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+    "prototype-2d/src/wolf-animation.js": "e677a1be849717d0790715b08a8fb8a4b76aff27e24930c7e8962f3e8574e85e",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "scripts/serve.mjs": "300f782732b7bde8590abe40a3c20feab92d4705432386967fd298430f6713d7",
+    "scripts/release.mjs": "4134cd0ccb13c27e940793bff3860eb3d0ab092a0fe542aa48ffa1f2b53a53de",
+    "scripts/runtime-frame-contract.mjs": "22793d976f92b1d9d0c3310c985c4ac41c0d9e02432bff576ba6dfc15b522f84",
+    "prototype-2d/assets/artifact-diamond-snare.svg": "c0dd49e0d324d509573fccb0c847e63e69d014a375998143d768375bb7d7601d",
+    "prototype-2d/assets/artifact-golden-rope.svg": "2f7c85de5bf3ea8396002def45bebf18775380e6aa75b4262b2d3b951a48c0f7",
+    "prototype-2d/assets/artifact-iron-fan.svg": "60c256224ee13f5cf1eea868938bba3f8a6eefdea04502a1a9999601839b8347",
+    "prototype-2d/assets/artifact-lotus-lantern.svg": "61f888c1dd2425ff01127ee979bdb4241a6c171e5b7ab400cb64dc2c7bb2d528",
+    "prototype-2d/assets/artifact-moon-mirror.svg": "83c28876e88f5c6c6c0703db3a7ee334291b16f6c6c851d5d36bef1f5e69f2cd",
+    "prototype-2d/assets/artifact-nine-dragon.svg": "208984a5b25c26b18cf470c1e11e0193e26cef1eb96113207590f93b3e3b1dc5",
+    "prototype-2d/assets/artifact-purple-gourd.svg": "efc7b02dd2ad6991b5093fedef0e8447c44485c849d3ef4918f3739db5688a65",
+    "prototype-2d/assets/artifact-samadhi-fire.svg": "cb6011a7b5298253fe9a91d92c39b4ba027f2aa10cb803224089cd829514fcaf",
+    "prototype-2d/assets/enemy-bear-battle-v1-frames.json": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+    "prototype-2d/assets/enemy-bear-battle-v1-sheet.png": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+    "prototype-2d/assets/enemy-bird.svg": "0cdfbb376fef61809681e8a1c346ffcd079514721d8f31a1a5f4197b9908a580",
+    "prototype-2d/assets/enemy-boss-kr-v1.png": "15f5393abf19e83b2d0087d4ac0a068c5cec4ae45d740798cb5ec8c2807d8601",
+    "prototype-2d/assets/enemy-boss.svg": "3878f941259a93790631307e0102600d8734326d9b529f4fb2b6cb5ac5cb48ee",
+    "prototype-2d/assets/enemy-brute-kr-v1.png": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d",
+    "prototype-2d/assets/enemy-brute.svg": "625c5abc3730e7e176c8948d1da1524176f0b2e2c92f80156225ea23ed9bcb1c",
+    "prototype-2d/assets/enemy-bull-battle-v1-frames.json": "e32da6acfc9bbea64ffb74b6cfb06e30e736b7f2c042c1d8949348e506b11527",
+    "prototype-2d/assets/enemy-bull-battle-v1-sheet.png": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+    "prototype-2d/assets/enemy-creature-kr-v1.png": "5eb03be680a6e4a7b8aba3b53695d7eb22c2c5f19c1a31a710c711743ba8d102",
+    "prototype-2d/assets/enemy-creature.svg": "aea810adc49f2f2cfddf3b75f035bc4db4b1671f61278d00b322ffdfa827954f",
+    "prototype-2d/assets/enemy-deer-battle-v1-frames.json": "6bf255f4f3823b089585a3eeaed3534b9ac283660e863b72cb71035490cbe927",
+    "prototype-2d/assets/enemy-deer-battle-v1-sheet.png": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
+    "prototype-2d/assets/enemy-hawk-battle-v1-frames.json": "c2ac21f266056a976425e37a7e24e34fba6b7a1269d592da3354ca49ef6d60ec",
+    "prototype-2d/assets/enemy-hawk-battle-v1-sheet.png": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7",
+    "prototype-2d/assets/enemy-monkey-battle-v1-frames.json": "46dcb42789e67c95d640f26578d799c2c3e831bce062f9417d2dc2d0f097c21c",
+    "prototype-2d/assets/enemy-monkey-battle-v1-sheet.png": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44",
+    "prototype-2d/assets/enemy-snake-battle-v3-frames.json": "5c75ff4ebfdd765c0fbe3b1087b992426b708ca7634e370a6b984690e201ca70",
+    "prototype-2d/assets/enemy-snake-battle-v3-sheet.png": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+    "prototype-2d/assets/enemy-spider.svg": "575571fed6c63d3050ff0a60c86f1293501f6399f23448ba14661f99dbd8b5dd",
+    "prototype-2d/assets/enemy-tiger-battle-v1-frames.json": "b66e62a1a40b00e36711523621c94d1b73b33a05f71ee46ec2094b4ae007156d",
+    "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+    "prototype-2d/assets/enemy-wolf-battle-v1-frames.json": "777a2f232307a23bbda913feb17aec2ac680c10528c3f29bf1fe0e98823d4637",
+    "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299",
+    "prototype-2d/assets/generate-art-assets.mjs": "d56eb58a8fc8c5843f27465e3be6150830a4dc03488885056c9e8d07cd888fa3",
+    "prototype-2d/assets/hero-bajie-battle-v3-sheet.png": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b",
+    "prototype-2d/assets/hero-bajie.svg": "19eb81b91664409d54619eb3aefe48fe2add07b880a160c3d4756dd6ad2ad56a",
+    "prototype-2d/assets/hero-battle-v2-atlas.png": "589412a2857dcb34ef828cee24e31abb94acb8a3b6b8e37813051b06e03e8565",
+    "prototype-2d/assets/hero-cards-v1.png": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+    "prototype-2d/assets/hero-cards-v2-comic.png": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad",
+    "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61",
+    "prototype-2d/assets/hero-tangseng-kr-v1.png": "162fdcbbf62ba747e0cc9c8f6c89e695b2b0a6e5aabc74455e5d1705918b0a4f",
+    "prototype-2d/assets/hero-tangseng.svg": "481bd327822e262287684750ffee74316de807236b97cb7758815d6a3cc1335d",
+    "prototype-2d/assets/hero-wujing-battle-v3-sheet.png": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "prototype-2d/assets/hero-wujing.svg": "d78054b2dcdedfc127ddbd8a7bcfe5db7315d13e034b5d934cca7b6c8c0c81f6",
+    "prototype-2d/assets/hero-wukong-battle-v3-sheet.png": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+    "prototype-2d/assets/hero-wukong.svg": "0121755c5ed96abf2508d3ef8fb77804ac8e2e103d284f75d1403c7c8b9b732d",
+    "prototype-2d/assets/map-doublefork-high-ridge-v1.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-doublefork-v2-optimized.png": "e014fafd243bf430aa48d58634879a3077ba67697d1ad3b3f27262dd35e5a8e5",
+    "prototype-2d/assets/map-doublefork-v2.png": "690363b6757576103190cc6a7461f0231fbfe79c158381dfbb637cc7b8dde12b",
+    "prototype-2d/assets/map-doublefork-v3-optimized.png": "20174da20cf3df773f6f0665e928e06fe3ed73f9d40b81154649dce7455d9530",
+    "prototype-2d/assets/map-doublefork-v3.png": "79d3c48b57d319ff2b56c21b16e5ad207423f181fd4c119a0aadc9517bf866ca",
+    "prototype-2d/assets/map-doublefork-v4-high-ridge-candidate.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-forest-qv1.png": "2944c17b771ad04a2c0205722f72df6a6126bae5f6ebf2e3aac1b1485bb50f23",
+    "prototype-2d/assets/map-temple-qv1.png": "1d7627c6153e2583842821ca5b2fa9c36027a85fe2b888f440e4e1c58f067ef9",
+    "prototype-2d/assets/README.md": "f2db10e10df7573a3e8fc2855cb8433dca35a121515dd278558a3dc86cbabbdc",
+    "prototype-2d/assets/theme-fire.svg": "8669bc3310052658aa37623537ca37ef7a51d690521f604cf66f309c2b55a11d",
+    "prototype-2d/assets/theme-forest.svg": "aa116a57c9776189afbec44ef88be18f8ea21e423b9ce1a59feb6dcc2be25558",
+    "prototype-2d/assets/theme-sand.svg": "6a0ee4411722136d48ffeeac040bf78c255b94f1602b430a99d443fbd2c65604",
+    "prototype-2d/assets/theme-snow.svg": "56e23a7e861e54d309680469dfc5dd6d3c99206dc2a1ae45d4ef061650ff0997",
+    "prototype-2d/assets/theme-temple.svg": "ebc4f5149d7fe5064a03a0db5610af77e6e90848c1a0e1b52e984e780aa0bf8e",
+    "prototype-2d/assets/theme-water.svg": "399b5a854be22e373806fc4711d6392fa27f370eb1435eaf82162b897a19f093",
+    "prototype-2d/assets/weapon-skill-bajie.svg": "67b0841a9ad517ea9f7a83ef8c669f1d632f9df8796a32656c73f5773d0ec737",
+    "prototype-2d/assets/weapon-skill-tangseng.svg": "3bcf292f0e0c5de76f80573dc55eb8883142efcd48186d3981a31383289684a3",
+    "prototype-2d/assets/weapon-skill-wujing.svg": "baff2be3abbe0e1637457f0600c8a9f7e8bc0c7993d56075c79be19209d9582e",
+    "prototype-2d/assets/weapon-skill-wukong.svg": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27",
+    "prototype-2d/assets/xiyou-art-preview.png": "6517fd98be3b7cc81c4bd9e8a3a54d5371c8355eca4722102d78e5732655b9d0",
+    "prototype-2d/assets/xiyou-art-preview.svg": "c0f540a2b4b2021036a49d65d76e095643df74073a296527028e9f3f87372b2a",
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+    "evidence/current/tiger-vanguard/candidate-v1-sheet.png": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+    "evidence/current/tiger-vanguard/candidate-v2-sheet.png": "03fadd27018012715d083fb92206dd7eb0967e54adaff84b45d6442cb1492e62",
+    "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/candidate-v1-three-frame-patch.png": "e04bdf485aae996872827efe6ad8ef9e575eb7671a7e101f70c5c8f54b510e5a",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f"
+  },
+  "protectedUnchanged": true,
+  "finishedAt": "2026-10-13T12:00:15.419Z"
+}

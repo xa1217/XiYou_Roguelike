@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-10-13T14:38:16.457Z",
+  "result": "REVIEW_INCONTEXT_CANDIDATE_OVERLAY",
+  "scope": "Real Edge local battle scene with an evidence-only overlay; not runtime integration, dynamic/FPS, ZIP, public or device acceptance.",
+  "evidence": {
+    "browser": "evidence/current/tiger-vanguard/incontext-review/2026-10-13T14-38-16-457Z/browser.json",
+    "npmValidation": "evidence/current/tiger-vanguard/incontext-review/2026-10-13T14-38-16-457Z/npm-validation.json",
+    "candidateSha256": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+    "motionDraftSha256": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5",
+    "browserSha256": "df23bc186f8751522b131186f85e67f31bb9ff953d8cf338c1461454281501e8"
+  },
+  "runtime": {
+    "rendererMode": "vector",
+    "runtimeReferences": [],
+    "overlayOnly": true,
+    "protectedUnchanged": true,
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "publicPass": false
+  },
+  "limitations": [
+    "Overlay is a separate canvas at fixed screen coordinates, not a production world-space enemy or health bar.",
+    "Pause was applied by cancelling RAF and calling engine.pause(), not by clicking the pause control.",
+    "Five states are static samples; facing coverage is mixed across states rather than both directions for every state.",
+    "Death uses the final sampled pose and does not prove timing or TTL behavior.",
+    "Local npm test PASS is not public, FPS, ZIP or device acceptance."
+  ],
+  "nextSafeStep": "Review the existing full-state motion evidence for dynamic continuity, then assess an isolated in-context dynamic fixture; keep the candidate evidence-only and do not regenerate art, rebuild ZIPs or deploy."
+}

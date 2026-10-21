@@ -1,0 +1,11 @@
+{
+  "observedAt": "2026-10-10T09:34:02.7710539Z",
+  "inspection": "authorized read-only CIM; no process terminated",
+  "matchingTestOrHeadlessProcesses": [],
+  "totalVisibleMemoryKiB": 33449580,
+  "freePhysicalMemoryKiB": 22027264,
+  "totalGiB": 31.900005340576172,
+  "freeGiB": 21.0068359375,
+  "rawOutput": "\r\nTotalVisibleMemorySize FreePhysicalMemory\r\n---------------------- ------------------\r\n              33449580           22027264\r\n{\r\n  \"TimeUtc\": \"2026-10-10T09:34:02.7710539Z\",\r\n  \"MatchingTestOrHeadlessProcesses\": []\r\n}\r\n\r\n",
+  "boundary": "Snapshot only, not proof of no unrelated processes or a guarantee against future 429"
+}

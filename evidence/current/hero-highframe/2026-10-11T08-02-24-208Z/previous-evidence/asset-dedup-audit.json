@@ -1,0 +1,492 @@
+{
+  "generatedAt": "2026-10-11T07:11:50.157Z",
+  "policy": "Reuse an existing asset when it satisfies the requirement; generate only a demonstrably new asset after hash, dimensions, purpose and runtime-reference review.",
+  "scannedExtensions": [
+    ".png",
+    ".svg",
+    ".wav",
+    ".webp",
+    ".jpg",
+    ".jpeg",
+    ".gif"
+  ],
+  "scannedFileCount": 80,
+  "uniqueSha256Count": 76,
+  "duplicateGroupCount": 4,
+  "duplicateGroups": [
+    {
+      "sha256": "451d878961503ce57a2602afc319a51189a315d2ecc4ed73939036b664cc410b",
+      "files": [
+        {
+          "path": "legacy-source/prototype-2d/assets/cartoon-crawler-v1.png",
+          "bytes": 1066838,
+          "sha256": "451d878961503ce57a2602afc319a51189a315d2ecc4ed73939036b664cc410b"
+        },
+        {
+          "path": "legacy-source/wechat-miniprogram/miniprogram/assets/cartoon-crawler-v1.png",
+          "bytes": 1066838,
+          "sha256": "451d878961503ce57a2602afc319a51189a315d2ecc4ed73939036b664cc410b"
+        }
+      ],
+      "classification": "legacy mirror; not a current runtime duplicate"
+    },
+    {
+      "sha256": "0870ee9b1132f001f393b01c09275477e02dc3b1f51da26ec9ab0f2cbf396939",
+      "files": [
+        {
+          "path": "legacy-source/prototype-2d/assets/cartoon-rig-v1.png",
+          "bytes": 1723550,
+          "sha256": "0870ee9b1132f001f393b01c09275477e02dc3b1f51da26ec9ab0f2cbf396939"
+        },
+        {
+          "path": "legacy-source/wechat-miniprogram/miniprogram/assets/cartoon-rig-v1.png",
+          "bytes": 1723550,
+          "sha256": "0870ee9b1132f001f393b01c09275477e02dc3b1f51da26ec9ab0f2cbf396939"
+        }
+      ],
+      "classification": "legacy mirror; not a current runtime duplicate"
+    },
+    {
+      "sha256": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+      "files": [
+        {
+          "path": "prototype-2d/assets/hero-cards-v1.png",
+          "bytes": 3072734,
+          "sha256": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c"
+        },
+        {
+          "path": "wechat-game/illustrations/hero-cards-v1.png",
+          "bytes": 3072734,
+          "sha256": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c"
+        }
+      ],
+      "classification": "package copy of a source illustration; intentional"
+    },
+    {
+      "sha256": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+      "files": [
+        {
+          "path": "prototype-2d/assets/map-doublefork-high-ridge-v1.png",
+          "bytes": 2968219,
+          "sha256": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8"
+        },
+        {
+          "path": "prototype-2d/assets/map-doublefork-v4-high-ridge-candidate.png",
+          "bytes": 2968219,
+          "sha256": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8"
+        }
+      ],
+      "classification": "traceability candidate copied byte-for-byte; do not regenerate"
+    }
+  ],
+  "manifest": {
+    "path": "prototype-2d/assets/manifest.json",
+    "declaredAssetCount": 51,
+    "declaredButMissingFromCurrentAssetDirectory": [],
+    "metadataMismatches": []
+  },
+  "inventory": [
+    {
+      "path": "legacy-source/prototype-2d/assets/apocalypse-characters.png",
+      "bytes": 1090824,
+      "sha256": "dbf751af75178d1867506932af4acc3df101e9845a4ffa4d4cfd41b66a6ece40"
+    },
+    {
+      "path": "legacy-source/prototype-2d/assets/apocalypse-environment.png",
+      "bytes": 2129628,
+      "sha256": "2c5cc15ec07fe2f5a06c1f1b73ab2e11ebfabbdbb8d4d948a39d7eea90a9bcbd"
+    },
+    {
+      "path": "legacy-source/prototype-2d/assets/cartoon-crawler-v1.png",
+      "bytes": 1066838,
+      "sha256": "451d878961503ce57a2602afc319a51189a315d2ecc4ed73939036b664cc410b"
+    },
+    {
+      "path": "legacy-source/prototype-2d/assets/cartoon-rig-v1.png",
+      "bytes": 1723550,
+      "sha256": "0870ee9b1132f001f393b01c09275477e02dc3b1f51da26ec9ab0f2cbf396939"
+    },
+    {
+      "path": "legacy-source/wechat-miniprogram/miniprogram/assets/cartoon-crawler-v1.png",
+      "bytes": 1066838,
+      "sha256": "451d878961503ce57a2602afc319a51189a315d2ecc4ed73939036b664cc410b"
+    },
+    {
+      "path": "legacy-source/wechat-miniprogram/miniprogram/assets/cartoon-rig-v1.png",
+      "bytes": 1723550,
+      "sha256": "0870ee9b1132f001f393b01c09275477e02dc3b1f51da26ec9ab0f2cbf396939"
+    },
+    {
+      "path": "prototype-2d/assets/artifact-diamond-snare.svg",
+      "bytes": 663,
+      "sha256": "c0dd49e0d324d509573fccb0c847e63e69d014a375998143d768375bb7d7601d"
+    },
+    {
+      "path": "prototype-2d/assets/artifact-golden-rope.svg",
+      "bytes": 836,
+      "sha256": "2f7c85de5bf3ea8396002def45bebf18775380e6aa75b4262b2d3b951a48c0f7"
+    },
+    {
+      "path": "prototype-2d/assets/artifact-iron-fan.svg",
+      "bytes": 1295,
+      "sha256": "60c256224ee13f5cf1eea868938bba3f8a6eefdea04502a1a9999601839b8347"
+    },
+    {
+      "path": "prototype-2d/assets/artifact-lotus-lantern.svg",
+      "bytes": 1546,
+      "sha256": "61f888c1dd2425ff01127ee979bdb4241a6c171e5b7ab400cb64dc2c7bb2d528"
+    },
+    {
+      "path": "prototype-2d/assets/artifact-moon-mirror.svg",
+      "bytes": 877,
+      "sha256": "83c28876e88f5c6c6c0703db3a7ee334291b16f6c6c851d5d36bef1f5e69f2cd"
+    },
+    {
+      "path": "prototype-2d/assets/artifact-nine-dragon.svg",
+      "bytes": 768,
+      "sha256": "208984a5b25c26b18cf470c1e11e0193e26cef1eb96113207590f93b3e3b1dc5"
+    },
+    {
+      "path": "prototype-2d/assets/artifact-purple-gourd.svg",
+      "bytes": 952,
+      "sha256": "efc7b02dd2ad6991b5093fedef0e8447c44485c849d3ef4918f3739db5688a65"
+    },
+    {
+      "path": "prototype-2d/assets/artifact-samadhi-fire.svg",
+      "bytes": 831,
+      "sha256": "cb6011a7b5298253fe9a91d92c39b4ba027f2aa10cb803224089cd829514fcaf"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-bear-battle-v1-sheet.png",
+      "bytes": 978099,
+      "sha256": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-bird.svg",
+      "bytes": 685,
+      "sha256": "0cdfbb376fef61809681e8a1c346ffcd079514721d8f31a1a5f4197b9908a580"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-boss-kr-v1.png",
+      "bytes": 2297029,
+      "sha256": "15f5393abf19e83b2d0087d4ac0a068c5cec4ae45d740798cb5ec8c2807d8601"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-boss.svg",
+      "bytes": 883,
+      "sha256": "3878f941259a93790631307e0102600d8734326d9b529f4fb2b6cb5ac5cb48ee"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-brute-kr-v1.png",
+      "bytes": 2447649,
+      "sha256": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-brute.svg",
+      "bytes": 883,
+      "sha256": "625c5abc3730e7e176c8948d1da1524176f0b2e2c92f80156225ea23ed9bcb1c"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-bull-battle-v1-sheet.png",
+      "bytes": 1137073,
+      "sha256": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-creature-kr-v1.png",
+      "bytes": 1890259,
+      "sha256": "5eb03be680a6e4a7b8aba3b53695d7eb22c2c5f19c1a31a710c711743ba8d102"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-creature.svg",
+      "bytes": 853,
+      "sha256": "aea810adc49f2f2cfddf3b75f035bc4db4b1671f61278d00b322ffdfa827954f"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-deer-battle-v1-sheet.png",
+      "bytes": 1894732,
+      "sha256": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-hawk-battle-v1-sheet.png",
+      "bytes": 1776852,
+      "sha256": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-monkey-battle-v1-sheet.png",
+      "bytes": 1379382,
+      "sha256": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-snake-battle-v3-sheet.png",
+      "bytes": 1749032,
+      "sha256": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-spider.svg",
+      "bytes": 764,
+      "sha256": "575571fed6c63d3050ff0a60c86f1293501f6399f23448ba14661f99dbd8b5dd"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png",
+      "bytes": 1166282,
+      "sha256": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png",
+      "bytes": 1410175,
+      "sha256": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299"
+    },
+    {
+      "path": "prototype-2d/assets/hero-bajie-battle-v3-sheet.png",
+      "bytes": 1490905,
+      "sha256": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b"
+    },
+    {
+      "path": "prototype-2d/assets/hero-bajie.svg",
+      "bytes": 4038,
+      "sha256": "19eb81b91664409d54619eb3aefe48fe2add07b880a160c3d4756dd6ad2ad56a"
+    },
+    {
+      "path": "prototype-2d/assets/hero-battle-v2-atlas.png",
+      "bytes": 2249404,
+      "sha256": "589412a2857dcb34ef828cee24e31abb94acb8a3b6b8e37813051b06e03e8565"
+    },
+    {
+      "path": "prototype-2d/assets/hero-cards-v1.png",
+      "bytes": 3072734,
+      "sha256": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c"
+    },
+    {
+      "path": "prototype-2d/assets/hero-cards-v2-comic.png",
+      "bytes": 3016136,
+      "sha256": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad"
+    },
+    {
+      "path": "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png",
+      "bytes": 1942037,
+      "sha256": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61"
+    },
+    {
+      "path": "prototype-2d/assets/hero-tangseng-kr-v1.png",
+      "bytes": 1720632,
+      "sha256": "162fdcbbf62ba747e0cc9c8f6c89e695b2b0a6e5aabc74455e5d1705918b0a4f"
+    },
+    {
+      "path": "prototype-2d/assets/hero-tangseng.svg",
+      "bytes": 3115,
+      "sha256": "481bd327822e262287684750ffee74316de807236b97cb7758815d6a3cc1335d"
+    },
+    {
+      "path": "prototype-2d/assets/hero-wujing-battle-v3-sheet.png",
+      "bytes": 1558610,
+      "sha256": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747"
+    },
+    {
+      "path": "prototype-2d/assets/hero-wujing.svg",
+      "bytes": 3210,
+      "sha256": "d78054b2dcdedfc127ddbd8a7bcfe5db7315d13e034b5d934cca7b6c8c0c81f6"
+    },
+    {
+      "path": "prototype-2d/assets/hero-wukong-battle-v3-sheet.png",
+      "bytes": 1387002,
+      "sha256": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127"
+    },
+    {
+      "path": "prototype-2d/assets/hero-wukong.svg",
+      "bytes": 3115,
+      "sha256": "0121755c5ed96abf2508d3ef8fb77804ac8e2e103d284f75d1403c7c8b9b732d"
+    },
+    {
+      "path": "prototype-2d/assets/map-doublefork-high-ridge-v1.png",
+      "bytes": 2968219,
+      "sha256": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8"
+    },
+    {
+      "path": "prototype-2d/assets/map-doublefork-v2-optimized.png",
+      "bytes": 1721801,
+      "sha256": "e014fafd243bf430aa48d58634879a3077ba67697d1ad3b3f27262dd35e5a8e5"
+    },
+    {
+      "path": "prototype-2d/assets/map-doublefork-v2.png",
+      "bytes": 3096142,
+      "sha256": "690363b6757576103190cc6a7461f0231fbfe79c158381dfbb637cc7b8dde12b"
+    },
+    {
+      "path": "prototype-2d/assets/map-doublefork-v3-optimized.png",
+      "bytes": 1700500,
+      "sha256": "20174da20cf3df773f6f0665e928e06fe3ed73f9d40b81154649dce7455d9530"
+    },
+    {
+      "path": "prototype-2d/assets/map-doublefork-v3.png",
+      "bytes": 3038196,
+      "sha256": "79d3c48b57d319ff2b56c21b16e5ad207423f181fd4c119a0aadc9517bf866ca"
+    },
+    {
+      "path": "prototype-2d/assets/map-doublefork-v4-high-ridge-candidate.png",
+      "bytes": 2968219,
+      "sha256": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8"
+    },
+    {
+      "path": "prototype-2d/assets/map-forest-qv1.png",
+      "bytes": 1365938,
+      "sha256": "2944c17b771ad04a2c0205722f72df6a6126bae5f6ebf2e3aac1b1485bb50f23"
+    },
+    {
+      "path": "prototype-2d/assets/map-temple-qv1.png",
+      "bytes": 1448511,
+      "sha256": "1d7627c6153e2583842821ca5b2fa9c36027a85fe2b888f440e4e1c58f067ef9"
+    },
+    {
+      "path": "prototype-2d/assets/theme-fire.svg",
+      "bytes": 1814,
+      "sha256": "8669bc3310052658aa37623537ca37ef7a51d690521f604cf66f309c2b55a11d"
+    },
+    {
+      "path": "prototype-2d/assets/theme-forest.svg",
+      "bytes": 2322,
+      "sha256": "aa116a57c9776189afbec44ef88be18f8ea21e423b9ce1a59feb6dcc2be25558"
+    },
+    {
+      "path": "prototype-2d/assets/theme-sand.svg",
+      "bytes": 1785,
+      "sha256": "6a0ee4411722136d48ffeeac040bf78c255b94f1602b430a99d443fbd2c65604"
+    },
+    {
+      "path": "prototype-2d/assets/theme-snow.svg",
+      "bytes": 2302,
+      "sha256": "56e23a7e861e54d309680469dfc5dd6d3c99206dc2a1ae45d4ef061650ff0997"
+    },
+    {
+      "path": "prototype-2d/assets/theme-temple.svg",
+      "bytes": 2112,
+      "sha256": "ebc4f5149d7fe5064a03a0db5610af77e6e90848c1a0e1b52e984e780aa0bf8e"
+    },
+    {
+      "path": "prototype-2d/assets/theme-water.svg",
+      "bytes": 2406,
+      "sha256": "399b5a854be22e373806fc4711d6392fa27f370eb1435eaf82162b897a19f093"
+    },
+    {
+      "path": "prototype-2d/assets/weapon-skill-bajie.svg",
+      "bytes": 1960,
+      "sha256": "67b0841a9ad517ea9f7a83ef8c669f1d632f9df8796a32656c73f5773d0ec737"
+    },
+    {
+      "path": "prototype-2d/assets/weapon-skill-tangseng.svg",
+      "bytes": 1167,
+      "sha256": "3bcf292f0e0c5de76f80573dc55eb8883142efcd48186d3981a31383289684a3"
+    },
+    {
+      "path": "prototype-2d/assets/weapon-skill-wujing.svg",
+      "bytes": 1009,
+      "sha256": "baff2be3abbe0e1637457f0600c8a9f7e8bc0c7993d56075c79be19209d9582e"
+    },
+    {
+      "path": "prototype-2d/assets/weapon-skill-wukong.svg",
+      "bytes": 990,
+      "sha256": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27"
+    },
+    {
+      "path": "prototype-2d/assets/xiyou-art-preview.png",
+      "bytes": 313503,
+      "sha256": "6517fd98be3b7cc81c4bd9e8a3a54d5371c8355eca4722102d78e5732655b9d0"
+    },
+    {
+      "path": "prototype-2d/assets/xiyou-art-preview.svg",
+      "bytes": 34872,
+      "sha256": "c0f540a2b4b2021036a49d65d76e095643df74073a296527028e9f3f87372b2a"
+    },
+    {
+      "path": "wechat-game/assets/audio/attack.wav",
+      "bytes": 2248,
+      "sha256": "52bf38c6394b1059a426cda79c39951418258a9a4aef831910583cfc07a73514"
+    },
+    {
+      "path": "wechat-game/assets/audio/bgm-fire.wav",
+      "bytes": 352844,
+      "sha256": "46b088178e1204d64e6c45926c7c95f7e26d3af9fa7617575f2600a078144c59"
+    },
+    {
+      "path": "wechat-game/assets/audio/bgm-forest.wav",
+      "bytes": 352844,
+      "sha256": "9ac7df22f2dc644a2cd851f3b07e414cf6c05fb2d1957c2bbe7fa31ac80d3db3"
+    },
+    {
+      "path": "wechat-game/assets/audio/bgm-sand.wav",
+      "bytes": 352844,
+      "sha256": "493691c36f119e1d9ce6bb56a7ed5c5f64d3dd0ee659766bd4eb1894f056f6e9"
+    },
+    {
+      "path": "wechat-game/assets/audio/bgm-snow.wav",
+      "bytes": 352844,
+      "sha256": "ae47faf7e286d7b122798e31ecd201961134b10830ca8807f2eb39c2f69ab65c"
+    },
+    {
+      "path": "wechat-game/assets/audio/bgm-temple.wav",
+      "bytes": 352844,
+      "sha256": "d7dc5920bd2c55b4e22cd5361a8b949849771a1f88d0c0452c4d733707899077"
+    },
+    {
+      "path": "wechat-game/assets/audio/bgm-water.wav",
+      "bytes": 352844,
+      "sha256": "40f6db2737a9b49c5a2b73d9fc4b53be8cdebecdba0f951bfcb1379e00f9c392"
+    },
+    {
+      "path": "wechat-game/assets/audio/boss.wav",
+      "bytes": 15920,
+      "sha256": "8f382495e9ca3eb7ccd484bf4fb020980ff6e2bb78acd45467ad7b4e87331974"
+    },
+    {
+      "path": "wechat-game/assets/audio/click.wav",
+      "bytes": 1476,
+      "sha256": "7ac3f611bd9f6990bf7d9b84ded5f9dc9bcec922604f68f97a6155612a28c13c"
+    },
+    {
+      "path": "wechat-game/assets/audio/dash.wav",
+      "bytes": 3792,
+      "sha256": "97c469b1c0afd783955d9bf635d748ee6bdd929e2b37523191161ae460e0c6da"
+    },
+    {
+      "path": "wechat-game/assets/audio/hit.wav",
+      "bytes": 1808,
+      "sha256": "5590eb5f13c45e979541b8c652612ba4255a8c1d542a68e39e25a36b4e67db1a"
+    },
+    {
+      "path": "wechat-game/assets/audio/hurt.wav",
+      "bytes": 4674,
+      "sha256": "5b598d9fe9f929e6cd18d1446d481f43fd0ef4e460fe98b8b74864dfe226a9cb"
+    },
+    {
+      "path": "wechat-game/assets/audio/kill.wav",
+      "bytes": 2248,
+      "sha256": "ed408746d25d84daacfc9cd2b1af4c3ee9b277879c3fc405809e0eabd0b904c5"
+    },
+    {
+      "path": "wechat-game/assets/audio/level.wav",
+      "bytes": 11510,
+      "sha256": "096b35303048bc25729c917bf5a068b7eaa738963439df6055b031d6882a4d21"
+    },
+    {
+      "path": "wechat-game/assets/audio/lose.wav",
+      "bytes": 16360,
+      "sha256": "db34b6b96a5edf19e7489057a7d460b7c4c26956579cc4fb0b7c5939f39276ad"
+    },
+    {
+      "path": "wechat-game/assets/audio/pickup.wav",
+      "bytes": 2690,
+      "sha256": "f98dc4237232ce0e4a2483b7c3a1ba45422987bbbc97e0b445b19616516449be"
+    },
+    {
+      "path": "wechat-game/assets/audio/win.wav",
+      "bytes": 19006,
+      "sha256": "88596b7ec2730948a6f55b176b06250bd82b55317366c34b31e569e6cad37842"
+    },
+    {
+      "path": "wechat-game/illustrations/hero-cards-v1.png",
+      "bytes": 3072734,
+      "sha256": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c"
+    }
+  ],
+  "result": "PASS",
+  "note": "This audit hashes existing files only. It does not generate, download, rasterize, rename or rewrite any asset."
+}

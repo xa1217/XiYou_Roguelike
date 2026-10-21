@@ -1,0 +1,206 @@
+{
+  "checkedAt": "2026-10-14T02:57:22.391Z",
+  "protectedFilesChecked": 204,
+  "protectedChanged": [],
+  "protectedBeforeAfterEqual": true,
+  "screenshotChecks": [
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/real-ui-before-fixture.png",
+      "bytes": 33472,
+      "sha256": "36e2876b9f64c4ef8a87f3b6290b746b7b544804f8a921fe1f62718e42bd1a17",
+      "kind": "real-ui-before-explicit-fixture",
+      "actualSha256": "36e2876b9f64c4ef8a87f3b6290b746b7b544804f8a921fe1f62718e42bd1a17",
+      "unchanged": true,
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-real-ui-before-fixture.png",
+      "bytes": 32172,
+      "sha256": "6c203a3b82f093e562db5e404c80e420ed99a95604bc9b4724226efd24c62f9f",
+      "kind": "real-ui-before-explicit-fixture",
+      "actualSha256": "6c203a3b82f093e562db5e404c80e420ed99a95604bc9b4724226efd24c62f9f",
+      "unchanged": true,
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-detail-real-ui-before-fixture.png",
+      "bytes": 32172,
+      "sha256": "6c203a3b82f093e562db5e404c80e420ed99a95604bc9b4724226efd24c62f9f",
+      "kind": "real-ui-before-explicit-fixture",
+      "actualSha256": "6c203a3b82f093e562db5e404c80e420ed99a95604bc9b4724226efd24c62f9f",
+      "unchanged": true,
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-detail-hit26-original-depth.png",
+      "bytes": 66965,
+      "sha256": "6ff55375390098dcc6b1e2de0055f30a890c8765a082f2c4315ae6b42a10badd",
+      "kind": "explicit-evidence-only-single-player-depth-fixture",
+      "actualSha256": "6ff55375390098dcc6b1e2de0055f30a890c8765a082f2c4315ae6b42a10badd",
+      "unchanged": true,
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-detail-hit26-player-contact-priority.png",
+      "bytes": 67474,
+      "sha256": "ff70c5daca8abe889d68cc7358b3898e180d847d5d5120ef32a0154883ce0e4b",
+      "kind": "explicit-evidence-only-single-player-depth-fixture",
+      "actualSha256": "ff70c5daca8abe889d68cc7358b3898e180d847d5d5120ef32a0154883ce0e4b",
+      "unchanged": true,
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-detail-player-full-original-paint-support.png",
+      "bytes": 39871,
+      "sha256": "07184a9c9fa5dadefee50d54b1eba4dca62962cfe54510f8798357fc8ab0ab31",
+      "kind": "explicit-evidence-only-single-player-depth-fixture",
+      "actualSha256": "07184a9c9fa5dadefee50d54b1eba4dca62962cfe54510f8798357fc8ab0ab31",
+      "unchanged": true,
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-detail-player-current-source-draw.png",
+      "bytes": 37954,
+      "sha256": "b427af9d00d8f7f39ee50663133e30a140a134ed195ea2cdc9bf67a88ff4363c",
+      "kind": "explicit-evidence-only-single-player-depth-fixture",
+      "actualSha256": "b427af9d00d8f7f39ee50663133e30a140a134ed195ea2cdc9bf67a88ff4363c",
+      "unchanged": true,
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-detail-candidate-current-source-draw.png",
+      "bytes": 43462,
+      "sha256": "a4355415469aa8615a8161b5753257b22ba008a4a8737e6aeef4bc5a13cc846c",
+      "kind": "explicit-evidence-only-single-player-depth-fixture",
+      "actualSha256": "a4355415469aa8615a8161b5753257b22ba008a4a8737e6aeef4bc5a13cc846c",
+      "unchanged": true,
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "scriptAndEvidenceSha256": {
+    "scripts/tiger-vanguard-player-depth-draft.mjs": "b4d5d98c97e371c0472e24338d3042fa7865b50f1c93bb1abd5f280c6a54d79e",
+    "scripts/tiger-vanguard-player-depth-smoke.mjs": "5afc97d74abcda5e52f67219fd161c07eaf2a1c91663da710f9d08b39c5de5cd",
+    "scripts/browser-tiger-vanguard-player-depth-draft.mjs": "73f0437175bbffec1010f89292754f70879605adcfe10652ece7d743747ca9f1",
+    "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/node.json": "7b453ae3f1811aab8fe96c6991df0fa54ca94448077e018e402f905eee019e0a",
+    "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/browser.json": "2dd8a52966f50bd68af1a66995ea7aa6de8f1180df33c5a42233e961037509a5",
+    "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-browser.json": "bb68d2581256fe3caa2e212ae397d92dc75f0e77ab4669e1f5d968b28acdd020",
+    "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-detail-browser.json": "5f02002251719c9bef3c4198f6b6c0be8f2b22acf80d350ad0d4ba2f315d9b09"
+  },
+  "scriptMatchesLatestReport": true,
+  "sourceArgsEqual": true,
+  "playerDifferences": {
+    "count": 50,
+    "argsStylesDashAllEqual": true,
+    "matrixChangedKeys": [
+      "e",
+      "f"
+    ]
+  },
+  "sourceBefore": {
+    "a": 1.5069032135010885,
+    "b": 0.08904666646730112,
+    "c": -0.08533436121152702,
+    "d": 1.5724581041688275,
+    "e": 195,
+    "f": 422.39389475496137
+  },
+  "sourceAfter": {
+    "a": 1.5069032135010885,
+    "b": 0.08904666646730112,
+    "c": -0.08533436121152702,
+    "d": 1.5724581041688275,
+    "e": 195.00001621246338,
+    "f": 422.3938442102226
+  },
+  "firstWorldDifference": {
+    "a": 1.547619104385376,
+    "b": 0,
+    "c": 0,
+    "d": 1.547619104385376,
+    "e": -1197.8571939468384,
+    "f": -1528.0000715255737
+  },
+  "firstWorldAfter": {
+    "a": 1.547619104385376,
+    "b": 0,
+    "c": 0,
+    "d": 1.547619104385376,
+    "e": -1197.857177734375,
+    "f": -1528.0001220703125
+  },
+  "attempts": [
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/browser.json",
+      "sha256": "2dd8a52966f50bd68af1a66995ea7aa6de8f1180df33c5a42233e961037509a5",
+      "result": "FAIL",
+      "generatedAt": "2026-10-14T02:45:36.593Z",
+      "finishedAt": "2026-10-14T02:45:41.312Z",
+      "protectedFiles": 200,
+      "protectedUnchanged": true,
+      "screenshots": 1,
+      "contextClosed": true,
+      "browserClosed": true,
+      "serverClosed": true,
+      "hookReferenceRestorationChecked": null,
+      "disposed": null
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-browser.json",
+      "sha256": "bb68d2581256fe3caa2e212ae397d92dc75f0e77ab4669e1f5d968b28acdd020",
+      "result": "FAIL",
+      "generatedAt": "2026-10-14T02:49:08.942Z",
+      "finishedAt": "2026-10-14T02:49:12.940Z",
+      "protectedFiles": 202,
+      "protectedUnchanged": true,
+      "screenshots": 1,
+      "contextClosed": true,
+      "browserClosed": true,
+      "serverClosed": true,
+      "hookReferenceRestorationChecked": null,
+      "disposed": null
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-detail-browser.json",
+      "sha256": "5f02002251719c9bef3c4198f6b6c0be8f2b22acf80d350ad0d4ba2f315d9b09",
+      "result": "FAIL",
+      "generatedAt": "2026-10-14T02:50:12.946Z",
+      "finishedAt": "2026-10-14T02:50:16.981Z",
+      "protectedFiles": 204,
+      "protectedUnchanged": true,
+      "screenshots": 6,
+      "contextClosed": true,
+      "browserClosed": true,
+      "serverClosed": true,
+      "hookReferenceRestorationChecked": true,
+      "disposed": true
+    }
+  ],
+  "keyLockedHashes": {
+    "prototype-2d/assets/hero-wukong-battle-v3-sheet.png": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+    "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/motion-draft.json": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/layout-draft.json": "35cc74c1353e0004948cf1c3c3dca72c23bc66bb27ea69dbd30d7a18a345023c"
+  },
+  "result": "PASS_POST_TEST_EVIDENCE_INTEGRITY_ONLY",
+  "freshNpmResult": "PASS",
+  "freshNpmDate": "2026-10-14T02:54:14.279Z",
+  "browserDepthResult": "FAIL",
+  "screenshotsChecked": 8,
+  "latestDetailedScreenshotsChecked": 6,
+  "allApprovalGatesRemainFalse": true,
+  "productionChanged": false,
+  "sourceImagesChanged": false,
+  "zipChanged": false,
+  "publicRetested": false,
+  "releaseReady": false
+}

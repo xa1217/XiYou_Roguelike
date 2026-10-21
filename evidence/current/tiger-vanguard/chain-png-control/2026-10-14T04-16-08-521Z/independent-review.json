@@ -1,0 +1,397 @@
+{
+  "checkedAt": "2026-10-14T04:18:27Z",
+  "result": "REVIEW_CONFIRMED_EVIDENCE_ONLY_SAME_DEPTH_CHAIN_PNG_BASELINE",
+  "browserRecordedResult": "REVIEW_EVIDENCE_ONLY_SAME_DEPTH_CHAIN_PNG_BASELINE",
+  "evidenceDir": "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/",
+  "decodeMethod": "Node pngjs PNG.sync.read on all 16 saved PNG bytes; exact RGBA per-pixel comparison, any differing channel counts one pixel; no browser pixel reads or file writes",
+  "pngInventory": {
+    "allDimensions": [
+      390,
+      844
+    ],
+    "total": 16,
+    "entry": [
+      "real-ui-before-fixture.png"
+    ],
+    "main": [
+      "frame-1-chain-mirror-off.png",
+      "frame-2-chain-mirror-off.png",
+      "frame-3-chain-mirror-off.png",
+      "frame-4-chain-mirror-on.png",
+      "frame-5-chain-mirror-on.png",
+      "frame-6-chain-mirror-on.png"
+    ],
+    "proxies": "frame-{4,5,6}-{playerLayer,playerSprite,candidate}-chain-proxy.png; all 9 exact frame/kind mappings verified"
+  },
+  "mainAdjacentChangedPixels": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "mainAdjacentPairs": [
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      6
+    ]
+  ],
+  "mainAllDiffBounds": null,
+  "mainAllMaxAbsChannelDelta": 0,
+  "proxyComparisons": {
+    "playerLayer": {
+      "frameIndices": [
+        4,
+        5,
+        6
+      ],
+      "alphaGreaterThanZeroCounts": [
+        8323,
+        8323,
+        8323
+      ],
+      "adjacentChangedPixels": [
+        0,
+        0
+      ]
+    },
+    "playerSprite": {
+      "frameIndices": [
+        4,
+        5,
+        6
+      ],
+      "alphaGreaterThanZeroCounts": [
+        7465,
+        7465,
+        7465
+      ],
+      "adjacentChangedPixels": [
+        0,
+        0
+      ]
+    },
+    "candidate": {
+      "frameIndices": [
+        4,
+        5,
+        6
+      ],
+      "alphaGreaterThanZeroCounts": [
+        10705,
+        10705,
+        10705
+      ],
+      "adjacentChangedPixels": [
+        0,
+        0
+      ]
+    }
+  },
+  "proxyAllDiffBounds": null,
+  "proxyAllMaxAbsChannelDelta": 0,
+  "hashVerification": {
+    "protectedFilesChecked": 276,
+    "protectedBeforeEqualsProtectedAfter": true,
+    "allProtectedHashesMatch": true,
+    "pngBytesAndHashesChecked": 16,
+    "scriptSha256": "bbad11be3790f8b5228e419d9f26a4946046d2200cbb569c42c0420bf509619c",
+    "scriptMatchesReport": true,
+    "reportComputedSha256": "19e342eb406f5310c70e840b34d9a872010925ed397429f1c6250824584f8a0b",
+    "mismatches": []
+  },
+  "mainRecordReview": {
+    "normalization": "Removed only per-render draw.renderToken; frame index/group excluded; all commands/states/captures/context/UI/state/RNG/elapsed/view/HUD/feedback compared",
+    "strictDiff": [],
+    "traceErrors": [],
+    "commandCounts": [
+      395,
+      395,
+      395,
+      395,
+      395,
+      395
+    ],
+    "stateTableCounts": [
+      74,
+      74,
+      74,
+      74,
+      74,
+      74
+    ],
+    "transformCounts": [
+      33,
+      33,
+      33,
+      33,
+      33,
+      33
+    ],
+    "originalPlayerCalls": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "interceptedPlayerCalls": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "playerPathPaintCounts": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "segmentCounts": {
+      "other": 312,
+      "player": 58,
+      "candidate": 1,
+      "feedback": 19,
+      "annotation": 5
+    },
+    "eachDrawImageCalls": 3,
+    "eachMeasureTextCalls": 1,
+    "eachFillTextCalls": 10,
+    "eachStrokeTextCalls": 1,
+    "annotationTail": [
+      "save",
+      "setTransform",
+      "fillRect",
+      "fillText",
+      "restore"
+    ],
+    "allMainStacksBalanced": true,
+    "capturedClipCalls": 0,
+    "stateRngElapsedAndUiCrossFrameEqual": true,
+    "rendererElapsed": 1.004100000001491,
+    "rngCalls": 20,
+    "renderChecks": 31,
+    "consumerChecks": 6
+  },
+  "proxyRecordReview": {
+    "comparedTables": [
+      "proxyTrace",
+      "matrixChecks",
+      "proxyResets",
+      "proxyStack"
+    ],
+    "frame4to5and6Differences": [],
+    "eachOnProxyTraceCount": 203,
+    "matrixCheckCounts": [
+      0,
+      0,
+      0,
+      151,
+      151,
+      151
+    ],
+    "expectedEachOnMatrixCount": "3*33+50+1+1=151",
+    "allRecordedMatrixValuesIndependentlyEqual": true,
+    "allProxyCommandIndexMethodArgsAndMatrixMatchActualMain": true,
+    "allInstalledProxyStylesAndDashMatchActualMain": true,
+    "eachOnReplayCounts": {
+      "playerLayer": 50,
+      "playerSprite": 1,
+      "candidate": 1
+    },
+    "eachOnResetCount": 3,
+    "resetDimensions": [
+      390,
+      844
+    ],
+    "resetMatricesIdentity": true,
+    "allOnFinalProxyStacks": {
+      "playerLayer": 0,
+      "playerSprite": 0,
+      "candidate": 0
+    }
+  },
+  "mainContextAttributes": {
+    "alpha": true,
+    "colorSpace": "srgb",
+    "colorType": "unorm8",
+    "desynchronized": false,
+    "toneMapping": {
+      "mode": "standard"
+    },
+    "willReadFrequently": false
+  },
+  "proxyContextAttributes": {
+    "alpha": true,
+    "colorSpace": "srgb",
+    "colorType": "unorm8",
+    "desynchronized": false,
+    "toneMapping": {
+      "mode": "standard"
+    },
+    "willReadFrequently": true
+  },
+  "sourceAudit": {
+    "refs": [
+      {
+        "ref": 0,
+        "file": "prototype-2d/assets/hero-wukong-battle-v3-sheet.png",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "sha256": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127"
+      },
+      {
+        "ref": 1,
+        "file": "evidence/current/tiger-vanguard/candidate-v1-sheet.png",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "sha256": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824"
+      },
+      {
+        "ref": 2,
+        "file": "prototype-2d/assets/weapon-skill-wukong.svg",
+        "dimensions": [
+          128,
+          128
+        ],
+        "sha256": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27"
+      }
+    ],
+    "allLocalSourceHashesMatch": true,
+    "recordedHttpRefs": [
+      0,
+      2
+    ],
+    "recordedStatuses": [
+      200,
+      200
+    ],
+    "recordedActualExpectedLocalHashesConsistent": true,
+    "independentNewHttpRequest": false,
+    "candidateLockedDataUrl": true
+  },
+  "mainGetImageDataGuard": {
+    "calls": [],
+    "count": 0,
+    "scope": "After source decode and hook installation until hook restoration; excludes cleanup draw/dispose"
+  },
+  "pngReadOrder": {
+    "sequenceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "frameIndices": [
+      1,
+      2,
+      3,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6
+    ],
+    "kinds": "main1,main2,main3; then each frame4/5/6 main→playerLayer→playerSprite→candidate PNG export",
+    "allArgs": [
+      "image/png"
+    ]
+  },
+  "recordedCleanup": {
+    "qualification": "Report/script reviewed, not independent process observation",
+    "hookReferenceRestorationChecked": true,
+    "disposed": true,
+    "contextClosed": true,
+    "browserClosed": true,
+    "serverClosed": true,
+    "pixelAnalysisAfterBrowserClosed": true
+  },
+  "errorCounts": {
+    "fixture": 0,
+    "page": 0,
+    "console": 0,
+    "warnings": 0,
+    "request": 0,
+    "http": 0,
+    "external": 0
+  },
+  "failedRecordedChecks": [],
+  "approvalAudit": {
+    "humanMotionReviewed": false,
+    "rootApproved": false,
+    "healthBarLayoutApproved": false,
+    "playerReadabilityApproved": false,
+    "viewportEdgeApproved": false,
+    "extremeMissingBarAt512Approved": false,
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "fpsAcceptance": false,
+    "publicPass": false,
+    "releaseReady": false,
+    "anyApprovalTrue": false,
+    "proxyEquivalentToActualMainPaintSupportProven": false
+  },
+  "visualReview": {
+    "viewed": [
+      "frame-4-chain-mirror-on.png",
+      "frame-4-playerLayer-chain-proxy.png",
+      "frame-4-playerSprite-chain-proxy.png",
+      "frame-4-candidate-chain-proxy.png"
+    ],
+    "playerStillOccluded": true,
+    "observation": "Main tiger obscures player's face and torso; standalone proxies make the missing player detail clear, but do not prove exact visible-main support."
+  },
+  "limitations": [
+    "Limited same-depth mirror baseline only; preserve all prior FAIL and matching scripts.",
+    "toDataURL is readback; sequential off/on phases and prior export/draw history prevent getImageData/backend causal claims.",
+    "Context attributes do not identify actual GPU/CPU backend.",
+    "Transparent proxies are raster proxies, not proven exact main paint support; initial native path/clip/stack not fully directly verified.",
+    "Property setters are sampled at covered method entries, not completely instrumented; guard lifetime excludes pre-install and cleanup/dispose.",
+    "Explicit accelerated 300s hit26 single fixture, not natural five-minute, death/status/all-pose/all-direction, continuous motion, FPS, public or release acceptance."
+  ],
+  "wroteFiles": false,
+  "newBrowserRuns": 0
+}

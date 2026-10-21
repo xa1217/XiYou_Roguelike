@@ -1,0 +1,59 @@
+{
+  "ok": true,
+  "generatedAt": "2026-10-16T12:09:46.490Z",
+  "tests": [
+    {
+      "name": "nearby labels move to finite non-overlapping candidates",
+      "result": "PASS"
+    },
+    {
+      "name": "distant labels keep world transforms and do not count number avoidance",
+      "result": "PASS"
+    },
+    {
+      "name": "direct helper callers retain legacy transforms when number avoidance is omitted",
+      "result": "PASS"
+    },
+    {
+      "name": "finite candidates fail closed while every label remains drawn",
+      "result": "PASS"
+    },
+    {
+      "name": "bounded numeric slots are reused and cleared on dispose",
+      "result": "PASS"
+    }
+  ],
+  "totals": {
+    "tests": 5,
+    "passed": 5,
+    "failed": 0,
+    "repeatedFrozenFrames": 30
+  },
+  "runtime": {
+    "kind": "Node.js with deterministic Canvas command recording",
+    "nodeVersion": "v26.7.0"
+  },
+  "boundary": {
+    "realBrowser": false,
+    "pixelRendering": false,
+    "bodyAvoidance": false,
+    "healthBars": false,
+    "bossLabelAvoidance": false,
+    "hudAvoidance": false,
+    "numberToNumberAvoidance": true,
+    "gpuPerformance": false,
+    "wechatDevice": false
+  },
+  "strategy": {
+    "obstacle": "previously accepted damage-number rectangle",
+    "candidates": [
+      "above",
+      "left",
+      "right",
+      "below"
+    ],
+    "gap": 4,
+    "unresolved": "draw original label and count damageLabelUnresolved"
+  },
+  "note": "Renderer-only finite damage-number-to-number avoidance. This is not a pixel, HUD, or global occlusion guarantee."
+}

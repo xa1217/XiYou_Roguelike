@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-10-14T06:39:18.791Z",
+  "result": "FAIL",
+  "overall": "NOT_READY",
+  "scope": "Evidence-only single-target hit26 contact depth comparison after real pointer UI. Defer the same original player call to immediately before original feedback and execute it exactly once. Preserve the same source/destination arguments and fail on CTM mismatch; style setters changed by the enemy health bar are explicitly recorded and restored. Mirror successful full player paint commands into bounded evidence masks. Main and proxy PNGs are decoded only after browser closure. No outline/new actor overlay, source/position/scale or battle changes. Not production, natural gameplay, artistic/global readability, motion, FPS or public acceptance.",
+  "recomputed": {
+    "main": {
+      "changedPixels": 5139,
+      "maxAbsChannelDelta": 243,
+      "bboxInclusive": {
+        "minX": 167,
+        "maxX": 260,
+        "minY": 362,
+        "maxY": 455
+      }
+    },
+    "playerLayer": {
+      "changedPixels": 0,
+      "maxAbsChannelDelta": 0,
+      "bboxInclusive": null
+    },
+    "playerSprite": {
+      "changedPixels": 0,
+      "maxAbsChannelDelta": 0,
+      "bboxInclusive": null
+    },
+    "candidate": {
+      "changedPixels": 0,
+      "maxAbsChannelDelta": 0,
+      "bboxInclusive": null
+    },
+    "outsidePlayerPaintSupport": 8,
+    "bodyAlphaOverlap": 4062,
+    "paintSupportPixels": 8449
+  },
+  "approvals": {
+    "humanMotionReviewed": false,
+    "rootApproved": false,
+    "healthBarLayoutApproved": false,
+    "playerReadabilityApproved": false,
+    "viewportEdgeApproved": false,
+    "statusBadgeGeometryUpdated": false,
+    "deathFeedbackObstaclesIntegrated": false,
+    "extremeMissingBarAt512Approved": false,
+    "attackEventSupported": false,
+    "attackPreviewed": false,
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "fpsAcceptance": false,
+    "publicPass": false,
+    "releaseReady": false,
+    "proxyEquivalentToActualMainPaintSupportProven": false
+  },
+  "rawBrowserReportUnchanged": true,
+  "freshNpmExitCode": 0,
+  "protectedFilesChecked": 302,
+  "actual8088ListenerCount": 0,
+  "completeIndependentReviewAvailable": false,
+  "nextStep": "Design only: full original transform-chain proxy mirror, same-run A/A/B/B and complete non-player main trace. Preserve all FAIL bytes and thresholds; no production integration, browser rerun, new assets, release or deployment in this closeout."
+}

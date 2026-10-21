@@ -1,0 +1,354 @@
+{
+  "schemaVersion": 1,
+  "asset": "enemy-bear-battle-v1-sheet.png",
+  "sha256": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+  "size": [
+    1774,
+    887
+  ],
+  "lifecycle": "runtime-approved: chapter 1 normal bear only; Node regressions and real Edge production-flow verification; local candidate archives rebuilt and tested on 2026-10-10; not deployed",
+  "approvedForRuntime": true,
+  "identity": {
+    "stageId": 1,
+    "kind": "normal",
+    "variant": "bear",
+    "excluded": [
+      "熊山君",
+      "elite",
+      "other stages"
+    ]
+  },
+  "layout": "8 figures x 4 irregular rows; use explicit sourceRects, not equal-grid division",
+  "referenceBodyHeight": 136,
+  "previewRootXs": [
+    110,
+    330,
+    551,
+    773,
+    992,
+    1212,
+    1432,
+    1654
+  ],
+  "previewBaselines": [
+    236,
+    449,
+    650,
+    840
+  ],
+  "anchorStatus": "fixed row/column roots retained at one source-pixel scale; 48px production-renderer fixtures and natural move/hit/death screenshots reviewed; no per-frame bottom snapping or synthetic wobble; not a claim of final animation polish",
+  "states": {
+    "idle": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "move": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "attack": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "hit": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "death": [
+      28,
+      29,
+      30,
+      31
+    ]
+  },
+  "fps": {
+    "idle": 8,
+    "move": 12,
+    "attack": 16,
+    "hit": 16,
+    "death": 10
+  },
+  "sourceRects": [
+    {
+      "index": 0,
+      "state": "idle",
+      "x": 53,
+      "y": 98,
+      "w": 113,
+      "h": 140
+    },
+    {
+      "index": 1,
+      "state": "idle",
+      "x": 273,
+      "y": 98,
+      "w": 114,
+      "h": 138
+    },
+    {
+      "index": 2,
+      "state": "idle",
+      "x": 493,
+      "y": 96,
+      "w": 117,
+      "h": 140
+    },
+    {
+      "index": 3,
+      "state": "idle",
+      "x": 715,
+      "y": 99,
+      "w": 115,
+      "h": 137
+    },
+    {
+      "index": 4,
+      "state": "idle",
+      "x": 934,
+      "y": 98,
+      "w": 116,
+      "h": 138
+    },
+    {
+      "index": 5,
+      "state": "idle",
+      "x": 1155,
+      "y": 96,
+      "w": 114,
+      "h": 140
+    },
+    {
+      "index": 6,
+      "state": "idle",
+      "x": 1375,
+      "y": 97,
+      "w": 115,
+      "h": 138
+    },
+    {
+      "index": 7,
+      "state": "idle",
+      "x": 1597,
+      "y": 96,
+      "w": 115,
+      "h": 140
+    },
+    {
+      "index": 8,
+      "state": "move",
+      "x": 46,
+      "y": 303,
+      "w": 138,
+      "h": 143
+    },
+    {
+      "index": 9,
+      "state": "move",
+      "x": 262,
+      "y": 306,
+      "w": 144,
+      "h": 139
+    },
+    {
+      "index": 10,
+      "state": "move",
+      "x": 483,
+      "y": 303,
+      "w": 145,
+      "h": 143
+    },
+    {
+      "index": 11,
+      "state": "move",
+      "x": 704,
+      "y": 304,
+      "w": 150,
+      "h": 145
+    },
+    {
+      "index": 12,
+      "state": "move",
+      "x": 926,
+      "y": 305,
+      "w": 146,
+      "h": 142
+    },
+    {
+      "index": 13,
+      "state": "move",
+      "x": 1145,
+      "y": 305,
+      "w": 150,
+      "h": 141
+    },
+    {
+      "index": 14,
+      "state": "move",
+      "x": 1375,
+      "y": 301,
+      "w": 141,
+      "h": 149
+    },
+    {
+      "index": 15,
+      "state": "move",
+      "x": 1593,
+      "y": 300,
+      "w": 144,
+      "h": 151
+    },
+    {
+      "index": 16,
+      "state": "attack",
+      "x": 54,
+      "y": 512,
+      "w": 123,
+      "h": 139
+    },
+    {
+      "index": 17,
+      "state": "attack",
+      "x": 259,
+      "y": 518,
+      "w": 142,
+      "h": 133
+    },
+    {
+      "index": 18,
+      "state": "attack",
+      "x": 485,
+      "y": 511,
+      "w": 144,
+      "h": 140
+    },
+    {
+      "index": 19,
+      "state": "attack",
+      "x": 706,
+      "y": 514,
+      "w": 154,
+      "h": 137
+    },
+    {
+      "index": 20,
+      "state": "attack",
+      "x": 915,
+      "y": 510,
+      "w": 201,
+      "h": 142
+    },
+    {
+      "index": 21,
+      "state": "attack",
+      "x": 1147,
+      "y": 512,
+      "w": 164,
+      "h": 139
+    },
+    {
+      "index": 22,
+      "state": "attack",
+      "x": 1376,
+      "y": 508,
+      "w": 145,
+      "h": 144
+    },
+    {
+      "index": 23,
+      "state": "attack",
+      "x": 1603,
+      "y": 513,
+      "w": 125,
+      "h": 138
+    },
+    {
+      "index": 24,
+      "state": "hit",
+      "x": 49,
+      "y": 700,
+      "w": 143,
+      "h": 140
+    },
+    {
+      "index": 25,
+      "state": "hit",
+      "x": 269,
+      "y": 710,
+      "w": 116,
+      "h": 131
+    },
+    {
+      "index": 26,
+      "state": "hit",
+      "x": 492,
+      "y": 706,
+      "w": 125,
+      "h": 134
+    },
+    {
+      "index": 27,
+      "state": "hit",
+      "x": 718,
+      "y": 703,
+      "w": 121,
+      "h": 137
+    },
+    {
+      "index": 28,
+      "state": "death",
+      "x": 923,
+      "y": 729,
+      "w": 138,
+      "h": 110
+    },
+    {
+      "index": 29,
+      "state": "death",
+      "x": 1124,
+      "y": 748,
+      "w": 163,
+      "h": 94
+    },
+    {
+      "index": 30,
+      "state": "death",
+      "x": 1341,
+      "y": 766,
+      "w": 171,
+      "h": 76
+    },
+    {
+      "index": 31,
+      "state": "death",
+      "x": 1557,
+      "y": 769,
+      "w": 175,
+      "h": 72
+    }
+  ],
+  "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-e1a192be-eaef-4da0-9a61-d717e7a8804d.png",
+  "prompts": [
+    "prompts/enemy-bear-battle-v1-sheet.txt",
+    "prompts/enemy-bear-battle-v1-layout-edit.txt"
+  ]
+}

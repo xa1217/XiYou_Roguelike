@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "asset": "enemy-wolf-battle-v1-sheet.png",
+  "sha256": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299",
+  "size": [
+    1774,
+    887
+  ],
+  "lifecycle": "locally integrated runtime candidate; approved for local web, not packaged or deployed",
+  "approvedForRuntime": true,
+  "identity": {
+    "stageId": 1,
+    "kind": "normal",
+    "variant": "wolf",
+    "excluded": [
+      "named bosses",
+      "elite",
+      "other stages",
+      "凌虚子",
+      "奎木狼"
+    ]
+  },
+  "layout": "8 figures x 4 rows; explicit measured sourceRects with 2px padding, never assume equal-grid slicing",
+  "referenceBodyHeight": 170,
+  "previewRootXs": [
+    113,
+    335,
+    557,
+    779,
+    1000,
+    1222,
+    1443,
+    1665
+  ],
+  "previewBaselines": [
+    208,
+    430,
+    650,
+    866
+  ],
+  "anchorStatus": "fixed column roots from idle foot bounds and fixed row ground lines; one source-pixel scale; no per-frame bottom snapping. Node/Canvas and real Edge production-flow checks passed; cross-enemy occlusion, mobile FPS and final public deployment remain unverified.",
+  "states": {
+    "idle": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "move": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "attack": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "hit": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "death": [
+      28,
+      29,
+      30,
+      31
+    ]
+  },
+  "fps": {
+    "idle": 8,
+    "move": 12,
+    "attack": 16,
+    "hit": 16,
+    "death": 10
+  },
+  "sourceRects": [
+    {
+      "index": 0,
+      "state": "idle",
+      "x": 38,
+      "y": 37,
+      "w": 148,
+      "h": 174
+    },
+    {
+      "index": 1,
+      "state": "idle",
+      "x": 260,
+      "y": 34,
+      "w": 146,
+      "h": 177
+    },
+    {
+      "index": 2,
+      "state": "idle",
+      "x": 483,
+      "y": 34,
+      "w": 148,
+      "h": 177
+    },
+    {
+      "index": 3,
+      "state": "idle",
+      "x": 705,
+      "y": 34,
+      "w": 149,
+      "h": 177
+    },
+    {
+      "index": 4,
+      "state": "idle",
+      "x": 927,
+      "y": 37,
+      "w": 145,
+      "h": 174
+    },
+    {
+      "index": 5,
+      "state": "idle",
+      "x": 1148,
+      "y": 37,
+      "w": 146,
+      "h": 174
+    },
+    {
+      "index": 6,
+      "state": "idle",
+      "x": 1369,
+      "y": 37,
+      "w": 147,
+      "h": 174
+    },
+    {
+      "index": 7,
+      "state": "idle",
+      "x": 1591,
+      "y": 37,
+      "w": 146,
+      "h": 174
+    },
+    {
+      "index": 8,
+      "state": "move",
+      "x": 32,
+      "y": 257,
+      "w": 171,
+      "h": 176
+    },
+    {
+      "index": 9,
+      "state": "move",
+      "x": 251,
+      "y": 265,
+      "w": 175,
+      "h": 167
+    },
+    {
+      "index": 10,
+      "state": "move",
+      "x": 473,
+      "y": 256,
+      "w": 173,
+      "h": 177
+    },
+    {
+      "index": 11,
+      "state": "move",
+      "x": 696,
+      "y": 257,
+      "w": 173,
+      "h": 175
+    },
+    {
+      "index": 12,
+      "state": "move",
+      "x": 914,
+      "y": 262,
+      "w": 176,
+      "h": 170
+    },
+    {
+      "index": 13,
+      "state": "move",
+      "x": 1131,
+      "y": 267,
+      "w": 179,
+      "h": 166
+    },
+    {
+      "index": 14,
+      "state": "move",
+      "x": 1358,
+      "y": 258,
+      "w": 171,
+      "h": 177
+    },
+    {
+      "index": 15,
+      "state": "move",
+      "x": 1576,
+      "y": 251,
+      "w": 170,
+      "h": 182
+    },
+    {
+      "index": 16,
+      "state": "attack",
+      "x": 40,
+      "y": 480,
+      "w": 146,
+      "h": 173
+    },
+    {
+      "index": 17,
+      "state": "attack",
+      "x": 251,
+      "y": 491,
+      "w": 170,
+      "h": 162
+    },
+    {
+      "index": 18,
+      "state": "attack",
+      "x": 469,
+      "y": 478,
+      "w": 164,
+      "h": 175
+    },
+    {
+      "index": 19,
+      "state": "attack",
+      "x": 681,
+      "y": 492,
+      "w": 196,
+      "h": 161
+    },
+    {
+      "index": 20,
+      "state": "attack",
+      "x": 918,
+      "y": 486,
+      "w": 179,
+      "h": 167
+    },
+    {
+      "index": 21,
+      "state": "attack",
+      "x": 1131,
+      "y": 486,
+      "w": 170,
+      "h": 167
+    },
+    {
+      "index": 22,
+      "state": "attack",
+      "x": 1358,
+      "y": 483,
+      "w": 163,
+      "h": 169
+    },
+    {
+      "index": 23,
+      "state": "attack",
+      "x": 1591,
+      "y": 480,
+      "w": 147,
+      "h": 173
+    },
+    {
+      "index": 24,
+      "state": "hit",
+      "x": 46,
+      "y": 699,
+      "w": 161,
+      "h": 169
+    },
+    {
+      "index": 25,
+      "state": "hit",
+      "x": 280,
+      "y": 716,
+      "w": 117,
+      "h": 151
+    },
+    {
+      "index": 26,
+      "state": "hit",
+      "x": 479,
+      "y": 705,
+      "w": 135,
+      "h": 162
+    },
+    {
+      "index": 27,
+      "state": "hit",
+      "x": 697,
+      "y": 702,
+      "w": 154,
+      "h": 166
+    },
+    {
+      "index": 28,
+      "state": "death",
+      "x": 917,
+      "y": 742,
+      "w": 168,
+      "h": 128
+    },
+    {
+      "index": 29,
+      "state": "death",
+      "x": 1124,
+      "y": 762,
+      "w": 188,
+      "h": 108
+    },
+    {
+      "index": 30,
+      "state": "death",
+      "x": 1333,
+      "y": 781,
+      "w": 201,
+      "h": 87
+    },
+    {
+      "index": 31,
+      "state": "death",
+      "x": 1556,
+      "y": 783,
+      "w": 200,
+      "h": 86
+    }
+  ],
+  "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-8b7ce4f9-999d-4ce4-a6aa-3c555213adf6.png",
+  "prompts": [
+    "prompts/enemy-wolf-battle-v1-sheet.txt"
+  ]
+}

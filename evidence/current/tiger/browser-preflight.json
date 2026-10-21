@@ -1,0 +1,83 @@
+{
+  "generatedAt": "2026-10-09T11:01:52.045Z",
+  "scope": "Real Edge atlas preflight only, not gameplay animation acceptance. Runtime remains unchanged.",
+  "assetSha256": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+  "result": "PASS",
+  "pageErrors": [],
+  "browser": "155.0.4283.45",
+  "decode": {
+    "width": 1774,
+    "height": 887,
+    "complete": true,
+    "sourceRectCount": 32
+  },
+  "states": {
+    "idle": {
+      "frames": 8,
+      "distinctRenderedFrames": 8,
+      "hashes": [
+        "dafd5bf5b9e450a8422f7e76ea2e3cedb3d90eda00b3451346e62a5595c4ca1c",
+        "3c43f50c9b3957e18530b2965eff749a9d756c86d89ad2086be71dd69a70a44b",
+        "2864a6e5acf678367260ea4b6e3791ec8fc94f2fed6cd955d69c153c011ab151",
+        "298ba13bd6b292c869617a99d45ae27fe5f1065412024845ce7fa89a86586d76",
+        "68cff9548d3cdebac07e1ad59399826c5e88f0ea12035f7b08533825ac0608c0",
+        "dca9ce6ea8da4ff5f2b5010c44d136d694523431b283e1ea9c1af4bdd2f3baac",
+        "7b08bf6f8124f9a7a5530a82a667a63d1dd290eec096843d734ee923899c4a71",
+        "1c1d9d4571ec9472073d19f480034f4e50cae11de1e008a8b996b287f0824498"
+      ]
+    },
+    "move": {
+      "frames": 8,
+      "distinctRenderedFrames": 8,
+      "hashes": [
+        "2873ed6be08bf04b54acadc4cf86acab6e6ae4b8bb9f016daa24775a4902266d",
+        "db286437170e0b4c5a894264a44677ffb2f3b53c8a27268032fa76ae3bf89ec4",
+        "1e3fa2a6f695cccbb69379b1daa13f17c66fcec78998130e8b872c6e8f05c1c9",
+        "67d1280c57afb38b6a2b88ed9ce98ccdb4fcce491d5088438e92073b2ba21c24",
+        "f04ad77de7f086c92a7d2eea9dd36c0aac9b95929bfaeda2ba185bfa8127fc23",
+        "a4f968c63a09ec327f5e461542c9e322a84caffcaf4c211f89895d0ac09546cf",
+        "87706b5d7262f58823ef1c52f37cb2dd739ac211baafdb239ea46bbbe3c92161",
+        "17f0007e3a50f6cb649d00b0c05c0a690a68e063de1b8b4ab3312858701fd180"
+      ]
+    },
+    "attack": {
+      "frames": 8,
+      "distinctRenderedFrames": 8,
+      "hashes": [
+        "c4b7da292f94d5d624e52528b9ada270283d982adc75215efdb933c07ae7657d",
+        "f058999c1505d7d089751e2d3e58b85da2d3e7ba568e42ec0c4c0d0f483efc04",
+        "3fd7ff84a7514810e51ae9783da68ba265c23eb22d94ad38a57fa2c51d0a9a9b",
+        "a6b63c6dceec8a57d263b4fcbfb4d8627289d13c1d0e2d248d0c4cceebe352e4",
+        "3263046e954ac2d748863594da130b046982b500271554ba09ac92b4c6a467d7",
+        "4dbe6b23cbb8f2d02fa8ea8465e75dc8a641ceecfad1273b8d0c11fdc12c358e",
+        "afffe5bc6de38af801b815232e20ee20950307f7cb8edcf104c4f29ab7273525",
+        "03bb5412735db726a3145fcddf4ca824c5ba5e089e359855e375b952743ba94d"
+      ]
+    },
+    "hit": {
+      "frames": 4,
+      "distinctRenderedFrames": 4,
+      "hashes": [
+        "b0ce4f9de507c4aa45c60e88c2e6131d286b9da00f8cbefdf7f05d20c45fba2d",
+        "594ed23a4018c7f10b3be065b56d184dddc480c5d8ecd69369cb2c1592fde494",
+        "b3d7a5e7118fa8fcedcea26883697bcd18edd41187a1cfa3d4fa4b8d3c3abb7a",
+        "f960ea525d83aff7fda668575a3036286d5549de51acbfbf4fe64fc8735dcc7d"
+      ]
+    },
+    "death": {
+      "frames": 4,
+      "distinctRenderedFrames": 4,
+      "hashes": [
+        "625b57d08861e386a35e6ecdaf181e9afa7fea000f6838c5f1a9b8d332607d75",
+        "d655d33251ad292c6d0484f839c22a7b25476ccfb7d1f19dbcd723644380caff",
+        "1b2e1e9bef3df0e6abeba4dfc9025d814ca8ad43d9dc3c0ab02a3098741f0ab8",
+        "8e04c32c81ce7291e37f4b8447ff62bb3f0983dc3add62774a3a9c65c4a866db"
+      ]
+    }
+  },
+  "leftRightDiffer": true,
+  "screenshots": [
+    "evidence/current/tiger/atlas-48px-preflight.png",
+    "evidence/current/tiger/pose-samples-preflight.png"
+  ]
+}

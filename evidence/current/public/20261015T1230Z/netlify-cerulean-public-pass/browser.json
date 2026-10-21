@@ -1,0 +1,784 @@
+{
+  "generatedAt": "2026-10-15T12:24:02.011Z",
+  "url": "https://cerulean-mandazi-90ad05.netlify.app/",
+  "networkScope": "public-url",
+  "buildTarget": "workspace",
+  "mode": "public-no-debug-normal-flow",
+  "screenshots": [
+    {
+      "file": "evidence\\current\\public\\20261015T1230Z\\netlify-cerulean-public-pass\\home-390x844.png",
+      "bytes": 103170
+    },
+    {
+      "file": "evidence\\current\\public\\20261015T1230Z\\netlify-cerulean-public-pass\\character-select-390x844.png",
+      "bytes": 128724
+    },
+    {
+      "file": "evidence\\current\\public\\20261015T1230Z\\netlify-cerulean-public-pass\\battle-public-390x844.png",
+      "bytes": 36698
+    },
+    {
+      "file": "evidence\\current\\public\\20261015T1230Z\\netlify-cerulean-public-pass\\battle-public-9s-390x844.png",
+      "bytes": 45677
+    }
+  ],
+  "consoleMessages": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    },
+    {
+      "type": "verbose",
+      "text": "[DOM] Input elements should have autocomplete attributes (suggested: \"new-password\"): (More info: https://www.chromium.org/developers/design-documents/create-amazing-password-forms) %o"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/favicon.ico"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/manifest.json"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/generate-art-assets.mjs"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-battle-v2-atlas.png"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/map-doublefork-v2.png"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-cards-v1.png"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/tests/engine-smoke.mjs"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/README.md"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-snake-battle-v1-sheet.png"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-snake-battle-v2-sheet.png"
+    }
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "httpErrors": [
+    {
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/",
+      "status": 401
+    },
+    {
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/manifest.json",
+      "status": 404
+    },
+    {
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/generate-art-assets.mjs",
+      "status": 404
+    },
+    {
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-battle-v2-atlas.png",
+      "status": 404
+    },
+    {
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/map-doublefork-v2.png",
+      "status": 404
+    },
+    {
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-cards-v1.png",
+      "status": 404
+    },
+    {
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/tests/engine-smoke.mjs",
+      "status": 404
+    },
+    {
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/README.md",
+      "status": 404
+    },
+    {
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-snake-battle-v1-sheet.png",
+      "status": 404
+    },
+    {
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-snake-battle-v2-sheet.png",
+      "status": 404
+    }
+  ],
+  "fpsAcceptance": false,
+  "releaseReady": false,
+  "result": "FAIL",
+  "browserVersion": "155.0.4283.45",
+  "navigation": {
+    "status": 401,
+    "url": "https://cerulean-mandazi-90ad05.netlify.app/"
+  },
+  "publicGate": {
+    "detected": true,
+    "submitted": true,
+    "authenticatedStatus": 200,
+    "expectedAuthConsoleErrors": 2,
+    "expectedAuthHttpErrors": 1
+  },
+  "pathIsolation": {
+    "allowed": {
+      "path": "/assets/hero-wukong-battle-v3-sheet.png",
+      "status": 200
+    },
+    "allowedTiger": [
+      {
+        "path": "/src/tiger-animation.js",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-tiger-battle-v1-sheet.png",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-tiger-battle-v1-frames.json",
+        "status": 200
+      }
+    ],
+    "allowedBear": [
+      {
+        "path": "/src/bear-animation.js",
+        "status": 200
+      },
+      {
+        "path": "/src/battle-enemy-animation.js",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-bear-battle-v1-sheet.png",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-bear-battle-v1-frames.json",
+        "status": 200
+      }
+    ],
+    "allowedBull": [
+      {
+        "path": "/src/bull-animation.js",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-bull-battle-v1-sheet.png",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-bull-battle-v1-frames.json",
+        "status": 200
+      }
+    ],
+    "allowedWolf": [
+      {
+        "path": "/src/wolf-animation.js",
+        "status": 200
+      },
+      {
+        "path": "/src/battle-enemy-animation.js",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-wolf-battle-v1-sheet.png",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-wolf-battle-v1-frames.json",
+        "status": 200
+      }
+    ],
+    "allowedMonkey": [
+      {
+        "path": "/src/monkey-animation.js",
+        "status": 200
+      },
+      {
+        "path": "/src/battle-enemy-animation.js",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-monkey-battle-v1-sheet.png",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-monkey-battle-v1-frames.json",
+        "status": 200
+      }
+    ],
+    "allowedDeer": [
+      {
+        "path": "/src/deer-animation.js",
+        "status": 200
+      },
+      {
+        "path": "/src/battle-enemy-animation.js",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-deer-battle-v1-sheet.png",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-deer-battle-v1-frames.json",
+        "status": 200
+      }
+    ],
+    "allowedHawk": [
+      {
+        "path": "/src/hawk-animation.js",
+        "status": 200
+      },
+      {
+        "path": "/src/battle-enemy-animation.js",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-hawk-battle-v1-sheet.png",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-hawk-battle-v1-frames.json",
+        "status": 200
+      }
+    ],
+    "allowedSnake": [
+      {
+        "path": "/src/snake-animation.js",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-snake-battle-v3-sheet.png",
+        "status": 200
+      },
+      {
+        "path": "/assets/enemy-snake-battle-v3-frames.json",
+        "status": 200
+      }
+    ],
+    "runtimeContracts": [
+      {
+        "path": "/assets/enemy-tiger-battle-v1-frames.json",
+        "status": 200,
+        "pass": true,
+        "frames": 32
+      },
+      {
+        "path": "/assets/enemy-bear-battle-v1-frames.json",
+        "status": 200,
+        "pass": true,
+        "frames": 32
+      },
+      {
+        "path": "/assets/enemy-bull-battle-v1-frames.json",
+        "status": 200,
+        "pass": true,
+        "frames": 32
+      },
+      {
+        "path": "/assets/enemy-wolf-battle-v1-frames.json",
+        "status": 200,
+        "pass": true,
+        "frames": 32
+      },
+      {
+        "path": "/assets/enemy-monkey-battle-v1-frames.json",
+        "status": 200,
+        "pass": true,
+        "frames": 32
+      },
+      {
+        "path": "/assets/enemy-deer-battle-v1-frames.json",
+        "status": 200,
+        "pass": true,
+        "frames": 32
+      },
+      {
+        "path": "/assets/enemy-hawk-battle-v1-frames.json",
+        "status": 200,
+        "pass": true,
+        "frames": 32
+      },
+      {
+        "path": "/assets/enemy-snake-battle-v3-frames.json",
+        "status": 200,
+        "pass": true,
+        "frames": 32
+      }
+    ],
+    "blocked": [
+      {
+        "path": "/assets/manifest.json",
+        "status": 404
+      },
+      {
+        "path": "/assets/generate-art-assets.mjs",
+        "status": 404
+      },
+      {
+        "path": "/assets/hero-battle-v2-atlas.png",
+        "status": 404
+      },
+      {
+        "path": "/assets/map-doublefork-v2.png",
+        "status": 404
+      },
+      {
+        "path": "/assets/hero-cards-v1.png",
+        "status": 404
+      },
+      {
+        "path": "/tests/engine-smoke.mjs",
+        "status": 404
+      },
+      {
+        "path": "/%2e%2e/%2e%2e/README.md",
+        "status": 404
+      },
+      {
+        "path": "/assets/enemy-snake-battle-v1-sheet.png",
+        "status": 404
+      },
+      {
+        "path": "/assets/enemy-snake-battle-v2-sheet.png",
+        "status": 404
+      }
+    ],
+    "pass": true,
+    "expectedProbeConsoleErrors": 0
+  },
+  "before": {
+    "screen": "game",
+    "status": "playing",
+    "time": 1.226199999988073,
+    "enemies": 1,
+    "projectiles": 0,
+    "effects": 0,
+    "damageNumbers": 0,
+    "player": {
+      "animationState": "idle",
+      "frameIndex": 5,
+      "animationFrames": 6
+    },
+    "mapAssetKey": "doublefork",
+    "resources": {
+      "hero": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-tangseng-battle-v3-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "heroes": {
+        "wukong": {
+          "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-wukong-battle-v3-sheet.png",
+          "width": 1774,
+          "height": 887,
+          "complete": true
+        },
+        "tangsanzang": {
+          "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-tangseng-battle-v3-sheet.png",
+          "width": 1774,
+          "height": 887,
+          "complete": true
+        },
+        "bajie": {
+          "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-bajie-battle-v3-sheet.png",
+          "width": 1774,
+          "height": 887,
+          "complete": true
+        },
+        "shajing": {
+          "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-wujing-battle-v3-sheet.png",
+          "width": 1774,
+          "height": 887,
+          "complete": true
+        }
+      },
+      "enemy": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-creature.svg",
+        "width": 128,
+        "height": 128,
+        "complete": true
+      },
+      "tiger": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-tiger-battle-v1-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "bear": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-bear-battle-v1-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "bull": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-bull-battle-v1-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "wolf": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-wolf-battle-v1-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "monkey": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-monkey-battle-v1-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "deer": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-deer-battle-v1-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "hawk": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-hawk-battle-v1-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "snake": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-snake-battle-v3-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "map": null
+    },
+    "renderer": {
+      "battleArtMode": "authoredFrames",
+      "battleSceneMode": "vector",
+      "mapAssetDraws": 0
+    },
+    "metrics": {
+      "frames": 459,
+      "maxUpdateMs": 1.5,
+      "maxRenderMs": 0.5,
+      "peakEnemies": 1,
+      "peakProjectiles": 1,
+      "peakEffects": 0,
+      "p95WorkMs": 0.3999999761581421,
+      "running": true,
+      "canvasCount": 1,
+      "uiMotion": {
+        "key": "game:playing",
+        "sequence": 3,
+        "frameIndex": 0,
+        "elapsedMs": 0,
+        "progress": 1,
+        "eased": 1,
+        "active": false,
+        "pressActive": false,
+        "reducedMotion": false,
+        "selectedCharacter": "tangseng"
+      }
+    }
+  },
+  "after": {
+    "screen": "game",
+    "status": "playing",
+    "time": 10.28349999999998,
+    "enemies": 7,
+    "projectiles": 0,
+    "effects": 0,
+    "damageNumbers": 1,
+    "player": {
+      "animationState": "idle",
+      "frameIndex": 0,
+      "animationFrames": 6
+    },
+    "mapAssetKey": "doublefork",
+    "resources": {
+      "hero": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-tangseng-battle-v3-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "heroes": {
+        "wukong": {
+          "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-wukong-battle-v3-sheet.png",
+          "width": 1774,
+          "height": 887,
+          "complete": true
+        },
+        "tangsanzang": {
+          "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-tangseng-battle-v3-sheet.png",
+          "width": 1774,
+          "height": 887,
+          "complete": true
+        },
+        "bajie": {
+          "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-bajie-battle-v3-sheet.png",
+          "width": 1774,
+          "height": 887,
+          "complete": true
+        },
+        "shajing": {
+          "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-wujing-battle-v3-sheet.png",
+          "width": 1774,
+          "height": 887,
+          "complete": true
+        }
+      },
+      "enemy": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-creature.svg",
+        "width": 128,
+        "height": 128,
+        "complete": true
+      },
+      "tiger": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-tiger-battle-v1-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "bear": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-bear-battle-v1-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "bull": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-bull-battle-v1-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "wolf": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-wolf-battle-v1-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "monkey": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-monkey-battle-v1-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "deer": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-deer-battle-v1-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "hawk": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-hawk-battle-v1-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "snake": {
+        "src": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-snake-battle-v3-sheet.png",
+        "width": 1774,
+        "height": 887,
+        "complete": true
+      },
+      "map": null
+    },
+    "renderer": {
+      "battleArtMode": "authoredFrames",
+      "battleSceneMode": "vector",
+      "mapAssetDraws": 0
+    },
+    "metrics": {
+      "frames": 2947,
+      "maxUpdateMs": 1.5,
+      "maxRenderMs": 4.800000011920929,
+      "peakEnemies": 7,
+      "peakProjectiles": 1,
+      "peakEffects": 1,
+      "p95WorkMs": 0.4000000059604645,
+      "running": true,
+      "canvasCount": 1,
+      "uiMotion": {
+        "key": "game:playing",
+        "sequence": 3,
+        "frameIndex": 0,
+        "elapsedMs": 0,
+        "progress": 1,
+        "eased": 1,
+        "active": false,
+        "pressActive": false,
+        "reducedMotion": false,
+        "selectedCharacter": "tangseng"
+      }
+    }
+  },
+  "debugDisabled": true,
+  "animation": {
+    "frameSamples": [
+      {
+        "animationState": "idle",
+        "frameIndex": 5,
+        "animationFrames": 6
+      },
+      {
+        "animationState": "idle",
+        "frameIndex": 1,
+        "animationFrames": 6
+      },
+      {
+        "animationState": "attack",
+        "frameIndex": 0,
+        "animationFrames": 8
+      },
+      {
+        "animationState": "attack",
+        "frameIndex": 1,
+        "animationFrames": 8
+      },
+      {
+        "animationState": "idle",
+        "frameIndex": 0,
+        "animationFrames": 6
+      },
+      {
+        "animationState": "idle",
+        "frameIndex": 1,
+        "animationFrames": 6
+      },
+      {
+        "animationState": "idle",
+        "frameIndex": 3,
+        "animationFrames": 6
+      },
+      {
+        "animationState": "idle",
+        "frameIndex": 4,
+        "animationFrames": 6
+      },
+      {
+        "animationState": "idle",
+        "frameIndex": 0,
+        "animationFrames": 6
+      }
+    ],
+    "frameChanged": true,
+    "timeAdvanced": true
+  },
+  "unexpectedConsoleErrors": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/manifest.json"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/generate-art-assets.mjs"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-battle-v2-atlas.png"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/map-doublefork-v2.png"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/hero-cards-v1.png"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/tests/engine-smoke.mjs"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/README.md"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-snake-battle-v1-sheet.png"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/assets/enemy-snake-battle-v2-sheet.png"
+    }
+  ],
+  "unexpectedHttpErrors": [],
+  "completedAt": "2026-10-15T12:25:22.254Z"
+}

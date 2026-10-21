@@ -1,0 +1,112 @@
+{
+  "generatedAt": "2026-10-12T18:36:36.871Z",
+  "result": "PASS",
+  "scope": "Public runtime JSON projection only; not browser or public-network acceptance",
+  "rows": [
+    {
+      "species": "tiger",
+      "result": "PASS",
+      "frames": 32,
+      "checks": [
+        "exact runtime keys",
+        "nested provenance excluded",
+        "all runtime frames unchanged",
+        "idempotent serialization",
+        "invalid crop rejected",
+        "repository source unchanged"
+      ]
+    },
+    {
+      "species": "bear",
+      "result": "PASS",
+      "frames": 32,
+      "checks": [
+        "exact runtime keys",
+        "nested provenance excluded",
+        "all runtime frames unchanged",
+        "idempotent serialization",
+        "invalid crop rejected",
+        "repository source unchanged"
+      ]
+    },
+    {
+      "species": "bull",
+      "result": "PASS",
+      "frames": 32,
+      "checks": [
+        "exact runtime keys",
+        "nested provenance excluded",
+        "all runtime frames unchanged",
+        "idempotent serialization",
+        "invalid crop rejected",
+        "repository source unchanged"
+      ]
+    },
+    {
+      "species": "wolf",
+      "result": "PASS",
+      "frames": 32,
+      "checks": [
+        "exact runtime keys",
+        "nested provenance excluded",
+        "all runtime frames unchanged",
+        "idempotent serialization",
+        "invalid crop rejected",
+        "repository source unchanged"
+      ]
+    },
+    {
+      "species": "monkey",
+      "result": "PASS",
+      "frames": 32,
+      "checks": [
+        "exact runtime keys",
+        "nested provenance excluded",
+        "all runtime frames unchanged",
+        "idempotent serialization",
+        "invalid crop rejected",
+        "repository source unchanged"
+      ]
+    },
+    {
+      "species": "deer",
+      "result": "PASS",
+      "frames": 32,
+      "checks": [
+        "exact runtime keys",
+        "nested provenance excluded",
+        "all runtime frames unchanged",
+        "idempotent serialization",
+        "invalid crop rejected",
+        "repository source unchanged"
+      ]
+    },
+    {
+      "species": "hawk",
+      "result": "PASS",
+      "frames": 32,
+      "checks": [
+        "exact runtime keys",
+        "nested provenance excluded",
+        "all runtime frames unchanged",
+        "idempotent serialization",
+        "invalid crop rejected",
+        "repository source unchanged"
+      ]
+    },
+    {
+      "species": "snake",
+      "result": "PASS",
+      "frames": 32,
+      "checks": [
+        "exact runtime keys",
+        "nested provenance excluded",
+        "all runtime frames unchanged",
+        "idempotent serialization",
+        "invalid crop rejected",
+        "repository source unchanged"
+      ]
+    }
+  ],
+  "unknownContractRejected": true
+}

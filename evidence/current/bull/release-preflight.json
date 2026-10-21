@@ -1,0 +1,79 @@
+{
+  "generatedAt": "2026-10-10T09:05:29.347Z",
+  "result": "PASS",
+  "scope": "Backup verification and pre-existing runtime approval; not new browser or public-network acceptance",
+  "backupDirectory": "work/release-backups/pre-bull-20261010T090309Z",
+  "archives": [
+    {
+      "file": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "backup": "work/release-backups/pre-bull-20261010T090309Z/dist/xiyou-survivor-web-v1.0.0.zip",
+      "sha256": "66308f0516ac8ea68aaf35a42f4038ebdf9fd1fadd8f8f1503f926d4379d8468",
+      "matchesPrevious": true,
+      "matchesCurrent": true
+    },
+    {
+      "file": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "backup": "work/release-backups/pre-bull-20261010T090309Z/dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "sha256": "b74a0b67f25a9ef01043e82b9876a7727b3ce6c40cd7272bd7e53a87dfe1d34c",
+      "matchesPrevious": true,
+      "matchesCurrent": true
+    }
+  ],
+  "evidenceFilesVerified": 13,
+  "evidence": [
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/evidence-current/bull/browser-runtime.json",
+      "matchesPrevious": true
+    },
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/evidence-current/bull/engine-runtime.json",
+      "matchesPrevious": true
+    },
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/evidence-current/bull/public-contract-node.json",
+      "matchesPrevious": true
+    },
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/evidence-current/tiger/browser-runtime.json",
+      "matchesPrevious": true
+    },
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/evidence-current/bear/browser-runtime.json",
+      "matchesPrevious": true
+    },
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/evidence-current/animation/browser-animation-smoke.json",
+      "matchesPrevious": true
+    },
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/evidence-current/visual.json",
+      "matchesPrevious": true
+    },
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/evidence-current/status-badges/browser.json",
+      "matchesPrevious": true
+    },
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/evidence-current/status-badges/node.json",
+      "matchesPrevious": true
+    },
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/evidence-current/browser-public-smoke.json",
+      "matchesPrevious": true
+    },
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/evidence-current/validation.json",
+      "matchesPrevious": true
+    },
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/evidence-current/asset-dedup-audit.json",
+      "matchesPrevious": true
+    },
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/evidence-current/bull/process-cleanup.json",
+      "matchesPrevious": true
+    }
+  ],
+  "approvedForRuntime": true,
+  "generatedAssetsThisStep": 0
+}

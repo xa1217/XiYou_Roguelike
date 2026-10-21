@@ -1,0 +1,14 @@
+{
+  "startedAt": "2026-10-14T02:18:45.931Z",
+  "finishedAt": "2026-10-14T02:19:30.029Z",
+  "command": "npm test",
+  "exitCode": 0,
+  "result": "PASS",
+  "scope": "Current workspace regression only; not a reused historical PASS, not PNG artistic/motion, natural gameplay, public channel, current ZIP or device acceptance.",
+  "fullOutputFile": "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/npm-test.txt",
+  "outputCharacters": 49163,
+  "originalTokenCount": 12295,
+  "buildMayRefreshDerivedEntrypoints": true,
+  "releaseZipRebuilt": false,
+  "publicPass": false
+}

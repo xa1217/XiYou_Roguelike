@@ -1,0 +1,21 @@
+{
+  "description": "尸潮：最后一夜竖屏2D测试版",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": false,
+    "compileHotReLoad": true,
+    "lazyloadPlaceholderEnable": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "trial",
+  "appid": "touristappid",
+  "projectname": "last-night-survivor-test",
+  "miniprogramRoot": "miniprogram/",
+  "condition": {}
+}

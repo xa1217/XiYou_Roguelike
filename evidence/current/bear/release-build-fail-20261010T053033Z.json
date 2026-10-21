@@ -1,0 +1,12 @@
+{
+  "recordedAt": "2026-10-10T05:30:33Z",
+  "result": "FAIL",
+  "command": "npm run release",
+  "environment": "sandboxed Windows execution",
+  "phase": "build child process before cleanup",
+  "error": "Error: scripts/build.mjs failed at scripts/release.mjs:39; build.status was nonzero or null. No detailed spawn error was printed by the existing release script.",
+  "inference": "Likely sandbox child-process restriction; authorization requested for scoped local rebuild. This is not a confirmed source regression.",
+  "testBeforeBuild": "npm test PASS",
+  "oldPackagesBackup": "work/release-backups/pre-bear-20261010T052706Z/dist",
+  "deployed": false
+}

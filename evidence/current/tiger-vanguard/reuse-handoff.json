@@ -1,0 +1,89 @@
+{
+  "generatedAt": "2026-10-13T04:02:08.834Z",
+  "result": "REVIEW_SOURCE_REUSE_ONLY",
+  "decision": "32 separable source regions can be selected from existing candidates without new art. Do not approve or integrate the mixed animation yet.",
+  "selection": {
+    "idle": "v2 indices 0..7",
+    "move": "v2 indices 8..15",
+    "attack": "v1 indices 16..23",
+    "hit": "v2 indices 24..27",
+    "death": "v2 indices 28..31"
+  },
+  "sources": [
+    {
+      "file": "evidence/current/tiger-vanguard/candidate-v1-sheet.png",
+      "sha256": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+      "width": 1774,
+      "height": 887,
+      "bytes": 1985514
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/candidate-v2-sheet.png",
+      "sha256": "03fadd27018012715d083fb92206dd7eb0967e54adaff84b45d6442cb1492e62",
+      "width": 1774,
+      "height": 887,
+      "bytes": 2101074
+    }
+  ],
+  "evidence": {
+    "sourceAudit": {
+      "file": "evidence/current/tiger-vanguard/reuse-plan-node.json",
+      "generatedAt": "2026-10-13T03:51:23.962Z",
+      "result": "REVIEW_32_SOURCE_REGIONS_AVAILABLE",
+      "sha256": "c79a16158038bc0adbaf934f2758e4912962b8d8066cb3a7c5421c093a360f0c"
+    },
+    "browser": {
+      "file": "evidence/current/tiger-vanguard/reuse-review/2026-10-13T03-54-57-639Z/browser.json",
+      "result": "REVIEW_SOURCE_PREVIEW_ONLY",
+      "sha256": "b130b2a2b8449b9d02438085924fd178500a04c35e9a6e1b339ff43e35aef19f",
+      "technicalPreviewPassed": true,
+      "screenshots": 5,
+      "decodedPages": 2,
+      "distinctRegions": 32,
+      "playbackVisitedRegions": 32,
+      "targetSourcePosesPerSecond": 12,
+      "browserClosed": true,
+      "note": "64px right/left and 48px right previews. Browser pixels differ for all 32 selected regions; this is not semantic pose, quality, natural gameplay, or FPS approval."
+    },
+    "npmTest": {
+      "file": "evidence/current/validation.json",
+      "generatedAt": "2026-10-13T03:54:06.471Z",
+      "result": "PASS",
+      "sha256": "29f91920bd166ae93b4e430efb3a73281c60ef4707d361e796c95530c8bd0864"
+    }
+  },
+  "visualReview": {
+    "viewed": [
+      "contact-64-right.png",
+      "contact-48-right.png",
+      "cross-page-transition.png"
+    ],
+    "result": "REVIEW_STYLE_AND_PIVOTS",
+    "observations": [
+      "At a fixed source-pixel scale, v2 idle last frame and v1 attack first frame have 192 versus 171 visible source-pixel heights (63.668 versus 56.705 at the 64px reference). This is a transition risk, not a stand-alone proof of failure.",
+      "The enlarged transition preview shows changes in body stance, chest-armour contour, sash placement and blade silhouette between the two drafts. No per-frame stretching was used to hide those changes.",
+      "The diagnostic bottom-center bbox anchor does not validate planted feet, body root stability or retained death anchors.",
+      "Original whole-sheet v1/v2 REVIEW results remain valid; this audit selects sound regions and does not repair or approve either full sheet."
+    ]
+  },
+  "nextStep": "Evaluate cross-page visual continuity and authored ground pivots using these existing sources before considering a dedicated Vanguard identity/multi-page runtime contract. Do not bind by elite+tiger alone; do not reuse ordinary tiger or final-Boss identities. No third generation is justified by missing region count alone.",
+  "protected": {
+    "files": 90,
+    "sourceAndRuntimeHashesUnchanged": true,
+    "manifestUnchanged": true,
+    "zipUnchanged": true,
+    "newRasterAssets": 0,
+    "deployed": false,
+    "port8088Listeners": 0
+  },
+  "boundary": {
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "naturalGameplayReviewed": false,
+    "publicPass": false,
+    "currentZipPass": false,
+    "wechatDevicePass": false,
+    "fpsPass": false,
+    "releaseReadiness": "NOT_READY"
+  }
+}

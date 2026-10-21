@@ -1,0 +1,172 @@
+{
+  "generatedAt": "2026-10-11T08:06:57.948Z",
+  "scope": "Read-only preservation verification after fresh npm test and asset audit; not final visual, public, ZIP or device acceptance",
+  "browserReport": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/browser.json",
+  "browserReportSha256": "208666f414e97745cdb835999f5df9d81529e6da5b10a90a45992bda23dafd69",
+  "browserResult": "OBSERVED_BASELINE_DEFECT",
+  "protectedFileCount": 135,
+  "protectedChanged": [],
+  "inventory": {
+    "generatedAt": "2026-10-11T08:03:37.099Z",
+    "media": 80,
+    "uniqueHashes": 76,
+    "explainedDuplicateGroups": 4,
+    "result": "PASS",
+    "unchangedMedia": true
+  },
+  "npmTest": {
+    "date": "2026-10-11T08:03:16.149Z",
+    "result": "PASS",
+    "exitCode": 0,
+    "log": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/npm-test.txt",
+    "sha256": "68efb83befb1f7593207739a74b484cd3e8c70825506db647eb30c39884ab92f",
+    "fullRunEvidence": "Four 600-second simulations were rerun in this log; historical full-run.json was NOT regenerated or reused as current evidence"
+  },
+  "snapshots": [
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/asset-dedup-audit.json",
+      "sha256": "865cfd1fb56051b7f7f097c9198711ab2ee124d377be2cd7a63560acc28fa551",
+      "generatedAt": "2026-10-11T08:03:37.099Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/bear/engine-runtime.json",
+      "sha256": "5d911310892f37877a092b821d9d5b64cbbc9d5d6e9f6e9425d272ddfc555bbc",
+      "generatedAt": "2026-10-11T08:03:11.085Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/bear/public-contract-node.json",
+      "sha256": "5fa6322f027c273ebbfff5a383e7ea1d57ba942c6581afd89df252282df48252",
+      "generatedAt": "2026-10-11T08:03:10.862Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/bull/engine-runtime.json",
+      "sha256": "6c5d212df7c8ce43e068381673d6318bfe820ec0fff45ad241258fb1e470f218",
+      "generatedAt": "2026-10-11T08:03:11.185Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/bull/public-contract-node.json",
+      "sha256": "5fa6322f027c273ebbfff5a383e7ea1d57ba942c6581afd89df252282df48252",
+      "generatedAt": "2026-10-11T08:03:10.862Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/damage-labels/node.json",
+      "sha256": "1bc59981f65091ef300cfc1df5461fa09dc31f3c9d3502395d00febe1d9410a8",
+      "generatedAt": "2026-10-11T08:03:11.556Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/deer/engine-runtime.json",
+      "sha256": "8135479dc27e1bf08d50fd6e80d957a61516df18380f4493388f7d1405c52b58",
+      "generatedAt": "2026-10-11T08:03:11.434Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/deer/public-contract-node.json",
+      "sha256": "5fa6322f027c273ebbfff5a383e7ea1d57ba942c6581afd89df252282df48252",
+      "generatedAt": "2026-10-11T08:03:10.862Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/feedback-overlap/node.json",
+      "sha256": "382654d821bd8d4ae58fe72042bda5903089f68853fc9083f6b33a9d06f3539a",
+      "generatedAt": "2026-10-11T08:03:11.849Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/hawk/engine-runtime.json",
+      "sha256": "fbefde1aa6c0173e94108c4c44f4308a00e31db2cb97b4509c7e4cc765eb7993",
+      "generatedAt": "2026-10-11T08:03:11.443Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/hawk/public-contract-node.json",
+      "sha256": "5fa6322f027c273ebbfff5a383e7ea1d57ba942c6581afd89df252282df48252",
+      "generatedAt": "2026-10-11T08:03:10.862Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/monkey/engine-runtime.json",
+      "sha256": "a6be0dd1c0e24d150632ebd94529ee93e169a6b5318e77d7914f051b8f980075",
+      "generatedAt": "2026-10-11T08:03:11.356Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/monkey/public-contract-node.json",
+      "sha256": "5fa6322f027c273ebbfff5a383e7ea1d57ba942c6581afd89df252282df48252",
+      "generatedAt": "2026-10-11T08:03:10.862Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/normal-run.json",
+      "sha256": "5351ac9e6ccd46b1d9e465a5d644ac986227a6880130a8170ec4c3aa82cafb3f",
+      "generatedAt": "2026-10-11T08:03:15.411Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/platform.json",
+      "sha256": "d2444ec691e600e29eee92c8652e8d44b5c7e04f30a586db83cf3c4cead3c240",
+      "generatedAt": "2026-10-11T08:03:16.148Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/snake/engine-runtime.json",
+      "sha256": "9c360f868f1de1bf2daa5c5fa314ea42171192ddd0f555e94e10cceda594900b",
+      "generatedAt": "2026-10-11T08:03:11.526Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/snake/public-contract-node.json",
+      "sha256": "5fa6322f027c273ebbfff5a383e7ea1d57ba942c6581afd89df252282df48252",
+      "generatedAt": "2026-10-11T08:03:10.862Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/status-badges/node.json",
+      "sha256": "39356f25128fc6ae41a8fabdb15ee99ef2433f3b409cec602c8028442bed9f64",
+      "generatedAt": "2026-10-11T08:03:11.546Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/tiger/engine-runtime.json",
+      "sha256": "6971835ba07c8d4cd88027274e1970a526e89dd982a11ac83e0596bded191a6d",
+      "generatedAt": "2026-10-11T08:03:10.994Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/validation.json",
+      "sha256": "5390c3d855bc0243b4b71ab89462cfcf0da0ce4335ab077109b7784163c73180",
+      "generatedAt": "2026-10-11T08:03:16.149Z",
+      "unchangedSinceTest": true
+    },
+    {
+      "file": "evidence/current/hero-highframe/2026-10-11T08-02-47-308Z/current-regression/wolf/engine-runtime.json",
+      "sha256": "509e5620b1d9ca161b5ada0988fd16e7f76b22fdb7c53d750af89ee8a1b9eea1",
+      "generatedAt": "2026-10-11T08:03:11.279Z",
+      "unchangedSinceTest": true
+    }
+  ],
+  "screenshotHashesMatch": true,
+  "diagnosticSourceHashMatch": true,
+  "cleanup": {
+    "browserClosed": true,
+    "ownedServerExitObserved": true,
+    "ownedServerPid": 17460,
+    "scope": "Only the owned test browser and server. No blanket process or free-port claim."
+  },
+  "unchangedZipHashes": {
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2"
+  },
+  "priorFailures": [
+    "evidence/current/hero-highframe/2026-10-11T08-02-24-208Z/browser.json"
+  ],
+  "deploymentAttempted": false,
+  "internetRetested": false,
+  "wechatDeviceRetested": false,
+  "result": "PRESERVATION_AND_REGRESSION_PASS_VISUAL_DEFECT_OPEN"
+}

@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-10-15T14:02:23Z",
+  "result": "MANUAL_PUBLIC_RUNTIME_RECHECK",
+  "url": "https://roaring-malabi-f8d7fa.netlify.app/",
+  "scope": "read-only browser verification of the currently uploaded Netlify Drop site; no production or deployment changes",
+  "entry": {
+    "passwordGate": "authenticated",
+    "title": "西游·八十一难 · 微信Canvas验证",
+    "bodyText": "微信Canvas同代码验证 · WASD / 方向键移动 · 空格闪避",
+    "canvasObserved": { "width": 488, "height": 900, "cssWidth": 390, "cssHeight": 720 }
+  },
+  "manualFlow": [
+    { "screen": "home", "observed": true, "evidence": "browser screenshot showed title, comic hero card, and 踏上西行 control" },
+    { "screen": "character-select", "observed": true, "evidence": "clicking 踏上西行 displayed four selectable companions" },
+    { "screen": "battle", "observed": true, "evidence": "clicking 入山·开始十分钟试炼 displayed active battle canvas with player sprite" },
+    { "screen": "skill-choice-overlay", "observed": true, "evidence": "after continued runtime a 悟得一法 overlay appeared over the battle scene; timer and kill counter had advanced" }
+  ],
+  "assetInventory": {
+    "pageUrl": "https://roaring-malabi-f8d7fa.netlify.app/",
+    "totalObserved": 58,
+    "byKind": { "image": 34, "script": 16, "other": 8 },
+    "requiredBattleAnimationAssetsObserved": [
+      "hero-wukong-battle-v3-sheet.png",
+      "hero-tangseng-battle-v3-sheet.png",
+      "hero-bajie-battle-v3-sheet.png",
+      "hero-wujing-battle-v3-sheet.png",
+      "enemy-tiger-battle-v1-sheet.png",
+      "enemy-tiger-battle-v1-frames.json",
+      "enemy-bear-battle-v1-sheet.png",
+      "enemy-bear-battle-v1-frames.json",
+      "enemy-bull-battle-v1-sheet.png",
+      "enemy-bull-battle-v1-frames.json",
+      "enemy-wolf-battle-v1-sheet.png",
+      "enemy-wolf-battle-v1-frames.json",
+      "enemy-monkey-battle-v1-sheet.png",
+      "enemy-monkey-battle-v1-frames.json",
+      "enemy-deer-battle-v1-sheet.png",
+      "enemy-deer-battle-v1-frames.json",
+      "enemy-hawk-battle-v1-sheet.png",
+      "enemy-hawk-battle-v1-frames.json",
+      "enemy-snake-battle-v3-sheet.png",
+      "enemy-snake-battle-v3-frames.json"
+    ]
+  },
+  "console": { "capturedEntries": 0, "unexpectedErrorsObserved": false },
+  "automatedSmoke": {
+    "result": "BLOCKED",
+    "reason": "Playwright Edge launch returned spawn EPERM in this workspace; Chromium executable is not installed",
+    "passClaimed": false
+  },
+  "limitations": [
+    "This is a manual browser runtime recheck, not an automated public smoke PASS.",
+    "The temporary Netlify Drop password was used only to authenticate this public test page; no account or deployment settings were changed."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-10-11T05:20:20.273Z",
+  "phase": "before",
+  "result": "FAIL",
+  "url": "http://127.0.0.1:8088/",
+  "scope": "local workspace real Edge; damage-label paint order only; not public internet, package, global occlusion or device approval",
+  "inputs": {
+    "prototype-2d/src/renderer.js": "4ca1aa9d83d05e77cdc558b53f3b9ff04f08603915e5543d69dfc92c63814dae",
+    "prototype-2d/src/engine.js": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+    "scripts/browser-damage-label-smoke.mjs": "c74f37db02ffa20f0f45f99d04b8ac43a078d774e42902161c7db3d1f043072e"
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "screenshots": [],
+  "error": "browserType.launch: spawn EPERM\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-2UF8lP --remote-debugging-pipe --no-startup-window\u001b[22m\n\n    at F:\\Project\\Xiyou_Survivor_Commercial\\scripts\\browser-damage-label-smoke.mjs:27:39",
+  "finishedAt": "2026-10-11T05:20:20.537Z"
+}

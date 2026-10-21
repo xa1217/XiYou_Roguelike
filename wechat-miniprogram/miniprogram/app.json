@@ -1,0 +1,6 @@
+{
+  "pages": ["pages/index/index"],
+  "window": {"navigationBarTitleText":"西游·八十一难","navigationBarBackgroundColor":"#130e12","navigationBarTextStyle":"white","backgroundColor":"#130e12","backgroundTextStyle":"dark"},
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

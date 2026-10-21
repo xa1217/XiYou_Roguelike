@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-10-15T18:02:13Z",
+  "assetId": "xiong-shanjun-v1",
+  "scope": "single serialized evidence-only generation attempt through a supported-model agent; no production write",
+  "requested": true,
+  "result": "FAILED_BEFORE_GENERATION",
+  "tool": "built-in image_gen",
+  "modelRoute": "gpt-6.1-sol agent",
+  "error": "HTTP 503 upstream_error: auth_unavailable; account pool had no available accounts (2 candidates, both unavailable).",
+  "outputPath": null,
+  "productionAssetWrite": false,
+  "runtimeWrite": false,
+  "zipWrite": false,
+  "deploymentAttempted": false,
+  "fallbackNotUsed": true,
+  "nextSafeStep": "Do not retry repeatedly; wait for image-generation account availability or obtain explicit user authorization for CLI/API fallback with OPENAI_API_KEY."
+}

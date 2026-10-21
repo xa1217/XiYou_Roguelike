@@ -1,0 +1,1722 @@
+{
+  "generatedAt": "2026-10-13T05:44:03.776Z",
+  "result": "REVIEW_SINGLE_SOURCE_ISOLATION_INVENTORY",
+  "scope": "Single-source v1 pixel isolation/edge defect inventory only; no animation, root, runtime, ZIP, public, FPS or device approval.",
+  "scriptSha256": "6a29deebf2760db2e6129326c3ba38ade29851098a1d95674f7ed8449741d405",
+  "protectedBefore": {
+    "prototype-2d/native-app.js": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+    "prototype-2d/src/audio.js": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "prototype-2d/src/bear-animation.js": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+    "prototype-2d/src/bull-animation.js": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4",
+    "prototype-2d/src/content.js": "7af8cfe07b8aea17ae4c2220918aefad7b97cc7bb547650e0f131e617af07f87",
+    "prototype-2d/src/deer-animation.js": "7fca4fc497bd38abe62afc1b3f051001888195035e22573a5b7e323d5988653b",
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/hawk-animation.js": "60e7cb55d6c2966223d54145af3134e4507a449a976fbc4a5c962a3a6dde0285",
+    "prototype-2d/src/monkey-animation.js": "99dec7c46f8615d09e9c9fd0381c7e8ebdb9e41504c9f5a41a5a59fa598e1fc6",
+    "prototype-2d/src/native-ui.js": "dd84edca168df81681667b76e897f54b347c42486166a72b1c143bcd2bcbbe5c",
+    "prototype-2d/src/progression.js": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/src/snake-animation.js": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13",
+    "prototype-2d/src/tiger-animation.js": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+    "prototype-2d/src/wolf-animation.js": "e677a1be849717d0790715b08a8fb8a4b76aff27e24930c7e8962f3e8574e85e",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "scripts/serve.mjs": "300f782732b7bde8590abe40a3c20feab92d4705432386967fd298430f6713d7",
+    "scripts/release.mjs": "4134cd0ccb13c27e940793bff3860eb3d0ab092a0fe542aa48ffa1f2b53a53de",
+    "scripts/runtime-frame-contract.mjs": "22793d976f92b1d9d0c3310c985c4ac41c0d9e02432bff576ba6dfc15b522f84",
+    "prototype-2d/assets/artifact-diamond-snare.svg": "c0dd49e0d324d509573fccb0c847e63e69d014a375998143d768375bb7d7601d",
+    "prototype-2d/assets/artifact-golden-rope.svg": "2f7c85de5bf3ea8396002def45bebf18775380e6aa75b4262b2d3b951a48c0f7",
+    "prototype-2d/assets/artifact-iron-fan.svg": "60c256224ee13f5cf1eea868938bba3f8a6eefdea04502a1a9999601839b8347",
+    "prototype-2d/assets/artifact-lotus-lantern.svg": "61f888c1dd2425ff01127ee979bdb4241a6c171e5b7ab400cb64dc2c7bb2d528",
+    "prototype-2d/assets/artifact-moon-mirror.svg": "83c28876e88f5c6c6c0703db3a7ee334291b16f6c6c851d5d36bef1f5e69f2cd",
+    "prototype-2d/assets/artifact-nine-dragon.svg": "208984a5b25c26b18cf470c1e11e0193e26cef1eb96113207590f93b3e3b1dc5",
+    "prototype-2d/assets/artifact-purple-gourd.svg": "efc7b02dd2ad6991b5093fedef0e8447c44485c849d3ef4918f3739db5688a65",
+    "prototype-2d/assets/artifact-samadhi-fire.svg": "cb6011a7b5298253fe9a91d92c39b4ba027f2aa10cb803224089cd829514fcaf",
+    "prototype-2d/assets/enemy-bear-battle-v1-frames.json": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+    "prototype-2d/assets/enemy-bear-battle-v1-sheet.png": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+    "prototype-2d/assets/enemy-bird.svg": "0cdfbb376fef61809681e8a1c346ffcd079514721d8f31a1a5f4197b9908a580",
+    "prototype-2d/assets/enemy-boss-kr-v1.png": "15f5393abf19e83b2d0087d4ac0a068c5cec4ae45d740798cb5ec8c2807d8601",
+    "prototype-2d/assets/enemy-boss.svg": "3878f941259a93790631307e0102600d8734326d9b529f4fb2b6cb5ac5cb48ee",
+    "prototype-2d/assets/enemy-brute-kr-v1.png": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d",
+    "prototype-2d/assets/enemy-brute.svg": "625c5abc3730e7e176c8948d1da1524176f0b2e2c92f80156225ea23ed9bcb1c",
+    "prototype-2d/assets/enemy-bull-battle-v1-frames.json": "e32da6acfc9bbea64ffb74b6cfb06e30e736b7f2c042c1d8949348e506b11527",
+    "prototype-2d/assets/enemy-bull-battle-v1-sheet.png": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+    "prototype-2d/assets/enemy-creature-kr-v1.png": "5eb03be680a6e4a7b8aba3b53695d7eb22c2c5f19c1a31a710c711743ba8d102",
+    "prototype-2d/assets/enemy-creature.svg": "aea810adc49f2f2cfddf3b75f035bc4db4b1671f61278d00b322ffdfa827954f",
+    "prototype-2d/assets/enemy-deer-battle-v1-frames.json": "6bf255f4f3823b089585a3eeaed3534b9ac283660e863b72cb71035490cbe927",
+    "prototype-2d/assets/enemy-deer-battle-v1-sheet.png": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
+    "prototype-2d/assets/enemy-hawk-battle-v1-frames.json": "c2ac21f266056a976425e37a7e24e34fba6b7a1269d592da3354ca49ef6d60ec",
+    "prototype-2d/assets/enemy-hawk-battle-v1-sheet.png": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7",
+    "prototype-2d/assets/enemy-monkey-battle-v1-frames.json": "46dcb42789e67c95d640f26578d799c2c3e831bce062f9417d2dc2d0f097c21c",
+    "prototype-2d/assets/enemy-monkey-battle-v1-sheet.png": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44",
+    "prototype-2d/assets/enemy-snake-battle-v3-frames.json": "5c75ff4ebfdd765c0fbe3b1087b992426b708ca7634e370a6b984690e201ca70",
+    "prototype-2d/assets/enemy-snake-battle-v3-sheet.png": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+    "prototype-2d/assets/enemy-spider.svg": "575571fed6c63d3050ff0a60c86f1293501f6399f23448ba14661f99dbd8b5dd",
+    "prototype-2d/assets/enemy-tiger-battle-v1-frames.json": "b66e62a1a40b00e36711523621c94d1b73b33a05f71ee46ec2094b4ae007156d",
+    "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+    "prototype-2d/assets/enemy-wolf-battle-v1-frames.json": "777a2f232307a23bbda913feb17aec2ac680c10528c3f29bf1fe0e98823d4637",
+    "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299",
+    "prototype-2d/assets/generate-art-assets.mjs": "d56eb58a8fc8c5843f27465e3be6150830a4dc03488885056c9e8d07cd888fa3",
+    "prototype-2d/assets/hero-bajie-battle-v3-sheet.png": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b",
+    "prototype-2d/assets/hero-bajie.svg": "19eb81b91664409d54619eb3aefe48fe2add07b880a160c3d4756dd6ad2ad56a",
+    "prototype-2d/assets/hero-battle-v2-atlas.png": "589412a2857dcb34ef828cee24e31abb94acb8a3b6b8e37813051b06e03e8565",
+    "prototype-2d/assets/hero-cards-v1.png": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+    "prototype-2d/assets/hero-cards-v2-comic.png": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad",
+    "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61",
+    "prototype-2d/assets/hero-tangseng-kr-v1.png": "162fdcbbf62ba747e0cc9c8f6c89e695b2b0a6e5aabc74455e5d1705918b0a4f",
+    "prototype-2d/assets/hero-tangseng.svg": "481bd327822e262287684750ffee74316de807236b97cb7758815d6a3cc1335d",
+    "prototype-2d/assets/hero-wujing-battle-v3-sheet.png": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "prototype-2d/assets/hero-wujing.svg": "d78054b2dcdedfc127ddbd8a7bcfe5db7315d13e034b5d934cca7b6c8c0c81f6",
+    "prototype-2d/assets/hero-wukong-battle-v3-sheet.png": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+    "prototype-2d/assets/hero-wukong.svg": "0121755c5ed96abf2508d3ef8fb77804ac8e2e103d284f75d1403c7c8b9b732d",
+    "prototype-2d/assets/map-doublefork-high-ridge-v1.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-doublefork-v2-optimized.png": "e014fafd243bf430aa48d58634879a3077ba67697d1ad3b3f27262dd35e5a8e5",
+    "prototype-2d/assets/map-doublefork-v2.png": "690363b6757576103190cc6a7461f0231fbfe79c158381dfbb637cc7b8dde12b",
+    "prototype-2d/assets/map-doublefork-v3-optimized.png": "20174da20cf3df773f6f0665e928e06fe3ed73f9d40b81154649dce7455d9530",
+    "prototype-2d/assets/map-doublefork-v3.png": "79d3c48b57d319ff2b56c21b16e5ad207423f181fd4c119a0aadc9517bf866ca",
+    "prototype-2d/assets/map-doublefork-v4-high-ridge-candidate.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-forest-qv1.png": "2944c17b771ad04a2c0205722f72df6a6126bae5f6ebf2e3aac1b1485bb50f23",
+    "prototype-2d/assets/map-temple-qv1.png": "1d7627c6153e2583842821ca5b2fa9c36027a85fe2b888f440e4e1c58f067ef9",
+    "prototype-2d/assets/README.md": "f2db10e10df7573a3e8fc2855cb8433dca35a121515dd278558a3dc86cbabbdc",
+    "prototype-2d/assets/theme-fire.svg": "8669bc3310052658aa37623537ca37ef7a51d690521f604cf66f309c2b55a11d",
+    "prototype-2d/assets/theme-forest.svg": "aa116a57c9776189afbec44ef88be18f8ea21e423b9ce1a59feb6dcc2be25558",
+    "prototype-2d/assets/theme-sand.svg": "6a0ee4411722136d48ffeeac040bf78c255b94f1602b430a99d443fbd2c65604",
+    "prototype-2d/assets/theme-snow.svg": "56e23a7e861e54d309680469dfc5dd6d3c99206dc2a1ae45d4ef061650ff0997",
+    "prototype-2d/assets/theme-temple.svg": "ebc4f5149d7fe5064a03a0db5610af77e6e90848c1a0e1b52e984e780aa0bf8e",
+    "prototype-2d/assets/theme-water.svg": "399b5a854be22e373806fc4711d6392fa27f370eb1435eaf82162b897a19f093",
+    "prototype-2d/assets/weapon-skill-bajie.svg": "67b0841a9ad517ea9f7a83ef8c669f1d632f9df8796a32656c73f5773d0ec737",
+    "prototype-2d/assets/weapon-skill-tangseng.svg": "3bcf292f0e0c5de76f80573dc55eb8883142efcd48186d3981a31383289684a3",
+    "prototype-2d/assets/weapon-skill-wujing.svg": "baff2be3abbe0e1637457f0600c8a9f7e8bc0c7993d56075c79be19209d9582e",
+    "prototype-2d/assets/weapon-skill-wukong.svg": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27",
+    "prototype-2d/assets/xiyou-art-preview.png": "6517fd98be3b7cc81c4bd9e8a3a54d5371c8355eca4722102d78e5732655b9d0",
+    "prototype-2d/assets/xiyou-art-preview.svg": "c0f540a2b4b2021036a49d65d76e095643df74073a296527028e9f3f87372b2a",
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+    "evidence/current/tiger-vanguard/candidate-v1-sheet.png": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+    "evidence/current/tiger-vanguard/candidate-v2-sheet.png": "03fadd27018012715d083fb92206dd7eb0967e54adaff84b45d6442cb1492e62"
+  },
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "selfTest": {
+    "result": "PASS",
+    "checks": [
+      "projection-is-not-component-count",
+      "eight-connected-diagonal",
+      "edge-padding-rejected",
+      "foreign-body-crop-and-guard-counts",
+      "detached-fringe-retained"
+    ]
+  },
+  "source": {
+    "file": "evidence/current/tiger-vanguard/candidate-v1-sheet.png",
+    "sha256": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+    "bytes": 1985514,
+    "width": 1774,
+    "height": 887,
+    "purpose": "Existing armored Tiger Vanguard draft v1 only, not ordinary tiger or final Boss; no v2 mixing."
+  },
+  "measurementPolicy": {
+    "alphaThresholds": [
+      8,
+      16
+    ],
+    "connectivity": 8,
+    "majorComponentMinPixels": 1000,
+    "guard": 2,
+    "limits": "Large components are machine labels, not authored poses. Whole projection regions retain all pixels; detached fringe-only x runs within two blank columns are included in the nearest unambiguous body region, not masked away. For the merged death pair, tight component boxes are probes only; no ownership assigned to detached fringe, no pixels removed. Alpha<=8 is preserved in source bytes but not certified as a transparent guard."
+  },
+  "thresholds": [
+    {
+      "threshold": 8,
+      "totalComponents": 182,
+      "majorComponentCount": 32,
+      "projectionRegionCount": 33,
+      "fringeRetainedRegionCount": 31,
+      "rows": [
+        {
+          "row": 0,
+          "top": 40,
+          "bottom": 211,
+          "rawProjectionRegions": 8,
+          "fringeRetainedRegions": 8,
+          "fringe": [],
+          "majorComponents": 8
+        },
+        {
+          "row": 1,
+          "top": 254,
+          "bottom": 431,
+          "rawProjectionRegions": 8,
+          "fringeRetainedRegions": 8,
+          "fringe": [],
+          "majorComponents": 8
+        },
+        {
+          "row": 2,
+          "top": 465,
+          "bottom": 655,
+          "rawProjectionRegions": 8,
+          "fringeRetainedRegions": 8,
+          "fringe": [],
+          "majorComponents": 8
+        },
+        {
+          "row": 3,
+          "top": 679,
+          "bottom": 862,
+          "rawProjectionRegions": 9,
+          "fringeRetainedRegions": 7,
+          "fringe": [
+            {
+              "rect": {
+                "x": 665,
+                "y": 791,
+                "w": 1,
+                "h": 9
+              },
+              "visible": 8,
+              "horizontalGap": 1
+            },
+            {
+              "rect": {
+                "x": 1102,
+                "y": 831,
+                "w": 1,
+                "h": 1
+              },
+              "visible": 1,
+              "horizontalGap": 1
+            }
+          ],
+          "majorComponents": 8
+        }
+      ],
+      "deathPair": [
+        {
+          "id": 143,
+          "pixels": 14227,
+          "rect": {
+            "x": 1327,
+            "y": 758,
+            "w": 226,
+            "h": 95
+          },
+          "index": 30
+        },
+        {
+          "id": 145,
+          "pixels": 11409,
+          "rect": {
+            "x": 1552,
+            "y": 765,
+            "w": 213,
+            "h": 79
+          },
+          "index": 31
+        }
+      ]
+    },
+    {
+      "threshold": 16,
+      "totalComponents": 41,
+      "majorComponentCount": 32,
+      "projectionRegionCount": 32,
+      "fringeRetainedRegionCount": 32,
+      "rows": [
+        {
+          "row": 0,
+          "top": 40,
+          "bottom": 211,
+          "rawProjectionRegions": 8,
+          "fringeRetainedRegions": 8,
+          "fringe": [],
+          "majorComponents": 8
+        },
+        {
+          "row": 1,
+          "top": 254,
+          "bottom": 429,
+          "rawProjectionRegions": 8,
+          "fringeRetainedRegions": 8,
+          "fringe": [],
+          "majorComponents": 8
+        },
+        {
+          "row": 2,
+          "top": 465,
+          "bottom": 655,
+          "rawProjectionRegions": 8,
+          "fringeRetainedRegions": 8,
+          "fringe": [],
+          "majorComponents": 8
+        },
+        {
+          "row": 3,
+          "top": 679,
+          "bottom": 860,
+          "rawProjectionRegions": 8,
+          "fringeRetainedRegions": 8,
+          "fringe": [],
+          "majorComponents": 8
+        }
+      ],
+      "deathPair": [
+        {
+          "id": 40,
+          "pixels": 14085,
+          "rect": {
+            "x": 1327,
+            "y": 758,
+            "w": 225,
+            "h": 95
+          },
+          "index": 30
+        },
+        {
+          "id": 41,
+          "pixels": 11167,
+          "rect": {
+            "x": 1553,
+            "y": 767,
+            "w": 212,
+            "h": 77
+          },
+          "index": 31
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "index": 0,
+      "row": 0,
+      "column": 0,
+      "state": "idle",
+      "stateIndex": 0,
+      "rect": {
+        "x": 19,
+        "y": 40,
+        "w": 204,
+        "h": 171
+      },
+      "rgbaSha256": "48103fc5a96216c529dad1ed49656050709ac4b0742168f6ead9730a0d2cd0c9",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        0
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 19115,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 18860,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 1,
+      "row": 0,
+      "column": 1,
+      "state": "idle",
+      "stateIndex": 1,
+      "rect": {
+        "x": 241,
+        "y": 41,
+        "w": 206,
+        "h": 171
+      },
+      "rgbaSha256": "6e3e6407af206d7cccd43b0bd739e6c8946986a0427e8a5fc55d3d500eacefa1",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        1
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 18957,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 18725,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 2,
+      "row": 0,
+      "column": 2,
+      "state": "idle",
+      "stateIndex": 2,
+      "rect": {
+        "x": 468,
+        "y": 40,
+        "w": 198,
+        "h": 172
+      },
+      "rgbaSha256": "d9850540d8178b38f30be65cab5fb495e26c41081793fc8738af3ba50191fbb0",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        2
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 19390,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 19094,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 3,
+      "row": 0,
+      "column": 3,
+      "state": "idle",
+      "stateIndex": 3,
+      "rect": {
+        "x": 684,
+        "y": 41,
+        "w": 204,
+        "h": 171
+      },
+      "rgbaSha256": "81cd5d24cef4caf6ca18cf024d24a676a8b4791ddd499fd808d48c054389ffd4",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        3
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 18960,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 18741,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 4,
+      "row": 0,
+      "column": 4,
+      "state": "idle",
+      "stateIndex": 4,
+      "rect": {
+        "x": 912,
+        "y": 41,
+        "w": 198,
+        "h": 171
+      },
+      "rgbaSha256": "64709be0e97cb772f5efc7c247a75543c79c93c991cd9ed25482d80f0ab35258",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        4
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 19164,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 18917,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 5,
+      "row": 0,
+      "column": 5,
+      "state": "idle",
+      "stateIndex": 5,
+      "rect": {
+        "x": 1128,
+        "y": 41,
+        "w": 204,
+        "h": 171
+      },
+      "rgbaSha256": "6e06e513dfffe00cfe7355c661cc4b213e9b95c61d185e5abbff18e7fd5c5fd8",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        5
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 18843,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 18577,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 6,
+      "row": 0,
+      "column": 6,
+      "state": "idle",
+      "stateIndex": 6,
+      "rect": {
+        "x": 1350,
+        "y": 43,
+        "w": 203,
+        "h": 169
+      },
+      "rgbaSha256": "f02fe295cf4ab39ba4aafa4a77634349a5c65b891daa1388581d9046de49c4d4",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        6
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 18723,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 18428,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 7,
+      "row": 0,
+      "column": 7,
+      "state": "idle",
+      "stateIndex": 7,
+      "rect": {
+        "x": 1569,
+        "y": 42,
+        "w": 205,
+        "h": 170
+      },
+      "rgbaSha256": "2861d1b1fb1c889b5fd6a50007707487ba27e711b474afbcf9300d412e2bad31",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        7
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 18740,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 20,
+          "paddingInsideSource": false
+        },
+        {
+          "threshold": 16,
+          "visible": 18490,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 19,
+          "paddingInsideSource": false
+        }
+      ],
+      "isolationCandidate": false,
+      "status": "SOURCE_EDGE_REPAIR_REQUIRED"
+    },
+    {
+      "index": 8,
+      "row": 1,
+      "column": 0,
+      "state": "move",
+      "stateIndex": 0,
+      "rect": {
+        "x": 13,
+        "y": 262,
+        "w": 184,
+        "h": 167
+      },
+      "rgbaSha256": "933af40b0fb730fbc081227b9846b94b83719a96ba12c77698ba32185a1265be",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        8
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 17513,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 17229,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 9,
+      "row": 1,
+      "column": 1,
+      "state": "move",
+      "stateIndex": 1,
+      "rect": {
+        "x": 237,
+        "y": 260,
+        "w": 193,
+        "h": 171
+      },
+      "rgbaSha256": "e316ec4a07ecc25814ca79ef41bdd6d10f934417f551cb65ba9ae50b6f6007c1",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        9
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 16860,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 16563,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 10,
+      "row": 1,
+      "column": 2,
+      "state": "move",
+      "stateIndex": 2,
+      "rect": {
+        "x": 459,
+        "y": 254,
+        "w": 193,
+        "h": 175
+      },
+      "rgbaSha256": "a92f08040c35389559ba0b18322fad53a1d75946b73d21cd7a48e0002e2f7344",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        10
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 18696,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 18355,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 11,
+      "row": 1,
+      "column": 3,
+      "state": "move",
+      "stateIndex": 3,
+      "rect": {
+        "x": 681,
+        "y": 261,
+        "w": 184,
+        "h": 171
+      },
+      "rgbaSha256": "3f79de1ccb9c3045c335cff29030e441385f5c4d2bea95f11dea839a1711be7b",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        11
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 16166,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 15894,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 12,
+      "row": 1,
+      "column": 4,
+      "state": "move",
+      "stateIndex": 4,
+      "rect": {
+        "x": 897,
+        "y": 261,
+        "w": 188,
+        "h": 169
+      },
+      "rgbaSha256": "4a064b91db0235406af8ab93b2dee95eff9e2cb6bd82e81bd1dd3b54a5af6252",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        12
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 17398,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 17133,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 13,
+      "row": 1,
+      "column": 5,
+      "state": "move",
+      "stateIndex": 5,
+      "rect": {
+        "x": 1117,
+        "y": 255,
+        "w": 207,
+        "h": 167
+      },
+      "rgbaSha256": "9a1a4bf6a8527e13ab543c1010dc9fa3f7047b0af3fde1f7b18d5c5e12adceca",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        13
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 18389,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 18050,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 14,
+      "row": 1,
+      "column": 6,
+      "state": "move",
+      "stateIndex": 6,
+      "rect": {
+        "x": 1345,
+        "y": 261,
+        "w": 186,
+        "h": 171
+      },
+      "rgbaSha256": "551e4c4dd179ad2dfca9c8c890589285ee74de1927d2619fe72810355e4847d9",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        14
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 16027,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 15775,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 15,
+      "row": 1,
+      "column": 7,
+      "state": "move",
+      "stateIndex": 7,
+      "rect": {
+        "x": 1552,
+        "y": 259,
+        "w": 190,
+        "h": 172
+      },
+      "rgbaSha256": "bf25b244caf91880d85d9ec95bb85ebe3004c9c3a09f14970815b7f29fb02025",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        15
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 17527,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 17228,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 16,
+      "row": 2,
+      "column": 0,
+      "state": "attack",
+      "stateIndex": 0,
+      "rect": {
+        "x": 12,
+        "y": 482,
+        "w": 210,
+        "h": 171
+      },
+      "rgbaSha256": "4cf1b245f163b4373386feb06cad5944fbfdd1143c982179f2843b54ec54be96",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        16
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 18931,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 18672,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 17,
+      "row": 2,
+      "column": 1,
+      "state": "attack",
+      "stateIndex": 1,
+      "rect": {
+        "x": 241,
+        "y": 514,
+        "w": 192,
+        "h": 139
+      },
+      "rgbaSha256": "1b60503b617c6f61d3131d1044d2e0a0298da0389c4a426ab75c3fbf2c168121",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        17
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 16569,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 16350,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 18,
+      "row": 2,
+      "column": 2,
+      "state": "attack",
+      "stateIndex": 2,
+      "rect": {
+        "x": 458,
+        "y": 465,
+        "w": 183,
+        "h": 191
+      },
+      "rgbaSha256": "c0c60fb4b2579c8780e41f02398e9c9af4c61d02a05e10a0b67fa854289ea776",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        18
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 20962,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 20639,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 19,
+      "row": 2,
+      "column": 3,
+      "state": "attack",
+      "stateIndex": 3,
+      "rect": {
+        "x": 691,
+        "y": 475,
+        "w": 199,
+        "h": 180
+      },
+      "rgbaSha256": "7a2ee2f3684ce57777c8ec9e3e0331ae1402088ea97925cd12f1d4c5251263ad",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        19
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 20514,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 20169,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 20,
+      "row": 2,
+      "column": 4,
+      "state": "attack",
+      "stateIndex": 4,
+      "rect": {
+        "x": 908,
+        "y": 483,
+        "w": 189,
+        "h": 173
+      },
+      "rgbaSha256": "f24ab683949c6df436c1361ee8344e76b07af14ba755c3c37669aac259a2eedc",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        20
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 18953,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 18606,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 21,
+      "row": 2,
+      "column": 5,
+      "state": "attack",
+      "stateIndex": 5,
+      "rect": {
+        "x": 1121,
+        "y": 486,
+        "w": 193,
+        "h": 169
+      },
+      "rgbaSha256": "8a8db86c63dde3e81f8f09efd83e599dfe9c7507f606ff1560e8c4158df9a4f6",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        21
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 18298,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 17917,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 22,
+      "row": 2,
+      "column": 6,
+      "state": "attack",
+      "stateIndex": 6,
+      "rect": {
+        "x": 1341,
+        "y": 475,
+        "w": 205,
+        "h": 178
+      },
+      "rgbaSha256": "122dd9ca66097031dab692fdb0d14b6216dc0062da2b8e837972b16037997553",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        22
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 19745,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 19436,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 23,
+      "row": 2,
+      "column": 7,
+      "state": "attack",
+      "stateIndex": 7,
+      "rect": {
+        "x": 1566,
+        "y": 483,
+        "w": 198,
+        "h": 172
+      },
+      "rgbaSha256": "b69f7b24a2113f8617f801e1effa9a1578776441f77113db13222213e31ca7e6",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        23
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 18439,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 18150,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 24,
+      "row": 3,
+      "column": 0,
+      "state": "hit",
+      "stateIndex": 0,
+      "rect": {
+        "x": 17,
+        "y": 679,
+        "w": 197,
+        "h": 182
+      },
+      "rgbaSha256": "d158360d5927803cd9ae3539ef45a7c2672a03ef8ace7ea535cebf3cafa15c4e",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        24
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 21463,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 21198,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 25,
+      "row": 3,
+      "column": 1,
+      "state": "hit",
+      "stateIndex": 1,
+      "rect": {
+        "x": 250,
+        "y": 685,
+        "w": 181,
+        "h": 178
+      },
+      "rgbaSha256": "a7f5111ed40941bce3af97843a48fbeef40b9277a77d3b864edeb2b11648b9e8",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        25
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 19475,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 19126,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 26,
+      "row": 3,
+      "column": 2,
+      "state": "hit",
+      "stateIndex": 2,
+      "rect": {
+        "x": 453,
+        "y": 700,
+        "w": 167,
+        "h": 158
+      },
+      "rgbaSha256": "ed6f0e8599b14f4a8d23efa6228c312347f956276a7ceaeb7fde0d48893ba0dd",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        26
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 16395,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 16222,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 27,
+      "row": 3,
+      "column": 3,
+      "state": "hit",
+      "stateIndex": 3,
+      "rect": {
+        "x": 665,
+        "y": 687,
+        "w": 219,
+        "h": 171
+      },
+      "rgbaSha256": "ba25fcdae4ce9e370edc26bd92600b1650cc049f301475bb4a13f1e9ec8e96bd",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        27
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 19629,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 19382,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 28,
+      "row": 3,
+      "column": 4,
+      "state": "death",
+      "stateIndex": 0,
+      "rect": {
+        "x": 901,
+        "y": 712,
+        "w": 202,
+        "h": 144
+      },
+      "rgbaSha256": "73564ffb5ebc2620489631997e8b3c0974f1b2fd3b08f0566155cfc4267d1816",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        28
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 17099,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 16841,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 29,
+      "row": 3,
+      "column": 5,
+      "state": "death",
+      "stateIndex": 1,
+      "rect": {
+        "x": 1111,
+        "y": 729,
+        "w": 209,
+        "h": 124
+      },
+      "rgbaSha256": "03e056d7b0249d56719a19ad4efba619ddcc52156c1f58d50dd349ca52da203c",
+      "cropType": "whole-projection-region",
+      "projectionRegionBodyIndices": [
+        29
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 16315,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 16021,
+          "guardPixels": 0,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 0,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": true,
+      "status": "ISOLATED_SOURCE_CANDIDATE_NOT_ANIMATION_APPROVAL"
+    },
+    {
+      "index": 30,
+      "row": 3,
+      "column": 6,
+      "state": "death",
+      "stateIndex": 2,
+      "rect": {
+        "x": 1327,
+        "y": 758,
+        "w": 226,
+        "h": 95
+      },
+      "rgbaSha256": "0d973466ab16d60ea6098efc0f832948c0fcc80a325ebf62174875f9a163255e",
+      "cropType": "main-component-probe-only",
+      "projectionRegionBodyIndices": [
+        30,
+        31
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 14240,
+          "guardPixels": 23,
+          "foreignMajorInRect": 6,
+          "foreignMajorInGuard": 23,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 14085,
+          "guardPixels": 15,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 15,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": false,
+      "status": "DEATH_PAIR_RECTANGLE_ISOLATION_UNRESOLVED"
+    },
+    {
+      "index": 31,
+      "row": 3,
+      "column": 7,
+      "state": "death",
+      "stateIndex": 3,
+      "rect": {
+        "x": 1552,
+        "y": 765,
+        "w": 213,
+        "h": 79
+      },
+      "rgbaSha256": "a8c1eb4fa8dbca68ca4041ab1b2c45f00d4af266788b69dce1676d5bbe00aadb",
+      "cropType": "main-component-probe-only",
+      "projectionRegionBodyIndices": [
+        30,
+        31
+      ],
+      "checks": [
+        {
+          "threshold": 8,
+          "visible": 11415,
+          "guardPixels": 13,
+          "foreignMajorInRect": 1,
+          "foreignMajorInGuard": 11,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        },
+        {
+          "threshold": 16,
+          "visible": 11167,
+          "guardPixels": 10,
+          "foreignMajorInRect": 0,
+          "foreignMajorInGuard": 10,
+          "sourceEdgePixels": 0,
+          "paddingInsideSource": true
+        }
+      ],
+      "isolationCandidate": false,
+      "status": "DEATH_PAIR_RECTANGLE_ISOLATION_UNRESOLVED"
+    }
+  ],
+  "runtimeReferences": [],
+  "summary": {
+    "componentCandidateCount": 32,
+    "isolatedCandidateIndices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "defectIndices": [
+      7,
+      30,
+      31
+    ],
+    "isolatedCounts": {
+      "idle": 7,
+      "move": 8,
+      "attack": 8,
+      "hit": 4,
+      "death": 2
+    },
+    "interpretation": "v1 has 32 large source components, not a proven missing death drawing. Alpha>8 x projection merges the final pair because their x extents overlap; alpha>16 separates those x runs. 31 regions must not be called 31 semantic poses. Animation distinctness/quality still require human review."
+  },
+  "checks": {
+    "selfTestsPassed": true,
+    "thirtyTwoLargeComponentsAtBothThresholds": true,
+    "candidatePixelHashesDistinct": true,
+    "noProductionReferences": true
+  },
+  "protectedAfter": {
+    "prototype-2d/native-app.js": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+    "prototype-2d/src/audio.js": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "prototype-2d/src/bear-animation.js": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+    "prototype-2d/src/bull-animation.js": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4",
+    "prototype-2d/src/content.js": "7af8cfe07b8aea17ae4c2220918aefad7b97cc7bb547650e0f131e617af07f87",
+    "prototype-2d/src/deer-animation.js": "7fca4fc497bd38abe62afc1b3f051001888195035e22573a5b7e323d5988653b",
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/hawk-animation.js": "60e7cb55d6c2966223d54145af3134e4507a449a976fbc4a5c962a3a6dde0285",
+    "prototype-2d/src/monkey-animation.js": "99dec7c46f8615d09e9c9fd0381c7e8ebdb9e41504c9f5a41a5a59fa598e1fc6",
+    "prototype-2d/src/native-ui.js": "dd84edca168df81681667b76e897f54b347c42486166a72b1c143bcd2bcbbe5c",
+    "prototype-2d/src/progression.js": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/src/snake-animation.js": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13",
+    "prototype-2d/src/tiger-animation.js": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+    "prototype-2d/src/wolf-animation.js": "e677a1be849717d0790715b08a8fb8a4b76aff27e24930c7e8962f3e8574e85e",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "scripts/serve.mjs": "300f782732b7bde8590abe40a3c20feab92d4705432386967fd298430f6713d7",
+    "scripts/release.mjs": "4134cd0ccb13c27e940793bff3860eb3d0ab092a0fe542aa48ffa1f2b53a53de",
+    "scripts/runtime-frame-contract.mjs": "22793d976f92b1d9d0c3310c985c4ac41c0d9e02432bff576ba6dfc15b522f84",
+    "prototype-2d/assets/artifact-diamond-snare.svg": "c0dd49e0d324d509573fccb0c847e63e69d014a375998143d768375bb7d7601d",
+    "prototype-2d/assets/artifact-golden-rope.svg": "2f7c85de5bf3ea8396002def45bebf18775380e6aa75b4262b2d3b951a48c0f7",
+    "prototype-2d/assets/artifact-iron-fan.svg": "60c256224ee13f5cf1eea868938bba3f8a6eefdea04502a1a9999601839b8347",
+    "prototype-2d/assets/artifact-lotus-lantern.svg": "61f888c1dd2425ff01127ee979bdb4241a6c171e5b7ab400cb64dc2c7bb2d528",
+    "prototype-2d/assets/artifact-moon-mirror.svg": "83c28876e88f5c6c6c0703db3a7ee334291b16f6c6c851d5d36bef1f5e69f2cd",
+    "prototype-2d/assets/artifact-nine-dragon.svg": "208984a5b25c26b18cf470c1e11e0193e26cef1eb96113207590f93b3e3b1dc5",
+    "prototype-2d/assets/artifact-purple-gourd.svg": "efc7b02dd2ad6991b5093fedef0e8447c44485c849d3ef4918f3739db5688a65",
+    "prototype-2d/assets/artifact-samadhi-fire.svg": "cb6011a7b5298253fe9a91d92c39b4ba027f2aa10cb803224089cd829514fcaf",
+    "prototype-2d/assets/enemy-bear-battle-v1-frames.json": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+    "prototype-2d/assets/enemy-bear-battle-v1-sheet.png": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+    "prototype-2d/assets/enemy-bird.svg": "0cdfbb376fef61809681e8a1c346ffcd079514721d8f31a1a5f4197b9908a580",
+    "prototype-2d/assets/enemy-boss-kr-v1.png": "15f5393abf19e83b2d0087d4ac0a068c5cec4ae45d740798cb5ec8c2807d8601",
+    "prototype-2d/assets/enemy-boss.svg": "3878f941259a93790631307e0102600d8734326d9b529f4fb2b6cb5ac5cb48ee",
+    "prototype-2d/assets/enemy-brute-kr-v1.png": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d",
+    "prototype-2d/assets/enemy-brute.svg": "625c5abc3730e7e176c8948d1da1524176f0b2e2c92f80156225ea23ed9bcb1c",
+    "prototype-2d/assets/enemy-bull-battle-v1-frames.json": "e32da6acfc9bbea64ffb74b6cfb06e30e736b7f2c042c1d8949348e506b11527",
+    "prototype-2d/assets/enemy-bull-battle-v1-sheet.png": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+    "prototype-2d/assets/enemy-creature-kr-v1.png": "5eb03be680a6e4a7b8aba3b53695d7eb22c2c5f19c1a31a710c711743ba8d102",
+    "prototype-2d/assets/enemy-creature.svg": "aea810adc49f2f2cfddf3b75f035bc4db4b1671f61278d00b322ffdfa827954f",
+    "prototype-2d/assets/enemy-deer-battle-v1-frames.json": "6bf255f4f3823b089585a3eeaed3534b9ac283660e863b72cb71035490cbe927",
+    "prototype-2d/assets/enemy-deer-battle-v1-sheet.png": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
+    "prototype-2d/assets/enemy-hawk-battle-v1-frames.json": "c2ac21f266056a976425e37a7e24e34fba6b7a1269d592da3354ca49ef6d60ec",
+    "prototype-2d/assets/enemy-hawk-battle-v1-sheet.png": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7",
+    "prototype-2d/assets/enemy-monkey-battle-v1-frames.json": "46dcb42789e67c95d640f26578d799c2c3e831bce062f9417d2dc2d0f097c21c",
+    "prototype-2d/assets/enemy-monkey-battle-v1-sheet.png": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44",
+    "prototype-2d/assets/enemy-snake-battle-v3-frames.json": "5c75ff4ebfdd765c0fbe3b1087b992426b708ca7634e370a6b984690e201ca70",
+    "prototype-2d/assets/enemy-snake-battle-v3-sheet.png": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+    "prototype-2d/assets/enemy-spider.svg": "575571fed6c63d3050ff0a60c86f1293501f6399f23448ba14661f99dbd8b5dd",
+    "prototype-2d/assets/enemy-tiger-battle-v1-frames.json": "b66e62a1a40b00e36711523621c94d1b73b33a05f71ee46ec2094b4ae007156d",
+    "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+    "prototype-2d/assets/enemy-wolf-battle-v1-frames.json": "777a2f232307a23bbda913feb17aec2ac680c10528c3f29bf1fe0e98823d4637",
+    "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299",
+    "prototype-2d/assets/generate-art-assets.mjs": "d56eb58a8fc8c5843f27465e3be6150830a4dc03488885056c9e8d07cd888fa3",
+    "prototype-2d/assets/hero-bajie-battle-v3-sheet.png": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b",
+    "prototype-2d/assets/hero-bajie.svg": "19eb81b91664409d54619eb3aefe48fe2add07b880a160c3d4756dd6ad2ad56a",
+    "prototype-2d/assets/hero-battle-v2-atlas.png": "589412a2857dcb34ef828cee24e31abb94acb8a3b6b8e37813051b06e03e8565",
+    "prototype-2d/assets/hero-cards-v1.png": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+    "prototype-2d/assets/hero-cards-v2-comic.png": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad",
+    "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61",
+    "prototype-2d/assets/hero-tangseng-kr-v1.png": "162fdcbbf62ba747e0cc9c8f6c89e695b2b0a6e5aabc74455e5d1705918b0a4f",
+    "prototype-2d/assets/hero-tangseng.svg": "481bd327822e262287684750ffee74316de807236b97cb7758815d6a3cc1335d",
+    "prototype-2d/assets/hero-wujing-battle-v3-sheet.png": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "prototype-2d/assets/hero-wujing.svg": "d78054b2dcdedfc127ddbd8a7bcfe5db7315d13e034b5d934cca7b6c8c0c81f6",
+    "prototype-2d/assets/hero-wukong-battle-v3-sheet.png": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+    "prototype-2d/assets/hero-wukong.svg": "0121755c5ed96abf2508d3ef8fb77804ac8e2e103d284f75d1403c7c8b9b732d",
+    "prototype-2d/assets/map-doublefork-high-ridge-v1.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-doublefork-v2-optimized.png": "e014fafd243bf430aa48d58634879a3077ba67697d1ad3b3f27262dd35e5a8e5",
+    "prototype-2d/assets/map-doublefork-v2.png": "690363b6757576103190cc6a7461f0231fbfe79c158381dfbb637cc7b8dde12b",
+    "prototype-2d/assets/map-doublefork-v3-optimized.png": "20174da20cf3df773f6f0665e928e06fe3ed73f9d40b81154649dce7455d9530",
+    "prototype-2d/assets/map-doublefork-v3.png": "79d3c48b57d319ff2b56c21b16e5ad207423f181fd4c119a0aadc9517bf866ca",
+    "prototype-2d/assets/map-doublefork-v4-high-ridge-candidate.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-forest-qv1.png": "2944c17b771ad04a2c0205722f72df6a6126bae5f6ebf2e3aac1b1485bb50f23",
+    "prototype-2d/assets/map-temple-qv1.png": "1d7627c6153e2583842821ca5b2fa9c36027a85fe2b888f440e4e1c58f067ef9",
+    "prototype-2d/assets/README.md": "f2db10e10df7573a3e8fc2855cb8433dca35a121515dd278558a3dc86cbabbdc",
+    "prototype-2d/assets/theme-fire.svg": "8669bc3310052658aa37623537ca37ef7a51d690521f604cf66f309c2b55a11d",
+    "prototype-2d/assets/theme-forest.svg": "aa116a57c9776189afbec44ef88be18f8ea21e423b9ce1a59feb6dcc2be25558",
+    "prototype-2d/assets/theme-sand.svg": "6a0ee4411722136d48ffeeac040bf78c255b94f1602b430a99d443fbd2c65604",
+    "prototype-2d/assets/theme-snow.svg": "56e23a7e861e54d309680469dfc5dd6d3c99206dc2a1ae45d4ef061650ff0997",
+    "prototype-2d/assets/theme-temple.svg": "ebc4f5149d7fe5064a03a0db5610af77e6e90848c1a0e1b52e984e780aa0bf8e",
+    "prototype-2d/assets/theme-water.svg": "399b5a854be22e373806fc4711d6392fa27f370eb1435eaf82162b897a19f093",
+    "prototype-2d/assets/weapon-skill-bajie.svg": "67b0841a9ad517ea9f7a83ef8c669f1d632f9df8796a32656c73f5773d0ec737",
+    "prototype-2d/assets/weapon-skill-tangseng.svg": "3bcf292f0e0c5de76f80573dc55eb8883142efcd48186d3981a31383289684a3",
+    "prototype-2d/assets/weapon-skill-wujing.svg": "baff2be3abbe0e1637457f0600c8a9f7e8bc0c7993d56075c79be19209d9582e",
+    "prototype-2d/assets/weapon-skill-wukong.svg": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27",
+    "prototype-2d/assets/xiyou-art-preview.png": "6517fd98be3b7cc81c4bd9e8a3a54d5371c8355eca4722102d78e5732655b9d0",
+    "prototype-2d/assets/xiyou-art-preview.svg": "c0f540a2b4b2021036a49d65d76e095643df74073a296527028e9f3f87372b2a",
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+    "evidence/current/tiger-vanguard/candidate-v1-sheet.png": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+    "evidence/current/tiger-vanguard/candidate-v2-sheet.png": "03fadd27018012715d083fb92206dd7eb0967e54adaff84b45d6442cb1492e62"
+  },
+  "protectedUnchanged": true,
+  "finishedAt": "2026-10-13T05:44:04.278Z"
+}

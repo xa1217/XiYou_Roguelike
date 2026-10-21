@@ -1,0 +1,13 @@
+{
+  "command": "npm test",
+  "runner": "C:\\Program Files\\nodejs\\node.exe",
+  "npmCli": "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+  "startedAt": "2026-10-14T06:39:10.585Z",
+  "finishedAt": "2026-10-14T06:39:17.402Z",
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "outputCharacters": 49163,
+  "result": "PASS_LOCAL_NPM_ONLY",
+  "scope": "Fresh local project validation; cannot override browser FAIL or prove artistic/high-frame/FPS/public acceptance."
+}

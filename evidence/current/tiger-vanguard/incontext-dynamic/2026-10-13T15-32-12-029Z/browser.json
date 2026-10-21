@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-10-13T15:32:12.029Z",
+  "result": "FAIL",
+  "scope": "Real Edge local battle scene with an evidence-only dynamic candidate overlay; not runtime integration, natural gameplay/FPS or public acceptance.",
+  "candidate": {
+    "file": "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json",
+    "sha256": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+    "frames": 32
+  },
+  "motionDraft": {
+    "file": "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/motion-draft.json",
+    "sha256": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5"
+  },
+  "runtimeReferences": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "httpErrors": [],
+  "externalRequests": [],
+  "screenshots": [],
+  "overlayOnly": true,
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "protectedBefore": {
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "prototype-2d/native-app.js": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+    "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/motion-draft.json": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5"
+  },
+  "error": "browserType.launch: spawn EPERM\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-FbMt44 --remote-debugging-pipe --no-startup-window\u001b[22m\n\n    at F:\\Project\\Xiyou_Survivor_Commercial\\scripts\\browser-tiger-vanguard-incontext-dynamic.mjs:61:39",
+  "protectedAfter": {
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "prototype-2d/native-app.js": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+    "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/motion-draft.json": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5"
+  },
+  "protectedUnchanged": true,
+  "finishedAt": "2026-10-13T15:32:12.789Z"
+}

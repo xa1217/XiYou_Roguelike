@@ -1,0 +1,358 @@
+{
+  "generatedAt": "2026-10-10T15:52:54.841Z",
+  "url": "http://127.0.0.1:8088/",
+  "scope": "local real Edge; ordinary stage1 normal deer only; not external public or WeChat device",
+  "mode": "UI entry then legal-input accelerated production simulation plus renderer fixture",
+  "pageErrors": [],
+  "failedRequests": [],
+  "consoleErrors": [],
+  "screenshots": [
+    {
+      "name": "runtime-natural-battle",
+      "file": "evidence/current/deer/runtime-natural-battle.png",
+      "bytes": 50979,
+      "sha256": "bc03c5aee5bd41480f6b44e87939f79843869f8cea6d0a66143640a3cc0e25d5"
+    },
+    {
+      "name": "runtime-paused-a",
+      "file": "evidence/current/deer/runtime-paused-a.png",
+      "bytes": 22869,
+      "sha256": "55dc7ea5920de984d51d6e6f226ef8ea816ca838d151c967c78dadb748736f9a"
+    },
+    {
+      "name": "runtime-paused-b",
+      "file": "evidence/current/deer/runtime-paused-b.png",
+      "bytes": 22869,
+      "sha256": "55dc7ea5920de984d51d6e6f226ef8ea816ca838d151c967c78dadb748736f9a"
+    },
+    {
+      "name": "runtime-fixture-right",
+      "file": "evidence/current/deer/runtime-fixture-right.png",
+      "bytes": 123469,
+      "sha256": "759ed1b5bd4dcef2f1a46a9c4af6415fec35c5647f1fc34ea6a1f704bd4f34bf",
+      "fixture": {
+        "direction": "right",
+        "frames": 32,
+        "distinctRenderedCells": 32,
+        "cssWidth": 896,
+        "cssHeight": 620
+      }
+    },
+    {
+      "name": "runtime-fixture-left",
+      "file": "evidence/current/deer/runtime-fixture-left.png",
+      "bytes": 122694,
+      "sha256": "4d55403834483e57070cc84aa5a370758e6ee8873db69316a6b17e4d76d69792",
+      "fixture": {
+        "direction": "left",
+        "frames": 32,
+        "distinctRenderedCells": 32,
+        "cssWidth": 896,
+        "cssHeight": 620
+      }
+    }
+  ],
+  "result": "PASS",
+  "inputs": {
+    "prototype-2d/assets/enemy-deer-battle-v1-sheet.png": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
+    "prototype-2d/assets/enemy-deer-battle-v1-frames.json": "6bf255f4f3823b089585a3eeaed3534b9ac283660e863b72cb71035490cbe927",
+    "prototype-2d/src/deer-animation.js": "7fca4fc497bd38abe62afc1b3f051001888195035e22573a5b7e323d5988653b",
+    "prototype-2d/src/renderer.js": "4ca1aa9d83d05e77cdc558b53f3b9ff04f08603915e5543d69dfc92c63814dae",
+    "scripts/browser-deer-smoke.mjs": "267f6b9cc381810e78732629810f4d4e8b1695e439e6bf9ce87c6610743617e0"
+  },
+  "phase": "finished",
+  "updatedAt": "2026-10-10T15:52:58.470Z",
+  "browser": "155.0.4283.45",
+  "samples": [
+    {
+      "time": 2.021099999994041,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 4.021099999994034,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 6.021099999994027,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 8.02109999999402,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 10.021099999994048,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 12.021099999994076,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 14.021099999994105,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2
+        ],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [
+        "left"
+      ],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 16.02109999999413,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2
+        ],
+        "attack": [],
+        "hit": [
+          0
+        ],
+        "death": []
+      },
+      "facing": [
+        "left"
+      ],
+      "events": {
+        "hits": 1,
+        "kills": 0
+      }
+    },
+    {
+      "time": 18.02109999999416,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 3,
+        "kills": 1
+      }
+    }
+  ],
+  "natural": {
+    "seed": 646214588,
+    "time": 18.02109999999416,
+    "status": "playing",
+    "seen": {
+      "idle": [],
+      "move": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        0,
+        1,
+        2
+      ],
+      "attack": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "hit": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "death": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "facing": [
+      "left",
+      "right"
+    ],
+    "events": {
+      "hits": 3,
+      "kills": 1
+    },
+    "steps": 360,
+    "upgrades": 0,
+    "peakEnemies": 12,
+    "peakEffects": 2,
+    "mapAssetDraws": 0,
+    "battleArtMode": "authoredFrames",
+    "battleSceneMode": "vector"
+  },
+  "pause": {
+    "status": "paused",
+    "clockFrozen": true,
+    "snapshotFrozen": true,
+    "pixelsFrozen": true,
+    "scope": "stable pause panel after its intentional entrance transition",
+    "resumed": true
+  },
+  "fixtures": [
+    {
+      "direction": "right",
+      "frames": 32,
+      "distinctRenderedCells": 32,
+      "cssWidth": 896,
+      "cssHeight": 620
+    },
+    {
+      "direction": "left",
+      "frames": 32,
+      "distinctRenderedCells": 32,
+      "cssWidth": 896,
+      "cssHeight": 620
+    }
+  ],
+  "checks": {
+    "naturalFrames": true,
+    "bothOrientations": true,
+    "naturalDamageAndDeath": true,
+    "fixture64BothDirections": true,
+    "fixtureAspectRatio": true,
+    "pauseResume": true,
+    "noStaticBattleMap": true,
+    "authoredVectorModes": true,
+    "noErrors": true
+  },
+  "browserClosed": true
+}

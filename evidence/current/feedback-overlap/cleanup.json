@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-10-11T05:47:06.1299971Z",
+  "scope": "Read-only check of the test ports and matching temporary browser/server processes; no unrelated processes stopped",
+  "browserClosedFromReport": true,
+  "ownServeSession": 39657,
+  "ownServeStopped": true,
+  "listeningPorts8088And8091": [],
+  "matchingPlaywrightEdgeOrServeProcesses": [],
+  "initialProcessQueryPermissionDenied": true,
+  "authorizedProcessQueryExitCode": 0
+}

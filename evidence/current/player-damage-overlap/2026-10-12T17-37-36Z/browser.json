@@ -1,0 +1,112 @@
+{
+  "generatedAt": "2026-10-12T17:37:36.543Z",
+  "result": "PASS",
+  "url": "http://127.0.0.1:8088/",
+  "scope": "local real Edge; player-body conservative envelope versus damage labels; no HUD, health-bar, number-to-number, internet, ZIP or device approval",
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "screenshots": [
+    {
+      "file": "evidence/current/player-damage-overlap/2026-10-12T17-37-36Z/natural-battle.png",
+      "bytes": 37272,
+      "sha256": "9075786a8df8f5924f1e3bab75cd0bfd6e3cb80c828386fa59cebac2fff7d215"
+    }
+  ],
+  "browser": "155.0.4283.45",
+  "natural": {
+    "damageNumbers": [],
+    "time": 5.0278999999984535,
+    "status": "playing",
+    "battleArtMode": "authoredFrames",
+    "battleSceneMode": "vector"
+  },
+  "accelerated": {
+    "observed": true,
+    "steps": 21,
+    "time": 6.055199999999194,
+    "damageNumbers": [
+      {
+        "x": 703.1818340036415,
+        "y": 661.8973947254807,
+        "damage": 28,
+        "ttl": 1.25,
+        "maxTtl": 1.25,
+        "color": "#fff3b8",
+        "critical": false,
+        "size": 17
+      }
+    ]
+  },
+  "fixture": {
+    "nearRect": {
+      "left": 888.8994021825104,
+      "right": 911.1005978174896,
+      "top": 826.0110697093246,
+      "bottom": 849.56
+    },
+    "body": {
+      "left": 873,
+      "right": 927,
+      "top": 853.56,
+      "bottom": 927
+    },
+    "firstStats": {
+      "enemies": 0,
+      "projectiles": 0,
+      "effects": 0,
+      "gems": 0,
+      "culledEnemies": 0,
+      "culledProjectiles": 0,
+      "culledEffects": 0,
+      "culledGems": 0,
+      "statusCandidates": 1,
+      "statusBadges": 0,
+      "statusSuppressed": 1,
+      "damagePlayerCandidates": 1,
+      "damagePlayerMoved": 1,
+      "damagePlayerUnresolved": 0
+    },
+    "nearAvoided": true,
+    "stateUnchanged": true,
+    "repeated": true,
+    "farRect": {
+      "left": 1189.0603851705594,
+      "right": 1210.9396148294406,
+      "top": 988.3768417179857,
+      "bottom": 1011.6231582820143
+    },
+    "farUnmoved": true,
+    "unresolved": true,
+    "productionPassesAvoidance": true,
+    "rendererStatsAfter": {
+      "enemies": 0,
+      "projectiles": 0,
+      "effects": 0,
+      "gems": 0,
+      "culledEnemies": 0,
+      "culledProjectiles": 0,
+      "culledEffects": 0,
+      "culledGems": 0,
+      "statusCandidates": 0,
+      "statusBadges": 0,
+      "statusSuppressed": 0,
+      "damagePlayerCandidates": 0,
+      "damagePlayerMoved": 0,
+      "damagePlayerUnresolved": 0
+    }
+  },
+  "checks": {
+    "acceleratedDamageObserved": true,
+    "naturalOrAcceleratedEvidence": true,
+    "nearDamageAvoided": true,
+    "noInputMutation": true,
+    "repeatStable": true,
+    "farDamageUnmoved": true,
+    "unresolvedStillDraws": true,
+    "renderEnablesAvoidance": true,
+    "noErrors": true
+  },
+  "browserClosed": true,
+  "finishedAt": "2026-10-12T17:37:44.043Z"
+}

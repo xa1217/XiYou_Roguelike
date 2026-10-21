@@ -1,0 +1,137 @@
+{
+  "generatedAt": "2026-10-11T15:07:50.469Z",
+  "scope": "Immutable handoff for one Wujing layout-edit candidate; no production integration or release claim",
+  "candidate": {
+    "file": "evidence/current/wujing-layout/2026-10-11T08-43-56-039Z/hero-wujing-layout-v1-candidate.png",
+    "sha256": "4f73bfe347907b17b10a56eb65bdd316e30ef5abef51a1ad23e525957091364f",
+    "bytes": 1436985,
+    "dimensions": [
+      1774,
+      887
+    ],
+    "preflight": "evidence/current/wujing-layout/2026-10-11T08-43-56-039Z/preflight-2026-10-11T11-39-07-334Z.json",
+    "preflightResult": "REVIEW_LAYOUT_CONSTRAINTS_NOT_MET",
+    "browser": "evidence/current/wujing-layout/2026-10-11T08-43-56-039Z/browser-2026-10-11T11-41-39-224Z/browser.json",
+    "browserResult": "REVIEW_LAYOUT_CONSTRAINTS_NOT_MET",
+    "browserVersion": "155.0.4283.45",
+    "previewChecksPassed": true,
+    "screenshots": [
+      "evidence/current/wujing-layout/2026-10-11T08-43-56-039Z/browser-2026-10-11T11-41-39-224Z/original-source.png",
+      "evidence/current/wujing-layout/2026-10-11T08-43-56-039Z/browser-2026-10-11T11-41-39-224Z/candidate-source-grid.png",
+      "evidence/current/wujing-layout/2026-10-11T08-43-56-039Z/browser-2026-10-11T11-41-39-224Z/candidate-padded.png",
+      "evidence/current/wujing-layout/2026-10-11T08-43-56-039Z/browser-2026-10-11T11-41-39-224Z/candidate-equal-cell.png"
+    ]
+  },
+  "source": {
+    "file": "prototype-2d/assets/hero-wujing-battle-v3-sheet.png",
+    "sha256": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "bytes": 1558610,
+    "originalSha256Before": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "unchanged": true,
+    "manifestMatchesBeforeEdit": true
+  },
+  "review": {
+    "rowCounts": [
+      {
+        "alphaGreaterThan": 0,
+        "rows": [
+          4,
+          4
+        ],
+        "majorComponents": 8
+      },
+      {
+        "alphaGreaterThan": 8,
+        "rows": [
+          4,
+          4
+        ],
+        "majorComponents": 8
+      },
+      {
+        "alphaGreaterThan": 16,
+        "rows": [
+          4,
+          4
+        ],
+        "majorComponents": 8
+      }
+    ],
+    "alpha8ForeignMajorPixels": [
+      {
+        "index": 0,
+        "tight": 0,
+        "padded": 0
+      },
+      {
+        "index": 1,
+        "tight": 0,
+        "padded": 0
+      },
+      {
+        "index": 2,
+        "tight": 0,
+        "padded": 0
+      },
+      {
+        "index": 3,
+        "tight": 0,
+        "padded": 0
+      },
+      {
+        "index": 4,
+        "tight": 0,
+        "padded": 0
+      },
+      {
+        "index": 5,
+        "tight": 12,
+        "padded": 27
+      },
+      {
+        "index": 6,
+        "tight": 90,
+        "padded": 178
+      },
+      {
+        "index": 7,
+        "tight": 0,
+        "padded": 0
+      }
+    ],
+    "alpha8EqualCellComplete": false,
+    "alpha8Margins30": false,
+    "independentReview": {
+      "completed": false,
+      "reason": "429 then 503 auth_unavailable; retries stopped and no independent approval claimed"
+    }
+  },
+  "regression": {
+    "npmTestLog": "evidence/current/wujing-layout/2026-10-11T08-43-56-039Z/npm-test.txt",
+    "npmTail": [
+      "    \"callsPerFrame\": 2441,",
+      "    \"elapsedMs\": 47.546,",
+      "    \"averageMockMs\": 0.396,",
+      "    \"note\": \"Node Canvas mock measures JavaScript and call counts; it is not GPU/WeChat FPS.\"",
+      "  }",
+      "}",
+      "PLATFORM PASS: wx entry, safe area/DPR, touch, hide/show freeze, memory degradation, single RAF, dispose, local save, talents, daily one-time rewards; 52100 finite Canvas calls",
+      "VALIDATE PASS: current version only; main 2.35MiB; optional art 2.93MiB"
+    ],
+    "npmTestPass": true,
+    "assetAudit": "evidence/current/asset-dedup-audit.json",
+    "assetAuditResult": "PASS",
+    "protectedCount": 135,
+    "changedProtected": [],
+    "candidateEvidenceIntact": true
+  },
+  "gates": {
+    "candidateLayoutPassed": false,
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "productionSourceChanged": false,
+    "publicOrReleaseApproved": false,
+    "deploy": false
+  },
+  "conclusion": "REVIEW_LAYOUT_CONSTRAINTS_NOT_MET: preserve candidate and failures; do not replace runtime Wujing sheet. A new source-level art/layout solution is required before fixed-root integration; this does not supply new high-frame poses."
+}

@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "generatedAt": "2026-10-11T08:25:34.938Z",
+  "tests": [
+    {
+      "name": "normal, critical, decimal and text/value/damage labels keep their exact text and style",
+      "result": "PASS"
+    },
+    {
+      "name": "every starburst fill/stroke precedes its number and the number is painted last",
+      "result": "PASS"
+    },
+    {
+      "name": "reordering preserves position, rotation, star size/color and lifetime progress at screen edges",
+      "result": "PASS"
+    },
+    {
+      "name": "legacy collections retain precedence and showHud:false still draws combat feedback",
+      "result": "PASS"
+    },
+    {
+      "name": "real engine damage record is not duplicated, mutated or advanced by paused rendering",
+      "result": "PASS"
+    },
+    {
+      "name": "empty/missing labels draw no decorations and malformed numeric fields stay finite",
+      "result": "PASS"
+    }
+  ],
+  "totals": {
+    "tests": 6,
+    "passed": 6,
+    "failed": 0
+  },
+  "runtime": {
+    "kind": "Node.js with deterministic Canvas command recording",
+    "nodeVersion": "v26.7.0"
+  },
+  "boundary": {
+    "realBrowser": false,
+    "pixelRendering": false,
+    "globalOcclusion": false,
+    "gpuPerformance": false,
+    "wechatDevice": false
+  },
+  "note": "Checks decoration-before-text ordering and unchanged label content/geometry/state only; not actor, HUD or global overlap avoidance."
+}

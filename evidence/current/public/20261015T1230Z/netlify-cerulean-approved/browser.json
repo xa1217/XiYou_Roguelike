@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-10-15T12:13:27.789Z",
+  "url": "https://cerulean-mandazi-90ad05.netlify.app/",
+  "networkScope": "public-url",
+  "buildTarget": "workspace",
+  "mode": "public-no-debug-normal-flow",
+  "screenshots": [
+    {
+      "file": "evidence\\current\\public\\20261015T1230Z\\netlify-cerulean-approved\\failure.png",
+      "bytes": 17238
+    }
+  ],
+  "consoleMessages": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 ()"
+    },
+    {
+      "type": "verbose",
+      "text": "[DOM] Input elements should have autocomplete attributes (suggested: \"new-password\"): (More info: https://www.chromium.org/developers/design-documents/create-amazing-password-forms) %o"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 401 ()",
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/"
+    }
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "httpErrors": [
+    {
+      "url": "https://cerulean-mandazi-90ad05.netlify.app/",
+      "status": 401
+    }
+  ],
+  "fpsAcceptance": false,
+  "releaseReady": false,
+  "result": "FAIL",
+  "browserVersion": "155.0.4283.45",
+  "navigation": {
+    "status": 401,
+    "url": "https://cerulean-mandazi-90ad05.netlify.app/"
+  },
+  "error": "Error: Public entry HTTP 401\n    at file:///F:/Project/Xiyou_Survivor_Commercial/scripts/browser-public-smoke.mjs:44:32",
+  "failureTitle": "Password Protection",
+  "failureText": "Password protected site\n\nPlease enter your password to get access.\n\nSubmit\n\nThis site is powered by Netlify. Build and deploy your own site for free.\n\nStart building",
+  "completedAt": "2026-10-15T12:13:37.024Z"
+}

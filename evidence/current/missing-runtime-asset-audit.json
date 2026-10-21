@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-10-12T18:51:00Z",
+  "scope": "Read-only inventory audit; no package rebuild, extraction, upload or deployment",
+  "missingInCurrentWebZip": [
+    "enemy-wolf-battle-v1-frames.json", "enemy-monkey-battle-v1-frames.json", "enemy-deer-battle-v1-frames.json", "enemy-hawk-battle-v1-frames.json", "enemy-snake-battle-v3-frames.json",
+    "enemy-wolf-battle-v1-sheet.png", "enemy-monkey-battle-v1-sheet.png", "enemy-deer-battle-v1-sheet.png", "enemy-hawk-battle-v1-sheet.png", "enemy-snake-battle-v3-sheet.png"
+  ],
+  "sourceInventory": [
+    {"species":"wolf","sheet":"prototype-2d/assets/enemy-wolf-battle-v1-sheet.png","frames":"prototype-2d/assets/enemy-wolf-battle-v1-frames.json","bytes":1410175,"sha256":"b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299","size":[1774,887],"sourceRects":32,"approvedForRuntime":true,"identity":"stage1+normal+wolf"},
+    {"species":"monkey","sheet":"prototype-2d/assets/enemy-monkey-battle-v1-sheet.png","frames":"prototype-2d/assets/enemy-monkey-battle-v1-frames.json","bytes":1379382,"sha256":"eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44","size":[1774,887],"sourceRects":32,"approvedForRuntime":true,"identity":"stage1+normal+monkey"},
+    {"species":"deer","sheet":"prototype-2d/assets/enemy-deer-battle-v1-sheet.png","frames":"prototype-2d/assets/enemy-deer-battle-v1-frames.json","bytes":1894732,"sha256":"721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e","size":[1774,887],"sourceRects":32,"approvedForRuntime":true,"identity":"stage1+normal+deer"},
+    {"species":"hawk","sheet":"prototype-2d/assets/enemy-hawk-battle-v1-sheet.png","frames":"prototype-2d/assets/enemy-hawk-battle-v1-frames.json","bytes":1776852,"sha256":"eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7","size":[1774,887],"sourceRects":32,"approvedForRuntime":false,"identity":"stage1+normal+hawk"},
+    {"species":"snake","sheet":"prototype-2d/assets/enemy-snake-battle-v3-sheet.png","frames":"prototype-2d/assets/enemy-snake-battle-v3-frames.json","bytes":1749032,"sha256":"c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2","size":[1774,887],"sourceRects":32,"approvedForRuntime":true,"identity":"stage1+normal+snake"}
+  ],
+  "runtimeReferences": ["scripts/release.mjs", "scripts/serve.mjs", "scripts/runtime-frame-contract.mjs", "scripts/audit-release-readiness.mjs"],
+  "recommendation": "Rebuild the web ZIP only after release gates resolve; include these ten existing source files and rerun extraction/browser evidence. Do not regenerate assets or deploy now."
+}

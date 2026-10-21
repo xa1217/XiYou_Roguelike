@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-10-11T04:58:01.275Z",
+  "url": "http://127.0.0.1:8088/",
+  "scope": "local workspace real Edge; ordinary stage1 normal snake only; not public internet, archive-extracted package, WeChat device, real-time FPS or final art approval",
+  "mode": "UI entry then legal-input accelerated production simulation plus renderer fixture; natural idle coverage is reported, not required",
+  "pageErrors": [],
+  "failedRequests": [],
+  "consoleErrors": [],
+  "screenshots": [],
+  "result": "FAIL",
+  "inputs": {
+    "prototype-2d/assets/enemy-snake-battle-v3-sheet.png": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+    "prototype-2d/assets/enemy-snake-battle-v3-frames.json": "fa30700cc583073aa97d293216abc12682278d5c1dc28c52833d01f067560289",
+    "prototype-2d/src/snake-animation.js": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13",
+    "prototype-2d/src/renderer.js": "4ca1aa9d83d05e77cdc558b53f3b9ff04f08603915e5543d69dfc92c63814dae",
+    "scripts/browser-snake-smoke.mjs": "c1a1dea3a27319600ccc05795ba887cda912c50da7c6247335cc5775daa6dba9"
+  },
+  "phase": "finished",
+  "updatedAt": "2026-10-11T04:58:02.212Z",
+  "error": "browserType.launch: spawn EPERM\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-HCs01H --remote-debugging-pipe --no-startup-window\u001b[22m\n\n    at F:\\Project\\Xiyou_Survivor_Commercial\\scripts\\browser-snake-smoke.mjs:35:39"
+}

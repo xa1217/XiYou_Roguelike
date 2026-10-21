@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-10-10T05:40:10.5034590Z",
+  "result": "FAIL",
+  "scope": "Report aggregation only; not a failed game test",
+  "failedCheck": "freshTests",
+  "cause": "PowerShell DateTime comparison mixed UTC JSON dates with a locally cast UTC literal; DateTime compares wall-clock ticks without normalizing timezones.",
+  "correction": "Normalized both operands with ToUniversalTime and independently checked the serialized ISO timestamps with JavaScript Date.parse; all six evidence timestamps are after the heartbeat.",
+  "sourceEvidenceNotAltered": true
+}

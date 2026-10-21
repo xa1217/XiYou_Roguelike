@@ -1,0 +1,12 @@
+{
+  "result": "REJECTED_SAMPLER_ALPHA_ACCUMULATION",
+  "browserReport": "browser.json",
+  "accepted": false,
+  "observation": "The first decoded contact sheet visually contains prior standing/attack poses under hit and death, and prior label fragments.",
+  "cause": "The verification script reused a transparent sampling canvas without clearRect before drawImage(video). Transparent decoded pixels left earlier sample pixels in the canvas.",
+  "boundary": "This is a verifier defect, not evidence that the source WebM or candidate frames are contaminated. The original report and snapshots are retained; its REVIEW result cannot approve recording appearance.",
+  "nextStep": "Clear the sampling canvas before each seek snapshot and re-run serially in one offline Edge. Do not generate art, change production, rebuild ZIP or deploy.",
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false
+}

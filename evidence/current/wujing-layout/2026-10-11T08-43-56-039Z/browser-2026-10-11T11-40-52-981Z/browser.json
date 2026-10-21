@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-10-11T11:40:52.982Z",
+  "result": "EXECUTION_FAILED",
+  "scope": "Real Edge candidate-only local HTML preview. Not gameplay, runtime fix, FPS, high-frame animation, public internet, ZIP or device acceptance.",
+  "preflight": "evidence/current/wujing-layout/2026-10-11T08-43-56-039Z/preflight-2026-10-11T11-39-07-334Z.json",
+  "preflightSha256": "8520987a7910eed6abf53264b5ffe08eb1c81871d2f4a88f56d0d4ec8cea4f59",
+  "scriptSha256": "bd0e5d4f975c754f6021e17e002a2ed2d7800ddd6771b12372d4c834edbfbc26",
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "candidateLayoutPassed": false,
+  "pageErrors": [],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [],
+  "serverStarted": false,
+  "previewChecksPassed": false,
+  "error": "browserType.launch: spawn EPERM\nCall log:\n\u001b[2m  - <launching> C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-ZNTwdO --remote-debugging-pipe --no-startup-window\u001b[22m\n\n    at F:\\Project\\Xiyou_Survivor_Commercial\\scripts\\browser-wujing-layout-candidate.mjs:34:39",
+  "finishedAt": "2026-10-11T11:40:53.254Z"
+}

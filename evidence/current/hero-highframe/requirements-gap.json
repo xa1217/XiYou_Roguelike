@@ -1,0 +1,61 @@
+{
+  "generatedAt": "2026-10-12T19:23:36.461Z",
+  "result": "REQUIREMENTS_GAP_CONFIRMED",
+  "scope": "Read-only cross-check of the hero high-frame acceptance rows against the latest hero-highframe Edge diagnosis and asset catalog; no code, image, ZIP, or deployment mutation.",
+  "documents": {
+    "requirementsAcceptance": {
+      "path": "docs/REQUIREMENTS-ACCEPTANCE.md",
+      "heroRow": 99,
+      "heroRowStatus": "FAIL",
+      "heroRowConclusion": "The four current v3 sheets still repeat only 3 move source rectangles and 2 attack source rectangles; Wujing's 5+3 source layout cannot be repaired by rectangular coordinates alone.",
+      "releaseRow": 116,
+      "releaseRowStatus": "NOT_COMPLETE_NOT_RELEASE",
+      "documentedNextAction": "Obtain source-level pose isolation for Wujing (preserve complete character, weapon, spacing, and consistent scale), preflight it, then consider runtime anchoring; do not use the rejected rectangular-only candidate."
+    },
+    "status": {
+      "path": "STATUS.md",
+      "baselineSectionLine": 110,
+      "baselineStatus": "OBSERVED_BASELINE_DEFECT",
+      "documentedGate": "Hero high-frame quality, Tiger Vanguard, three Boss action sheets, global occlusion, current ZIP, and public channel remain NOT_READY."
+    }
+  },
+  "latestEvidence": {
+    "diagnosis": {
+      "path": "evidence/current/hero-highframe/2026-10-12T19-02-09-150Z/browser.json",
+      "generatedAt": "2026-10-12T19:02:09.154Z",
+      "result": "OBSERVED_BASELINE_DEFECT",
+      "highFrameQualityApproved": false,
+      "releaseApproved": false,
+      "findings": {
+        "repeatedMoveAndAttackRects": true,
+        "allSheetsHaveOccupiedCropBoundaries": true,
+        "wholeSpriteRotationOrScale": true
+      },
+      "pageErrors": [],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    "assetCatalog": {
+      "path": "evidence/current/hero-highframe/asset-catalog.json",
+      "generatedAt": "2026-10-12T19:15:18.651Z",
+      "result": "PASS_READ_ONLY_CATALOG",
+      "allCurrentBattleSheetsMeasured": true,
+      "allCurrentBattleSheetsHashMatchesManifest": true,
+      "existingIndependentMoveAttackAssets": false,
+      "currentMoveUniqueSourceCells": 3,
+      "currentAttackUniqueSourceCells": 2,
+      "retiredAssetsCannotSubstituteForIndependentMotion": true,
+      "noNewAssetGenerated": true,
+      "noProductionFileModified": true,
+      "releaseOrPublicPass": false
+    }
+  },
+  "crossCheck": {
+    "documentsAgreeWithLatestEvidence": true,
+    "newEvidenceChangesGate": false,
+    "highFrameQualityApproved": false,
+    "releaseApproved": false,
+    "publicPass": false
+  },
+  "nextMinimalSafeAction": "Keep the hero gate closed and perform one source-level isolation preflight for a single hero, prioritizing Wujing's contaminated 5+3 sheet; do not alter runtime crop/anchor logic, reuse retired assets, generate duplicate-purpose assets, rebuild ZIPs, or deploy until independent pose spacing and alpha boundaries pass."
+}

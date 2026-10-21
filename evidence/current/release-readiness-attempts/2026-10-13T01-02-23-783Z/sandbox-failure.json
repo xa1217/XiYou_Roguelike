@@ -1,0 +1,8 @@
+{
+  "generatedAt": "2026-10-12T17:02:23Z",
+  "command": "node scripts/audit-release-readiness.mjs",
+  "result": "FAIL",
+  "error": "spawnSync git EPERM",
+  "scope": "Restricted sandbox attempt only; the read-only audit was rerun outside the restriction and produced the adjacent NOT_READY report.",
+  "doNotTreatAs": ["release readiness PASS", "package rebuild", "deployment", "public internet PASS"]
+}

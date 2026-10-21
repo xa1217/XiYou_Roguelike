@@ -1,0 +1,60 @@
+{
+  "ok": true,
+  "generatedAt": "2026-10-16T12:09:46.369Z",
+  "tests": [
+    {
+      "name": "one conflicting label chooses only the second/third slot or suppresses all three",
+      "result": "PASS"
+    },
+    {
+      "name": "rotated bounds cover measured overhangs, critical outlines, decimals and the whole starburst",
+      "result": "PASS"
+    },
+    {
+      "name": "missing or unusable text metrics use finite conservative bounds",
+      "result": "PASS"
+    },
+    {
+      "name": "empty frames and direct legacy calls never reuse old damage protection",
+      "result": "PASS"
+    },
+    {
+      "name": "at most 48 numeric slots are reused and oversized compatible collections fail closed",
+      "result": "PASS"
+    },
+    {
+      "name": "damage avoidance preserves original player, other-badge and viewport restrictions",
+      "result": "PASS"
+    },
+    {
+      "name": "damage drawing remains unchanged by status collisions, metrics and showHud",
+      "result": "PASS"
+    },
+    {
+      "name": "paused real-engine collision is deterministic and leaves damage, pools and RNG untouched",
+      "result": "PASS"
+    }
+  ],
+  "totals": {
+    "tests": 8,
+    "passed": 8,
+    "failed": 0,
+    "rectangleLimit": 48,
+    "reuseFrames": 120,
+    "pausedFrames": 20
+  },
+  "runtime": {
+    "kind": "Node.js with deterministic Canvas command recording",
+    "nodeVersion": "v26.7.0"
+  },
+  "boundary": {
+    "realBrowser": false,
+    "pixelRendering": false,
+    "bodyAvoidance": false,
+    "hudAvoidance": false,
+    "numberToNumberAvoidance": false,
+    "gpuPerformance": false,
+    "wechatDevice": false
+  },
+  "note": "Only current damage-label bounds versus the three existing status-badge slots; no global overlap or final visual-quality approval."
+}

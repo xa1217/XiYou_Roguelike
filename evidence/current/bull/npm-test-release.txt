@@ -1,0 +1,640 @@
+
+> xiyou-survivor-commercial@1.0.0 test
+> node scripts/validate.mjs
+
+BUILD PASS: shared core 244177 bytes; native game + auxiliary miniprogram generated
+{
+  "generatedAt": "2026-10-10T09:04:52.705Z",
+  "result": "PASS",
+  "scope": "Public runtime JSON projection only; not browser or public-network acceptance",
+  "rows": [
+    {
+      "species": "tiger",
+      "result": "PASS",
+      "frames": 32,
+      "checks": [
+        "exact runtime keys",
+        "nested provenance excluded",
+        "all runtime frames unchanged",
+        "idempotent serialization",
+        "invalid crop rejected",
+        "repository source unchanged"
+      ]
+    },
+    {
+      "species": "bear",
+      "result": "PASS",
+      "frames": 32,
+      "checks": [
+        "exact runtime keys",
+        "nested provenance excluded",
+        "all runtime frames unchanged",
+        "idempotent serialization",
+        "invalid crop rejected",
+        "repository source unchanged"
+      ]
+    },
+    {
+      "species": "bull",
+      "result": "PASS",
+      "frames": 32,
+      "checks": [
+        "exact runtime keys",
+        "nested provenance excluded",
+        "all runtime frames unchanged",
+        "idempotent serialization",
+        "invalid crop rejected",
+        "repository source unchanged"
+      ]
+    }
+  ],
+  "unknownContractRejected": true
+}
+PASS content count and original order checkpoints
+PASS first stage uses the double ridge forest and eight animal families
+PASS double ridge keeps both clearings open and funnels movement through the stone pass
+PASS double ridge tiger elite and three guardians obey the full victory boundary
+PASS animation follows attacks, hit interruption, dash, intro and bounded death effects
+PASS dt cap, pause, dash boundaries and deterministic seed
+PASS one weapon, four artifacts, three legal choices, pending levels
+PASS fixed weapon timing, precise three-tick rake bleeding
+PASS wukong exact every third heavy strike and 30 percent stun boundary
+PASS swept projectile collision without tunnelling or skipped victims
+PASS holy orb exact linger, fifteen sparks and five bounces at level five
+PASS light spark visits two targets with exactly five bounce transitions
+PASS eight specified artifact rules replace legacy effects at every level
+PASS wujing every fifth whirl, exact duration, graded pull and slow
+PASS elite x5, schedules, overtime until final boss defeated
+PASS hard caps, xp from drops, disposed state and detached snapshots
+PASS real lethal damage loses and freezes the clock, contact rate is frame independent
+Passed 17 meaningful engine regressions.
+PASS real PNG and JSON specify 32 distinct explicit crops at one source-pixel scale
+PASS invalid dimensions, duplicate frame order and out-of-bounds rectangles are rejected
+PASS only first-stage normal tigers acquire the art identity, including retained death identity
+PASS ordinary tiger idle and walk independently traverse all eight frames and loop
+PASS natural contact shows all eight attack frames without changing movement, contact damage or RNG
+PASS hit uses four frames, holds the last pose and leaves the original damage/stun/movement rules intact
+PASS pause freezes tiger attack, hit and retained death clocks; resume advances them
+PASS death preserves facing/body size, presents 0..3 once, expires at .42s and clears recycled fields
+PASS Canvas draws all 32 crops in both directions without bob, rotation, squash or death stretch
+PASS renderer rejects elite/Boss/untagged identities and falls back safely when the tiger sheet is absent
+PASS viewport culling preserves visible tiger limbs and death poses beyond all four screen edges
+{
+  "ok": true,
+  "generatedAt": "2026-10-10T09:04:52.835Z",
+  "tests": 11,
+  "testNames": [
+    "real PNG and JSON specify 32 distinct explicit crops at one source-pixel scale",
+    "invalid dimensions, duplicate frame order and out-of-bounds rectangles are rejected",
+    "only first-stage normal tigers acquire the art identity, including retained death identity",
+    "ordinary tiger idle and walk independently traverse all eight frames and loop",
+    "natural contact shows all eight attack frames without changing movement, contact damage or RNG",
+    "hit uses four frames, holds the last pose and leaves the original damage/stun/movement rules intact",
+    "pause freezes tiger attack, hit and retained death clocks; resume advances them",
+    "death preserves facing/body size, presents 0..3 once, expires at .42s and clears recycled fields",
+    "Canvas draws all 32 crops in both directions without bob, rotation, squash or death stretch",
+    "renderer rejects elite/Boss/untagged identities and falls back safely when the tiger sheet is absent",
+    "viewport culling preserves visible tiger limbs and death poses beyond all four screen edges"
+  ],
+  "atlasFrames": 32,
+  "mirroredCanvasChecks": 64,
+  "viewportEdgeChecks": {
+    "visibleOutsideRoots": 8,
+    "fullyOffscreenRejected": 2
+  },
+  "runtime": {
+    "kind": "Node.js with deterministic Canvas mock",
+    "nodeVersion": "v26.7.0"
+  },
+  "boundary": {
+    "realBrowser": false,
+    "pixelRendering": false,
+    "gpuPerformance": false,
+    "wechatDevice": false
+  },
+  "note": "Node/Canvas mock only; this verifies simulation and Canvas calls, not decoded browser pixels, GPU performance or WeChat-device behavior. Real-browser evidence is a separate gate."
+}
+PASS real PNG and JSON specify 32 distinct explicit crops at one source-pixel scale
+PASS invalid dimensions, duplicate frame order and out-of-bounds rectangles are rejected
+PASS only first-stage normal bears acquire the art identity, including retained death identity
+PASS ordinary bear idle and walk independently traverse all eight frames and loop
+PASS natural contact shows all eight attack frames without changing movement, contact damage or RNG
+PASS hit uses four frames, holds the last pose and leaves the original damage/stun/movement rules intact
+PASS pause freezes bear attack, hit and retained death clocks; resume advances them
+PASS death preserves facing/body size, presents 0..3 once, expires at .42s and clears recycled fields
+PASS Canvas draws all 32 crops in both directions without bob, rotation, squash or death stretch
+PASS renderer rejects elite/Boss/untagged identities and falls back safely when the bear sheet is absent
+PASS viewport culling preserves visible bear limbs and death poses beyond all four screen edges
+PASS bear health bars and status badges clear all pose bounds without per-frame anchor jitter
+PASS bear and tiger identities, images and pooled death records cannot cross species
+{
+  "ok": true,
+  "generatedAt": "2026-10-10T09:04:52.927Z",
+  "tests": 13,
+  "testNames": [
+    "real PNG and JSON specify 32 distinct explicit crops at one source-pixel scale",
+    "invalid dimensions, duplicate frame order and out-of-bounds rectangles are rejected",
+    "only first-stage normal bears acquire the art identity, including retained death identity",
+    "ordinary bear idle and walk independently traverse all eight frames and loop",
+    "natural contact shows all eight attack frames without changing movement, contact damage or RNG",
+    "hit uses four frames, holds the last pose and leaves the original damage/stun/movement rules intact",
+    "pause freezes bear attack, hit and retained death clocks; resume advances them",
+    "death preserves facing/body size, presents 0..3 once, expires at .42s and clears recycled fields",
+    "Canvas draws all 32 crops in both directions without bob, rotation, squash or death stretch",
+    "renderer rejects elite/Boss/untagged identities and falls back safely when the bear sheet is absent",
+    "viewport culling preserves visible bear limbs and death poses beyond all four screen edges",
+    "bear health bars and status badges clear all pose bounds without per-frame anchor jitter",
+    "bear and tiger identities, images and pooled death records cannot cross species"
+  ],
+  "atlasFrames": 32,
+  "mirroredCanvasChecks": 64,
+  "viewportEdgeChecks": {
+    "visibleOutsideRoots": 8,
+    "fullyOffscreenRejected": 2
+  },
+  "runtime": {
+    "kind": "Node.js with deterministic Canvas mock",
+    "nodeVersion": "v26.7.0"
+  },
+  "boundary": {
+    "realBrowser": false,
+    "pixelRendering": false,
+    "gpuPerformance": false,
+    "wechatDevice": false
+  },
+  "note": "Node/Canvas mock only; this verifies simulation and Canvas calls, not decoded browser pixels, GPU performance or WeChat-device behavior. Real-browser evidence is a separate gate."
+}
+PASS real PNG and JSON specify 32 distinct explicit crops at one source-pixel scale
+PASS invalid dimensions, duplicate frame order and out-of-bounds rectangles are rejected
+PASS only first-stage normal bulls acquire the art identity; named bull Bosses cannot share it
+PASS ordinary bull idle and walk independently traverse all eight frames and loop
+PASS natural contact shows all eight attack frames without changing movement, contact damage or RNG
+PASS hit uses four frames, holds the last pose and leaves the original damage/stun/movement rules intact
+PASS pause freezes bull attack, hit and retained death clocks; resume advances them
+PASS death preserves facing/body size, presents 0..3 once, expires at .42s and clears recycled fields
+PASS Canvas draws all 32 crops in both directions without bob, rotation, squash or death stretch
+PASS renderer rejects elite/Boss/untagged identities and falls back safely when the bull sheet is absent
+PASS viewport culling preserves visible bull limbs and death poses beyond all four screen edges
+PASS bull health bars and status badges clear all pose bounds without per-frame anchor jitter
+PASS bull/bear/tiger identities, images and pooled death records stay isolated across all six ordered pairs
+{
+  "ok": true,
+  "generatedAt": "2026-10-10T09:04:53.019Z",
+  "tests": 13,
+  "testNames": [
+    "real PNG and JSON specify 32 distinct explicit crops at one source-pixel scale",
+    "invalid dimensions, duplicate frame order and out-of-bounds rectangles are rejected",
+    "only first-stage normal bulls acquire the art identity; named bull Bosses cannot share it",
+    "ordinary bull idle and walk independently traverse all eight frames and loop",
+    "natural contact shows all eight attack frames without changing movement, contact damage or RNG",
+    "hit uses four frames, holds the last pose and leaves the original damage/stun/movement rules intact",
+    "pause freezes bull attack, hit and retained death clocks; resume advances them",
+    "death preserves facing/body size, presents 0..3 once, expires at .42s and clears recycled fields",
+    "Canvas draws all 32 crops in both directions without bob, rotation, squash or death stretch",
+    "renderer rejects elite/Boss/untagged identities and falls back safely when the bull sheet is absent",
+    "viewport culling preserves visible bull limbs and death poses beyond all four screen edges",
+    "bull health bars and status badges clear all pose bounds without per-frame anchor jitter",
+    "bull/bear/tiger identities, images and pooled death records stay isolated across all six ordered pairs"
+  ],
+  "atlasFrames": 32,
+  "mirroredCanvasChecks": 64,
+  "healthBarBounds": {
+    "checks": 128,
+    "radii": [
+      7,
+      15,
+      30,
+      72
+    ],
+    "stableRadiusOffset": 3.45
+  },
+  "crossSpecies": {
+    "variants": [
+      "bull",
+      "bear",
+      "tiger"
+    ],
+    "orderedPairs": 6,
+    "pooledBossExclusion": "特处士"
+  },
+  "viewportEdgeChecks": {
+    "visibleOutsideRoots": 8,
+    "fullyOffscreenRejected": 2
+  },
+  "runtime": {
+    "kind": "Node.js with deterministic Canvas mock",
+    "nodeVersion": "v26.7.0"
+  },
+  "boundary": {
+    "realBrowser": false,
+    "pixelRendering": false,
+    "gpuPerformance": false,
+    "wechatDevice": false
+  },
+  "note": "Node/Canvas mock only; this verifies simulation and Canvas calls, not decoded browser pixels, GPU performance or WeChat-device behavior. Real-browser evidence is a separate gate."
+}
+PASS only an active speed multiplier between zero and one produces a slow badge
+PASS real rope slow enters and recovers through nextSlow without changing movement rules
+PASS status priority recovers from stun through burn, bleed, slow and knockback to no badge
+PASS crowded status badges have a twelve-label cap, named-threat priority and non-overlapping bounded slots
+PASS placement avoids the player and suppresses badges that cannot fit inside the viewport
+PASS paused rendering is deterministic and never mutates the engine or its frozen snapshot
+PASS badge rectangle storage is numeric, bounded, reused across frames and emptied on dispose
+PASS tiger health bars clear all 32 authored pose bounds and stun is not drawn twice
+{
+  "ok": true,
+  "generatedAt": "2026-10-10T09:04:53.042Z",
+  "tests": [
+    {
+      "name": "only an active speed multiplier between zero and one produces a slow badge",
+      "result": "PASS"
+    },
+    {
+      "name": "real rope slow enters and recovers through nextSlow without changing movement rules",
+      "result": "PASS"
+    },
+    {
+      "name": "status priority recovers from stun through burn, bleed, slow and knockback to no badge",
+      "result": "PASS"
+    },
+    {
+      "name": "crowded status badges have a twelve-label cap, named-threat priority and non-overlapping bounded slots",
+      "result": "PASS"
+    },
+    {
+      "name": "placement avoids the player and suppresses badges that cannot fit inside the viewport",
+      "result": "PASS"
+    },
+    {
+      "name": "paused rendering is deterministic and never mutates the engine or its frozen snapshot",
+      "result": "PASS"
+    },
+    {
+      "name": "badge rectangle storage is numeric, bounded, reused across frames and emptied on dispose",
+      "result": "PASS"
+    },
+    {
+      "name": "tiger health bars clear all 32 authored pose bounds and stun is not drawn twice",
+      "result": "PASS"
+    }
+  ],
+  "totals": {
+    "tests": 8,
+    "passed": 8,
+    "failed": 0,
+    "maxStatusBadges": 12,
+    "placementCandidatesPerBadge": 3,
+    "tigerAtlasPoses": 32,
+    "tigerPoseBoundsChecks": 128,
+    "tigerLivingDrawChecks": 112,
+    "rectangleReuseFrames": 120
+  },
+  "runtime": {
+    "kind": "Node.js with deterministic Canvas mock",
+    "nodeVersion": "v26.7.0"
+  },
+  "boundary": {
+    "realBrowser": false,
+    "pixelRendering": false,
+    "gpuPerformance": false,
+    "wechatDevice": false
+  },
+  "note": "Verifies status semantics, bounded placement, Canvas calls and authored crop bounds; not browser pixels, subjective mobile readability, GPU performance or WeChat device behavior."
+}
+{
+  "fullRun": [
+    {
+      "character": "wukong",
+      "stage": 1,
+      "seconds": 600,
+      "frames": 12000,
+      "level": 25,
+      "upgrades": 24,
+      "kills": 1035,
+      "max": {
+        "enemies": 48,
+        "projectiles": 7,
+        "effects": 40,
+        "gems": 111
+      },
+      "status": "won",
+      "pools": {
+        "created": {
+          "projectile": 7,
+          "effect": 40,
+          "gem": 111
+        },
+        "reused": {
+          "projectile": 114,
+          "effect": 3365,
+          "gem": 1209
+        },
+        "released": {
+          "projectile": 119,
+          "effect": 3393,
+          "gem": 1315
+        }
+      },
+      "wallMs": 438
+    },
+    {
+      "character": "tangseng",
+      "stage": 25,
+      "seconds": 600.05,
+      "frames": 12000,
+      "level": 24,
+      "upgrades": 23,
+      "kills": 1031,
+      "max": {
+        "enemies": 39,
+        "projectiles": 50,
+        "effects": 18,
+        "gems": 94
+      },
+      "status": "won",
+      "pools": {
+        "created": {
+          "projectile": 50,
+          "effect": 18,
+          "gem": 95
+        },
+        "reused": {
+          "projectile": 5815,
+          "effect": 1466,
+          "gem": 1255
+        },
+        "released": {
+          "projectile": 5846,
+          "effect": 1475,
+          "gem": 1284
+        }
+      },
+      "wallMs": 720
+    },
+    {
+      "character": "bajie",
+      "stage": 49,
+      "seconds": 600.05,
+      "frames": 12000,
+      "level": 24,
+      "upgrades": 23,
+      "kills": 1044,
+      "max": {
+        "enemies": 19,
+        "projectiles": 40,
+        "effects": 21,
+        "gems": 92
+      },
+      "status": "won",
+      "pools": {
+        "created": {
+          "projectile": 42,
+          "effect": 21,
+          "gem": 93
+        },
+        "reused": {
+          "projectile": 5138,
+          "effect": 6727,
+          "gem": 1251
+        },
+        "released": {
+          "projectile": 5156,
+          "effect": 6732,
+          "gem": 1256
+        }
+      },
+      "wallMs": 478
+    },
+    {
+      "character": "wujing",
+      "stage": 73,
+      "seconds": 600.05,
+      "frames": 12000,
+      "level": 24,
+      "upgrades": 23,
+      "kills": 1013,
+      "max": {
+        "enemies": 57,
+        "projectiles": 8,
+        "effects": 29,
+        "gems": 21
+      },
+      "status": "won",
+      "pools": {
+        "created": {
+          "projectile": 8,
+          "effect": 29,
+          "gem": 23
+        },
+        "reused": {
+          "projectile": 114,
+          "effect": 2661,
+          "gem": 1283
+        },
+        "released": {
+          "projectile": 116,
+          "effect": 2670,
+          "gem": 1286
+        }
+      },
+      "wallMs": 401
+    }
+  ],
+  "stages": 81,
+  "verdict": "PASS: four real 600-second timelines plus victory and caps"
+}
+{
+  "generatedAt": "2026-10-10T09:04:56.828Z",
+  "mode": "normal-player-input",
+  "note": "No debug seam, invincibility, forced kill, or direct state mutation was used.",
+  "rows": [
+    {
+      "characterId": "wukong",
+      "stageId": 1,
+      "seed": 10008,
+      "status": "won",
+      "time": 600,
+      "frames": 12000,
+      "kills": 1049,
+      "level": 25,
+      "hp": 170,
+      "upgrades": 24,
+      "dashes": 0,
+      "hitsTaken": 59,
+      "damageTaken": 38.04,
+      "eliteKills": 7,
+      "finalBossNaturalKills": 3,
+      "expectedFinalBosses": 3,
+      "reward": 267,
+      "score": 13990,
+      "bossTimes": [
+        570
+      ],
+      "eliteTimes": [
+        120,
+        240,
+        300,
+        360,
+        480
+      ]
+    },
+    {
+      "characterId": "tangseng",
+      "stageId": 25,
+      "seed": 10009,
+      "status": "won",
+      "time": 600,
+      "frames": 12000,
+      "kills": 1035,
+      "level": 25,
+      "hp": 96.52,
+      "upgrades": 24,
+      "dashes": 0,
+      "hitsTaken": 93,
+      "damageTaken": 154.68,
+      "eliteKills": 6,
+      "finalBossNaturalKills": 1,
+      "expectedFinalBosses": 1,
+      "reward": 265,
+      "score": 13850,
+      "bossTimes": [
+        300,
+        570
+      ],
+      "eliteTimes": [
+        120,
+        240,
+        360,
+        480
+      ]
+    },
+    {
+      "characterId": "bajie",
+      "stageId": 49,
+      "seed": 10010,
+      "status": "won",
+      "time": 600,
+      "frames": 12000,
+      "kills": 1041,
+      "level": 25,
+      "hp": 216,
+      "upgrades": 24,
+      "dashes": 0,
+      "hitsTaken": 37,
+      "damageTaken": 174.74,
+      "eliteKills": 6,
+      "finalBossNaturalKills": 1,
+      "expectedFinalBosses": 1,
+      "reward": 266,
+      "score": 13910,
+      "bossTimes": [
+        300,
+        570
+      ],
+      "eliteTimes": [
+        120,
+        240,
+        360,
+        480
+      ]
+    },
+    {
+      "characterId": "wujing",
+      "stageId": 73,
+      "seed": 10011,
+      "status": "won",
+      "time": 600.4,
+      "frames": 12008,
+      "kills": 1023,
+      "level": 24,
+      "hp": 154.69,
+      "upgrades": 23,
+      "dashes": 0,
+      "hitsTaken": 284,
+      "damageTaken": 604.16,
+      "eliteKills": 6,
+      "finalBossNaturalKills": 1,
+      "expectedFinalBosses": 1,
+      "reward": 263,
+      "score": 13630,
+      "bossTimes": [
+        300,
+        570
+      ],
+      "eliteTimes": [
+        120,
+        240,
+        360,
+        480
+      ]
+    }
+  ],
+  "verdict": "PASS"
+}
+{
+  "verdict": "PASS: identical gameplay, recycled fields reset, bounded pools",
+  "baseline": {
+    "allocated": 13578,
+    "wallMs": 318,
+    "counts": {
+      "projectile": 4987,
+      "effect": 7278,
+      "gem": 1313
+    }
+  },
+  "pooled": {
+    "allocated": 108,
+    "wallMs": 350,
+    "counts": {
+      "projectile": 22,
+      "effect": 35,
+      "gem": 51
+    },
+    "reused": {
+      "projectile": 4965,
+      "effect": 7243,
+      "gem": 1262
+    }
+  },
+  "allocationReductionPercent": 99.2
+}
+{
+  "ok": true,
+  "tests": [
+    "six themes/four heroes/all effects have finite balanced Canvas calls without roundRect/DOM",
+    "viewport rejection preserves edge sprites, overhead bars, long forward effects and buffer identity",
+    "showHud:false does not draw texts; malformed nullable collections remain finite"
+  ],
+  "pressure": {
+    "frames": 120,
+    "viewport": "390x844 DPR2",
+    "quality": "high",
+    "showHud": false,
+    "inputs": {
+      "enemies": 220,
+      "projectiles": 300,
+      "effects": 160,
+      "gems": 240
+    },
+    "drawn": {
+      "enemies": 16,
+      "projectiles": 15,
+      "effects": 9,
+      "gems": 9,
+      "culledEnemies": 204,
+      "culledProjectiles": 285,
+      "culledEffects": 151,
+      "culledGems": 231,
+      "statusCandidates": 0,
+      "statusBadges": 0,
+      "statusSuppressed": 0
+    },
+    "calls": 292920,
+    "callsPerFrame": 2441,
+    "elapsedMs": 47.885,
+    "averageMockMs": 0.399,
+    "note": "Node Canvas mock measures JavaScript and call counts; it is not GPU/WeChat FPS."
+  }
+}
+PLATFORM PASS: wx entry, safe area/DPR, touch, hide/show freeze, memory degradation, single RAF, dispose, local save, talents, daily one-time rewards; 52100 finite Canvas calls
+VALIDATE PASS: current version only; main 2.33MiB; optional art 2.93MiB

@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "generatedAt": "2026-10-11T07:11:45.119Z",
+  "tests": 12,
+  "atlasFrames": 32,
+  "mirroredCanvasChecks": 64,
+  "runtime": {
+    "kind": "Node.js with deterministic Canvas mock",
+    "nodeVersion": "v26.7.0"
+  },
+  "boundary": {
+    "realBrowser": false,
+    "pixelRendering": false,
+    "gpuPerformance": false,
+    "wechatDevice": false
+  },
+  "note": "Node/Canvas mock only; real-browser evidence is a separate gate."
+}

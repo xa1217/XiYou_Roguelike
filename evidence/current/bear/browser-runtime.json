@@ -1,0 +1,633 @@
+{
+  "generatedAt": "2026-10-10T08:33:53.866Z",
+  "url": "http://127.0.0.1:8091/",
+  "scope": "local real Edge; not external public or WeChat device",
+  "mode": "UI entry, then accelerated production update with legal movement/upgrade input; no debug or HP/spawn/kill/time mutation",
+  "pageErrors": [],
+  "failedRequests": [],
+  "screenshots": [
+    {
+      "name": "natural-move-0",
+      "file": "evidence/current/bear/natural-move-0.png",
+      "bytes": 66723,
+      "sha256": "18ad8c1ae35bcb15ca72b2bc40ff5073511d9e72bf62fccaf7bc6a3579f5f878",
+      "sample": {
+        "capture": {
+          "state": "move",
+          "index": 0,
+          "facing": "right",
+          "source": [
+            46,
+            303,
+            138,
+            143
+          ],
+          "destination": [
+            -22.58823529411765,
+            -41.029411764705884,
+            48.70588235294118,
+            50.47058823529412
+          ],
+          "left": 112.74885757464611,
+          "top": 154.67601507233957
+        },
+        "time": 26.618800000012165,
+        "seen": {
+          "move": [
+            6,
+            7,
+            0
+          ],
+          "attack": [],
+          "hit": [],
+          "death": []
+        },
+        "facing": [
+          "right"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "natural-attack-0",
+      "file": "evidence/current/bear/natural-attack-0.png",
+      "bytes": 74323,
+      "sha256": "ea85c447a486845e485c9cada3aaa9bb2c42fdcbfd208874ebe7a7b13c3ea725",
+      "sample": {
+        "capture": {
+          "state": "attack",
+          "index": 0,
+          "facing": "right",
+          "source": [
+            54,
+            512,
+            123,
+            139
+          ],
+          "destination": [
+            -19.764705882352942,
+            -38.20588235294118,
+            43.411764705882355,
+            49.05882352941177
+          ],
+          "left": 154.0758518627177,
+          "top": 318.3256558556425
+        },
+        "time": 27.368800000012175,
+        "seen": {
+          "move": [
+            6,
+            7,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "attack": [
+            0
+          ],
+          "hit": [],
+          "death": []
+        },
+        "facing": [
+          "right"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "runtime-paused-a",
+      "file": "evidence/current/bear/runtime-paused-a.png",
+      "bytes": 35552,
+      "sha256": "8e418c674cf8b0b7ee82398d4d708a6237659711132c08e51bc7bbe935177b5e"
+    },
+    {
+      "name": "runtime-paused-b",
+      "file": "evidence/current/bear/runtime-paused-b.png",
+      "bytes": 35552,
+      "sha256": "8e418c674cf8b0b7ee82398d4d708a6237659711132c08e51bc7bbe935177b5e"
+    },
+    {
+      "name": "natural-attack-7",
+      "file": "evidence/current/bear/natural-attack-7.png",
+      "bytes": 59858,
+      "sha256": "2e3fd355392c839316429132f1d9540e0e164c0f73e5bf68562ce7169cc642d9",
+      "sample": {
+        "capture": {
+          "state": "attack",
+          "index": 7,
+          "facing": "left",
+          "source": [
+            1603,
+            513,
+            125,
+            138
+          ],
+          "destination": [
+            -18,
+            -37.852941176470594,
+            44.11764705882353,
+            48.70588235294118
+          ],
+          "left": 154.96956900148206,
+          "top": 365.09773810754825
+        },
+        "time": 27.795400000006218,
+        "seen": {
+          "move": [
+            6,
+            7,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "attack": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "hit": [],
+          "death": []
+        },
+        "facing": [
+          "right",
+          "left"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "natural-death-0",
+      "file": "evidence/current/bear/natural-death-0.png",
+      "bytes": 68608,
+      "sha256": "683ea7c52a08d20a22ea67d7e29d680ed129d1fbb4912996b683ff309703b2c0",
+      "sample": {
+        "capture": {
+          "state": "death",
+          "index": 0,
+          "facing": "left",
+          "source": [
+            923,
+            729,
+            138,
+            110
+          ],
+          "destination": [
+            -24.35294117647059,
+            -28.676470588235297,
+            48.70588235294118,
+            38.82352941176471
+          ],
+          "left": 153.28705664041456,
+          "top": 360.2777031663564
+        },
+        "time": 28.04540000000622,
+        "seen": {
+          "move": [
+            6,
+            7,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "attack": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "hit": [],
+          "death": [
+            0
+          ]
+        },
+        "facing": [
+          "right",
+          "left"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "natural-death-3",
+      "file": "evidence/current/bear/natural-death-3.png",
+      "bytes": 64162,
+      "sha256": "3739bdcd9f38ef82c624f188e1e523ce81e4b9bb9fe0dcb704ab76cf467b19a5",
+      "sample": {
+        "capture": {
+          "state": "death",
+          "index": 3,
+          "facing": "left",
+          "source": [
+            1557,
+            769,
+            175,
+            72
+          ],
+          "destination": [
+            -34.23529411764706,
+            -14.558823529411768,
+            61.76470588235294,
+            25.411764705882355
+          ],
+          "left": 121.88974406175582,
+          "top": 267.9958632797883
+        },
+        "time": 28.345400000006226,
+        "seen": {
+          "move": [
+            6,
+            7,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "attack": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "hit": [],
+          "death": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "facing": [
+          "right",
+          "left"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "natural-hit-0",
+      "file": "evidence/current/bear/natural-hit-0.png",
+      "bytes": 44464,
+      "sha256": "9913174b3d53f7c6e8bc677db14e9f2aeea44646a1aea4e66bed48fae03745cd",
+      "sample": {
+        "capture": {
+          "state": "hit",
+          "index": 0,
+          "facing": "left",
+          "source": [
+            49,
+            700,
+            143,
+            140
+          ],
+          "destination": [
+            -21.529411764705884,
+            -38.911764705882355,
+            50.47058823529412,
+            49.411764705882355
+          ],
+          "left": 150.64912863079155,
+          "top": 367.3281303462213
+        },
+        "time": 29.045400000006236,
+        "seen": {
+          "move": [
+            6,
+            7,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "attack": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "hit": [
+            0
+          ],
+          "death": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "facing": [
+          "right",
+          "left"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "natural-hit-3",
+      "file": "evidence/current/bear/natural-hit-3.png",
+      "bytes": 42360,
+      "sha256": "6d627a051801038bb280c86d197e88a148122467c12bffafe5a24404886116f0",
+      "sample": {
+        "capture": {
+          "state": "hit",
+          "index": 3,
+          "facing": "left",
+          "source": [
+            718,
+            703,
+            121,
+            137
+          ],
+          "destination": [
+            -19.411764705882355,
+            -37.852941176470594,
+            42.70588235294118,
+            48.352941176470594
+          ],
+          "left": 159.38862474967368,
+          "top": 368.9667858685117
+        },
+        "time": 29.24540000000624,
+        "seen": {
+          "move": [
+            6,
+            7,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "attack": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "hit": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "death": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "facing": [
+          "right",
+          "left"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "runtime-natural-battle",
+      "file": "evidence/current/bear/runtime-natural-battle.png",
+      "bytes": 42360,
+      "sha256": "6d627a051801038bb280c86d197e88a148122467c12bffafe5a24404886116f0"
+    },
+    {
+      "name": "runtime-fixture-right",
+      "file": "evidence/current/bear/runtime-fixture-right.png",
+      "bytes": 145424,
+      "sha256": "3958e30216eb2f072009aae90112b935b5bdd4dd5d769d8b7d0a0224687f1d31",
+      "fixture": {
+        "facing": 0,
+        "frames": 32,
+        "distinctRenderedCells": 32
+      }
+    },
+    {
+      "name": "runtime-fixture-left",
+      "file": "evidence/current/bear/runtime-fixture-left.png",
+      "bytes": 145299,
+      "sha256": "fbee932d3473c9322f48740528370eb0ab251ce0deaa5be9f81059c71c3dfb93",
+      "fixture": {
+        "facing": 3.141592653589793,
+        "frames": 32,
+        "distinctRenderedCells": 32
+      }
+    }
+  ],
+  "result": "PASS",
+  "phase": "finished",
+  "updatedAt": "2026-10-10T08:33:58.042Z",
+  "browser": "155.0.4283.45",
+  "entry": {
+    "seed": 619873642,
+    "character": "wukong",
+    "stage": 1,
+    "source": "http://127.0.0.1:8091/assets/enemy-bear-battle-v1-sheet.png",
+    "width": 1774,
+    "height": 887,
+    "battleArtMode": "authoredFrames",
+    "battleSceneMode": "vector"
+  },
+  "pause": {
+    "a": {
+      "time": 27.368800000012175,
+      "status": "paused",
+      "actors": [
+        [
+          "enemy-37",
+          "move",
+          2,
+          0.20000000000000323,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-45",
+          "attack",
+          0,
+          0.05,
+          null,
+          0.5,
+          0
+        ],
+        [
+          "enemy-51",
+          "move",
+          3,
+          0.2666666666666686,
+          null,
+          0,
+          0
+        ]
+      ]
+    },
+    "b": {
+      "time": 27.368800000012175,
+      "status": "paused",
+      "actors": [
+        [
+          "enemy-37",
+          "move",
+          2,
+          0.20000000000000323,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-45",
+          "attack",
+          0,
+          0.05,
+          null,
+          0.5,
+          0
+        ],
+        [
+          "enemy-51",
+          "move",
+          3,
+          0.2666666666666686,
+          null,
+          0,
+          0
+        ]
+      ]
+    },
+    "resumedState": {
+      "time": 27.495400000006214,
+      "status": "upgrade",
+      "actors": [
+        [
+          "enemy-37",
+          "move",
+          3,
+          0.3265999999940428,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-45",
+          "attack",
+          2,
+          0.17659999999403952,
+          null,
+          0.3734000000059604,
+          0
+        ],
+        [
+          "enemy-51",
+          "move",
+          4,
+          0.3932666666607082,
+          null,
+          0,
+          0
+        ]
+      ]
+    },
+    "clocksFrozen": true,
+    "imageFrozen": true,
+    "resumed": true
+  },
+  "natural": {
+    "seed": 619873642,
+    "time": 29.24540000000624,
+    "status": "playing",
+    "seen": {
+      "move": [
+        6,
+        7,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "attack": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "hit": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "death": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "facing": [
+      "right",
+      "left"
+    ],
+    "events": {
+      "hits": 2,
+      "kills": 1
+    },
+    "steps": 582,
+    "upgrades": 1,
+    "peakEnemies": 13,
+    "peakEffects": 5,
+    "renderP95Ms": 0.4000000059604645,
+    "mapAssetDraws": 0,
+    "note": "Accelerated real production simulation and Canvas draws; render timings are desktop samples, not phone FPS."
+  },
+  "checks": {
+    "naturalFrames": true,
+    "naturalDamageAndDeath": true,
+    "bothOrientations": true,
+    "pauseResume": true,
+    "noStaticBattleMap": true,
+    "boundedActors": true,
+    "fixture32Each": true,
+    "noErrors": true
+  },
+  "browserClosed": true
+}

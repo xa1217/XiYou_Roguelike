@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-10-11T05:06:03.8684692Z",
+  "source": "read-only Win32_OperatingSystem, Win32_Process and netstat snapshot after serial tests",
+  "freeMemoryGiB": 21.53,
+  "totalMemoryGiB": 31.9,
+  "matchingTestProcesses": [],
+  "listening8088or8091": [],
+  "processMatchScope": "node scripts/browser-snake-smoke.mjs, browser-public-smoke.mjs or serve.mjs; headless Edge with playwright_chromiumdev_profile",
+  "cleanup": "Only the two owned serve sessions were stopped with Ctrl-C after use; browsers closed themselves. No unrelated user processes were stopped.",
+  "boundary": "Point-in-time snapshot only; not a claim about every browser/process, future memory use or future 429 responses."
+}

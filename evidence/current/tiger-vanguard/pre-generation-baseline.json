@@ -1,0 +1,283 @@
+{
+  "generatedAt": "2026-10-11T06:06:08.071Z",
+  "files": [
+    {
+      "path": "prototype-2d/native-app.js",
+      "sha256": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8"
+    },
+    {
+      "path": "prototype-2d/index.html",
+      "sha256": "4b9f67a618da1e1466ea6e73e0a905aef2dbd15fbef120313ec79b125dddd750"
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "b286f89168ec5e52cf5481b96cc7c68f7db6aa2cb6d4dc74ee5924e8b190b3b5"
+    },
+    {
+      "path": "scripts/release.mjs",
+      "sha256": "4134cd0ccb13c27e940793bff3860eb3d0ab092a0fe542aa48ffa1f2b53a53de"
+    },
+    {
+      "path": "scripts/serve.mjs",
+      "sha256": "300f782732b7bde8590abe40a3c20feab92d4705432386967fd298430f6713d7"
+    },
+    {
+      "path": "scripts/browser-actor-preflight.mjs",
+      "sha256": "c85444e979236c745871c0e8c51cd5782e8c05c694ccdc6befb6ce1eee8c096f"
+    },
+    {
+      "path": "prototype-2d/assets/manifest.json",
+      "sha256": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad"
+    },
+    {
+      "path": "prototype-2d/src/audio.js",
+      "sha256": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94"
+    },
+    {
+      "path": "prototype-2d/src/battle-enemy-animation.js",
+      "sha256": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8"
+    },
+    {
+      "path": "prototype-2d/src/bear-animation.js",
+      "sha256": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7"
+    },
+    {
+      "path": "prototype-2d/src/bull-animation.js",
+      "sha256": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4"
+    },
+    {
+      "path": "prototype-2d/src/content.js",
+      "sha256": "1383d25a9cfe36577de4cd1b0cbde56b408e4ab0328fce3d1b647da2533ec730"
+    },
+    {
+      "path": "prototype-2d/src/deer-animation.js",
+      "sha256": "7fca4fc497bd38abe62afc1b3f051001888195035e22573a5b7e323d5988653b"
+    },
+    {
+      "path": "prototype-2d/src/engine.js",
+      "sha256": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415"
+    },
+    {
+      "path": "prototype-2d/src/hawk-animation.js",
+      "sha256": "60e7cb55d6c2966223d54145af3134e4507a449a976fbc4a5c962a3a6dde0285"
+    },
+    {
+      "path": "prototype-2d/src/monkey-animation.js",
+      "sha256": "99dec7c46f8615d09e9c9fd0381c7e8ebdb9e41504c9f5a41a5a59fa598e1fc6"
+    },
+    {
+      "path": "prototype-2d/src/native-ui.js",
+      "sha256": "e1b8db4a47fb4b6d0ed31b21c23c5e4bb3c139e93a6403f2efa5d5c53377d4f4"
+    },
+    {
+      "path": "prototype-2d/src/progression.js",
+      "sha256": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd"
+    },
+    {
+      "path": "prototype-2d/src/renderer.js",
+      "sha256": "84e596ece3b97b28b8e1215b3a4f797a61d7c62bf70324e5c8af4775ad2367f6"
+    },
+    {
+      "path": "prototype-2d/src/snake-animation.js",
+      "sha256": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13"
+    },
+    {
+      "path": "prototype-2d/src/tiger-animation.js",
+      "sha256": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed"
+    },
+    {
+      "path": "prototype-2d/src/wolf-animation.js",
+      "sha256": "e677a1be849717d0790715b08a8fb8a4b76aff27e24930c7e8962f3e8574e85e"
+    },
+    {
+      "path": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "sha256": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097"
+    },
+    {
+      "path": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "sha256": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2"
+    }
+  ],
+  "cache": [
+    {
+      "file": "exec-1759ff36-9f38-44a0-9a72-dafccc2a1296.png",
+      "bytes": 1558610,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747"
+    },
+    {
+      "file": "exec-1d249e82-8cd2-4d34-ac6b-8685637791b8.png",
+      "bytes": 1603455,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "e7e8bea98a72c33e955308bea62e6cfad6e790eae0f2ae3d4d0f560a195fedc4"
+    },
+    {
+      "file": "exec-3098223b-293d-4e4a-9c99-1769e548d0be.png",
+      "bytes": 1387002,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127"
+    },
+    {
+      "file": "exec-32a9dc11-d31e-4d27-a8df-c93e552c3bda.png",
+      "bytes": 1377442,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "572620b0ce17cfd048099032dc3211177a02234b7b320d6848928ad2176b0e74"
+    },
+    {
+      "file": "exec-3786a15d-7da7-4a79-9d96-59fedebcf0bf.png",
+      "bytes": 2069188,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "b0f5505231b1c19517f4aa0309213f854ca1d5b632dad30561cf8033f47a3116"
+    },
+    {
+      "file": "exec-3a18d533-b82f-46d8-8a12-211bb3d71853.png",
+      "bytes": 1727644,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "fac2de6e9e6fc9e283b18a3b7049f857d2ab7251cca785ddd832fbd72042067f"
+    },
+    {
+      "file": "exec-437d581a-0fc2-41dc-908a-14c2dc397e32.png",
+      "bytes": 1894732,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e"
+    },
+    {
+      "file": "exec-49e0dbd2-806e-4a7c-98c9-66dd121cc91a.png",
+      "bytes": 1137073,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb"
+    },
+    {
+      "file": "exec-4c363345-8455-4874-815a-c4ad285c823e.png",
+      "bytes": 1776852,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7"
+    },
+    {
+      "file": "exec-4db702b3-2cbb-445c-ad33-045fd83d0596.png",
+      "bytes": 2116676,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "3e99eb9c9b26ca02424a7bc2d48f2f28c9475ce3f7704a35ef7838d46b6a19bd"
+    },
+    {
+      "file": "exec-637c200a-935a-43dc-ba00-ca7a6a513681.png",
+      "bytes": 1889538,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "655a1e370a4f70a7f75a85a34394558a03ce2c251199e6c05c85e4d2ba3b3578"
+    },
+    {
+      "file": "exec-65f2befd-ad9a-4a21-8d25-3752a3e8ef63.png",
+      "bytes": 1379382,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44"
+    },
+    {
+      "file": "exec-67177336-ce58-4236-b9d4-0d8b617cb548.png",
+      "bytes": 1749032,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2"
+    },
+    {
+      "file": "exec-7197843d-71a4-4345-bd75-f56b47f778cc.png",
+      "bytes": 1942037,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61"
+    },
+    {
+      "file": "exec-7db37ba9-d92e-4aa7-9835-d75c0881a4f6.png",
+      "bytes": 2458204,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "e17f187e0c6a733572f42cd722d99d8df6793b91c67ca6b66f08a5f9e6b02089"
+    },
+    {
+      "file": "exec-83a61486-a438-4bd4-80bc-e2c15270e18b.png",
+      "bytes": 1812634,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "ebad69da79451be87c9e6bfbf505eb1b8dceb593c2ba8008d4fead10f9c3651b"
+    },
+    {
+      "file": "exec-8b7ce4f9-999d-4ce4-a6aa-3c555213adf6.png",
+      "bytes": 1410175,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299"
+    },
+    {
+      "file": "exec-d5b8298b-c2ee-488b-b27e-1e23c01fe4b6.png",
+      "bytes": 1166282,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389"
+    },
+    {
+      "file": "exec-df72abd2-33b2-44c0-be25-cabe20927a2c.png",
+      "bytes": 1490905,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b"
+    },
+    {
+      "file": "exec-e1a192be-eaef-4da0-9a61-d717e7a8804d.png",
+      "bytes": 978099,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f"
+    }
+  ]
+}

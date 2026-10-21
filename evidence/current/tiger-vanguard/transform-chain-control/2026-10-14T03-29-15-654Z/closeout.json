@@ -1,0 +1,99 @@
+{
+  "checkedAt": "2026-10-14T03:42:30Z",
+  "protectedFilesChecked": 236,
+  "protectedChanged": [],
+  "scriptUnchanged": true,
+  "browserHashUnchanged": true,
+  "screenshotChanged": [],
+  "previousDepthBrowserResults": [
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/browser.json",
+      "result": "FAIL",
+      "sha256": "2dd8a52966f50bd68af1a66995ea7aa6de8f1180df33c5a42233e961037509a5"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-browser.json",
+      "result": "FAIL",
+      "sha256": "bb68d2581256fe3caa2e212ae397d92dc75f0e77ab4669e1f5d968b28acdd020"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-detail-browser.json",
+      "result": "FAIL",
+      "sha256": "5f02002251719c9bef3c4198f6b6c0be8f2b22acf80d350ad0d4ba2f315d9b09"
+    }
+  ],
+  "independentCountsMatch": true,
+  "allApprovalGatesRemainFalse": true,
+  "npmExitCode": 0,
+  "docChecks": [
+    {
+      "file": "STATUS.md",
+      "headHasCurrentFailure": true,
+      "sectionCount": 1,
+      "hasNextStep": true
+    },
+    {
+      "file": "docs/REQUIREMENTS-ACCEPTANCE.md",
+      "headHasCurrentFailure": true,
+      "sectionCount": 1,
+      "hasNextStep": true
+    },
+    {
+      "file": "docs/FINAL-REPORT.md",
+      "headHasCurrentFailure": true,
+      "sectionCount": 1,
+      "hasNextStep": true
+    },
+    {
+      "file": "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md",
+      "headHasCurrentFailure": true,
+      "sectionCount": 1,
+      "hasNextStep": true
+    }
+  ],
+  "sha256": {
+    "STATUS.md": "2f8cb24cc110c208cbbbd98d65331627db3b52a96945d7ea93518b79b23b6753",
+    "docs/REQUIREMENTS-ACCEPTANCE.md": "91bc415638adb2dfe3cf534392a3a89646237e08b4ad07b3d81cc7205c26d491",
+    "docs/FINAL-REPORT.md": "246c04d5c6d2b5c8d23edf140961ff5e4316588b418de47b76e64020c5d38a2e",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md": "493e45e6118b4f8790f6f93ed3d474e9e542e28086550725c70d480da308d954",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/after-candidate-chain-proxy.png": "a4355415469aa8615a8161b5753257b22ba008a4a8737e6aeef4bc5a13cc846c",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/after-playerLayer-chain-proxy.png": "461922dd541b7f5a4a338ec8934fefab9dd99464942d8b456ec0973cd829efbf",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/after-playerSprite-chain-proxy.png": "39804d2a2316a4d5cceef9c0f8a84672a14bef78504453850b10de7e7fce29fa",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/before-candidate-chain-proxy.png": "a4355415469aa8615a8161b5753257b22ba008a4a8737e6aeef4bc5a13cc846c",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/before-playerLayer-chain-proxy.png": "461922dd541b7f5a4a338ec8934fefab9dd99464942d8b456ec0973cd829efbf",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/before-playerSprite-chain-proxy.png": "39804d2a2316a4d5cceef9c0f8a84672a14bef78504453850b10de7e7fce29fa",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/browser.json": "5a02e103726d2fc23531106ff9700d0a63ac64ad6bd2e922450e491fcc7c356e",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/handoff.json": "e3b3877759ffe6c1d7795487e0c3dadf95a864efbd1520b3e2b90ad56de3a359",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/hit26-chain-mirror-on.png": "03ab3d16afc591c921e1c43cc2a5a9f14bc3c9713b92e6ea02ace0c554514291",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/hit26-chain-mirror-repeat.png": "8cfa6fff044f39b26f051b24e088e13c3ec2e52724fc7dd5cd746c30f1b315dc",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/hit26-mirror-off.png": "03ab3d16afc591c921e1c43cc2a5a9f14bc3c9713b92e6ea02ace0c554514291",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/independent-review.json": "8d3bf5a1081daecd54c94e81db3f6d9dcd248840637bffeb0a98f7d2e42b549b",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/npm-test-first-capture.txt": "13ed5d278a2820f4b0a89152caf6d44627309f36517d990f12a336e10fe51532",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/npm-test.txt": "03c22250f718a174f5250cd8244dc7a7424f006a552edce5e2cf2e58a0fd99be",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/npm-validation.json": "685efdfc9f8dffb72fef7b24d65dd37fd2096ac319f70e5c41afbbdf8b3dbcba",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/post-test-integrity.json": "5780ef2866319a86f1295966c720dcb14cb1e6fe2cf942924569e13f30475a07",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/real-ui-before-fixture.png": "6c203a3b82f093e562db5e404c80e420ed99a95604bc9b4724226efd24c62f9f",
+    "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/review.md": "385108d08be68c4685a76f04dc5fea14216d820e6bee95aad3785dd47f99b453",
+    "scripts/browser-tiger-vanguard-transform-chain-control.mjs": "58c9f24671f6990c373222a2a6c04befad55636c4fc9228500240140f0f8f4a9"
+  },
+  "browserResult": "FAIL",
+  "handoffResult": "FAIL",
+  "independentResult": "FAIL_CONFIRMED_READ_ONLY",
+  "archivedNpmCharacters": 49164,
+  "fullNpmLogMatchesCapturedOutput": true,
+  "archivedNpmFirstCaptureCharacters": 49162,
+  "fullFirstCaptureLogMatchesCapturedOutput": true,
+  "result": "PASS_FAILURE_EVIDENCE_HANDOFF_INTEGRITY_ONLY",
+  "overall": "NOT_READY",
+  "originalBrowserFailurePreserved": true,
+  "assemblyIntegrityPassDoesNotApproveBrowserOrProduction": true,
+  "branch": "work/codex/xiyou-commercial",
+  "local8088ListenerCountAtCloseout": 0,
+  "screenshotsChecked": 10,
+  "productionChanged": false,
+  "sourceImagesChanged": false,
+  "zipChanged": false,
+  "publicRetested": false,
+  "releaseReady": false,
+  "nextSafeStep": "仅建立证据层同深度、无proxy的主画布重复绘制/读取隔离控制：保持每帧原玩家方法1次，不改主Canvas创建配置、不重置主画布或放宽阈值；记录整帧背景/HUD等绘制参数、读取顺序及可取得的context属性，有限对照逐帧主画布读取与延后读取路径。先确认主图重复性，再另步恢复深度对照；保留本次FAIL及匹配脚本，不重跑覆盖、不接入/打包/部署。"
+}

@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-10-14T02:41:17.069Z",
+  "result": "PASS_EVIDENCE_ONLY_SINGLE_CONTACT_DEPTH_GUARD",
+  "scope": "Node scheduling guard only; no actual reordered drawing, pixels, natural gameplay, artistic readability, motion, FPS or public acceptance.",
+  "helper": {
+    "file": "scripts/tiger-vanguard-player-depth-draft.mjs",
+    "sha256": "b4d5d98c97e371c0472e24338d3042fa7865b50f1c93bb1abd5f280c6a54d79e"
+  },
+  "tests": [
+    {
+      "name": "exact bound scheduled contact only; state/RNG are never written",
+      "result": "PASS"
+    },
+    {
+      "name": "wrong stage/id/object/frozen identity/player/paused/dead fail closed",
+      "result": "PASS"
+    },
+    {
+      "name": "multiple targets, effects/projectiles, missing/invalid token are outside scope",
+      "result": "PASS"
+    },
+    {
+      "name": "nonfinite/out-of-range/distant/front geometry retains normal depth",
+      "result": "PASS"
+    }
+  ],
+  "contactPredicate": "world circle radii, target.y>=player.y; not alpha or semantic silhouette",
+  "singleTargetOnly": true,
+  "emptyEffectsProjectilesOnly": true,
+  "playerReadabilityApproved": false,
+  "enemyReadabilityApproved": false,
+  "rootApproved": false,
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "releaseReady": false
+}

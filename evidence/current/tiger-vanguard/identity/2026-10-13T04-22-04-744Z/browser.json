@@ -1,0 +1,144 @@
+{
+  "generatedAt": "2026-10-13T04:22:04.744Z",
+  "result": "PASS",
+  "url": "http://127.0.0.1:8088/",
+  "scope": "Local real Edge after pointer UI entry. Injected time/position/death fixtures are NOT naturally survived five-minute gameplay, animation-quality, FPS, ZIP, public or device acceptance.",
+  "inputs": {
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/content.js": "7af8cfe07b8aea17ae4c2220918aefad7b97cc7bb547650e0f131e617af07f87",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/src/native-ui.js": "dd84edca168df81681667b76e897f54b347c42486166a72b1c143bcd2bcbbe5c",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "scripts/browser-tiger-vanguard-identity.mjs": "29560e6ee49c40ff7f3ec61772d9af367f4c83f0560c39b98f13b535d4efe4f7"
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "httpErrors": [],
+  "externalRequests": [],
+  "candidateRequests": [],
+  "fixtures": [
+    {
+      "name": "injected-300s-spawn-and-identity-isolation",
+      "mode": "accelerated timing plus inspection positions",
+      "time": 300,
+      "records": [
+        {
+          "id": "enemy-8",
+          "kind": "elite",
+          "name": "双叉岭虎先锋",
+          "encounterIdentity": {
+            "encounterId": "tiger-vanguard",
+            "variant": "tiger",
+            "actionId": "tiger-vanguard"
+          },
+          "actorId": null
+        },
+        {
+          "id": "enemy-10",
+          "kind": "elite",
+          "name": "双叉岭虎先锋",
+          "encounterIdentity": null,
+          "actorId": null
+        },
+        {
+          "id": "enemy-9",
+          "kind": "normal",
+          "name": "熊妖",
+          "encounterIdentity": null,
+          "actorId": "tiger-normal-v1"
+        }
+      ],
+      "checks": {
+        "noneBefore300": true,
+        "exactlyOneAt300": true,
+        "stableIdentity": true,
+        "frozenIdentity": true,
+        "singleEncounterEvent": true,
+        "noDuplicateMidBoss": true,
+        "ordinaryIsSeparate": true,
+        "homonymUnbound": true,
+        "vanguardNotOrdinaryArt": true,
+        "actuallyDrawn": true,
+        "metadataOnlyPixels": true
+      }
+    },
+    {
+      "name": "injected-kill-retains-death-identity",
+      "mode": "forced kill of scheduled entity",
+      "identity": {
+        "encounterId": "tiger-vanguard",
+        "variant": "tiger",
+        "actionId": "tiger-vanguard"
+      },
+      "checks": {
+        "sameFrozenIdentity": true,
+        "deadElite": true,
+        "unboundBossAndNormalArt": true,
+        "actuallyDrawn": true,
+        "renderPreservesState": true
+      }
+    },
+    {
+      "name": "pool-reuse-and-final-guardians",
+      "mode": "explicit TTL steps and accelerated 570s fixture",
+      "bossIds": [
+        "yin-general",
+        "xiong-shanjun",
+        "te-chushi"
+      ],
+      "checks": {
+        "expired": true,
+        "reuseCleared": true,
+        "ordinaryDeath": true,
+        "bossesIsolated": true,
+        "distinctBossIds": true,
+        "vanguardNeverRespawned": true,
+        "pauseStable": true
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "evidence/current/tiger-vanguard/identity/2026-10-13T04-22-04-744Z/natural-ui-entry.png",
+      "bytes": 93581,
+      "sha256": "436e7e468e0afb3f98e6ab192fb4c9e644b72419e6927e431d575e647dbb419c"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/identity/2026-10-13T04-22-04-744Z/scheduled-vanguard-and-unbound-controls-fixture.png",
+      "bytes": 163140,
+      "sha256": "d7863a46b9c4ce60afcdd3b1a81db4dc831661cf6be31bfbfeb14fdc5b7c853f"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/identity/2026-10-13T04-22-04-744Z/vanguard-death-fixture.png",
+      "bytes": 154027,
+      "sha256": "b630341543d5d06e24b07eb28f40163ff296b430677fca9adf2d978ee5d72b00"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/identity/2026-10-13T04-22-04-744Z/three-guardians-with-separate-identities-fixture.png",
+      "bytes": 277441,
+      "sha256": "c844107bd2429c4190e260889581be971307fd0a33210d5e2542dcdd8319c3ad"
+    }
+  ],
+  "publicPass": false,
+  "runtimeArtIntegrated": false,
+  "releaseReady": false,
+  "browser": "155.0.4283.45",
+  "uiEntry": {
+    "status": "playing",
+    "screen": "game",
+    "time": 2.0037000000029757,
+    "debug": false,
+    "canvasCount": 1,
+    "identityCount": 0
+  },
+  "checks": {
+    "realPointerUiEntry": true,
+    "allFixtures": true,
+    "noErrors": true,
+    "noCandidateOrExternalRequests": true,
+    "sourcesUnchanged": true
+  },
+  "browserClosed": true,
+  "finishedAt": "2026-10-13T04:22:09.179Z"
+}

@@ -1,0 +1,257 @@
+{
+  "recordedAt": "2026-10-14T03:40:32Z",
+  "result": "FAIL",
+  "overall": "NOT_READY",
+  "evidenceDirectory": "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/",
+  "scope": "Evidence-only original transform-chain control at unchanged depth; repeat main-frame pixel gate failed. No depth/production/art/natural-play/FPS/public approval.",
+  "scriptSha256": "58c9f24671f6990c373222a2a6c04befad55636c4fc9228500240140f0f8f4a9",
+  "browserReportSha256": "5a02e103726d2fc23531106ff9700d0a63ac64ad6bd2e922450e491fcc7c356e",
+  "checks": {
+    "realPointerUiBeforeFixture": true,
+    "oneOriginalPlayerExecutionEachMode": true,
+    "sameOriginalDepthOrder": true,
+    "strictMainArgsStylesSourcesMatricesBodyBarFeedbackUnchanged": true,
+    "noMainFramePixelChanges": false,
+    "exactOriginalAndProxyTransformMatrices": true,
+    "completeMatrixObservationCounts": true,
+    "mainCanvasDimensionsPreserved": true,
+    "originalFrameDoesNotRunProxy": true,
+    "repeatedProxyPixelsStable": true,
+    "allThreeProxiesNonempty": true,
+    "allBeforeAfterMasksSaved": true,
+    "chainStartsWithOriginalSetTransformAndBalanced": true,
+    "noObservedClipInCapturedChain": true,
+    "sameStateRngRendererElapsed": true,
+    "noProductionReferences": true,
+    "fixtureErrorsEmpty": true,
+    "noErrorsOrExternalNetwork": true
+  },
+  "strictRecordedInvariantsEqual": true,
+  "mainOffOnChangedPixels": 0,
+  "mainRepeatChangedPixels": 265128,
+  "mainRepeatDiff": {
+    "changedPixels": 265128,
+    "bboxInclusive": {
+      "minX": 0,
+      "maxX": 389,
+      "minY": 15,
+      "maxY": 824
+    },
+    "maxAbsChannelDelta": 47,
+    "changedRows": 772,
+    "nonzeroRowCountMin": 1,
+    "nonzeroRowCountMax": 390,
+    "changedChannelPixelCountsRGBA": [
+      260944,
+      15994,
+      17906,
+      0
+    ],
+    "regionChangedPixels": {
+      "banner_y0_23": 1201,
+      "topUi_y24_144": 32788,
+      "arena_y145_741": 230368,
+      "bottomUi_y742_843": 771
+    },
+    "maxDeltaDistribution": {
+      "exactly1": 240667,
+      "exactly2": 20239,
+      "atLeast3": 4222
+    },
+    "frequentSignedDeltaTuples": [
+      {
+        "delta": [
+          -1,
+          0,
+          0,
+          0
+        ],
+        "count": 229419
+      },
+      {
+        "delta": [
+          -2,
+          0,
+          0,
+          0
+        ],
+        "count": 12320
+      },
+      {
+        "delta": [
+          -1,
+          -1,
+          -1,
+          0
+        ],
+        "count": 2960
+      },
+      {
+        "delta": [
+          -2,
+          0,
+          -1,
+          0
+        ],
+        "count": 2952
+      },
+      {
+        "delta": [
+          -1,
+          0,
+          -1,
+          0
+        ],
+        "count": 1872
+      }
+    ],
+    "outsidePlayerLayerAlphaSupport": 257449,
+    "outsideAllProxyAlphaSupportUnion": 252980,
+    "largestExample": {
+      "x": 214,
+      "y": 464,
+      "B": [
+        145,
+        199,
+        171,
+        255
+      ],
+      "C": [
+        98,
+        179,
+        154,
+        255
+      ],
+      "delta": [
+        -47,
+        -20,
+        -17,
+        0
+      ]
+    },
+    "flatBackgroundExample": {
+      "x": 195,
+      "y": 600,
+      "B": [
+        28,
+        148,
+        129,
+        255
+      ],
+      "C": [
+        27,
+        148,
+        129,
+        255
+      ]
+    }
+  },
+  "maskChangedPixels": {
+    "playerLayer": 0,
+    "playerSprite": 0,
+    "candidate": 0,
+    "union": 0
+  },
+  "maskAlphaGreaterThanZeroPixels": {
+    "playerLayer": 8343,
+    "playerSprite": 7465,
+    "candidate": 10705
+  },
+  "masksAreRasterProxies": true,
+  "proxyEquivalentToActualMainPaintSupportProven": false,
+  "initialMainClipDirectlyVerified": false,
+  "originalPlayerCalls": [
+    1,
+    1,
+    1
+  ],
+  "sameOriginalPlayerThenCandidateOrder": true,
+  "transformCalls": [
+    30,
+    30,
+    30
+  ],
+  "playerCommands": [
+    50,
+    50,
+    50
+  ],
+  "mirrorChecks": [
+    0,
+    142,
+    142
+  ],
+  "expectedMirrorChecks": [
+    142,
+    142
+  ],
+  "stateRngRendererElapsedUnchangedWithinTriplet": true,
+  "renderChecks": 28,
+  "consumerChecks": 6,
+  "rngCalls": 18,
+  "rendererElapsed": 1.001700000002981,
+  "allBeforeAfterMasksSaved": true,
+  "independentPngCountsMatch": true,
+  "rootStaticPngsViewed": 10,
+  "rootStaticObservation": "Main images appear visually close but player remains obscured; proxy sprite/ring and candidate are nonempty. Pixel audit, not visual similarity, determines failed stability gate.",
+  "hypothesisNotDiagnosis": "Readback/raster/backend change might contribute, but has not been isolated; background/HUD draw arguments are not fully logged and other Canvas/UI state is not exhaustively proven.",
+  "naturalFiveMinuteSurvival": false,
+  "partialEngineStepFixture": true,
+  "attackPreviewed": false,
+  "deathExercised": false,
+  "statusBadgesEmpty": true,
+  "errorCounts": {
+    "page": 0,
+    "console": 0,
+    "request": 0,
+    "http": 0,
+    "external": 0
+  },
+  "cleanup": {
+    "context": true,
+    "browser": true,
+    "server": true,
+    "hooks": true,
+    "dispose": true
+  },
+  "freshNpm": {
+    "file": "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/npm-validation.json",
+    "startedAt": "2026-10-14 03:34:10 UTC",
+    "result": "PASS",
+    "exitCode": 0,
+    "doesNotOverrideBrowserFail": true
+  },
+  "protectedFilesChecked": 236,
+  "protectedChanged": [],
+  "productionChanged": false,
+  "sourceImagesChanged": false,
+  "zipChanged": false,
+  "releaseZipRebuilt": false,
+  "publicRetested": false,
+  "previousThreeDepthFailuresPreserved": true,
+  "approvalGates": {
+    "humanMotionReviewed": false,
+    "rootApproved": false,
+    "healthBarLayoutApproved": false,
+    "playerReadabilityApproved": false,
+    "viewportEdgeApproved": false,
+    "extremeMissingBarAt512Approved": false,
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "fpsAcceptance": false,
+    "publicPass": false,
+    "releaseReady": false,
+    "playerDepthApproved": false,
+    "enemyReadabilityApproved": false
+  },
+  "limitations": [
+    "Accelerated explicit hit26 fixture, not natural five-minute gameplay.",
+    "Recorded visible command/CTM/style fidelity does not prove all native Canvas path, clip, stack or backend state; background/HUD paint arguments are not exhaustively logged by this script.",
+    "proxyEquivalentToActualMainPaintSupportProven=false; initialMainClipDirectlyVerified=false.",
+    "Main context uses plain canvas.getContext('2d'); backend/readback settings not recorded.",
+    "B/C differences span UI and background, not merely actor fringes; do not dismiss as local 1-2 unit precision noise.",
+    "Raster/readback/backend explanation is a hypothesis, not isolated or proven.",
+    "Player still obscured by tiger; no depth, artwork, runtime, high-frame, FPS, public or release approval."
+  ],
+  "nextSafeStep": "仅建立证据层同深度、无proxy的主画布重复绘制/读取隔离控制：保持每帧原玩家方法1次，不改主Canvas创建配置、不重置主画布或放宽阈值；记录整帧背景/HUD等绘制参数、读取顺序及可取得的context属性，有限对照逐帧主画布读取与延后读取路径。先确认主图重复性，再另步恢复深度对照；保留本次FAIL及匹配脚本，不重跑覆盖、不接入/打包/部署。"
+}

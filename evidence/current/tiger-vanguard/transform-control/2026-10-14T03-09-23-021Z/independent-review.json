@@ -1,0 +1,38 @@
+{
+  "recordedAt": "2026-10-14T03:17:17.319Z",
+  "authoredBy": "root transcription of independent agent findings",
+  "reviewer": "/root/player_depth_guard_review",
+  "scope": "Read-only script review and independent static PNG decode/hash audit; no browser or writes by reviewer.",
+  "pngsDecoded": 9,
+  "dimensions": "390x844",
+  "mainChangedPixels": 0,
+  "maskChangedPixels": {
+    "playerLayer": 56,
+    "playerSprite": 82,
+    "candidate": 0,
+    "union": 82
+  },
+  "maxChangedChannelDifference": {
+    "playerLayer": 5,
+    "playerSprite": 8
+  },
+  "protectedFilesChecked": 218,
+  "protectedChanged": [],
+  "scriptSha256": "6a18d26a3151751f7c45028c731edb7762329f92c4d4dfcf5d5f4050318b4843",
+  "browserReportSha256": "46382204b2f5191843f012d22bcdad701239b6a140f6013db223a6d6ffec770e",
+  "observation": "Main images identical; player remains occluded. Transparent proxies differ and are not exact main support.",
+  "crossRunFixtureEqual": false,
+  "crossRunDifferences": [
+    "hero a/c direction signs",
+    "renderer elapsed",
+    "RNG count"
+  ],
+  "uniqueCauseOfPriorFailureProven": false,
+  "limitations": [
+    "Original Canvas methods called outside mirror try/catch may have exceptions swallowed by renderer; no blanket original Canvas exception absence proof.",
+    "PNG.kind retains old depth wording, but report scope/file/main header specify transform control; not depth retest.",
+    "Proxy stability is not equivalence to main paint support because transparent raster/composition quantization may differ."
+  ],
+  "nextSafeStep": "仅建立证据层原始变换调用链镜像草案（包含玩家入口前world链、原setTransform参数及translate/scale/rotate/save/restore），不逐命令从getter回填矩阵；先保持同深度、单次玩家原方法，核源矩阵逐值一致、主图与重复proxy稳定，原Canvas异常先登记再抛出并保存完整前后mask。稳定也不自动证明透明proxy是精确主Canvas支持域；完成控制后另步恢复深度对照，不本轮接入/打包/部署。",
+  "allApprovalGatesRemainFalse": true
+}

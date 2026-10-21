@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-10-11T08:24:08.811Z",
+  "result": "EXECUTION_FAILED",
+  "output": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/browser-2026-10-11T08-24-08-811Z",
+  "preflightSha256": "853e116b5ea0479331a081e5273665ae616c6ab2474046c524fcb05fa2fbd660",
+  "scriptSha256": "c62821a15d7e3b9622083ab72da3c8e0fd384280c1eb79b402968cf8f4a853c9",
+  "url": "http://127.0.0.1:8093/",
+  "scope": "local real Edge gameplay baseline plus unintegrated measured-crop previews; not a runtime fix, high-frame, public, archive or device gate",
+  "pageErrors": [],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [],
+  "runtimeApproved": false,
+  "rectangularIsolationApproved": false,
+  "error": "Error: spawn EPERM\n    at ChildProcess.spawn (node:internal/child_process:457:11)\n    at spawn (node:child_process:813:9)\n    at file:///F:/Project/Xiyou_Survivor_Commercial/scripts/browser-wujing-crop-isolation.mjs:30:12\n    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)\n    at async node:internal/modules/esm/loader:650:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)",
+  "finishedAt": "2026-10-11T08:24:08.818Z"
+}

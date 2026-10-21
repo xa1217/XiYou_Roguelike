@@ -1,0 +1,1 @@
+App({globalData:{version:'1.0.0',saveKey:'xiyou-commercial-save-v1'},onLaunch(){const k=this.globalData.saveKey;if(!wx.getStorageSync(k))wx.setStorageSync(k,{unlockedStage:1,talents:{},talentPoints:0,bestScore:0,wins:0,streak:0,scrolls:0,muted:false,volume:.72})}})

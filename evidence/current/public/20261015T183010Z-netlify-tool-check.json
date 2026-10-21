@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-10-15T18:30:10Z",
+  "url": "https://roaring-malabi-f8d7fa.netlify.app/",
+  "method": "web.open read-only reachability check",
+  "result": "INACCESSIBLE_VIA_CURRENT_WEB_TOOL",
+  "error": "The configured web tool returned Internal Error and reported the URL is not accessible via this tool.",
+  "interpretation": "Tool-path failure only; not evidence that the Netlify site is down and not a public PASS.",
+  "productionWrite": false,
+  "deploymentAttempted": false,
+  "nextSafeStep": "Keep the existing real-browser manual recheck as the latest public runtime evidence; retry only from a browser-capable/network-capable environment."
+}

@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 1,
+  "asset": "enemy-bull-battle-v1-sheet.png",
+  "sha256": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+  "size": [
+    1774,
+    887
+  ],
+  "lifecycle": "runtime-approved for first-stage normal bulls after local production-browser and Node verification; included in locally verified 2026-10-10 bull candidate archives, not deployed",
+  "approvedForRuntime": true,
+  "identity": {
+    "stageId": 1,
+    "kind": "normal",
+    "variant": "bull",
+    "excluded": [
+      "特处士",
+      "待处士",
+      "elite",
+      "other stages"
+    ]
+  },
+  "layout": "8 figures x 4 irregular rows; use explicit measured sourceRects, never equal-grid slicing",
+  "referenceBodyHeight": 150,
+  "previewRootXs": [
+    141,
+    357,
+    577,
+    782,
+    996,
+    1213,
+    1424,
+    1642
+  ],
+  "previewBaselines": [
+    228,
+    435,
+    640,
+    843
+  ],
+  "anchorStatus": "fixed row/column roots retained at one 150-source-pixel body scale; local production-browser frames and mirrored 48px fixtures checked without obvious cropping or foot-root issues; no per-frame bottom snapping; overall contact occlusion and final subjective animation quality remain open",
+  "runtimeEvidence": [
+    "evidence/current/bull/browser-runtime.json",
+    "evidence/current/bull/engine-runtime.json"
+  ],
+  "states": {
+    "idle": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "move": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "attack": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "hit": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "death": [
+      28,
+      29,
+      30,
+      31
+    ]
+  },
+  "fps": {
+    "idle": 8,
+    "move": 12,
+    "attack": 16,
+    "hit": 16,
+    "death": 10
+  },
+  "sourceRects": [
+    {
+      "index": 0,
+      "state": "idle",
+      "x": 57,
+      "y": 77,
+      "w": 144,
+      "h": 154
+    },
+    {
+      "index": 1,
+      "state": "idle",
+      "x": 276,
+      "y": 75,
+      "w": 139,
+      "h": 156
+    },
+    {
+      "index": 2,
+      "state": "idle",
+      "x": 497,
+      "y": 77,
+      "w": 142,
+      "h": 154
+    },
+    {
+      "index": 3,
+      "state": "idle",
+      "x": 702,
+      "y": 76,
+      "w": 140,
+      "h": 155
+    },
+    {
+      "index": 4,
+      "state": "idle",
+      "x": 916,
+      "y": 77,
+      "w": 139,
+      "h": 154
+    },
+    {
+      "index": 5,
+      "state": "idle",
+      "x": 1134,
+      "y": 77,
+      "w": 141,
+      "h": 154
+    },
+    {
+      "index": 6,
+      "state": "idle",
+      "x": 1343,
+      "y": 76,
+      "w": 142,
+      "h": 155
+    },
+    {
+      "index": 7,
+      "state": "idle",
+      "x": 1560,
+      "y": 74,
+      "w": 143,
+      "h": 156
+    },
+    {
+      "index": 8,
+      "state": "move",
+      "x": 53,
+      "y": 288,
+      "w": 147,
+      "h": 147
+    },
+    {
+      "index": 9,
+      "state": "move",
+      "x": 265,
+      "y": 290,
+      "w": 150,
+      "h": 146
+    },
+    {
+      "index": 10,
+      "state": "move",
+      "x": 488,
+      "y": 288,
+      "w": 151,
+      "h": 149
+    },
+    {
+      "index": 11,
+      "state": "move",
+      "x": 705,
+      "y": 293,
+      "w": 147,
+      "h": 145
+    },
+    {
+      "index": 12,
+      "state": "move",
+      "x": 920,
+      "y": 293,
+      "w": 155,
+      "h": 144
+    },
+    {
+      "index": 13,
+      "state": "move",
+      "x": 1130,
+      "y": 297,
+      "w": 155,
+      "h": 141
+    },
+    {
+      "index": 14,
+      "state": "move",
+      "x": 1346,
+      "y": 291,
+      "w": 149,
+      "h": 147
+    },
+    {
+      "index": 15,
+      "state": "move",
+      "x": 1567,
+      "y": 289,
+      "w": 147,
+      "h": 148
+    },
+    {
+      "index": 16,
+      "state": "attack",
+      "x": 61,
+      "y": 499,
+      "w": 148,
+      "h": 141
+    },
+    {
+      "index": 17,
+      "state": "attack",
+      "x": 271,
+      "y": 513,
+      "w": 143,
+      "h": 125
+    },
+    {
+      "index": 18,
+      "state": "attack",
+      "x": 481,
+      "y": 516,
+      "w": 179,
+      "h": 123
+    },
+    {
+      "index": 19,
+      "state": "attack",
+      "x": 702,
+      "y": 518,
+      "w": 184,
+      "h": 122
+    },
+    {
+      "index": 20,
+      "state": "attack",
+      "x": 916,
+      "y": 534,
+      "w": 189,
+      "h": 106
+    },
+    {
+      "index": 21,
+      "state": "attack",
+      "x": 1133,
+      "y": 515,
+      "w": 162,
+      "h": 127
+    },
+    {
+      "index": 22,
+      "state": "attack",
+      "x": 1343,
+      "y": 511,
+      "w": 152,
+      "h": 134
+    },
+    {
+      "index": 23,
+      "state": "attack",
+      "x": 1568,
+      "y": 502,
+      "w": 152,
+      "h": 144
+    },
+    {
+      "index": 24,
+      "state": "hit",
+      "x": 62,
+      "y": 705,
+      "w": 143,
+      "h": 137
+    },
+    {
+      "index": 25,
+      "state": "hit",
+      "x": 258,
+      "y": 715,
+      "w": 163,
+      "h": 127
+    },
+    {
+      "index": 26,
+      "state": "hit",
+      "x": 493,
+      "y": 707,
+      "w": 139,
+      "h": 136
+    },
+    {
+      "index": 27,
+      "state": "hit",
+      "x": 695,
+      "y": 705,
+      "w": 141,
+      "h": 139
+    },
+    {
+      "index": 28,
+      "state": "death",
+      "x": 905,
+      "y": 738,
+      "w": 174,
+      "h": 107
+    },
+    {
+      "index": 29,
+      "state": "death",
+      "x": 1124,
+      "y": 752,
+      "w": 172,
+      "h": 96
+    },
+    {
+      "index": 30,
+      "state": "death",
+      "x": 1344,
+      "y": 757,
+      "w": 173,
+      "h": 89
+    },
+    {
+      "index": 31,
+      "state": "death",
+      "x": 1563,
+      "y": 763,
+      "w": 159,
+      "h": 82
+    }
+  ],
+  "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-49e0dbd2-806e-4a7c-98c9-66dd121cc91a.png",
+  "prompts": [
+    "prompts/enemy-bull-battle-v1-sheet.txt",
+    "prompts/enemy-bull-battle-v1-layout-edit.txt"
+  ]
+}

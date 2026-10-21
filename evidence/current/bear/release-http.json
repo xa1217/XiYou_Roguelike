@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-10-10T05:34:49.7492711Z",
+  "scope": "Local extracted archive public service GET/HEAD; not public network",
+  "result": "PASS",
+  "checks": [
+    { "species": "tiger", "getStatus": 200, "headStatus": 200, "getBytes": 4473, "getLength": 4473, "headLength": 4473, "privateFieldsAbsent": true },
+    { "species": "bear", "getStatus": 200, "headStatus": 200, "getBytes": 4464, "getLength": 4464, "headLength": 4464, "privateFieldsAbsent": true }
+  ]
+}

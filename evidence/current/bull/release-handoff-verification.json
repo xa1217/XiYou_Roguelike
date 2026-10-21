@@ -1,0 +1,894 @@
+{
+  "generatedAt": "2026-10-10T09:16:07.799Z",
+  "result": "PASS",
+  "scope": "Bull local candidate archives and actual extracted-archive browser/HTTP verification; not external public-network, final art quality or WeChat-device acceptance",
+  "heartbeatAt": "2026-10-10T09:03:09.314Z",
+  "checks": {
+    "freshNodeValidation": true,
+    "freshArchiveVerification": true,
+    "expectedEntryCounts": true,
+    "actualArchiveHashes": true,
+    "bullWebEntriesPresent": true,
+    "currentRuntimeMatchesExtraction": true,
+    "runtimeCodeUnchangedThisPackageStep": true,
+    "localZipBrowserPass": true,
+    "debugDisabledEvenWithQuery": true,
+    "normalFlowAndAnimation": true,
+    "spriteAndMapBoundary": true,
+    "allowedAndPrivatePaths": true,
+    "onlyExpectedProbeErrors": true,
+    "httpMatchesActualExtraction": true,
+    "screenshotsBytesMatch": true,
+    "assetsUnchanged": true,
+    "assetAuditPass": true,
+    "localRuntimeApprovalRetained": true,
+    "previousPackagesRecoverable": true,
+    "previousWorkspaceEvidenceRetained": true,
+    "ownBrowserAndServiceClosed": true
+  },
+  "archives": [
+    {
+      "file": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "bytes": 12591435,
+      "sha256": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+      "channel": "web",
+      "entries": 46,
+      "matchesVerification": true,
+      "matchesManifest": true
+    },
+    {
+      "file": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "bytes": 5043614,
+      "sha256": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+      "channel": "wechatGame",
+      "entries": 25,
+      "matchesVerification": true,
+      "matchesManifest": true
+    }
+  ],
+  "extractedDirectory": "work/release-validation/bull-20261010T090309Z",
+  "browser": {
+    "reportedAt": "2026-10-10T09:07:24.501Z",
+    "reportHasFinishTime": false,
+    "url": "http://127.0.0.1:8091/?debug=1",
+    "buildTarget": "archive-extracted-bull-20261010T090309Z",
+    "beforeSeconds": 1.2140999999940396,
+    "afterSeconds": 10.248299999997037,
+    "debugDisabled": true,
+    "expectedProbeConsoleErrors": 7,
+    "pageErrors": 0,
+    "failedRequests": 0,
+    "specializedAnimationCoverageRerun": false
+  },
+  "evidence": [
+    {
+      "file": "evidence/current/validation.json",
+      "bytes": 170,
+      "sha256": "e4ffb70042774480f5ccc33bd72ec4049ccf2d61fb1e632e3118178d7cf6482e",
+      "reportedAt": "2026-10-10T09:04:57.601Z",
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/asset-dedup-audit.json",
+      "bytes": 16689,
+      "sha256": "649ac3cf52b86a793ecc6fde50a970ee15a96125283293976539ff1d5495d0f9",
+      "reportedAt": "2026-10-10T09:09:56.326Z",
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/browser-public-smoke.json",
+      "bytes": 11347,
+      "sha256": "010c9014ef986e8b1ae63eba2725ac4eed4b226e1d77dc699f9b973a9647bb2a",
+      "reportedAt": "2026-10-10T09:07:24.501Z",
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/bull/engine-runtime.json",
+      "bytes": 2227,
+      "sha256": "68cb8f446f3cb396d5482d39e88ac1980eb51bc4fe7ecc51e35e44ab5269a09c",
+      "reportedAt": "2026-10-10T09:04:53.019Z",
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/bull/public-contract-node.json",
+      "bytes": 1180,
+      "sha256": "b916e19ef2857257e31218086166e711eae7275cf97ea3bbf8f8d9c6b18173de",
+      "reportedAt": "2026-10-10T09:04:52.705Z",
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/bull/release-verification.json",
+      "bytes": 1412,
+      "sha256": "59a26d125f4feeeb355560934a914a53e533c6c8a012fec662a1177a131f3945",
+      "reportedAt": "2026-10-10T09:06:23.2135131Z",
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/bull/release-http.json",
+      "bytes": 2217,
+      "sha256": "72b10a957e55b36e1373a66d5634da4c69b5055a1448a57fcaf7c9e0f4e360f8",
+      "reportedAt": "2026-10-10T09:08:46.275Z",
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/bull/release-preflight.json",
+      "bytes": 2962,
+      "sha256": "e7684b8497aeba0ec92629998d6bb1d6b539df33bc957f0013ac30b9d8a5a822",
+      "reportedAt": "2026-10-10T09:05:29.347Z",
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/bull/release-process-cleanup.json",
+      "bytes": 713,
+      "sha256": "e23d848f0dddc5989f7ea4711a8dbb8853933f51ecbc7ed7d0da11a32b5b4f09",
+      "reportedAt": "2026-10-10T09:09:55.2655605Z",
+      "result": null
+    },
+    {
+      "file": "evidence/current/bull/release-build-sandbox-fail.json",
+      "bytes": 955,
+      "sha256": "d9320656cd006b56749838be2532926253a00df081001be00713a7bff0447dd2",
+      "reportedAt": "2026-10-10T09:05:45.966Z",
+      "result": "FAIL"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "evidence/current/public/home-390x844.png",
+      "bytes": 103170,
+      "sha256": "3b559accb5a33303cc3143a87732a24424fbe75b9c521289e17f0d57983b28d1",
+      "matchesBrowserBytes": true
+    },
+    {
+      "file": "evidence/current/public/character-select-390x844.png",
+      "bytes": 128724,
+      "sha256": "522c358e7c0c275b28ecb5da191b4ab435d550b5b49bad0851933a592ae33006",
+      "matchesBrowserBytes": true
+    },
+    {
+      "file": "evidence/current/public/battle-public-390x844.png",
+      "bytes": 35304,
+      "sha256": "067eab667ab79bd7453f1f1d09972133e166a41655cd0c4af2a07857c9322ebb",
+      "matchesBrowserBytes": true
+    },
+    {
+      "file": "evidence/current/public/battle-public-9s-390x844.png",
+      "bytes": 37970,
+      "sha256": "f8b9c26af248d68394ccc47a14e31f5256012ce96e1782387332fba5386751c6",
+      "matchesBrowserBytes": true
+    }
+  ],
+  "deliveredRuntimeFiles": [
+    {
+      "channel": "web",
+      "path": "assets/artifact-diamond-snare.svg",
+      "bytes": 663,
+      "sha256": "c0dd49e0d324d509573fccb0c847e63e69d014a375998143d768375bb7d7601d",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/artifact-golden-rope.svg",
+      "bytes": 836,
+      "sha256": "2f7c85de5bf3ea8396002def45bebf18775380e6aa75b4262b2d3b951a48c0f7",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/artifact-iron-fan.svg",
+      "bytes": 1295,
+      "sha256": "60c256224ee13f5cf1eea868938bba3f8a6eefdea04502a1a9999601839b8347",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/artifact-lotus-lantern.svg",
+      "bytes": 1546,
+      "sha256": "61f888c1dd2425ff01127ee979bdb4241a6c171e5b7ab400cb64dc2c7bb2d528",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/artifact-moon-mirror.svg",
+      "bytes": 877,
+      "sha256": "83c28876e88f5c6c6c0703db3a7ee334291b16f6c6c851d5d36bef1f5e69f2cd",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/artifact-nine-dragon.svg",
+      "bytes": 768,
+      "sha256": "208984a5b25c26b18cf470c1e11e0193e26cef1eb96113207590f93b3e3b1dc5",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/artifact-purple-gourd.svg",
+      "bytes": 952,
+      "sha256": "efc7b02dd2ad6991b5093fedef0e8447c44485c849d3ef4918f3739db5688a65",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/artifact-samadhi-fire.svg",
+      "bytes": 831,
+      "sha256": "cb6011a7b5298253fe9a91d92c39b4ba027f2aa10cb803224089cd829514fcaf",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/enemy-bear-battle-v1-frames.json",
+      "bytes": 4464,
+      "sha256": "c0d1b20804324ce22ff08f43f48aa4c0ec85e4ecc56ac4f2e0a3282ce05f1eaf",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/enemy-bear-battle-v1-sheet.png",
+      "bytes": 978099,
+      "sha256": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/enemy-bird.svg",
+      "bytes": 685,
+      "sha256": "0cdfbb376fef61809681e8a1c346ffcd079514721d8f31a1a5f4197b9908a580",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/enemy-boss.svg",
+      "bytes": 883,
+      "sha256": "3878f941259a93790631307e0102600d8734326d9b529f4fb2b6cb5ac5cb48ee",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/enemy-brute.svg",
+      "bytes": 883,
+      "sha256": "625c5abc3730e7e176c8948d1da1524176f0b2e2c92f80156225ea23ed9bcb1c",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/enemy-bull-battle-v1-frames.json",
+      "bytes": 4464,
+      "sha256": "bf8763ab31bdbd55fbd78e08839b7ff710010b2c752b6f01d8767d0068790196",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/enemy-bull-battle-v1-sheet.png",
+      "bytes": 1137073,
+      "sha256": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/enemy-creature.svg",
+      "bytes": 853,
+      "sha256": "aea810adc49f2f2cfddf3b75f035bc4db4b1671f61278d00b322ffdfa827954f",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/enemy-spider.svg",
+      "bytes": 764,
+      "sha256": "575571fed6c63d3050ff0a60c86f1293501f6399f23448ba14661f99dbd8b5dd",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/enemy-tiger-battle-v1-frames.json",
+      "bytes": 4473,
+      "sha256": "77581b232993020de97dad596edbd2d22788c96e41160bda63ec425e264269e0",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/enemy-tiger-battle-v1-sheet.png",
+      "bytes": 1166282,
+      "sha256": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/hero-bajie-battle-v3-sheet.png",
+      "bytes": 1490905,
+      "sha256": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/hero-bajie.svg",
+      "bytes": 4038,
+      "sha256": "19eb81b91664409d54619eb3aefe48fe2add07b880a160c3d4756dd6ad2ad56a",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/hero-cards-v2-comic.png",
+      "bytes": 3016136,
+      "sha256": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/hero-tangseng-battle-v3-sheet.png",
+      "bytes": 1942037,
+      "sha256": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/hero-tangseng.svg",
+      "bytes": 3115,
+      "sha256": "481bd327822e262287684750ffee74316de807236b97cb7758815d6a3cc1335d",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/hero-wujing-battle-v3-sheet.png",
+      "bytes": 1558610,
+      "sha256": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/hero-wujing.svg",
+      "bytes": 3210,
+      "sha256": "d78054b2dcdedfc127ddbd8a7bcfe5db7315d13e034b5d934cca7b6c8c0c81f6",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/hero-wukong-battle-v3-sheet.png",
+      "bytes": 1387002,
+      "sha256": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/hero-wukong.svg",
+      "bytes": 3115,
+      "sha256": "0121755c5ed96abf2508d3ef8fb77804ac8e2e103d284f75d1403c7c8b9b732d",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/weapon-skill-bajie.svg",
+      "bytes": 1960,
+      "sha256": "67b0841a9ad517ea9f7a83ef8c669f1d632f9df8796a32656c73f5773d0ec737",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/weapon-skill-tangseng.svg",
+      "bytes": 1167,
+      "sha256": "3bcf292f0e0c5de76f80573dc55eb8883142efcd48186d3981a31383289684a3",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/weapon-skill-wujing.svg",
+      "bytes": 1009,
+      "sha256": "baff2be3abbe0e1637457f0600c8a9f7e8bc0c7993d56075c79be19209d9582e",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "assets/weapon-skill-wukong.svg",
+      "bytes": 990,
+      "sha256": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "index.html",
+      "bytes": 716,
+      "sha256": "4b9f67a618da1e1466ea6e73e0a905aef2dbd15fbef120313ec79b125dddd750",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "native-app.js",
+      "bytes": 11813,
+      "sha256": "ea9ba864aef61b3ac3a2ac12545d951ade310df7e79cbf34811352083417b8f5",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "native.html",
+      "bytes": 716,
+      "sha256": "4b9f67a618da1e1466ea6e73e0a905aef2dbd15fbef120313ec79b125dddd750",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "src/audio.js",
+      "bytes": 3819,
+      "sha256": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "src/battle-enemy-animation.js",
+      "bytes": 1363,
+      "sha256": "c8c4442cb990c85a05ccde9e38ef9b6f309d3636f707638276cc39aaef743a64",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "src/bear-animation.js",
+      "bytes": 3333,
+      "sha256": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "src/bull-animation.js",
+      "bytes": 3333,
+      "sha256": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "src/content.js",
+      "bytes": 39026,
+      "sha256": "1383d25a9cfe36577de4cd1b0cbde56b408e4ab0328fce3d1b647da2533ec730",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "src/engine.js",
+      "bytes": 66320,
+      "sha256": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "src/native-ui.js",
+      "bytes": 29178,
+      "sha256": "e1b8db4a47fb4b6d0ed31b21c23c5e4bb3c139e93a6403f2efa5d5c53377d4f4",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "src/progression.js",
+      "bytes": 4132,
+      "sha256": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "src/renderer.js",
+      "bytes": 92592,
+      "sha256": "9fe4a514372ef32240551b6a66402236d504274b5e877d04107309b24040d699",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "web",
+      "path": "src/tiger-animation.js",
+      "bytes": 3356,
+      "sha256": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/attack.wav",
+      "bytes": 2248,
+      "sha256": "52bf38c6394b1059a426cda79c39951418258a9a4aef831910583cfc07a73514",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/bgm-fire.wav",
+      "bytes": 352844,
+      "sha256": "46b088178e1204d64e6c45926c7c95f7e26d3af9fa7617575f2600a078144c59",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/bgm-forest.wav",
+      "bytes": 352844,
+      "sha256": "9ac7df22f2dc644a2cd851f3b07e414cf6c05fb2d1957c2bbe7fa31ac80d3db3",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/bgm-sand.wav",
+      "bytes": 352844,
+      "sha256": "493691c36f119e1d9ce6bb56a7ed5c5f64d3dd0ee659766bd4eb1894f056f6e9",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/bgm-snow.wav",
+      "bytes": 352844,
+      "sha256": "ae47faf7e286d7b122798e31ecd201961134b10830ca8807f2eb39c2f69ab65c",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/bgm-temple.wav",
+      "bytes": 352844,
+      "sha256": "d7dc5920bd2c55b4e22cd5361a8b949849771a1f88d0c0452c4d733707899077",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/bgm-water.wav",
+      "bytes": 352844,
+      "sha256": "40f6db2737a9b49c5a2b73d9fc4b53be8cdebecdba0f951bfcb1379e00f9c392",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/boss.wav",
+      "bytes": 15920,
+      "sha256": "8f382495e9ca3eb7ccd484bf4fb020980ff6e2bb78acd45467ad7b4e87331974",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/click.wav",
+      "bytes": 1476,
+      "sha256": "7ac3f611bd9f6990bf7d9b84ded5f9dc9bcec922604f68f97a6155612a28c13c",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/dash.wav",
+      "bytes": 3792,
+      "sha256": "97c469b1c0afd783955d9bf635d748ee6bdd929e2b37523191161ae460e0c6da",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/hit.wav",
+      "bytes": 1808,
+      "sha256": "5590eb5f13c45e979541b8c652612ba4255a8c1d542a68e39e25a36b4e67db1a",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/hurt.wav",
+      "bytes": 4674,
+      "sha256": "5b598d9fe9f929e6cd18d1446d481f43fd0ef4e460fe98b8b74864dfe226a9cb",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/kill.wav",
+      "bytes": 2248,
+      "sha256": "ed408746d25d84daacfc9cd2b1af4c3ee9b277879c3fc405809e0eabd0b904c5",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/level.wav",
+      "bytes": 11510,
+      "sha256": "096b35303048bc25729c917bf5a068b7eaa738963439df6055b031d6882a4d21",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/lose.wav",
+      "bytes": 16360,
+      "sha256": "db34b6b96a5edf19e7489057a7d460b7c4c26956579cc4fb0b7c5939f39276ad",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/pickup.wav",
+      "bytes": 2690,
+      "sha256": "f98dc4237232ce0e4a2483b7c3a1ba45422987bbbc97e0b445b19616516449be",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "assets/audio/win.wav",
+      "bytes": 19006,
+      "sha256": "88596b7ec2730948a6f55b176b06250bd82b55317366c34b31e569e6cad37842",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "audio.js",
+      "bytes": 1566,
+      "sha256": "eae9de69ec64700893178e9088b1cac1787339bc796b9dacca1275e9b7849d95",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "core/bundle.js",
+      "bytes": 244177,
+      "sha256": "67a579482c506e3ac8f750a06a9628a79d3c2412506820b870a12c3f8350ccdb",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "game.js",
+      "bytes": 2660,
+      "sha256": "64ea4441d2b70b2f8314ff730461f485b28b3a49c3385f3f2da6a809c34b4d97",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "game.json",
+      "bytes": 120,
+      "sha256": "3ffa285cfe3baa7641180e491d41d6b08781ee363383f2d2e26a49ec300ee0e0",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "illustrations/game.js",
+      "bytes": 41,
+      "sha256": "ace399a5f161444b9aa24ae1c0bf5a36a21b5a5b90b7b107b18231c54e9bb68d",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "illustrations/hero-cards-v1.png",
+      "bytes": 3072734,
+      "sha256": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+      "matchesCurrentRuntime": true
+    },
+    {
+      "channel": "wechatGame",
+      "path": "project.config.json",
+      "bytes": 282,
+      "sha256": "56387a6e9e5383e7950186858cc6068131aa15a969e5c044012be75037dccf1c",
+      "matchesCurrentRuntime": true
+    }
+  ],
+  "sourceComparison": [
+    {
+      "file": "prototype-2d/src/bull-animation.js",
+      "bytes": 3333,
+      "sha256": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4",
+      "unchanged": true
+    },
+    {
+      "file": "prototype-2d/src/battle-enemy-animation.js",
+      "bytes": 1363,
+      "sha256": "c8c4442cb990c85a05ccde9e38ef9b6f309d3636f707638276cc39aaef743a64",
+      "unchanged": true
+    },
+    {
+      "file": "prototype-2d/native-app.js",
+      "bytes": 11820,
+      "sha256": "6940d26f7d13a0756f67921c3a79c3b901a531632ab08be6daf4a32eea87dfab",
+      "unchanged": true
+    },
+    {
+      "file": "prototype-2d/tests/bull-animation-smoke.mjs",
+      "bytes": 36124,
+      "sha256": "106722365a4be44384853201d358d04eceb716e6541ca7d2ae800b65606dfa35",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/browser-bull-smoke.mjs",
+      "bytes": 13589,
+      "sha256": "980d48e68e2e4c94c8e4a55f35d87556daae3511f60eb2d0e8102523d78b196e",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/browser-public-smoke.mjs",
+      "bytes": 8600,
+      "sha256": "3c4d6ac8e1f821511d41d824033cdf4f174c2a1aa1ebc80646cffbb505eb4148",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/runtime-frame-contract.mjs",
+      "bytes": 1774,
+      "sha256": "96808b7d2ccb4cb87e8ec55bdb33a175092252cd75fc5819c403503b2e8a8b31",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/test-runtime-contracts.mjs",
+      "bytes": 3136,
+      "sha256": "cdf46c6200c4552269954682f38379b9ebba87f9daa23a103649f8d9a71f1ba0",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/serve.mjs",
+      "bytes": 4746,
+      "sha256": "83a4aa4437cf9535b79a0e89d938dd4c0b76bcd28bc66aa5c94ed7c2aee83f9c",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/build.mjs",
+      "bytes": 2415,
+      "sha256": "0e85b298ad8e6f679b9d3114e2119b0b50e83fed1419ca800754621efc40a028",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/validate.mjs",
+      "bytes": 4724,
+      "sha256": "a6ca295893a7ec66d9f3cc00ebfafaa1277a675843dfe378261c41ba09b2a470",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/release.mjs",
+      "bytes": 7095,
+      "sha256": "6822de1b418e9487ffad1b9045bb115552528cf48a82deb1e09231f348f23b44",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/verify-release.ps1",
+      "bytes": 8177,
+      "sha256": "baa2588d397c122c587220e521b63145104b91e2a8faf317d697e7eb1f91b03a",
+      "unchanged": true
+    },
+    {
+      "file": "wechat-game/core/bundle.js",
+      "bytes": 244177,
+      "sha256": "67a579482c506e3ac8f750a06a9628a79d3c2412506820b870a12c3f8350ccdb",
+      "unchanged": true
+    }
+  ],
+  "sourceMetadata": [
+    {
+      "file": "prototype-2d/assets/manifest.json",
+      "bytes": 35257,
+      "sha256": "6ad02e605b434252bf4ad7ae9fcdbbf6bce0b69e9d29c3ab4625c742606c7543"
+    },
+    {
+      "file": "prototype-2d/assets/enemy-bull-battle-v1-frames.json",
+      "bytes": 5917,
+      "sha256": "e32da6acfc9bbea64ffb74b6cfb06e30e736b7f2c042c1d8949348e506b11527"
+    }
+  ],
+  "metadataBoundary": "Only repository lifecycle wording updated after packaging; runtime projection still byte-identical to extracted contracts. Sources/provenance remain private.",
+  "validation": {
+    "date": "2026-10-10T09:04:57.601Z",
+    "version": "1.0.0",
+    "result": "PASS",
+    "mainBytes": 2447601,
+    "artBytes": 3072775,
+    "totalBytes": 5520376,
+    "errors": [],
+    "nodeTestCounts": {
+      "engine": 17,
+      "tiger": 11,
+      "bear": 13,
+      "bull": 13,
+      "status": 8
+    },
+    "log": {
+      "file": "evidence/current/bull/npm-test-release.txt",
+      "bytes": 21687,
+      "sha256": "35e520232686d5b0f4052f4722b44465587573bed797bde6073ed3b1bceb5e79"
+    }
+  },
+  "assets": {
+    "bull": {
+      "file": "prototype-2d/assets/enemy-bull-battle-v1-sheet.png",
+      "bytes": 1137073,
+      "sha256": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb"
+    },
+    "scanned": 75,
+    "uniqueSha256": 71,
+    "duplicateGroups": 4,
+    "allMediaBytesUnchanged": true,
+    "newGenerationCalls": 0
+  },
+  "backupDirectory": "work/release-backups/pre-bull-20261010T090309Z",
+  "retainedOriginalArchives": [
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/dist/xiyou-survivor-web-v1.0.0.zip",
+      "bytes": 11495592,
+      "sha256": "66308f0516ac8ea68aaf35a42f4038ebdf9fd1fadd8f8f1503f926d4379d8468",
+      "matchesPreflight": true
+    },
+    {
+      "file": "work/release-backups/pre-bull-20261010T090309Z/dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "bytes": 5043356,
+      "sha256": "b74a0b67f25a9ef01043e82b9876a7727b3ce6c40cd7272bd7e53a87dfe1d34c",
+      "matchesPreflight": true
+    }
+  ],
+  "previousWorkspaceReport": {
+    "file": "work/release-backups/pre-bull-20261010T090309Z/evidence-current/browser-public-smoke.json",
+    "bytes": 11338,
+    "sha256": "bb446f66f6e7f77a972a098492d2fc2f965fd783e59f4d0adb9065628d47608b",
+    "buildTarget": "workspace-bull-runtime-20261010T082708Z"
+  },
+  "processReview": {
+    "capturedAt": "2026-10-10T09:09:55.2655605Z",
+    "scope": "Read-only cleanup snapshot for bull candidate archive verification",
+    "totalMemoryGiB": 31.9,
+    "freeMemoryGiB": 20.92,
+    "matchingTestOrServiceProcesses": [],
+    "browserAndAgentGroups": [
+      {
+        "name": "codex.exe",
+        "count": 1,
+        "workingSetMiB": 457.5
+      },
+      {
+        "name": "node.exe",
+        "count": 21,
+        "workingSetMiB": 1320.4
+      }
+    ],
+    "listenersOnOwnTestPort8091": [],
+    "ownServerSession": 41449,
+    "ownServerStopped": true,
+    "unrelatedProcessesTerminated": 0,
+    "note": "Process working sets may share pages. Snapshot is not a guarantee against future 429 or a claim that all background processes are closed."
+  },
+  "reviewAgent": {
+    "reusedAgents": 1,
+    "scope": "Four-file read-only release/serve/verify/public-contract inspection",
+    "completed": true,
+    "blockingFindings": [],
+    "noBrowserOrWrites": true
+  },
+  "visualReview": {
+    "screenshotsInspected": [
+      "evidence/current/public/character-select-390x844.png",
+      "evidence/current/public/battle-public-9s-390x844.png"
+    ],
+    "findings": "Selection art remains outside battle; inspected local battle entry uses the animated hero and quiet vector map. Screenshot has no visible bull sequence and does not certify all frames, contact occlusion or final art quality.",
+    "allAnimationQualityAccepted": false
+  },
+  "retainedFailureFiles": [
+    "evidence/current/bull/release-build-sandbox-fail.json"
+  ],
+  "releaseRebuilt": true,
+  "archiveVerified": true,
+  "actualArchiveBrowserRetested": true,
+  "publicRetested": false,
+  "audioRetested": false,
+  "specializedAnimationBrowsersRetested": false,
+  "wechatDeviceRetested": false,
+  "deployed": false,
+  "documents": [
+    {
+      "file": "STATUS.md",
+      "bytes": 25036,
+      "sha256": "1d2c53dfd499910f7eca91069d852278fa6aaa0d406d180aeea47793f7c79688"
+    },
+    {
+      "file": "docs/REQUIREMENTS-ACCEPTANCE.md",
+      "bytes": 7450,
+      "sha256": "b7d641291983eab979b5fba0f41e8a3eb9a3e6626e3d32d0d040e7bc93c3e6be"
+    },
+    {
+      "file": "docs/FINAL-REPORT.md",
+      "bytes": 20700,
+      "sha256": "d39aa2dc1665c2f3d334f2de309331294f18c12596a856ef01e885a2d013548d"
+    },
+    {
+      "file": "docs/BULL-RELEASE-HANDOFF.md",
+      "bytes": 5826,
+      "sha256": "66426ced36cbb1de98a6a90d8bcb9f2687ad18c3dec15c50c4f193a9eceeb470"
+    },
+    {
+      "file": "docs/BULL-RUNTIME-HANDOFF.md",
+      "bytes": 7996,
+      "sha256": "a1af8eb6fe132bc82f0dd704def38d5d281173ebd5b93e4eb3ec81d2eb13a774"
+    },
+    {
+      "file": "docs/BEAR-RELEASE-HANDOFF.md",
+      "bytes": 5246,
+      "sha256": "710f6458211237ff2deaff89dc590bd1eccba388ad5b14c9529ac6a285797cfe"
+    },
+    {
+      "file": "prototype-2d/assets/README.md",
+      "bytes": 15637,
+      "sha256": "2aa7eae4fae62804b3c7eb79075d2b56df0562dcf7f352e4e343aa1b3d6b18a6"
+    }
+  ],
+  "remaining": [
+    "5 ordinary species: wolf/monkey/deer/eagle/snake",
+    "Tiger vanguard and 3 Boss action sets",
+    "Final hero high-frame quality and overall body/bar/number/HUD occlusion",
+    "External public-network revalidation; previous 502 remains unresolved",
+    "Existing PNG load-hang watchdog",
+    "Deferred WeChat AppID/device/commercial services"
+  ]
+}

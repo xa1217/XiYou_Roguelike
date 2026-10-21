@@ -1,0 +1,173 @@
+{
+  "generatedAt": "2026-10-10T08:14:57.182Z",
+  "result": "PASS",
+  "scope": "Real Edge isolated asset preview, NOT production gameplay or public acceptance",
+  "assetSha256": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+  "actor": "bull",
+  "sourceContractRuntimeApproved": false,
+  "approvedForRuntime": false,
+  "pageErrors": [],
+  "screenshots": [
+    {
+      "file": "evidence/current/bull/atlas-right-48px.png",
+      "sha256": "ab4ce62ab8282cec9f936ecab0f26566db6a47de677823552c56658a239a71a8"
+    },
+    {
+      "file": "evidence/current/bull/atlas-left-48px.png",
+      "sha256": "ede2aa34a9a38c9b7f57d308ea2d9dede69206a2f03945eb64b0b0463e3b7f7e"
+    },
+    {
+      "file": "evidence/current/bull/motion-sample-48-56-96px.png",
+      "sha256": "589f4181b3bf800ab52b72f7a1a6cdb455a532b10a1eb3a09537918185869bdb"
+    }
+  ],
+  "phase": "finished",
+  "updatedAt": "2026-10-10T08:15:07.004Z",
+  "browser": "155.0.4283.45",
+  "decode": {
+    "complete": true,
+    "width": 1774,
+    "height": 887
+  },
+  "states": {
+    "idle": {
+      "frames": 8,
+      "distinctRenderedFrames": 8,
+      "hashes": [
+        "eb1cbfa64dc05f882902c3a1c0f449319e2c6c06af4b51eaf0c2d6d626a09371",
+        "ef8295a13c4c271873a33316f4f4208571205cc52c1cec4e8d5790c278445bf6",
+        "5d8f3101925702f27f42e5ac725dca882aa0fd0b1e15ac220d9663a4b7344e22",
+        "f55a34a6f9de526a703d94f3b7677a060d17d9fa2829625bd1f9fe390c449ef1",
+        "aa1741c7ff210a6e85914566e9b88447e0a47e4fcd24006e1a689621c9dbf521",
+        "8c85484294151e9eaa47a6a2f535236b932f41d7d69d7cb80de1d1cd0303c9fa",
+        "23490c5f10520cf9f99f095e1f0033a543e73d511b76b477d72b0303900c2898",
+        "4cc91cb05aac77a7da4adcf9ce37bde8b0dbf74694afc0fb1f74ce603dcd8877"
+      ]
+    },
+    "move": {
+      "frames": 8,
+      "distinctRenderedFrames": 8,
+      "hashes": [
+        "ac83f84e04eb1e48c57b6030e3c487fd61c189bce8b4fc59238f5ae4dc14c68c",
+        "75e671a27e18aabb895142228ced3500efa17beeeeb5a2fda9fef5d8b39feb03",
+        "3d9e7910db9f727e7aa09b615d4ecb1c8c508ecdd4e4a4c07bdfc6d87609818f",
+        "246615a96e92dfbf50840b97ab57d40c524014580e1ab120582ad56c123e982a",
+        "ff271bbbf0a4dfcfb63f481122b247ac34cf4266691a3816e81bd13da33131d8",
+        "2ffe908695f4fc49118d669e332f23a18d3e3d913c9b588a6ee3101e36750eb1",
+        "beaed59d4985af9abfe663b5b4d98dd83deecb20a33025bdf1f8e29d164c1e66",
+        "876207e38d294d7cb61827276dfba5a99671004efff1553cc1538094c42f6186"
+      ]
+    },
+    "attack": {
+      "frames": 8,
+      "distinctRenderedFrames": 8,
+      "hashes": [
+        "abfd50e8be834c7f379539e5e5c90810edae9d9c8f74cc4d6d7fe4a2f3ed652e",
+        "3c0133042646431af7fbec54e136920f5a449f7ad876a8efaf594b98b69a0d67",
+        "9e4d46312f043c9737d393fc3601421ea6b232ca2a46cc91187b4ec5abea414e",
+        "e7554e2038a850a579f07cd18fd625803238639bd265cabc4e13004e1609b7f3",
+        "05535157d3b857433ce38039f95753cba37c08ea371f7d92455f2d0b0dedb642",
+        "5e57a0c6772b02bf6cbfc138633557340cdc228d68c6e21d932f56ff4972538a",
+        "64e06fb4b357a1053d693f9a8cc7fb03b615c70d9616f57e7a65c4433ebf8caa",
+        "fcaa459ccb73222ac426cee6ab78137fffa886ab4706ed1d89a0d696965e6ef8"
+      ]
+    },
+    "hit": {
+      "frames": 4,
+      "distinctRenderedFrames": 4,
+      "hashes": [
+        "030c3ced348a10fefa47bebf2a9edc10cd95c43431936f7cea31f144e7ea27c9",
+        "a9c948c9c1a82d119350200cbfd44c84005ffdb791196908a0e65fe67f749c92",
+        "1ab98c09ab175f66b057b6c82416207f305f5f53cf5244a343523612eb572ef1",
+        "6c09406d2b7bdd7273672a1f370848ce5a94173949c288de509ed32e4c5d3c71"
+      ]
+    },
+    "death": {
+      "frames": 4,
+      "distinctRenderedFrames": 4,
+      "hashes": [
+        "f23a79132c456ded57f8eabfab74a4f31eff9b7c07e28ee5ab54b264f2f0bbcb",
+        "54bf08f4138e68980939477efcdcb90f98404515e8e7bf2bb5e2cdd37473a1d0",
+        "487b8bab0a70521df864e3226a3423307a7e20535afb0c4fd7144c3da765e503",
+        "75de452dbf20222c28c3646dd70be7ab803f9401d7462e5fb4ceaca9951c2232"
+      ]
+    }
+  },
+  "leftRightDiffer": true,
+  "recording": {
+    "mimeType": "video/webm;codecs=vp9",
+    "manualCapture": true
+  },
+  "preview": {
+    "mimeType": "video/webm;codecs=vp9",
+    "paints": 91,
+    "seen": {
+      "idle": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "move": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "attack": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "hit": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "death": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "file": "evidence/current/bull/animation-preview.webm",
+    "bytes": 276425,
+    "sha256": "9b8aea834df7b34e5a0f31e45745875d6b7d2995a10b67d2a528a5edf14bd608",
+    "note": "Finite Node-driven Canvas frame-sheet preview recorded in a real browser, not directly generated video, real-time game performance or production-game evidence."
+  },
+  "previewDecode": {
+    "decoded": true,
+    "ended": true,
+    "width": 1000,
+    "height": 720,
+    "decodedFrames": 90,
+    "distinctSampledPixels": 90,
+    "playedSeconds": 4.154,
+    "note": "Readback of recorded isolated preview; not all-source-pose codec coverage, final animation quality or game FPS."
+  },
+  "checks": {
+    "decoded": true,
+    "distinctPixels": true,
+    "mirrored": true,
+    "animationCoverage": true,
+    "previewRecorded": true,
+    "videoReadback": true,
+    "noErrors": true
+  },
+  "browserClosed": true
+}

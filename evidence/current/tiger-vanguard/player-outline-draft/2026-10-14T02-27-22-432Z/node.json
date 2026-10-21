@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-10-14T02:27:22.432Z",
+  "result": "PASS_EVIDENCE_ONLY_OCCLUDED_PLAYER_OUTLINE_MASK",
+  "scope": "Synthetic RGBA helper checks only, not real sprites/browser, artistic readability, natural gameplay, motion, FPS or public acceptance.",
+  "helper": {
+    "file": "scripts/tiger-vanguard-player-outline-draft.mjs",
+    "sha256": "108062d61cb485a5a65be735df4422d36fbf197467986906289f8c617f63f2ea"
+  },
+  "tests": [
+    {
+      "name": "inner one-pixel ring appears only where the later sprite overlaps, not a solid fill",
+      "result": "PASS"
+    },
+    {
+      "name": "transparent/non-overlapping/earlier draws produce no hint",
+      "result": "PASS"
+    },
+    {
+      "name": "missing/invalid/stale current-frame tokens fail closed without an outline",
+      "result": "PASS"
+    },
+    {
+      "name": "viewport crop is not treated as a semantic silhouette edge",
+      "result": "PASS"
+    },
+    {
+      "name": "dimensions/buffers/parameters bounded and source arrays never mutated",
+      "result": "PASS"
+    }
+  ],
+  "alphaThreshold": 8,
+  "thicknessScreenPixels": 2,
+  "color": [
+    255,
+    240,
+    166,
+    210
+  ],
+  "maskScope": "inner player-alpha ring intersected with later candidate-alpha pixels; no solid hero fill",
+  "sourceImagesChanged": false,
+  "playerReadabilityApproved": false,
+  "rootApproved": false,
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "releaseReady": false
+}

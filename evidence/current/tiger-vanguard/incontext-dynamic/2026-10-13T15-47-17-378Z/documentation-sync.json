@@ -1,0 +1,29 @@
+{
+  "heartbeatAt": "2026-10-13T15:47:17.378Z",
+  "result": "DYNAMIC_OVERLAY_REVIEW_DOCUMENTED",
+  "updatedDocuments": [
+    "STATUS.md",
+    "docs/REQUIREMENTS-ACCEPTANCE.md",
+    "docs/FINAL-REPORT.md",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md"
+  ],
+  "browserEvidence": "browser.json",
+  "browserEvidenceSha256": "e7ac769f559981378af83df02e8dade496d07e015652f5ee6e77d749f1c4d87c",
+  "npmValidation": "npm-validation.json",
+  "npmValidationSha256": "58e3c7d4efd604d288b293ac4c6155cadb6890606d7b90d63d9f5a3caff1e672",
+  "videoSha256": "bbb1880278853b09c4547e5ffe2e03eaa1f33ef3aca045ddfa47274dc99b9a7d",
+  "checks": {
+    "fiveStatesAnimated": true,
+    "underlyingEnemyPresent": true,
+    "underlyingFrozenWithoutPauseModal": true,
+    "runtimeReferences": [],
+    "protectedUnchanged": true,
+    "browserClosed": true,
+    "port8088HasNoListener": true
+  },
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "releaseReady": false,
+  "note": "Documentation and evidence-only fixture changed; no production art/runtime/ZIP/deployment change. CaptureStream 30 is not FPS acceptance."
+}

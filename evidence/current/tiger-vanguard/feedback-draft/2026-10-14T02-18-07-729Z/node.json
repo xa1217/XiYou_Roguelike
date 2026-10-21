@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-10-14T02:18:07.729Z",
+  "result": "PASS_EVIDENCE_ONLY_SHARED_FEEDBACK_RECTS",
+  "scope": "Node Canvas command recording and actual-engine direct-damage fixture. Not pixel/browser, natural gameplay, complete motion, global occlusion, production integration, FPS or public acceptance.",
+  "layout": {
+    "file": "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/layout-draft.json",
+    "sha256": "35cc74c1353e0004948cf1c3c3dca72c23bc66bb27ea69dbd30d7a18a345023c"
+  },
+  "motion": {
+    "file": "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/motion-draft.json",
+    "sha256": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5"
+  },
+  "tests": [
+    {
+      "name": "exact scheduled binding replaces only its body/bar numeric slots, same-position controls unchanged",
+      "result": "PASS"
+    },
+    {
+      "name": "stage/frozen identity/exact object/current-render guards retain original buffers",
+      "result": "PASS"
+    },
+    {
+      "name": "mismatched slot count/null break/invalid geometry fail without partial writes",
+      "result": "PASS"
+    },
+    {
+      "name": "512 cap can end at target body without appending its missing bar",
+      "result": "PASS"
+    },
+    {
+      "name": "missing/invalid render tokens and nonwritable target slots fail before any write",
+      "result": "PASS"
+    },
+    {
+      "name": "actual damage number retains content/style/TTL while existing renderer chooses a finite clear candidate",
+      "result": "PASS"
+    }
+  ],
+  "fixture": {
+    "sourcePoseIndex": 26,
+    "actualHitTimer": 0,
+    "visualHitRemainingMs": 100.00000000013642,
+    "numberValue": 1,
+    "originalStateUnchangedDuringFeedback": true,
+    "originalHpAndDamageNumberFieldsUnchanged": true
+  },
+  "cachePolicy": "External current-render WeakMap; geometry from actual draw; no resample, stale geometry or entity references in numeric renderer buffer.",
+  "extremeMissingBarAt512Approved": false,
+  "deathFeedbackObstaclesIntegrated": false,
+  "statusBadgeGeometryUpdated": false,
+  "healthBarLayoutApproved": false,
+  "playerReadabilityApproved": false,
+  "viewportEdgeApproved": false,
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "releaseReady": false,
+  "disposed": true
+}

@@ -1,0 +1,37 @@
+{
+  "reviewedOn": "2026-10-11",
+  "scope": "Manual review of this attempt's newly captured source overlays, four production-renderer fixture sheets and real UI gameplay screenshots; not an animation video, final quality or FPS evaluation",
+  "result": "OBSERVED_BASELINE_DEFECT",
+  "runtimeFixed": false,
+  "highFrameQualityApproved": false,
+  "releaseApproved": false,
+  "findings": [
+    {
+      "id": "wujing-layout-mismatch",
+      "evidence": ["shajing-source-cuts.png", "shajing-renderer-move-attack.png", "natural-wujing-moving.png"],
+      "observation": "Original Wujing sheet visibly has five figures on the upper row and three below. Uniform runtime 4x2 cuts pass through bodies and weapons. Renderer fixtures contain partial adjacent figures and incomplete actors; real keyboard-held gameplay screenshot shows a clipped character/weapon.",
+      "severity": "release-blocking visual defect"
+    },
+    {
+      "id": "other-hero-weapon-crops",
+      "evidence": ["wukong-source-cuts.png", "wukong-renderer-move-attack.png", "tangsanzang-source-cuts.png", "tangsanzang-renderer-move-attack.png", "bajie-source-cuts.png", "bajie-renderer-move-attack.png"],
+      "observation": "Wukong staff, Tang staff/spell/ribbons and Bajie rake extend across uniform source boundaries. Resulting renderer fixtures show truncated weapon/effect regions or stray adjacent fragments. These fixtures are not natural gameplay for those three heroes."
+    },
+    {
+      "id": "source-pose-count-claim",
+      "evidence": ["browser.json"],
+      "observation": "All four actual loaded contracts schedule eight move/attack entries but reference only three/two distinct source rectangles, with recorded whole-image transforms. This does not substantiate eight independently authored complete poses. Rectangles cannot be equated to complete figures."
+    }
+  ],
+  "interpretationLimits": [
+    "Animation hold frames can be valid. Repetition alone is not a universal failure criterion; current defect finding is supported by confirmed body/weapon truncation and adjacent-figure contamination.",
+    "The diagnostic currently labels a repeated-contract result automatically; this narrow baseline detector is not a general release-quality gate and must not approve future art from rectangle counts alone.",
+    "natural-wujing-moving.png denotes a keyboard-held sampling period, not a proven instantaneous move state; an automatic attack can be active.",
+    "natural.draws is a deduplicated last-observation map per state:index, not a chronological sequence or FPS record.",
+    "128 actual renderer calls across synthetic fixtures do not mean 128 independent source poses or natural-gameplay coverage.",
+    "Alpha occupancy at cut lines is a warning metric, not connected-component or complete-pose counting.",
+    "Only one hero was entered via real UI; other hero outputs are explicitly cloned-player fixtures.",
+    "No public internet, archive-extracted browser, WeChat device or deployment was attempted."
+  ],
+  "independentReadOnlyReview": "A separate read-only agent inspected the script, report and screenshots and corroborated Wujing clipping, while identifying the screenshot-state naming, unordered coverage-map and repetition-classification caveats documented above."
+}

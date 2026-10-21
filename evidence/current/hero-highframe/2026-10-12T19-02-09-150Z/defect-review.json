@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-10-12T19:06:00Z",
+  "sourceEvidence": "baseline.json and browser.json in this directory",
+  "scope": "read-only structural review; no image-pixel or pose-quality approval",
+  "runtimeReferences": {
+    "manifest": "prototype-2d/assets/manifest.json:49-52,560-643",
+    "playableContract": "prototype-2d/assets/manifest.json:987-1005",
+    "sheets": {
+      "wukong": "prototype-2d/assets/hero-wukong-battle-v3-sheet.png",
+      "tangsanzang": "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png",
+      "bajie": "prototype-2d/assets/hero-bajie-battle-v3-sheet.png",
+      "shajing": "prototype-2d/assets/hero-wujing-battle-v3-sheet.png"
+    }
+  },
+  "observations": {
+    "allHeroes": {
+      "sheetSize": "1774x887 (4x2 cells, 443.5x443.5)",
+      "move": {"scheduledFrames": 8, "uniqueRects": 3, "sequence": [0,1,2,0,1,2,1,0]},
+      "attack": {"scheduledFrames": 8, "uniqueRects": 2, "sequence": [0,0,1,1,0,1,1,0]},
+      "interpretation": "The repeated move/attack rectangles are contract scheduling over a 4x2 sheet, not independent authored poses. All four heroes share this sequence."
+    },
+    "cutWarnings": {
+      "wukong": {"row0": [0,6,37], "row1": [8,29,0]},
+      "tangsanzang": {"row0": [0,0,0], "row1": [51,209,37]},
+      "bajie": {"row0": [0,0,0], "row1": [0,46,49]},
+      "shajing": {"row0": [155,299,217], "row1": [192,256,115]},
+      "meaning": "occupiedPairs at cell boundaries are alpha occupancy warnings; they identify likely boundary-touching source pixels, not proof of visible clipping."
+    },
+    "wholeSpriteTransform": "The renderer fixture records per-frame rotation/scale around a pivot (synthetic fixture), so it cannot establish authored limb motion."
+  },
+  "minimumSafeFixRecommendation": [
+    "Do not alter runtime sequencing or regenerate existing sheets based on this audit alone.",
+    "For a future asset task, author independent move and attack poses per hero in the existing 4x2 contract, then rerun alpha-boundary and real-browser checks.",
+    "Prioritize Shajing/Wujing boundary cleanup (highest occupiedPairs), followed by Tang Sanzang row1 boundaries; keep SHA/size/use audit before replacing any asset.",
+    "Treat synthetic whole-sprite rotation/scale as diagnostic-only; verify natural gameplay screenshots before any approval."
+  ],
+  "protectedStateChanged": false,
+  "releaseOrPublicPass": false
+}

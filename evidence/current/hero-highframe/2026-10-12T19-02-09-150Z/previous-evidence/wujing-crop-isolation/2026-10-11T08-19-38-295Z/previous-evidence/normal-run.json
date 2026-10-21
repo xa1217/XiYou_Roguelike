@@ -1,0 +1,128 @@
+{
+  "generatedAt": "2026-10-11T08:03:15.411Z",
+  "mode": "normal-player-input",
+  "note": "No debug seam, invincibility, forced kill, or direct state mutation was used.",
+  "rows": [
+    {
+      "characterId": "wukong",
+      "stageId": 1,
+      "seed": 10008,
+      "status": "won",
+      "time": 600,
+      "frames": 12000,
+      "kills": 1049,
+      "level": 25,
+      "hp": 170,
+      "upgrades": 24,
+      "dashes": 0,
+      "hitsTaken": 59,
+      "damageTaken": 38.04,
+      "eliteKills": 7,
+      "finalBossNaturalKills": 3,
+      "expectedFinalBosses": 3,
+      "reward": 267,
+      "score": 13990,
+      "bossTimes": [
+        570
+      ],
+      "eliteTimes": [
+        120,
+        240,
+        300,
+        360,
+        480
+      ]
+    },
+    {
+      "characterId": "tangseng",
+      "stageId": 25,
+      "seed": 10009,
+      "status": "won",
+      "time": 600,
+      "frames": 12000,
+      "kills": 1035,
+      "level": 25,
+      "hp": 96.52,
+      "upgrades": 24,
+      "dashes": 0,
+      "hitsTaken": 93,
+      "damageTaken": 154.68,
+      "eliteKills": 6,
+      "finalBossNaturalKills": 1,
+      "expectedFinalBosses": 1,
+      "reward": 265,
+      "score": 13850,
+      "bossTimes": [
+        300,
+        570
+      ],
+      "eliteTimes": [
+        120,
+        240,
+        360,
+        480
+      ]
+    },
+    {
+      "characterId": "bajie",
+      "stageId": 49,
+      "seed": 10010,
+      "status": "won",
+      "time": 600,
+      "frames": 12000,
+      "kills": 1041,
+      "level": 25,
+      "hp": 216,
+      "upgrades": 24,
+      "dashes": 0,
+      "hitsTaken": 37,
+      "damageTaken": 174.74,
+      "eliteKills": 6,
+      "finalBossNaturalKills": 1,
+      "expectedFinalBosses": 1,
+      "reward": 266,
+      "score": 13910,
+      "bossTimes": [
+        300,
+        570
+      ],
+      "eliteTimes": [
+        120,
+        240,
+        360,
+        480
+      ]
+    },
+    {
+      "characterId": "wujing",
+      "stageId": 73,
+      "seed": 10011,
+      "status": "won",
+      "time": 600.4,
+      "frames": 12008,
+      "kills": 1023,
+      "level": 24,
+      "hp": 154.69,
+      "upgrades": 23,
+      "dashes": 0,
+      "hitsTaken": 284,
+      "damageTaken": 604.16,
+      "eliteKills": 6,
+      "finalBossNaturalKills": 1,
+      "expectedFinalBosses": 1,
+      "reward": 263,
+      "score": 13630,
+      "bossTimes": [
+        300,
+        570
+      ],
+      "eliteTimes": [
+        120,
+        240,
+        360,
+        480
+      ]
+    }
+  ],
+  "verdict": "PASS"
+}

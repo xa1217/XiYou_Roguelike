@@ -1,0 +1,115 @@
+{
+  "checkedAt": "2026-10-14T04:21:55.107Z",
+  "browserResult": "REVIEW_EVIDENCE_ONLY_SAME_DEPTH_CHAIN_PNG_BASELINE",
+  "protectedFilesChecked": 276,
+  "protectedChanged": [],
+  "scriptUnchanged": true,
+  "browserHashUnchanged": true,
+  "screenshotChanged": [],
+  "oldFailureResults": [
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/browser.json",
+      "result": "FAIL",
+      "sha256": "2dd8a52966f50bd68af1a66995ea7aa6de8f1180df33c5a42233e961037509a5",
+      "unchanged": true,
+      "stillFail": true
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-browser.json",
+      "result": "FAIL",
+      "sha256": "bb68d2581256fe3caa2e212ae397d92dc75f0e77ab4669e1f5d968b28acdd020",
+      "unchanged": true,
+      "stillFail": true
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/diagnostic-detail-browser.json",
+      "result": "FAIL",
+      "sha256": "5f02002251719c9bef3c4198f6b6c0be8f2b22acf80d350ad0d4ba2f315d9b09",
+      "unchanged": true,
+      "stillFail": true
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/browser.json",
+      "result": "FAIL",
+      "sha256": "5a02e103726d2fc23531106ff9700d0a63ac64ad6bd2e922450e491fcc7c356e",
+      "unchanged": true,
+      "stillFail": true
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/browser.json",
+      "result": "FAIL",
+      "sha256": "89cf8cfe1680e62c207d364f3f31a7dc0cdc3f190892d6a9e8b6f1aa9b483a58",
+      "unchanged": true,
+      "stillFail": true
+    }
+  ],
+  "independentCountsMatch": true,
+  "allApprovalGatesRemainFalse": true,
+  "npmExitCode": 0,
+  "docChecks": [
+    {
+      "file": "STATUS.md",
+      "headHasCurrentBaseline": true,
+      "sectionCount": 1,
+      "hasNextStep": true,
+      "historicalReadbackFailureRetained": true,
+      "historicalChainFailureRetained": true
+    },
+    {
+      "file": "docs/REQUIREMENTS-ACCEPTANCE.md",
+      "headHasCurrentBaseline": true,
+      "sectionCount": 1,
+      "hasNextStep": true,
+      "historicalReadbackFailureRetained": true,
+      "historicalChainFailureRetained": true
+    },
+    {
+      "file": "docs/FINAL-REPORT.md",
+      "headHasCurrentBaseline": true,
+      "sectionCount": 1,
+      "hasNextStep": true,
+      "historicalReadbackFailureRetained": true,
+      "historicalChainFailureRetained": true
+    },
+    {
+      "file": "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md",
+      "headHasCurrentBaseline": true,
+      "sectionCount": 1,
+      "hasNextStep": true,
+      "historicalReadbackFailureRetained": true,
+      "historicalChainFailureRetained": true
+    }
+  ],
+  "sha256": {
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/browser-run.log": "fd89809e208a9a963c98addcd4206ff51869b7a3e59ac5d9856fc9f57c047ac0",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/browser.json": "19e342eb406f5310c70e840b34d9a872010925ed397429f1c6250824584f8a0b",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-1-chain-mirror-off.png": "b43a631d8ae07b4dbdbcf4b0527f4ed170d3d75b49760b6842e1cb25e6cdf255",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-2-chain-mirror-off.png": "b43a631d8ae07b4dbdbcf4b0527f4ed170d3d75b49760b6842e1cb25e6cdf255",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-3-chain-mirror-off.png": "b43a631d8ae07b4dbdbcf4b0527f4ed170d3d75b49760b6842e1cb25e6cdf255",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-4-candidate-chain-proxy.png": "a4355415469aa8615a8161b5753257b22ba008a4a8737e6aeef4bc5a13cc846c",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-4-chain-mirror-on.png": "b43a631d8ae07b4dbdbcf4b0527f4ed170d3d75b49760b6842e1cb25e6cdf255",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-4-playerLayer-chain-proxy.png": "cc2011bc589fed4c797323e36f7475960a68479a3c3fd5fc9f516e5b70ab902a",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-4-playerSprite-chain-proxy.png": "39804d2a2316a4d5cceef9c0f8a84672a14bef78504453850b10de7e7fce29fa",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-5-candidate-chain-proxy.png": "a4355415469aa8615a8161b5753257b22ba008a4a8737e6aeef4bc5a13cc846c",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-5-chain-mirror-on.png": "b43a631d8ae07b4dbdbcf4b0527f4ed170d3d75b49760b6842e1cb25e6cdf255",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-5-playerLayer-chain-proxy.png": "cc2011bc589fed4c797323e36f7475960a68479a3c3fd5fc9f516e5b70ab902a",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-5-playerSprite-chain-proxy.png": "39804d2a2316a4d5cceef9c0f8a84672a14bef78504453850b10de7e7fce29fa",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-6-candidate-chain-proxy.png": "a4355415469aa8615a8161b5753257b22ba008a4a8737e6aeef4bc5a13cc846c",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-6-chain-mirror-on.png": "b43a631d8ae07b4dbdbcf4b0527f4ed170d3d75b49760b6842e1cb25e6cdf255",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-6-playerLayer-chain-proxy.png": "cc2011bc589fed4c797323e36f7475960a68479a3c3fd5fc9f516e5b70ab902a",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/frame-6-playerSprite-chain-proxy.png": "39804d2a2316a4d5cceef9c0f8a84672a14bef78504453850b10de7e7fce29fa",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/handoff.json": "24555fa2d46735e56250626adb8e7528421df88902da35a1c69546310ab631b2",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/independent-review.json": "c9e1fe1935f42fee43d086ebd4465edb84c227b662af7274f86199e91dd38438",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/npm-test.json": "1383485bc2a7ae230d23f91dd5eccb7e95a2957f131d9ed8053be267464ee4a0",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/npm-test.log": "46301ebba6dc933548d0cdba94413e0247b51eeab9cccebf511ed779d62c6d03",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/post-test-integrity.json": "2c64d1eeb9a0d2d096c366b1664bce54e4f8bdbda8174aa73eb63c0dc1a152d5",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/real-ui-before-fixture.png": "36e2876b9f64c4ef8a87f3b6290b746b7b544804f8a921fe1f62718e42bd1a17",
+    "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/review.md": "8e132080aea04cc5900a6f7475464164659e87948fa625949797facd8ef82539",
+    "scripts/browser-tiger-vanguard-chain-png-control.mjs": "bbad11be3790f8b5228e419d9f26a4946046d2200cbb569c42c0420bf509619c",
+    "STATUS.md": "1f9168050e162b8939f6c785ee6be632c438965e089a329bcc44d097b0430b82",
+    "docs/REQUIREMENTS-ACCEPTANCE.md": "4d1ff4e6aae85e78240fc9b50fd621471ef12f266cc69fd68236901fbc94a78d",
+    "docs/FINAL-REPORT.md": "8a16f6ad87746705b5893c16ce5a8b29fc1cf44a300cd8058bcb128c6be0b9a1",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md": "fcf5cb97a34ce6b752447bb051345b994c171016c153d85a94eeeada0e19a873"
+  },
+  "actual8088ListenerCount": 0
+}

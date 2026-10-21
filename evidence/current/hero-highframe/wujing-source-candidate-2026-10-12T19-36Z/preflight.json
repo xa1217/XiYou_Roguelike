@@ -1,0 +1,108 @@
+{
+  "generatedAt": "2026-10-12T19:45:31.991Z",
+  "scope": "Evidence-only pixel preflight for the Wujing 4x2 candidate; no runtime, manifest, ZIP, deployment, or production approval.",
+  "input": "evidence/current/hero-highframe/wujing-source-candidate-2026-10-12T19-36Z/hero-wujing-source-candidate-v1.png",
+  "sha256": "b0364a6b66867079eb177cb963d659a6aa3bcc4f247caa52af0eddc505cda616",
+  "bytes": 1775106,
+  "width": 1774,
+  "height": 887,
+  "cellGrid": {
+    "columns": 4,
+    "rows": 2,
+    "cellWidth": 443.5,
+    "cellHeight": 443.5,
+    "connectivity": "4-neighbor"
+  },
+  "thresholdMeasurements": [
+    {
+      "alphaGreaterThan": 0,
+      "visiblePixels": 726106,
+      "transparentPixels": 847432,
+      "edgePixels": 29,
+      "totalComponents": 1317,
+      "majorMinimumPixels": 5000,
+      "majorComponents": 7,
+      "minorComponents": 1310,
+      "minorPixels": 3192,
+      "crossingMajorComponentCount": 6,
+      "cellMajorComponentCounts": [1, 1, 1, 1, 2, 2, 3, 3],
+      "cellBoundingBoxMinimumMargins": [-25, -25, -25, -27, -462, -426, -870, -421],
+      "cellBoundaryAlphaPixelsExactInternalLines": {
+        "vertical": [32, 134, 112],
+        "horizontal": [557],
+        "threePixelBand": {"vertical": [35, 146, 118], "horizontal": [592]}
+      }
+    },
+    {
+      "alphaGreaterThan": 8,
+      "visiblePixels": 671374,
+      "transparentPixels": 902164,
+      "edgePixels": 15,
+      "totalComponents": 158,
+      "majorMinimumPixels": 5000,
+      "majorComponents": 8,
+      "minorComponents": 150,
+      "minorPixels": 1203,
+      "crossingMajorComponentCount": 7,
+      "cellMajorComponentCounts": [1, 1, 1, 1, 2, 3, 3, 3],
+      "cellBoundingBoxMinimumMargins": [-20, -22, -23, -21, -138, -424, -360, -418],
+      "cellBoundaryAlphaPixelsExactInternalLines": {
+        "vertical": [26, 121, 99],
+        "horizontal": [490],
+        "threePixelBand": {"vertical": [27, 126, 104], "horizontal": [503]}
+      }
+    },
+    {
+      "alphaGreaterThan": 16,
+      "visiblePixels": 667904,
+      "transparentPixels": 905634,
+      "edgePixels": 14,
+      "totalComponents": 18,
+      "majorMinimumPixels": 5000,
+      "majorComponents": 8,
+      "minorComponents": 10,
+      "minorPixels": 890,
+      "crossingMajorComponentCount": 7,
+      "cellMajorComponentCounts": [1, 1, 1, 1, 2, 3, 3, 3],
+      "cellBoundingBoxMinimumMargins": [-22, -22, -22, -21, -138, -424, -360, -418],
+      "cellBoundaryAlphaPixelsExactInternalLines": {
+        "vertical": [25, 120, 94],
+        "horizontal": [482],
+        "threePixelBand": {"vertical": [27, 126, 104], "horizontal": [498]}
+      }
+    }
+  ],
+  "cellCompleteness": {
+    "alphaGreaterThan8": {
+      "exactlyFourByTwoCells": true,
+      "eachCellHasExactlyOneContainedMajor": false,
+      "allMajorComponentsContainedInOneCell": false,
+      "cellMajorComponentCounts": [1, 1, 1, 1, 2, 3, 3, 3],
+      "crossingMajorComponentCount": 7,
+      "allCellsHaveAtLeast30pxTransparentMargin": false,
+      "minimumMarginByCell": [-20, -22, -23, -21, -138, -424, -360, -418]
+    },
+    "alphaGreaterThan16": {
+      "eachCellHasExactlyOneContainedMajor": false,
+      "allMajorComponentsContainedInOneCell": false,
+      "crossingMajorComponentCount": 7,
+      "allCellsHaveAtLeast30pxTransparentMargin": false
+    }
+  },
+  "result": "REVIEW_LAYOUT_CONSTRAINTS_NOT_MET",
+  "candidateLayoutPassed": false,
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "reviewReasons": [
+    "At alpha > 8, seven major connected components cross a 4x2 cell boundary; alpha > 16 shows the same seven crossings.",
+    "At alpha > 8, cells 4-7 overlap 2/3 major components instead of one complete pose each.",
+    "At alpha > 8, all eight cell bounding boxes have a negative minimum margin (-20 to -424px), so the requested 30px transparent margin is not met.",
+    "Internal grid lines contain visible pixels (alpha > 8: vertical 26/121/99, horizontal 490), confirming boundary contamination.",
+    "The alpha > 0 connected-component pass merges lower-row content (7 major components), so a permissive alpha threshold does not establish eight isolated poses."
+  ],
+  "limitations": [
+    "Connected components are geometric diagnostics, not semantic pose or animation-quality approval.",
+    "Detached minor components and soft fringes are counted but not assigned to a semantic actor.",
+    "No head/body scale, anchor, weapon completeness, pose-preservation, FPS, gameplay, ZIP, public-internet, or device acceptance is inferred."
+  ]
+}

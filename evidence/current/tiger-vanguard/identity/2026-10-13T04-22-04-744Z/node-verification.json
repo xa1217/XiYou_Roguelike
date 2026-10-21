@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-10-13T04:19:45.345Z",
+  "result": "PASS",
+  "scope": "Identity metadata only; no animation, visual, public, ZIP or device acceptance.",
+  "inputs": {
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/content.js": "7af8cfe07b8aea17ae4c2220918aefad7b97cc7bb547650e0f131e617af07f87",
+    "prototype-2d/tests/tiger-vanguard-identity-smoke.mjs": "b8880f0a367494a5bba9760e75acccd3e50f67eae291eb382b3d8fd7e690f7e9"
+  },
+  "tests": [
+    {
+      "name": "authored encounter IDs are stable, frozen and separate from final guardians",
+      "pass": true
+    },
+    {
+      "name": "only the scheduled 300s elite receives identity, once, replacing the mid-boss",
+      "pass": true
+    },
+    {
+      "name": "names, tiger variants and override IDs cannot bind generic spawns or bosses",
+      "pass": true
+    },
+    {
+      "name": "stage guard and enemy cap do not create phantom encounter identities",
+      "pass": true
+    },
+    {
+      "name": "death retains frozen identity; pooled reuse clears it before unrelated effects",
+      "pass": true
+    },
+    {
+      "name": "16 fixed-seed configurations preserve pre-change gameplay, pool and RNG hashes",
+      "pass": true
+    }
+  ],
+  "gameplay": {
+    "1/19/normal/pool": "0464d701a4189ffd0733a4b390f5eb85daecce3acb7d4cbe042336bb21413e1f",
+    "1/19/normal/no-pool": "2125a186308c12bbdbc6f0358f1c221425777eb4ce1532f7a487b75fb319caaa",
+    "1/19/hard/pool": "b12b1d57b5ee6a70f128d269f2b9c0188b54e6d096b6ad35826ed0d713f85e62",
+    "1/19/hard/no-pool": "0adb59a82580ab92a83861535792b2559261ef9e16cde9db1e6526013cebe80e",
+    "1/712/normal/pool": "1f73b7210d2b5482e346dd97ddd32fc7c7156f5c616e609bf8c382c11fbd2d6b",
+    "1/712/normal/no-pool": "9cb40cd11ea44dae5997aa85d52f0fdd020ae470fc642662f35fcc7e03da84b3",
+    "1/712/hard/pool": "c2ca0d12e8fa2f0d5175c2c61a373dfa264c14374e0369a8547e6d28d277ba1c",
+    "1/712/hard/no-pool": "1df49a5520f7cf15541fc1043325bf91895794a65e300f5490703c139a176fa5",
+    "2/19/normal/pool": "5459598a26f7abc4cce0796a04a89b502346d85371c13c9009582218c355e97b",
+    "2/19/normal/no-pool": "56de78fa521fd57809d31cae582ad476e5ca111d9884e8784b0f48f6eb799885",
+    "2/19/hard/pool": "42d962da06322d6823d007c61f5f91ad7133e3aabdda2d689b88ecfd3eda7ea5",
+    "2/19/hard/no-pool": "515a4f6a4e75043054ca39c473c0d21373efacb0c057ba228fa99b73781c34c3",
+    "2/712/normal/pool": "7067c02caaa34b75276f8773f2445a53520b95b4ecdb22b5cb90f8099226dabb",
+    "2/712/normal/no-pool": "4ee762bd0a1a0dfda3b5bd524d156c8291abf1a6230154cdd4a9d42186d397a0",
+    "2/712/hard/pool": "c5f8bd8493da302fb53c223ac150c5b8dd4cd1bdb40f4fd0427bbc190ecb2cd6",
+    "2/712/hard/no-pool": "195c8142b16a8e4ead438952cce5251027ea0d01879ab948119fd9e952b52113"
+  },
+  "runtimeArtIntegrated": false,
+  "publicPass": false,
+  "releaseReady": false
+}

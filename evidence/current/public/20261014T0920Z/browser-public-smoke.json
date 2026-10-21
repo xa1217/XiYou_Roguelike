@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-10-14T09:36:35.593Z",
+  "url": "https://belt-array-floors-buses.trycloudflare.com/",
+  "buildTarget": "workspace-public-20261014T0935Z",
+  "mode": "public-no-debug-normal-flow",
+  "screenshots": [],
+  "consoleMessages": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 530 ()"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 530 ()"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_CONNECTION_CLOSED"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 530 ()",
+      "url": "https://belt-array-floors-buses.trycloudflare.com/"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 530 ()",
+      "url": "https://belt-array-floors-buses.trycloudflare.com/favicon.ico"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_CONNECTION_CLOSED",
+      "url": "https://benchmark.1e100cdn.net/r20-100KB.png?r=49899349"
+    }
+  ],
+  "pageErrors": [],
+  "failedRequests": [
+    {
+      "url": "https://benchmark.1e100cdn.net/r20-100KB.png?r=49899349",
+      "error": "net::ERR_CONNECTION_CLOSED"
+    }
+  ],
+  "result": "FAIL",
+  "error": "page.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('canvas') to be visible\u001b[22m\n\n    at F:\\Project\\Xiyou_Survivor_Commercial\\scripts\\browser-public-smoke.mjs:36:14"
+}

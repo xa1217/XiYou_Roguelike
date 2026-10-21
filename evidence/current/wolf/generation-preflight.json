@@ -1,0 +1,257 @@
+{
+  "generatedAt": "2026-10-10T09:25:05.914Z",
+  "inventory": {
+    "path": "evidence/current/asset-dedup-audit.json",
+    "generatedAt": "2026-10-10T09:09:56.326Z",
+    "scanned": 75,
+    "unique": 71,
+    "duplicates": 4,
+    "result": "PASS"
+  },
+  "generatedDirectory": [
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a10ba8-459b-73f1-bf80-21b0b426fb23\\exec-1759ff36-9f38-44a0-9a72-dafccc2a1296.png",
+      "bytes": 1558610,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+      "existingMatch": [
+        "prototype-2d/assets/hero-wujing-battle-v3-sheet.png"
+      ],
+      "draft": null
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a10ba8-459b-73f1-bf80-21b0b426fb23\\exec-1d249e82-8cd2-4d34-ac6b-8685637791b8.png",
+      "bytes": 1603455,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "e7e8bea98a72c33e955308bea62e6cfad6e790eae0f2ae3d4d0f560a195fedc4",
+      "existingMatch": [],
+      "draft": "bull draft, matches bull/draft-preflight.json"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a10ba8-459b-73f1-bf80-21b0b426fb23\\exec-3098223b-293d-4e4a-9c99-1769e548d0be.png",
+      "bytes": 1387002,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+      "existingMatch": [
+        "prototype-2d/assets/hero-wukong-battle-v3-sheet.png"
+      ],
+      "draft": null
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a10ba8-459b-73f1-bf80-21b0b426fb23\\exec-32a9dc11-d31e-4d27-a8df-c93e552c3bda.png",
+      "bytes": 1377442,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "572620b0ce17cfd048099032dc3211177a02234b7b320d6848928ad2176b0e74",
+      "existingMatch": [],
+      "draft": "bear draft, matches bear/draft-preflight.json"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a10ba8-459b-73f1-bf80-21b0b426fb23\\exec-3786a15d-7da7-4a79-9d96-59fedebcf0bf.png",
+      "bytes": 2069188,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "b0f5505231b1c19517f4aa0309213f854ca1d5b632dad30561cf8033f47a3116",
+      "existingMatch": [],
+      "draft": "tiger draft; visually inspected full sheet, not wolf"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a10ba8-459b-73f1-bf80-21b0b426fb23\\exec-49e0dbd2-806e-4a7c-98c9-66dd121cc91a.png",
+      "bytes": 1137073,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+      "existingMatch": [
+        "prototype-2d/assets/enemy-bull-battle-v1-sheet.png"
+      ],
+      "draft": null
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a10ba8-459b-73f1-bf80-21b0b426fb23\\exec-7197843d-71a4-4345-bd75-f56b47f778cc.png",
+      "bytes": 1942037,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61",
+      "existingMatch": [
+        "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png"
+      ],
+      "draft": null
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a10ba8-459b-73f1-bf80-21b0b426fb23\\exec-d5b8298b-c2ee-488b-b27e-1e23c01fe4b6.png",
+      "bytes": 1166282,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+      "existingMatch": [
+        "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png"
+      ],
+      "draft": null
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a10ba8-459b-73f1-bf80-21b0b426fb23\\exec-df72abd2-33b2-44c0-be25-cabe20927a2c.png",
+      "bytes": 1490905,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b",
+      "existingMatch": [
+        "prototype-2d/assets/hero-bajie-battle-v3-sheet.png"
+      ],
+      "draft": null
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\generated_images\\01a10ba8-459b-73f1-bf80-21b0b426fb23\\exec-e1a192be-eaef-4da0-9a61-d717e7a8804d.png",
+      "bytes": 978099,
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+      "existingMatch": [
+        "prototype-2d/assets/enemy-bear-battle-v1-sheet.png"
+      ],
+      "draft": null
+    }
+  ],
+  "baseline": [
+    {
+      "path": "prototype-2d/src/audio.js",
+      "bytes": 3819,
+      "sha256": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94"
+    },
+    {
+      "path": "prototype-2d/src/battle-enemy-animation.js",
+      "bytes": 1363,
+      "sha256": "c8c4442cb990c85a05ccde9e38ef9b6f309d3636f707638276cc39aaef743a64"
+    },
+    {
+      "path": "prototype-2d/src/bear-animation.js",
+      "bytes": 3333,
+      "sha256": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7"
+    },
+    {
+      "path": "prototype-2d/src/bull-animation.js",
+      "bytes": 3333,
+      "sha256": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4"
+    },
+    {
+      "path": "prototype-2d/src/content.js",
+      "bytes": 39026,
+      "sha256": "1383d25a9cfe36577de4cd1b0cbde56b408e4ab0328fce3d1b647da2533ec730"
+    },
+    {
+      "path": "prototype-2d/src/engine.js",
+      "bytes": 66320,
+      "sha256": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415"
+    },
+    {
+      "path": "prototype-2d/src/native-ui.js",
+      "bytes": 29178,
+      "sha256": "e1b8db4a47fb4b6d0ed31b21c23c5e4bb3c139e93a6403f2efa5d5c53377d4f4"
+    },
+    {
+      "path": "prototype-2d/src/progression.js",
+      "bytes": 4132,
+      "sha256": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd"
+    },
+    {
+      "path": "prototype-2d/src/renderer.js",
+      "bytes": 92592,
+      "sha256": "9fe4a514372ef32240551b6a66402236d504274b5e877d04107309b24040d699"
+    },
+    {
+      "path": "prototype-2d/src/tiger-animation.js",
+      "bytes": 3356,
+      "sha256": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed"
+    },
+    {
+      "path": "prototype-2d/native-app.js",
+      "bytes": 11820,
+      "sha256": "6940d26f7d13a0756f67921c3a79c3b901a531632ab08be6daf4a32eea87dfab"
+    },
+    {
+      "path": "scripts/release.mjs",
+      "bytes": 7095,
+      "sha256": "6822de1b418e9487ffad1b9045bb115552528cf48a82deb1e09231f348f23b44"
+    },
+    {
+      "path": "scripts/serve.mjs",
+      "bytes": 4746,
+      "sha256": "83a4aa4437cf9535b79a0e89d938dd4c0b76bcd28bc66aa5c94ed7c2aee83f9c"
+    },
+    {
+      "path": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "bytes": 12591435,
+      "sha256": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097"
+    },
+    {
+      "path": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "bytes": 5043614,
+      "sha256": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2"
+    }
+  ],
+  "target": "stage1+normal+wolf",
+  "decision": "GENERATE_ONE_MISSING_ASSET",
+  "scope": "Ordinary biped gray-wolf demon 32-pose gameplay candidate; no named Boss or later-stage wolf reuse",
+  "currentInventoryRechecked": {
+    "path": "evidence/current/asset-dedup-audit.json",
+    "scanned": 75,
+    "unique": 71,
+    "duplicates": 4,
+    "result": "PASS"
+  },
+  "runtimeReferences": {
+    "content": "prototype-2d/src/content.js:186 = 苍狼妖, variant wolf, normal first-stage roster; final Boss roster is tiger/bear/bull",
+    "fallback": "renderer.js _drawDemonBody runner branch; ordinary biped code-authored body and two simple legs",
+    "registry": "battle-enemy-animation.js registers only tiger/bear/bull; no existing wolf sheet"
+  },
+  "originalProjectReadOnlyReview": {
+    "scope": "F:/Project/Xiyou_EightyOne_Calamities web/WeChat assets, manifests and runtime references; counterpart legacy-source filenames and references",
+    "result": "No wolf-specific multi-frame asset found. Existing human/environment/crawler/rig media not a wolf animation.",
+    "method": "One reused read-only reviewer; filenames, manifests and runtime reference check, not a visual inspection of every original-project image",
+    "originalUntouched": true
+  },
+  "generatedDirectoryReview": "All 10 PNGs accounted for by SHA and draft reports; unmatched tiger draft visually inspected. 4 heroes + 3 approved ordinary enemies + their 3 drafts, no wolf.",
+  "processPreflight": {
+    "method": "Read-only CIM snapshot after initial permission-denied inspection; authorized retry succeeded",
+    "totalMemoryKiB": 33449580,
+    "freeMemoryKiB": 21955948,
+    "matchingTestOrHeadlessProcesses": [],
+    "note": "Snapshot only; no process terminated and no promise of future 429 avoidance"
+  },
+  "toolMode": "built-in image_gen; single new image call; no directly callable video generator discovered",
+  "intent": "new-image generation without input image arguments",
+  "plannedOutput": "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png",
+  "plannedStates": {
+    "idle": 8,
+    "move": 8,
+    "attack": 8,
+    "hit": 4,
+    "death": 4
+  },
+  "runtimeApproved": false,
+  "prompt": "prompts/enemy-wolf-battle-v1-sheet.txt",
+  "concurrency": "one asset task, one image call at a time; no browser during generation",
+  "previousEvidenceBackup": "work/wolf-preflight-backup-20261010T091809Z"
+}

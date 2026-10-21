@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-14T02:36:21.403Z",
+  "result": "PASS_EVIDENCE_HANDOFF_CONSISTENCY_ONLY",
+  "protectedFilesChecked": 186,
+  "protectedChanged": [],
+  "newScreenshotsChecked": 6,
+  "freshNpmDate": "2026-10-14T02:30:57.261Z",
+  "technicalSingleMaskComparisonRecorded": true,
+  "artisticReadabilityNotPassed": true,
+  "allApprovalGatesRemainFalse": true,
+  "docAndHandoffSha256": {
+    "STATUS.md": "f2c9cd69a75ff7fa6bede2d9806dc0c1ba5c42206ed0414ea5545c1f614ec5f2",
+    "docs/REQUIREMENTS-ACCEPTANCE.md": "5115646a6ac568af3d641bbc6e91ef2540f358a51606b8a5a12b580e75aefc72",
+    "docs/FINAL-REPORT.md": "2e272d04d92374109f532ee3c78b016ba8d0d7599a8e80623e651b98b2eb1ba2",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md": "24135bd390cf8e60e9d283f69d5896d5484188f3701bb5d905653ae0f522e85b",
+    "evidence/current/tiger-vanguard/player-outline-draft/2026-10-14T02-27-22-432Z/review.md": "ca27760d7c86d3645373d68c0d096ef102b4e6f883b26278e557e661e55dd3fb",
+    "evidence/current/tiger-vanguard/player-outline-draft/2026-10-14T02-27-22-432Z/handoff.json": "a52b75d9254a710e6b5249f79e8a93eea302c8d77be9a461ab025a15e9ec71f1",
+    "evidence/current/tiger-vanguard/player-outline-draft/2026-10-14T02-27-22-432Z/post-test-integrity.json": "e09d36ef38baf5214e862a74d0d51267cfbe4abce9fa4b1f91d48eb74d8c50a1"
+  },
+  "productionChanged": false,
+  "sourceImagesChanged": false,
+  "zipChanged": false,
+  "publicRetested": false,
+  "releaseReady": false
+}

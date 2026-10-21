@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-10-10T05:02:10.191Z",
+  "scope": "Bear candidate registration and evidence consistency only; no runtime approval, deployment, video playback or public acceptance",
+  "result": "PASS",
+  "checks": {
+    "pngHash": true,
+    "dimensions": true,
+    "bytes": true,
+    "unapproved": true,
+    "states": true,
+    "manifestRegisteredOnce": true,
+    "aiInventoryRegistered": true,
+    "preflightPass": true,
+    "isolatedBrowserPass": true,
+    "mediaUnchanged": true,
+    "assetAuditPass": true,
+    "currentTestsPass": true,
+    "runtimeIsolation": true,
+    "releasesUnchanged": true,
+    "currentRuntimeMatchesPriorStaging": true
+  },
+  "isolation": {
+    "prototype-2d/native-app.js": true,
+    "scripts/serve.mjs": true,
+    "scripts/release.mjs": true
+  },
+  "releaseChecks": [
+    {
+      "channel": "web",
+      "bytesMatch": true,
+      "sha256Match": true,
+      "bearAbsent": true
+    },
+    {
+      "channel": "wechatGame",
+      "bytesMatch": true,
+      "sha256Match": true,
+      "bearAbsent": true
+    }
+  ],
+  "changedRuntime": [],
+  "assetSha256": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+  "browserStartedAt": "2026-10-10T04:46:20.226Z",
+  "testCompletedAt": "2026-10-10T04:57:07.185Z",
+  "inventory": {
+    "files": 74,
+    "uniqueSha256": 70,
+    "duplicateGroups": 4
+  },
+  "videoPlaybackValidated": false,
+  "approvedForRuntime": false,
+  "processReview": {
+    "checkedAt": "2026-10-10T05:02:43.2373081Z",
+    "matchingPreflightOrPlaywrightRoots": [],
+    "totalMemoryKiB": 33449580,
+    "freeMemoryKiB": 22545644,
+    "note": "Read-only query for browser-bear-preflight Node and Playwright Edge root processes only; no process terminated. Not a whole-machine no-browser or future 429 guarantee."
+  }
+}

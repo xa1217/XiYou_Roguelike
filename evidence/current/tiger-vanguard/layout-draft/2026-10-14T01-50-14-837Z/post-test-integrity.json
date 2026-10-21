@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-10-14T01:57:19.813Z",
+  "result": "PASS_POST_TEST_EVIDENCE_INTEGRITY_ONLY",
+  "protectedFilesChecked": 156,
+  "protectedChanged": [],
+  "protectedBeforeAfterEqual": true,
+  "newScreenshotsChecked": 9,
+  "screenshotSha256": {
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/real-ui-before-fixture.png": "6c203a3b82f093e562db5e404c80e420ed99a95604bc9b4724226efd24c62f9f",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/world-start-move-before.png": "e71ffbd3f34137353b21abe404eff12d12d212952bda20f5de5b386b081e8a98",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/world-start-move-after.png": "98fb1382e1f97576c6b59646c227356f5f5d27123d7ff7cfad94dfaa6c01699e",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/world-follow-move-before.png": "5839792385e6ee21c7b12dbb49fce60d00d2b5533bc4b6e35e0bef050855ed02",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/world-follow-move-after.png": "b5e98909e29437ec6f1f0084fc81a956643c88cb6c2d3aa5593caa6fe0057dd9",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/hit-after-actual-timer-before.png": "6a858e261bd31de1e909c57e350de38905413aee790eb91ca533fba448f59a39",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/hit-after-actual-timer-after.png": "8c658c94991d6ab7d6cc08196097a8b71409195d4bb27b42a56095fa551d3d4a",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/death-frame31-no-bar.png": "e0e0b5faa005b5a15e5315bdd2e23a87745366a9d133228929617dad7eab5bad",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/original-death-expired.png": "0c11aa79df6c170b89cce516ce8c8498aca14a8b65f26fc912358533719f4eb5"
+  },
+  "scriptAndEvidenceSha256": {
+    "scripts/tiger-vanguard-layout-draft.mjs": "5ab6d88850f62ce36388e72155a526c79844b13fbc79a4a83b5466c458bc9cd9",
+    "scripts/tiger-vanguard-layout-smoke.mjs": "98d18af30990bb736945cbe965b1c091d726ba888d61e577e7c0107bf8b3c2f3",
+    "scripts/browser-tiger-vanguard-layout-draft.mjs": "fc22ae52ee2462396e3e2bde7cb2c3f9443b792478da0c1e6885877dc43689a1",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/layout-draft.json": "35cc74c1353e0004948cf1c3c3dca72c23bc66bb27ea69dbd30d7a18a345023c",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/node.json": "3479e64f9abc36cb980f3ce5603d081a842588b923488247de472cd412922603",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/browser.json": "9da917c7e2bc38fc60233fac3e1880f5d8f4be0bdaf3745f33f582787fdef5fe",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/npm-test.txt": "ee60f3ad603bc0ec9b045a950c2d61d65ad753e5a5abcbbd5875dc042018d487",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/npm-validation.json": "b7f1f59e57b7170e7e13bab536f86994c29cfd4bf64ea641b9ab3b8ae826b613"
+  },
+  "freshNpmDate": "2026-10-14T01:55:27.487Z",
+  "freshNpmResult": "PASS",
+  "fullNpmLogWithoutTruncation": true,
+  "browserClosed": true,
+  "contextClosed": true,
+  "serverClosed": true,
+  "productionChanged": false,
+  "sourceImagesChanged": false,
+  "zipChanged": false,
+  "publicPass": false,
+  "releaseReady": false
+}

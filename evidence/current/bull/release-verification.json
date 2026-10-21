@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-10-10T09:06:23.2135131Z",
+  "result": "PASS",
+  "scope": "Local candidate archive content verification; browser and public-network acceptance are separate",
+  "channels": [
+    {
+      "channel": "web",
+      "zip": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "bytes": 12591435,
+      "sha256": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+      "entries": 46,
+      "expectedEntries": 46,
+      "manifestMatches": true,
+      "internalManifestMatches": true,
+      "allowlistMatches": true,
+      "bytesMatch": true,
+      "hashMatches": true,
+      "forbidden": [],
+      "contentFailures": [],
+      "result": "PASS"
+    },
+    {
+      "channel": "wechatGame",
+      "zip": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "bytes": 5043614,
+      "sha256": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+      "entries": 25,
+      "expectedEntries": 25,
+      "manifestMatches": true,
+      "internalManifestMatches": true,
+      "allowlistMatches": true,
+      "bytesMatch": true,
+      "hashMatches": true,
+      "forbidden": [],
+      "contentFailures": [],
+      "result": "PASS"
+    }
+  ],
+  "extractedForBrowser": true,
+  "extractDirectory": "work/release-validation/bull-20261010T090309Z",
+  "sourceProvenanceRetained": true,
+  "publicContractsRuntimeOnly": true,
+  "deployed": false
+}

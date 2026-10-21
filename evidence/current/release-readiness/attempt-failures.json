@@ -1,0 +1,10 @@
+{
+  "scope": "Read-only release-readiness audit attempts; no package or runtime writes",
+  "failures": [
+    { "stage": "restricted first run", "error": "spawnSync git EPERM; rerun with scoped approval" },
+    { "stage": "approved rerun before correction", "error": "ReferenceError from audit script variable rename; no report written" }
+  ],
+  "resolution": "The script was corrected to use expectedWebAssets and rerun successfully; successful report is in the newest timestamped directory.",
+  "productionChanged": false,
+  "deploy": false
+}

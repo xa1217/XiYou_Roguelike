@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-10-15T18:15:13Z",
+  "scope": "read-only post-generation-failure inventory",
+  "result": "NO_CANDIDATE_CREATED_PROTECTED_FILES_UNCHANGED",
+  "candidateDirectoryFiles": [
+    "generation-attempt-20261015T175629Z.json",
+    "generation-attempt-20261015T180213Z.json"
+  ],
+  "candidatePngPresent": false,
+  "protected": [
+    { "path": "prototype-2d/assets/enemy-bear-battle-v1-sheet.png", "bytes": 978099, "sha256": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f" },
+    { "path": "prototype-2d/assets/enemy-bear-battle-v1-frames.json", "bytes": 5705, "sha256": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9" },
+    { "path": "prototype-2d/assets/manifest.json", "bytes": 45919, "sha256": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad" },
+    { "path": "prototype-2d/native-app.js", "bytes": 12286, "sha256": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8" },
+    { "path": "dist/xiyou-survivor-web-v1.0.0.zip", "bytes": 20597620, "sha256": "571199412a54e9fc5bb09afe5eebf371f7b35ed3967bf884927c1b0b481724f6" },
+    { "path": "dist/xiyou-survivor-wechat-game-v1.0.0.zip", "bytes": 5050925, "sha256": "e81ad08055084bb870c894e92c136d078fdd88e69f97dda6cdc76e06e7e821c3" }
+  ],
+  "productionWrite": false,
+  "runtimeWrite": false,
+  "zipWrite": false,
+  "deploymentAttempted": false
+}

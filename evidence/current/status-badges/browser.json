@@ -1,0 +1,5484 @@
+{
+  "generatedAt": "2026-10-10T08:38:29.873Z",
+  "url": "http://127.0.0.1:8091/",
+  "result": "PASS",
+  "scope": "local real Edge; not external public or WeChat device",
+  "pageErrors": [],
+  "failedRequests": [],
+  "screenshots": [
+    {
+      "name": "natural-battle-390x844",
+      "file": "evidence/current/status-badges/natural-battle-390x844.png",
+      "bytes": 52072,
+      "sha256": "5779db4e05c84a9f6afffe96d173776f6ced822ee05bf63c99f916b4cbd62396"
+    },
+    {
+      "name": "natural-paused-a",
+      "file": "evidence/current/status-badges/natural-paused-a.png",
+      "bytes": 32353,
+      "sha256": "cdd87d2a10fd0c8679938e920ea9610098f4a9165bdb30682623c1ba346355ef"
+    },
+    {
+      "name": "natural-paused-b",
+      "file": "evidence/current/status-badges/natural-paused-b.png",
+      "bytes": 32353,
+      "sha256": "cdd87d2a10fd0c8679938e920ea9610098f4a9165bdb30682623c1ba346355ef"
+    },
+    {
+      "name": "fixture-status-390x844",
+      "file": "evidence/current/status-badges/fixture-status-390x844.png",
+      "bytes": 107151,
+      "sha256": "2039822d343157534a16613a75db8eb6ea830c877a273320306fc65a61a2fa5e"
+    },
+    {
+      "name": "fixture-recovered-390x844",
+      "file": "evidence/current/status-badges/fixture-recovered-390x844.png",
+      "bytes": 105757,
+      "sha256": "17e54e61592a55d095e70f64692ad4edda44b1212746da93d24087ffef65bce2"
+    },
+    {
+      "name": "fixture-crowd-390x844",
+      "file": "evidence/current/status-badges/fixture-crowd-390x844.png",
+      "bytes": 438553,
+      "sha256": "b9b647d85c4eafa5202a3ed4d55536a35ccbbb89e6f2253ce69c07097cbeab7b"
+    },
+    {
+      "name": "fixture-status-360x640",
+      "file": "evidence/current/status-badges/fixture-status-360x640.png",
+      "bytes": 87728,
+      "sha256": "3e5be3025605a56c6796622989546997d205dc31a14e4e58b8654d5d931a691f"
+    },
+    {
+      "name": "fixture-recovered-360x640",
+      "file": "evidence/current/status-badges/fixture-recovered-360x640.png",
+      "bytes": 86513,
+      "sha256": "5b2feb96d088684d8fafd6b8a1217c987d098f77dbbf14138a71c39684607b90"
+    },
+    {
+      "name": "fixture-crowd-360x640",
+      "file": "evidence/current/status-badges/fixture-crowd-360x640.png",
+      "bytes": 374173,
+      "sha256": "53794d5c32584e49f0056d5dd2fbc3aa80291ad7499137aa14729cf2d9647f77"
+    }
+  ],
+  "fixtures": [
+    {
+      "mode": "status",
+      "width": 390,
+      "height": 844,
+      "glyphs": [
+        {
+          "glyph": "慢",
+          "x": 900,
+          "y": 728.25,
+          "width": 16
+        },
+        {
+          "glyph": "退",
+          "x": 985,
+          "y": 728.25,
+          "width": 16
+        },
+        {
+          "glyph": "晕",
+          "x": 815,
+          "y": 938.25,
+          "width": 16
+        },
+        {
+          "glyph": "燃",
+          "x": 900,
+          "y": 938.25,
+          "width": 16
+        },
+        {
+          "glyph": "血",
+          "x": 985,
+          "y": 938.25,
+          "width": 16
+        }
+      ],
+      "rects": [
+        {
+          "left": 892,
+          "right": 908,
+          "top": 720.25,
+          "bottom": 736.25
+        },
+        {
+          "left": 977,
+          "right": 993,
+          "top": 720.25,
+          "bottom": 736.25
+        },
+        {
+          "left": 807,
+          "right": 823,
+          "top": 930.25,
+          "bottom": 946.25
+        },
+        {
+          "left": 892,
+          "right": 908,
+          "top": 930.25,
+          "bottom": 946.25
+        },
+        {
+          "left": 977,
+          "right": 993,
+          "top": 930.25,
+          "bottom": 946.25
+        }
+      ],
+      "stats": {
+        "enemies": 6,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 5,
+        "statusBadges": 5,
+        "statusSuppressed": 0
+      },
+      "checks": {
+        "semantic": true,
+        "bounded": true,
+        "nonOverlapping": true,
+        "avoidsPlayer": true,
+        "inView": true,
+        "noMutation": true,
+        "tigerClearance": true,
+        "repeatedDrawStable": true
+      }
+    },
+    {
+      "mode": "recovered",
+      "width": 390,
+      "height": 844,
+      "glyphs": [],
+      "rects": [],
+      "stats": {
+        "enemies": 6,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 0,
+        "statusBadges": 0,
+        "statusSuppressed": 0
+      },
+      "checks": {
+        "semantic": true,
+        "bounded": true,
+        "nonOverlapping": true,
+        "avoidsPlayer": true,
+        "inView": true,
+        "noMutation": true,
+        "tigerClearance": true,
+        "repeatedDrawStable": true
+      }
+    },
+    {
+      "mode": "crowd",
+      "width": 390,
+      "height": 844,
+      "glyphs": [
+        {
+          "glyph": "慢",
+          "x": 1006.5,
+          "y": 966.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 792,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 811.5,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 831,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 850.5,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 870,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 889.5,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 909,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 928.5,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 948,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 967.5,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 987,
+          "y": 708.25,
+          "width": 16
+        }
+      ],
+      "rects": [
+        {
+          "left": 998.5,
+          "right": 1014.5,
+          "top": 958.25,
+          "bottom": 974.25
+        },
+        {
+          "left": 784,
+          "right": 800,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 803.5,
+          "right": 819.5,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 823,
+          "right": 839,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 842.5,
+          "right": 858.5,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 862,
+          "right": 878,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 881.5,
+          "right": 897.5,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 901,
+          "right": 917,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 920.5,
+          "right": 936.5,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 940,
+          "right": 956,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 959.5,
+          "right": 975.5,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 979,
+          "right": 995,
+          "top": 700.25,
+          "bottom": 716.25
+        }
+      ],
+      "stats": {
+        "enemies": 132,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 132,
+        "statusBadges": 12,
+        "statusSuppressed": 120
+      },
+      "checks": {
+        "semantic": true,
+        "bounded": true,
+        "nonOverlapping": true,
+        "avoidsPlayer": true,
+        "inView": true,
+        "noMutation": true,
+        "tigerClearance": true,
+        "repeatedDrawStable": true
+      }
+    },
+    {
+      "mode": "status",
+      "width": 360,
+      "height": 640,
+      "glyphs": [
+        {
+          "glyph": "慢",
+          "x": 900,
+          "y": 728.25,
+          "width": 16
+        },
+        {
+          "glyph": "退",
+          "x": 985,
+          "y": 728.25,
+          "width": 16
+        },
+        {
+          "glyph": "晕",
+          "x": 815,
+          "y": 938.25,
+          "width": 16
+        },
+        {
+          "glyph": "燃",
+          "x": 900,
+          "y": 938.25,
+          "width": 16
+        },
+        {
+          "glyph": "血",
+          "x": 985,
+          "y": 938.25,
+          "width": 16
+        }
+      ],
+      "rects": [
+        {
+          "left": 892,
+          "right": 908,
+          "top": 720.25,
+          "bottom": 736.25
+        },
+        {
+          "left": 977,
+          "right": 993,
+          "top": 720.25,
+          "bottom": 736.25
+        },
+        {
+          "left": 807,
+          "right": 823,
+          "top": 930.25,
+          "bottom": 946.25
+        },
+        {
+          "left": 892,
+          "right": 908,
+          "top": 930.25,
+          "bottom": 946.25
+        },
+        {
+          "left": 977,
+          "right": 993,
+          "top": 930.25,
+          "bottom": 946.25
+        }
+      ],
+      "stats": {
+        "enemies": 6,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 5,
+        "statusBadges": 5,
+        "statusSuppressed": 0
+      },
+      "checks": {
+        "semantic": true,
+        "bounded": true,
+        "nonOverlapping": true,
+        "avoidsPlayer": true,
+        "inView": true,
+        "noMutation": true,
+        "tigerClearance": true,
+        "repeatedDrawStable": true
+      }
+    },
+    {
+      "mode": "recovered",
+      "width": 360,
+      "height": 640,
+      "glyphs": [],
+      "rects": [],
+      "stats": {
+        "enemies": 6,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 0,
+        "statusBadges": 0,
+        "statusSuppressed": 0
+      },
+      "checks": {
+        "semantic": true,
+        "bounded": true,
+        "nonOverlapping": true,
+        "avoidsPlayer": true,
+        "inView": true,
+        "noMutation": true,
+        "tigerClearance": true,
+        "repeatedDrawStable": true
+      }
+    },
+    {
+      "mode": "crowd",
+      "width": 360,
+      "height": 640,
+      "glyphs": [
+        {
+          "glyph": "慢",
+          "x": 1006.5,
+          "y": 966.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 792,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 811.5,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 831,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 850.5,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 870,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 889.5,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 909,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 928.5,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 948,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 967.5,
+          "y": 708.25,
+          "width": 16
+        },
+        {
+          "glyph": "慢",
+          "x": 987,
+          "y": 708.25,
+          "width": 16
+        }
+      ],
+      "rects": [
+        {
+          "left": 998.5,
+          "right": 1014.5,
+          "top": 958.25,
+          "bottom": 974.25
+        },
+        {
+          "left": 784,
+          "right": 800,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 803.5,
+          "right": 819.5,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 823,
+          "right": 839,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 842.5,
+          "right": 858.5,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 862,
+          "right": 878,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 881.5,
+          "right": 897.5,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 901,
+          "right": 917,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 920.5,
+          "right": 936.5,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 940,
+          "right": 956,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 959.5,
+          "right": 975.5,
+          "top": 700.25,
+          "bottom": 716.25
+        },
+        {
+          "left": 979,
+          "right": 995,
+          "top": 700.25,
+          "bottom": 716.25
+        }
+      ],
+      "stats": {
+        "enemies": 132,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 132,
+        "statusBadges": 12,
+        "statusSuppressed": 120
+      },
+      "checks": {
+        "semantic": true,
+        "bounded": true,
+        "nonOverlapping": true,
+        "avoidsPlayer": true,
+        "inView": true,
+        "noMutation": true,
+        "tigerClearance": true,
+        "repeatedDrawStable": true
+      }
+    }
+  ],
+  "browser": "155.0.4283.45",
+  "natural": {
+    "seed": 620149610,
+    "status": "playing",
+    "time": 12.019400000005998,
+    "samples": [
+      {
+        "time": 0.06940000000596047,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.11940000000596047,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.16940000000596048,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.2194000000059605,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.2694000000059605,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.31940000000596047,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.36940000000596046,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.41940000000596045,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.46940000000596044,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.5194000000059604,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.5694000000059605,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.6194000000059605,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.6694000000059606,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.7194000000059606,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.7694000000059606,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.8194000000059607,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.8694000000059607,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.9194000000059608,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 0.9694000000059608,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.0194000000059609,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.069400000005961,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.119400000005961,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.169400000005961,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 0,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.219400000005961,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.269400000005961,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.3194000000059611,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.3694000000059612,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.4194000000059612,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.4694000000059613,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.5194000000059613,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.5694000000059614,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.6194000000059614,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.6694000000059614,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.7194000000059615,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.7694000000059615,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.8194000000059616,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.8694000000059616,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.9194000000059617,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 1.9694000000059617,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.0194000000059615,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.0694000000059614,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.119400000005961,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.169400000005961,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.219400000005961,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.2694000000059606,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.3194000000059605,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 1,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.3694000000059603,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.41940000000596,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.46940000000596,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.5194000000059598,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.5694000000059596,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.6194000000059594,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.6694000000059592,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.719400000005959,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.769400000005959,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.8194000000059587,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.8694000000059585,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.9194000000059583,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 2.969400000005958,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.019400000005958,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.069400000005958,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.1194000000059576,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.1694000000059575,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.2194000000059573,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.269400000005957,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.319400000005957,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.3694000000059567,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.4194000000059566,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.4694000000059564,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.519400000005956,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 2,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.569400000005956,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.619400000005956,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.6694000000059557,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.7194000000059555,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.7694000000059553,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.819400000005955,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.869400000005955,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.919400000005955,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 3.9694000000059546,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.019400000005954,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.069400000005954,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.119400000005954,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.169400000005954,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.219400000005954,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.2694000000059535,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.319400000005953,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.369400000005953,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.419400000005953,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.469400000005953,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.519400000005953,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.5694000000059525,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.619400000005952,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.669400000005952,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 3,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.719400000005952,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.769400000005952,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.819400000005952,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.869400000005951,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.919400000005951,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 4.969400000005951,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.019400000005951,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.069400000005951,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.1194000000059505,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.16940000000595,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.21940000000595,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.26940000000595,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.31940000000595,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.36940000000595,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.4194000000059495,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.469400000005949,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.519400000005949,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.569400000005949,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.619400000005949,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.669400000005949,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.719400000005948,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.769400000005948,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.819400000005948,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.869400000005948,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.919400000005948,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 5.9694000000059475,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.019400000005947,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.069400000005947,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.119400000005947,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.169400000005947,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.219400000005947,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.269400000005946,
+        "visible": 0,
+        "normalSpeed": 0,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 0,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.319400000005946,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.369400000005946,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.419400000005946,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.469400000005946,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.5194000000059456,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.569400000005945,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.619400000005945,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.669400000005945,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.719400000005945,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.769400000005945,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.8194000000059445,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.869400000005944,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.919400000005944,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 6.969400000005944,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.019400000005944,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.069400000005944,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.119400000005943,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.169400000005943,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.219400000005943,
+        "visible": 1,
+        "normalSpeed": 1,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 1,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.269400000005943,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.319400000005943,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.3694000000059425,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.419400000005942,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.469400000005942,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.519400000005942,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.569400000005942,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.619400000005942,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.6694000000059415,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.719400000005941,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.769400000005941,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.819400000005941,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.869400000005941,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.919400000005941,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 7.96940000000594,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.019400000005941,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.069400000005942,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.119400000005943,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.169400000005943,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 4,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.219400000005944,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.269400000005945,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.319400000005945,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.369400000005946,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.419400000005947,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.469400000005948,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.519400000005948,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.569400000005949,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.61940000000595,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.66940000000595,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.719400000005951,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.769400000005952,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.819400000005952,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.869400000005953,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.919400000005954,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 8.969400000005955,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.019400000005955,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.069400000005956,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.119400000005957,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.169400000005957,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.219400000005958,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.269400000005959,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.31940000000596,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.36940000000596,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.419400000005961,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.469400000005962,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.519400000005962,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.569400000005963,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.619400000005964,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.669400000005965,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.719400000005965,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.769400000005966,
+        "visible": 2,
+        "normalSpeed": 2,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 2,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.819400000005967,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.869400000005967,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.919400000005968,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 9.969400000005969,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.01940000000597,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.06940000000597,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.119400000005971,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.169400000005972,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.219400000005972,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.269400000005973,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.319400000005974,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.369400000005975,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.419400000005975,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.469400000005976,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.519400000005977,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 5,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.569400000005977,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.619400000005978,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.669400000005979,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.71940000000598,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.76940000000598,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.819400000005981,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.869400000005982,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.919400000005982,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 10.969400000005983,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.019400000005984,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.069400000005984,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.119400000005985,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.169400000005986,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.219400000005987,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.269400000005987,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.319400000005988,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.369400000005989,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.41940000000599,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.46940000000599,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.51940000000599,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.569400000005992,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.619400000005992,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.669400000005993,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.719400000005994,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 7,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.769400000005994,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 7,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.819400000005995,
+        "visible": 3,
+        "normalSpeed": 3,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 3,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 7,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.869400000005996,
+        "visible": 4,
+        "normalSpeed": 4,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 4,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.919400000005997,
+        "visible": 4,
+        "normalSpeed": 4,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 4,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 11.969400000005997,
+        "visible": 4,
+        "normalSpeed": 4,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 4,
+          "projectiles": 0,
+          "effects": 0,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      },
+      {
+        "time": 12.019400000005998,
+        "visible": 4,
+        "normalSpeed": 4,
+        "slowed": 0,
+        "glyphs": [],
+        "stats": {
+          "enemies": 4,
+          "projectiles": 0,
+          "effects": 1,
+          "gems": 0,
+          "culledEnemies": 6,
+          "culledProjectiles": 0,
+          "culledEffects": 0,
+          "culledGems": 0,
+          "statusCandidates": 0,
+          "statusBadges": 0,
+          "statusSuppressed": 0
+        }
+      }
+    ],
+    "note": "Normal pointer entry then 240 production updates with legal upgrade input; no debug, spawn, HP, time or enemy-state mutation."
+  },
+  "pause": {
+    "clockA": 12.019400000005998,
+    "clockB": 12.019400000005998,
+    "imageFrozen": true,
+    "resumed": true
+  },
+  "checks": {
+    "normalEnemiesObserved": true,
+    "noFalseSlow": true,
+    "pauseResume": true,
+    "fixtures": true,
+    "noErrors": true
+  }
+}

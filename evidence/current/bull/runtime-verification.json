@@ -1,0 +1,695 @@
+{
+  "generatedAt": "2026-10-10T08:54:43.118Z",
+  "result": "PASS",
+  "scope": "First-stage ordinary bull local workspace integration and regression only; final visual quality, archive/public-network/WeChat-device acceptance remain separate",
+  "heartbeatAt": "2026-10-10T08:27:08.858Z",
+  "checks": {
+    "originalPngUnchanged": true,
+    "approvedForLocalRuntimeOnly": true,
+    "measuredRuntimeFieldsUnchanged": true,
+    "identityRestricted": true,
+    "frameCounts": true,
+    "fixedScaleAndRoots": true,
+    "bullNodePass": true,
+    "naturalCoverage": true,
+    "naturalBothFacing": true,
+    "pauseResume": true,
+    "realBullBrowserPass": true,
+    "runtimeScreenshotsMatch": true,
+    "freshSerialBrowserReports": true,
+    "finalValidationPass": true,
+    "publicContractTestsPass": true,
+    "publicWorkspaceNotArchive": true,
+    "publicBullResourceLoaded": true,
+    "publicIsolationAndContracts": true,
+    "publicNormalFlow": true,
+    "assetAuditPass": true,
+    "archivesUnchangedWithoutBull": true,
+    "stableEngineRendererAndExistingSpecies": true,
+    "backupRecordsMatch": true,
+    "historicalArchiveEvidenceRetained": true,
+    "runtimeReleaseConfigurationContainsBull": true,
+    "ownBrowserAndServiceClosed": true
+  },
+  "asset": {
+    "file": "prototype-2d/assets/enemy-bull-battle-v1-sheet.png",
+    "bytes": 1137073,
+    "sha256": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb"
+  },
+  "contract": {
+    "file": "prototype-2d/assets/enemy-bull-battle-v1-frames.json",
+    "bytes": 5874,
+    "sha256": "0598eaa0466960bf009b5d2df30c3fe0e1b1729e820d9f6045136115343aa2c2",
+    "approvedForRuntime": true,
+    "frameCounts": {
+      "idle": 8,
+      "move": 8,
+      "attack": 8,
+      "hit": 4,
+      "death": 4
+    },
+    "referenceBodyHeight": 150,
+    "identity": {
+      "stageId": 1,
+      "kind": "normal",
+      "variant": "bull",
+      "excluded": [
+        "特处士",
+        "待处士",
+        "elite",
+        "other stages"
+      ]
+    },
+    "publicProjectionUnchangedFromCandidate": true
+  },
+  "browser": {
+    "generatedAt": "2026-10-10T08:31:23.557Z",
+    "finishedAt": "2026-10-10T08:31:28.638Z",
+    "url": "http://127.0.0.1:8091/",
+    "mode": "UI entry, then accelerated production update with legal movement/upgrade input; no debug or HP/spawn/kill/time mutation",
+    "natural": {
+      "seed": 619723271,
+      "time": 24.363100000009144,
+      "status": "playing",
+      "seen": {
+        "move": [
+          4,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2,
+          3
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 2,
+        "kills": 1
+      },
+      "steps": 484,
+      "upgrades": 0,
+      "peakEnemies": 14,
+      "peakEffects": 4,
+      "renderP95Ms": 0.5,
+      "mapAssetDraws": 0,
+      "note": "Accelerated real production simulation and Canvas draws; render timings are desktop samples, not phone FPS."
+    },
+    "checks": {
+      "naturalFrames": true,
+      "naturalDamageAndDeath": true,
+      "bothOrientations": true,
+      "pauseResume": true,
+      "noStaticBattleMap": true,
+      "boundedActors": true,
+      "fixture32Each": true,
+      "noErrors": true
+    },
+    "browserClosed": true,
+    "coverageBoundary": "Natural frames are submitted visible-area drawImage calls, not guaranteed unobstructed pixels or each frame in both directions. Full mirrored coverage is a separately labelled renderer fixture."
+  },
+  "screenshots": [
+    {
+      "file": "evidence/current/bull/natural-move-0.png",
+      "bytes": 59937,
+      "sha256": "a14758c331cc33a5c96d2b8ca91d0aed9325782d61d570a3954ef6bb582ec299",
+      "name": "natural-move-0",
+      "matchesBrowserRecord": true
+    },
+    {
+      "file": "evidence/current/bull/natural-attack-0.png",
+      "bytes": 67008,
+      "sha256": "62821fdfe42eb55cb64f62ce38c6ae218333942b69fc8fe1a0c55c34934f28f1",
+      "name": "natural-attack-0",
+      "matchesBrowserRecord": true
+    },
+    {
+      "file": "evidence/current/bull/runtime-paused-a.png",
+      "bytes": 38321,
+      "sha256": "61684365be68d3e1ad18f1b7867954f56a1c4e63d808f89879d13ee548efc234",
+      "name": "runtime-paused-a",
+      "matchesBrowserRecord": true
+    },
+    {
+      "file": "evidence/current/bull/runtime-paused-b.png",
+      "bytes": 38321,
+      "sha256": "61684365be68d3e1ad18f1b7867954f56a1c4e63d808f89879d13ee548efc234",
+      "name": "runtime-paused-b",
+      "matchesBrowserRecord": true
+    },
+    {
+      "file": "evidence/current/bull/natural-hit-3.png",
+      "bytes": 61876,
+      "sha256": "d8e09acfbe3781ca670fb46d0f89ae6964603de615dcb09d2b27c89d194e1664",
+      "name": "natural-hit-3",
+      "matchesBrowserRecord": true
+    },
+    {
+      "file": "evidence/current/bull/natural-attack-7.png",
+      "bytes": 64237,
+      "sha256": "5ecf200390f0f62d974240d0d8f408c5a2c2d1492979be64b97a9f0f344f82b0",
+      "name": "natural-attack-7",
+      "matchesBrowserRecord": true
+    },
+    {
+      "file": "evidence/current/bull/natural-death-0.png",
+      "bytes": 71693,
+      "sha256": "1e75b0eca7a0a65d11c76d5c31a05cb84ca4fc7fbf515d4f2779c2b8a121bd4f",
+      "name": "natural-death-0",
+      "matchesBrowserRecord": true
+    },
+    {
+      "file": "evidence/current/bull/natural-death-3.png",
+      "bytes": 65264,
+      "sha256": "71fe6e21a2c4a7eb0147dc7699e7799445f34c99fc2f04a19be383efd9314868",
+      "name": "natural-death-3",
+      "matchesBrowserRecord": true
+    },
+    {
+      "file": "evidence/current/bull/runtime-natural-battle.png",
+      "bytes": 65264,
+      "sha256": "71fe6e21a2c4a7eb0147dc7699e7799445f34c99fc2f04a19be383efd9314868",
+      "name": "runtime-natural-battle",
+      "matchesBrowserRecord": true
+    },
+    {
+      "file": "evidence/current/bull/runtime-fixture-right.png",
+      "bytes": 136930,
+      "sha256": "d3b1edd23fee4e8a8f604e4133797229225b36b1a863ec0306f28499397bfd10",
+      "name": "runtime-fixture-right",
+      "matchesBrowserRecord": true
+    },
+    {
+      "file": "evidence/current/bull/runtime-fixture-left.png",
+      "bytes": 136984,
+      "sha256": "5973f963f164c9ccbcc125c2f62c012073bc8e031ccf794c9cd3dd9babf3665e",
+      "name": "runtime-fixture-left",
+      "matchesBrowserRecord": true
+    }
+  ],
+  "evidence": [
+    {
+      "file": "evidence/current/bull/browser-runtime.json",
+      "bytes": 13555,
+      "sha256": "e76192b3815d793601e8af2dd8e343ebcfa5e41fe37d2ac2c294d3e7c72cf8b4",
+      "reportedAt": "2026-10-10T08:31:23.557Z",
+      "finishedAt": "2026-10-10T08:31:28.638Z",
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/bull/engine-runtime.json",
+      "bytes": 2227,
+      "sha256": "da3164fb6123615fad345662eff7e419ad12a3c8f1bb8c459a5db6aee6df24fc",
+      "reportedAt": "2026-10-10T08:44:38.326Z",
+      "finishedAt": null,
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/bull/public-contract-node.json",
+      "bytes": 1180,
+      "sha256": "5ba5595680d2dea59d470dfb773221cd24b6c669c1cf4fced494eeb29e0d2fa5",
+      "reportedAt": "2026-10-10T08:44:37.997Z",
+      "finishedAt": null,
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/tiger/browser-runtime.json",
+      "bytes": 14336,
+      "sha256": "ad60b500c4b6cc197fce9b93d0908626905530e13c06831baaf02ae0bfd8ad5b",
+      "reportedAt": "2026-10-10T08:33:40.422Z",
+      "finishedAt": null,
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/bear/browser-runtime.json",
+      "bytes": 13242,
+      "sha256": "9c5193bdff960e8148c88ad46e363a018f669f5764a0c41d655c392bb0d69d74",
+      "reportedAt": "2026-10-10T08:33:53.866Z",
+      "finishedAt": "2026-10-10T08:33:58.042Z",
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/animation/browser-animation-smoke.json",
+      "bytes": 87194,
+      "sha256": "131591fdaef1ad6f4d1f202f3acbfd893967e5c489b101d786f13e38183d90b0",
+      "reportedAt": "2026-10-10T08:34:57.596Z",
+      "finishedAt": null,
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/visual.json",
+      "bytes": 51369,
+      "sha256": "eaf7b95f9cc50352ee0bcd0259fccb9e91f37560ad13a463619123615e18df13",
+      "reportedAt": "2026-10-10T08:37:04.446Z",
+      "finishedAt": null,
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/status-badges/browser.json",
+      "bytes": 131343,
+      "sha256": "92112845517f031c3a410ce2c6a0e979791d78498c65ca3094c4234afb079da8",
+      "reportedAt": "2026-10-10T08:38:29.873Z",
+      "finishedAt": null,
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/status-badges/node.json",
+      "bytes": 1880,
+      "sha256": "cb87cf124d36f683bcf88db91339ebaa683209a3faac6477d6798c8681064e50",
+      "reportedAt": "2026-10-10T08:44:38.350Z",
+      "finishedAt": null,
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/browser-public-smoke.json",
+      "bytes": 11338,
+      "sha256": "bb446f66f6e7f77a972a098492d2fc2f965fd783e59f4d0adb9065628d47608b",
+      "reportedAt": "2026-10-10T08:38:43.665Z",
+      "finishedAt": null,
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/validation.json",
+      "bytes": 170,
+      "sha256": "7cd39da9ab87c372e90b5d3514cdb0b745e411176dab77d681198932ab3cddb9",
+      "reportedAt": "2026-10-10T08:44:42.950Z",
+      "finishedAt": null,
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/asset-dedup-audit.json",
+      "bytes": 16689,
+      "sha256": "336e932dddd3b39f72ecde3de5bf5c41745071cc0d7c92c913f62c1612199bb7",
+      "reportedAt": "2026-10-10T08:44:37.075Z",
+      "finishedAt": null,
+      "result": "PASS"
+    },
+    {
+      "file": "evidence/current/bull/process-cleanup.json",
+      "bytes": 604,
+      "sha256": "72d480883a7870bf1eb3bc18d2feb3914131b0e1860008f6a524d0a8a5b9381b",
+      "reportedAt": "2026-10-10T08:51:39.6823657Z",
+      "finishedAt": null,
+      "result": null
+    }
+  ],
+  "validation": {
+    "date": "2026-10-10T08:44:42.950Z",
+    "version": "1.0.0",
+    "result": "PASS",
+    "mainBytes": 2447601,
+    "artBytes": 3072775,
+    "totalBytes": 5520376,
+    "errors": [],
+    "nodeTestCounts": {
+      "engine": 17,
+      "tiger": 11,
+      "bear": 13,
+      "bull": 13,
+      "status": 8
+    },
+    "logs": [
+      {
+        "file": "evidence/current/bull/npm-test-runtime.txt",
+        "bytes": 21687,
+        "sha256": "28e6e1f22a2d2b4538b22f9b050eb98b89a786d17f5175334b3e3ead4a531a3c"
+      },
+      {
+        "file": "evidence/current/bull/npm-test-final.txt",
+        "bytes": 21687,
+        "sha256": "1fb4e9e3ade30ed35ce8bd6517788d8a91ca5814c63dda4aef178c203de86b5e"
+      }
+    ]
+  },
+  "inventory": {
+    "scanned": 75,
+    "uniqueSha256": 71,
+    "duplicateGroups": 4
+  },
+  "publicWorkspace": {
+    "buildTarget": "workspace-bull-runtime-20261010T082708Z",
+    "url": "http://127.0.0.1:8091/",
+    "reportedAt": "2026-10-10T08:38:43.665Z",
+    "reportHasFinishTime": false,
+    "expectedProbeConsoleErrors": 7,
+    "consoleErrors": 7,
+    "pageErrors": 0,
+    "failedRequests": 0
+  },
+  "archives": [
+    {
+      "file": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "bytes": 11495592,
+      "sha256": "66308f0516ac8ea68aaf35a42f4038ebdf9fd1fadd8f8f1503f926d4379d8468",
+      "channel": "web",
+      "entriesFromExistingManifest": 43,
+      "matchesPreviousPackage": true,
+      "matchesExistingManifest": true,
+      "bullInManifest": false,
+      "currentSourceAccepted": false,
+      "note": "No rebuild or fresh archive verification. Identical bytes to the previous bear archive; does not contain this bull integration."
+    },
+    {
+      "file": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "bytes": 5043356,
+      "sha256": "b74a0b67f25a9ef01043e82b9876a7727b3ce6c40cd7272bd7e53a87dfe1d34c",
+      "channel": "wechatGame",
+      "entriesFromExistingManifest": 25,
+      "matchesPreviousPackage": true,
+      "matchesExistingManifest": true,
+      "bullInManifest": false,
+      "currentSourceAccepted": false,
+      "note": "No rebuild or fresh archive verification. Identical bytes to the previous bear archive; does not contain this bull integration."
+    }
+  ],
+  "sourceComparison": [
+    {
+      "file": "scripts/runtime-frame-contract.mjs",
+      "bytes": 1774,
+      "sha256": "96808b7d2ccb4cb87e8ec55bdb33a175092252cd75fc5819c403503b2e8a8b31",
+      "previousSha256": "8f04db9834971aa8621e52224e0a34318ff5c8e99f0bd963c31e22f3238d4c30",
+      "unchanged": false
+    },
+    {
+      "file": "scripts/test-runtime-contracts.mjs",
+      "bytes": 3136,
+      "sha256": "cdf46c6200c4552269954682f38379b9ebba87f9daa23a103649f8d9a71f1ba0",
+      "previousSha256": "cf723684bfab92e879c196b8b19e7a0c03f1a553423c4a6bfc666d47a93932f7",
+      "unchanged": false
+    },
+    {
+      "file": "scripts/release.mjs",
+      "bytes": 7095,
+      "sha256": "6822de1b418e9487ffad1b9045bb115552528cf48a82deb1e09231f348f23b44",
+      "previousSha256": "25ced262b0aa0b81630835598f37cf96dcd74c1eff04e144c1a92046e98187b1",
+      "unchanged": false
+    },
+    {
+      "file": "scripts/serve.mjs",
+      "bytes": 4746,
+      "sha256": "83a4aa4437cf9535b79a0e89d938dd4c0b76bcd28bc66aa5c94ed7c2aee83f9c",
+      "previousSha256": "a7e47a67c4b8da9486fb84deae50c98bd77662caa37b683fd2701c4b74c4d751",
+      "unchanged": false
+    },
+    {
+      "file": "scripts/verify-release.ps1",
+      "bytes": 8177,
+      "sha256": "baa2588d397c122c587220e521b63145104b91e2a8faf317d697e7eb1f91b03a",
+      "previousSha256": "9d76b8436e27d1d998be174ca09d0a7ec742a6cdd81edffc8844f2514be8292f",
+      "unchanged": false
+    },
+    {
+      "file": "scripts/validate.mjs",
+      "bytes": 4724,
+      "sha256": "a6ca295893a7ec66d9f3cc00ebfafaa1277a675843dfe378261c41ba09b2a470",
+      "previousSha256": "2c194595984b320f646d7f1aa569eb70a81f8a2e294b9c699415cc718b78c80f",
+      "unchanged": false
+    },
+    {
+      "file": "scripts/browser-public-smoke.mjs",
+      "bytes": 8600,
+      "sha256": "3c4d6ac8e1f821511d41d824033cdf4f174c2a1aa1ebc80646cffbb505eb4148",
+      "previousSha256": "623af56af87598ce1a6f54393bf0e942465846f68ac1193d4f64cd232735a6b7",
+      "unchanged": false
+    },
+    {
+      "file": "prototype-2d/native-app.js",
+      "bytes": 11820,
+      "sha256": "6940d26f7d13a0756f67921c3a79c3b901a531632ab08be6daf4a32eea87dfab",
+      "previousSha256": "8bf3d8959145c28a20e38c8669466a3f64b9c194fd6b2f30ef173b008ac02591",
+      "unchanged": false
+    },
+    {
+      "file": "prototype-2d/src/engine.js",
+      "bytes": 66320,
+      "sha256": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+      "previousSha256": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+      "unchanged": true
+    },
+    {
+      "file": "prototype-2d/src/renderer.js",
+      "bytes": 92592,
+      "sha256": "9fe4a514372ef32240551b6a66402236d504274b5e877d04107309b24040d699",
+      "previousSha256": "9fe4a514372ef32240551b6a66402236d504274b5e877d04107309b24040d699",
+      "unchanged": true
+    },
+    {
+      "file": "prototype-2d/src/bear-animation.js",
+      "bytes": 3333,
+      "sha256": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+      "previousSha256": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+      "unchanged": true
+    },
+    {
+      "file": "prototype-2d/src/tiger-animation.js",
+      "bytes": 3356,
+      "sha256": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+      "previousSha256": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+      "unchanged": true
+    },
+    {
+      "file": "prototype-2d/src/battle-enemy-animation.js",
+      "bytes": 1363,
+      "sha256": "c8c4442cb990c85a05ccde9e38ef9b6f309d3636f707638276cc39aaef743a64",
+      "previousSha256": "19449eec7f956947633889be9e1eef1b0c225c7ddc3f5d11af13ae70fabc8b53",
+      "unchanged": false
+    },
+    {
+      "file": "prototype-2d/assets/enemy-bear-battle-v1-frames.json",
+      "bytes": 5705,
+      "sha256": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+      "previousSha256": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+      "unchanged": true
+    }
+  ],
+  "sourceFiles": [
+    {
+      "file": "prototype-2d/src/bull-animation.js",
+      "bytes": 3333,
+      "sha256": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4"
+    },
+    {
+      "file": "prototype-2d/src/battle-enemy-animation.js",
+      "bytes": 1363,
+      "sha256": "c8c4442cb990c85a05ccde9e38ef9b6f309d3636f707638276cc39aaef743a64"
+    },
+    {
+      "file": "prototype-2d/native-app.js",
+      "bytes": 11820,
+      "sha256": "6940d26f7d13a0756f67921c3a79c3b901a531632ab08be6daf4a32eea87dfab"
+    },
+    {
+      "file": "prototype-2d/tests/bull-animation-smoke.mjs",
+      "bytes": 36124,
+      "sha256": "106722365a4be44384853201d358d04eceb716e6541ca7d2ae800b65606dfa35"
+    },
+    {
+      "file": "prototype-2d/assets/manifest.json",
+      "bytes": 35207,
+      "sha256": "af6ae9d033d5917c32517ab404dba5bed36cdfad3dc51aafa78d1353bbac9527"
+    },
+    {
+      "file": "prototype-2d/assets/enemy-bull-battle-v1-frames.json",
+      "bytes": 5874,
+      "sha256": "0598eaa0466960bf009b5d2df30c3fe0e1b1729e820d9f6045136115343aa2c2"
+    },
+    {
+      "file": "scripts/browser-bull-smoke.mjs",
+      "bytes": 13589,
+      "sha256": "980d48e68e2e4c94c8e4a55f35d87556daae3511f60eb2d0e8102523d78b196e"
+    },
+    {
+      "file": "scripts/browser-public-smoke.mjs",
+      "bytes": 8600,
+      "sha256": "3c4d6ac8e1f821511d41d824033cdf4f174c2a1aa1ebc80646cffbb505eb4148"
+    },
+    {
+      "file": "scripts/runtime-frame-contract.mjs",
+      "bytes": 1774,
+      "sha256": "96808b7d2ccb4cb87e8ec55bdb33a175092252cd75fc5819c403503b2e8a8b31"
+    },
+    {
+      "file": "scripts/test-runtime-contracts.mjs",
+      "bytes": 3136,
+      "sha256": "cdf46c6200c4552269954682f38379b9ebba87f9daa23a103649f8d9a71f1ba0"
+    },
+    {
+      "file": "scripts/serve.mjs",
+      "bytes": 4746,
+      "sha256": "83a4aa4437cf9535b79a0e89d938dd4c0b76bcd28bc66aa5c94ed7c2aee83f9c"
+    },
+    {
+      "file": "scripts/build.mjs",
+      "bytes": 2415,
+      "sha256": "0e85b298ad8e6f679b9d3114e2119b0b50e83fed1419ca800754621efc40a028"
+    },
+    {
+      "file": "scripts/validate.mjs",
+      "bytes": 4724,
+      "sha256": "a6ca295893a7ec66d9f3cc00ebfafaa1277a675843dfe378261c41ba09b2a470"
+    },
+    {
+      "file": "scripts/release.mjs",
+      "bytes": 7095,
+      "sha256": "6822de1b418e9487ffad1b9045bb115552528cf48a82deb1e09231f348f23b44"
+    },
+    {
+      "file": "scripts/verify-release.ps1",
+      "bytes": 8177,
+      "sha256": "baa2588d397c122c587220e521b63145104b91e2a8faf317d697e7eb1f91b03a"
+    },
+    {
+      "file": "wechat-game/core/bundle.js",
+      "bytes": 244177,
+      "sha256": "67a579482c506e3ac8f750a06a9628a79d3c2412506820b870a12c3f8350ccdb"
+    }
+  ],
+  "previousEvidenceBackup": "work/bull-runtime-backup-20261010T082708Z",
+  "backupEvidence": [
+    {
+      "file": "work/bull-runtime-backup-20261010T082708Z/evidence-current/bull/asset-preflight.json",
+      "bytes": 11073,
+      "sha256": "0621c10e9061f733a83cd5a180a1053a043794002d02150bd36656ff2bbeaad5",
+      "matchesPreviousRecord": true
+    },
+    {
+      "file": "work/bull-runtime-backup-20261010T082708Z/evidence-current/bull/browser-preflight.json",
+      "bytes": 5546,
+      "sha256": "45e3f1bf127c2d77583d5215965a9d6711beb12835dcd4d1e1c82e8a40456f98",
+      "matchesPreviousRecord": true
+    },
+    {
+      "file": "work/bull-runtime-backup-20261010T082708Z/evidence-current/asset-dedup-audit.json",
+      "bytes": 16689,
+      "sha256": "81bb6ddc61ca380e03b617f51d5cf5b3348c60a9fbfd0d67510a79c00b471e8d",
+      "matchesPreviousRecord": true
+    },
+    {
+      "file": "work/bull-runtime-backup-20261010T082708Z/evidence-current/validation.json",
+      "bytes": 170,
+      "sha256": "5e1c5b337b95088f8fbaae02356bb9b29c7d7dc074e7b8b93151458463546266",
+      "matchesPreviousRecord": true
+    },
+    {
+      "file": "work/bull-runtime-backup-20261010T082708Z/evidence-current/bear/public-contract-node.json",
+      "bytes": 857,
+      "sha256": "b315d61fbe358ada2c06925126cbc3acf18a3bb3d8335111b4d5ad75ae27a9aa",
+      "matchesPreviousRecord": true
+    }
+  ],
+  "historicalArchiveBrowserEvidence": {
+    "file": "work/bull-runtime-backup-20261010T082708Z/evidence-current/browser-public-smoke.json",
+    "bytes": 10518,
+    "sha256": "4e8bc6333c55c72ca9890b13086f425a414d82d3fb68e30d7d780a73b60dc682",
+    "buildTarget": "archive-extracted-bear-20261010T052706Z",
+    "generatedAt": "2026-10-10T05:33:39.794Z"
+  },
+  "generation": {
+    "newImageCallsThisRuntimeStep": 0,
+    "pixelEditingCalls": 0,
+    "reusedExistingPng": true
+  },
+  "publicRetested": false,
+  "gameBrowserRetested": true,
+  "audioRetested": false,
+  "audioEvidenceRetained": {
+    "file": "evidence/current/audio.json",
+    "bytes": 1358,
+    "sha256": "9a3461dc20373bbb9a14ee1cf5f919afab0a584d8690f107472d643539b5111e",
+    "generatedAt": "2026-10-08T18:06:01.693Z",
+    "result": "PASS"
+  },
+  "releaseRebuilt": false,
+  "archiveVerificationRerun": false,
+  "deployed": false,
+  "wechatDeviceRetested": false,
+  "releaseConfigurationChecks": {
+    "javascriptSyntax": "PASS",
+    "powerShellParser": "PASS",
+    "packagingExecuted": false,
+    "nextVerifierMustUseFreshPaths": true
+  },
+  "processReview": {
+    "capturedAt": "2026-10-10T08:51:39.6823657Z",
+    "scope": "Read-only local process/memory snapshot; no unrelated process terminated",
+    "totalMemoryGiB": 31.9,
+    "freeMemoryGiB": 20.95,
+    "matchingTestOrServiceProcesses": [],
+    "browserAndAgentGroups": [
+      {
+        "name": "codex.exe",
+        "count": 1,
+        "workingSetMiB": 479.1
+      },
+      {
+        "name": "node.exe",
+        "count": 20,
+        "workingSetMiB": 1220.1
+      }
+    ],
+    "listenersOnOwnTestPort8091": [],
+    "note": "Working sets may share pages; group values are not unique physical allocation. No guarantee against future HTTP 429.",
+    "sandboxFirstReadAttempt": "Access denied; authorized read-only retry succeeded",
+    "ownServerSession": 61343,
+    "ownServerStopped": true,
+    "unrelatedProcessesTerminated": 0,
+    "reusedReviewAgents": 1,
+    "reviewScope": "Reused agent completed code and browser/evidence baseline review. Optional final whole-document follow-up was stopped without a final verdict to bound concurrency; it is not counted as independent final acceptance.",
+    "rootFinalHashRecheck": {
+      "checkedFiles": 42,
+      "failures": [],
+      "result": "PASS"
+    }
+  },
+  "visualReview": {
+    "reviewedBy": "root agent and one reused read-only review agent",
+    "inspectedScreenshots": [
+      "natural-move-0.png",
+      "natural-attack-7.png",
+      "runtime-natural-battle.png",
+      "runtime-fixture-left.png",
+      "runtime-fixture-right.png"
+    ],
+    "findings": "No obvious cropping or foot-root defects in inspected frames/fixtures. Contact attack/hit can be covered by the hero; attack-7 is heavily occluded by Wukong. This remains an open readability issue, not a claim of perfect final animation.",
+    "finalQualityApproved": false
+  },
+  "retainedFailureFiles": [
+    "evidence/current/bull/browser-fail-1791616690731.json"
+  ],
+  "remaining": [
+    "Fresh bull candidate package build and actual archive browser verification",
+    "5 ordinary species: wolf/monkey/deer/eagle/snake",
+    "Tiger vanguard and 3 named Boss animation sets",
+    "Final hero high-frame quality",
+    "Overall body/health-bar/damage-number/HUD occlusion, including observed bull contact occlusion",
+    "External public-network revalidation after previous 502",
+    "Existing PNG pending-load watchdog",
+    "WeChat AppID/device/commercial services deferred"
+  ]
+}

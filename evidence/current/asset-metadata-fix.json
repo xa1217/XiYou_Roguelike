@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-10-05T12:56:51.154Z",
+  "scope": "Pure metadata correction; no PNG/SVG/WAV bytes generated, downloaded, replaced, or re-encoded",
+  "before": {
+    "auditGeneratedAt": "2026-10-05T12:51:41.423Z",
+    "result": "PASS",
+    "scannedFileCount": 64,
+    "uniqueSha256Count": 60,
+    "duplicateGroupCount": 4,
+    "dimensionMismatches": [
+      { "path": "hero-tangseng-kr-v1.png", "declared": [1024, 1024], "actual": [1312, 1199] },
+      { "path": "enemy-boss-kr-v1.png", "declared": [1024, 1024], "actual": [1374, 1145] },
+      { "path": "enemy-creature-kr-v1.png", "declared": [1230, 1230], "actual": [1254, 1254] },
+      { "path": "enemy-brute-kr-v1.png", "declared": [1230, 1230], "actual": [1254, 1254] }
+    ]
+  },
+  "after": {
+    "auditGeneratedAt": "2026-10-05T12:56:51.154Z",
+    "result": "PASS",
+    "scannedFileCount": 64,
+    "uniqueSha256Count": 60,
+    "duplicateGroupCount": 4,
+    "dimensionMismatches": [],
+    "missingManifestPaths": [],
+    "heroAtlasSourceRectsInBounds": true
+  },
+  "byteComparison": {
+    "changedMediaFiles": [],
+    "removedMediaFiles": [],
+    "duplicateGroupsRemainExplainable": true
+  }
+}

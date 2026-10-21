@@ -1,0 +1,1767 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><title>THROWAWAY · 西游规则验证</title><style>body{background:#130e12;color:#f8f0dd;max-width:950px;margin:32px auto;padding:20px;font-family:serif}h1,h2{color:#edba68}button{background:#edba68;color:#241318;padding:12px;margin:5px;border:0;font-size:14px;cursor:pointer}section{border:1px solid #63413d;padding:20px;margin:20px 0}dl{display:grid;grid-template-columns:1fr 1fr;gap:8px}dd{margin:0;color:#edba68}small{color:#b9a98d}.choice{display:block}nav button{background:#392329;color:#edba68}#state{white-space:pre-wrap}</style><h1>西游规则状态原型 · 可丢弃</h1><p>本文件回答：十分钟关卡、每两分钟精英、双首领、升级冻结与五技能槽，能否作为一致的可玩规则？所有状态只在内存保存。用于调试规则，不是发布入口。</p><nav><button onclick="scenario('time')">时间与首领</button><button onclick="scenario('upgrade')">升级与五槽</button><button onclick="scenario('freeze')">暂停与冻结</button></nav><section><h2 id="scenarioTitle">自由探索</h2><p id="guide">点击下面动作；状态将在每一步刷新。调试快进仍调用真实GameEngine。</p><button onclick="reset()">重新启程</button><button onclick="advance(30)">前进30秒</button><button onclick="jump(120)">到第2分钟</button><button onclick="jump(300)">到第5分钟</button><button onclick="jump(570)">最终首领登场</button><button onclick="jump(600)">到第10分钟</button><button onclick="e.debug('killFinal');advance(.05)">击败最终首领</button><button onclick="e.debug('xp',{value:1000});advance(.05)">拾取1000经验</button><button onclick="e.pause();render()">暂停</button><button onclick="e.resume();render()">继续</button></section><section><h2>当前取经状态</h2><div id="state"></div><div id="choices"></div></section><section><h2>发生的事件</h2><div id="events"></div></section><script>const module={exports:{}};/* Generated from prototype-2d/src by npm run build. Do not edit. */
+const factories={
+"content":function(module,exports,require){
+/**
+ * Static game data for 西游·八十一难.
+ *
+ * The simulation only consumes plain objects from this module.  Keeping the
+ * data here makes balancing a content change rather than a code change and
+ * lets the mini-program pre-load it without a DOM or network request.
+ */
+
+const BALANCE = Object.freeze({
+  duration: 600,
+  eliteTimes: Object.freeze([120, 240, 360, 480]),
+  bossTime: 300,
+  finalBossTime: 570,
+  maxEnemies: 220,
+  maxProjectiles: 300,
+  maxEffects: 160,
+  maxGems: 240,
+  worldSize: 1800,
+  playerRadius: 18,
+});
+
+const CHARACTERS = [
+  {
+    id: 'wukong', name: '孙悟空', title: '齐天大圣', weapon: '金箍棒',
+    description: '挥棒横扫前方，第三击起蓄出重击，越战越勇。', color: '#e6a43a',
+    stats: { hp: 145, speed: 245, damage: 28 }, passive: '大圣威势：重击有机会眩晕敌人，拾取经验后短暂获得 3% 移速。',
+    weaponLevels: [
+      '1级：前方扇形挥棒，攻击间隔 1 秒。',
+      '2级：攻速提升，攻击间隔 0.75 秒。',
+      '3级：攻击间隔 0.5 秒；每第三击为 2 倍伤害、1 倍范围重击。',
+      '4级：重击 2.5 倍伤害、1.5 倍范围。',
+      '5级：重击 3 倍伤害、2 倍范围；命中有 30% 几率眩晕。',
+    ],
+  },
+  {
+    id: 'tangseng', name: '唐三藏', title: '旃檀功德佛', weapon: '九环禅杖',
+    description: '以圣光球锁定最近敌人，穿透与弹射让密集妖群无处可逃。', color: '#5ec5e8',
+    stats: { hp: 105, speed: 210, damage: 24 }, passive: '慈悲心：每次升级回复 6% 最大生命，光球击退效果增强。',
+    weaponLevels: [
+      '1级：向最近敌人发射圣光球，穿行 8 个身位造成伤害。',
+      '2级：命中后停留 0.25 秒持续灼伤。',
+      '3级：停留 0.5 秒并分裂 5 个光点，各在小怪间弹射 2 次。',
+      '4级：停留 0.75 秒，分裂 10 个光点，在 3 只小怪间弹射 3 次。',
+      '5级：施放瞬间击退 0.25 秒，停留 1 秒，分裂 15 个光点，在 5 只小怪间弹射 5 次。',
+    ],
+  },
+  {
+    id: 'bajie', name: '猪八戒', title: '净坛使者', weapon: '九齿钉耙',
+    description: '宽阔直线夯击并施加流血，烈焰神鸟从耙尖扑向附近妖怪。', color: '#d98865',
+    stats: { hp: 185, speed: 185, damage: 32 }, passive: '天蓬体魄：受到致命伤时保留 1 点生命（每局一次）。',
+    weaponLevels: [
+      '1级：宽线夯击并流血 3 秒，累计为普通伤害的 5%。',
+      '2级：流血累计 10%，弹道宽度 +25%。',
+      '3级：流血累计 15%，宽度 +50%，召唤 3 只火鸟。',
+      '4级：流血累计 20%，宽度 +75%，召唤 6 只火鸟。',
+      '5级：流血累计 25%，宽度翻倍，召唤 9 只火鸟，落地爆炸。',
+    ],
+  },
+  {
+    id: 'wujing', name: '沙悟净', title: '金身罗汉', weapon: '降妖宝杖',
+    description: '旋转宝杖造成环形伤害，水泥沙漩涡拖慢并吸附妖群。', color: '#b28bca',
+    stats: { hp: 165, speed: 205, damage: 26 }, passive: '流沙护身：漩涡每命中 12 个目标获得 1 层护盾（最多 3 层）。',
+    weaponLevels: [
+      '1级：旋转一圈造成环形伤害，间隔 1.5 秒。',
+      '2级：旋转加速，间隔 1.25 秒。',
+      '3级：间隔 1 秒；每 5 次旋转生成 3 个小漩涡，持续 1.5 秒。',
+      '4级：间隔 0.75 秒；漩涡持续 2 秒、扩大至人物大小并缓慢吸附。',
+      '5级：漩涡持续 3 秒，强力吸附普通怪、显著减速精英，对首领轻微减速。',
+    ],
+  },
+];
+
+const ARTIFACTS = [
+  { id: 'purple-gourd', name: '紫金葫芦', icon: 'gourd', color: '#bf6ad6', description: '短暂吸入前方妖怪并转化为范围爆裂。', cooldown: 9, kind: 'area', levels: ['1级：每 9 秒吸入 1 名普通怪并爆炸。', '2级：冷却 7.5 秒，范围 +20%。', '3级：冷却 6.5 秒，可影响精英并造成 120% 伤害。', '4级：冷却 5.5 秒，爆炸留下 2 秒毒雾。', '5级：冷却 4.5 秒，爆炸连锁 3 次。'] },
+  { id: 'iron-fan', name: '芭蕉扇', icon: 'fan', color: '#66c4bd', description: '扇出持续风墙，击退并灼烧前方敌人。', cooldown: 8, kind: 'cone', levels: ['1级：风墙击退并造成 80% 伤害。', '2级：冷却 6.5 秒，风墙宽度 +20%。', '3级：附带 2 秒灼烧。', '4级：风墙持续 1 秒并可穿透精英。', '5级：冷却 4 秒，卷起风刃二次返回。'] },
+  { id: 'diamond-snare', name: '金刚琢', icon: 'ring', color: '#f0ce71', description: '投掷金环锁定最强敌人，短暂缴械并回旋。', cooldown: 7, kind: 'boomerang', levels: ['1级：锁定 1 个目标，造成 130% 伤害。', '2级：回旋路径 +25%，冷却 6 秒。', '3级：命中后定身 0.5 秒。', '4级：可锁定 2 个目标。', '5级：定身 1.2 秒，击杀返还 1 秒冷却。'] },
+  { id: 'nine-dragon', name: '九龙神火罩', icon: 'flame', color: '#ec835a', description: '在玩家周围降下火环，灼烧并阻挡接近的妖怪。', cooldown: 10, kind: 'orbit', levels: ['1级：火环持续 2 秒。', '2级：持续 3 秒，半径 +15%。', '3级：生成 2 个环形火球。', '4级：火球爆裂并点燃地面。', '5级：冷却 6 秒，最多 3 个火环。'] },
+  { id: 'lotus-lantern', name: '宝莲灯', icon: 'lantern', color: '#80b8ff', description: '召唤圣莲治疗自身并净化减速。', cooldown: 14, kind: 'heal', levels: ['1级：回复 12% 最大生命。', '2级：回复 18%，附带 1 秒无敌。', '3级：回复 24%，并净化自身减速。', '4级：回复 30%，冷却 11 秒。', '5级：回复 35%，同时对附近妖怪造成圣光伤害。'] },
+  { id: 'golden-rope', name: '捆仙绳', icon: 'rope', color: '#eacb82', description: '环绕场地的金绳束缚妖怪，降低其速度。', cooldown: 12, kind: 'control', levels: ['1级：使附近妖怪减速 35%，持续 2 秒。', '2级：持续 3 秒，范围 +20%。', '3级：同时造成 60% 伤害。', '4级：可束缚精英，持续 1.5 秒。', '5级：冷却 8 秒，束缚结束爆裂。'] },
+  { id: 'moon-mirror', name: '照妖宝镜', icon: 'mirror', color: '#9ad3ff', description: '移形换位并发射折射月刃，适合脱离包围。', cooldown: 16, kind: 'dash', levels: ['1级：向移动方向位移并留下月刃。', '2级：冷却 13 秒，月刃 +1。', '3级：位移后无敌 0.35 秒。', '4级：月刃可弹射 2 次。', '5级：冷却 9 秒，月刃命中返还 20% 冷却。'] },
+  { id: 'samadhi-fire', name: '三昧真火', icon: 'fire', color: '#ff765e', description: '在最近目标脚下点燃火印，持续扩散。', cooldown: 11, kind: 'meteor', levels: ['1级：对目标及附近造成 150% 伤害。', '2级：火印持续 2 秒。', '3级：火印扩散两次。', '4级：同时落下 2 枚火印。', '5级：火印爆炸并留下持续火场。'] },
+];
+
+// Primary public-domain source: 《西游记》第九十九回“历难簿”.
+// https://zh.wikisource.org/zh-hans/西遊記/第099回
+// Each tuple owns its name AND encounter mapping; no separate name override.
+// The book lists 80 trials, then completes 81 with the old turtle's river
+// plunge and wet scriptures. Minor glyphs are normalized for modern display:
+// 39 “⿰山兜山” -> “金兜山”; 55 keeps the source's “稀柿同”.
+// Non-combat chapters become explicitly original guardian dreamscapes.
+// Their guardians are never the Buddhist/Daoist helpers from the original.
+const stageSeeds = [
+  ['金蝉遭贬','灵山转世幻境','慢心劫影','失念魇将',['懈怠魔影','散念幻灵'],'temple','原著非战斗磨难，原创守关幻境改编：金蝉子遭贬的前缘化为慢心与失念试炼；佛祖是授命者，不是敌人。难名据第99回，前缘据第100回。'],
+  ['出胎几杀','江州衙署','危生魇王','夜惊幻影',['危生魔影','冷雾幻灵'],'temple','原著非战斗磨难，原创守关幻境改编：江流儿出生后面临刘洪威胁，以危生魇王表现险境。依据江流儿身世记述与第99回难簿。'],
+  ['满月抛江','洪江漂流处','逆流魇王','浪涡幻影',['漂木幻灵','浪沫魔影'],'water','原著非战斗磨难，原创守关幻境改编：满月婴儿随木板漂江，以逆流魇王和浪涡表现护生试炼；不将救助者龙王设为敌人。依据江流儿身世记述。'],
+  ['寻亲报冤','金山寺至江州','冤锁魇王','伪印幻影',['冤锁魔影','江匪幻象'],'temple','原著非战斗磨难，原创守关幻境改编：寻母、认亲、揭发刘洪与报父仇，以冤锁魇王表现受阻亲缘；原创首领不冒充原著妖怪。依据江流儿身世记述。'],
+  ['出城逢虎','河州卫外双叉岭','寅将军','特处士',['苍狼妖','山精树鬼','虎妖'],'forest','依据第13回：出河州卫后陷入双叉岭虎穴，寅将军是虎精，特处士是野牛精；随从妖群按原文山精树鬼演绎。'],
+  ['折从落坑','双叉岭陷坑虎穴','熊山君','寅将军',['熊罴妖','野牛妖','苍狼妖'],'forest','依据第13回：二从者在虎穴遇害，熊山君、特处士与寅将军聚宴。难名按第99回原文为“折从落坑”。'],
+  ['双叉岭上','双叉岭猎户山道','斑斓猛虎','毒蛇群魁',['长蛇','山林猛虎','毒虫'],'forest','依据第13回：刘伯钦驱散虎蛇并与斑斓虎搏斗；猛虎与蛇群战斗化放大，不把救人的太白金星或刘伯钦设为敌人。毒蛇群魁为原著兽群的原创集体表现。'],
+  ['两界山头','两界山五行山麓','封石魇王','压山石影',['封石幻灵','枯藤魔影'],'forest','原著非战斗磨难，原创守关幻境改编：唐僧揭帖解救悟空，以封石魇王表现五百年山封；孙悟空与山神是同行者及助力。依据第14回。'],
+  ['陡涧换马','蛇盘山鹰愁涧','小白龙试炼幻身','涧浪龙影',['水鳞幻灵','涧蛇幻影'],'water','依据第15回：白龙吞马后与悟空交战，受点化成为龙马。采用剧情回响中的试炼幻身，水鳞与龙影随从为原创表现，不将归顺后的白龙作邪恶敌人。'],
+  ['夜被火烧','观音禅院','贪焰魇王','炭烟幻影',['焰鼠幻灵','炭烟魔影'],'fire','原著非战斗磨难，原创守关幻境改编：金池长老贪袈裟引发夜火，以贪焰魇王表现火灾与贪念；观音及救火护法不是敌人。依据第16回。'],
+  ['失却袈裟','黑风山黑风洞','黑熊精','凌虚子',['苍狼妖','黑风小妖','蛇妖'],'forest','依据第17回：黑熊精盗袈裟，苍狼精凌虚子与白衣秀士参与黑风山事件。'],
+  ['收降八戒','高老庄云栈洞','猪刚鬣试炼幻身','云栈猪影',['山猪幻灵','石壁魔影'],'forest','依据第18—19回：悟空在高老庄、云栈洞收降猪刚鬣。首领采用归顺前剧情回响，随从是原创幻象，不将取经队伍的猪八戒持续设为邪恶角色。'],
+  ['黄风怪阻','黄风岭黄风洞','黄风怪','虎先锋',['虎妖','黄风小妖','沙尘妖'],'sand','依据第20—21回：虎先锋掳走唐僧，黄风怪以三昧神风阻路；沙尘妖为神风的原创具象。'],
+  ['请求灵吉','小须弥山求援道','风障魇王','迷途风影',['风障幻灵','沙旋魔影'],'sand','原著非战斗磨难，原创守关幻境改编：悟空赴小须弥山请灵吉菩萨，以风障魇王表现求援路上的风伤与迷障；灵吉是降妖援者。依据第21回。'],
+  ['流沙难渡','流沙河岸','流沙河妖试炼幻身','河沙旋影',['沙水幻灵','浪骨幻影'],'water','依据第22回：流沙河妖拦截取经人，后受点化成为沙悟净。使用归顺前剧情回响，河沙随从为原创幻象。'],
+  ['收得沙僧','流沙河九骷髅渡','沙悟净试炼幻身','骷髅浪影',['骷髅幻灵','水沙魔影'],'water','依据第22回：悟净受戒，以九骷髅与葫芦渡河。首领与随从为入队前事件的试炼回响，木叉与观音均为助力。'],
+  ['四圣显化','四圣化宅','欲念魇王','锦帐幻影',['绮梦幻灵','贪欲魔影'],'temple','原著非战斗磨难，原创守关幻境改编：四圣化作母女考验禅心，以欲念魇王表现八戒动念；四位圣者不作为敌人。依据第23回。'],
+  ['五庄观中','万寿山五庄观','贪果魇王','果园藤影',['果壳幻灵','青藤魔影'],'forest','原著非战斗磨难，原创守关幻境改编：偷食人参果、争执与推倒果树，以贪果魇王表现贪念；镇元大仙、清风与明月不作为邪恶敌人。依据第24—25回。'],
+  ['难活人参','五庄观人参果园','枯根魇王','败叶幻影',['枯根幻灵','败叶魔影'],'forest','原著非战斗磨难，原创守关幻境改编：悟空访求医树之法，以枯根魇王表现果树生机受损；观音与镇元大仙是救树和解的助力。依据第25—26回。'],
+  ['贬退心猿','白虎岭白骨洞','白骨夫人','白骨老妪幻身',['白骨妖','尸衣幻影'],'forest','依据第27回：白骨夫人三变试探，唐僧误解悟空后将其遣退；中期首领为同一白骨精的老妪化身，随从为尸魔主题演绎。'],
+  ['黑松林失散','碗子山黑松林','黄袍怪','波月洞妖将',['波月小妖','狼妖','树魅'],'forest','依据第28回：唐僧在黑松林失散，误入碗子山波月洞被黄袍怪擒获；波月洞妖将为洞内小妖的原创统领。'],
+  ['宝象国捎书','波月洞至宝象国','黄袍怪','波月洞巡山将',['波月小妖','宫墙妖影'],'temple','依据第29—30回：百花羞托信给宝象国，八戒与沙僧返波月洞救人并迎战黄袍怪。巡山将与妖影为同一事件的原创随从。'],
+  ['金銮殿变虎','宝象国金銮殿','黄袍怪','宫殿狼影',['黄袍妖影','虎形幻灵'],'temple','依据第30—31回：黄袍怪把唐僧变作虎，悟空回归后识破奎木狼真身。狼影与虎形幻灵是法术的原创表现，百花羞不是敌人。'],
+  ['平顶山逢魔','平顶山巡山道','银角大王','精细鬼',['巡山小妖','伶俐虫','山石妖影'],'forest','依据第32—33回：银角以山岳压住悟空，平顶山小妖精细鬼、伶俐虫带宝巡行；山石妖影为压山术的原创表现。'],
+  ['莲花洞高悬','平顶山莲花洞','金角大王','银角大王',['精细鬼','伶俐虫','莲花洞小妖'],'fire','依据第33—35回：金角、银角在莲花洞以葫芦、净瓶、绳索等宝物设局，师徒遭吊缚。'],
+  ['乌鸡国救主','乌鸡国宝林寺古井','青毛狮子怪','假王狮影',['井雾妖影','宫卫妖影'],'temple','依据第36—38回：真王托梦，师徒在井中救起乌鸡国王；青毛狮子怪是占国妖王，假王与宫卫妖影为其法术的原创回响。'],
+  ['被魔化身','乌鸡国金銮殿','青毛狮子怪','假唐僧幻身',['狮鬃小妖','变形妖影'],'temple','依据第39回：青毛狮子怪变成唐僧混淆真假，文殊菩萨收回坐骑；中期首领为妖怪的假唐僧化身，文殊不是敌人。'],
+  ['号山逢怪','号山枯松涧','红孩儿','火云洞巡山将',['火云小妖','烟火妖影'],'fire','依据第40回：红孩儿假扮受缚孩童，引师徒入局；巡山将与烟火妖影为火云洞小妖的原创战斗表现。'],
+  ['风摄圣僧','号山火云洞外','红孩儿','妖风火影',['火云小妖','赤焰妖影'],'fire','依据第40—41回：红孩儿以妖风摄走唐僧。中期首领将摄人妖风原创具象化，地点与妖王延续火云洞事件。'],
+  ['心猿遭害','火云洞三昧火场','红孩儿','三昧焰影',['烈焰小妖','火星妖影'],'fire','依据第41回：悟空受三昧真火与冷水激荡所伤，八戒、沙僧救醒。焰影与火星妖影为三昧火的原创具象。'],
+  ['请圣降妖','号山火云洞','红孩儿','火云洞妖将',['火云小妖','焰枪妖影'],'fire','依据第42回：观音设莲台收伏红孩儿为善财童子，游戏重演收伏前的抵抗；观音是降妖援者，原创妖将统领火云随从。'],
+  ['黑河沉没','黑水河水府','鼍龙怪','黑水河妖将',['黑水小妖','鼍甲妖影'],'water','依据第43回：鼍龙伪装船家沉船掳师，西海龙太子摩昂协助降妖；摩昂与西海龙王不是敌人，妖将与鼍甲影为原创随从。'],
+  ['搬运车迟','车迟国役僧工地','虎力大仙','鹿力大仙',['役使道徒妖影','虎纹小妖'],'temple','依据第44回：车迟国三妖道压迫僧众搬运建材，悟空解救役僧；道徒妖影为压迫场景的原创战斗回响。'],
+  ['大赌输赢','车迟国斗法坛','鹿力大仙','虎力大仙',['鹿角小妖','虎纹小妖','法坛妖影'],'temple','依据第45—46回：双方比求雨、坐禅、猜物、砍头与剖腹等法术；以鹿力、虎力对应妖道赌斗。小妖与法坛影为原创演绎。'],
+  ['祛道兴僧','车迟国油锅法坛','羊力大仙','鹿角残影',['羊角小妖','油焰妖影'],'fire','依据第46回：羊力大仙油锅赌斗败亡，三妖显出虎、鹿、羊真形，僧众获释；鹿角残影与油焰妖影为斗法的原创表现。'],
+  ['路逢大水','通天河陈家庄','灵感大王','鳜婆妖影',['鲤鱼妖','通天河水妖'],'water','依据第47回：通天河阻路，陈家庄被迫献童男女；灵感大王赴祭遭悟空、八戒迎击。鳜婆妖影取自后续水府献计者。'],
+  ['身落天河','通天河冰面与水府','灵感大王','鳜婆',['寒水鱼妖','冰浪妖影'],'snow','依据第48回：灵感大王听鳜婆之计结冰诱渡，使唐僧坠河；冰浪妖影为冰裂场景的原创演绎。'],
+  ['鱼篮现身','通天河灵感水府','灵感大王','水府鱼将',['水府小妖','鲤鳞妖影'],'water','依据第49回：观音携鱼篮收回莲池金鱼，解救唐僧；观音是援者，水府鱼将为原创小妖统领。'],
+  ['金兜山遇怪','金兜山金兜洞','独角兕大王','金兜巡山将',['金兜小妖','牛角妖影'],'forest','依据第50回：独角兕大王以金刚琢套走兵器；难名采用原文缺字“⿰山兜山”的通行写法金兜山。巡山将与牛角影为原创随从。'],
+  ['普天神难伏','金兜洞前斗法地','独角兕大王','金刚琢幻影',['金兜小妖','套兵环影'],'fire','依据第51—52回：哪吒、水火诸神的法器被金刚琢收走；诸神是助战者，金刚琢幻影与套兵环影为宝物法术的原创具象。'],
+  ['问佛根源','灵山求援径','迷源魇王','疑障幻影',['疑念魔影','迷源幻灵'],'temple','原著非战斗磨难，原创守关幻境改编：悟空赴灵山问妖怪根源，以迷源魇王表现求援前的疑障；如来、罗汉与太上老君是指路、收妖助力。依据第52回。'],
+  ['吃水遭毒','子母河与解阳山落胎泉','如意真仙','聚仙庵泉影',['泉雾妖影','守泉小妖'],'water','依据第53回：唐僧、八戒饮子母河水怀胎，悟空赴解阳山破如意真仙阻拦取得落胎泉水；泉影与守泉小妖为原创演绎。'],
+  ['西梁国留婚','西梁女国王宫','情网魇王','锦婚幻影',['绮梦幻灵','丝结魔影'],'temple','原著非战斗磨难，原创守关幻境改编：女王留婚与师徒脱身，以情网魇王表现难舍的牵绊；女王、女官和女国百姓不是妖怪敌人。依据第54回。'],
+  ['琵琶洞受苦','毒敌山琵琶洞','蝎子精','毒尾幻影',['蝎甲妖影','毒穴小妖'],'sand','依据第55回：蝎子精掳走唐僧，以倒马毒桩伤悟空、八戒；昴日星官是救援者，毒尾与蝎甲影为原著毒术的原创具象。'],
+  ['再贬心猿','西行山道草寇林','离心魇王','争执幻影',['离心魔影','草寇幻象'],'forest','原著非战斗磨难，原创守关幻境改编：悟空打杀草寇后再被唐僧遣退，以离心魇王表现师徒失和；此处不是白骨精或六耳猕猴本体。依据第56回。'],
+  ['难辨猕猴','花果山至辨真幻境','六耳猕猴','假悟空幻影',['假沙僧幻影','假八戒幻影','镜像猴影'],'forest','依据第57—58回：六耳猕猴假冒悟空并组织假取经队，最终在如来处辨真；随从皆为假形回响，真取经人、谛听与如来不是敌人。'],
+  ['路阻火焰山','八百里火焰山','炎障魇王','火岭幻影',['热浪幻灵','焦岩魔影'],'fire','原著非战斗磨难，原创守关幻境改编：火焰山酷热阻路，以炎障魇王表现无法通行的火障；火焰山土地是指路援者。依据第59回。'],
+  ['求取芭蕉扇','翠云山芭蕉洞','铁扇公主试炼幻身','罗刹风影',['风刃幻灵','蕉叶魔影'],'forest','依据第59—60回：悟空与罗刹女铁扇公主交手借扇；采用借扇前剧情回响，罗刹风影及风刃随从为原创法术表现。'],
+  ['收缚魔王','积雷山至火焰山','牛魔王','玉面狐狸',['积雷山小妖','牛角妖影'],'fire','依据第60—61回：悟空、八戒与牛魔王斗法，天兵协助收伏，得真扇息火；玉面狐狸在摩云洞事件中出现。'],
+  ['赛城扫塔','祭赛国金光寺宝塔','灞波儿奔','奔波儿灞',['鱼精小妖','塔内水影'],'temple','依据第62回：师徒在祭赛国金光寺扫塔，捉到夜守塔的鲇鱼精灞波儿奔与黑鱼精奔波儿灞；塔内水影为原创场景表现。'],
+  ['取宝救僧','乱石山碧波潭','九头虫','万圣龙王',['碧波水妖','鱼精小妖'],'water','依据第63回：悟空、八戒赴碧波潭夺回佛宝，二郎神助战；万圣龙王与九头虫参与盗宝，二郎神不是敌人。'],
+  ['棘林吟咏','荆棘岭木仙庵','诗墨魇王','缠枝幻影',['墨字幻灵','棘枝魔影'],'forest','原著非战斗磨难，原创守关幻境改编：树精留唐僧吟诗、杏仙求婚，以诗墨魇王表现迷留与缠绊；原创首领不冒充十八公等原著树精的新别号。依据第64回。'],
+  ['小雷音遇难','小雷音寺金铙殿','黄眉怪','金铙幻影',['小雷音妖兵','铙光妖影'],'temple','依据第65回：黄眉怪冒充佛祖，以金铙困住悟空；敌人是冒充者及原创宝物幻影，真实佛祖与弥勒不是敌人。'],
+  ['诸天神遭困','小雷音寺袋阵','黄眉怪','人种袋幻影',['小雷音妖兵','袋风妖影'],'temple','依据第66回：黄眉以人种袋困住诸神，弥勒收回童子与宝物；诸神和弥勒是助力，人种袋幻影为原创表现。'],
+  ['稀柿同秽阻','七绝山稀柿同','红鳞大蟒','蟒尾幻影',['蛇蜕妖影','秽泥幻灵'],'forest','依据第67回：悟空降伏吞人的大蟒，八戒拱开七绝山稀柿同秽路。难名保留第99回“稀柿同”写法；蟒尾、蛇蜕与秽泥为原创具象。'],
+  ['朱紫国行医','朱紫国宫廷诊所','病气魇王','沉疴幻影',['瘀气魔影','药渣幻灵'],'temple','原著非战斗磨难，原创守关幻境改编：悟空悬丝诊脉、配药为国王医治，以病气魇王表现疾病；国王、御医不是敌人，赛太岁留在后续降妖关。依据第68—69回。'],
+  ['拯救疲癃','朱紫国王宫','瘀毒魇王','忧思幻影',['忧思魔影','瘀毒幻灵'],'temple','原著非战斗磨难，原创守关幻境改编：国王服药得救并陈述失后缘由，以瘀毒魇王表现积病与忧思；国王不是敌人。依据第69回。'],
+  ['降妖取后','麒麟山獬豸洞','赛太岁','有来有去',['獬豸洞小妖','紫金铃烟影'],'fire','依据第70—71回：赛太岁以紫金铃放烟火，悟空取铃救回金圣宫；有来有去是传话小妖，烟影为铃术的原创具象，观音是收妖援者。'],
+  ['七情迷没','盘丝岭盘丝洞','七蜘蛛精合阵','盘丝蛛影',['蛛丝小妖','浴泉蛛影'],'forest','依据第72回：七蜘蛛精设盘丝网擒唐僧。首领合阵是七只原著蜘蛛精的原创集体战斗形态，蛛影为法术随从。'],
+  ['多目遭伤','黄花观','百眼魔君','蜘蛛精幻阵',['蜈蚣妖影','毒目幻灵'],'temple','依据第73回：蜈蚣精百眼魔君以多目金光伤人，毗蓝婆援救；蜘蛛精幻阵与毒目幻灵为原著联合设局的原创表现，毗蓝婆不是敌人。'],
+  ['路阻狮驼','狮驼岭狮驼洞','青狮大王','小钻风',['巡山妖兵','狮驼小妖'],'forest','依据第74回：小钻风巡山，青狮、白象、大鹏三妖占狮驼岭，悟空入洞探路。'],
+  ['怪分三色','狮驼岭三魔阵','白象大王','青狮大王',['象牙妖兵','狮鬃妖兵','鹏羽妖兵'],'forest','依据第75—76回：青狮吞人、白象卷鼻、大鹏持兵围困师徒。普通妖兵以三妖眷属为原创分类。'],
+  ['城里遇灾','狮驼国城','金翅大鹏雕','白象大王',['狮驼城妖兵','鹏羽妖兵'],'temple','依据第76—77回：大鹏占据狮驼国，师徒入城后再被擒；不将该地误作金平府或金兜洞。'],
+  ['请佛收魔','狮驼国降魔阵','金翅大鹏雕','青狮大王',['三魔残影','狮驼妖兵'],'temple','依据第77回：悟空请如来，文殊、普贤与佛祖收回三魔；重演收伏前妖魔抵抗，佛菩萨均是援者，三魔残影为原创法术表现。'],
+  ['比丘救子','比丘国小子城','白鹿精国丈','白面狐狸精',['鹿角妖影','宫廷狐影'],'temple','依据第78回：白鹿精国丈与狐狸美后惑王谋害孩童，悟空请神保护儿童；战斗以祸首妖怪及原创妖影演绎，不将孩童、百姓或救援神灵设为敌人。'],
+  ['辨认真邪','比丘国至清华洞','白鹿精','白面狐狸精',['清华洞小妖','鹿角妖影'],'forest','依据第79回：悟空识破妖国丈，追至清华洞，寿星收回白鹿，狐狸精被除；寿星不是敌人。'],
+  ['松林救怪','黑松林','迷援魇王','缚树幻影',['鼠形幻灵','伪泣魔影'],'forest','原著非战斗磨难，原创守关幻境改编：地涌夫人假装被缚女子求救，以迷援魇王表现善心受骗；首领为原创心障，真实妖王在无底洞关登场。依据第80回。'],
+  ['僧房卧病','镇海禅林寺僧房','病梦魇王','夜鼠幻影',['病梦幻灵','夜鼠魔影'],'temple','原著非战斗磨难，原创守关幻境改编：唐僧卧病寺中、鼠怪夜间作祟，以病梦魇王表现病弱与夜惊；僧人是受害者，原创鼠影指向后续无底洞事件。依据第81回。'],
+  ['无底洞遭困','陷空山无底洞','地涌夫人','无底洞鼠将',['白毛鼠妖影','地穴小妖'],'forest','依据第82—83回：金鼻白毛老鼠精地涌夫人擒唐僧，李天王与哪吒收妖；鼠将为原创洞府统领，天王、哪吒不是敌人。'],
+  ['灭法国难行','灭法国宝方客店','惧僧魇王','藏柜幻影',['惧念魔影','锁柜幻灵'],'temple','原著非战斗磨难，原创守关幻境改编：师徒藏柜避杀僧之令，悟空剃发使国王改心，以惧僧魇王表现暴政与恐惧；国王及民众不是妖怪敌人。依据第84—85回。'],
+  ['隐雾山遇魔','隐雾山折岳连环洞','南山大王','分瓣梅花幻影',['豹斑小妖','雾中妖兵'],'forest','依据第85—86回：豹子精南山大王以分瓣梅花计掳师，制造假人头惑众；中期首领为该计策的原创法术具象。'],
+  ['凤仙郡求雨','天竺外郡凤仙郡','旱瘴魇王','枯泉幻影',['旱尘幻灵','龟裂魔影'],'sand','原著非战斗磨难，原创守关幻境改编：师徒助郡侯改过、为百姓求雨，以旱瘴魇王表现旱灾；玉帝、雷公、电母、龙王均不是邪恶敌人。依据第87回。'],
+  ['失落兵器','玉华州至豹头山虎口洞','黄狮精','刁钻古怪',['狼头小妖','豹头山妖兵'],'forest','依据第88—89回：黄狮精夜盗三件兵器，刁钻古怪、古怪刁钻采购宴用猪羊；玉华州王子与铁匠不是敌人。'],
+  ['会庆钉钯','豹头山虎口洞','黄狮精','古怪刁钻',['狼头小妖','虎口洞妖兵'],'forest','依据第89回：黄狮精设庆钉钯会，师兄弟变装夺回兵器；难名保留第99回“钉钯”写法。'],
+  ['竹节山遭难','竹节山九曲盘桓洞','九灵元圣','狻猊狮精',['抟象狮精','猱狮精','雪狮精'],'forest','依据第90回：九灵元圣率狮怪擒师徒与玉华州王父子；太乙救苦天尊与狮奴是收妖助力，不设为敌人。'],
+  ['玄英洞受苦','青龙山玄英洞','辟寒大王','辟暑大王',['辟尘妖影','玄英洞小妖'],'snow','依据第91回：三犀假佛偷灯油、掳唐僧至玄英洞；辟寒、辟暑、辟尘为三只犀牛精，普通辟尘妖影是原创分身表现。'],
+  ['赶捉犀牛','青龙山至西海岸','辟尘大王','辟寒大王',['犀角妖兵','玄英洞水妖影'],'water','依据第92回：三犀败逃海中，四木禽星与西海龙太子帮助捉妖；援者不是敌人，妖兵与水影为三犀逃亡的原创战斗演绎。'],
+  ['天竺招婚','天竺国御花园与毛颖山','玉兔精','假公主幻影',['玉兔妖影','月杵幻灵'],'temple','依据第93—95回：玉兔假冒公主招唐僧成婚，悟空识破并追至毛颖山；太阴星君与嫦娥是收回玉兔的助力，假公主是妖怪化身。'],
+  ['铜台府监禁','铜台府地灵县牢狱','冤狱魇王','盗赃幻影',['枷锁魔影','冤印幻灵'],'temple','原著非战斗磨难，原创守关幻境改编：寇员外遇害，师徒蒙冤被监禁，以冤狱魇王表现误判与枷锁；寇员外、官差和百姓不是妖怪敌人。依据第96—97回。'],
+  ['凌云渡脱胎','灵山凌云渡','尘身魇王','执岸幻影',['尘身幻灵','执念魔影'],'water','原著非战斗磨难，原创守关幻境改编：接引佛撑无底船，唐僧渡河脱凡胎，以尘身魇王表现放下尘身的内在考验；接引佛是渡人援者。依据第98回。'],
+  ['通天河遇鼋湿经书','通天河东岸晒经石','夺经阴魔','风雷阴魔',['风雾阴魔','雷电阴魔','湿墨妖影'],'water','依据第99回：老鼋因未获代问寿数而沉水，师徒与经书落水；登岸后阴魔以风、雾、雷、电暗夺真经，悟空护经至天明。首领名与湿墨妖影是原著阴魔的原创具象，老鼋不是邪恶妖王。'],
+];
+
+const STAGES = stageSeeds.map((entry, index) => {
+  const [name, location, boss, midBoss, enemies, theme, sourceNote] = entry;
+  const id = index + 1;
+  return Object.freeze({
+    id, name, location, boss, midBoss, enemies: Object.freeze(enemies.slice()),
+    theme, chapter: Math.min(9, Math.floor(index / 9) + 1),
+    description: `${location}：${name}。破除${boss}守关之阵，守护取经愿心。`,
+    sourceNote,
+  });
+});
+
+const TALENTS = [
+  { id: 'iron-body', name: '金刚之躯', description: '提升最大生命。', maxLevel: 10, baseCost: 80, stat: 'maxHp', value: 0.035 },
+  { id: 'swift-cloud', name: '筋斗云', description: '提升移动速度。', maxLevel: 10, baseCost: 80, stat: 'speed', value: 0.025 },
+  { id: 'sharp-eye', name: '火眼金睛', description: '提升所有伤害。', maxLevel: 10, baseCost: 120, stat: 'damage', value: 0.03 },
+  { id: 'fortune', name: '福缘', description: '提升经验与金币掉落。', maxLevel: 10, baseCost: 100, stat: 'pickup', value: 0.04 },
+  { id: 'warding', name: '护法心灯', description: '减少受到的伤害。', maxLevel: 10, baseCost: 100, stat: 'damageReduction', value: 0.025 },
+  { id: 'dash-master', name: '踏云步', description: '缩短闪避冷却。', maxLevel: 8, baseCost: 140, stat: 'dashCooldown', value: 0.045 },
+];
+
+const DAILY_CHALLENGES = [
+  { id: 'daily-kills', name: '百妖除尽', description: '单局击败 300 名妖怪。', target: 300, reward: 120 },
+  { id: 'daily-elite', name: '降伏精怪', description: '击败 3 名精英。', target: 3, reward: 150 },
+  { id: 'daily-no-dash', name: '稳如金刚', description: '不使用闪避通关一难。', target: 1, reward: 220 },
+  { id: 'daily-stage', name: '西行一程', description: '完成任意一难。', target: 1, reward: 100 },
+];
+
+const clone = (value) => JSON.parse(JSON.stringify(value));
+
+function getStage(index) {
+  const id = Math.max(1, Math.min(STAGES.length, Number(index) || 1));
+  return STAGES[id - 1];
+}
+
+// cooldown / linger / whirlDuration / knockback: seconds; range / radius /
+// whirlRadius / width: world pixels. bounce is hops per light point;
+// bounceTargets caps distinct enemies used by that point. whirlRadius is the
+// vortex radius, independent of the ordinary spin attack's range.
+const weaponTuning = {
+  wukong: [
+    { cooldown: 1, damage: 1, range: 115, arc: 1.15, heavyEvery: 0 },
+    { cooldown: 0.75, damage: 1.05, range: 120, arc: 1.15, heavyEvery: 0 },
+    { cooldown: 0.5, damage: 1.1, range: 125, arc: 1.25, heavyEvery: 3, heavyMultiplier: 2, heavyRadius: 1 },
+    { cooldown: 0.5, damage: 1.2, range: 130, arc: 1.5, heavyEvery: 3, heavyMultiplier: 2.5, heavyRadius: 1.5 },
+    { cooldown: 0.5, damage: 1.3, range: 140, arc: 1.6, heavyEvery: 3, heavyMultiplier: 3, heavyRadius: 2, stunChance: 0.3 },
+  ],
+  tangseng: [
+    { cooldown: 1.5, damage: 1, range: 8 * 36, projectileSpeed: 430, radius: 9, linger: 0, bounce: 0, bounceTargets: 0, split: 0, knockback: 0 },
+    { cooldown: 1.5, damage: 1.12, range: 8 * 36, projectileSpeed: 450, radius: 10, linger: 0.25, bounce: 0, bounceTargets: 0, split: 0, knockback: 0 },
+    { cooldown: 1.5, damage: 1.22, range: 8 * 36, projectileSpeed: 470, radius: 11, linger: 0.5, bounce: 2, bounceTargets: 2, split: 5, knockback: 0 },
+    { cooldown: 1.5, damage: 1.35, range: 8 * 36, projectileSpeed: 490, radius: 12, linger: 0.75, bounce: 3, bounceTargets: 3, split: 10, knockback: 0 },
+    { cooldown: 1.5, damage: 1.5, range: 8 * 36, projectileSpeed: 520, radius: 13, linger: 1, bounce: 5, bounceTargets: 5, split: 15, knockback: 0.25 },
+  ],
+  bajie: [
+    { cooldown: 1, damage: 1, range: 270, width: 28, bleed: 0.05, bleedTicks: [0.015, 0.015, 0.02], birds: 0, explosion: 0 },
+    { cooldown: 1, damage: 1.1, range: 285, width: 35, bleed: 0.1, bleedTicks: [0.03, 0.03, 0.04], birds: 0, explosion: 0 },
+    { cooldown: 1, damage: 1.2, range: 300, width: 42, bleed: 0.15, bleedTicks: [0.045, 0.045, 0.06], birds: 3, explosion: 0 },
+    { cooldown: 1, damage: 1.3, range: 315, width: 49, bleed: 0.2, bleedTicks: [0.06, 0.06, 0.08], birds: 6, explosion: 0 },
+    { cooldown: 1, damage: 1.45, range: 330, width: 56, bleed: 0.25, bleedTicks: [0.075, 0.075, 0.1], birds: 9, explosion: 64 },
+  ],
+  wujing: [
+    { cooldown: 1.5, damage: 1, range: 76, whirlRadius: 0, whirlDuration: 0, whirlDamage: 0 },
+    { cooldown: 1.25, damage: 1.08, range: 84, whirlRadius: 0, whirlDuration: 0, whirlDamage: 0 },
+    { cooldown: 1, damage: 1.15, range: 92, whirlRadius: 18, whirlDuration: 1.5, whirlDamage: 0.05, whirlEvery: 5, pull: 0 },
+    { cooldown: 0.75, damage: 1.25, range: 104, whirlRadius: 36, whirlDuration: 2, whirlDamage: 0.08, whirlEvery: 5, pull: 18 },
+    { cooldown: 0.75, damage: 1.4, range: 116, whirlRadius: 36, whirlDuration: 3, whirlDamage: 0.12, whirlEvery: 5, pull: 42 },
+  ],
+};
+
+function getWeaponStats(characterId, level = 1) {
+  const list = weaponTuning[characterId] || weaponTuning.wukong;
+  return clone(list[Math.max(1, Math.min(5, Number(level) || 1)) - 1]);
+}
+
+const artifactCooldowns = {
+  'purple-gourd': [9, 7.5, 6.5, 5.5, 4.5], 'iron-fan': [8, 6.5, 6, 5, 4],
+  'diamond-snare': [7, 6, 5.5, 5, 4], 'nine-dragon': [10, 9, 8, 7, 6],
+  'lotus-lantern': [14, 14, 14, 11, 10], 'golden-rope': [12, 11, 10, 9, 8],
+  'moon-mirror': [16, 13, 12, 10, 9], 'samadhi-fire': [11, 10, 9, 8, 7],
+};
+const artifactTuning = Object.fromEntries(ARTIFACTS.map((artifact) => [artifact.id,
+  Array.from({ length: 5 }, (_, i) => ({
+    level: i + 1,
+    cooldown: artifactCooldowns[artifact.id]?.[i] || Math.max(2.5, artifact.cooldown * (1 - i * 0.1)),
+    damage: 0.8 + i * 0.25,
+    radius: 72 + i * 10,
+    duration: 1.5 + i * 0.35,
+    power: 1 + i * 0.18,
+  })),
+]));
+
+function getArtifactStats(id, level = 1) {
+  const list = artifactTuning[id] || artifactTuning[ARTIFACTS[0].id];
+  return clone(list[Math.max(1, Math.min(5, Number(level) || 1)) - 1]);
+}
+
+Object.assign(module.exports,{BALANCE,CHARACTERS,ARTIFACTS,STAGES,TALENTS,DAILY_CHALLENGES,getStage,getWeaponStats,getArtifactStats});
+
+},
+"engine":function(module,exports,require){
+const {
+  ARTIFACTS,
+  BALANCE,
+  CHARACTERS,
+  getArtifactStats,
+  getStage,
+  getWeaponStats,
+} = require('content');
+
+const TAU = Math.PI * 2;
+const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+const distance = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+const normalize = (x, y) => {
+  const length = Math.hypot(x, y);
+  return length > 0.001 ? { x: x / length, y: y / length } : { x: 0, y: 0 };
+};
+
+function mulberry32(seed) {
+  let value = (Number(seed) >>> 0) || 0x9e3779b9;
+  return () => {
+    value |= 0; value = (value + 0x6d2b79f5) | 0;
+    let t = Math.imul(value ^ (value >>> 15), 1 | value);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const WEAPON_PREFIX = 'weapon:';
+
+class GameEngine {
+  constructor(options = {}) {
+    this.options = options;
+    this.debugMode = options.debug === true;
+    this.debugInvincible = false;
+    this.seed = Number(options.seed == null ? Date.now() : options.seed) >>> 0;
+    this.random = mulberry32(this.seed);
+    this.character = CHARACTERS.find((item) => item.id === options.characterId) || CHARACTERS[0];
+    this.stage = getStage(options.stageId || 1);
+    this.talents = options.talents || {};
+    this.difficulty = options.difficulty === 'hard' ? 'hard' : 'normal';
+    this.onEvent = typeof options.onEvent === 'function' ? options.onEvent : () => {};
+    this.nextId = 1;
+    this.disposed = false;
+    this.elapsed = 0;
+    this.weaponShots = 0;
+    this.spawnAccumulator = 0;
+    this.elitesSpawned = new Set();
+    this.bossSpawned = false;
+    this.finalBossSpawned = false;
+    this.pendingUpgrades = 0;
+    this.poolingEnabled = true;
+    this.pools = { projectile: [], effect: [], gem: [] };
+    this.poolStats = { created: { projectile: 0, effect: 0, gem: 0 }, reused: { projectile: 0, effect: 0, gem: 0 }, released: { projectile: 0, effect: 0, gem: 0 } };
+    this.rng = this.random;
+    this.state = this.createState();
+  }
+
+  createState() {
+    const talentMultiplier = (name, fallback = 0) => Number(this.talents[name] || fallback);
+    const hpBonus = clamp(talentMultiplier('iron-body') * 0.035, 0, 0.35);
+    const speedBonus = clamp(talentMultiplier('swift-cloud') * 0.025, 0, 0.25);
+    const character = this.character;
+    const maxHp = Math.round(character.stats.hp * (1 + hpBonus));
+    const skills = [{ id: `${WEAPON_PREFIX}${character.id}`, level: 1, isWeapon: true }];
+    return {
+      status: 'playing', time: 0,
+      player: {
+        x: BALANCE.worldSize / 2, y: BALANCE.worldSize / 2,
+        hp: maxHp, maxHp, radius: BALANCE.playerRadius, speed: character.stats.speed * (1 + speedBonus),
+        facing: 0, level: 1, xp: 0, xpNext: 24, invulnerable: 0, dashCooldown: 0,
+      },
+      enemies: [], projectiles: [], effects: [], gems: [], skills,
+      choices: [], kills: 0, damage: 0,
+      stage: this.stage, character: this.character, seed: this.seed,
+      coins: 0,
+    };
+  }
+
+  emit(event) {
+    try { this.onEvent({ time: this.state.time, ...event }); } catch (_) { /* consumer errors never stop simulation */ }
+  }
+
+  allocId(prefix) { return `${prefix}-${this.nextId++}`; }
+
+  update(dtSeconds, input = {}) {
+    if (this.disposed || this.state.status !== 'playing') return this.state;
+    const dt = clamp(Number(dtSeconds) || 0, 0, 0.05);
+    if (!dt) return this.state;
+    this.state.player.speedBoost = Math.max(0, (this.state.player.speedBoost || 0) - dt);
+    const direction = normalize(Number(input.x) || 0, Number(input.y) || 0);
+    if (direction.x || direction.y) {
+      const moveSpeed = this.state.player.speed * (this.state.player.speedBoost > 0 ? 1.03 : 1);
+      this.state.player.facing = Math.atan2(direction.y, direction.x);
+      this.state.player.x = clamp(this.state.player.x + direction.x * moveSpeed * dt, this.state.player.radius, BALANCE.worldSize - this.state.player.radius);
+      this.state.player.y = clamp(this.state.player.y + direction.y * moveSpeed * dt, this.state.player.radius, BALANCE.worldSize - this.state.player.radius);
+    }
+    this.elapsed += dt;
+    this.state.time = this.elapsed;
+    this.state.player.invulnerable = Math.max(0, this.state.player.invulnerable - dt);
+    this.state.player.dashCooldown = Math.max(0, this.state.player.dashCooldown - dt);
+    this.spawnAccumulator += dt;
+    this.advanceSpawns();
+    this.updateEffects(dt);
+    this.updateEnemies(dt);
+    if (this.state.status !== 'playing') return this.state;
+    this.updateProjectiles(dt);
+    this.updateGems(dt);
+    this.autoAttack(dt);
+    this.trimCaps();
+    this.checkVictory();
+    return this.state;
+  }
+
+  advanceSpawns() {
+    const time = this.state.time;
+    while (this.spawnAccumulator >= this.spawnInterval(time) && this.state.enemies.length < BALANCE.maxEnemies) {
+      this.spawnAccumulator -= this.spawnInterval(time);
+      this.spawnEnemy('normal');
+    }
+    BALANCE.eliteTimes.forEach((mark, index) => {
+      if (time >= mark && !this.elitesSpawned.has(mark)) {
+        this.elitesSpawned.add(mark);
+        const count = 1 + Math.floor(index / 2);
+        for (let i = 0; i < count; i += 1) this.spawnEnemy('elite', index + i);
+        this.emit({ type: 'elite', at: mark, index, count });
+      }
+    });
+    if (time >= BALANCE.bossTime && !this.bossSpawned) {
+      this.bossSpawned = true;
+      this.spawnBoss(false);
+      this.emit({ type: 'boss', final: false });
+    }
+    if (time >= BALANCE.finalBossTime && !this.finalBossSpawned) {
+      this.finalBossSpawned = true;
+      this.spawnBoss(true);
+      this.emit({ type: 'boss', final: true });
+    }
+  }
+
+  spawnInterval(time) {
+    // 1.18s at start, reaching 0.22s near the final minute.
+    return clamp(1.18 - (time / BALANCE.duration) * 0.96, 0.22, 1.18);
+  }
+
+  spawnPoint() {
+    const angle = this.rng() * TAU;
+    const radius = 470 + this.rng() * 130;
+    const player = this.state.player;
+    return { x: clamp(player.x + Math.cos(angle) * radius, 24, BALANCE.worldSize - 24), y: clamp(player.y + Math.sin(angle) * radius, 24, BALANCE.worldSize - 24) };
+  }
+
+  spawnEnemy(kind = 'normal', variant = 0) {
+    if (this.state.enemies.length >= BALANCE.maxEnemies) {
+      if (kind === 'normal') return null;
+      const index = this.state.enemies.findIndex((enemy) => enemy.kind === 'normal');
+      if (index < 0) return null;
+      this.state.enemies.splice(index, 1);
+    }
+    const position = this.spawnPoint();
+    const progress = clamp(this.state.time / BALANCE.duration, 0, 1);
+    const hard = this.difficulty === 'hard' ? 1.25 : 1;
+    const levelScale = 1 + progress * 1.5;
+    const chapterScale = 1 + (this.stage.chapter - 1) * 0.085;
+    const normalNames = this.stage.enemies;
+    let hp = 36 * levelScale * chapterScale * hard;
+    let speed = 42 + progress * 28;
+    let radius = 15;
+    let name = normalNames[Math.floor(this.rng() * normalNames.length)] || '山野妖怪';
+    let color = '#725d5a';
+    if (kind === 'elite') {
+      hp *= 5;
+      speed *= 1.12;
+      radius = 25;
+      name = `${this.stage.midBoss}·精锐`;
+      color = '#c48a53';
+    }
+    const enemy = {
+      id: this.allocId('enemy'), x: position.x, y: position.y, hp, maxHp: hp, radius,
+      kind, name, variant, color, speed, stun: 0, flash: 0,
+      damage: (8 + progress * 12) * (kind === 'elite' ? 1.5 : 1) * chapterScale * hard,
+      xp: kind === 'elite' ? 9 : 2,
+    };
+    this.state.enemies.push(enemy);
+    return enemy;
+  }
+
+  spawnBoss(finalBoss) {
+    if (this.state.enemies.length >= BALANCE.maxEnemies) this.state.enemies.shift();
+    const position = this.spawnPoint();
+    const progress = clamp(this.state.time / BALANCE.duration, 0, 1);
+    const chapterScale = 1 + (this.stage.chapter - 1) * 0.085;
+    const hp = (finalBoss ? 1900 : 800) * (1 + progress * 1.15) * chapterScale * (this.difficulty === 'hard' ? 1.25 : 1);
+    const boss = {
+      id: this.allocId('boss'), x: position.x, y: position.y, hp, maxHp: hp, radius: finalBoss ? 62 : 48,
+      kind: 'boss', name: finalBoss ? this.stage.boss : this.stage.midBoss, variant: finalBoss ? 1 : 0,
+      color: finalBoss ? '#9b4e86' : '#a56a46', speed: finalBoss ? 34 : 38, stun: 0, flash: 0,
+      damage: (finalBoss ? 35 : 24) * chapterScale, xp: finalBoss ? 80 : 30, final: finalBoss,
+    };
+    this.state.enemies.push(boss);
+    return boss;
+  }
+
+  updateEnemies(dt) {
+    const player = this.state.player;
+    for (const enemy of this.state.enemies.slice()) {
+      enemy.slow = enemy.nextSlow || 1;
+      enemy.nextSlow = 1;
+      enemy.stun = Math.max(0, enemy.stun - dt);
+      enemy.knockback = Math.max(0, (enemy.knockback || 0) - dt);
+      enemy.flash = Math.max(0, enemy.flash - dt);
+      if (enemy.burn?.ttl > 0) {
+        this.damageEnemy(enemy, enemy.burn.damage * Math.min(dt, enemy.burn.ttl), {});
+        enemy.burn.ttl = Math.max(0, enemy.burn.ttl - dt);
+      }
+      if (enemy.bleeds?.length) {
+        for (let b = enemy.bleeds.length - 1; b >= 0; b -= 1) {
+          const bleed = enemy.bleeds[b];
+          bleed.timer -= dt;
+          if (bleed.timer <= 0 && bleed.tick < bleed.ticks.length) {
+            this.damageEnemy(enemy, bleed.baseDamage * bleed.ticks[bleed.tick], { knockback: 0 });
+            bleed.tick += 1; bleed.timer += 1;
+          }
+          if (bleed.tick >= bleed.ticks.length) enemy.bleeds.splice(b, 1);
+        }
+      }
+      if (enemy.hp <= 0 || enemy.stun > 0 || enemy.knockback > 0) continue;
+    const vector = normalize(player.x - enemy.x, player.y - enemy.y);
+      const speed = enemy.speed * (enemy.slow || 1);
+      enemy.x += vector.x * speed * dt;
+      enemy.y += vector.y * speed * dt;
+      if (enemy.kind === 'boss') {
+        enemy.attackCooldown = (enemy.attackCooldown == null ? 4 : enemy.attackCooldown) - dt;
+        if (enemy.attackCooldown <= 0) {
+          enemy.attackCooldown = enemy.final ? 5.5 : 7;
+          const count = enemy.final ? 7 : 4;
+          const aim = Math.atan2(player.y - enemy.y, player.x - enemy.x);
+          for (let j = 0; j < count; j += 1) {
+            const angle = aim + (j - (count - 1) / 2) * 0.22;
+            this.projectile({ x: enemy.x, y: enemy.y, vx: Math.cos(angle) * 160, vy: Math.sin(angle) * 160, radius: 9, color: '#d15c70', kind: 'boss-orb', ttl: 4, damage: enemy.damage * 0.7, hostile: true });
+          }
+          this.effect({ x: player.x, y: player.y, kind: 'warning', radius: enemy.final ? 74 : 56, color: '#da6377', ttl: 1.1, hostileDamage: enemy.damage * 0.9 });
+        }
+      }
+      if (distance(enemy, player) <= enemy.radius + player.radius && player.invulnerable <= 0) {
+        this.damagePlayer(enemy.damage * dt);
+        if (this.state.status === 'lost') break;
+      }
+    }
+  }
+
+  autoAttack(dt) {
+    const weaponSkill = this.state.skills.find((skill) => skill.isWeapon);
+    if (!weaponSkill) return;
+    weaponSkill.cooldown = Math.max(0, (weaponSkill.cooldown || 0) - dt);
+    if (weaponSkill.cooldown <= 0) {
+      weaponSkill.cooldown = getWeaponStats(this.character.id, weaponSkill.level).cooldown;
+      this.fireWeapon(weaponSkill);
+    }
+    for (const skill of this.state.skills) {
+      if (skill.isWeapon || skill.level <= 0) continue;
+      skill.cooldown = Math.max(0, (skill.cooldown || 0) - dt);
+      if (skill.cooldown <= 0) {
+        const stats = getArtifactStats(skill.id, skill.level);
+        skill.cooldown = stats.cooldown;
+        this.fireArtifact(skill, stats);
+      }
+    }
+  }
+
+  fireWeapon(skill) {
+    const stats = getWeaponStats(this.character.id, skill.level);
+    const player = this.state.player;
+    const baseDamage = this.character.stats.damage * stats.damage * (1 + clamp(Number(this.talents['sharp-eye'] || 0) * 0.03, 0, 0.3) + (player.damageBonus || 0));
+    const target = this.nearestEnemy();
+    const angle = target ? Math.atan2(target.y - player.y, target.x - player.x) : player.facing;
+    player.facing = angle;
+    this.weaponShots += 1;
+    this.emit({ type: 'attack', weapon: this.character.id });
+    if (this.character.id === 'wukong') {
+      const heavy = stats.heavyEvery && this.weaponShots % stats.heavyEvery === 0;
+      this.effect({ x: player.x, y: player.y, kind: heavy ? 'heavy-sweep' : 'sweep', radius: stats.range * (heavy ? stats.heavyRadius : 1), angle, color: this.character.color, ttl: 0.18 });
+      const arc = (stats.arc || 1.15) * (heavy ? 1.25 : 1);
+      this.hitCone(angle, stats.range * (heavy ? stats.heavyRadius : 1), arc, baseDamage * (heavy ? stats.heavyMultiplier : 1), heavy ? stats.stunChance || 0 : 0);
+    } else if (this.character.id === 'tangseng') {
+      const targetDistance = target ? Math.min(distance(target, player), stats.range) : stats.range;
+      const targetPoint = { x: player.x + Math.cos(angle) * targetDistance, y: player.y + Math.sin(angle) * targetDistance };
+      this.projectile({ x: player.x, y: player.y, vx: Math.cos(angle) * stats.projectileSpeed, vy: Math.sin(angle) * stats.projectileSpeed, radius: stats.radius, color: this.character.color, kind: 'light-orb', ttl: targetDistance / stats.projectileSpeed + stats.linger + 0.05, damage: baseDamage, target: targetPoint, linger: stats.linger, bounce: stats.bounce, targetLimit: stats.bounceTargets || (skill.level >= 5 ? 5 : skill.level >= 4 ? 3 : 2), split: stats.split, knockback: stats.knockback, pierce: true });
+    } else if (this.character.id === 'bajie') {
+      this.effect({ x: player.x, y: player.y, kind: 'hoe-line', radius: stats.range, angle, color: this.character.color, ttl: 0.22, width: stats.width });
+      this.hitLine(angle, stats.range, stats.width, baseDamage, stats.bleedTicks);
+      const birds = stats.birds || 0;
+      for (let i = 0; i < birds; i += 1) {
+        const spread = (i - (birds - 1) / 2) * 0.14;
+        const birdTarget = this.sortedEnemies(player)[i % Math.max(1, this.state.enemies.length)];
+        this.projectile({ x: player.x, y: player.y, vx: Math.cos(angle + spread) * 290, vy: Math.sin(angle + spread) * 290, radius: 9, color: '#f58c42', kind: 'fire-bird', ttl: 1.6, damage: baseDamage * 0.55, explosion: stats.explosion, targetId: birdTarget?.id, speed: 290 });
+      }
+    } else {
+      this.effect({ x: player.x, y: player.y, kind: 'staff-ring', radius: stats.range, angle: 0, color: this.character.color, ttl: 0.24 });
+      this.hitCircle(player.x, player.y, stats.range, baseDamage);
+      if (stats.whirlDuration && this.weaponShots % stats.whirlEvery === 0) {
+        for (const direction of [-1, 0, 1]) {
+          this.effect({ x: player.x + direction * stats.range * 0.75, y: player.y + (direction === 0 ? -stats.range * 0.75 : 0), kind: 'whirl', radius: stats.whirlRadius || (skill.level >= 4 ? 36 : 18), color: '#8bb8bf', ttl: stats.whirlDuration, damage: baseDamage * stats.whirlDamage / Math.max(stats.whirlDuration, 0.1), slowPower: skill.level, pull: stats.pull || 0, hitIds: true });
+        }
+      }
+    }
+  }
+
+  fireArtifact(skill, stats) {
+    const player = this.state.player;
+    const target = this.nearestEnemy();
+    const angle = target ? Math.atan2(target.y - player.y, target.x - player.x) : player.facing;
+    const damage = this.character.stats.damage * stats.damage * stats.power * (1 + clamp(Number(this.talents['sharp-eye'] || 0) * 0.03, 0, 0.3) + (player.damageBonus || 0));
+    this.emit({ type: 'attack', artifact: skill.id });
+    switch (skill.id) {
+      case 'purple-gourd': {
+        const eligible = this.sortedEnemies(player, (enemy) => enemy.kind === 'normal' || skill.level >= 3 && enemy.kind === 'elite')[0];
+        const centre = eligible || { x: player.x + Math.cos(angle) * 65, y: player.y + Math.sin(angle) * 65 };
+        this.effect({ x: centre.x, y: centre.y, kind: 'gourd', radius: stats.radius, angle, color: '#bf6ad6', ttl: 0.5 });
+        if (eligible && eligible.kind === 'normal') this.damageEnemy(eligible, Math.max(eligible.hp, damage), {});
+        this.hitCircle(centre.x, centre.y, stats.radius, damage * (skill.level >= 3 ? 1.2 : 1));
+        if (skill.level >= 4) this.effect({ x: centre.x, y: centre.y, kind: 'poison', radius: stats.radius, color: '#9c73b3', ttl: 2, damage: damage * 0.2 });
+        if (skill.level === 5) for (let i = 1; i < 3; i += 1) this.effect({ x: centre.x, y: centre.y, kind: 'chain-blast', radius: stats.radius + i * 20, color: '#bf6ad6', ttl: i * 0.22 + 0.05, burstDamage: damage * 0.6 });
+        break;
+      }
+      case 'iron-fan': {
+        const range = stats.radius * 1.5;
+        this.effect({ x: player.x, y: player.y, kind: 'fan', radius: range, angle, color: '#66c4bd', ttl: skill.level >= 4 ? 1 : 0.35, damage: skill.level >= 4 ? damage * 0.2 : 0 });
+        for (const enemy of this.state.enemies.slice()) {
+          let delta = Math.atan2(enemy.y - player.y, enemy.x - player.x) - angle;
+          delta = Math.atan2(Math.sin(delta), Math.cos(delta));
+          if (distance(enemy, player) > range + enemy.radius || Math.abs(delta) > 0.75) continue;
+          this.damageEnemy(enemy, damage, { knockback: 0.3 });
+          if (skill.level >= 3) enemy.burn = { damage: damage * 0.18, ttl: 2 };
+        }
+        if (skill.level === 5) this.projectile({ x: player.x + Math.cos(angle) * range, y: player.y + Math.sin(angle) * range, vx: -Math.cos(angle) * 310, vy: -Math.sin(angle) * 310, radius: 20, color: '#66c4bd', kind: 'wind-blade', ttl: range / 310, damage, pierce: true });
+        break;
+      }
+      case 'diamond-snare': {
+        const victims = this.state.enemies.slice().sort((a, b) => b.maxHp - a.maxHp).slice(0, skill.level >= 4 ? 2 : 1);
+        for (const victim of victims) this.projectile({ x: player.x, y: player.y, vx: Math.cos(angle) * 390, vy: Math.sin(angle) * 390, radius: 12, color: '#f0ce71', kind: 'ring', ttl: 2.2, damage: damage * 1.3, targetId: victim.id, speed: 390, stun: skill.level >= 5 ? 1.2 : skill.level >= 3 ? 0.5 : 0, refundSkill: skill.id, refundOnKill: skill.level >= 5 ? 1 : 0, returnToPlayer: true });
+        break;
+      }
+      case 'nine-dragon': {
+        const count = skill.level >= 5 ? 3 : skill.level >= 3 ? 2 : 1;
+        for (let i = 0; i < count; i += 1) this.effect({ x: player.x, y: player.y, kind: 'fire-ring', radius: stats.radius + i * 14, angle: 0, color: '#ec835a', ttl: skill.level >= 2 ? 3 : 2, damage: damage * 0.3, followPlayer: true, burstDamage: skill.level >= 4 ? damage * 0.6 : 0, fireAfter: skill.level >= 4 });
+        break;
+      }
+      case 'lotus-lantern':
+        player.hp = Math.min(player.maxHp, player.hp + player.maxHp * [0.12, 0.18, 0.24, 0.3, 0.35][skill.level - 1]);
+        player.invulnerable = Math.max(player.invulnerable, skill.level >= 2 ? 1 : 0);
+        if (skill.level >= 3) player.slow = 0;
+        if (skill.level === 5) this.hitCircle(player.x, player.y, stats.radius, damage);
+        this.effect({ x: player.x, y: player.y, kind: 'lotus', radius: stats.radius, angle: 0, color: '#80b8ff', ttl: 0.8 });
+        this.emit({ type: 'pickup', kind: 'heal' });
+        break;
+      case 'golden-rope':
+        this.effect({ x: player.x, y: player.y, kind: 'rope', radius: stats.radius, angle: 0, color: '#eacb82', ttl: skill.level >= 2 ? 3 : 2, damage: 0, burstDamage: skill.level === 5 ? damage : 0 });
+        for (const enemy of this.state.enemies.slice()) if (distance(enemy, player) <= stats.radius) {
+          if (skill.level >= 3) this.damageEnemy(enemy, damage * 0.6, {});
+          if (skill.level >= 4 && enemy.kind === 'elite') enemy.stun = Math.max(enemy.stun, 1.5);
+        }
+        break;
+      case 'moon-mirror': {
+        const moveAngle = player.facing;
+        this.useDash({ x: Math.cos(moveAngle), y: Math.sin(moveAngle) }, true);
+        player.invulnerable = Math.max(player.invulnerable, skill.level >= 3 ? 0.35 : 0.15);
+        const pool = this.sortedEnemies(player).slice(0, 4);
+        const count = skill.level >= 2 ? 2 : 1;
+        for (let i = 0; i < count; i += 1) this.projectile({ x: player.x, y: player.y, vx: Math.cos(angle + i * 0.25) * 420, vy: Math.sin(angle + i * 0.25) * 420, radius: 9, color: '#9ad3ff', kind: 'moon-blade', ttl: 2.5, damage, targetId: pool[i % Math.max(1, pool.length)]?.id, targetIds: pool.map((item) => item.id), speed: 420, maxBounces: skill.level >= 4 ? 2 : 0, refund: skill.level === 5 ? stats.cooldown * 0.2 : 0, refundSkill: skill.id });
+        break;
+      }
+      case 'samadhi-fire': {
+        const targets = this.sortedEnemies(player).slice(0, skill.level >= 4 ? 2 : 1);
+        for (const victim of targets) {
+          this.hitCircle(victim.x, victim.y, stats.radius, damage * 1.5);
+          if (skill.level >= 2) this.effect({ x: victim.x, y: victim.y, kind: 'fire-mark', radius: stats.radius, angle: 0, color: '#ff765e', ttl: 2, damage: damage * 0.25, burstDamage: skill.level >= 5 ? damage : 0, fireAfter: skill.level >= 5 });
+          if (skill.level >= 3) for (let i = 1; i < 3; i += 1) this.effect({ x: victim.x, y: victim.y, kind: 'chain-blast', radius: stats.radius + i * 24, color: '#ff765e', ttl: i * 0.35 + 0.05, burstDamage: damage * 0.35 });
+        }
+        break;
+      }
+      default: break;
+    }
+  }
+
+  nearestEnemy() {
+    const player = this.state.player;
+    let best = null; let bestDistance = Infinity;
+    for (const enemy of this.state.enemies) { const d = distance(enemy, player); if (d < bestDistance) { best = enemy; bestDistance = d; } }
+    return best;
+  }
+
+  sortedEnemies(origin, predicate = () => true) {
+    return this.state.enemies.filter(predicate).sort((a, b) => distance(a, origin) - distance(b, origin));
+  }
+
+  projectile(data) {
+    if (this.state.projectiles.length >= BALANCE.maxProjectiles) return;
+    this.state.projectiles.push(this.acquire('projectile', { id: this.allocId('projectile'), x: 0, y: 0, vx: 0, vy: 0, radius: 5, color: '#fff', ...data, ttl: data.ttl == null ? 1 : data.ttl, age: 0 }));
+  }
+
+  effect(data) {
+    if (this.state.effects.length >= BALANCE.maxEffects) return;
+    const ttl = data.ttl == null ? 0.2 : data.ttl;
+    this.state.effects.push(this.acquire('effect', { id: this.allocId('effect'), x: data.x, y: data.y, kind: data.kind, radius: data.radius || 0, angle: data.angle || 0, color: data.color || '#fff', ttl, maxTtl: ttl, ...data }));
+  }
+
+  acquire(kind, data) {
+    let object = this.poolingEnabled ? this.pools[kind].pop() : null;
+    if (object) this.poolStats.reused[kind] += 1;
+    else { object = {}; this.poolStats.created[kind] += 1; }
+    const hit = object.hit instanceof Set ? object.hit : null;
+    const hitIds = object.hitIds instanceof Set ? object.hitIds : null;
+    // Reset values while retaining stable property slots; no entity from a
+    // previous attack can leave a target, explosion, or damage flag behind.
+    for (const key of Object.keys(object)) object[key] = undefined;
+    Object.assign(object, data);
+    if (kind === 'projectile') { object.hit = hit || new Set(); object.hit.clear(); }
+    if (kind === 'effect' && data.hitIds) { object.hitIds = hitIds || new Set(); object.hitIds.clear(); }
+    return object;
+  }
+
+  release(kind, object) {
+    const limit = kind === 'projectile' ? BALANCE.maxProjectiles : kind === 'gem' ? BALANCE.maxGems : BALANCE.maxEffects;
+    if (this.poolingEnabled && this.pools[kind].length < limit) this.pools[kind].push(object);
+    this.poolStats.released[kind] += 1;
+  }
+
+  updateProjectiles(dt) {
+    for (let i = this.state.projectiles.length - 1; i >= 0; i -= 1) {
+      const shot = this.state.projectiles[i];
+      const previous = { x: shot.x, y: shot.y };
+      shot.age += dt; shot.ttl -= dt;
+      const wasAnchored = shot.anchored;
+      if (shot.returning) {
+        const direction = normalize(this.state.player.x - shot.x, this.state.player.y - shot.y);
+        shot.vx = direction.x * (shot.speed || 390); shot.vy = direction.y * (shot.speed || 390);
+        if (distance(shot, this.state.player) < 22) shot.ttl = 0;
+      }
+      if (shot.targetId && !shot.anchored) {
+        const target = this.state.enemies.find((enemy) => enemy.id === shot.targetId && enemy.hp > 0);
+        if (target) {
+          const direction = normalize(target.x - shot.x, target.y - shot.y);
+          const speed = shot.speed || 420; shot.vx = direction.x * speed; shot.vy = direction.y * speed;
+        }
+      }
+      shot.x += shot.vx * dt; shot.y += shot.vy * dt;
+      if (shot.kind === 'light-orb' && shot.target && !shot.anchored && this.segmentDistance(previous, shot, shot.target) <= 0.01) {
+        shot.x = shot.target.x; shot.y = shot.target.y;
+        shot.vx = 0; shot.vy = 0; shot.anchored = true; shot.ttl = shot.linger || 0;
+        if (shot.split) this.splitOrb(shot);
+      }
+      if (wasAnchored && shot.kind === 'light-orb') {
+        for (const enemy of this.state.enemies.slice()) if (distance(enemy, shot) <= 32 + enemy.radius) this.damageEnemy(enemy, shot.damage * dt, {});
+      }
+      if (shot.hostile) {
+        const player = this.state.player;
+        if (this.segmentDistance(previous, shot, player) <= shot.radius + player.radius) { this.damagePlayer(shot.damage); shot.ttl = 0; }
+      }
+      for (const enemy of this.state.enemies.slice()) {
+        if (shot.hostile || wasAnchored && shot.kind === 'light-orb') break;
+        if (shot.hit.has(enemy.id)) continue;
+        if (this.segmentDistance(previous, shot, enemy) <= (shot.radius || 5) + enemy.radius) {
+          shot.hit.add(enemy.id);
+          this.damageEnemy(enemy, shot.damage || 12, { knockback: shot.knockback, stun: shot.stun || 0 });
+          if (enemy.hp <= 0 && shot.refundOnKill && shot.refundSkill) {
+            const skill = this.state.skills.find((item) => item.id === shot.refundSkill);
+            if (skill) skill.cooldown = Math.max(0, (skill.cooldown || 0) - shot.refundOnKill);
+          }
+          if (shot.refund && shot.refundSkill) {
+            const skill = this.state.skills.find((item) => item.id === shot.refundSkill);
+            if (skill) skill.cooldown = Math.max(0, (skill.cooldown || 0) - shot.refund);
+          }
+          if (shot.explosion) this.explodeProjectile(shot);
+          if (shot.returnToPlayer && !shot.returning) { shot.returning = true; shot.targetId = null; shot.pierce = true; }
+          if (shot.kind === 'light-spark' || shot.kind === 'moon-blade') {
+            shot.bounceCount = (shot.bounceCount || 0) + 1;
+            if (shot.bounceCount <= (shot.maxBounces || 0)) {
+              const pool = (shot.targetIds || []).map((id) => this.state.enemies.find((item) => item.id === id && item.hp > 0)).filter(Boolean);
+              const next = this.sortedEnemies(shot, (item) => pool.includes(item) && item.id !== enemy.id)[0];
+              if (next) { shot.targetId = next.id; shot.hit.clear(); shot.hit.add(enemy.id); }
+              else shot.ttl = 0;
+            } else shot.ttl = 0;
+            break;
+          }
+          if (!shot.pierce) { shot.ttl = 0; break; }
+        }
+      }
+      if (shot.ttl <= 0 || shot.x < -120 || shot.y < -120 || shot.x > BALANCE.worldSize + 120 || shot.y > BALANCE.worldSize + 120) {
+        if (shot.explosion && !shot.exploded) this.explodeProjectile(shot);
+        this.state.projectiles.splice(i, 1);
+        this.release('projectile', shot);
+      }
+    }
+  }
+
+  splitOrb(orb) {
+    const pool = this.sortedEnemies(orb, (enemy) => enemy.kind === 'normal').slice(0, orb.targetLimit || 2);
+    for (let i = 0; i < Math.min(orb.split, 15); i += 1) {
+      const angle = i / orb.split * TAU;
+      this.projectile({ x: orb.x, y: orb.y, vx: Math.cos(angle) * 420, vy: Math.sin(angle) * 420, radius: 4, color: '#d8f8ff', kind: 'light-spark', ttl: 3, damage: orb.damage * 0.28, targetId: pool[i % Math.max(pool.length, 1)]?.id, targetIds: pool.map((item) => item.id), speed: 420, maxBounces: orb.bounce || 0, bounceCount: 0, targetLimit: orb.targetLimit || 2 });
+    }
+  }
+
+  explodeProjectile(shot) {
+    if (shot.exploded) return;
+    shot.exploded = true;
+    this.effect({ x: shot.x, y: shot.y, kind: 'explosion', radius: shot.explosion, color: shot.color, ttl: 0.28 });
+    this.hitCircle(shot.x, shot.y, shot.explosion, (shot.damage || 12) * 0.65);
+  }
+
+  damagePlayer(amount) {
+    const player = this.state.player;
+    if (this.debugMode && this.debugInvincible) return;
+    if (this.state.status !== 'playing' || player.invulnerable > 0) return;
+    const value = amount * (1 - clamp(Number(this.talents.warding || 0) * 0.025, 0, 0.25));
+    const absorbed = Math.min(player.shield || 0, value);
+    player.shield = Math.max(0, (player.shield || 0) - absorbed); player.hp -= value - absorbed;
+    player.invulnerable = 0.6; this.emit({ type: 'hit', target: 'player', amount: value });
+    if (player.hp <= 0) {
+      if (this.character.id === 'bajie' && !player.lastStandUsed) { player.hp = 1; player.lastStandUsed = true; player.invulnerable = 2; }
+      else this.lose();
+    }
+  }
+
+  segmentDistance(a, b, point) {
+    const dx = b.x - a.x; const dy = b.y - a.y;
+    const lengthSq = dx * dx + dy * dy;
+    const t = lengthSq ? clamp(((point.x - a.x) * dx + (point.y - a.y) * dy) / lengthSq, 0, 1) : 0;
+    return Math.hypot(point.x - (a.x + dx * t), point.y - (a.y + dy * t));
+  }
+
+  updateEffects(dt) {
+    for (let i = this.state.effects.length - 1; i >= 0; i -= 1) {
+      const effect = this.state.effects[i];
+      const activeDt = Math.min(dt, Math.max(0, effect.ttl)); effect.ttl -= dt;
+      if (effect.followPlayer) { effect.x = this.state.player.x; effect.y = this.state.player.y; }
+      if (['whirl', 'fire-ring', 'rope', 'fire-mark', 'poison', 'fire-pool', 'fan'].includes(effect.kind)) {
+        for (const enemy of this.state.enemies.slice()) if (distance(effect, enemy) <= effect.radius + enemy.radius) {
+          if (effect.kind === 'fan') {
+            const difference = Math.atan2(enemy.y - effect.y, enemy.x - effect.x) - effect.angle;
+            if (Math.abs(Math.atan2(Math.sin(difference), Math.cos(difference))) > 0.75) continue;
+          }
+          this.damageEnemy(enemy, (effect.damage == null ? 4 : effect.damage) * activeDt, { knockback: 0 });
+          if (effect.kind === 'whirl') {
+            if (this.character.id === 'wujing' && !effect.hitIds?.has(enemy.id)) {
+              effect.hitIds?.add(enemy.id);
+              this.state.player.whirlHits = (this.state.player.whirlHits || 0) + 1;
+              if (this.state.player.whirlHits >= 12) { this.state.player.whirlHits = 0; this.state.player.shield = Math.min(30, (this.state.player.shield || 0) + 10); }
+            }
+            const level = effect.slowPower || 3;
+            const slow = level >= 5 ? (enemy.kind === 'normal' ? 0.32 : enemy.kind === 'elite' ? 0.62 : 0.82) : level >= 4 ? (enemy.kind === 'normal' ? 0.55 : 0.78) : 0.9;
+            enemy.nextSlow = Math.min(enemy.nextSlow || 1, slow);
+            if (effect.pull) {
+              const pull = normalize(effect.x - enemy.x, effect.y - enemy.y);
+              const strength = enemy.kind === 'normal' ? 1 : enemy.kind === 'elite' ? 0.4 : 0.12;
+              enemy.x += pull.x * effect.pull * activeDt * strength; enemy.y += pull.y * effect.pull * activeDt * strength;
+            }
+          }
+        }
+      }
+      if (effect.kind === 'rope') for (const enemy of this.state.enemies) if (distance(effect, enemy) <= effect.radius) enemy.nextSlow = Math.min(enemy.nextSlow || 1, 0.65);
+      if (effect.ttl <= 0) {
+        if (effect.hostileDamage && distance(effect, this.state.player) <= effect.radius + this.state.player.radius) this.damagePlayer(effect.hostileDamage);
+        if (effect.burstDamage) {
+          this.hitCircle(effect.x, effect.y, effect.radius, effect.burstDamage);
+          this.effect({ x: effect.x, y: effect.y, kind: 'explosion', radius: effect.radius, color: effect.color, ttl: 0.25 });
+        }
+        if (effect.fireAfter) this.effect({ x: effect.x, y: effect.y, kind: 'fire-pool', radius: effect.radius, color: '#ee8054', ttl: 3, damage: (effect.damage || 6) * 0.4 });
+        this.state.effects.splice(i, 1);
+        this.release('effect', effect);
+      }
+    }
+  }
+
+  hitCircle(x, y, radius, amount) {
+    for (const enemy of this.state.enemies.slice()) if (Math.hypot(enemy.x - x, enemy.y - y) <= radius + enemy.radius) this.damageEnemy(enemy, amount, {});
+  }
+
+  hitCone(angle, radius, arc, amount, stunChance = 0) {
+    const player = this.state.player;
+    for (const enemy of this.state.enemies.slice()) {
+      const d = distance(enemy, player); if (d > radius + enemy.radius) continue;
+      let delta = Math.atan2(enemy.y - player.y, enemy.x - player.x) - angle;
+      delta = Math.atan2(Math.sin(delta), Math.cos(delta));
+      if (Math.abs(delta) <= arc / 2) this.damageEnemy(enemy, amount, { stun: this.rng() < stunChance ? 1.4 : 0 });
+    }
+  }
+
+  hitLine(angle, length, width, amount, bleedTicks = null) {
+    const player = this.state.player;
+    for (const enemy of this.state.enemies.slice()) {
+      const dx = enemy.x - player.x; const dy = enemy.y - player.y;
+      const forward = dx * Math.cos(angle) + dy * Math.sin(angle);
+      const lateral = Math.abs(-dx * Math.sin(angle) + dy * Math.cos(angle));
+      if (forward >= 0 && forward <= length && lateral <= width + enemy.radius) {
+        this.damageEnemy(enemy, amount, {});
+        if (bleedTicks) {
+          if (!enemy.bleeds) enemy.bleeds = [];
+          // Every hit has three exact one-second ticks. Up to three concurrent
+          // applications fit the one-second attack rhythm and stay bounded.
+          enemy.bleeds.push({ baseDamage: amount, ticks: bleedTicks.slice(), tick: 0, timer: 1 });
+          if (enemy.bleeds.length > 3) enemy.bleeds.shift();
+        }
+      }
+    }
+  }
+
+  damageEnemy(enemy, amount, options = {}) {
+    if (!enemy || enemy.hp <= 0) return;
+    const value = Math.max(0, Number(amount) || 0);
+    enemy.hp -= value; enemy.flash = 0.08; this.state.damage += value;
+    if (options.knockback && options.knockback <= 1) {
+      enemy.knockback = Math.max(enemy.knockback || 0, options.knockback);
+      const away = normalize(enemy.x - this.state.player.x, enemy.y - this.state.player.y);
+      enemy.x += away.x * 14; enemy.y += away.y * 14;
+    } else if (options.knockback) {
+      const away = normalize(enemy.x - this.state.player.x, enemy.y - this.state.player.y);
+      enemy.x += away.x * options.knockback; enemy.y += away.y * options.knockback;
+    }
+    if (options.stun) enemy.stun = Math.max(enemy.stun, options.stun);
+    if (enemy.hp <= 0) this.killEnemy(enemy);
+  }
+
+  killEnemy(enemy) {
+    const index = this.state.enemies.indexOf(enemy); if (index < 0) return;
+    this.state.enemies.splice(index, 1); this.state.kills += 1;
+    const value = enemy.xp || 2;
+    this.dropGem(enemy.x, enemy.y, value, 'xp');
+    if (enemy.kind === 'boss') { this.dropGem(enemy.x, enemy.y, enemy.final ? 80 : 35, 'coin'); this.emit({ type: 'kill', enemy, boss: true, final: Boolean(enemy.final) }); }
+    else {
+      if (this.rng() < 0.045) this.dropGem(enemy.x + 8, enemy.y, 1, 'heal');
+      if (enemy.kind === 'elite' || this.rng() < 0.22) this.dropGem(enemy.x - 8, enemy.y, enemy.kind === 'elite' ? 5 : 1, 'coin');
+      if (this.rng() < 0.004) this.dropGem(enemy.x, enemy.y + 8, 1, 'magnet');
+      this.emit({ type: 'kill', enemy });
+    }
+  }
+
+  dropGem(x, y, value, kind) {
+    if (this.state.gems.length >= BALANCE.maxGems) {
+      const compatible = this.state.gems.find((gem) => gem.kind === kind);
+      if (compatible) { compatible.value += value; return; }
+      const displaced = this.state.gems.shift();
+      const receiver = this.state.gems.find((gem) => gem.kind === displaced.kind);
+      if (receiver) receiver.value += displaced.value;
+      this.release('gem', displaced);
+    }
+    this.state.gems.push(this.acquire('gem', { id: this.allocId('gem'), x, y, value, kind }));
+  }
+
+  updateGems(dt = 0.05) {
+    const player = this.state.player;
+    for (let i = this.state.gems.length - 1; i >= 0; i -= 1) {
+      const gem = this.state.gems[i];
+      const d = distance(gem, player);
+      const pickupRadius = 30 + (Number(this.talents.fortune || 0) * 8);
+      if (d <= pickupRadius) {
+        this.state.gems.splice(i, 1); this.collectGem(gem); this.release('gem', gem); continue;
+      }
+      if (d < 170 && gem.kind === 'xp' || gem.magnetized) {
+        const vector = normalize(player.x - gem.x, player.y - gem.y);
+        gem.x += vector.x * 270 * dt; gem.y += vector.y * 270 * dt;
+      }
+    }
+  }
+
+  collectGem(gem) {
+    if (gem.kind === 'xp') {
+      this.state.player.xp += gem.value * (1 + clamp(Number(this.talents.fortune || 0) * 0.04, 0, 0.4));
+      while (this.state.player.xp >= this.state.player.xpNext) {
+        this.state.player.xp -= this.state.player.xpNext;
+        this.state.player.level += 1;
+        // A full run reaches roughly 23–26 upgrades from authentic drops.
+        // Exponential requirements previously stopped most builds at level 12.
+        const level = this.state.player.level;
+        this.state.player.xpNext = Math.round(22 + level * 3 + level * level * 0.15);
+        this.pendingUpgrades += 1;
+      }
+      if (this.pendingUpgrades && this.state.status === 'playing') this.openUpgrade();
+    } else if (gem.kind === 'heal') this.state.player.hp = Math.min(this.state.player.maxHp, this.state.player.hp + this.state.player.maxHp * 0.12);
+    else if (gem.kind === 'coin') this.state.coins += Math.round(gem.value * (1 + clamp(Number(this.talents.fortune || 0) * 0.04, 0, 0.4)));
+    else if (gem.kind === 'magnet') for (const remaining of this.state.gems) remaining.magnetized = true;
+    this.emit({ type: 'pickup', kind: gem.kind, value: gem.value });
+    if (this.character.id === 'wukong' && gem.kind === 'xp') this.state.player.speedBoost = 0.75;
+  }
+
+  openUpgrade() {
+    this.state.status = 'upgrade';
+    if (this.character.id === 'tangseng') this.state.player.hp = Math.min(this.state.player.maxHp, this.state.player.hp + this.state.player.maxHp * 0.06);
+    this.state.choices = this.makeChoices();
+    this.emit({ type: 'upgrade', choices: this.state.choices });
+  }
+
+  makeChoices() {
+    const owned = this.state.skills;
+    const weapon = owned.find((skill) => skill.isWeapon);
+    const choices = [];
+    if (weapon && weapon.level < 5) choices.push(this.choiceFor(weapon.id, weapon.level));
+    const candidates = ARTIFACTS.filter((artifact) => {
+      const skill = owned.find((item) => item.id === artifact.id);
+      return skill ? skill.level < 5 : owned.length < 5;
+    });
+    const shuffled = candidates.slice();
+    for (let i = shuffled.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(this.rng() * (i + 1)); [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    for (const artifact of shuffled) {
+      if (choices.length >= 3) break;
+      const existing = owned.find((skill) => skill.id === artifact.id);
+      choices.push(this.choiceFor(artifact.id, existing ? existing.level : 0));
+    }
+    const maxed = owned.length >= 5 && owned.every((skill) => skill.level >= 5);
+    while (choices.length < 3) choices.push({ id: `boon:${choices.length}`, name: maxed ? '功德精进' : '临战心得', description: '提升 8% 伤害并回复 8% 生命。', level: 1, isWeapon: false, color: '#eacb82', icon: 'boon', boon: true });
+    return choices.slice(0, 3);
+  }
+
+  choiceFor(id, level) {
+    if (id.startsWith(WEAPON_PREFIX)) {
+      const next = level + 1; return { id, name: this.character.weapon, description: this.character.weaponLevels[next - 1] || '武器精进', level: next, isWeapon: true, color: this.character.color, icon: 'weapon' };
+    }
+    const artifact = ARTIFACTS.find((item) => item.id === id);
+    const next = level + 1;
+    return { id, name: artifact ? artifact.name : id, description: artifact ? (artifact.levels[next - 1] || artifact.description) : '法宝精进', level: next, isWeapon: false, color: artifact ? artifact.color : '#eacb82', icon: artifact ? artifact.icon : 'artifact' };
+  }
+
+  chooseUpgrade(id) {
+    if (this.disposed || this.state.status !== 'upgrade') return false;
+    const choice = this.state.choices.find((item) => item.id === id);
+    if (!choice) return false;
+    if (choice.boon) {
+      this.state.player.maxHp = Math.round(this.state.player.maxHp * 1.04); this.state.player.hp = Math.min(this.state.player.maxHp, this.state.player.hp + this.state.player.maxHp * 0.08); this.state.player.damageBonus = (this.state.player.damageBonus || 0) + 0.08;
+    } else {
+      let skill = this.state.skills.find((item) => item.id === choice.id);
+      if (skill) skill.level = Math.min(5, skill.level + 1);
+      else if (this.state.skills.length < 5) { skill = { id: choice.id, level: 1, isWeapon: Boolean(choice.isWeapon), cooldown: 0 }; this.state.skills.push(skill); }
+      else return false;
+    }
+    this.pendingUpgrades = Math.max(0, this.pendingUpgrades - 1);
+    this.state.choices = []; this.state.status = 'playing'; this.emit({ type: 'upgrade', selected: choice.id });
+    if (this.pendingUpgrades > 0) this.openUpgrade();
+    return true;
+  }
+
+  pause() { if (this.state.status === 'playing') this.state.status = 'paused'; return this.state.status; }
+  resume() { if (this.state.status === 'paused') this.state.status = 'playing'; return this.state.status; }
+
+  useDash(input = {}, fromArtifact = false) {
+    if (this.disposed || this.state.status !== 'playing') return false;
+    if (!fromArtifact && this.state.player.dashCooldown > 0) return false;
+    const hasDirection = Math.hypot(Number(input.x) || 0, Number(input.y) || 0) > 0.001;
+    const direction = hasDirection ? normalize(Number(input.x) || 0, Number(input.y) || 0) : { x: Math.cos(this.state.player.facing), y: Math.sin(this.state.player.facing) };
+    const cooldown = 5 * (1 - clamp(Number(this.talents['dash-master'] || 0) * 0.045, 0, 0.36));
+    this.state.player.x = clamp(this.state.player.x + direction.x * 180, this.state.player.radius, BALANCE.worldSize - this.state.player.radius);
+    this.state.player.y = clamp(this.state.player.y + direction.y * 180, this.state.player.radius, BALANCE.worldSize - this.state.player.radius);
+    this.state.player.invulnerable = 0.45; this.state.player.dashCooldown = fromArtifact ? Math.min(this.state.player.dashCooldown, cooldown * 0.5) : cooldown;
+    this.effect({ x: this.state.player.x, y: this.state.player.y, kind: 'dash', radius: 34, angle: this.state.player.facing, color: '#bde9ff', ttl: 0.25 });
+    this.emit({ type: 'dash' }); return true;
+  }
+
+  checkVictory() {
+    if (this.state.status !== 'playing') return;
+    if (this.state.time >= BALANCE.duration && this.finalBossSpawned && !this.state.enemies.some((enemy) => enemy.final)) {
+      this.state.status = 'won'; this.emit({ type: 'win' });
+    }
+  }
+  lose() { if (this.state.status === 'playing' || this.state.status === 'upgrade') { this.state.status = 'lost'; this.emit({ type: 'lose' }); } }
+
+  trimCaps() {
+    while (this.state.enemies.length > BALANCE.maxEnemies) this.state.enemies.shift();
+    while (this.state.projectiles.length > BALANCE.maxProjectiles) this.release('projectile', this.state.projectiles.shift());
+    while (this.state.effects.length > BALANCE.maxEffects) this.release('effect', this.state.effects.shift());
+    while (this.state.gems.length > BALANCE.maxGems) this.state.gems.shift();
+  }
+
+  debug(action, payload = {}) {
+    if (!this.debugMode) return false;
+    if (action === 'invincible') { this.debugInvincible = payload.enabled !== false; return true; }
+    if (action === 'pooling') { this.poolingEnabled = payload.enabled !== false; for (const pool of Object.values(this.pools)) pool.length = 0; return true; }
+    if (action === 'spawn') return this.spawnEnemy(payload.kind || 'normal', payload.variant || 0);
+    if (action === 'damage') { const enemy = this.state.enemies.find((item) => item.id === payload.id) || this.state.enemies[0]; if (enemy) this.damageEnemy(enemy, payload.amount || enemy.hp); return true; }
+    if (action === 'xp') { this.dropGem(this.state.player.x, this.state.player.y, payload.value || 100, 'xp'); return true; }
+    if (action === 'time') { this.elapsed = Number(payload.value) || 0; this.state.time = this.elapsed; return true; }
+    if (action === 'killFinal') { for (const enemy of this.state.enemies.filter((item) => item.final)) this.killEnemy(enemy); return true; }
+    return false;
+  }
+
+  getSnapshot() {
+    return JSON.parse(JSON.stringify(this.state, (key, value) => value instanceof Set ? Array.from(value) : value));
+  }
+
+  dispose() { this.disposed = true; this.state.enemies.length = 0; this.state.projectiles.length = 0; this.state.effects.length = 0; this.state.gems.length = 0; for (const pool of Object.values(this.pools)) pool.length = 0; this.onEvent = () => {}; }
+}
+
+module.exports.default=GameEngine;
+
+Object.assign(module.exports,{GameEngine});
+
+},
+"renderer":function(module,exports,require){
+/*
+ * 西游·八十一难 — procedural Canvas renderer
+ *
+ * This file deliberately has no DOM, Image, Path2D, gradient or platform
+ * dependencies.  The same renderer is used by the browser prototype and the
+ * WeChat mini-program adapter, which supplies a Canvas 2D context.  All art is
+ * drawn from simple, original shapes so a playable build has no asset loading
+ * gate.
+ */
+
+const TAU = Math.PI * 2;
+const WORLD_SIZE = 1800;
+const EMPTY_LIST = Object.freeze([]);
+const compareEnemyDepth = (a, b) => n(a.y) - n(b.y);
+
+const THEMES = Object.freeze({
+  forest: { paper: '#e9d8a6', paperDark: '#d2b982', ink: '#463527', leaf: '#80985d', accent: '#b56f39', road: '#bc9d6b', motif: '#6f8452' },
+  sand: { paper: '#ecd09a', paperDark: '#d1a76d', ink: '#523d2c', leaf: '#a48e58', accent: '#ba693d', road: '#c49b5e', motif: '#8f754b' },
+  snow: { paper: '#dce7e3', paperDark: '#b7cfd0', ink: '#30434a', leaf: '#7da9a2', accent: '#bd6c58', road: '#a9c0c3', motif: '#628d93' },
+  fire: { paper: '#d8a47e', paperDark: '#b76e58', ink: '#4e2f2a', leaf: '#9b6048', accent: '#d35e35', road: '#ae6c4e', motif: '#824539' },
+  water: { paper: '#b9d7d0', paperDark: '#80b5b0', ink: '#284a4a', leaf: '#5f9f91', accent: '#bd8150', road: '#82ada9', motif: '#477f79' },
+  temple: { paper: '#d6c0cb', paperDark: '#ad8da5', ink: '#433447', leaf: '#8e718c', accent: '#b26749', road: '#aa8d95', motif: '#6e536f' }
+});
+
+const HEROES = Object.freeze({
+  wukong: { body: '#b64e34', dark: '#6b3027', light: '#e6a547', skin: '#bf7852', metal: '#efc35b', trim: '#6b4435' },
+  tangsanzang: { body: '#d9edf0', dark: '#5b7094', light: '#8ccddd', skin: '#eac39f', metal: '#d1a953', trim: '#45607b' },
+  bajie: { body: '#b85f49', dark: '#6a3a35', light: '#e6a46d', skin: '#e6a58b', metal: '#b7b7a2', trim: '#5d4a45' },
+  shajing: { body: '#507f79', dark: '#294e51', light: '#91b7a2', skin: '#986b4b', metal: '#d3aa5a', trim: '#3d5e61' }
+});
+
+const ENEMY_TINTS = Object.freeze({
+  forest: ['#6c4b3f', '#7e6944', '#4f6c52', '#8b5745'],
+  sand: ['#87543b', '#986d43', '#6e5939', '#9c5c43'],
+  snow: ['#52656b', '#6b5961', '#4d787c', '#87635f'],
+  fire: ['#733933', '#934530', '#5c3c3b', '#ad6041'],
+  water: ['#355f60', '#476f72', '#6f5c57', '#46644c'],
+  temple: ['#57435d', '#76506a', '#4d566d', '#855e4c']
+});
+
+const noopContext = {
+  save() {}, restore() {}, beginPath() {}, closePath() {}, moveTo() {}, lineTo() {}, quadraticCurveTo() {}, bezierCurveTo() {}, arc() {},
+  fill() {}, stroke() {}, fillRect() {}, strokeRect() {}, clearRect() {}, fillText() {}, setTransform() {}, translate() {}, scale() {}, rotate() {},
+  clip() {}, measureText(text) { return { width: String(text).length * 8 }; }
+};
+
+function n(value, fallback = 0) {
+  return Number.isFinite(Number(value)) ? Number(value) : fallback;
+}
+
+function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
+
+function method(ctx, name, ...args) {
+  if (ctx && typeof ctx[name] === 'function') {
+    try { return ctx[name](...args); } catch (_) { return undefined; }
+  }
+  return undefined;
+}
+
+function paint(ctx, fill, stroke, lineWidth = 1) {
+  if (fill != null) ctx.fillStyle = fill;
+  if (stroke != null) ctx.strokeStyle = stroke;
+  if (lineWidth != null) ctx.lineWidth = lineWidth;
+}
+
+function path(ctx, commands, fill, stroke, lineWidth = 1) {
+  method(ctx, 'beginPath');
+  for (const command of commands) {
+    const op = command[0];
+    if (op === 'M') method(ctx, 'moveTo', command[1], command[2]);
+    else if (op === 'L') method(ctx, 'lineTo', command[1], command[2]);
+    else if (op === 'Q') method(ctx, 'quadraticCurveTo', command[1], command[2], command[3], command[4]);
+    else if (op === 'C') method(ctx, 'bezierCurveTo', command[1], command[2], command[3], command[4], command[5], command[6]);
+    else if (op === 'A') method(ctx, 'arc', command[1], command[2], command[3], command[4], command[5], command[6]);
+    else if (op === 'Z') method(ctx, 'closePath');
+  }
+  if (fill != null) { paint(ctx, fill); method(ctx, 'fill'); }
+  if (stroke != null) { paint(ctx, null, stroke, lineWidth); method(ctx, 'stroke'); }
+}
+
+function circle(ctx, x, y, radius, fill, stroke, lineWidth = 1) {
+  method(ctx, 'beginPath');
+  method(ctx, 'arc', x, y, Math.max(0, radius), 0, TAU);
+  if (fill != null) { paint(ctx, fill); method(ctx, 'fill'); }
+  if (stroke != null) { paint(ctx, null, stroke, lineWidth); method(ctx, 'stroke'); }
+}
+
+function roundedBox(ctx, x, y, w, h, radius, fill, stroke, lineWidth = 1) {
+  const r = Math.min(Math.abs(radius), Math.abs(w) / 2, Math.abs(h) / 2);
+  path(ctx, [
+    ['M', x + r, y], ['L', x + w - r, y], ['Q', x + w, y, x + w, y + r],
+    ['L', x + w, y + h - r], ['Q', x + w, y + h, x + w - r, y + h],
+    ['L', x + r, y + h], ['Q', x, y + h, x, y + h - r],
+    ['L', x, y + r], ['Q', x, y, x + r, y], ['Z']
+  ], fill, stroke, lineWidth);
+}
+
+function hash2(x, y) {
+  // Stable pseudo-noise for map ornament placement.  It is never seeded from
+  // Math.random, so replayed frames have exactly the same decorations.
+  const value = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
+  return value - Math.floor(value);
+}
+
+function themeFor(stage) {
+  const theme = typeof stage?.theme === 'string' ? stage.theme : (typeof stage === 'string' ? stage : 'forest');
+  return THEMES[theme] || THEMES.forest;
+}
+
+function heroStyle(characterId) {
+  const key = String(characterId || '').toLowerCase().replace(/[^a-z]/g, '');
+  if (key === 'tangsanzang' || key === 'tangseng' || key === 'tang' || key === 'sanzang') return ['tangsanzang', HEROES.tangsanzang];
+  if (key === 'bajie' || key === 'zhubajie') return ['bajie', HEROES.bajie];
+  if (key === 'shajing' || key === 'sha' || key === 'wujing') return ['shajing', HEROES.shajing];
+  return ['wukong', HEROES.wukong];
+}
+
+function alphaColor(color, alpha) {
+  // Canvas implementations accept rgba consistently; preserve CSS colors that
+  // are not six-digit hex values as-is for old WeChat contexts.
+  const match = String(color || '').match(/^#([0-9a-f]{6})$/i);
+  if (!match) return color;
+  const hex = match[1];
+  return `rgba(${parseInt(hex.slice(0, 2), 16)},${parseInt(hex.slice(2, 4), 16)},${parseInt(hex.slice(4, 6), 16)},${clamp(alpha, 0, 1)})`;
+}
+
+function drawPortrait(ctx, characterId, x, y, size) {
+  const [id, style] = heroStyle(characterId);
+  const s = Math.max(1, n(size, 64));
+  const r = s * 0.26;
+  method(ctx, 'save');
+  method(ctx, 'translate', n(x), n(y));
+  circle(ctx, 0, s * 0.12, s * 0.45, '#dbc48f', '#5c4235', Math.max(1, s * 0.035));
+  if (id === 'wukong') {
+    circle(ctx, -s * 0.34, -s * 0.01, s * 0.14, style.body, style.dark, s * 0.03);
+    circle(ctx, s * 0.34, -s * 0.01, s * 0.14, style.body, style.dark, s * 0.03);
+    path(ctx, [['M', -s * .22, s * .03], ['Q', 0, -s * .22, s * .22, s * .03], ['L', s * .16, s * .29], ['L', -s * .16, s * .29], ['Z']], style.skin, style.dark, s * .03);
+    circle(ctx, -s * .08, s * .09, s * .028, '#2b2527'); circle(ctx, s * .08, s * .09, s * .028, '#2b2527');
+    paint(ctx, style.metal); method(ctx, 'fillRect', -s * .32, -s * .43, s * .64, s * .13); method(ctx, 'fillRect', -s * .19, -s * .57, s * .38, s * .18);
+  } else if (id === 'tangsanzang') {
+    circle(ctx, 0, -s * .01, s * .28, style.skin, style.dark, s * .03);
+    path(ctx, [['M', -s * .37, s * .18], ['Q', 0, s * .02, s * .37, s * .18], ['L', s * .28, s * .55], ['L', -s * .28, s * .55], ['Z']], style.body, style.dark, s * .035);
+    circle(ctx, -s * .09, s * .02, s * .022, '#2b3041'); circle(ctx, s * .09, s * .02, s * .022, '#2b3041');
+    paint(ctx, null, style.metal, s * .03); method(ctx, 'beginPath'); method(ctx, 'moveTo', -s * .3, -s * .29); method(ctx, 'lineTo', s * .3, -s * .29); method(ctx, 'stroke');
+  } else if (id === 'bajie') {
+    circle(ctx, 0, s * .02, s * .29, style.skin, style.dark, s * .03);
+    path(ctx, [['M', -s * .23, -s * .11], ['L', -s * .43, -s * .26], ['L', -s * .34, s * .02], ['Z']], style.skin, style.dark, s * .03);
+    path(ctx, [['M', s * .23, -s * .11], ['L', s * .43, -s * .26], ['L', s * .34, s * .02], ['Z']], style.skin, style.dark, s * .03);
+    circle(ctx, 0, s * .13, s * .13, style.light, style.dark, s * .025); circle(ctx, -s * .055, s * .12, s * .018, '#37282a'); circle(ctx, s * .055, s * .12, s * .018, '#37282a');
+    path(ctx, [['M', -s * .33, s * .28], ['Q', 0, s * .12, s * .33, s * .28], ['L', s * .25, s * .6], ['L', -s * .25, s * .6], ['Z']], style.body, style.dark, s * .035);
+  } else {
+    circle(ctx, 0, s * .02, s * .28, style.skin, style.dark, s * .03);
+    path(ctx, [['M', -s * .25, -s * .13], ['Q', 0, -s * .36, s * .25, -s * .13], ['L', s * .3, s * .02], ['L', -s * .3, s * .02], ['Z']], style.dark, style.dark, s * .02);
+    path(ctx, [['M', -s * .3, s * .28], ['Q', 0, s * .08, s * .3, s * .28], ['L', s * .24, s * .61], ['L', -s * .24, s * .61], ['Z']], style.body, style.dark, s * .035);
+    circle(ctx, -s * .09, s * .03, s * .02, '#252c30'); circle(ctx, s * .09, s * .03, s * .02, '#252c30');
+  }
+  // portrait frame is deliberately square and parchment-like for UI use
+  roundedBox(ctx, -s * .52, -s * .58, s * 1.04, s * 1.2, s * .11, null, '#574235', Math.max(1, s * .035));
+  method(ctx, 'restore');
+}
+
+class GameRenderer {
+  constructor(canvas, options = {}) {
+    this.canvas = canvas || null;
+    this.ctx = (canvas && typeof canvas.getContext === 'function' && canvas.getContext('2d')) || noopContext;
+    this.width = Math.max(1, n(options.width, 375));
+    this.height = Math.max(1, n(options.height, 667));
+    this.pixelRatio = Math.max(0.5, n(options.pixelRatio, 1));
+    this.quality = options.quality === 'low' ? 'low' : 'high';
+    this.showHud = options.showHud !== false;
+    this.camera = { x: WORLD_SIZE / 2, y: WORLD_SIZE / 2 };
+    // The draw buffer owns only temporary references, never simulation order.
+    this._enemyDrawList = [];
+    this._view = { left: 0, top: 0, right: 0, bottom: 0 };
+    this.stats = { enemies: 0, projectiles: 0, effects: 0, gems: 0, culledEnemies: 0, culledProjectiles: 0, culledEffects: 0, culledGems: 0 };
+    this.elapsed = 0;
+    this.disposed = false;
+    this.resize(this.width, this.height, this.pixelRatio);
+  }
+
+  resize(width, height, pixelRatio = this.pixelRatio) {
+    this.width = Math.max(1, n(width, this.width));
+    this.height = Math.max(1, n(height, this.height));
+    this.pixelRatio = Math.max(0.5, n(pixelRatio, this.pixelRatio));
+    if (this.canvas) {
+      try { this.canvas.width = Math.round(this.width * this.pixelRatio); } catch (_) { /* read-only in some adapters */ }
+      try { this.canvas.height = Math.round(this.height * this.pixelRatio); } catch (_) { /* read-only in some adapters */ }
+    }
+    return this;
+  }
+
+  setQuality(quality) {
+    this.quality = quality === 'low' ? 'low' : 'high';
+    return this;
+  }
+
+  render(state, dt = 0) {
+    if (this.disposed || !this.ctx) return;
+    const safeState = state || {};
+    this.elapsed += clamp(n(dt, 0), 0, 0.1);
+    const player = safeState.player || { x: WORLD_SIZE / 2, y: WORLD_SIZE / 2, radius: 18 };
+    const mapTheme = themeFor(safeState.stage);
+    const zoom = this._zoom(player);
+    const viewWorldW = this.width / zoom;
+    const viewWorldH = this.height / zoom;
+    const targetX = viewWorldW >= WORLD_SIZE ? WORLD_SIZE / 2 : clamp(n(player.x, WORLD_SIZE / 2), viewWorldW / 2, WORLD_SIZE - viewWorldW / 2);
+    const targetY = viewWorldH >= WORLD_SIZE ? WORLD_SIZE / 2 : clamp(n(player.y, WORLD_SIZE / 2), viewWorldH / 2, WORLD_SIZE - viewWorldH / 2);
+    const smoothing = this.quality === 'low' || n(dt) <= 0 ? 1 : clamp(n(dt, 0) * 8, 0, 1);
+    this.camera.x += (targetX - this.camera.x) * smoothing;
+    this.camera.y += (targetY - this.camera.y) * smoothing;
+    if (!Number.isFinite(this.camera.x)) this.camera.x = targetX;
+    if (!Number.isFinite(this.camera.y)) this.camera.y = targetY;
+    this._view.left = this.camera.x - viewWorldW / 2;
+    this._view.top = this.camera.y - viewWorldH / 2;
+    this._view.right = this.camera.x + viewWorldW / 2;
+    this._view.bottom = this.camera.y + viewWorldH / 2;
+    this.stats.enemies = this.stats.projectiles = this.stats.effects = this.stats.gems = 0;
+    this.stats.culledEnemies = this.stats.culledProjectiles = this.stats.culledEffects = this.stats.culledGems = 0;
+
+    const ctx = this.ctx;
+    method(ctx, 'save');
+    method(ctx, 'setTransform', this.pixelRatio, 0, 0, this.pixelRatio, 0, 0);
+    paint(ctx, mapTheme.paper);
+    method(ctx, 'fillRect', 0, 0, this.width, this.height);
+    method(ctx, 'translate', this.width / 2, this.height / 2);
+    method(ctx, 'scale', zoom, zoom);
+    method(ctx, 'translate', -this.camera.x, -this.camera.y);
+    this._drawMap(ctx, mapTheme);
+
+    const enemies = this._enemyDrawList;
+    enemies.length = 0;
+    const sourceEnemies = Array.isArray(safeState.enemies) ? safeState.enemies : EMPTY_LIST;
+    const gems = Array.isArray(safeState.gems) ? safeState.gems : EMPTY_LIST;
+    const effects = Array.isArray(safeState.effects) ? safeState.effects : EMPTY_LIST;
+    const projectiles = Array.isArray(safeState.projectiles) ? safeState.projectiles : EMPTY_LIST;
+    for (const enemy of sourceEnemies) {
+      if (!enemy) continue;
+      const r = clamp(n(enemy.radius, 17), 7, 72);
+      // Keep crowns, overhead health/stun markers, and lifted bodies visible
+      // even when the enemy's feet are outside the viewport.
+      const heightMargin = r * 2.4 + Math.abs(n(enemy.hopHeight)) * r * .4 + 8;
+      if (this._inView(n(enemy.x), n(enemy.y), r * 1.35 + 4, heightMargin)) enemies.push(enemy);
+      else this.stats.culledEnemies += 1;
+    }
+    enemies.sort(compareEnemyDepth);
+    this.stats.enemies = enemies.length;
+    for (const gem of gems) {
+      if (!gem) continue;
+      const pad = clamp(n(gem.radius, 7), 3, 14) * 1.4 + 2;
+      if (this._inView(n(gem.x), n(gem.y), pad)) { this._drawGem(ctx, gem); this.stats.gems += 1; }
+      else this.stats.culledGems += 1;
+    }
+    for (const effect of effects) {
+      if (!effect) continue;
+      const r = clamp(n(effect.radius, 18), 2, 180);
+      // The forward rake lane can enter the viewport while its origin remains
+      // outside it; its full length must therefore be included in the bound.
+      const pad = effect.kind === 'hoe-line'
+        ? Math.max(r * 1.4, Math.abs(n(effect.length, r * 2.3)) + r * .12 + Math.abs(n(effect.width, r * .48)) / 2) + 6
+        : r * 1.4 + 6;
+      if (this._inView(n(effect.x), n(effect.y), pad)) { this._drawEffect(ctx, effect); this.stats.effects += 1; }
+      else this.stats.culledEffects += 1;
+    }
+    for (const projectile of projectiles) {
+      if (!projectile) continue;
+      const pad = clamp(n(projectile.radius, 7), 2, 24) * 2 + 3;
+      if (this._inView(n(projectile.x), n(projectile.y), pad)) { this._drawProjectile(ctx, projectile); this.stats.projectiles += 1; }
+      else this.stats.culledProjectiles += 1;
+    }
+    let playerDrawn = false;
+    for (const enemy of enemies) {
+      if (!playerDrawn && n(enemy.y) >= n(player.y)) { this._drawPlayer(ctx, player, safeState.character?.id); playerDrawn = true; }
+      this._drawEnemy(ctx, enemy, player, mapTheme);
+    }
+    if (!playerDrawn) this._drawPlayer(ctx, player, safeState.character?.id);
+    method(ctx, 'restore');
+    if (this.showHud) this._drawHud(ctx, safeState, mapTheme);
+  }
+
+  dispose() {
+    this.disposed = true;
+    this.canvas = null;
+    this.ctx = null;
+    this._enemyDrawList.length = 0;
+  }
+
+  _inView(x, y, padX, padY = padX) {
+    const view = this._view;
+    return x + padX >= view.left && x - padX <= view.right && y + padY >= view.top && y - padY <= view.bottom;
+  }
+
+  _zoom(player) {
+    // World units are intentionally generous for collision math.  This keeps
+    // the survivor readable on small phones while still showing an arena ring.
+    const base = Math.min(this.width, this.height);
+    const radius = clamp(n(player.radius, 18), 8, 42);
+    return clamp(base / (radius * 25), 0.78, 2.2);
+  }
+
+  _drawMap(ctx, theme) {
+    const themeName = Object.keys(THEMES).find(key => THEMES[key] === theme) || 'forest';
+    const left = this._view.left - 80;
+    const top = this._view.top - 80;
+    const right = this._view.right + 80;
+    const bottom = this._view.bottom + 80;
+    paint(ctx, theme.paper); method(ctx, 'fillRect', 0, 0, WORLD_SIZE, WORLD_SIZE);
+    // Scroll border and route lines
+    path(ctx, [['M', 20, 20], ['L', WORLD_SIZE - 20, 20], ['L', WORLD_SIZE - 20, WORLD_SIZE - 20], ['L', 20, WORLD_SIZE - 20], ['Z']], null, alphaColor(theme.ink, .34), 7);
+    method(ctx, 'beginPath'); method(ctx, 'moveTo', 60, WORLD_SIZE * .68); method(ctx, 'bezierCurveTo', WORLD_SIZE * .28, WORLD_SIZE * .55, WORLD_SIZE * .38, WORLD_SIZE * .8, WORLD_SIZE * .54, WORLD_SIZE * .67); method(ctx, 'bezierCurveTo', WORLD_SIZE * .7, WORLD_SIZE * .52, WORLD_SIZE * .82, WORLD_SIZE * .64, WORLD_SIZE - 60, WORLD_SIZE * .4); paint(ctx, null, alphaColor(theme.road, .56), 18); method(ctx, 'stroke');
+    // Decorative brush tiles are clipped to the visible camera range for a
+    // stable frame cost on low-end mini-program devices.
+    const step = this.quality === 'low' ? 150 : 108;
+    const minX = Math.max(step, Math.floor(left / step) * step);
+    const minY = Math.max(step, Math.floor(top / step) * step);
+    for (let x = minX; x < Math.min(WORLD_SIZE - step, right); x += step) {
+      for (let y = minY; y < Math.min(WORLD_SIZE - step, bottom); y += step) {
+        const h = hash2(x / step, y / step);
+        if (h < .36) this._drawScenery(ctx, x + (h - .2) * 20, y + (hash2(y, x) - .5) * 20, theme, themeName);
+        else if (h < .57) this._drawStone(ctx, x + 12, y - 8, theme);
+        else if (h < .69) this._drawCloudMark(ctx, x, y, theme);
+      }
+    }
+    // Compass-like ink medallion anchors the scroll without looking like a UI
+    // logo.  It also remains visible as the camera travels the world.
+    circle(ctx, WORLD_SIZE * .5, WORLD_SIZE * .5, 190, null, alphaColor(theme.ink, .15), 3);
+    circle(ctx, WORLD_SIZE * .5, WORLD_SIZE * .5, 144, null, alphaColor(theme.ink, .1), 2);
+    path(ctx, [['M', WORLD_SIZE * .5, WORLD_SIZE * .5 - 120], ['L', WORLD_SIZE * .5 + 22, WORLD_SIZE * .5], ['L', WORLD_SIZE * .5, WORLD_SIZE * .5 + 120], ['L', WORLD_SIZE * .5 - 22, WORLD_SIZE * .5], ['Z']], null, alphaColor(theme.ink, .12), 2);
+  }
+
+  _drawScenery(ctx, x, y, theme, themeName) {
+    if (themeName === 'forest') { this._drawTree(ctx, x, y, theme); return; }
+    if (themeName === 'snow') {
+      paint(ctx, alphaColor(theme.ink, .25)); method(ctx, 'fillRect', x - 3, y + 6, 6, 26);
+      path(ctx, [['M', x, y - 28], ['L', x - 19, y + 16], ['L', x + 19, y + 16], ['Z']], alphaColor(theme.leaf, .66), alphaColor(theme.ink, .3), 2);
+      path(ctx, [['M', x, y - 28], ['L', x - 11, y - 2], ['L', x - 3, y - 4], ['L', x + 5, y + 1], ['L', x + 11, y - 2], ['Z']], '#eaf2df', null);
+      return;
+    }
+    if (themeName === 'sand') {
+      path(ctx, [['M', x - 28, y + 16], ['Q', x - 6, y - 1, x + 28, y + 16]], null, alphaColor(theme.motif, .4), 2);
+      method(ctx, 'beginPath'); method(ctx, 'moveTo', x, y + 18); method(ctx, 'lineTo', x, y - 23); method(ctx, 'moveTo', x, y - 2); method(ctx, 'lineTo', x - 14, y - 2); method(ctx, 'lineTo', x - 14, y - 14); method(ctx, 'moveTo', x, y + 4); method(ctx, 'lineTo', x + 13, y + 4); method(ctx, 'lineTo', x + 13, y - 11); paint(ctx, null, alphaColor(theme.leaf, .76), 7); ctx.lineCap = 'round'; method(ctx, 'stroke'); ctx.lineCap = 'butt';
+      return;
+    }
+    if (themeName === 'fire') {
+      path(ctx, [['M', x - 28, y + 18], ['L', x - 12, y - 5], ['L', x - 7, y + 2], ['L', x + 3, y - 23], ['L', x + 22, y + 18], ['Z']], alphaColor(theme.ink, .32), alphaColor(theme.ink, .33), 2);
+      path(ctx, [['M', x + 3, y - 20], ['L', x - 2, y - 3], ['L', x + 6, y + 1], ['L', x + 11, y + 17]], null, alphaColor('#f0984f', .55), 3);
+      return;
+    }
+    if (themeName === 'water') {
+      for (let i = 0; i < 3; i += 1) path(ctx, [['M', x - 26 + i * 4, y + i * 8], ['Q', x - 10, y - 8 + i * 8, x + 4, y + i * 8], ['Q', x + 14, y + 8 + i * 8, x + 25 - i * 4, y + i * 8]], null, alphaColor(theme.motif, .38), 2);
+      method(ctx, 'beginPath'); method(ctx, 'moveTo', x - 15, y - 8); method(ctx, 'lineTo', x - 16, y - 27); method(ctx, 'moveTo', x - 10, y - 5); method(ctx, 'lineTo', x - 8, y - 24); paint(ctx, null, alphaColor(theme.leaf, .66), 3); method(ctx, 'stroke');
+      return;
+    }
+    // small roadside pagodas on the temple scroll
+    roundedBox(ctx, x - 14, y - 1, 28, 31, 2, alphaColor(theme.paperDark, .64), alphaColor(theme.ink, .33), 2);
+    path(ctx, [['M', x - 25, y - 2], ['Q', x - 13, y - 3, x, y - 20], ['Q', x + 13, y - 3, x + 25, y - 2], ['L', x - 25, y - 2], ['Z']], alphaColor(theme.motif, .5), alphaColor(theme.ink, .28), 2);
+    roundedBox(ctx, x - 4, y + 9, 8, 17, 2, alphaColor(theme.ink, .22), null);
+  }
+
+  _drawTree(ctx, x, y, theme) {
+    paint(ctx, alphaColor(theme.ink, .23)); method(ctx, 'fillRect', x - 4, y + 8, 8, 22);
+    circle(ctx, x - 11, y, 15, alphaColor(theme.leaf, .58), alphaColor(theme.ink, .2), 1.5);
+    circle(ctx, x + 7, y - 4, 17, alphaColor(theme.leaf, .64), alphaColor(theme.ink, .2), 1.5);
+    circle(ctx, x, y - 17, 16, alphaColor(theme.leaf, .72), alphaColor(theme.ink, .2), 1.5);
+  }
+
+  _drawStone(ctx, x, y, theme) {
+    path(ctx, [['M', x - 18, y + 8], ['L', x - 10, y - 9], ['L', x + 8, y - 14], ['L', x + 18, y + 7], ['L', x + 8, y + 14], ['Z']], alphaColor(theme.paperDark, .7), alphaColor(theme.ink, .25), 2);
+    method(ctx, 'beginPath'); method(ctx, 'moveTo', x - 7, y - 6); method(ctx, 'lineTo', x + 7, y - 2); paint(ctx, null, alphaColor(theme.ink, .18), 1.4); method(ctx, 'stroke');
+  }
+
+  _drawCloudMark(ctx, x, y, theme) {
+    method(ctx, 'beginPath'); method(ctx, 'moveTo', x - 24, y); method(ctx, 'quadraticCurveTo', x - 10, y - 10, x, y); method(ctx, 'quadraticCurveTo', x + 10, y - 11, x + 24, y); method(ctx, 'quadraticCurveTo', x + 10, y + 8, x, y); method(ctx, 'quadraticCurveTo', x - 10, y + 8, x - 24, y); paint(ctx, null, alphaColor(theme.motif, .28), 2); method(ctx, 'stroke');
+  }
+
+  _drawGem(ctx, gem) {
+    const x = n(gem.x), y = n(gem.y), r = clamp(n(gem.radius, 7), 3, 14);
+    const color = gem.kind === 'heal' ? '#d56b61' : gem.kind === 'magnet' ? '#7d89d9' : gem.kind === 'coin' ? '#e8b84e' : '#79c9a7';
+    const pulse = 1 + Math.sin(this.elapsed * 4 + x * .013 + y * .009) * .08;
+    circle(ctx, x, y + r * .3, r * .75, alphaColor('#3e423b', .22));
+    path(ctx, [['M', x, y - r * pulse], ['L', x + r * .74, y], ['L', x, y + r * 1.18], ['L', x - r * .74, y], ['Z']], color, '#4b4639', 1.3);
+    path(ctx, [['M', x, y - r * pulse], ['L', x, y + r * 1.18], ['L', x + r * .74, y], ['Z']], alphaColor('#fff8d8', .35));
+  }
+
+  _drawProjectile(ctx, projectile) {
+    const x = n(projectile.x), y = n(projectile.y), radius = clamp(n(projectile.radius, 7), 2, 24);
+    const color = projectile.color || (projectile.kind === 'holy' || String(projectile.kind).includes('light') ? '#9be5ee' : String(projectile.kind).includes('bird') ? '#ef8348' : '#e6c267');
+    const angle = Math.atan2(n(projectile.vy), n(projectile.vx));
+    method(ctx, 'save'); method(ctx, 'translate', x, y); method(ctx, 'rotate', Number.isFinite(angle) ? angle : 0);
+    circle(ctx, 0, 0, radius * 1.4, alphaColor(color, .18));
+    if (String(projectile.kind).includes('bird')) {
+      path(ctx, [['M', -radius * 1.5, 0], ['Q', -radius * .2, -radius * 1.2, radius * 1.7, 0], ['Q', -radius * .2, radius * 1.2, -radius * 1.5, 0], ['Z']], color, '#703a2a', 1.2);
+      circle(ctx, radius * .8, -radius * .16, radius * .12, '#fff4bd');
+    } else if (projectile.kind === 'ring') {
+      circle(ctx, 0, 0, radius, null, color, Math.max(2, radius * .36));
+      circle(ctx, 0, 0, radius * .66, null, '#fff4c5', Math.max(1, radius * .1));
+    } else if (projectile.kind === 'rake' || projectile.kind === 'slash') {
+      path(ctx, [['M', -radius * 1.4, -radius * .5], ['L', radius * 1.8, 0], ['L', -radius * 1.4, radius * .5], ['Z']], color, '#4d4136', 1.2);
+    } else {
+      circle(ctx, 0, 0, radius, color, '#514033', 1.4);
+      circle(ctx, -radius * .25, -radius * .28, radius * .28, alphaColor('#ffffff', .52));
+    }
+    method(ctx, 'restore');
+  }
+
+  _drawEffect(ctx, effect) {
+    const x = n(effect.x), y = n(effect.y), radius = clamp(n(effect.radius, 18), 2, 180);
+    const ttl = n(effect.ttl, 0), maxTtl = Math.max(.001, n(effect.maxTtl, ttl || 1));
+    const progress = clamp(1 - ttl / maxTtl, 0, 1);
+    const fade = clamp(ttl / maxTtl, .1, 1);
+    const color = effect.color || '#e9c565';
+    const kind = String(effect.kind || '').toLowerCase();
+    method(ctx, 'save'); method(ctx, 'translate', x, y);
+    if (kind.includes('warning') || kind.includes('danger') || kind.includes('telegraph')) {
+      circle(ctx, 0, 0, radius, alphaColor('#c74c42', .12 + progress * .14), alphaColor('#a93533', .7), 2);
+      circle(ctx, 0, 0, radius * progress, null, alphaColor('#e97851', .62), 3);
+    } else if (kind.includes('slash') || kind.includes('sweep') || kind.includes('fan') || kind.includes('heavy')) {
+      const angle = n(effect.angle, 0); method(ctx, 'rotate', angle);
+      method(ctx, 'beginPath');
+      method(ctx, 'arc', 0, 0, radius, -.56, .56);
+      paint(ctx, null, alphaColor(color, .82 * fade), Math.max(2, radius * .075));
+      method(ctx, 'stroke');
+      path(ctx, [['M', radius * .65, -radius * .35], ['Q', radius * 1.08, 0, radius * .65, radius * .35]], null, alphaColor('#fff0bc', .7 * fade), Math.max(1.5, radius * .035));
+      if (kind.includes('heavy')) circle(ctx, radius * .75, 0, radius * .18, alphaColor('#fff5bb', .65 * fade));
+    } else if (kind === 'hoe-line') {
+      const length = n(effect.length, radius * 2.3), width = n(effect.width, radius * .48);
+      method(ctx, 'rotate', n(effect.angle));
+      path(ctx, [['M', 0, -width / 2], ['L', length, -width / 2], ['L', length + radius * .12, 0], ['L', length, width / 2], ['L', 0, width / 2], ['Z']], alphaColor(color, .15 * fade), alphaColor(color, .67 * fade), 2);
+      for (let i = 0; i < 4; i += 1) { const step = length / 4; path(ctx, [['M', i * step, -width * .34], ['L', (i + .7) * step, width * .34]], null, alphaColor('#fff2b8', .6 * fade), 1.5); }
+    } else if (kind === 'staff-ring' || kind === 'fire-ring') {
+      circle(ctx, 0, 0, radius, null, alphaColor(color, .72 * fade), Math.max(3, radius * .09));
+      circle(ctx, 0, 0, radius * .82, null, alphaColor('#fff0b8', .45 * fade), 1.5);
+      if (kind === 'fire-ring' && this.quality !== 'low') for (let i = 0; i < 8; i += 1) { const a = i * TAU / 8 + this.elapsed * 1.8; circle(ctx, Math.cos(a) * radius, Math.sin(a) * radius, radius * .07, alphaColor('#f5bf63', .8 * fade)); }
+    } else if (kind === 'gourd') {
+      circle(ctx, 0, -radius * .3, radius * .22, alphaColor(color, .5 * fade), alphaColor('#663f70', .74 * fade), 1.5);
+      circle(ctx, 0, radius * .06, radius * .33, alphaColor(color, .6 * fade), alphaColor('#663f70', .74 * fade), 1.5);
+      circle(ctx, 0, 0, radius * (.6 + progress * .38), null, alphaColor(color, .46 * fade), 2);
+    } else if (kind === 'rope') {
+      circle(ctx, 0, 0, radius * (1 - progress * .2), null, alphaColor(color, .82 * fade), 3);
+      for (let i = 0; i < 4; i += 1) { const a = i * Math.PI / 2; path(ctx, [['M', Math.cos(a) * radius * .58, Math.sin(a) * radius * .58], ['L', Math.cos(a + .3) * radius, Math.sin(a + .3) * radius]], null, alphaColor(color, .6 * fade), 2); }
+    } else if (kind.includes('whirl') || kind.includes('vortex') || kind.includes('spin')) {
+      for (let i = 0; i < (this.quality === 'low' ? 2 : 4); i += 1) {
+        const a = this.elapsed * 2.4 + i * Math.PI / 2;
+        method(ctx, 'beginPath'); method(ctx, 'arc', 0, 0, radius * (.35 + i * .15), a, a + 1.35); paint(ctx, null, alphaColor(color, .55 * fade), Math.max(2, radius * .055)); method(ctx, 'stroke');
+      }
+      circle(ctx, 0, 0, radius * .22, alphaColor(color, .2 * fade));
+    } else if (kind === 'lotus') {
+      for (let i = 0; i < 6; i += 1) { const a = i * TAU / 6 + progress * .3; path(ctx, [['M', 0, 0], ['Q', Math.cos(a - .35) * radius, Math.sin(a - .35) * radius, Math.cos(a) * radius, Math.sin(a) * radius], ['Q', Math.cos(a + .35) * radius, Math.sin(a + .35) * radius, 0, 0], ['Z']], alphaColor(color, .2 * fade), alphaColor(color, .66 * fade), 2); }
+      circle(ctx, 0, 0, radius * .23, alphaColor('#fff3bb', .75 * fade));
+    } else if (kind.includes('heal') || kind.includes('holy') || kind.includes('light')) {
+      for (let i = 0; i < 4; i += 1) {
+        const a = i * Math.PI / 2 + this.elapsed * .8;
+        method(ctx, 'beginPath'); method(ctx, 'moveTo', Math.cos(a) * radius * .2, Math.sin(a) * radius * .2); method(ctx, 'lineTo', Math.cos(a) * radius, Math.sin(a) * radius); paint(ctx, null, alphaColor(color, .55 * fade), Math.max(1.5, radius * .045)); method(ctx, 'stroke');
+      }
+      circle(ctx, 0, 0, radius * (.22 + progress * .18), alphaColor('#fff8d0', .66 * fade));
+    } else if (kind.includes('dash') || kind.includes('trail')) {
+      const a = n(effect.angle, 0); method(ctx, 'rotate', a);
+      for (let i = 1; i < 5; i += 1) { roundedBox(ctx, -radius * i * .32, -radius * (.1 + i * .03), radius * .38, radius * (.2 + i * .02), radius * .08, alphaColor(color, fade * (1 - i / 6)), null); }
+    } else if (kind.includes('fire') || kind.includes('explod') || kind.includes('impact')) {
+      circle(ctx, 0, 0, radius * (.3 + progress * .75), null, alphaColor(color, .84 * fade), Math.max(2, radius * .08));
+      const rays = this.quality === 'low' ? 6 : 10;
+      for (let i = 0; i < rays; i += 1) { const a = i * TAU / rays; method(ctx, 'beginPath'); method(ctx, 'moveTo', Math.cos(a) * radius * .3, Math.sin(a) * radius * .3); method(ctx, 'lineTo', Math.cos(a) * radius * (0.65 + progress * .4), Math.sin(a) * radius * (0.65 + progress * .4)); paint(ctx, null, alphaColor(color, .7 * fade), Math.max(1.4, radius * .035)); method(ctx, 'stroke'); }
+    } else {
+      const count = this.quality === 'low' ? 4 : 7;
+      for (let i = 0; i < count; i += 1) { const a = i * TAU / count; const rr = radius * (.45 + .48 * progress); circle(ctx, Math.cos(a) * rr, Math.sin(a) * rr, Math.max(1.5, radius * .06), alphaColor(color, fade)); }
+    }
+    method(ctx, 'restore');
+  }
+
+  _drawEnemy(ctx, enemy, player, theme) {
+    if (!enemy) return;
+    const x = n(enemy.x), y = n(enemy.y), radius = clamp(n(enemy.radius, 17), 7, 72);
+    const kind = enemy.kind === 'boss' ? 'boss' : enemy.kind === 'elite' ? 'elite' : 'normal';
+    const tintList = ENEMY_TINTS[typeof enemy.theme === 'string' ? enemy.theme : Object.keys(THEMES).find(key => THEMES[key] === theme) || 'forest'] || ENEMY_TINTS.forest;
+    const tint = enemy.flash > 0 ? '#fff1c7' : enemy.color || tintList[Math.abs(Math.floor(n(enemy.id, 0))) % tintList.length];
+    method(ctx, 'save'); method(ctx, 'translate', x, y);
+    circle(ctx, 0, radius * .7, radius * .72, alphaColor('#382f2b', .2));
+    const bob = Math.sin(this.elapsed * (kind === 'boss' ? 2 : 4) + n(enemy.id, 0) * .8) * radius * .045;
+    method(ctx, 'translate', 0, bob - n(enemy.hopHeight, 0) * radius * .4);
+    if (kind !== 'normal') circle(ctx, 0, -radius * .25, radius * 1.2, alphaColor(kind === 'boss' ? '#e8a64b' : '#c98946', .12), alphaColor(kind === 'boss' ? '#bd6d3f' : '#976d47', .6), Math.max(1.5, radius * .07));
+    this._drawDemonBody(ctx, enemy, radius, tint, theme);
+    if (kind !== 'normal') this._drawCrown(ctx, radius, kind === 'boss' ? '#e6b951' : '#b9b9a2');
+    method(ctx, 'restore');
+    if (enemy.maxHp > 0 && (kind !== 'normal' || enemy.hp < enemy.maxHp)) this._drawHealthBar(ctx, x, y - radius * 1.85, radius * 2.3, enemy.hp / enemy.maxHp, kind === 'boss' ? '#d95545' : '#d07a43');
+    if (enemy.stun > 0) this._drawStatusStars(ctx, x, y - radius * 2.05, radius * .8, '#f5cf67');
+  }
+
+  _drawDemonBody(ctx, enemy, r, tint, theme) {
+    const variant = String(enemy.variant || enemy.name || '').toLowerCase();
+    const runner = /fox|wolf|monkey|hawk|runner|蝎|狐|狼/.test(variant);
+    const brute = /bull|bear|king|demon|牛|熊|王|妖王|巨/.test(variant);
+    const bodyR = brute ? r * 1.1 : r;
+    const bodyY = brute ? -r * .18 : 0;
+    path(ctx, [['M', -bodyR * .75, bodyY + bodyR * .9], ['Q', -bodyR * 1.05, bodyY + bodyR * .15, -bodyR * .65, bodyY - bodyR * .55], ['Q', 0, bodyY - bodyR * 1.1, bodyR * .65, bodyY - bodyR * .55], ['Q', bodyR * 1.05, bodyY + bodyR * .15, bodyR * .75, bodyY + bodyR * .9], ['Z']], tint, '#48372f', Math.max(1.3, r * .08));
+    if (runner) {
+      path(ctx, [['M', -r * .5, -r * .62], ['L', -r * 1.02, -r * 1.02], ['L', -r * .42, -r * .84], ['Z']], tint, '#48372f', r * .055);
+      path(ctx, [['M', r * .5, -r * .62], ['L', r * 1.02, -r * 1.02], ['L', r * .42, -r * .84], ['Z']], tint, '#48372f', r * .055);
+    } else {
+      path(ctx, [['M', -r * .5, -r * .6], ['L', -r * .75, -r * 1.15], ['L', -r * .16, -r * .78], ['Z']], theme.accent, '#48372f', r * .055);
+      path(ctx, [['M', r * .5, -r * .6], ['L', r * .75, -r * 1.15], ['L', r * .16, -r * .78], ['Z']], theme.accent, '#48372f', r * .055);
+    }
+    circle(ctx, -r * .26, -r * .45, r * .1, '#f6d575', '#49352f', r * .035); circle(ctx, r * .26, -r * .45, r * .1, '#f6d575', '#49352f', r * .035);
+    circle(ctx, -r * .26, -r * .45, r * .04, '#342b2c'); circle(ctx, r * .26, -r * .45, r * .04, '#342b2c');
+    if (brute) { path(ctx, [['M', -r * .34, r * .02], ['Q', 0, r * .22, r * .34, r * .02]], null, alphaColor('#fff1c2', .62), r * .07); }
+    else { path(ctx, [['M', -r * .27, r * .15], ['Q', 0, r * .31, r * .27, r * .15]], null, '#432f2e', r * .05); }
+    // simple legs keep enemies readable at very small zoom values
+    method(ctx, 'beginPath'); method(ctx, 'moveTo', -r * .35, r * .65); method(ctx, 'lineTo', -r * .48, r * 1.08); method(ctx, 'moveTo', r * .35, r * .65); method(ctx, 'lineTo', r * .48, r * 1.08); paint(ctx, null, '#4b372f', Math.max(2, r * .13)); method(ctx, 'stroke');
+  }
+
+  _drawCrown(ctx, r, color) {
+    path(ctx, [['M', -r * .7, -r * 1.28], ['L', -r * .4, -r * 1.78], ['L', 0, -r * 1.34], ['L', r * .4, -r * 1.78], ['L', r * .7, -r * 1.28], ['Z']], color, '#533e2e', Math.max(1.5, r * .055));
+    circle(ctx, 0, -r * 1.39, r * .09, '#fff3ad');
+  }
+
+  _drawHealthBar(ctx, x, y, width, ratio, color) {
+    const w = Math.max(20, width), h = Math.max(3, w * .08), left = x - w / 2;
+    roundedBox(ctx, left, y, w, h, h / 2, alphaColor('#302b29', .7), null);
+    roundedBox(ctx, left + 1, y + 1, (w - 2) * clamp(n(ratio, 0), 0, 1), h - 2, (h - 2) / 2, color, null);
+  }
+
+  _drawStatusStars(ctx, x, y, r, color) {
+    for (let i = 0; i < 3; i += 1) {
+      const a = this.elapsed * 2 + i * TAU / 3;
+      circle(ctx, x + Math.cos(a) * r, y + Math.sin(a) * r * .35, r * .12, color, '#65482d', 1);
+    }
+  }
+
+  _drawPlayer(ctx, player, characterId) {
+    const [id, style] = heroStyle(characterId || player.characterId || player.character || 'wukong');
+    const x = n(player.x, WORLD_SIZE / 2), y = n(player.y, WORLD_SIZE / 2), r = clamp(n(player.radius, 19), 9, 52);
+    const facing = Math.cos(n(player.facing, 0)) < 0 ? -1 : 1;
+    const gait = Math.sin(this.elapsed * 7) * r * .035;
+    method(ctx, 'save'); method(ctx, 'translate', x, y); method(ctx, 'scale', facing, 1);
+    circle(ctx, 0, r * .9, r * .84, alphaColor('#3b302b', .26));
+    // legs and robe/body
+    method(ctx, 'beginPath'); method(ctx, 'moveTo', -r * .3, r * .54); method(ctx, 'lineTo', -r * .38 + gait, r * 1.08); method(ctx, 'moveTo', r * .3, r * .54); method(ctx, 'lineTo', r * .38 - gait, r * 1.08); paint(ctx, null, style.dark, Math.max(2, r * .16)); method(ctx, 'stroke');
+    path(ctx, [['M', -r * .65, r * .65], ['Q', 0, -r * .1, r * .65, r * .65], ['L', r * .48, r * 1.03], ['L', -r * .48, r * 1.03], ['Z']], style.body, style.dark, Math.max(1.4, r * .07));
+    if (id === 'wukong') this._drawWukong(ctx, r, style);
+    else if (id === 'tangsanzang') this._drawTang(ctx, r, style);
+    else if (id === 'bajie') this._drawBajie(ctx, r, style);
+    else this._drawShajing(ctx, r, style);
+    method(ctx, 'restore');
+    if (n(player.invulnerable, 0) > 0) circle(ctx, x, y, r * 1.35, null, alphaColor('#f6dc87', .52), Math.max(1.5, r * .08));
+  }
+
+  _drawWukong(ctx, r, style) {
+    circle(ctx, 0, -r * .54, r * .55, style.skin, style.dark, r * .07);
+    circle(ctx, -r * .56, -r * .58, r * .2, style.body, style.dark, r * .06); circle(ctx, r * .56, -r * .58, r * .2, style.body, style.dark, r * .06);
+    path(ctx, [['M', -r * .55, -r * .82], ['Q', 0, -r * 1.24, r * .55, -r * .82], ['L', r * .35, -r * .68], ['L', -r * .35, -r * .68], ['Z']], style.metal, style.dark, r * .055);
+    circle(ctx, -r * .18, -r * .59, r * .055, '#282329'); circle(ctx, r * .18, -r * .59, r * .055, '#282329');
+    // Ruyi Jingu Bang, angle follows the facing direction through the mirrored body
+    method(ctx, 'beginPath'); method(ctx, 'moveTo', r * .34, r * .18); method(ctx, 'lineTo', r * 1.55, -r * 1.12); paint(ctx, null, style.metal, Math.max(2, r * .1)); method(ctx, 'stroke');
+    circle(ctx, r * 1.55, -r * 1.12, r * .13, style.body, style.dark, r * .04);
+  }
+
+  _drawTang(ctx, r, style) {
+    circle(ctx, 0, -r * .6, r * .48, style.skin, style.dark, r * .06);
+    path(ctx, [['M', -r * .48, -r * .55], ['Q', 0, -r * 1.1, r * .48, -r * .55], ['L', r * .4, -.1 * r], ['L', -r * .4, -.1 * r], ['Z']], style.body, style.dark, r * .06);
+    circle(ctx, -r * .17, -r * .58, r * .045, '#27324a'); circle(ctx, r * .17, -r * .58, r * .045, '#27324a');
+    method(ctx, 'beginPath'); method(ctx, 'moveTo', r * .3, r * .25); method(ctx, 'lineTo', r * 1.5, r * .25); paint(ctx, null, style.metal, Math.max(2, r * .07)); method(ctx, 'stroke'); circle(ctx, r * 1.5, r * .25, r * .16, '#9be5ee', style.dark, r * .04);
+  }
+
+  _drawBajie(ctx, r, style) {
+    circle(ctx, 0, -r * .55, r * .55, style.skin, style.dark, r * .07);
+    path(ctx, [['M', -r * .42, -r * .54], ['L', -r * .82, -r * .88], ['L', -r * .62, -.35 * r], ['Z']], style.skin, style.dark, r * .05); path(ctx, [['M', r * .42, -r * .54], ['L', r * .82, -r * .88], ['L', r * .62, -.35 * r], ['Z']], style.skin, style.dark, r * .05);
+    circle(ctx, -r * .18, -r * .62, r * .055, '#3a292e'); circle(ctx, r * .18, -r * .62, r * .055, '#3a292e'); circle(ctx, 0, -r * .39, r * .19, style.light, style.dark, r * .04);
+    method(ctx, 'beginPath'); method(ctx, 'moveTo', r * .3, r * .2); method(ctx, 'lineTo', r * 1.58, -r * .15); paint(ctx, null, style.metal, Math.max(2, r * .11)); method(ctx, 'stroke');
+    for (let i = 0; i < 3; i += 1) { method(ctx, 'beginPath'); method(ctx, 'moveTo', r * (1.3 + i * .14), -r * (.42 - i * .08)); method(ctx, 'lineTo', r * (1.5 + i * .14), -r * (.07 - i * .08)); paint(ctx, null, style.metal, Math.max(1.4, r * .055)); method(ctx, 'stroke'); }
+  }
+
+  _drawShajing(ctx, r, style) {
+    circle(ctx, 0, -r * .58, r * .5, style.skin, style.dark, r * .07);
+    path(ctx, [['M', -r * .52, -r * .72], ['Q', 0, -r * 1.08, r * .52, -r * .72], ['L', r * .37, -.25 * r], ['L', -r * .37, -.25 * r], ['Z']], style.dark, style.dark, r * .05);
+    circle(ctx, -r * .16, -r * .59, r * .05, '#293131'); circle(ctx, r * .16, -r * .59, r * .05, '#293131');
+    method(ctx, 'beginPath'); method(ctx, 'moveTo', r * .25, r * .15); method(ctx, 'lineTo', r * 1.4, -r * .82); paint(ctx, null, style.metal, Math.max(2, r * .09)); method(ctx, 'stroke');
+    circle(ctx, r * 1.4, -r * .82, r * .2, style.metal, style.dark, r * .045);
+  }
+
+  _drawHud(ctx, state, theme) {
+    const player = state.player || {};
+    const hpRatio = clamp(n(player.hp, 0) / Math.max(1, n(player.maxHp, 1)), 0, 1);
+    const xpRatio = clamp(n(player.xp, 0) / Math.max(1, n(player.xpNext, 1)), 0, 1);
+    method(ctx, 'save'); method(ctx, 'setTransform', this.pixelRatio, 0, 0, this.pixelRatio, 0, 0);
+    // parchment HUD cards
+    const cardWidth = Math.min(232, Math.max(116, this.width - 122));
+    const barWidth = cardWidth - 24;
+    roundedBox(ctx, 12, 12, cardWidth, 62, 12, alphaColor('#fbf1cf', .93), alphaColor(theme.ink, .55), 1.5);
+    roundedBox(ctx, 24, 37, barWidth, 10, 5, alphaColor('#47382f', .18), null);
+    roundedBox(ctx, 25, 38, (barWidth - 2) * hpRatio, 8, 4, '#c85b4b', null);
+    roundedBox(ctx, 24, 54, barWidth, 8, 4, alphaColor('#47382f', .16), null);
+    roundedBox(ctx, 25, 55, (barWidth - 2) * xpRatio, 6, 3, '#67a688', null);
+    paint(ctx, theme.ink); ctx.font = 'bold 11px sans-serif'; method(ctx, 'fillText', `生命 ${Math.ceil(n(player.hp, 0))}/${Math.ceil(n(player.maxHp, 0))}`, 24, 29); method(ctx, 'fillText', `Lv.${Math.max(1, Math.floor(n(player.level, 1)))}`, 12 + cardWidth - 40, 29);
+    const time = n(state.time, 0); const minutes = Math.floor(time / 60); const seconds = Math.floor(time % 60); const clock = `${minutes}:${String(seconds).padStart(2, '0')}`;
+    roundedBox(ctx, this.width - 100, 12, 88, 34, 10, alphaColor('#fbf1cf', .93), alphaColor(theme.ink, .55), 1.5);
+    paint(ctx, theme.ink); ctx.font = 'bold 14px sans-serif'; method(ctx, 'fillText', clock, this.width - 78, 34);
+    if (state.status === 'upgrade' || state.status === 'paused' || state.status === 'won' || state.status === 'lost') {
+      const label = state.status === 'upgrade' ? '选择法宝' : state.status === 'paused' ? '暂停' : state.status === 'won' ? '功德圆满' : '西游未完';
+      roundedBox(ctx, this.width / 2 - 76, this.height - 48, 152, 32, 12, alphaColor('#fbf1cf', .95), alphaColor(theme.ink, .6), 1.5);
+      paint(ctx, theme.ink); ctx.font = 'bold 14px sans-serif'; method(ctx, 'fillText', label, this.width / 2 - 28, this.height - 27);
+    }
+    method(ctx, 'restore');
+  }
+}
+
+
+module.exports.default=GameRenderer;
+
+Object.assign(module.exports,{GameRenderer,drawPortrait});
+
+},
+"progression":function(module,exports,require){
+const { TALENTS, DAILY_CHALLENGES } = require('content');
+
+const SAVE_KEY = 'xiyou-survivor-save-v1';
+const CHAPTER_NAMES = ['东土启程','山川收徒','佛门试心','降魔伏怪','水国奇缘','真假心猿','狮驼险途','天竺寻真','灵山功成'];
+function dayKey(now=new Date()){ return `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`; }
+function newSave(){return {version:1,unlockedStage:1,talents:{},talentPoints:0,bestScore:0,wins:0,runs:0,streak:0,scrolls:0,totalKills:0,lastRun:null,muted:false,volume:.65,quality:'auto',daily:{day:dayKey(),progress:{},claimed:[]},records:{},seenArtifacts:[],tutorialSeen:false};}
+function sanitizeSave(value){const s={...newSave(),...(value&&typeof value==='object'?value:{})};for(const key of ['unlockedStage','talentPoints','bestScore','wins','runs','streak','scrolls','totalKills'])s[key]=Math.max(key==='unlockedStage'?1:0,Math.floor(Number(s[key])||0));s.unlockedStage=Math.min(81,s.unlockedStage);s.talents={...(s.talents||{})};for(const t of TALENTS)s.talents[t.id]=Math.min(t.maxLevel,Math.max(0,Math.floor(Number(s.talents[t.id])||0)));s.volume=Math.min(1,Math.max(0,Number(s.volume)||0));s.muted=!!s.muted;s.quality=['auto','high','low'].includes(s.quality)?s.quality:'auto';s.records=s.records&&typeof s.records==='object'?s.records:{};s.seenArtifacts=Array.isArray(s.seenArtifacts)?s.seenArtifacts:[];refreshDaily(s);return s;}
+function refreshDaily(save,now=new Date()){const day=dayKey(now);if(!save.daily||save.daily.day!==day)save.daily={day,progress:{},claimed:[]};save.daily.progress=save.daily.progress||{};save.daily.claimed=Array.isArray(save.daily.claimed)?save.daily.claimed:[];return save.daily;}
+function talentCost(save,id){const t=TALENTS.find(t=>t.id===id);return t?t.baseCost*((save.talents[id]||0)+1):Infinity;}
+function buyTalent(save,id){const t=TALENTS.find(t=>t.id===id);if(!t)return {ok:false,message:'未知经脉'};const lv=save.talents[id]||0,cost=talentCost(save,id);if(lv>=t.maxLevel)return {ok:false,message:'此经脉已圆满'};if(save.talentPoints<cost)return {ok:false,message:'悟性不足，闯关与每日禅试可获取'};save.talentPoints-=cost;save.talents[id]=lv+1;return {ok:true,message:`${t.name}提升至${lv+1}级`};}
+function dailyRows(save){refreshDaily(save);return DAILY_CHALLENGES.map(c=>({...c,progress:Math.min(c.target,save.daily.progress[c.id]||0),claimed:save.daily.claimed.includes(c.id),complete:(save.daily.progress[c.id]||0)>=c.target}));}
+function claimDaily(save,id){const c=dailyRows(save).find(c=>c.id===id);if(!c||!c.complete||c.claimed)return {ok:false,message:c?.claimed?'今日已经领取':'达成目标后再来领取'};save.talentPoints+=c.reward;save.daily.claimed.push(id);return {ok:true,message:`悟性 +${c.reward}`};}
+function recordRun(save,state,stats={}){refreshDaily(save);const won=state.status==='won',score=state.kills*10+state.player.level*100+(won?1000:0),reward=Math.max(12,Math.floor(state.kills*.16))+Math.floor(state.time/30)+(won?80:0);save.runs++;save.totalKills+=state.kills;save.bestScore=Math.max(save.bestScore,score);save.talentPoints+=reward;save.lastRun={stageId:state.stage.id,characterId:state.character.id,characterName:state.character.name,stageName:state.stage.name,time:Math.floor(state.time),kills:state.kills,won};if(won){save.wins++;save.streak++;save.scrolls++;if(state.stage.id===save.unlockedStage)save.unlockedStage=Math.min(81,save.unlockedStage+1);}else save.streak=0;const record=save.records[state.stage.id]||{wins:0,bestScore:0};record.bestScore=Math.max(record.bestScore,score);record.wins+=(won?1:0);save.records[state.stage.id]=record;for(const skill of state.skills)if(!skill.isWeapon&&!save.seenArtifacts.includes(skill.id))save.seenArtifacts.push(skill.id);const p=save.daily.progress;p['daily-kills']=Math.max(p['daily-kills']||0,state.kills);p['daily-elite']=Math.max(p['daily-elite']||0,stats.elites||0);if(won){p['daily-stage']=1;if(!(stats.dashes||0))p['daily-no-dash']=1;}return {reward,score,won};}
+
+Object.assign(module.exports,{SAVE_KEY,CHAPTER_NAMES,dayKey,newSave,sanitizeSave,refreshDaily,talentCost,buyTalent,dailyRows,claimDaily,recordRun});
+
+},
+"native-ui":function(module,exports,require){
+const { GameEngine } = require('engine');
+const { GameRenderer, drawPortrait } = require('renderer');
+const { CHARACTERS, ARTIFACTS, STAGES, TALENTS, getStage } = require('content');
+const { SAVE_KEY, CHAPTER_NAMES, sanitizeSave, buyTalent, talentCost, recordRun, dailyRows, claimDaily } = require('progression');
+
+const C={bg:'#130e12',panel:'#24171c',raised:'#352128',ink:'#f8f0dd',muted:'#b9a98d',gold:'#edba68',red:'#c94f3d',line:'#63413d',jade:'#70b7a3'};
+const fmt=t=>`${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
+const idName=id=>ARTIFACTS.find(a=>a.id===id)?.name||id;
+class NativeGame {
+  constructor(canvas,platform={}){
+    this.canvas=canvas;this.ctx=canvas.getContext('2d');this.platform=platform;this.audio=platform.audio||{play(){},startMusic(){},stopMusic(){},setMuted(){},dispose(){}};
+    this.save=sanitizeSave(platform.load?.(SAVE_KEY));this.audio.setMuted(this.save.muted);this.screen='home';this.characterId='wukong';this.stageId=this.save.unlockedStage;this.page=0;this.input={x:0,y:0};this.buttons=[];this.engine=null;this.renderer=null;this.frame=0;this.running=false;this.disposed=false;this.autoPaused=false;this.stats={};this.metrics={frames:0,maxUpdateMs:0,maxRenderMs:0,slowFrames:0,peakEnemies:0,peakProjectiles:0,peakEffects:0};this.samples=[];this.touchOrigin=null;this.joy=null;this.message='';this.result=null;this.clock=platform.now||(()=>Date.now());this.raf=platform.requestFrame||((fn)=>setTimeout(()=>fn(this.clock()),16));this.cancel=platform.cancelFrame||clearTimeout;this.resize(platform.width||390,platform.height||844,platform.pixelRatio||1,platform.safeArea||{});this.draw();
+  }
+  persist(){try{this.platform.save?.(SAVE_KEY,this.save);}catch{this.message='存档写入失败，请检查设备空间';}}
+  resize(w,h,dpr=1,safe={}){this.w=w;this.h=h;this.dpr=Math.min(2,Math.max(1,dpr));this.top=Math.max(12,safe.top||0);this.bottom=Math.max(12,h-(safe.bottom||h));this.canvas.width=Math.round(w*this.dpr);this.canvas.height=Math.round(h*this.dpr);if(this.renderer)this.renderer.resize(w,h,this.dpr);this.draw();}
+  text(value,x,y,size=14,color=C.ink,align='left',weight='normal'){const c=this.ctx;c.fillStyle=color;c.font=`${weight} ${size}px serif`;c.textAlign=align;c.textBaseline='top';c.fillText(String(value),x,y);}
+  box(x,y,w,h,fill=C.panel,stroke=C.line){const c=this.ctx;c.fillStyle=fill;c.fillRect(x,y,w,h);if(stroke){c.strokeStyle=stroke;c.lineWidth=1;c.strokeRect(x+.5,y+.5,w-1,h-1);}}
+  wrap(value,x,y,width,size=12,color=C.muted,maxLines=4){let line='',n=0;const c=this.ctx;c.font=`${size}px serif`;for(const ch of String(value)){if(ch==='\n'||(c.measureText(line+ch).width>width&&line)){this.text(line,x,y+n*size*1.7,size,color);line=ch==='\n'?'':ch;n++;if(n>=maxLines)return n;}else line+=ch;}if(line)this.text(line,x,y+n*size*1.7,size,color);return n+1;}
+  button(label,x,y,w,h,action,options={}){const disabled=!!options.disabled;this.box(x,y,w,h,options.primary?C.gold:C.panel,options.selected?C.gold:C.line);this.text(label,x+w/2,y+(h-16)/2,options.size||14,disabled?'#77625c':options.primary?C.bg:C.ink,'center','bold');this.buttons.push({x,y,w,h,action,disabled,label});}
+  portrait(id,x,y,size){if(this.heroSheet){const index=Math.max(0,CHARACTERS.findIndex(c=>c.id===id)),pw=this.heroSheet.width/4;this.ctx.drawImage(this.heroSheet,index*pw+pw*.04,this.heroSheet.height*.1,pw*.92,this.heroSheet.height*.77,x-size*.5,y-size*.625,size,size*1.25);}else drawPortrait(this.ctx,id,x,y,size);}
+  header(title,sub){this.text(sub||'玄奘西行录',20,this.top+12,9,C.gold);this.text(title,20,this.top+31,25,C.ink,'left','bold');this.button(this.screen==='home'?(this.save.muted?'静音':'有声'):'返回',this.w-70,this.top+19,50,44,()=>{if(this.screen==='home'){this.save.muted=!this.save.muted;this.audio.setMuted(this.save.muted);this.persist();}else this.go('home');});}
+  go(screen){if(this.screen==='game'&&screen!=='game')this.stopRun();this.screen=screen;this.page=0;this.draw();}
+  draw(){if(this.disposed||!this.ctx)return;const c=this.ctx;c.setTransform(this.dpr,0,0,this.dpr,0,0);this.buttons=[];if(this.screen==='game'&&this.engine){this.drawGame();return;}c.fillStyle=C.bg;c.fillRect(0,0,this.w,this.h);const title={home:'西游·八十一难',select:'选一位同行者',chapters:'九九难图',talents:'经脉修行',daily:'每日禅试',codex:'法宝图鉴',settings:'行者设置'}[this.screen]||'西游·八十一难';this.header(title);const y=this.top+96;switch(this.screen){case'home':this.home(y);break;case'select':this.select(y);break;case'chapters':this.chapters(y);break;case'talents':this.talents(y);break;case'daily':this.daily(y);break;case'codex':this.codex(y);break;case'settings':this.settings(y);break;}if(this.message){this.box(20,this.h-this.bottom-43,this.w-40,33,C.raised,C.gold);this.text(this.message,this.w/2,this.h-this.bottom-34,11,C.gold,'center');}}
+  home(y){const w=this.w-40,hh=Math.min(350,this.h*.4);this.box(20,y,w,hh,'#321a21');const c=this.ctx;c.fillStyle='#d6a764';c.beginPath();c.arc(this.w*.72,y+44,65,0,Math.PI*2);c.fill();c.fillStyle='#1c1218';c.beginPath();c.moveTo(20,y+hh);c.lineTo(20,y+hh*.72);c.lineTo(w*.42,y+hh*.28);c.lineTo(w*.66,y+hh*.67);c.lineTo(this.w-20,y+hh*.46);c.lineTo(this.w-20,y+hh);c.fill();this.text('一念成佛',36,y+30,36,C.ink,'left','bold');this.text('一棒破局',36,y+73,36,C.gold,'left','bold');this.portrait('wukong',this.w*.63,y+hh-88,135);this.text('四人取经 · 法宝构筑',36,y+hh-42,11,C.muted);this.text('十分钟 · 一局一难',36,y+hh-24,10,C.gold);let z=y+hh+16;this.button('踏上西行',20,z,w,52,()=>this.go('select'),{primary:true});z+=63;const labels=[['难','九九难图','chapters'],['修','经脉修行','talents'],['禅','每日禅试','daily']];const cw=(w-16)/3;labels.forEach((l,i)=>{this.button(l[1],20+i*(cw+8),z,cw,50,()=>this.go(l[2]),{size:12});});z+=62;this.button('法宝图鉴',20,z,(w-8)/2,44,()=>this.go('codex'));this.button('设置与帮助',24+w/2,z,(w-8)/2,44,()=>this.go('settings'));this.text(`已渡 ${this.save.wins} 难 · 悟性 ${this.save.talentPoints} · 经文 ${this.save.scrolls}`,this.w/2,z+59,11,C.muted,'center');}
+  select(y){const gap=8,cw=(this.w-48)/2,ph=Math.min(156,(this.h-y-225)/2);CHARACTERS.forEach((ch,i)=>{const x=20+(i%2)*(cw+gap),cy=y+Math.floor(i/2)*(ph+10);this.box(x,cy,cw,ph,C.panel,this.characterId===ch.id?C.gold:C.line);this.portrait(ch.id,x+cw/2,cy+ph*.38,Math.min(84,ph*.57));this.text(ch.name,x+12,cy+ph-48,18,ch.color,'left','bold');this.text(ch.weapon,x+12,cy+ph-22,10,C.muted);this.buttons.push({x,y:cy,w:cw,h:ph,action:()=>{this.characterId=ch.id;this.draw();}});});const sy=y+2*(ph+10)+4,s=getStage(this.stageId);this.box(20,sy,this.w-40,76);this.text(`第${s.id}难 · ${s.name}`,32,sy+11,15,C.gold);this.text(`${s.location} · ${s.boss}`,32,sy+36,11,C.muted);this.button('‹',20,sy+86,44,44,()=>{this.stageId=Math.max(1,this.stageId-1);this.draw();});this.button('关卡列表',72,sy+86,this.w-144,44,()=>this.go('chapters'));this.button('›',this.w-64,sy+86,44,44,()=>{this.stageId=Math.min(this.save.unlockedStage,this.stageId+1);this.draw();});this.button('入山 · 开始十分钟试炼',20,sy+144,this.w-40,52,()=>this.startRun(),{primary:true});}
+  chapters(y){const size=9,rows=STAGES.slice(this.page*size,this.page*size+size);this.text(`第${this.page+1}章 · ${CHAPTER_NAMES[this.page]}`,20,y,17,C.gold);rows.forEach((s,i)=>{const ry=y+35+i*49,open=s.id<=this.save.unlockedStage;this.box(20,ry,this.w-40,43,C.panel,this.stageId===s.id?C.gold:C.line);this.text(`${String(s.id).padStart(2,'0')} · ${s.name}`,32,ry+7,13,open?C.ink:C.muted);this.text(open?s.location:'尚未渡过前难',32,ry+25,9,C.muted);this.text(open?'选择':'锁',this.w-35,ry+14,11,open?C.gold:C.muted,'right');this.buttons.push({x:20,y:ry,w:this.w-40,h:43,disabled:!open,action:()=>{this.stageId=s.id;this.go('select');}});});const by=y+rows.length*49+50;this.button('上一章',20,by,100,44,()=>{this.page=Math.max(0,this.page-1);this.draw();},{disabled:this.page===0});this.text(`${this.page+1} / 9`,this.w/2,by+15,12,C.muted,'center');this.button('下一章',this.w-120,by,100,44,()=>{this.page=Math.min(8,this.page+1);this.draw();},{disabled:this.page===8});}
+  talents(y){this.text(`悟性 ${this.save.talentPoints}`,20,y,22,C.gold,'left','bold');TALENTS.forEach((t,i)=>{const ry=y+40+i*73,lv=this.save.talents[t.id]||0;this.box(20,ry,this.w-40,65);this.text(`${t.name}  ${lv}/${t.maxLevel}`,32,ry+10,15);this.text(t.description,32,ry+33,10,C.muted);this.text(lv>=t.maxLevel?'已圆满':`${talentCost(this.save,t.id)} 悟性`,this.w-32,ry+11,10,C.gold,'right');this.buttons.push({x:20,y:ry,w:this.w-40,h:65,action:()=>{const r=buyTalent(this.save,t.id);this.message=r.message;this.persist();this.audio.play(r.ok?'level':'click');this.draw();}});});}
+  daily(y){this.wrap('目标按本地日期刷新。挑战奖励每日只能领取一次；进度来自实际战斗结果。',20,y,this.w-40,12,C.muted,3);dailyRows(this.save).forEach((d,i)=>{const ry=y+67+i*110;this.box(20,ry,this.w-40,102);this.text(d.name,32,ry+10,18,C.gold);this.text(`${d.description}  ${d.progress}/${d.target}`,32,ry+38,11,C.muted);this.button(d.claimed?'已领取':d.complete?`领取 ${d.reward} 悟性`:'前往取经',32,ry+58,this.w-64,34,()=>{if(d.complete){this.message=claimDaily(this.save,d.id).message;this.persist();this.draw();}else this.go('select');},{disabled:d.claimed,size:12});});}
+  codex(y){const rows=ARTIFACTS.slice(this.page*4,this.page*4+4);this.text('八件法宝 · 本命武器另占一槽',20,y,12,C.gold);rows.forEach((a,i)=>{const ry=y+31+i*113;this.box(20,ry,this.w-40,104);this.text(a.name,32,ry+10,18,a.color);this.wrap(a.description,32,ry+36,this.w-64,11,C.muted,2);this.text(this.save.seenArtifacts.includes(a.id)?'已觉醒 · Lv.1—5':'未觉醒 · 战斗升级时择得',32,ry+81,10,C.gold);});this.button('上一页',20,y+493,100,44,()=>{this.page=Math.max(0,this.page-1);this.draw();},{disabled:!this.page});this.button('下一页',this.w-120,y+493,100,44,()=>{this.page=Math.min(Math.ceil(ARTIFACTS.length/4)-1,this.page+1);this.draw();},{disabled:(this.page+1)*4>=ARTIFACTS.length});}
+  settings(y){this.button(this.save.muted?'开启声音':'静音全部音效',20,y,this.w-40,48,()=>{this.save.muted=!this.save.muted;this.audio.setMuted(this.save.muted);this.persist();this.draw();});this.button(`画质：${{auto:'自动',high:'精致',low:'省电'}[this.save.quality]}`,20,y+60,this.w-40,48,()=>{const qs=['auto','high','low'];this.save.quality=qs[(qs.indexOf(this.save.quality)+1)%3];this.persist();this.draw();});this.wrap('取经生存法\n拖动任意空白区域移动，法宝自动索敌。拾取妖怪掉落的经验升级，每次三选一。共一把本命武器和四件法宝，各五级。\n每两分钟精英现身，五分钟首领来袭，九分半最终首领登场。十分钟后击败最终首领通关。\n右下“遁”可闪避，五秒冷却。升级与暂停时战斗时间冻结。',20,y+136,this.w-40,13,C.muted,13);this.text('隐私：存档仅保存本机，不收集账号信息。',20,Math.min(this.h-this.bottom-75,y+487),10,C.gold);this.text('v1.0.0 · 原创程序化美术与音频',20,Math.min(this.h-this.bottom-49,y+513),10,C.muted);}
+  startRun(){this.stopRun();this.screen='game';this.message='';this.result=null;this.stats={elites:0,dashes:0};this.engine=new GameEngine({characterId:this.characterId,stageId:this.stageId,seed:Date.now(),talents:this.save.talents,debug:this.platform.debug===true,onEvent:e=>this.event(e)});this.renderer=new GameRenderer(this.canvas,{width:this.w,height:this.h,pixelRatio:this.dpr,quality:this.save.quality==='low'?'low':'high',showHud:false});this.audio.startMusic(getStage(this.stageId).theme);this.lastTime=this.clock();this.running=true;this.schedule();this.draw();}
+  event(e){if(e.type==='kill'){if(e.enemy?.kind==='elite')this.stats.elites++;this.audio.play('kill');}if(e.type==='dash'){this.stats.dashes++;this.audio.play('dash');}if(e.type==='hit')this.audio.play(e.target==='player'?'hurt':'hit');if(e.type==='attack')this.audio.play('attack');if(e.type==='upgrade'&&e.choices)this.audio.play('level');if(e.type==='boss')this.audio.play('boss');if(e.type==='elite')this.audio.play('elite');if(e.type==='pickup')this.audio.play('pickup');if(e.type==='win'||e.type==='lose'){this.result=recordRun(this.save,this.engine.state,this.stats);this.persist();this.audio.stopMusic();this.audio.play(e.type);}}
+  wake(){if(this.engine?.state.status==='playing'&&!this.running){this.running=true;this.lastTime=this.clock();this.schedule();}}
+  schedule(){if(this.running&&!this.disposed)this.frame=this.raf(()=>this.tick());}
+  tick(){if(!this.running||!this.engine||this.disposed)return;const now=this.clock(),dt=Math.min(.05,Math.max(0,(now-this.lastTime)/1000));this.lastTime=now;const start=this.clock();this.engine.update(dt,this.input);this.renderDt=dt;const mid=this.clock();this.draw();const end=this.clock();this.metrics.frames++;this.metrics.maxUpdateMs=Math.max(this.metrics.maxUpdateMs,mid-start);this.metrics.maxRenderMs=Math.max(this.metrics.maxRenderMs,end-mid);if(end-start>32)this.metrics.slowFrames++;const s=this.engine.state;this.metrics.peakEnemies=Math.max(this.metrics.peakEnemies,s.enemies.length);this.metrics.peakProjectiles=Math.max(this.metrics.peakProjectiles,s.projectiles.length);this.metrics.peakEffects=Math.max(this.metrics.peakEffects,s.effects.length);this.samples.push(end-start);if(this.samples.length>180)this.samples.shift();if(s.status!=='playing'){this.running=false;this.frame=0;return;}this.schedule();}
+  drawGame(){const s=this.engine.state;this.renderer.render(s,this.renderDt||0);const c=this.ctx;c.setTransform(this.dpr,0,0,this.dpr,0,0);const y=this.top;c.fillStyle='rgba(19,14,18,.92)';c.fillRect(0,0,this.w,y+134);c.fillRect(0,this.h-this.bottom-89,this.w,this.bottom+89);this.button('Ⅱ',this.w-57,y+10,40,44,()=>{if(s.status==='playing')this.engine.pause();this.draw();},{size:16});this.text(`${this.stageId} · ${s.stage.name}`,18,y+13,10,C.gold);this.text(fmt(s.time),18,y+29,21,C.ink);this.text(s.kills+' 击破',100,y+36,11,C.muted);this.box(16,y+65,this.w-32,5,C.line,null);this.box(16,y+65,(this.w-32)*Math.max(0,s.player.hp/s.player.maxHp),5,C.red,null);this.text('生命 '+Math.ceil(s.player.hp)+' / '+s.player.maxHp,18,y+78,9,C.ink);const boss=s.enemies.find(e=>e.kind==='boss');if(boss){this.box(18,y+99,this.w-36,6,C.line,null);this.box(18,y+99,(this.w-36)*boss.hp/boss.maxHp,6,C.gold,null);this.text(boss.name,this.w/2,y+109,12,C.gold,'center');}const by=this.h-this.bottom-65;this.button(s.player.dashCooldown>0?Math.ceil(s.player.dashCooldown)+'s':'遁',this.w-73,by,55,55,()=>{this.engine.useDash(this.input);},{disabled:s.player.dashCooldown>0});const buildY=this.h-this.bottom-62;s.skills.forEach((sk,i)=>{this.box(16+i*51,buildY,45,22,C.panel,sk.isWeapon?C.gold:C.line);this.text(`${sk.isWeapon?'本命':idName(sk.id).slice(0,2)} ${sk.level}`,38+i*51,buildY+6,8,C.gold,'center');});this.box(16,this.h-this.bottom-24,this.w-90,5,C.line,null);this.box(16,this.h-this.bottom-24,(this.w-90)*Math.min(1,s.player.xp/s.player.xpNext),5,C.jade,null);this.text('Lv.'+s.player.level,this.w-65,this.h-this.bottom-27,10,C.gold);if(this.joy){c.strokeStyle='rgba(237,186,104,.45)';c.lineWidth=1;c.beginPath();c.arc(this.joy.x,this.joy.y,38,0,Math.PI*2);c.stroke();c.fillStyle='rgba(237,186,104,.65)';c.beginPath();c.arc(this.joy.x+this.input.x*23,this.joy.y+this.input.y*23,14,0,Math.PI*2);c.fill();}if(s.status==='upgrade')this.upgradeOverlay(s);else if(s.status==='paused')this.pauseOverlay();else if(['won','lost'].includes(s.status))this.resultOverlay(s);}
+  shade(){const c=this.ctx;c.fillStyle='rgba(9,5,8,.84)';c.fillRect(0,0,this.w,this.h);this.buttons=[];}
+  upgradeOverlay(s){this.shade();const y=Math.max(this.top+50,(this.h-470)/2);this.text('悟得一法',this.w/2,y,30,C.gold,'center','bold');this.text('本命一槽 · 法宝四槽 · 选一项',this.w/2,y+43,11,C.muted,'center');s.choices.forEach((ch,i)=>{const ry=y+82+i*111;this.box(20,ry,this.w-40,99,C.panel,ch.color);this.text(ch.name,32,ry+11,18,ch.color);this.text(ch.isWeapon?'本命武器':'法宝',this.w-33,ry+13,10,C.muted,'right');this.wrap(ch.description,32,ry+37,this.w-64,11,C.muted,2);this.text(`将升至 Lv.${ch.level}`,32,ry+77,10,C.gold);this.buttons.push({x:20,y:ry,w:this.w-40,h:99,action:()=>{this.engine.chooseUpgrade(ch.id);this.input={x:0,y:0};this.audio.play('click');this.wake();this.draw();}});});}
+  pauseOverlay(){this.shade();const y=this.h/2-135;this.text('且歇片刻',this.w/2,y,32,C.gold,'center');this.button('继续西行',30,y+65,this.w-60,50,()=>{this.engine.resume();this.audio.startMusic(getStage(this.stageId).theme);this.wake();this.draw();},{primary:true});this.button('退出本局',30,y+127,this.w-60,48,()=>{this.platform.confirm?.('结束本局？',()=>this.go('home'))||(!this.platform.confirm&&this.go('home'));});}
+  resultOverlay(s){this.shade();const y=this.h/2-180,won=s.status==='won';this.text(won?'此难已破':'暂渡未成',this.w/2,y,34,won?C.gold:C.red,'center','bold');this.text(`${s.stage.location} · ${s.character.name}`,this.w/2,y+49,12,C.muted,'center');this.text(`斩妖 ${s.kills}  等级 ${s.player.level}  用时 ${fmt(s.time)}`,this.w/2,y+88,13,C.ink,'center');this.text(`悟性 +${this.result?.reward||0}`,this.w/2,y+122,20,C.gold,'center');this.button(won&&s.stage.id<81?'再闯下一难':'再试一次',30,y+178,this.w-60,50,()=>{if(won)this.stageId=Math.min(81,s.stage.id+1);this.startRun();},{primary:true});this.button('回到大唐',30,y+240,this.w-60,48,()=>this.go('home'));}
+  touchStart(x,y){const b=this.buttons.slice().reverse().find(b=>x>=b.x&&x<=b.x+b.w&&y>=b.y&&y<=b.y+b.h);if(b){if(!b.disabled){this.audio.play('click');b.action();this.draw();}return;}if(this.screen==='game'&&this.engine?.state.status==='playing'){this.touchOrigin={x,y};this.joy={x,y};}}
+  touchMove(x,y){if(!this.touchOrigin)return;const dx=x-this.touchOrigin.x,dy=y-this.touchOrigin.y,length=Math.hypot(dx,dy);this.input={x:dx/Math.max(40,length),y:dy/Math.max(40,length)};}
+  touchEnd(){this.touchOrigin=null;this.joy=null;this.input={x:0,y:0};}
+  onHide(){if(this.engine?.state.status==='playing'){this.engine.pause();this.autoPaused=true;}this.running=false;this.cancel(this.frame);this.frame=0;this.touchEnd();this.audio.stopMusic();this.persist();}
+  onShow(){if(this.disposed)return;this.cancel(this.frame);this.frame=0;this.lastTime=this.clock();if(this.screen==='game'&&this.engine&&this.engine.state.status==='playing'){this.running=true;this.schedule();}this.draw();}
+  stopRun(){this.running=false;this.cancel(this.frame);this.frame=0;this.engine?.dispose();this.renderer?.dispose();this.engine=null;this.renderer=null;this.audio.stopMusic();this.touchEnd();}
+  getMetrics(){const sorted=this.samples.slice().sort((a,b)=>a-b);return {...this.metrics,p95WorkMs:sorted[Math.floor(sorted.length*.95)]||0,running:this.running,canvasCount:1};}
+  dispose(){this.stopRun();this.persist();this.audio.dispose();this.buttons=[];this.disposed=true;}
+}
+
+Object.assign(module.exports,{NativeGame});
+
+}
+};
+const cache={};function requireCore(id){if(cache[id])return cache[id].exports;if(!factories[id])throw new Error("Missing core module "+id);const m={exports:{}};cache[id]=m;factories[id](m,m.exports,requireCore);return m.exports;}
+module.exports=Object.assign({},...["content","engine","renderer","progression","native-ui"].map(requireCore));
+const{GameEngine}=module.exports;let e,events=[];function reset(){events=[];e=new GameEngine({seed:81,debug:true,onEvent:v=>{events.push(v.type+(v.at?' @'+v.at:'')+(v.final?' 最终':''));if(events.length>20)events.shift();}});render()}function advance(seconds){for(let i=0;i<Math.ceil(seconds/.05);i++){e.state.player.invulnerable=2;e.update(.05,{x:0,y:0});if(e.state.status!=='playing')break;}render()}function jump(t){e.debug('time',{value:t-.05});advance(.05)}function render(){const s=e.getSnapshot();document.getElementById('state').textContent='局势：'+s.status+'
+战斗秒数：'+s.time.toFixed(2)+' / 600
+等级：'+s.player.level+' · 经验：'+s.player.xp+' / '+s.player.xpNext+'
+装备槽：'+s.skills.length+' / 5
+'+s.skills.map(v=>v.id+' Lv.'+v.level).join('
+')+'
+场上普通 / 精英 / 首领：'+['normal','elite','boss'].map(k=>s.enemies.filter(v=>v.kind===k).length).join(' / ');const box=document.getElementById('choices');box.innerHTML='';s.choices.forEach(v=>{const b=document.createElement('button');b.className='choice';b.textContent=v.name+'：'+v.description;b.onclick=()=>{e.chooseUpgrade(v.id);render()};box.appendChild(b)});document.getElementById('events').textContent=events.join(' → ')}function scenario(id){reset();const t={time:['时间与首领','按顺序点击2分钟、5分钟、最终首领、10分钟。观察首领未死不通关，再击败最终首领。'],upgrade:['升级与五槽','拾取1000经验并连续选择法宝，检查升级不丢失，满五槽后只升级已装备。'],freeze:['暂停与冻结','暂停后前进30秒，计时不应变化；继续后再前进，时间才增加。']}[id];document.getElementById('scenarioTitle').textContent=t[0];document.getElementById('guide').textContent=t[1]}reset();</script></html>

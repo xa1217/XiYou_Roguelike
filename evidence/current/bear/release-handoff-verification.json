@@ -1,0 +1,149 @@
+{
+  "generatedAt": "2026-10-10T05:41:14.0712465Z",
+  "evidence": [
+    {
+      "file": "evidence/current/validation.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:39:17.6810000Z",
+      "sha256": "c2254fe9cdcf2ae4f6061d79f5daaf06a13ebc79b21de861560fcf7bd0f2e131",
+      "fresh": true
+    },
+    {
+      "file": "evidence/current/bear/public-contract-node.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:39:12.8200000Z",
+      "sha256": "890c570819bd103a57c9493f6d32fdfee9e1b1409f9851a34d370228fcf6b0ff",
+      "fresh": true
+    },
+    {
+      "file": "evidence/current/bear/release-verification.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:32:23.8918632Z",
+      "sha256": "a003685eb91991f64d537f0621e46e3d0c0093449a2ec513acd31f9b969890dc",
+      "fresh": true
+    },
+    {
+      "file": "evidence/current/browser-public-smoke.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:33:39.7940000Z",
+      "sha256": "4e8bc6333c55c72ca9890b13086f425a414d82d3fb68e30d7d780a73b60dc682",
+      "fresh": true
+    },
+    {
+      "file": "evidence/current/bear/release-http.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:34:49.7492711Z",
+      "sha256": "ce3c3541aa1df931bab0b21e3c7522b1dedddbdf0d1f1384f49ce4f233521a49",
+      "fresh": true
+    },
+    {
+      "file": "evidence/current/asset-dedup-audit.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:39:17.9100000Z",
+      "sha256": "baa0a9ce179eb203cc9d6f087c9081c3ff6bcad830e0301af9aa116f2addd827",
+      "fresh": true
+    }
+  ],
+  "sourceHashes": {
+    "scripts/runtime-frame-contract.mjs": "8f04db9834971aa8621e52224e0a34318ff5c8e99f0bd963c31e22f3238d4c30",
+    "scripts/test-runtime-contracts.mjs": "cf723684bfab92e879c196b8b19e7a0c03f1a553423c4a6bfc666d47a93932f7",
+    "scripts/release.mjs": "25ced262b0aa0b81630835598f37cf96dcd74c1eff04e144c1a92046e98187b1",
+    "scripts/serve.mjs": "a7e47a67c4b8da9486fb84deae50c98bd77662caa37b683fd2701c4b74c4d751",
+    "scripts/verify-release.ps1": "9d76b8436e27d1d998be174ca09d0a7ec742a6cdd81edffc8844f2514be8292f",
+    "scripts/validate.mjs": "2c194595984b320f646d7f1aa569eb70a81f8a2e294b9c699415cc718b78c80f",
+    "scripts/browser-public-smoke.mjs": "623af56af87598ce1a6f54393bf0e942465846f68ac1193d4f64cd232735a6b7",
+    "prototype-2d/native-app.js": "8bf3d8959145c28a20e38c8669466a3f64b9c194fd6b2f30ef173b008ac02591",
+    "prototype-2d/src/engine.js": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+    "prototype-2d/src/renderer.js": "9fe4a514372ef32240551b6a66402236d504274b5e877d04107309b24040d699",
+    "prototype-2d/src/bear-animation.js": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+    "prototype-2d/src/tiger-animation.js": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+    "prototype-2d/src/battle-enemy-animation.js": "19449eec7f956947633889be9e1eef1b0c225c7ddc3f5d11af13ae70fabc8b53",
+    "prototype-2d/assets/enemy-bear-battle-v1-frames.json": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+    "prototype-2d/assets/manifest.json": "f2bd7f942d1b6cf0333ef43e75038556ad047116f10ef9c8538cfde5dc9a3e26"
+  },
+  "archives": [
+    {
+      "channel": "web",
+      "file": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "entries": 43,
+      "bytes": 11495592,
+      "sha256": "66308f0516ac8ea68aaf35a42f4038ebdf9fd1fadd8f8f1503f926d4379d8468",
+      "expectedBytes": 11495592,
+      "expectedHash": "66308f0516ac8ea68aaf35a42f4038ebdf9fd1fadd8f8f1503f926d4379d8468"
+    },
+    {
+      "channel": "wechatGame",
+      "file": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "entries": 25,
+      "bytes": 5043356,
+      "sha256": "b74a0b67f25a9ef01043e82b9876a7727b3ce6c40cd7272bd7e53a87dfe1d34c",
+      "expectedBytes": 5043356,
+      "expectedHash": "b74a0b67f25a9ef01043e82b9876a7727b3ce6c40cd7272bd7e53a87dfe1d34c"
+    }
+  ],
+  "oldArchivesBackup": [
+    {
+      "file": "work/release-backups/pre-bear-20261010T052706Z/dist/xiyou-survivor-web-v1.0.0.zip",
+      "bytes": 10553223,
+      "sha256": "0222fd98851d3ba99736fd51fb02af32aacbc70f0c843a330cec8580b09f4dcf"
+    },
+    {
+      "file": "work/release-backups/pre-bear-20261010T052706Z/dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "bytes": 5042835,
+      "sha256": "5c21e1f2c6150e953e8ef8ee76301afa449e6c4f477c5214232d200bb192f386"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "evidence/current/public/home-390x844.png",
+      "bytes": 103170,
+      "sha256": "3b559accb5a33303cc3143a87732a24424fbe75b9c521289e17f0d57983b28d1"
+    },
+    {
+      "file": "evidence/current/public/character-select-390x844.png",
+      "bytes": 128724,
+      "sha256": "522c358e7c0c275b28ecb5da191b4ab435d550b5b49bad0851933a592ae33006"
+    },
+    {
+      "file": "evidence/current/public/battle-public-390x844.png",
+      "bytes": 36698,
+      "sha256": "4151578f4ed8bc70d47fa8230b9cca8c44098af09e3a8bd9d893d0cf607c65a3"
+    },
+    {
+      "file": "evidence/current/public/battle-public-9s-390x844.png",
+      "bytes": 40785,
+      "sha256": "c8ee640b16d4b55a63f85c14f9abcc5d14dbb1902423d92423d245dd75e8bf30"
+    }
+  ],
+  "browserResult": "PASS",
+  "browserBuildTarget": "archive-extracted-bear-20261010T052706Z",
+  "debugDisabled": true,
+  "noRuntimeErrors": true,
+  "contractsRuntimeOnly": true,
+  "bearPngSha256": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+  "result": "PASS",
+  "scope": "Local candidate package rebuild and actual ZIP browser acceptance only; not external public network, complete art acceptance or deployment",
+  "checks": {
+    "allEvidencePass": true,
+    "freshTests": true,
+    "archivesMatch": true,
+    "actualArchiveBrowser": true,
+    "debugDisabled": true,
+    "noRuntimeErrors": true,
+    "contractsRuntimeOnly": true,
+    "bearPngUnchanged": true
+  },
+  "processReview": {
+    "checkedAt": "2026-10-10T05:35:55.8329270Z",
+    "matchingSmokeOrPlaywrightRoots": [],
+    "totalMemoryKiB": 33449580,
+    "freeMemoryKiB": 22541764,
+    "note": "Read-only process snapshot; only task-owned server session was stopped; no unrelated processes terminated"
+  },
+  "previousEvidenceBackup": "work/release-backups/pre-bear-20261010T052706Z/evidence-current",
+  "currentProjectionAndWechatBundleMatchExtractedArchive": true,
+  "releaseRebuildRequired": false,
+  "imageGenerationCalls": 0,
+  "publicRetested": false,
+  "deployed": false
+}

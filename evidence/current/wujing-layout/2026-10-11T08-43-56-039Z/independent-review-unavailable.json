@@ -1,0 +1,11 @@
+{
+  "reviewer": "/root/hero_highframe_audit",
+  "scope": "Read-only independent visual comparison of original and candidate",
+  "preGenerationAdviceReceived": true,
+  "candidateReviewCompleted": false,
+  "failures": [
+    { "stage": "waiting for candidate", "error": "429 Too Many Requests; agent exceeded retry limit" },
+    { "stage": "single later follow-up with saved candidate path", "error": "503 Service Unavailable; auth_unavailable" }
+  ],
+  "response": "Stop further agent retries. Root performs local measurements and browser preview. No independent candidate approval claimed."
+}

@@ -1,0 +1,76 @@
+{
+  "generatedAt": "2026-10-08T18:06:01.693Z",
+  "result": "PASS",
+  "scope": "Real Chromium AudioContext analyser; synthesis and lifecycle, not a subjective listening review",
+  "rows": [
+    {
+      "event": "attack",
+      "peak": 0.02126,
+      "audible": true
+    },
+    {
+      "event": "hit",
+      "peak": 0.02863,
+      "audible": true
+    },
+    {
+      "event": "hurt",
+      "peak": 0.04706,
+      "audible": true
+    },
+    {
+      "event": "kill",
+      "peak": 0.02244,
+      "audible": true
+    },
+    {
+      "event": "elite",
+      "peak": 0.04698,
+      "audible": true
+    },
+    {
+      "event": "boss",
+      "peak": 0.07415,
+      "audible": true
+    },
+    {
+      "event": "pickup",
+      "peak": 0.02257,
+      "audible": true
+    },
+    {
+      "event": "dash",
+      "peak": 0.04177,
+      "audible": true
+    },
+    {
+      "event": "click",
+      "peak": 0.00501,
+      "audible": true
+    },
+    {
+      "event": "level",
+      "peak": 0.05487,
+      "audible": true
+    },
+    {
+      "event": "crit",
+      "peak": 0.04782,
+      "audible": true
+    },
+    {
+      "event": "win",
+      "peak": 0.05489,
+      "audible": true
+    },
+    {
+      "event": "lose",
+      "peak": 0.04359,
+      "audible": true
+    }
+  ],
+  "musicRunning": true,
+  "mutedGain": 0.00008321118366438895,
+  "timerStopped": true,
+  "disposed": true
+}

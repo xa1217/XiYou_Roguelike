@@ -1,0 +1,503 @@
+{
+  "generatedAt": "2026-10-10T17:39:51.592Z",
+  "input": "F:\\Project\\Xiyou_Survivor_Commercial\\prototype-2d\\assets\\enemy-hawk-battle-v1-sheet.png",
+  "bytes": 1776852,
+  "sha256": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7",
+  "width": 1774,
+  "height": 887,
+  "alphaThreshold": 8,
+  "transparentPixels": 891453,
+  "visiblePixels": 547928,
+  "classifiedPixels": 547928,
+  "uniqueFrames": 32,
+  "rowSummary": [
+    {
+      "row": 0,
+      "top": 46,
+      "bottom": 231,
+      "frameCount": 8,
+      "minimumHorizontalGap": 71
+    },
+    {
+      "row": 1,
+      "top": 261,
+      "bottom": 446,
+      "frameCount": 8,
+      "minimumHorizontalGap": 24
+    },
+    {
+      "row": 2,
+      "top": 454,
+      "bottom": 659,
+      "frameCount": 8,
+      "minimumHorizontalGap": 9
+    },
+    {
+      "row": 3,
+      "top": 677,
+      "bottom": 849,
+      "frameCount": 8,
+      "minimumHorizontalGap": 21
+    }
+  ],
+  "frames": [
+    {
+      "index": 0,
+      "row": 0,
+      "column": 0,
+      "state": "idle",
+      "rect": {
+        "x": 53,
+        "y": 48,
+        "w": 138,
+        "h": 183
+      },
+      "visiblePixels": 15750,
+      "rgbaSha256": "165f8b24ab1467d24edad229f58d69c9d25714c3e581809a1db3a87578a792f0"
+    },
+    {
+      "index": 1,
+      "row": 0,
+      "column": 1,
+      "state": "idle",
+      "rect": {
+        "x": 272,
+        "y": 47,
+        "w": 128,
+        "h": 185
+      },
+      "visiblePixels": 15892,
+      "rgbaSha256": "de975283a9ca51c95f7cd3b526ca067c4e0aab860163a58029499ec6fe40daba"
+    },
+    {
+      "index": 2,
+      "row": 0,
+      "column": 2,
+      "state": "idle",
+      "rect": {
+        "x": 499,
+        "y": 47,
+        "w": 138,
+        "h": 185
+      },
+      "visiblePixels": 16960,
+      "rgbaSha256": "e0934e66ca951e98448383d8a9730022f4a32375647bcab58b46e7749e5b0850"
+    },
+    {
+      "index": 3,
+      "row": 0,
+      "column": 3,
+      "state": "idle",
+      "rect": {
+        "x": 711,
+        "y": 46,
+        "w": 125,
+        "h": 185
+      },
+      "visiblePixels": 15946,
+      "rgbaSha256": "1cb6a300a46cfa94a6d0ec78aa83ba5aa32c6cc8d8746dcd2dd4679dab9e17de"
+    },
+    {
+      "index": 4,
+      "row": 0,
+      "column": 4,
+      "state": "idle",
+      "rect": {
+        "x": 923,
+        "y": 46,
+        "w": 128,
+        "h": 185
+      },
+      "visiblePixels": 16263,
+      "rgbaSha256": "a414840e1007235c1df07b1ffe9de0f31208f255751ff8e78f635d83e9a0434c"
+    },
+    {
+      "index": 5,
+      "row": 0,
+      "column": 5,
+      "state": "idle",
+      "rect": {
+        "x": 1144,
+        "y": 46,
+        "w": 140,
+        "h": 186
+      },
+      "visiblePixels": 17257,
+      "rgbaSha256": "eecd66cb202375fcc4fe24d1ee1f976b6ff33093f162d605be2bbafd9e00b936"
+    },
+    {
+      "index": 6,
+      "row": 0,
+      "column": 6,
+      "state": "idle",
+      "rect": {
+        "x": 1365,
+        "y": 47,
+        "w": 137,
+        "h": 185
+      },
+      "visiblePixels": 16447,
+      "rgbaSha256": "b191b1f49f445c536b1c2069e73ac103f4cdb9daffc9dabd20c07b5145481ac0"
+    },
+    {
+      "index": 7,
+      "row": 0,
+      "column": 7,
+      "state": "idle",
+      "rect": {
+        "x": 1573,
+        "y": 47,
+        "w": 142,
+        "h": 184
+      },
+      "visiblePixels": 16795,
+      "rgbaSha256": "4686c1c58226955b880dd3fa19e636953396ff39a1fa0a57f7c907dbeba4eb2f"
+    },
+    {
+      "index": 8,
+      "row": 1,
+      "column": 0,
+      "state": "move",
+      "rect": {
+        "x": 35,
+        "y": 277,
+        "w": 194,
+        "h": 166
+      },
+      "visiblePixels": 16733,
+      "rgbaSha256": "b6872dff1a4c641502688bb4444d82edc366569c07e2e2f1576f78a667c7c7aa"
+    },
+    {
+      "index": 9,
+      "row": 1,
+      "column": 1,
+      "state": "move",
+      "rect": {
+        "x": 253,
+        "y": 272,
+        "w": 187,
+        "h": 167
+      },
+      "visiblePixels": 18104,
+      "rgbaSha256": "473fecccf95b6419a46497bbcd27032675f869812eb371c754d5f01edd7fc8ef"
+    },
+    {
+      "index": 10,
+      "row": 1,
+      "column": 2,
+      "state": "move",
+      "rect": {
+        "x": 468,
+        "y": 277,
+        "w": 187,
+        "h": 167
+      },
+      "visiblePixels": 17597,
+      "rgbaSha256": "be3bb41a75cc89daaa8c3b8c84f48886d6bcb7df9cb2e51367fb7fc660f6ebc3"
+    },
+    {
+      "index": 11,
+      "row": 1,
+      "column": 3,
+      "state": "move",
+      "rect": {
+        "x": 679,
+        "y": 278,
+        "w": 184,
+        "h": 166
+      },
+      "visiblePixels": 17785,
+      "rgbaSha256": "bd24780c6e0fe8923861291e87d372df0e6e9fe7939bd28ee8ad16e89800ba5b"
+    },
+    {
+      "index": 12,
+      "row": 1,
+      "column": 4,
+      "state": "move",
+      "rect": {
+        "x": 898,
+        "y": 281,
+        "w": 193,
+        "h": 163
+      },
+      "visiblePixels": 19402,
+      "rgbaSha256": "922554d3c95afcb8ece8540ca75a0a272afdc987cf5eaf6d4e7760f0293a854b"
+    },
+    {
+      "index": 13,
+      "row": 1,
+      "column": 5,
+      "state": "move",
+      "rect": {
+        "x": 1115,
+        "y": 281,
+        "w": 183,
+        "h": 163
+      },
+      "visiblePixels": 17074,
+      "rgbaSha256": "73cbd0a3d29a191617d7b49d12933a184c67bb9f33c46fff8cb85f9994e90d60"
+    },
+    {
+      "index": 14,
+      "row": 1,
+      "column": 6,
+      "state": "move",
+      "rect": {
+        "x": 1325,
+        "y": 277,
+        "w": 191,
+        "h": 167
+      },
+      "visiblePixels": 18320,
+      "rgbaSha256": "1d6b479f18915e757045154bbfacb9bb429eec28541b03bd667bd6ea7c3bea6d"
+    },
+    {
+      "index": 15,
+      "row": 1,
+      "column": 7,
+      "state": "move",
+      "rect": {
+        "x": 1565,
+        "y": 261,
+        "w": 177,
+        "h": 186
+      },
+      "visiblePixels": 19485,
+      "rgbaSha256": "64421af99895565b8a33a8b9185d151193d2d304293dc18194b73d1793e0f485"
+    },
+    {
+      "index": 16,
+      "row": 2,
+      "column": 0,
+      "state": "attack",
+      "rect": {
+        "x": 35,
+        "y": 491,
+        "w": 180,
+        "h": 158
+      },
+      "visiblePixels": 17502,
+      "rgbaSha256": "5814053eb20d19859ee44d94cee5b8e01a648e0bef24629d904721721beb4cdf"
+    },
+    {
+      "index": 17,
+      "row": 2,
+      "column": 1,
+      "state": "attack",
+      "rect": {
+        "x": 248,
+        "y": 454,
+        "w": 179,
+        "h": 197
+      },
+      "visiblePixels": 19829,
+      "rgbaSha256": "2fba9e8ba8d1ee46ea67df3b8787efffebc98636853fd1917e8c22ef8d663ea5"
+    },
+    {
+      "index": 18,
+      "row": 2,
+      "column": 2,
+      "state": "attack",
+      "rect": {
+        "x": 457,
+        "y": 462,
+        "w": 199,
+        "h": 190
+      },
+      "visiblePixels": 21547,
+      "rgbaSha256": "09eceaf59ca7927b1d7bacc53928fa0f1addde3fc9da85767e95d26b05af43f1"
+    },
+    {
+      "index": 19,
+      "row": 2,
+      "column": 3,
+      "state": "attack",
+      "rect": {
+        "x": 665,
+        "y": 473,
+        "w": 207,
+        "h": 187
+      },
+      "visiblePixels": 20995,
+      "rgbaSha256": "ddb42ae5bd20db3aed74da283eb65f88952ab9eec884e861b60f186c7e99207d"
+    },
+    {
+      "index": 20,
+      "row": 2,
+      "column": 4,
+      "state": "attack",
+      "rect": {
+        "x": 887,
+        "y": 466,
+        "w": 223,
+        "h": 192
+      },
+      "visiblePixels": 21760,
+      "rgbaSha256": "172ae423a28999309381ea7c25f98ccb3921e669c04351d8c1271f0c34705bfe"
+    },
+    {
+      "index": 21,
+      "row": 2,
+      "column": 5,
+      "state": "attack",
+      "rect": {
+        "x": 1123,
+        "y": 487,
+        "w": 179,
+        "h": 166
+      },
+      "visiblePixels": 18853,
+      "rgbaSha256": "dce865651c762e1d81082fcfa7a6019d54ff26580c4779938b1ce6194a3dbbae"
+    },
+    {
+      "index": 22,
+      "row": 2,
+      "column": 6,
+      "state": "attack",
+      "rect": {
+        "x": 1339,
+        "y": 496,
+        "w": 178,
+        "h": 158
+      },
+      "visiblePixels": 16500,
+      "rgbaSha256": "cda2139b99342f644ff39de519f915bfee9de8f40807db4458b98064ab8d733f"
+    },
+    {
+      "index": 23,
+      "row": 2,
+      "column": 7,
+      "state": "attack",
+      "rect": {
+        "x": 1555,
+        "y": 492,
+        "w": 178,
+        "h": 163
+      },
+      "visiblePixels": 16825,
+      "rgbaSha256": "4ca2b590302f4455e53d0e3a91621243a5238160ab4fd387839e0ad7455bc4ee"
+    },
+    {
+      "index": 24,
+      "row": 3,
+      "column": 0,
+      "state": "hit",
+      "rect": {
+        "x": 44,
+        "y": 685,
+        "w": 176,
+        "h": 164
+      },
+      "visiblePixels": 17640,
+      "rgbaSha256": "ce0007396fd5c38a1eefd26e373ac834e8da803b22f9c23cad0e0c46a020ac76"
+    },
+    {
+      "index": 25,
+      "row": 3,
+      "column": 1,
+      "state": "hit",
+      "rect": {
+        "x": 250,
+        "y": 677,
+        "w": 185,
+        "h": 172
+      },
+      "visiblePixels": 18351,
+      "rgbaSha256": "fe67cf888149f8bfca2a7c7063989628e03aee4f5d178956dd05458da7f314c4"
+    },
+    {
+      "index": 26,
+      "row": 3,
+      "column": 2,
+      "state": "hit",
+      "rect": {
+        "x": 466,
+        "y": 692,
+        "w": 161,
+        "h": 158
+      },
+      "visiblePixels": 16765,
+      "rgbaSha256": "16419c5cb5cb786f0779d806bf36c1c9a94f7e75b92a0277c14828d8e2b936c1"
+    },
+    {
+      "index": 27,
+      "row": 3,
+      "column": 3,
+      "state": "hit",
+      "rect": {
+        "x": 665,
+        "y": 700,
+        "w": 187,
+        "h": 147
+      },
+      "visiblePixels": 15912,
+      "rgbaSha256": "c7aafc921b7ddd8f8450e681501088fa9c3d644aed64d25cf40aafba0339a14d"
+    },
+    {
+      "index": 28,
+      "row": 3,
+      "column": 4,
+      "state": "death",
+      "rect": {
+        "x": 884,
+        "y": 733,
+        "w": 207,
+        "h": 108
+      },
+      "visiblePixels": 15785,
+      "rgbaSha256": "1ceb72338ce782c12ec2b113c6715ea8f25d80c859ee83450e692d95b5164a6b"
+    },
+    {
+      "index": 29,
+      "row": 3,
+      "column": 5,
+      "state": "death",
+      "rect": {
+        "x": 1112,
+        "y": 749,
+        "w": 199,
+        "h": 92
+      },
+      "visiblePixels": 13311,
+      "rgbaSha256": "cc01774f03dee27cd0a351f341c401033877b0dc9712dca0f5b43e9fcd66b896"
+    },
+    {
+      "index": 30,
+      "row": 3,
+      "column": 6,
+      "state": "death",
+      "rect": {
+        "x": 1341,
+        "y": 753,
+        "w": 190,
+        "h": 86
+      },
+      "visiblePixels": 11103,
+      "rgbaSha256": "65284262fdd1d7d257c39153532843ffd00b3eabd780923f0faff6d017ea493d"
+    },
+    {
+      "index": 31,
+      "row": 3,
+      "column": 7,
+      "state": "death",
+      "rect": {
+        "x": 1564,
+        "y": 761,
+        "w": 170,
+        "h": 77
+      },
+      "visiblePixels": 9440,
+      "rgbaSha256": "25dc0cdd46d1b8490aa6736944de9d559a40bead9d295da70301763dff10f991"
+    }
+  ],
+  "checks": {
+    "transparentBackground": true,
+    "fourIsolatedRows": true,
+    "eightIsolatedFiguresPerRow": true,
+    "thirtyTwoDistinctFrames": true,
+    "allVisiblePixelsAccountedFor": true,
+    "noCanvasEdgeClipping": true
+  },
+  "result": "PASS",
+  "scope": "Read-only PNG isolation/alpha/unique-pixel preflight. Distinct hashes are NOT evidence of smooth animation, consistent anatomy or runtime approval."
+}

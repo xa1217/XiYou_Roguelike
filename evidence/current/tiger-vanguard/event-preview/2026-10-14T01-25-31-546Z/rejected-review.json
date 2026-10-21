@@ -1,0 +1,8 @@
+{
+  "result": "REJECTED_POOLED_FIELD_REPORT",
+  "reason": "The first smoke report read death.maxTtl after the same pooled object was reused for a .01s hit-burst, so its actualDeathTtl field incorrectly reported .01. The original .42 assertion occurred before reuse and passed, but this report is not final evidence.",
+  "repair": "Capture the scalar deathMaxTtlAtCreation before expiry/reuse, add RNG value and scheduler hashes, and collect observer assertion errors outside engine.emit's consumer-error catch.",
+  "productionChanged": false,
+  "runtimeApproved": false,
+  "publicPass": false
+}

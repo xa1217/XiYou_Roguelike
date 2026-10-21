@@ -1,0 +1,11 @@
+{
+  "startedAt": "2026-10-14 04:17:08 UTC",
+  "finishedAt": "2026-10-14 04:17:15 UTC",
+  "exitCode": 0,
+  "result": "PASS",
+  "command": "npm test",
+  "logFile": "evidence/current/tiger-vanguard/chain-png-control/2026-10-14T04-16-08-521Z/npm-test.log",
+  "fullOutputCharacters": 49163,
+  "reusedHistoricalPass": false,
+  "browserOutcomeSeparate": true
+}

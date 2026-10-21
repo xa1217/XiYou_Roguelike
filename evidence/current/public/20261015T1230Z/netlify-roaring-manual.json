@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-10-15T13:37:55Z",
+  "result": "MANUAL_PUBLIC_ENTRY_CONFIRMED",
+  "url": "https://roaring-malabi-f8d7fa.netlify.app/",
+  "upload": {
+    "provider": "Netlify Drop",
+    "package": "dist/xiyou-survivor-web-v1.0.0.zip",
+    "sha256": "571199412a54e9fc5bb09afe5eebf371f7b35ed3967bf884927c1b0b481724f6",
+    "scope": "current web runtime only; no source, evidence, legacy-source, secrets or local configuration"
+  },
+  "manualBrowser": {
+    "passwordGate": "authenticated",
+    "title": "西游·八十一难 · 微信Canvas验证",
+    "bodyText": "微信Canvas同代码验证 · WASD / 方向键移动 · 空格闪避",
+    "observedAt": "2026-10-15T13:22Z"
+  },
+  "automatedSmoke": {
+    "result": "BLOCKED",
+    "reason": "Playwright Edge launch returned spawn EPERM in this workspace; Chromium executable is not installed. No automated PASS is claimed from this attempt."
+  },
+  "notes": [
+    "The previous Netlify Drop URL was suspended by the provider; this is a fresh upload and URL.",
+    "The manual entry check confirms the uploaded page is reachable after authentication; full browser smoke remains a separate gate."
+  ]
+}

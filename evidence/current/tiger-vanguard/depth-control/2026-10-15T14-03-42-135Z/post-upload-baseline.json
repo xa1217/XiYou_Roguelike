@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-10-15T14:03:50.654Z",
+  "kind": "evidence-only-post-upload-release-baseline",
+  "reason": "The current public upload rebuilt both release ZIPs after the historical depth-control closeout; this run binds only those two protected hashes to the current workspace packages without changing the original harness or prior evidence.",
+  "runDirectory": "evidence/current/tiger-vanguard/depth-control/2026-10-15T14-03-42-135Z",
+  "currentZipHashes": {
+    "dist/xiyou-survivor-web-v1.0.0.zip": "571199412a54e9fc5bb09afe5eebf371f7b35ed3967bf884927c1b0b481724f6",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "e81ad08055084bb870c894e92c136d078fdd88e69f97dda6cdc76e06e7e821c3"
+  },
+  "historicalZipHashes": {},
+  "sourceHarness": "scripts/browser-tiger-vanguard-depth-control.mjs",
+  "sourceHarnessSha256": "2c93f4971e1167a22549a875bdd52c601cc54dd8f8ef178c150a64f6e22af619",
+  "transientHarnessSha256": "019ff2d80d066a8b92827fcbecbdd7a0347902b74fc5e724c1e9b557e69ec8fd",
+  "originalHarnessUnchanged": true,
+  "priorEvidenceUnchanged": true,
+  "browserResult": "FAIL",
+  "browserFile": "evidence/current/tiger-vanguard/depth-control/2026-10-15T14-03-42-135Z/browser.json"
+}

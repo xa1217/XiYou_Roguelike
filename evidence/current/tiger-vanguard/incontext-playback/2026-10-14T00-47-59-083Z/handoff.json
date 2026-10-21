@@ -1,0 +1,57 @@
+{
+  "verifiedAt": "2026-10-14T00:51:50.345Z",
+  "result": "REVIEW_RECORDED_OVERLAY_CONTINUOUS_PLAYBACK",
+  "browserEvidence": {
+    "file": "browser.json",
+    "sha256": "2340abd01070646d4885e637b8cb735023539806fb9badf1dac56984a2d3856c"
+  },
+  "contactSheet": {
+    "file": "continuous-contact-sheet.png",
+    "sha256": "11808ede5a3ad9a2ddd9f40fd88b22181ca0b7964d938fbcf7dd24d9ffe397ce",
+    "staticReviewed": true
+  },
+  "npmValidation": {
+    "file": "npm-validation.json",
+    "date": "2026-10-14T00:49:24.158Z",
+    "sha256": "40b9a9dd1d47baa9bf0fc20190ceb92c55230d1f07193fc407ea98b989e1de83",
+    "result": "PASS",
+    "npmExitCode": 0
+  },
+  "npmLog": {
+    "file": "npm-test.txt",
+    "sha256": "990a35a3e9fb7a5b946633dd8573b0495b67d03830e1715b689c2f3cc9aa1814"
+  },
+  "originalVideoSha256": "bbb1880278853b09c4547e5ffe2e03eaa1f33ef3aca045ddfa47274dc99b9a7d",
+  "continuousPlaybackEnded": true,
+  "noSeeking": true,
+  "playbackRate": 1,
+  "callbackCountNotFps": 73,
+  "firstObservedMediaTime": 0.101,
+  "lastObservedMediaTime": 2.534,
+  "maxObservedMediaGapSeconds": 0.069,
+  "sourceLogTargetCount": 30,
+  "missingSourceLogPoseIndices": [
+    6,
+    7
+  ],
+  "maxTargetDistanceSeconds": 0.03920000000000001,
+  "sourceIdentityRecognitionPerformed": false,
+  "recordingIncludesUnderlyingGame": false,
+  "protectedFileCount": 111,
+  "protectedUnchangedAfterNpm": true,
+  "browserClosed": true,
+  "serverStarted": false,
+  "humanMotionReviewed": false,
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "fpsAcceptance": false,
+  "publicPass": false,
+  "releaseReady": false,
+  "nextSafeStep": "Evidence-only complete idle cycle and explicit frozen-base-plus-overlay composite capture, reusing locked existing candidates; not natural gameplay, FPS, runtime approval, art generation, release or deployment.",
+  "documents": {
+    "STATUS.md": "f14fd858e46fb7ff2621ba7cda373795d400dc051a36d975f8e2cc67feb6d808",
+    "docs/REQUIREMENTS-ACCEPTANCE.md": "0d038ef353310bd3459ec35d509302c8309d47434046891aa630cb95009f16a3",
+    "docs/FINAL-REPORT.md": "6eadd1642c558bacfb8ec2968427c5eb046dc54857adfbebb19f4372d061c8bb",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md": "84befa5f4d52e03381816263ac3f2469bcf043fd7782613161426681e4ba530a"
+  }
+}

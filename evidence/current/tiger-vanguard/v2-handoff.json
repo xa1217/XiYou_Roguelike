@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-10-11T07:13:18.475Z",
+  "result": "REVIEW",
+  "scope": "Tiger Vanguard candidate v2 only; no runtime integration, no release, no public acceptance.",
+  "asset": "evidence/current/tiger-vanguard/candidate-v2-sheet.png",
+  "sha256": "03fadd27018012715d083fb92206dd7eb0967e54adaff84b45d6442cb1492e62",
+  "size": [
+    1774,
+    887
+  ],
+  "bytes": 2101074,
+  "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-fbb4d981-2ae2-49cd-8ef9-ae8593eda77d.png",
+  "prompt": "prompts/enemy-tiger-vanguard-battle-v2-sheet.txt",
+  "generationMode": "built-in imagegen; single serial call",
+  "preflight": "evidence/current/tiger-vanguard/asset-preflight-v2.json",
+  "browser": "evidence/current/tiger-vanguard/browser-candidate-v2-preflight.json",
+  "failureReasons": [
+    "attack row merged into 5 regions",
+    "29/32 independent frames"
+  ],
+  "improvedFromV1": [
+    "death row has 8 isolated regions",
+    "no canvas-edge clipping"
+  ],
+  "runtimeApproved": false,
+  "plannedNextStep": "Do not generate a third repair immediately. Preserve both rejected candidates; continue independent safe work and re-evaluate a different asset layout strategy before another attempt."
+}

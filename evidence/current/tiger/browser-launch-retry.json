@@ -1,0 +1,17 @@
+{
+  "scope": "Launch diagnostics only; not a game failure or gameplay PASS",
+  "firstAttempt": {
+    "generatedAt": "2026-10-09T11:00:54.332Z",
+    "command": "node scripts/browser-tiger-preflight.mjs",
+    "permissions": "default sandbox",
+    "error": "browserType.launch: spawn EPERM",
+    "browserStarted": false
+  },
+  "retry": {
+    "generatedAt": "2026-10-09T11:01:52.045Z",
+    "permissions": "approved require_escalated, single Edge process",
+    "result": "PASS",
+    "evidence": "evidence/current/tiger/browser-preflight.json",
+    "cleanup": "browser.close() awaited in finally"
+  }
+}

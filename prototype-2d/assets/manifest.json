@@ -1,0 +1,1033 @@
+{
+  "version": 3,
+  "title": "西游·八十一难原创素材",
+  "createdAt": "2026-10-04",
+  "updatedAt": "2026-10-11",
+  "style": "王国保卫战启发的原创2D手绘Q版奇幻风：大头小身、粗深色轮廓、块面光影、略俯视山寺地图与清晰战斗剪影；不复制具体角色、Logo、塔、敌人或构图。",
+  "visualImplementation": {
+    "renderer": "prototype-2d/src/renderer.js",
+    "depthLayers": [
+      "back atmospheric silhouettes",
+      "mid route/scenery/sticker marks",
+      "front brush accents"
+    ],
+    "characters": [
+      "wukong",
+      "tangsanzang",
+      "bajie",
+      "shajing"
+    ],
+    "enemySilhouettes": [
+      "runner",
+      "brute",
+      "dragon",
+      "spider",
+      "bird",
+      "boss weapon and aura"
+    ],
+    "combatReadability": [
+      "weapon trail speed lines",
+      "projectile silhouettes",
+      "artifact effects",
+      "damage numbers",
+      "status labels",
+      "boss entrance ring and named health bar"
+    ],
+    "skillIcons": {
+      "weapon": [
+        "weapon-skill-wukong.svg",
+        "weapon-skill-tangseng.svg",
+        "weapon-skill-bajie.svg",
+        "weapon-skill-wujing.svg"
+      ],
+      "artifacts": "artifact-*.svg",
+      "runtime": "native-app.js loads existing artifact icons and the four new weapon emblems for HUD, upgrade cards and codex; deterministic fallbacks remain available."
+    },
+    "verification": "node prototype-2d/tests/render-smoke.mjs",
+    "characterCards": "hero-cards-v2-comic.png loaded by native-app.js",
+    "characterBattleSprites": [
+      "hero-wukong-battle-v3-sheet.png",
+      "hero-tangseng-battle-v3-sheet.png",
+      "hero-bajie-battle-v3-sheet.png",
+      "hero-wujing-battle-v3-sheet.png"
+    ],
+    "battleAnimation": {
+      "mode": "authoredFrames",
+      "sheetGrid": "4×2",
+      "sheetSize": [
+        1774,
+        887
+      ],
+      "cellSize": [
+        443.5,
+        443.5
+      ],
+      "states": {
+        "idle": 6,
+        "move": 8,
+        "attack": 8,
+        "hit": 4,
+        "stun": 4,
+        "dash": 8,
+        "intro": 10,
+        "death": 8
+      },
+      "fps": {
+        "idle": 8,
+        "move": 12,
+        "attack": 16,
+        "hit": 18,
+        "stun": 8,
+        "dash": 18,
+        "intro": 12,
+        "death": 14
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.88
+      },
+      "note": "每张表为独立的 4×2 透明动作格，不从旧单姿态 PNG 裁边伪造动画；缺图时 renderer 使用同一状态的确定性向量回退。"
+    },
+    "bossBattleSprite": "renderer vector rig with enemy-boss.svg fallback; enemy-boss-kr-v1.png is gallery/history only",
+    "battleScene": {
+      "mode": "vector",
+      "runtime": "native-app.js leaves gallery map images unloaded during a playable run; renderer draws the quiet, deterministic vector plate",
+      "mapAssetDraws": 0,
+      "note": "精美地图 PNG/SVG 仅用于章节预览或追溯，不进入局内战斗，避免静态插图、随机贴花和洗层遮挡角色。"
+    },
+    "sceneAssets": {
+      "forest": {
+        "back": "map-forest-qv1.png",
+        "mid": "theme-forest.svg",
+        "front": "theme-forest.svg"
+      },
+      "temple": {
+        "back": "map-temple-qv1.png",
+        "mid": "theme-temple.svg",
+        "front": "theme-temple.svg"
+      },
+      "runtime": "forest/temple/doublefork authored layers are gallery/preview resources; playable native-app.js uses battleSceneMode=vector and does not fetch them",
+      "doublefork": {
+        "back": "map-doublefork-high-ridge-v1.png",
+        "mid": "theme-forest.svg",
+        "front": "theme-forest.svg",
+        "backSize": [
+          941,
+          1672
+        ],
+        "backBytes": 2968219,
+        "backSha256": "3B2B15606E6548F128123201FAA782E6AF625F0BE4F22F8FAEDC5D94C5980BF8",
+        "collision": {
+          "worldSize": 1800,
+          "ridgeRect": {
+            "x": 0,
+            "y": 700,
+            "width": 1800,
+            "height": 400
+          },
+          "pathCorridor": {
+            "x": 790,
+            "y": 700,
+            "width": 220,
+            "height": 400
+          },
+          "note": "上下两个战斗区由中央山脊小径连接；玩家、闪避、敌人移动与刷怪点共用 isWalkable。"
+        }
+      }
+    }
+  },
+  "assetGen": {
+    "skillRead": true,
+    "toolExists": true,
+    "toolCommand": "asset_gen.py --help",
+    "toolLaunchSucceeded": false,
+    "error": "ModuleNotFoundError: No module named 'requests'",
+    "credentialPresence": {
+      "XAI_API_KEY": false,
+      "GEMINI_API_KEY": false,
+      "GOOGLE_API_KEY": false,
+      "TRIPO_API_KEY": false,
+      "TRIPO_API_TOKEN": false
+    },
+    "externalApiTaskSubmitted": false,
+    "externalApiGenerationSucceeded": false
+  },
+  "builtInImagegen": {
+    "skillRead": true,
+    "called": true,
+    "succeeded": true,
+    "mode": "built-in",
+    "useCase": "stylized-concept",
+    "prompt": "Use case: stylized-concept\nAsset type: original character selection card artwork for a Chinese Journey to the West survivors-like mobile game.\nPrimary request: one polished landscape artwork containing exactly four individual full-body chibi game characters in four equally sized vertical panels, from left to right Sun Wukong, Tang Sanzang, Zhu Bajie, Sha Wujing. Make each panel self-contained so it can be used as a portrait card. Each character has a distinctive silhouette and is entirely visible, including feet and weapon, with generous empty margins.\nSubject details: Sun Wukong is a mischievous monkey hero in cinnabar red and warm gold armor, holding a gold-ended red staff. Tang Sanzang is a serene young Buddhist monk in ivory and sky-blue robes, with an ornate nine-ring pilgrim staff and a small blue holy glow. Zhu Bajie is a friendly stout pig-faced warrior with clearly visible pig ears and snout, in clay red/brown cloth, holding a nine-toothed rake. Sha Wujing is a composed sturdy pilgrim with a dark beard, teal and muted violet robes, bead necklace, and a crescent-headed demon-subduing staff.\nStyle/medium: hand-painted flat-color mobile game illustration, bold dark-brown ink outlines, readable simple shapes, warm parchment scroll aesthetic, tasteful broad cel shading, expressive original character faces. Match a lightweight Canvas 2D game's warm gold, vermilion, earthy ink palette. Do not imitate any modern film, TV, game or artist interpretation.\nComposition/framing: wide horizontal 4-panel lineup, all four characters approximately the same visual height, feet on the same baseline, single three-quarter frontal pose each. Background is calm warm parchment with subtle Chinese cloud motifs, different gentle color washes for each panel, no scene clutter.\nConstraints: exactly four characters, no additional figures, no logos, no text, no letters, no watermarks, no UI controls, no cropped weapons, no photorealism, no pixel art. Original reusable commercial game concept/card art.",
+    "originalSource": "C:/Users/wangxr/.codex/generated_images/01a1023e-9a04-7462-a0d9-8c6eb0d991fc/exec-b94a6c59-556a-49ab-88b8-fea6f51c4993.png",
+    "finalPath": "hero-cards-v1.png",
+    "width": 1915,
+    "height": 821,
+    "modeChannels": "RGB",
+    "bytes": 3072734,
+    "sha256": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+    "visualInspection": {
+      "fourCharacters": true,
+      "fullBodies": true,
+      "recognizableWeapons": true,
+      "noText": true,
+      "noLogo": true,
+      "noWatermark": true,
+      "notes": "角色选择与宣传卡面；不是透明战斗精灵，不是帧动画。"
+    }
+  },
+  "assets": [
+    {
+      "id": "hero-cards",
+      "path": "hero-cards-v1.png",
+      "origin": "built-in-imagegen",
+      "size": [
+        1915,
+        821
+      ],
+      "inGameSize": "完整合图640×274 px；单卡约160×274 px",
+      "purpose": "角色选择或宣传原图；首包不必加载",
+      "sourceRects": [
+        {
+          "characterId": "wukong",
+          "x": 0,
+          "y": 0,
+          "width": 479,
+          "height": 821
+        },
+        {
+          "characterId": "tangseng",
+          "x": 479,
+          "y": 0,
+          "width": 479,
+          "height": 821
+        },
+        {
+          "characterId": "bajie",
+          "x": 958,
+          "y": 0,
+          "width": 479,
+          "height": 821
+        },
+        {
+          "characterId": "wujing",
+          "x": 1437,
+          "y": 0,
+          "width": 478,
+          "height": 821
+        }
+      ]
+    },
+    {
+      "id": "hero-wukong",
+      "path": "hero-wukong.svg",
+      "origin": "original-code-vector",
+      "size": [
+        240,
+        300
+      ],
+      "inGameSize": "80×100 px 预览；战斗仍使用renderer",
+      "purpose": "原创角色方向图"
+    },
+    {
+      "id": "hero-tangseng",
+      "path": "hero-tangseng.svg",
+      "origin": "original-code-vector",
+      "size": [
+        240,
+        300
+      ],
+      "inGameSize": "80×100 px 预览；战斗仍使用renderer",
+      "purpose": "原创角色方向图"
+    },
+    {
+      "id": "hero-bajie",
+      "path": "hero-bajie.svg",
+      "origin": "original-code-vector",
+      "size": [
+        240,
+        300
+      ],
+      "inGameSize": "80×100 px 预览；战斗仍使用renderer",
+      "purpose": "原创角色方向图"
+    },
+    {
+      "id": "hero-wujing",
+      "path": "hero-wujing.svg",
+      "origin": "original-code-vector",
+      "size": [
+        240,
+        300
+      ],
+      "inGameSize": "80×100 px 预览；战斗仍使用renderer",
+      "purpose": "原创角色方向图"
+    },
+    {
+      "id": "weapon-skill-wukong",
+      "path": "weapon-skill-wukong.svg",
+      "origin": "original-code-vector",
+      "size": [
+        128,
+        128
+      ],
+      "bytes": 990,
+      "sha256": "E509EE55BCBDF2804A67CB6FEF1AC476E800EEF6A7AD27D37669495597841C27",
+      "inGameSize": "28×28 px HUD；40×40 px 升级卡",
+      "purpose": "悟空本命武器技能图标"
+    },
+    {
+      "id": "weapon-skill-tangseng",
+      "path": "weapon-skill-tangseng.svg",
+      "origin": "original-code-vector",
+      "size": [
+        128,
+        128
+      ],
+      "bytes": 1167,
+      "sha256": "3BCF292F0E0C5DE76F80573DC55EB8883142EFCD48186D3981A31383289684A3",
+      "inGameSize": "28×28 px HUD；40×40 px 升级卡",
+      "purpose": "三藏本命武器技能图标"
+    },
+    {
+      "id": "weapon-skill-bajie",
+      "path": "weapon-skill-bajie.svg",
+      "origin": "original-code-vector",
+      "size": [
+        128,
+        128
+      ],
+      "bytes": 1960,
+      "sha256": "67B0841A9AD517EA9F7A83EF8C669F1D632F9DF8796A32656C73F5773D0EC737",
+      "inGameSize": "28×28 px HUD；40×40 px 升级卡",
+      "purpose": "八戒本命武器技能图标"
+    },
+    {
+      "id": "weapon-skill-wujing",
+      "path": "weapon-skill-wujing.svg",
+      "origin": "original-code-vector",
+      "size": [
+        128,
+        128
+      ],
+      "bytes": 1009,
+      "sha256": "BAFF2BE3ABBE0E1637457F0600C8A9F7E8BC0C7993D56075C79BE19209D9582E",
+      "inGameSize": "28×28 px HUD；40×40 px 升级卡",
+      "purpose": "悟净本命武器技能图标"
+    },
+    {
+      "id": "theme-forest",
+      "path": "theme-forest.svg",
+      "origin": "original-code-vector",
+      "size": [
+        480,
+        240
+      ],
+      "inGameSize": "240×120 px 关卡预览",
+      "purpose": "主题概念与关卡预览"
+    },
+    {
+      "id": "theme-sand",
+      "path": "theme-sand.svg",
+      "origin": "original-code-vector",
+      "size": [
+        480,
+        240
+      ],
+      "inGameSize": "240×120 px 关卡预览",
+      "purpose": "主题概念与关卡预览"
+    },
+    {
+      "id": "theme-snow",
+      "path": "theme-snow.svg",
+      "origin": "original-code-vector",
+      "size": [
+        480,
+        240
+      ],
+      "inGameSize": "240×120 px 关卡预览",
+      "purpose": "主题概念与关卡预览"
+    },
+    {
+      "id": "theme-fire",
+      "path": "theme-fire.svg",
+      "origin": "original-code-vector",
+      "size": [
+        480,
+        240
+      ],
+      "inGameSize": "240×120 px 关卡预览",
+      "purpose": "主题概念与关卡预览"
+    },
+    {
+      "id": "theme-water",
+      "path": "theme-water.svg",
+      "origin": "original-code-vector",
+      "size": [
+        480,
+        240
+      ],
+      "inGameSize": "240×120 px 关卡预览",
+      "purpose": "主题概念与关卡预览"
+    },
+    {
+      "id": "theme-temple",
+      "path": "theme-temple.svg",
+      "origin": "original-code-vector",
+      "size": [
+        480,
+        240
+      ],
+      "inGameSize": "240×120 px 关卡预览",
+      "purpose": "主题概念与关卡预览"
+    },
+    {
+      "id": "purple-gourd",
+      "path": "artifact-purple-gourd.svg",
+      "origin": "original-code-vector",
+      "size": [
+        128,
+        128
+      ],
+      "inGameSize": "48×48 px 法宝UI",
+      "purpose": "法宝图鉴/升级选择原始矢量"
+    },
+    {
+      "id": "iron-fan",
+      "path": "artifact-iron-fan.svg",
+      "origin": "original-code-vector",
+      "size": [
+        128,
+        128
+      ],
+      "inGameSize": "48×48 px 法宝UI",
+      "purpose": "法宝图鉴/升级选择原始矢量"
+    },
+    {
+      "id": "diamond-snare",
+      "path": "artifact-diamond-snare.svg",
+      "origin": "original-code-vector",
+      "size": [
+        128,
+        128
+      ],
+      "inGameSize": "48×48 px 法宝UI",
+      "purpose": "法宝图鉴/升级选择原始矢量"
+    },
+    {
+      "id": "nine-dragon",
+      "path": "artifact-nine-dragon.svg",
+      "origin": "original-code-vector",
+      "size": [
+        128,
+        128
+      ],
+      "inGameSize": "48×48 px 法宝UI",
+      "purpose": "法宝图鉴/升级选择原始矢量"
+    },
+    {
+      "id": "lotus-lantern",
+      "path": "artifact-lotus-lantern.svg",
+      "origin": "original-code-vector",
+      "size": [
+        128,
+        128
+      ],
+      "inGameSize": "48×48 px 法宝UI",
+      "purpose": "法宝图鉴/升级选择原始矢量"
+    },
+    {
+      "id": "golden-rope",
+      "path": "artifact-golden-rope.svg",
+      "origin": "original-code-vector",
+      "size": [
+        128,
+        128
+      ],
+      "inGameSize": "48×48 px 法宝UI",
+      "purpose": "法宝图鉴/升级选择原始矢量"
+    },
+    {
+      "id": "moon-mirror",
+      "path": "artifact-moon-mirror.svg",
+      "origin": "original-code-vector",
+      "size": [
+        128,
+        128
+      ],
+      "inGameSize": "48×48 px 法宝UI",
+      "purpose": "法宝图鉴/升级选择原始矢量"
+    },
+    {
+      "id": "samadhi-fire",
+      "path": "artifact-samadhi-fire.svg",
+      "origin": "original-code-vector",
+      "size": [
+        128,
+        128
+      ],
+      "inGameSize": "48×48 px 法宝UI",
+      "purpose": "法宝图鉴/升级选择原始矢量"
+    },
+    {
+      "id": "art-preview",
+      "path": "xiyou-art-preview.svg",
+      "origin": "original-code-vector",
+      "size": [
+        1500,
+        1410
+      ],
+      "inGameSize": "预览文档用，不需打包运行时",
+      "purpose": "四角色六主题八法宝合图"
+    },
+    {
+      "id": "art-preview-png",
+      "path": "xiyou-art-preview.png",
+      "origin": "deterministic-svg-rasterization",
+      "size": [
+        1500,
+        1410
+      ],
+      "inGameSize": "预览文档用，不需打包运行时",
+      "purpose": "SVG的便捷PNG预览"
+    },
+    {
+      "id": "enemy-creature",
+      "path": "enemy-creature.svg",
+      "origin": "original-code-vector",
+      "size": [
+        128,
+        128
+      ],
+      "inGameSize": "renderer sprite; scale by enemy radius",
+      "purpose": "普通妖怪透明战斗精灵"
+    },
+    {
+      "id": "enemy-brute",
+      "path": "enemy-brute.svg",
+      "origin": "original-code-vector",
+      "size": [
+        160,
+        160
+      ],
+      "inGameSize": "renderer sprite; scale by enemy radius",
+      "purpose": "精英妖怪透明战斗精灵"
+    },
+    {
+      "id": "enemy-bird",
+      "path": "enemy-bird.svg",
+      "origin": "original-code-vector",
+      "size": [
+        144,
+        128
+      ],
+      "inGameSize": "renderer sprite; scale by enemy radius",
+      "purpose": "飞行妖怪透明战斗精灵"
+    },
+    {
+      "id": "enemy-spider",
+      "path": "enemy-spider.svg",
+      "origin": "original-code-vector",
+      "size": [
+        150,
+        128
+      ],
+      "inGameSize": "renderer sprite; scale by enemy radius",
+      "purpose": "蛛蝎类妖怪透明战斗精灵"
+    },
+    {
+      "id": "enemy-boss",
+      "path": "enemy-boss.svg",
+      "origin": "original-code-vector",
+      "size": [
+        220,
+        220
+      ],
+      "inGameSize": "renderer sprite; scale by enemy radius",
+      "purpose": "首领透明战斗精灵"
+    },
+    {
+      "id": "hero-cards-v2",
+      "path": "hero-cards-v2-comic.png",
+      "origin": "built-in-imagegen",
+      "size": [
+        1870,
+        841
+      ],
+      "inGameSize": "four equal cards; loaded for character select",
+      "purpose": "primary high-saturation comic character selection cards"
+    },
+    {
+      "id": "hero-wukong-battle-v3-sheet",
+      "path": "hero-wukong-battle-v3-sheet.png",
+      "origin": "built-in-imagegen",
+      "size": [
+        1774,
+        887
+      ],
+      "bytes": 1387002,
+      "sha256": "6D5E900A45300320F5072F6C0072C59975D9DB9D8FA564C8E4418D0996D19127",
+      "inGameSize": "4×2透明帧格；按角色半径缩放",
+      "purpose": "悟空局内真实多帧战斗精灵",
+      "runtime": "native-app.js priority queue; renderer battleArtMode=authoredFrames",
+      "frameContract": {
+        "grid": [
+          4,
+          2
+        ],
+        "minDistinctCells": 8,
+        "pivot": [
+          0.5,
+          0.88
+        ]
+      }
+    },
+    {
+      "id": "hero-tangseng-battle-v3-sheet",
+      "path": "hero-tangseng-battle-v3-sheet.png",
+      "origin": "built-in-imagegen",
+      "size": [
+        1774,
+        887
+      ],
+      "bytes": 1942037,
+      "sha256": "08F1819DD09725A94908906CF12F4294724CE425F9A763768DE0D723F1487B61",
+      "inGameSize": "4×2透明帧格；按角色半径缩放",
+      "purpose": "唐三藏局内真实多帧战斗精灵",
+      "runtime": "native-app.js priority queue; renderer battleArtMode=authoredFrames",
+      "frameContract": {
+        "grid": [
+          4,
+          2
+        ],
+        "minDistinctCells": 8,
+        "pivot": [
+          0.5,
+          0.88
+        ]
+      }
+    },
+    {
+      "id": "hero-bajie-battle-v3-sheet",
+      "path": "hero-bajie-battle-v3-sheet.png",
+      "origin": "built-in-imagegen",
+      "size": [
+        1774,
+        887
+      ],
+      "bytes": 1490905,
+      "sha256": "74E1332BC908E992FAB2277902DCBCB2BE1558896172470F4AF4B4D98647E54B",
+      "inGameSize": "4×2透明帧格；按角色半径缩放",
+      "purpose": "猪八戒局内真实多帧战斗精灵",
+      "runtime": "native-app.js priority queue; renderer battleArtMode=authoredFrames",
+      "frameContract": {
+        "grid": [
+          4,
+          2
+        ],
+        "minDistinctCells": 8,
+        "pivot": [
+          0.5,
+          0.88
+        ]
+      }
+    },
+    {
+      "id": "hero-wujing-battle-v3-sheet",
+      "path": "hero-wujing-battle-v3-sheet.png",
+      "origin": "built-in-imagegen",
+      "size": [
+        1774,
+        887
+      ],
+      "bytes": 1558610,
+      "sha256": "8788002D9482AB92797DC0DFB41742B28E811D18C5A764485C54AE1578DCE747",
+      "inGameSize": "4×2透明帧格；按角色半径缩放",
+      "purpose": "沙悟净局内真实多帧战斗精灵",
+      "runtime": "native-app.js priority queue; renderer battleArtMode=authoredFrames",
+      "frameContract": {
+        "grid": [
+          4,
+          2
+        ],
+        "minDistinctCells": 8,
+        "pivot": [
+          0.5,
+          0.88
+        ]
+      }
+    },
+    {
+      "id": "hero-battle-v2-atlas",
+      "path": "hero-battle-v2-atlas.png",
+      "origin": "built-in-imagegen",
+      "size": [
+        2087,
+        753
+      ],
+      "inGameSize": "历史 sourceRect 预览；不进入当前局内启动路径",
+      "purpose": "历史/图鉴透明漫画英雄图集（旧单姿态资源）",
+      "lifecycle": "retired-from-playable-battle; retained for provenance and gallery comparison",
+      "sourceRects": [
+        {
+          "characterId": "wukong",
+          "x": 4,
+          "y": 62,
+          "width": 555,
+          "height": 680
+        },
+        {
+          "characterId": "tangsanzang",
+          "x": 552,
+          "y": 4,
+          "width": 482,
+          "height": 739
+        },
+        {
+          "characterId": "bajie",
+          "x": 1030,
+          "y": 83,
+          "width": 539,
+          "height": 657
+        },
+        {
+          "characterId": "shajing",
+          "x": 1568,
+          "y": 25,
+          "width": 509,
+          "height": 719
+        }
+      ]
+    },
+    {
+      "id": "hero-tangseng-kr-v1",
+      "path": "hero-tangseng-kr-v1.png",
+      "origin": "built-in-imagegen",
+      "size": [
+        1312,
+        1199
+      ],
+      "inGameSize": "历史单姿态预览；不进入当前局内启动路径",
+      "purpose": "唐三藏历史透明战斗精灵（旧单姿态资源）",
+      "lifecycle": "retired-from-playable-battle; retained for provenance and gallery comparison"
+    },
+    {
+      "id": "enemy-boss-kr-v1",
+      "path": "enemy-boss-kr-v1.png",
+      "origin": "built-in-imagegen",
+      "size": [
+        1374,
+        1145
+      ],
+      "inGameSize": "历史单姿态预览；不进入当前局内启动路径",
+      "purpose": "首领历史透明战斗精灵（旧单姿态资源）",
+      "lifecycle": "retired-from-playable-battle; retained for provenance and gallery comparison"
+    },
+    {
+      "id": "map-forest-qv1",
+      "path": "map-forest-qv1.png",
+      "origin": "built-in-imagegen-derived-color-grade",
+      "size": [
+        1024,
+        683
+      ],
+      "bytes": 1365938,
+      "sha256": "2944C17B771AD04A2C0205722F72DF6A6126BAE5F6EBF2E3AAC1B1485BB50F23",
+      "inGameSize": "WORLD_SIZE×WORLD_SIZE后景裁切",
+      "purpose": "森林主题手绘山寺地图后景（章节预览）",
+      "lifecycle": "gallery-preview-only; not fetched by the playable battle path"
+    },
+    {
+      "id": "map-temple-qv1",
+      "path": "map-temple-qv1.png",
+      "origin": "built-in-imagegen-downscaled",
+      "size": [
+        1024,
+        683
+      ],
+      "bytes": 1448511,
+      "sha256": "1D7627C6153E2583842821CA5B2FA9C36027A85FE2B888F440E4E1C58F067EF9",
+      "inGameSize": "WORLD_SIZE×WORLD_SIZE后景裁切",
+      "purpose": "寺院主题手绘山寺地图后景（章节预览）",
+      "lifecycle": "gallery-preview-only; not fetched by the playable battle path"
+    },
+    {
+      "id": "map-doublefork-high-ridge",
+      "path": "map-doublefork-high-ridge-v1.png",
+      "origin": "copied-authored-high-ridge-candidate",
+      "size": [
+        941,
+        1672
+      ],
+      "bytes": 2968219,
+      "sha256": "3B2B15606E6548F128123201FAA782E6AF625F0BE4F22F8FAEDC5D94C5980BF8",
+      "inGameSize": "WORLD_SIZE×WORLD_SIZE 后景 cover 裁切（941×1672 源图）",
+      "purpose": "首关双叉岭高峻山体后景；上下战斗区与中央小径的视觉锚点",
+        "runtime": "章节预览/追溯资源；当前 playable battle 不加载该 PNG，renderer.js 使用 doublefork 的安静向量场景。",
+      "lifecycle": "gallery-preview-only; not fetched by the playable battle path",
+      "collision": "ridge y=700..1100；central path x=790..1010 within ridge"
+    },
+    {
+      "id": "enemy-creature-kr-v1",
+      "path": "enemy-creature-kr-v1.png",
+      "origin": "built-in-imagegen",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 1890259,
+      "sha256": "5EB03BE680A6E4A7B8ABA3B53695D7EB22C2C5F19C1A31A710C711743BA8D102",
+      "inGameSize": "按普通怪半径缩放",
+      "purpose": "普通妖怪历史透明战斗精灵（当前局内使用 SVG/Canvas 向量 rig）",
+      "lifecycle": "retired-from-playable-battle; retained for provenance and gallery comparison"
+    },
+    {
+      "id": "enemy-brute-kr-v1",
+      "path": "enemy-brute-kr-v1.png",
+      "origin": "built-in-imagegen",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 2447649,
+      "sha256": "99471FED9880D0328CF6438DF1157BC3E6FD5B07A3E4123DEE17481BFE3FDF8D",
+      "inGameSize": "按精英怪半径缩放",
+      "purpose": "精英妖怪历史透明战斗精灵（当前局内使用 SVG/Canvas 向量 rig）",
+      "lifecycle": "retired-from-playable-battle; retained for provenance and gallery comparison"
+    },
+    {
+      "id": "enemy-tiger-battle-v1",
+      "path": "enemy-tiger-battle-v1-sheet.png",
+      "origin": "built-in-imagegen",
+      "size": [1774, 887],
+      "bytes": 1166282,
+      "sha256": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+      "purpose": "首关普通虎妖32姿态：idle8/move8/attack8/hit4/death4；只绑定stage1+normal+tiger，精英/Boss不共用",
+      "lifecycle": "runtime-approved; serial browser image queue; vector fallback on load failure",
+      "inGameSize": "48世界像素基准体高（radius15），130源像素统一缩放；真实Edge自然移动/攻击/受击/死亡与暂停通过",
+      "frameContract": "enemy-tiger-battle-v1-frames.json",
+      "frameLayout": "8 figures × 4 rows, irregular spacing; explicit measured sourceRects required, never equal-grid slicing",
+      "uniqueFrames": 32,
+      "generationPrompts": ["prompts/enemy-tiger-battle-v1-sheet.txt", "prompts/enemy-tiger-battle-v1-layout-edit.txt"],
+      "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-d5b8298b-c2ee-488b-b27e-1e23c01fe4b6.png",
+      "preflightEvidence": ["evidence/current/tiger/asset-preflight.json", "evidence/current/tiger/browser-preflight.json"],
+      "rejectedInitialGeneration": "First draft attack frames overlapped adjacent cells; not copied into runtime assets. Built-in edit reduced every figure uniformly before inspection.",
+      "runtimeEvidence": ["evidence/current/tiger/browser-runtime.json", "evidence/current/tiger/engine-runtime.json"],
+      "runtimeApproved": true
+    },
+    {
+      "id": "enemy-bear-battle-v1",
+      "path": "enemy-bear-battle-v1-sheet.png",
+      "origin": "built-in-imagegen",
+      "size": [1774, 887],
+      "bytes": 978099,
+      "sha256": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+      "purpose": "首关普通熊妖32姿态：idle8/move8/attack8/hit4/death4；只绑定stage1+normal+bear，不用于熊山君或其他精英/Boss",
+      "lifecycle": "runtime-approved; serial browser image/JSON queue and vector fallback; included in locally verified 2026-10-10 candidate archives, not deployed",
+      "inGameSize": "48世界像素基准体高（radius15），136源像素统一缩放；真实Edge自然移动/攻击/受击/死亡与暂停通过；最终全局视觉质量另验",
+      "frameContract": "enemy-bear-battle-v1-frames.json",
+      "frameLayout": "8 figures × 4 rows, irregular spacing; explicit measured sourceRects required, never equal-grid slicing",
+      "uniqueFrames": 32,
+      "generationPrompts": ["prompts/enemy-bear-battle-v1-sheet.txt", "prompts/enemy-bear-battle-v1-layout-edit.txt"],
+      "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-e1a192be-eaef-4da0-9a61-d717e7a8804d.png",
+      "preflightEvidence": ["evidence/current/bear/generation-preflight.json", "evidence/current/bear/asset-preflight.json", "evidence/current/bear/browser-preflight.json"],
+      "rejectedInitialGeneration": "Initial attack-row figures touched; 31 isolated components instead of 32. Not copied into assets. One built-in layout edit produced the retained 32-pose sheet without script pixel edits.",
+      "runtimeApproved": true,
+      "runtimeEvidence": ["evidence/current/bear/browser-runtime.json", "evidence/current/bear/engine-runtime.json"]
+    },
+    {
+      "id": "enemy-bull-battle-v1",
+      "path": "enemy-bull-battle-v1-sheet.png",
+      "origin": "built-in-imagegen",
+      "size": [1774, 887],
+      "bytes": 1137073,
+      "sha256": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+      "purpose": "首关普通野牛妖32姿态：idle8/move8/attack8/hit4/death4；仅stage1+normal+bull，不用于特处士（待处士）或其他精英/Boss",
+      "lifecycle": "runtime-approved; serial browser image/JSON queue and vector fallback; included in locally verified 2026-10-10 bull candidate archives, not deployed",
+      "inGameSize": "48世界像素基准体高（radius15），150源像素统一缩放、固定根点与3.45r血条偏移；本地真实Edge自然动作及暂停恢复通过，接触遮挡与最终全局质量仍待验",
+      "frameContract": "enemy-bull-battle-v1-frames.json",
+      "frameLayout": "8 figures × 4 rows, irregular spacing; explicit measured sourceRects required, never equal-grid slicing",
+      "uniqueFrames": 32,
+      "generationPrompts": ["prompts/enemy-bull-battle-v1-sheet.txt", "prompts/enemy-bull-battle-v1-layout-edit.txt"],
+      "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-49e0dbd2-806e-4a7c-98c9-66dd121cc91a.png",
+      "preflightEvidence": ["evidence/current/bull/generation-preflight.json", "evidence/current/bull/asset-preflight.json", "evidence/current/bull/browser-preflight.json"],
+      "rejectedInitialGeneration": "Initial attack row touched, yielding 31 isolated components. Not copied into assets. One built-in layout edit produced the retained 32-pose sheet; no scripted pixel edits or re-encoding.",
+      "runtimeApproved": true,
+      "runtimeEvidence": ["evidence/current/bull/browser-runtime.json", "evidence/current/bull/engine-runtime.json"]
+    },
+    {
+      "id": "enemy-wolf-battle-v1",
+      "path": "enemy-wolf-battle-v1-sheet.png",
+      "origin": "built-in-imagegen",
+      "size": [1774, 887],
+      "bytes": 1410175,
+      "sha256": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299",
+      "purpose": "首关普通苍狼妖32姿态候选：idle8/move8/attack8/hit4/death4；目标仅stage1+normal+wolf，不用于凌虚子/奎木狼、精英或其他关卡",
+      "lifecycle": "locally integrated runtime candidate; approved for local web, not packaged or deployed",
+      "inGameSize": "预览48/56/96px，170源像素统一比例，固定根点；Node/Canvas与真实Edge局内生产流已验，跨敌人遮挡/移动端FPS仍待验",
+      "frameContract": "enemy-wolf-battle-v1-frames.json",
+      "frameLayout": "8 figures × 4 rows; explicit measured sourceRects with 2px padding, not equal-grid slicing",
+      "uniqueFrames": 32,
+      "generationPrompts": ["prompts/enemy-wolf-battle-v1-sheet.txt"],
+      "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-8b7ce4f9-999d-4ce4-a6aa-3c555213adf6.png",
+      "preflightEvidence": ["evidence/current/wolf/generation-preflight.json", "evidence/current/wolf/asset-preflight.json", "evidence/current/wolf/browser-preflight.json"],
+      "generationNote": "One built-in generation. Initial sheet passed 32-figure isolation/alpha preflight and was copied byte-for-byte; no layout edit, scripted pixel edits or re-encoding.",
+      "runtimeApproved": true,
+      "runtimeEvidence": ["evidence/current/wolf/browser-runtime.json", "evidence/current/wolf/engine-runtime.json"]
+    },
+    {
+      "id": "enemy-monkey-battle-v1",
+      "path": "enemy-monkey-battle-v1-sheet.png",
+      "origin": "built-in-imagegen",
+      "size": [1774, 887],
+      "bytes": 1379382,
+      "sha256": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44",
+      "purpose": "首关普通猴妖32姿态：idle8/move8/attack8/hit4/death4；仅绑定stage1+normal+monkey，不用于精英、Boss或其他关卡",
+      "lifecycle": "registered and locally browser-verified runtime candidate; not packaged or deployed; not final-global-visual or external-public approval",
+      "inGameSize": "48世界像素基准体高（radius15），165源像素统一缩放、固定根点；本地真实Edge通过，全局遮挡、最终流畅度与移动端质量仍待验",
+      "frameContract": "enemy-monkey-battle-v1-frames.json",
+      "frameLayout": "8 figures × 4 rows, irregular spacing; explicit measured sourceRects required, never equal-grid slicing",
+      "uniqueFrames": 32,
+      "generationPrompts": ["prompts/enemy-monkey-battle-v1-sheet.txt"],
+      "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-65f2befd-ad9a-4a21-8d25-3752a3e8ef63.png",
+      "preflightEvidence": ["evidence/current/monkey/asset-preflight.json"],
+      "runtimeEvidence": ["evidence/current/monkey/engine-runtime.json", "evidence/current/monkey/browser-runtime.json"],
+      "runtimeApproved": true
+    },
+    {
+      "id": "enemy-deer-battle-v1",
+      "path": "enemy-deer-battle-v1-sheet.png",
+      "origin": "built-in-imagegen",
+      "size": [1774, 887],
+      "bytes": 1894732,
+      "sha256": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
+      "purpose": "首关普通鹿妖32姿态：idle8/move8/attack8/hit4/death4；仅绑定stage1+normal+deer，不用于精英、Boss或其他关卡",
+      "lifecycle": "registered and locally browser-verified runtime candidate; not packaged or deployed; not final-global-visual or external-public approval",
+      "inGameSize": "48世界像素基准体高（radius15），205源像素统一缩放、固定根点；本地真实Edge自然生产流及左右32姿态夹具通过，全局遮挡、最终流畅度与移动端质量仍待验",
+      "frameContract": "enemy-deer-battle-v1-frames.json",
+      "frameLayout": "8 figures × 4 irregularly spaced rows; independently measured alpha bounds plus 2px, never equal-grid cuts; source idle index7 facing normalized by module",
+      "uniqueFrames": 32,
+      "generationPrompts": ["prompts/enemy-deer-battle-v1-sheet.txt"],
+      "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-437d581a-0fc2-41dc-908a-14c2dc397e32.png",
+      "preflightEvidence": ["evidence/current/deer/asset-preflight.json"],
+      "runtimeEvidence": ["evidence/current/deer/engine-runtime.json", "evidence/current/deer/browser-runtime.json"],
+      "runtimeApproved": true
+    },
+    {
+      "id": "enemy-hawk-battle-v1",
+      "path": "enemy-hawk-battle-v1-sheet.png",
+      "origin": "built-in-imagegen",
+      "size": [1774, 887],
+      "bytes": 1776852,
+      "sha256": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7",
+      "purpose": "首关普通鹰妖32姿态：idle8/move8/attack8/hit4/death4；仅绑定stage1+normal+hawk，不用于精英、Boss或其他关卡",
+      "lifecycle": "registered and locally browser-verified runtime candidate; not packaged or deployed; not final-global-visual or external-public approval",
+      "inGameSize": "48世界像素基准体高（radius15），180源像素统一缩放、固定根点；本地Node/Canvas与真实Edge局内生产流已验，全局遮挡、最终流畅度与移动端质量仍待验",
+      "frameContract": "enemy-hawk-battle-v1-frames.json",
+      "frameLayout": "8 figures × 4 irregularly spaced rows; independently measured alpha bounds plus 2px, never equal-grid cuts",
+      "uniqueFrames": 32,
+      "generationPrompts": ["prompts/enemy-hawk-battle-v1-sheet.txt"],
+      "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-4c363345-8455-4874-815a-c4ad285c823e.png",
+      "preflightEvidence": ["evidence/current/hawk/asset-preflight.json"],
+      "runtimeEvidence": ["evidence/current/hawk/engine-runtime.json", "evidence/current/hawk/browser-runtime.json"],
+      "runtimeApproved": true
+    },
+    {
+      "id": "enemy-snake-battle-v3",
+      "path": "enemy-snake-battle-v3-sheet.png",
+      "origin": "built-in-imagegen",
+      "size": [1774, 887],
+      "bytes": 1749032,
+      "sha256": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+      "purpose": "首关普通蛇妖32姿态：idle8/move8/attack8/hit4/death4；仅stage1+normal+snake，不用于精英、Boss或其他关卡",
+      "lifecycle": "registered and locally browser-verified runtime candidate; not packaged, deployed or final-visual approved",
+      "inGameSize": "radius15时按48世界像素基准体高缩放；170源像素统一比例、暂定固定列根点/行基线，3.45r血条偏移；最终蛇类造型、连续动画流畅度与全局接触遮挡未批准",
+      "frameContract": "enemy-snake-battle-v3-frames.json",
+      "frameLayout": "4 rows x 8 isolated poses; measured alpha bounds plus 2px, never equal-grid cuts; source idle index4 normalized by module without PNG edits",
+      "uniqueFrames": 32,
+      "generationPrompts": ["prompts/enemy-snake-battle-v3-sheet.txt"],
+      "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-67177336-ce58-4236-b9d4-0d8b617cb548.png",
+      "preflightEvidence": ["evidence/current/snake/asset-preflight-v3.json"],
+      "generationNote": "Missing ordinary-snake use was audited before three serial candidates. v1/v2 failed isolation/gap gates; only v3 is a runtime asset. Original PNG bytes preserved; no scripted pixel edits or re-encoding. Earlier rejected prompts are not separately persisted; do not invent or regenerate them.",
+      "rejectedCandidates": [
+        {
+          "path": "evidence/current/snake/rejected-enemy-snake-v1.png",
+          "size": [1774, 887], "bytes": 2458204,
+          "sha256": "e17f187e0c6a733572f42cd722d99d8df6793b91c67ca6b66f08a5f9e6b02089",
+          "evidence": "evidence/current/snake/asset-preflight.json",
+          "reason": "REVIEW: connected rows, only 16 isolated components, edge clipping; not runtime or release"
+        },
+        {
+          "path": "evidence/current/snake/rejected-enemy-snake-v2.png",
+          "size": [1774, 887], "bytes": 2116676,
+          "sha256": "3e99eb9c9b26ca02424a7bc2d48f2f28c9475ce3f7704a35ef7838d46b6a19bd",
+          "evidence": "evidence/current/snake/asset-preflight-v2.json",
+          "reason": "REVIEW: minimum horizontal gap 5px below 6px gate; not runtime or release"
+        }
+      ],
+      "runtimeEvidence": ["evidence/current/snake/engine-runtime.json", "evidence/current/snake/browser-runtime.json", "evidence/current/snake/public-contract-node.json"],
+      "runtimeApproved": true,
+      "finalVisualApproved": false
+    }
+  ],
+  "runtimeNotes": [
+    "原生Canvas renderer的程序化原创绘制是运行必需资源，无图片加载门槛。",
+    "SVG素材目前是设计/预览资源；不能假设wx Canvas会直接加载SVG，需经过平台验证或离线导出PNG后接入。",
+    "imagegen卡面原图约3.07MB，压缩/分包前应测量主包。",
+    "sourceRects将合图均分为四个无重叠区域，最后列宽478 px；运行时可用drawImage裁切，不必写出四张图片。",
+    "浏览器native入口加载5张透明妖怪/Boss SVG，并串行加载8套普通敌人32姿态PNG；微信Canvas保留renderer向量回退。",
+    "首关普通虎妖另串行加载32姿态PNG与实测矩形JSON；只绑定stage1+normal+tiger。130源像素统一缩放、固定脚底；精英/Boss仍用独立向量回退。",
+    "普通熊妖32姿态已接入stage1+normal+bear并通过局内Edge/Node；136源像素固定比例，熊山君不能共用。PNG哈希未变，禁止重复生成；10月10日本地候选ZIP已重建并验包，公开帧JSON只保留运行字段，未上线。",
+    "普通野牛妖32姿态已接入stage1+normal+bull并通过本地真实Edge/Node；150源像素统一比例和固定根点，不用于特处士（待处士）。原PNG哈希未变，10月10日牛版本地候选ZIP已重建并验证实际解压网页，公开帧JSON只含运行字段；未上线，整体遮挡与最终质量仍待验，不重生成。",
+    "普通苍狼妖32姿态已接入stage1+normal+wolf并通过本地Node/真实Edge；170源像素统一比例和固定根点，精英/Boss不共用，原PNG禁止重复生成。当前候选ZIP仍待整体素材完成后统一重建。",
+    "普通猴妖32姿态已接入stage1+normal+monkey并通过本地Node/真实Edge及公开工作区契约；165源像素统一比例和固定根点，精英/Boss不共用。当前发布包仍待整体素材完成后统一重建。",
+    "普通鹿妖32姿态已接入stage1+normal+deer并通过本地真实Edge/Node；205源像素统一比例、固定根点及独立实测alpha裁切，idle index7源朝向由模块归一；原PNG字节保留，禁止重复生成。runtimeApproved只代表本地接入，不代表全局视觉、公网或最终发布批准。",
+    "普通鹰妖32姿态已接入stage1+normal+hawk并通过本地真实Edge/Node；180源像素统一比例、固定根点及独立实测alpha裁切，原PNG字节保留，禁止重复生成。runtimeApproved只代表本地接入，不代表全局视觉、公网或最终发布批准。",
+    "普通蛇妖复用已通过alpha预检的v3表，32姿态已接入stage1+normal+snake并通过本地真实Edge/12项Node；170源像素统一比例、固定根点，idle index4由模块归一。v1/v2失败稿只留evidence，不公开或发布；禁止再生成同用途合格素材。runtimeApproved仅为本地接入，最终造型/流畅度/遮挡、公网和发布包仍待验。",
+    "网页选角主图已切换为 hero-cards-v2-comic.png；v1宣纸卡面保留作历史素材，不再作为主入口。",
+    "当前 playable battle 的四名角色只使用 hero-*-battle-v3-sheet.png；每张均为独立 4×2 透明动作格，renderer 按状态和朝向裁切/镜像。",
+    "v3 战斗帧合同为 idle/move/attack/hit/stun/dash/intro/death，8 个独立格、pivot=(0.5,0.88)、fps 见 visualImplementation.battleAnimation；不再用旧单姿态 PNG 裁边伪造动作。",
+    "hero-battle-v2-atlas.png、hero-tangseng-kr-v1.png、enemy-boss-kr-v1.png 等旧 PNG 仍保留用于历史追溯、图鉴或素材审计，均不在当前局内启动时加载。",
+    "局内地图使用 renderer 的 deterministic vector scene（battleSceneMode=vector）：固定的双叉岭山脊、中央通道和少量地标；精美地图 PNG/SVG 只作章节预览，不绘制为局内 back/mid/front 洗层。",
+    "当前 playable battle 预期 renderer.mapAssetDraws=0；这表示没有把精美静态地图插入局内，并不表示缺少地图，向量场景仍由 Canvas 每帧绘制。",
+    "双叉岭地图碰撞与资源一致：山脊矩形为 x=0,y=700,width=1800,height=400；中央可通行小径为 x=790..1010；引擎与微信 bundle 使用同一几何规则。",
+    "新增或替换素材前必须先比较 SHA-256、尺寸、用途和运行时引用；禁止为旧单姿态或旧地图重复生成同用途副本。"
+  ],
+  "generation": {
+    "vectors": "node prototype-2d/assets/generate-art-assets.mjs",
+    "rasterPreview": "sharp(original SVG).png()",
+    "externalArtworkUsed": false,
+    "aiBitmapAssets": [
+      "hero-cards-v1.png",
+      "hero-cards-v2-comic.png",
+      "hero-wukong-battle-v3-sheet.png",
+      "hero-tangseng-battle-v3-sheet.png",
+      "hero-bajie-battle-v3-sheet.png",
+      "hero-wujing-battle-v3-sheet.png",
+      "enemy-tiger-battle-v1-sheet.png",
+      "enemy-bear-battle-v1-sheet.png",
+      "enemy-bull-battle-v1-sheet.png",
+      "enemy-wolf-battle-v1-sheet.png",
+      "enemy-monkey-battle-v1-sheet.png",
+      "enemy-deer-battle-v1-sheet.png",
+      "enemy-hawk-battle-v1-sheet.png",
+      "enemy-snake-battle-v3-sheet.png",
+      "legacy authored battle/map/enemy PNGs listed above"
+    ],
+    "vectorAssetsRemainCodeAuthored": true
+  },
+  "builtInImagegenV2": {
+    "skillRead": true,
+    "called": true,
+    "succeeded": true,
+    "mode": "built-in",
+    "useCase": "comic character cards",
+    "originalSource": "C:/Users/wangxr/.codex/generated_images/01a1023a-0bdf-7d23-8ecc-439a01d7c73c/exec-d1b8e139-8000-44a0-9091-aea6da5f6a86.png",
+    "finalPath": "hero-cards-v2-comic.png",
+    "width": 1870,
+    "height": 841,
+    "bytes": 3016136,
+    "sha256": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad",
+    "styleReference": "User supplied image used only for abstract style direction; no train/logo/composition copied",
+    "promptSummary": "Four original Journey to the West heroes, saturated cobalt/vermilion/yellow/emerald, heavy near-black comic contours, cel shading, glossy highlights, brush splashes and speed marks"
+  }
+}

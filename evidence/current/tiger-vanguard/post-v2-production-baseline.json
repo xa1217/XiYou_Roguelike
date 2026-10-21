@@ -1,0 +1,129 @@
+{
+  "generatedAt": "2026-10-11T07:16:29.949Z",
+  "comparedAgainst": "evidence/current/tiger-vanguard/pre-generation-baseline.json",
+  "result": "UNCHANGED",
+  "files": [
+    {
+      "path": "prototype-2d/native-app.js",
+      "sha256": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/index.html",
+      "sha256": "4b9f67a618da1e1466ea6e73e0a905aef2dbd15fbef120313ec79b125dddd750",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/build.mjs",
+      "sha256": "b286f89168ec5e52cf5481b96cc7c68f7db6aa2cb6d4dc74ee5924e8b190b3b5",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/release.mjs",
+      "sha256": "4134cd0ccb13c27e940793bff3860eb3d0ab092a0fe542aa48ffa1f2b53a53de",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/serve.mjs",
+      "sha256": "300f782732b7bde8590abe40a3c20feab92d4705432386967fd298430f6713d7",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/browser-actor-preflight.mjs",
+      "sha256": "c85444e979236c745871c0e8c51cd5782e8c05c694ccdc6befb6ce1eee8c096f",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/assets/manifest.json",
+      "sha256": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/audio.js",
+      "sha256": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/battle-enemy-animation.js",
+      "sha256": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/bear-animation.js",
+      "sha256": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/bull-animation.js",
+      "sha256": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/content.js",
+      "sha256": "1383d25a9cfe36577de4cd1b0cbde56b408e4ab0328fce3d1b647da2533ec730",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/deer-animation.js",
+      "sha256": "7fca4fc497bd38abe62afc1b3f051001888195035e22573a5b7e323d5988653b",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/engine.js",
+      "sha256": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/hawk-animation.js",
+      "sha256": "60e7cb55d6c2966223d54145af3134e4507a449a976fbc4a5c962a3a6dde0285",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/monkey-animation.js",
+      "sha256": "99dec7c46f8615d09e9c9fd0381c7e8ebdb9e41504c9f5a41a5a59fa598e1fc6",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/native-ui.js",
+      "sha256": "e1b8db4a47fb4b6d0ed31b21c23c5e4bb3c139e93a6403f2efa5d5c53377d4f4",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/progression.js",
+      "sha256": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/renderer.js",
+      "sha256": "84e596ece3b97b28b8e1215b3a4f797a61d7c62bf70324e5c8af4775ad2367f6",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/snake-animation.js",
+      "sha256": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/tiger-animation.js",
+      "sha256": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/wolf-animation.js",
+      "sha256": "e677a1be849717d0790715b08a8fb8a4b76aff27e24930c7e8962f3e8574e85e",
+      "unchanged": true
+    },
+    {
+      "path": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "sha256": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+      "unchanged": true
+    },
+    {
+      "path": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "sha256": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+      "unchanged": true
+    }
+  ],
+  "changed": [],
+  "scope": "Production/runtime source, manifest, loader and existing dist ZIP hash comparison; v1/v2 candidates and evidence excluded."
+}

@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "generatedAt": "2026-10-16T12:09:46.375Z",
+  "tests": [
+    {
+      "name": "nearby damage moves to a finite non-overlapping player candidate without changing text",
+      "result": "PASS"
+    },
+    {
+      "name": "a distant label keeps its original world transform and no avoidance is counted",
+      "result": "PASS"
+    },
+    {
+      "name": "direct helper callers keep the legacy exact transform when avoidance is omitted or disabled",
+      "result": "PASS"
+    },
+    {
+      "name": "when every finite candidate is outside the visible world, the number remains drawn in place",
+      "result": "PASS"
+    },
+    {
+      "name": "placement storage is numeric, reused and cleared on dispose while repeated frozen frames stay stable",
+      "result": "PASS"
+    }
+  ],
+  "totals": {
+    "tests": 5,
+    "passed": 5,
+    "failed": 0,
+    "repeatedFrozenFrames": 60
+  },
+  "runtime": {
+    "kind": "Node.js with deterministic Canvas command recording",
+    "nodeVersion": "v26.7.0"
+  },
+  "boundary": {
+    "realBrowser": false,
+    "pixelRendering": false,
+    "healthBars": false,
+    "hudAvoidance": false,
+    "numberToNumberAvoidance": false,
+    "gpuPerformance": false,
+    "wechatDevice": false
+  },
+  "strategy": {
+    "playerBox": "x±1.5r, y−2.58r..y+1.5r",
+    "candidates": [
+      "above",
+      "left",
+      "right",
+      "below"
+    ],
+    "gap": 4,
+    "unresolved": "draw original label and count damagePlayerUnresolved"
+  },
+  "note": "Renderer-only finite player-body avoidance. The conservative box follows the status-badge box and is not a pixel or HUD guarantee."
+}

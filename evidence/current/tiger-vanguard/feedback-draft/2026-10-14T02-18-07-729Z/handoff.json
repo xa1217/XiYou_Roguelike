@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-10-14T02:22:44.285Z",
+  "result": "REVIEW_EVIDENCE_ONLY_SHARED_FEEDBACK_RECTS",
+  "overall": "NOT_READY",
+  "scope": "Current-render numeric candidate obstacle synchronization only, no production integration",
+  "priorEvidence": "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/browser.json",
+  "earlyNodeNotFinal": "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-10-37-721Z/node.json",
+  "files": {
+    "node": "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/node.json",
+    "browser": "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/browser.json",
+    "review": "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/review.md",
+    "npmLog": "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/npm-test.txt",
+    "npmValidation": "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/npm-validation.json",
+    "integrity": "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/post-test-integrity.json"
+  },
+  "freshNpmDate": "2026-10-14T02:18:45.931Z",
+  "protectedFilesChecked": 173,
+  "screenshotsChecked": 5,
+  "staticReviewer": {
+    "root": "all 5 PNG",
+    "independent": "feedback_helper_review: hit pair + scripts and all recorded hashes, read only"
+  },
+  "limitedObservation": {
+    "pose": "hit26 left-facing explicit accelerated direct-damage partial-engine fixture",
+    "numberValue": 1,
+    "pixelDifferences": 931,
+    "outsideOldNewNumberBurstMasks": 0,
+    "bodyBarCameraStateRngUnchanged": true,
+    "numberFieldsOrderTtlStyleRotationUnchanged": true,
+    "registeredEnemyPlayerHudViewClear": true,
+    "statusBadgesEmptyInBoth": true,
+    "currentRenderCacheOnly": true,
+    "hookOriginalReferencesRestored": true,
+    "originalDeathMaxTtl": 0.42
+  },
+  "remaining": [
+    "contact body obscures player",
+    "death body/player overlap, no death feedback obstacles",
+    "historic right edge crop remains open, not revalidated",
+    "status badge anchors generic and untested in empty-status fixture",
+    "attack event unsupported",
+    "natural full gameplay, dual direction full motion, artistic root/motion, high frame, FPS, public channel and release acceptance absent"
+  ],
+  "healthBarLayoutApproved": false,
+  "playerReadabilityApproved": false,
+  "viewportEdgeApproved": false,
+  "statusBadgeGeometryUpdated": false,
+  "deathFeedbackObstaclesIntegrated": false,
+  "extremeMissingBarAt512Approved": false,
+  "humanMotionReviewed": false,
+  "rootApproved": false,
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "fpsAcceptance": false,
+  "publicPass": false,
+  "releaseReady": false,
+  "productionChanged": false,
+  "sourceImagesChanged": false,
+  "zipRebuilt": false,
+  "deployAuthorized": false,
+  "nextSafeStep": "下一安全步只建立证据层贴身交叠时玩家轮廓提示的单例对照，复用现有玩家绘制路径、保持实际世界位置/碰撞/伤害/数字/血条和动作时序，不挪人物、缩裁切或重生素材掩盖身体遮挡；未批准前不写生产契约、打包或上线。"
+}

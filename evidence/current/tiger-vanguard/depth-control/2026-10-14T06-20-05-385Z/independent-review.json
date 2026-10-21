@@ -1,0 +1,18 @@
+{
+  "scope": "Initial read-only agent observations only; full independent pixel, hash and visual review was not delivered.",
+  "reviewer": "/root/player_outline_audit",
+  "complete": false,
+  "result": "INCOMPLETE_SERVICE_FAILURE",
+  "completedObservations": [
+    "Agent read the new script and report and identified the sole false gate mainPixelsChangedInsideWholePlayerSupport.",
+    "Agent noted proxyEquivalentToActualMainPaintSupportProven=false and that matching proxies cannot prove main-canvas support equivalence."
+  ],
+  "failure": "503 Service Unavailable / auth_unavailable during the agent turn; no full review returned.",
+  "retryThisTurn": false,
+  "independentPngRecomputationAvailable": false,
+  "independentProtectedHashAuditAvailable": false,
+  "independentVisualReviewAvailable": false,
+  "browserPass": false,
+  "publicPass": false,
+  "releaseReady": false
+}

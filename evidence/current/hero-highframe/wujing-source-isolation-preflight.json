@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-10-12T19:28:45.710Z",
+  "scope": "read-only source-level connected-component and rectangular-isolation preflight; no PNG, manifest, renderer, ZIP, or deployment mutation",
+  "input": {
+    "path": "prototype-2d/assets/hero-wujing-battle-v3-sheet.png",
+    "sha256": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "bytes": 1558610,
+    "width": 1774,
+    "height": 887,
+    "format": "PNG RGBA",
+    "purpose": "existing 沙悟净/悟净 battlefield sheet; current authored 4×2 source, not a portrait or approved final high-frame sheet"
+  },
+  "manifest": {
+    "path": "prototype-2d/assets/manifest.json",
+    "declaredSha256": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "declaredSize": [1774, 887],
+    "declaredBytes": 1558610,
+    "matchesSource": true
+  },
+  "runtimeReferences": {
+    "loader": [
+      "prototype-2d/native-app.js:99 attachBattleV3Frames",
+      "prototype-2d/native-app.js:108 battleV3Files.shajing=hero-wujing-battle-v3-sheet.png",
+      "prototype-2d/native-app.js:109-110 queueImage(...); attachBattleV3Frames(...); heroImages[id]=image"
+    ],
+    "renderer": [
+      "prototype-2d/src/renderer.js:138 spriteFrameRect",
+      "prototype-2d/src/renderer.js:1432-1460 _drawPlayer / heroImages[id] source-rectangle draw"
+    ],
+    "contract": "4 columns × 2 rows; 8 source cells; pivot (0.5, 0.88); runtime sequences reuse cells for state timelines"
+  },
+  "measurement": {
+    "connectivity": "4-neighbor",
+    "majorMinimumPixels": 10000,
+    "thresholds": [
+      {
+        "alphaGreaterThan": 0,
+        "totalComponents": 1278,
+        "majorComponents": 8,
+        "rowCounts": [5, 3],
+        "minorComponentPixels": 3049,
+        "topRow": {
+          "componentCount": 5,
+          "components": [
+            {"index": 0, "bbox": [12, 53, 360, 370], "pixels": 80309, "tightForeignMajorPixels": 0, "paddedForeignMajorPixels": 2},
+            {"index": 1, "bbox": [373, 43, 394, 380], "pixels": 78957, "tightForeignMajorPixels": 1550, "paddedForeignMajorPixels": 1778},
+            {"index": 2, "bbox": [738, 48, 370, 379], "pixels": 72631, "tightForeignMajorPixels": 2289, "paddedForeignMajorPixels": 2553},
+            {"index": 3, "bbox": [1088, 76, 404, 351], "pixels": 73992, "tightForeignMajorPixels": 4912, "paddedForeignMajorPixels": 5313},
+            {"index": 4, "bbox": [1448, 48, 312, 376], "pixels": 67124, "tightForeignMajorPixels": 1970, "paddedForeignMajorPixels": 2068}
+          ]
+        },
+        "bottomRow": {
+          "componentCount": 3,
+          "components": [
+            {"index": 5, "bbox": [81, 485, 639, 342], "pixels": 95745, "tightForeignMajorPixels": 0, "paddedForeignMajorPixels": 0},
+            {"index": 6, "bbox": [737, 468, 424, 363], "pixels": 85756, "tightForeignMajorPixels": 0, "paddedForeignMajorPixels": 0},
+            {"index": 7, "bbox": [1203, 472, 491, 352], "pixels": 97303, "tightForeignMajorPixels": 0, "paddedForeignMajorPixels": 0}
+          ]
+        }
+      },
+      {
+        "alphaGreaterThan": 8,
+        "totalComponents": 289,
+        "majorComponents": 8,
+        "rowCounts": [5, 3],
+        "minorComponentPixels": 388,
+        "topRow": {
+          "componentCount": 5,
+          "components": [
+            {"index": 0, "bbox": [16, 56, 354, 367], "pixels": 74228, "tightForeignMajorPixels": 0, "paddedForeignMajorPixels": 0},
+            {"index": 1, "bbox": [376, 44, 388, 379], "pixels": 73016, "tightForeignMajorPixels": 969, "paddedForeignMajorPixels": 1156},
+            {"index": 2, "bbox": [740, 49, 364, 375], "pixels": 66797, "tightForeignMajorPixels": 1571, "paddedForeignMajorPixels": 1771},
+            {"index": 3, "bbox": [1092, 77, 397, 347], "pixels": 68039, "tightForeignMajorPixels": 3513, "paddedForeignMajorPixels": 3834},
+            {"index": 4, "bbox": [1450, 51, 308, 373], "pixels": 61852, "tightForeignMajorPixels": 1606, "paddedForeignMajorPixels": 1684}
+          ]
+        },
+        "bottomRow": {
+          "componentCount": 3,
+          "components": [
+            {"index": 5, "bbox": [83, 485, 631, 339], "pixels": 89459, "tightForeignMajorPixels": 0, "paddedForeignMajorPixels": 0},
+            {"index": 6, "bbox": [740, 468, 418, 358], "pixels": 79837, "tightForeignMajorPixels": 0, "paddedForeignMajorPixels": 0},
+            {"index": 7, "bbox": [1206, 475, 484, 348], "pixels": 90518, "tightForeignMajorPixels": 0, "paddedForeignMajorPixels": 0}
+          ]
+        }
+      }
+    ]
+  },
+  "isolationAssessment": {
+    "axisAlignedRectangles": {
+      "topRow5Plus3SourceLayout": "not feasible for all eight poses",
+      "thresholdAlphaGreaterThan8": {
+        "tightRectanglesIsolated": false,
+        "contaminatedIndices": [1, 2, 3, 4],
+        "foreignMajorPixelsByIndex": {"1": 969, "2": 1571, "3": 3513, "4": 1606},
+        "bottomRowIndices": [5, 6, 7],
+        "bottomRowRectanglesIsolated": true
+      },
+      "thresholdAlphaGreaterThan0": {
+        "tightRectanglesIsolated": false,
+        "contaminatedIndices": [1, 2, 3, 4],
+        "foreignMajorPixelsByIndex": {"1": 1550, "2": 2289, "3": 4912, "4": 1970}
+      }
+    },
+    "sourceLevelIsolationFeasible": false,
+    "feasiblePlan": "Only a source-pixel mask/regen or separately supplied clean poses could isolate the contaminated top-row components; rectangle coordinates, padding, root offsets, and scales cannot remove foreign pixels already inside an intended component bbox.",
+    "runtimeApproval": false,
+    "animationQualityApproval": false,
+    "decision": "REVIEW_RECTANGULAR_CROP_CONTAMINATION"
+  },
+  "limitations": [
+    "Connected components and bounding boxes are geometric diagnostics, not semantic pose or animation-quality approvals.",
+    "Detached minor components are measured but not semantically assigned to a pose.",
+    "No mask, image edit, source regeneration, frame anchor, runtime change, ZIP rebuild, deployment, or public/device PASS is implied."
+  ],
+  "measurementEvidence": "evidence/current/wujing-crop-isolation/2026-10-12T19-28-44-810Z/preflight.json",
+  "result": "REVIEW_RECTANGULAR_CROP_CONTAMINATION"
+}

@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-10-14T03:01:06.531Z",
+  "result": "PASS_FAILED_EVIDENCE_HANDOFF_CONSISTENCY_ONLY",
+  "protectedFilesChecked": 204,
+  "protectedChanged": [],
+  "newEvidenceChanged": [],
+  "screenshotsChecked": 8,
+  "screenshotChanged": [],
+  "freshNpmDate": "2026-10-14T02:54:14.279Z",
+  "freshNpmResult": "PASS",
+  "archivedNpmCharacters": 49163,
+  "fullNpmLogWithoutTruncation": true,
+  "browserDraftResult": "FAIL",
+  "failedAttemptCount": 3,
+  "sourceMatricesNotEqual": true,
+  "allApprovalGatesRemainFalse": true,
+  "docAndHandoffSha256": {
+    "STATUS.md": "ee0cb2902470a16be597cb9e6c39143538ec570acbcac279e8d13742d50fa2e9",
+    "docs/REQUIREMENTS-ACCEPTANCE.md": "c9df3599d18ee6d278fd20047f392e25e46a70d5a62ca0ed02d3c23f119811be",
+    "docs/FINAL-REPORT.md": "0931a187956b13184771d52cb22985af4f3a97cc0847bf98ad5316839d9447e0",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md": "3fccf2bbca3b65267fd77b3c06e27d838f7c5b9db6ef908aea7ade9e8c609d60",
+    "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/review.md": "78cdbfed2f279824f839322f42f4c1c947a06626d6445a5453f11bbcbdc7efff",
+    "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/handoff.json": "dafe5af2d385785d75e920882ebfca3cd52be92611f7589146a0df2971c2b87d",
+    "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/post-test-integrity.json": "9366472fad5a86508d3b71d30952149bf285484b46b5e768839cb5a081efaead",
+    "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/npm-validation.json": "06b5d2063304d81bcc36715c23eeb7aa450e19e63bdd9c0ccd2e0252481960e9",
+    "evidence/current/tiger-vanguard/player-depth-draft/2026-10-14T02-41-17-069Z/npm-test.txt": "c8a4f4732a3d642ae20d5f84a92c93d3f62ff0a3e74af5bfe4a7c62ee6cdb06c"
+  },
+  "productionChanged": false,
+  "sourceImagesChanged": false,
+  "zipChanged": false,
+  "publicRetested": false,
+  "releaseReady": false
+}

@@ -1,0 +1,52 @@
+{
+  "verifiedAt": "2026-10-13T10:56:45.106Z",
+  "result": "REVIEW_IDLE_SEAM_DIAGNOSTIC_ONLY",
+  "browser": {
+    "version": "155.0.4283.45",
+    "generatedAt": "2026-10-13T10:51:24.318Z",
+    "finishedAt": "2026-10-13T10:51:35.014Z",
+    "closed": true,
+    "checks": {
+      "browserNodeFootMeasurementsMatch": true,
+      "decodedSizesMatch": true,
+      "footWindowSidesClear": true,
+      "seamsDrawnAtBothRatesAndAllSizesFacings": true,
+      "noProductionReferences": true,
+      "noErrorsOrNetwork": true
+    }
+  },
+  "regression": {
+    "command": "npm test",
+    "exitCode": 0,
+    "date": "2026-10-13T10:52:35.241Z",
+    "result": "PASS",
+    "archiveMatchesCurrentJson": true
+  },
+  "protectedFiles": 91,
+  "protectedChanged": [],
+  "files": {
+    "evidence/current/tiger-vanguard/idle-seam/2026-10-13T10-51-24-318Z/browser.json": "9fa923ac51296011586b6f258cefb90641ab1f77f04fb68f7794e6b65f105214",
+    "evidence/current/tiger-vanguard/idle-seam/2026-10-13T10-51-24-318Z/npm-validation.json": "7f3c83d21ec135484ef62231da341ea27f76d9f242b2f5bb5135196ccfa79d01",
+    "evidence/current/tiger-vanguard/idle-seam/2026-10-13T10-51-24-318Z/review.md": "dd2dc5aa553bce5863b9caaf1ea27ba3949fc6f0c7c75dc6bb7ae5bab41a8f19",
+    "scripts/browser-tiger-vanguard-idle-seam.mjs": "ae40577d2c5681a3db8ad4e20e6133032cf4626768c35c6a83e04727781b2d5a",
+    "evidence/current/tiger-vanguard/idle-seam/2026-10-13T10-48-58-407Z/browser.json": "dd44166a32902b8ea03cc6dbfdd1269144173e15134b9240cb881f2fae9d70e6",
+    "STATUS.md": "3f0ea618fbb4a68526e61ecb8cc51407cd8ad8c1f9ff84309c02031da78e9699",
+    "docs/REQUIREMENTS-ACCEPTANCE.md": "731ca3fc7fad3b3d427555f7cb2c3f070f26d2f147499439206945af5b965d45",
+    "docs/FINAL-REPORT.md": "cd60c95b26653ce12b4e2e38d1c1f79a74946bafb69b15227d61ac3a800f7856",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md": "fe0b200059dfd3a50f00cd9c7a2e1a92655aa0e813a18fe93fa56fdb5f98add4"
+  },
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "releaseReady": false,
+  "deployAuthorized": false,
+  "newImageGenerationCalls": 0,
+  "productionChanges": 0,
+  "localServerStarted": false,
+  "limitations": [
+    "No full idle loop or death sequence approval",
+    "No human-viewed motion recording",
+    "No runtime/public/ZIP/FPS/device acceptance"
+  ],
+  "nextStep": "Reuse the existing patch for the death[1] -> patch death[2/3] source-transition diagnostic; no duplicate image generation."
+}

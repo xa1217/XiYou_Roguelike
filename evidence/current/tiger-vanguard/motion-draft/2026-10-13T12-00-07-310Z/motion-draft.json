@@ -1,0 +1,990 @@
+{
+  "schema": "xiyou-motion-registration-draft/v1",
+  "id": "tiger-vanguard-source-lattice-motion-draft",
+  "status": "REVIEW",
+  "scope": "EVIDENCE_ONLY_NOT_A_RUNTIME_CONTRACT",
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "input": {
+    "file": "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json",
+    "sha256": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f"
+  },
+  "sourcePages": [
+    {
+      "id": "v1",
+      "file": "evidence/current/tiger-vanguard/candidate-v1-sheet.png",
+      "sha256": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+      "width": 1774,
+      "height": 887,
+      "standingReferenceHeight": 170
+    },
+    {
+      "id": "patch",
+      "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/candidate-v1-three-frame-patch.png",
+      "sha256": "e04bdf485aae996872827efe6ad8ef9e575eb7671a7e101f70c5c8f54b510e5a",
+      "width": 2172,
+      "height": 724,
+      "standingReferenceHeight": 443
+    }
+  ],
+  "rootPolicy": {
+    "x": "Draft source-column registration: column*221.75+125, chosen near standing pelvis, NOT a measured/authored original root. Keeps authored within-column pose displacement instead of following changing sword/tail bbox.",
+    "y": "One source ground plane per standing state (idle212/move432/attack656/hit863). Airborne source poses retain their gap. Death uses lowest-alpha bbox as a provisional floor proxy, which includes the blade and is NOT anatomical ground contact.",
+    "patch": "Transfer x registration from original7/30/31 using previously documented near-foot/approximate-shoulder x references at fixed443/170 scale. These are annotations, not exact semantic matches. Idle uses support foot y; death uses provisional lowest-alpha floor.",
+    "columnPitch": 221.75,
+    "firstColumnRoot": 125,
+    "standingStatePlanes": {
+      "idle": 212,
+      "move": 432,
+      "attack": 656,
+      "hit": 863
+    },
+    "unresolved": [
+      "Original sheet column centers are a layout hypothesis, not authored body roots",
+      "Patch death shoulder x annotations are approximate",
+      "Death floor includes blade, so hand/foot contact still needs in-context visual review"
+    ]
+  },
+  "timingPolicy": {
+    "units": "source poses per second, NOT display FPS",
+    "rationale": "idle1s breath, move2/3s stride, attack0.5s, hit0.25s, death0.4s. Uniform per-state clocks fit the existing actor clock shape but do not register this elite as an ordinary tiger.",
+    "visualOnly": true,
+    "damageSynchronizationApproved": false,
+    "gameplayUnchanged": true,
+    "eliteDeathEffectTtlSeconds": 0.42,
+    "note": "Four death poses fit within existing elite0.42s TTL at10 poses/s. Current non-actor0.12s hit timer cannot show four poses at16/s; any future integration needs isolated visual timers, never extended damage/stun/invulnerability.",
+    "priorityDraft": [
+      "death (terminal)",
+      "hit interrupts attack",
+      "attack",
+      "move or idle"
+    ]
+  },
+  "states": {
+    "idle": {
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sourcePosesPerSecond": 8,
+      "durationMs": 1000,
+      "loop": true,
+      "end": "loop"
+    },
+    "move": {
+      "frames": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "sourcePosesPerSecond": 12,
+      "durationMs": 666.6666666666666,
+      "loop": true,
+      "end": "loop"
+    },
+    "attack": {
+      "frames": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "sourcePosesPerSecond": 16,
+      "durationMs": 500,
+      "loop": false,
+      "end": "resume-locomotion"
+    },
+    "hit": {
+      "frames": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "sourcePosesPerSecond": 16,
+      "durationMs": 250,
+      "loop": false,
+      "end": "resume-locomotion"
+    },
+    "death": {
+      "frames": [
+        28,
+        29,
+        30,
+        31
+      ],
+      "sourcePosesPerSecond": 10,
+      "durationMs": 400,
+      "loop": false,
+      "end": "hold-last"
+    }
+  },
+  "frames": [
+    {
+      "index": 0,
+      "state": "idle",
+      "page": "v1",
+      "sourceRect": {
+        "x": 17,
+        "y": 38,
+        "w": 208,
+        "h": 175
+      },
+      "rgbaSha256": "48103fc5a96216c529dad1ed49656050709ac4b0742168f6ead9730a0d2cd0c9",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 108,
+        "y": 174
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 125,
+        "rootY": 212
+      },
+      "controlPivot": {
+        "x": 104,
+        "y": 173
+      }
+    },
+    {
+      "index": 1,
+      "state": "idle",
+      "page": "v1",
+      "sourceRect": {
+        "x": 239,
+        "y": 39,
+        "w": 210,
+        "h": 175
+      },
+      "rgbaSha256": "6e3e6407af206d7cccd43b0bd739e6c8946986a0427e8a5fc55d3d500eacefa1",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 107.75,
+        "y": 173
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 346.75,
+        "rootY": 212
+      },
+      "controlPivot": {
+        "x": 105,
+        "y": 173
+      }
+    },
+    {
+      "index": 2,
+      "state": "idle",
+      "page": "v1",
+      "sourceRect": {
+        "x": 466,
+        "y": 38,
+        "w": 202,
+        "h": 176
+      },
+      "rgbaSha256": "d9850540d8178b38f30be65cab5fb495e26c41081793fc8738af3ba50191fbb0",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 102.5,
+        "y": 174
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 568.5,
+        "rootY": 212
+      },
+      "controlPivot": {
+        "x": 101,
+        "y": 174
+      }
+    },
+    {
+      "index": 3,
+      "state": "idle",
+      "page": "v1",
+      "sourceRect": {
+        "x": 682,
+        "y": 39,
+        "w": 208,
+        "h": 175
+      },
+      "rgbaSha256": "81cd5d24cef4caf6ca18cf024d24a676a8b4791ddd499fd808d48c054389ffd4",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 108.25,
+        "y": 173
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 790.25,
+        "rootY": 212
+      },
+      "controlPivot": {
+        "x": 104,
+        "y": 173
+      }
+    },
+    {
+      "index": 4,
+      "state": "idle",
+      "page": "v1",
+      "sourceRect": {
+        "x": 910,
+        "y": 39,
+        "w": 202,
+        "h": 175
+      },
+      "rgbaSha256": "64709be0e97cb772f5efc7c247a75543c79c93c991cd9ed25482d80f0ab35258",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 102,
+        "y": 173
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 1012,
+        "rootY": 212
+      },
+      "controlPivot": {
+        "x": 101,
+        "y": 173
+      }
+    },
+    {
+      "index": 5,
+      "state": "idle",
+      "page": "v1",
+      "sourceRect": {
+        "x": 1126,
+        "y": 39,
+        "w": 208,
+        "h": 175
+      },
+      "rgbaSha256": "6e06e513dfffe00cfe7355c661cc4b213e9b95c61d185e5abbff18e7fd5c5fd8",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 107.75,
+        "y": 173
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 1233.75,
+        "rootY": 212
+      },
+      "controlPivot": {
+        "x": 104,
+        "y": 173
+      }
+    },
+    {
+      "index": 6,
+      "state": "idle",
+      "page": "v1",
+      "sourceRect": {
+        "x": 1348,
+        "y": 41,
+        "w": 207,
+        "h": 173
+      },
+      "rgbaSha256": "f02fe295cf4ab39ba4aafa4a77634349a5c65b891daa1388581d9046de49c4d4",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 107.5,
+        "y": 171
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 1455.5,
+        "rootY": 212
+      },
+      "controlPivot": {
+        "x": 103.5,
+        "y": 171
+      }
+    },
+    {
+      "index": 7,
+      "state": "idle",
+      "page": "patch",
+      "sourceRect": {
+        "x": 44,
+        "y": 146,
+        "w": 529,
+        "h": 447
+      },
+      "rgbaSha256": "e870478f0e0d8983780ad1f7b5ca3576c4484d95dbf0d0bb3d96b3bb520ffbd6",
+      "standingReferenceHeight": 443,
+      "pivot": {
+        "x": 272.86911764705883,
+        "y": 445
+      },
+      "registration": {
+        "method": "fixed-scale-reference-transfer-x/provisional-floor-y",
+        "originalRootX": 1677.25,
+        "originalVisibleX": 1569,
+        "originalReferenceX": 54,
+        "patchReferenceX": 129.5,
+        "kind": "near-support-foot",
+        "uncertainty": "alpha-window reference, not pelvis",
+        "rootX": 316.86911764705883,
+        "rootY": 591
+      },
+      "controlPivot": {
+        "x": 264.5,
+        "y": 445
+      }
+    },
+    {
+      "index": 8,
+      "state": "move",
+      "page": "v1",
+      "sourceRect": {
+        "x": 11,
+        "y": 260,
+        "w": 188,
+        "h": 171
+      },
+      "rgbaSha256": "933af40b0fb730fbc081227b9846b94b83719a96ba12c77698ba32185a1265be",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 114,
+        "y": 172
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 125,
+        "rootY": 432
+      },
+      "controlPivot": {
+        "x": 94,
+        "y": 169
+      }
+    },
+    {
+      "index": 9,
+      "state": "move",
+      "page": "v1",
+      "sourceRect": {
+        "x": 235,
+        "y": 258,
+        "w": 197,
+        "h": 175
+      },
+      "rgbaSha256": "e316ec4a07ecc25814ca79ef41bdd6d10f934417f551cb65ba9ae50b6f6007c1",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 111.75,
+        "y": 174
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 346.75,
+        "rootY": 432
+      },
+      "controlPivot": {
+        "x": 98.5,
+        "y": 173
+      }
+    },
+    {
+      "index": 10,
+      "state": "move",
+      "page": "v1",
+      "sourceRect": {
+        "x": 457,
+        "y": 252,
+        "w": 197,
+        "h": 179
+      },
+      "rgbaSha256": "a92f08040c35389559ba0b18322fad53a1d75946b73d21cd7a48e0002e2f7344",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 111.5,
+        "y": 180
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 568.5,
+        "rootY": 432
+      },
+      "controlPivot": {
+        "x": 98.5,
+        "y": 177
+      }
+    },
+    {
+      "index": 11,
+      "state": "move",
+      "page": "v1",
+      "sourceRect": {
+        "x": 679,
+        "y": 259,
+        "w": 188,
+        "h": 175
+      },
+      "rgbaSha256": "3f79de1ccb9c3045c335cff29030e441385f5c4d2bea95f11dea839a1711be7b",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 111.25,
+        "y": 173
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 790.25,
+        "rootY": 432
+      },
+      "controlPivot": {
+        "x": 94,
+        "y": 173
+      }
+    },
+    {
+      "index": 12,
+      "state": "move",
+      "page": "v1",
+      "sourceRect": {
+        "x": 895,
+        "y": 259,
+        "w": 192,
+        "h": 173
+      },
+      "rgbaSha256": "4a064b91db0235406af8ab93b2dee95eff9e2cb6bd82e81bd1dd3b54a5af6252",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 117,
+        "y": 173
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 1012,
+        "rootY": 432
+      },
+      "controlPivot": {
+        "x": 96,
+        "y": 171
+      }
+    },
+    {
+      "index": 13,
+      "state": "move",
+      "page": "v1",
+      "sourceRect": {
+        "x": 1115,
+        "y": 253,
+        "w": 211,
+        "h": 171
+      },
+      "rgbaSha256": "9a1a4bf6a8527e13ab543c1010dc9fa3f7047b0af3fde1f7b18d5c5e12adceca",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 118.75,
+        "y": 179
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 1233.75,
+        "rootY": 432
+      },
+      "controlPivot": {
+        "x": 105.5,
+        "y": 169
+      }
+    },
+    {
+      "index": 14,
+      "state": "move",
+      "page": "v1",
+      "sourceRect": {
+        "x": 1343,
+        "y": 259,
+        "w": 190,
+        "h": 175
+      },
+      "rgbaSha256": "551e4c4dd179ad2dfca9c8c890589285ee74de1927d2619fe72810355e4847d9",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 112.5,
+        "y": 173
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 1455.5,
+        "rootY": 432
+      },
+      "controlPivot": {
+        "x": 95,
+        "y": 173
+      }
+    },
+    {
+      "index": 15,
+      "state": "move",
+      "page": "v1",
+      "sourceRect": {
+        "x": 1550,
+        "y": 257,
+        "w": 194,
+        "h": 176
+      },
+      "rgbaSha256": "bf25b244caf91880d85d9ec95bb85ebe3004c9c3a09f14970815b7f29fb02025",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 127.25,
+        "y": 175
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 1677.25,
+        "rootY": 432
+      },
+      "controlPivot": {
+        "x": 97,
+        "y": 174
+      }
+    },
+    {
+      "index": 16,
+      "state": "attack",
+      "page": "v1",
+      "sourceRect": {
+        "x": 10,
+        "y": 480,
+        "w": 214,
+        "h": 175
+      },
+      "rgbaSha256": "4cf1b245f163b4373386feb06cad5944fbfdd1143c982179f2843b54ec54be96",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 115,
+        "y": 176
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 125,
+        "rootY": 656
+      },
+      "controlPivot": {
+        "x": 107,
+        "y": 173
+      }
+    },
+    {
+      "index": 17,
+      "state": "attack",
+      "page": "v1",
+      "sourceRect": {
+        "x": 239,
+        "y": 512,
+        "w": 196,
+        "h": 143
+      },
+      "rgbaSha256": "1b60503b617c6f61d3131d1044d2e0a0298da0389c4a426ab75c3fbf2c168121",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 107.75,
+        "y": 144
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 346.75,
+        "rootY": 656
+      },
+      "controlPivot": {
+        "x": 98,
+        "y": 141
+      }
+    },
+    {
+      "index": 18,
+      "state": "attack",
+      "page": "v1",
+      "sourceRect": {
+        "x": 456,
+        "y": 463,
+        "w": 187,
+        "h": 195
+      },
+      "rgbaSha256": "c0c60fb4b2579c8780e41f02398e9c9af4c61d02a05e10a0b67fa854289ea776",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 112.5,
+        "y": 193
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 568.5,
+        "rootY": 656
+      },
+      "controlPivot": {
+        "x": 93.5,
+        "y": 193
+      }
+    },
+    {
+      "index": 19,
+      "state": "attack",
+      "page": "v1",
+      "sourceRect": {
+        "x": 689,
+        "y": 473,
+        "w": 203,
+        "h": 184
+      },
+      "rgbaSha256": "7a2ee2f3684ce57777c8ec9e3e0331ae1402088ea97925cd12f1d4c5251263ad",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 101.25,
+        "y": 183
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 790.25,
+        "rootY": 656
+      },
+      "controlPivot": {
+        "x": 101.5,
+        "y": 182
+      }
+    },
+    {
+      "index": 20,
+      "state": "attack",
+      "page": "v1",
+      "sourceRect": {
+        "x": 906,
+        "y": 481,
+        "w": 193,
+        "h": 177
+      },
+      "rgbaSha256": "f24ab683949c6df436c1361ee8344e76b07af14ba755c3c37669aac259a2eedc",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 106,
+        "y": 175
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 1012,
+        "rootY": 656
+      },
+      "controlPivot": {
+        "x": 96.5,
+        "y": 175
+      }
+    },
+    {
+      "index": 21,
+      "state": "attack",
+      "page": "v1",
+      "sourceRect": {
+        "x": 1119,
+        "y": 484,
+        "w": 197,
+        "h": 173
+      },
+      "rgbaSha256": "8a8db86c63dde3e81f8f09efd83e599dfe9c7507f606ff1560e8c4158df9a4f6",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 114.75,
+        "y": 172
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 1233.75,
+        "rootY": 656
+      },
+      "controlPivot": {
+        "x": 98.5,
+        "y": 171
+      }
+    },
+    {
+      "index": 22,
+      "state": "attack",
+      "page": "v1",
+      "sourceRect": {
+        "x": 1339,
+        "y": 473,
+        "w": 209,
+        "h": 182
+      },
+      "rgbaSha256": "122dd9ca66097031dab692fdb0d14b6216dc0062da2b8e837972b16037997553",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 116.5,
+        "y": 183
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 1455.5,
+        "rootY": 656
+      },
+      "controlPivot": {
+        "x": 104.5,
+        "y": 180
+      }
+    },
+    {
+      "index": 23,
+      "state": "attack",
+      "page": "v1",
+      "sourceRect": {
+        "x": 1564,
+        "y": 481,
+        "w": 202,
+        "h": 176
+      },
+      "rgbaSha256": "b69f7b24a2113f8617f801e1effa9a1578776441f77113db13222213e31ca7e6",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 113.25,
+        "y": 175
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 1677.25,
+        "rootY": 656
+      },
+      "controlPivot": {
+        "x": 101,
+        "y": 174
+      }
+    },
+    {
+      "index": 24,
+      "state": "hit",
+      "page": "v1",
+      "sourceRect": {
+        "x": 15,
+        "y": 677,
+        "w": 201,
+        "h": 186
+      },
+      "rgbaSha256": "d158360d5927803cd9ae3539ef45a7c2672a03ef8ace7ea535cebf3cafa15c4e",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 110,
+        "y": 186
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 125,
+        "rootY": 863
+      },
+      "controlPivot": {
+        "x": 100.5,
+        "y": 184
+      }
+    },
+    {
+      "index": 25,
+      "state": "hit",
+      "page": "v1",
+      "sourceRect": {
+        "x": 248,
+        "y": 683,
+        "w": 185,
+        "h": 182
+      },
+      "rgbaSha256": "a7f5111ed40941bce3af97843a48fbeef40b9277a77d3b864edeb2b11648b9e8",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 98.75,
+        "y": 180
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 346.75,
+        "rootY": 863
+      },
+      "controlPivot": {
+        "x": 92.5,
+        "y": 180
+      }
+    },
+    {
+      "index": 26,
+      "state": "hit",
+      "page": "v1",
+      "sourceRect": {
+        "x": 451,
+        "y": 698,
+        "w": 171,
+        "h": 162
+      },
+      "rgbaSha256": "ed6f0e8599b14f4a8d23efa6228c312347f956276a7ceaeb7fde0d48893ba0dd",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 117.5,
+        "y": 165
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 568.5,
+        "rootY": 863
+      },
+      "controlPivot": {
+        "x": 85.5,
+        "y": 160
+      }
+    },
+    {
+      "index": 27,
+      "state": "hit",
+      "page": "v1",
+      "sourceRect": {
+        "x": 663,
+        "y": 685,
+        "w": 223,
+        "h": 175
+      },
+      "rgbaSha256": "ba25fcdae4ce9e370edc26bd92600b1650cc049f301475bb4a13f1e9ec8e96bd",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 127.25,
+        "y": 178
+      },
+      "registration": {
+        "method": "source-column-x/state-plane-y",
+        "rootX": 790.25,
+        "rootY": 863
+      },
+      "controlPivot": {
+        "x": 111.5,
+        "y": 173
+      }
+    },
+    {
+      "index": 28,
+      "state": "death",
+      "page": "v1",
+      "sourceRect": {
+        "x": 899,
+        "y": 710,
+        "w": 206,
+        "h": 148
+      },
+      "rgbaSha256": "73564ffb5ebc2620489631997e8b3c0974f1b2fd3b08f0566155cfc4267d1816",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 113,
+        "y": 146
+      },
+      "registration": {
+        "method": "source-column-x/provisional-visible-bottom-y",
+        "rootX": 1012,
+        "rootY": 856
+      },
+      "controlPivot": {
+        "x": 103,
+        "y": 146
+      }
+    },
+    {
+      "index": 29,
+      "state": "death",
+      "page": "v1",
+      "sourceRect": {
+        "x": 1109,
+        "y": 727,
+        "w": 213,
+        "h": 128
+      },
+      "rgbaSha256": "03e056d7b0249d56719a19ad4efba619ddcc52156c1f58d50dd349ca52da203c",
+      "standingReferenceHeight": 170,
+      "pivot": {
+        "x": 124.75,
+        "y": 126
+      },
+      "registration": {
+        "method": "source-column-x/provisional-visible-bottom-y",
+        "rootX": 1233.75,
+        "rootY": 853
+      },
+      "controlPivot": {
+        "x": 106.5,
+        "y": 126
+      }
+    },
+    {
+      "index": 30,
+      "state": "death",
+      "page": "patch",
+      "sourceRect": {
+        "x": 697,
+        "y": 398,
+        "w": 624,
+        "h": 228
+      },
+      "rgbaSha256": "869bb4799160b0ad16559904d911c57f8e4e6bd38007314c9929317e3ceda84a",
+      "standingReferenceHeight": 443,
+      "pivot": {
+        "x": 357.4205882352942,
+        "y": 226
+      },
+      "registration": {
+        "method": "fixed-scale-reference-transfer-x/provisional-floor-y",
+        "originalRootX": 1455.5,
+        "originalVisibleX": 1327,
+        "originalReferenceX": 108,
+        "patchReferenceX": 302,
+        "kind": "approximate-shoulder",
+        "uncertainty": "manual approximate point, not exact plate center",
+        "rootX": 1054.4205882352942,
+        "rootY": 624
+      },
+      "controlPivot": {
+        "x": 312,
+        "y": 226
+      }
+    },
+    {
+      "index": 31,
+      "state": "death",
+      "page": "patch",
+      "sourceRect": {
+        "x": 1450,
+        "y": 429,
+        "w": 661,
+        "h": 196
+      },
+      "rgbaSha256": "f4d3c451fb3e7f753757a7c5f233ab39d96fdd1971c8e6362e4bab05efa4a3a7",
+      "standingReferenceHeight": 443,
+      "pivot": {
+        "x": 376.1044117647059,
+        "y": 194
+      },
+      "registration": {
+        "method": "fixed-scale-reference-transfer-x/provisional-floor-y",
+        "originalRootX": 1677.25,
+        "originalVisibleX": 1552,
+        "originalReferenceX": 116,
+        "patchReferenceX": 350,
+        "kind": "approximate-shoulder",
+        "uncertainty": "manual approximate point, not exact plate center",
+        "rootX": 1826.104411764706,
+        "rootY": 623
+      },
+      "controlPivot": {
+        "x": 330.5,
+        "y": 194
+      }
+    }
+  ]
+}

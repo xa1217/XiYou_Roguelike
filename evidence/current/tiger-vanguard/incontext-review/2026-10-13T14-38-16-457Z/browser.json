@@ -1,0 +1,210 @@
+{
+  "generatedAt": "2026-10-13T14:38:16.457Z",
+  "result": "REVIEW_INCONTEXT_CANDIDATE_OVERLAY",
+  "url": "http://127.0.0.1:8088/native.html?debug=1",
+  "scope": "Local real Edge gameplay scene with an evidence-only candidate overlay; overlay is not runtime integration or gameplay/FPS/public acceptance.",
+  "candidate": {
+    "file": "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json",
+    "sha256": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+    "motionFile": "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/motion-draft.json",
+    "motionSha256": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5",
+    "frames": 32
+  },
+  "sourcePages": [
+    {
+      "id": "v1",
+      "file": "evidence/current/tiger-vanguard/candidate-v1-sheet.png",
+      "sha256": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+      "dimensions": [
+        1774,
+        887
+      ]
+    },
+    {
+      "id": "patch",
+      "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/candidate-v1-three-frame-patch.png",
+      "sha256": "e04bdf485aae996872827efe6ad8ef9e575eb7671a7e101f70c5c8f54b510e5a",
+      "dimensions": [
+        2172,
+        724
+      ]
+    }
+  ],
+  "runtimeReferences": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "httpErrors": [],
+  "externalRequests": [],
+  "screenshots": [
+    {
+      "file": "evidence/current/tiger-vanguard/incontext-review/2026-10-13T14-38-16-457Z/battle-scene-base-paused.png",
+      "bytes": 17281,
+      "sha256": "a438c94903ff07e5231ba4bb6e8edbee56564e00318325e5a168a6a73f43553f"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/incontext-review/2026-10-13T14-38-16-457Z/battle-scene-idle.png",
+      "bytes": 34997,
+      "sha256": "325506b050baadc9e36090bd901495e03539b749a2d04e086bb6d591d9298a38"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/incontext-review/2026-10-13T14-38-16-457Z/battle-scene-move.png",
+      "bytes": 34887,
+      "sha256": "297f472ee5d1061674378a1126cc81d2e437dd864208ff9088ac61e077cbc062"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/incontext-review/2026-10-13T14-38-16-457Z/battle-scene-attack.png",
+      "bytes": 36464,
+      "sha256": "1974769a63c41be0ace5d0b349485bf2fb718e24614f1fcf41eb2aa6fd68d1ae"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/incontext-review/2026-10-13T14-38-16-457Z/battle-scene-hit.png",
+      "bytes": 32657,
+      "sha256": "8b466d0fdfbcb66592aa57ad337c2cca9f76f4835315a634770a012d0d33d321"
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/incontext-review/2026-10-13T14-38-16-457Z/battle-scene-death.png",
+      "bytes": 29620,
+      "sha256": "66356841767ddb1930f94bb19bd013126e9f12207ecf274b1e34d2efec2c77c0"
+    }
+  ],
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "overlayOnly": true,
+  "browser": "155.0.4283.45",
+  "scene": {
+    "screen": "game",
+    "status": "paused",
+    "time": 1.2370999999996257,
+    "canvas": {
+      "width": 390,
+      "height": 844,
+      "cssWidth": 390,
+      "cssHeight": 844
+    },
+    "player": {
+      "x": 900,
+      "y": 900,
+      "radius": 18
+    },
+    "enemies": 1,
+    "rendererMode": "vector"
+  },
+  "overlay": {
+    "overlayCss": {
+      "width": 390,
+      "height": 844
+    },
+    "sourceImages": {
+      "v1": [
+        1774,
+        887
+      ],
+      "patch": [
+        2172,
+        724
+      ]
+    },
+    "sceneOverlay": true
+  },
+  "frames": [
+    {
+      "index": 0,
+      "state": "idle",
+      "facing": 1,
+      "ground": 474,
+      "root": {
+        "x": 108,
+        "y": 174
+      },
+      "label": "待机/接地",
+      "framePage": "v1"
+    },
+    {
+      "index": 13,
+      "state": "move",
+      "facing": 1,
+      "ground": 474,
+      "root": {
+        "x": 118.75,
+        "y": 179
+      },
+      "label": "移动/保留离地姿态",
+      "framePage": "v1"
+    },
+    {
+      "index": 19,
+      "state": "attack",
+      "facing": 1,
+      "ground": 474,
+      "root": {
+        "x": 101.25,
+        "y": 183
+      },
+      "label": "攻击/挥刀",
+      "framePage": "v1"
+    },
+    {
+      "index": 26,
+      "state": "hit",
+      "facing": -1,
+      "ground": 474,
+      "root": {
+        "x": 117.5,
+        "y": 165
+      },
+      "label": "受击/左向",
+      "framePage": "v1"
+    },
+    {
+      "index": 31,
+      "state": "death",
+      "facing": 1,
+      "ground": 474,
+      "root": {
+        "x": 376.1044117647059,
+        "y": 194
+      },
+      "label": "死亡/末帧保持",
+      "framePage": "patch"
+    }
+  ],
+  "frameChecks": {
+    "overlayPresent": true,
+    "underlyingGameCanvasCount": 2,
+    "pausedStatus": "paused",
+    "underlyingTime": 1.2370999999996257
+  },
+  "checks": {
+    "realUiEntry": true,
+    "candidatePagesDecoded": true,
+    "fiveStatesDrawnInScene": true,
+    "facingBothDirections": true,
+    "groundAndHealthGuidesDrawn": true,
+    "overlayWasSeparateFromRuntime": true,
+    "noErrorsOrExternalNetwork": true
+  },
+  "contextClosed": true,
+  "browserClosed": true,
+  "protectedBefore": {
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "prototype-2d/native-app.js": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+    "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/motion-draft.json": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5"
+  },
+  "protectedAfter": {
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "prototype-2d/native-app.js": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+    "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/motion-draft.json": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5"
+  },
+  "protectedUnchanged": true,
+  "finishedAt": "2026-10-13T14:38:24.253Z"
+}

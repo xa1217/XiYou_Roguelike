@@ -1,0 +1,829 @@
+{
+  "generatedAt": "2026-10-10T15:44:16.672Z",
+  "url": "http://127.0.0.1:8088/",
+  "scope": "local real Edge; ordinary stage1 normal deer only; not external public or WeChat device",
+  "mode": "UI entry then legal-input accelerated production simulation plus renderer fixture",
+  "pageErrors": [],
+  "failedRequests": [],
+  "consoleErrors": [],
+  "screenshots": [
+    {
+      "name": "runtime-natural-battle",
+      "file": "evidence/current/deer/runtime-natural-battle.png",
+      "bytes": 53152,
+      "sha256": "169b616d7108be966eb0408db2b66b3c83394202d10e2f7778869912645713b0"
+    },
+    {
+      "name": "runtime-fixture-right",
+      "file": "evidence/current/deer/runtime-fixture-right.png",
+      "bytes": 113565,
+      "sha256": "c6ffe9c8a47d78e39177389c9611630f3492a4a4aad436c8e965346981d05797"
+    },
+    {
+      "name": "runtime-fixture-right",
+      "file": "evidence/current/deer/runtime-fixture-right.png",
+      "bytes": 113565,
+      "sha256": "c6ffe9c8a47d78e39177389c9611630f3492a4a4aad436c8e965346981d05797",
+      "fixture": {
+        "direction": "right",
+        "frames": 32,
+        "distinctRenderedCells": 32,
+        "cssWidth": 896,
+        "cssHeight": 620
+      }
+    },
+    {
+      "name": "runtime-fixture-left",
+      "file": "evidence/current/deer/runtime-fixture-left.png",
+      "bytes": 113186,
+      "sha256": "f25d5fd5cb2709370f96637e7262a5719d71ddbf96d6df6f19526f64c8599b30"
+    },
+    {
+      "name": "runtime-fixture-left",
+      "file": "evidence/current/deer/runtime-fixture-left.png",
+      "bytes": 113186,
+      "sha256": "f25d5fd5cb2709370f96637e7262a5719d71ddbf96d6df6f19526f64c8599b30",
+      "fixture": {
+        "direction": "left",
+        "frames": 32,
+        "distinctRenderedCells": 32,
+        "cssWidth": 896,
+        "cssHeight": 620
+      }
+    }
+  ],
+  "result": "FAIL",
+  "inputs": {
+    "prototype-2d/assets/enemy-deer-battle-v1-sheet.png": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
+    "prototype-2d/assets/enemy-deer-battle-v1-frames.json": "59ac85ef69c7bd01a4a849f7a0b8910813094589ae9f667f566822b9e2ce929d",
+    "prototype-2d/src/deer-animation.js": "7fca4fc497bd38abe62afc1b3f051001888195035e22573a5b7e323d5988653b",
+    "prototype-2d/src/renderer.js": "4ca1aa9d83d05e77cdc558b53f3b9ff04f08603915e5543d69dfc92c63814dae",
+    "scripts/browser-deer-smoke.mjs": "2110e74caa58034eda03f89d7d4190ecb67905cc7eba02c3d57a8bf9f917de00"
+  },
+  "phase": "finished",
+  "updatedAt": "2026-10-10T15:44:22.308Z",
+  "browser": "155.0.4283.45",
+  "samples": [
+    {
+      "time": 2.027600000008942,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 4.027600000008935,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 6.027600000008928,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 8.02760000000892,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 10.027600000008949,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 12.027600000008977,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 14.027600000009006,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 16.027600000009034,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 18.027600000009063,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 20.02760000000909,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 22.02760000000912,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 24.027600000009148,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 26.027600000009176,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 28.027600000009205,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      }
+    },
+    {
+      "time": 30.027600000009233,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": []
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 1,
+        "kills": 0
+      }
+    },
+    {
+      "time": 32.02760000000926,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 2,
+        "kills": 1
+      }
+    },
+    {
+      "time": 34.027600000009144,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 2,
+        "kills": 1
+      }
+    },
+    {
+      "time": 36.02760000000903,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 2,
+        "kills": 1
+      }
+    },
+    {
+      "time": 38.02760000000892,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 2,
+        "kills": 1
+      }
+    },
+    {
+      "time": 40.0276000000088,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 2,
+        "kills": 1
+      }
+    },
+    {
+      "time": 42.02760000000869,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 2,
+        "kills": 1
+      }
+    },
+    {
+      "time": 44.027600000008576,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 2,
+        "kills": 1
+      }
+    },
+    {
+      "time": 46.02760000000846,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 2,
+        "kills": 1
+      }
+    },
+    {
+      "time": 48.02760000000835,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 2,
+        "kills": 1
+      }
+    }
+  ],
+  "natural": {
+    "seed": 645696513,
+    "time": 48.02760000000835,
+    "status": "playing",
+    "seen": {
+      "idle": [],
+      "move": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "attack": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "hit": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "death": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "facing": [
+      "left",
+      "right"
+    ],
+    "events": {
+      "hits": 2,
+      "kills": 1
+    },
+    "steps": 960,
+    "upgrades": 1,
+    "peakEnemies": 14,
+    "peakEffects": 4,
+    "mapAssetDraws": 0,
+    "battleArtMode": "authoredFrames",
+    "battleSceneMode": "vector"
+  },
+  "pause": {
+    "status": "paused",
+    "clockFrozen": true,
+    "snapshotFrozen": true,
+    "pixelsFrozen": false,
+    "resumed": true
+  },
+  "fixtures": [
+    {
+      "direction": "right",
+      "frames": 32,
+      "distinctRenderedCells": 32,
+      "cssWidth": 896,
+      "cssHeight": 620
+    },
+    {
+      "direction": "left",
+      "frames": 32,
+      "distinctRenderedCells": 32,
+      "cssWidth": 896,
+      "cssHeight": 620
+    }
+  ],
+  "checks": {
+    "naturalFrames": true,
+    "bothOrientations": true,
+    "naturalDamageAndDeath": true,
+    "fixture64BothDirections": true,
+    "fixtureAspectRatio": true,
+    "pauseResume": false,
+    "noStaticBattleMap": true,
+    "authoredVectorModes": true,
+    "noErrors": true
+  },
+  "browserClosed": true
+}

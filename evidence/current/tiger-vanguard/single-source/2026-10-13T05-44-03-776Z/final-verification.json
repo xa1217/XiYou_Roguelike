@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-10-13T06:01:53.257Z",
+  "result": "PASS_EVIDENCE_INTEGRITY_ONLY",
+  "protectedFileCount": 90,
+  "changedFiles": [],
+  "browserClosed": true,
+  "serverStarted": false,
+  "archivedValidation": {
+    "file": "evidence/current/tiger-vanguard/single-source/2026-10-13T05-44-03-776Z/npm-validation.json",
+    "sha256": "08b446b719b2c05b67b1e4d96983cce444ecf99729cf7684fcf2dbf360dadda8",
+    "date": "2026-10-13T05:44:12.151Z",
+    "result": "PASS"
+  },
+  "screenshotsVerified": 3,
+  "scriptHashesVerified": true,
+  "publicPass": false,
+  "runtimeApproved": false,
+  "restrictedPortAttempt": {
+    "result": "FAILED_ACCESS_DENIED",
+    "command": "Get-NetTCPConnection -State Listen -ErrorAction Stop",
+    "observedAfter": "2026-10-13T06:01:53.257Z",
+    "note": "This attempt supplied no listener count. Authorized read-only recheck is separately recorded below."
+  },
+  "portCheck": {
+    "checkedAt": "2026-10-13T06:02:56.3142232Z",
+    "port": 8088,
+    "listenerCount": 0
+  }
+}

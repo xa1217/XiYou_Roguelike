@@ -1,0 +1,26 @@
+{
+  "verifiedAt": "2026-10-14T00:43:42.709Z",
+  "result": "EVIDENCE_DECODE_BOUNDARY_DOCUMENTED",
+  "documents": {
+    "STATUS.md": "523904288ca11a3f7da23292f9b15b0b5e9d073c7eddf8e9b66b686b4c67f935",
+    "docs/REQUIREMENTS-ACCEPTANCE.md": "8e276dc6afc26ddcee7d5b5a5d8a84ab129048dd7d16970a2e49dbc09f5c4bf6",
+    "docs/FINAL-REPORT.md": "5768458fe074815b452739fb45eb22ea4ba0c0831e67e78255720c44b24a6864",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md": "429dfa070ee8607c3d6476a323e1f850bf47556d5b7ed29bc37c1f91028749e9"
+  },
+  "browserEvidenceSha256": "583ad3a56b2762cf6f82bc73990f9e99daaed96e84ecedb9ac9a2f3862551929",
+  "handoffSha256": "500a9cf16c0a43901743da70d4d19bdb4637c544ed2a737260f46a4a7ee8b1fa",
+  "protectedFileCount": 102,
+  "protectedUnchanged": true,
+  "originalVideoUnchanged": true,
+  "archivedNpmLogVerified": true,
+  "loggedSourcePoseCount": 30,
+  "missingLoggedSourcePoseIndices": [
+    6,
+    7
+  ],
+  "recordingIncludesUnderlyingGame": false,
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "releaseReady": false
+}

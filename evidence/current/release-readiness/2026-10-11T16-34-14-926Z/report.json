@@ -1,0 +1,186 @@
+{
+  "generatedAt": "2026-10-11T16:34:14.899Z",
+  "scope": "Read-only pre-deployment readiness audit; no package rebuild, extraction, upload or deployment",
+  "workspace": {
+    "branch": "work/codex/xiyou-commercial",
+    "sourceAssets": 65,
+    "sourceMissingExpected": [],
+    "runtimeFrames": [
+      "enemy-tiger-battle-v1-frames.json",
+      "enemy-bear-battle-v1-frames.json",
+      "enemy-bull-battle-v1-frames.json",
+      "enemy-wolf-battle-v1-frames.json",
+      "enemy-monkey-battle-v1-frames.json",
+      "enemy-deer-battle-v1-frames.json",
+      "enemy-hawk-battle-v1-frames.json",
+      "enemy-snake-battle-v3-frames.json"
+    ],
+    "runtimeSheets": [
+      "enemy-tiger-battle-v1-sheet.png",
+      "enemy-bear-battle-v1-sheet.png",
+      "enemy-bull-battle-v1-sheet.png",
+      "enemy-wolf-battle-v1-sheet.png",
+      "enemy-monkey-battle-v1-sheet.png",
+      "enemy-deer-battle-v1-sheet.png",
+      "enemy-hawk-battle-v1-sheet.png",
+      "enemy-snake-battle-v3-sheet.png"
+    ],
+    "expectedWebAssets": [
+      "enemy-tiger-battle-v1-frames.json",
+      "enemy-bear-battle-v1-frames.json",
+      "enemy-bull-battle-v1-frames.json",
+      "enemy-wolf-battle-v1-frames.json",
+      "enemy-monkey-battle-v1-frames.json",
+      "enemy-deer-battle-v1-frames.json",
+      "enemy-hawk-battle-v1-frames.json",
+      "enemy-snake-battle-v3-frames.json",
+      "enemy-tiger-battle-v1-sheet.png",
+      "enemy-bear-battle-v1-sheet.png",
+      "enemy-bull-battle-v1-sheet.png",
+      "enemy-wolf-battle-v1-sheet.png",
+      "enemy-monkey-battle-v1-sheet.png",
+      "enemy-deer-battle-v1-sheet.png",
+      "enemy-hawk-battle-v1-sheet.png",
+      "enemy-snake-battle-v3-sheet.png",
+      "hero-wukong-battle-v3-sheet.png",
+      "hero-tangseng-battle-v3-sheet.png",
+      "hero-bajie-battle-v3-sheet.png",
+      "hero-wujing-battle-v3-sheet.png"
+    ]
+  },
+  "runtimeRegistration": {
+    "normalEightFrameModulesPresent": [
+      {
+        "file": "tiger-animation.js",
+        "present": true
+      },
+      {
+        "file": "bear-animation.js",
+        "present": true
+      },
+      {
+        "file": "bull-animation.js",
+        "present": true
+      },
+      {
+        "file": "wolf-animation.js",
+        "present": true
+      },
+      {
+        "file": "monkey-animation.js",
+        "present": true
+      },
+      {
+        "file": "deer-animation.js",
+        "present": true
+      },
+      {
+        "file": "hawk-animation.js",
+        "present": true
+      },
+      {
+        "file": "snake-animation.js",
+        "present": true
+      }
+    ],
+    "nativeLoadsWujingBattleSheet": true,
+    "releaseMentionsWolfMonkeyDeerHawkSnake": [
+      {
+        "file": "enemy-wolf-battle-v1-sheet.png",
+        "listed": true
+      },
+      {
+        "file": "enemy-monkey-battle-v1-sheet.png",
+        "listed": true
+      },
+      {
+        "file": "enemy-deer-battle-v1-sheet.png",
+        "listed": true
+      },
+      {
+        "file": "enemy-hawk-battle-v1-sheet.png",
+        "listed": true
+      },
+      {
+        "file": "enemy-snake-battle-v3-sheet.png",
+        "listed": true
+      }
+    ]
+  },
+  "packages": {
+    "xiyou-survivor-web-v1.0.0.zip": {
+      "exists": true,
+      "bytes": 12591435,
+      "sha256": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+      "entries": 48,
+      "expectedContract": "current browser authored-frame assets",
+      "missingExpectedRuntimeAssets": [
+        "enemy-wolf-battle-v1-frames.json",
+        "enemy-monkey-battle-v1-frames.json",
+        "enemy-deer-battle-v1-frames.json",
+        "enemy-hawk-battle-v1-frames.json",
+        "enemy-snake-battle-v3-frames.json",
+        "enemy-wolf-battle-v1-sheet.png",
+        "enemy-monkey-battle-v1-sheet.png",
+        "enemy-deer-battle-v1-sheet.png",
+        "enemy-hawk-battle-v1-sheet.png",
+        "enemy-snake-battle-v3-sheet.png"
+      ],
+      "error": null
+    },
+    "xiyou-survivor-wechat-game-v1.0.0.zip": {
+      "exists": true,
+      "bytes": 5043614,
+      "sha256": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+      "entries": 29,
+      "expectedContract": "WeChat core/vector package; browser authored-frame assets intentionally excluded by release policy",
+      "missingExpectedRuntimeAssets": [],
+      "error": null
+    }
+  },
+  "blockers": [
+    {
+      "id": "hero-highframe",
+      "status": "FAIL",
+      "evidence": "docs/HERO-HIGHFRAME-BASELINE.md; docs/WUJING-LAYOUT-CANDIDATE-HANDOFF.md",
+      "detail": "四英雄真实高帧/完整源裁切未通过；悟净布局候选 REVIEW。"
+    },
+    {
+      "id": "tiger-vanguard",
+      "status": "REVIEW",
+      "evidence": "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md",
+      "detail": "虎先锋候选 29/32 独立姿态，未接入。"
+    },
+    {
+      "id": "final-boss-actions",
+      "status": "GAP_CONFIRMED",
+      "evidence": "evidence/current/tiger-vanguard/boss-action-gap-audit.json",
+      "detail": "寅将军、熊山君、特处士无专属动作表，当前通用向量回退。"
+    },
+    {
+      "id": "overall-occlusion",
+      "status": "INCOMPLETE",
+      "evidence": "STATUS.md; docs/REQUIREMENTS-ACCEPTANCE.md",
+      "detail": "近身角色/血条/伤害数字/HUD整体可读性仍未完成。"
+    },
+    {
+      "id": "public-internet",
+      "status": "NOT_RETESTED",
+      "evidence": "evidence/current/public/external-quic-fail-20261005T1951.json",
+      "detail": "当前没有公网 PASS，不能由本地 Edge 或 workspace smoke 代替。"
+    },
+    {
+      "id": "wechat-device",
+      "status": "DEFERRED",
+      "evidence": "docs/REQUIREMENTS-ACCEPTANCE.md",
+      "detail": "微信 AppID、真机 FPS/内存和商用服务按范围延期，不是当前网页上线替代证据。"
+    }
+  ],
+  "gates": {
+    "allReleaseBlockersResolved": false,
+    "deployAuthorized": false,
+    "packageRebuildAllowedAfterFixes": false,
+    "publicPass": false
+  },
+  "conclusion": "NOT_READY: current dist ZIPs are stale relative to the workspace runtime frame inventory, hero high-frame and boss action gates remain unresolved, and public internet has no current PASS. Do not deploy."
+}

@@ -1,0 +1,232 @@
+{
+  "generatedAt": "2026-10-11T08:28:37.705Z",
+  "scope": "This one step rejects a rectangular-crop candidate; no production fix, art generation, release, internet or device claim",
+  "baseline": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/baseline.json",
+  "protectedCount": 135,
+  "changed": [],
+  "checks": {
+    "protectedUnchanged": true,
+    "allScreenshotsIntact": true,
+    "browserScriptMatches": true,
+    "preflightScriptMatches": true,
+    "preflightReferenced": true,
+    "manifestMatches": true,
+    "currentSnapshotsIntact": true,
+    "mediaUnchanged": true,
+    "freshTest": true,
+    "assetAudit": true,
+    "ownedBrowserClosed": true,
+    "ownedServerExit": true
+  },
+  "preflight": {
+    "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/preflight.json",
+    "sha256": "853e116b5ea0479331a081e5273665ae616c6ab2474046c524fcb05fa2fbd660",
+    "result": "REVIEW_RECTANGULAR_CROP_CONTAMINATION"
+  },
+  "browser": {
+    "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/browser-2026-10-11T08-24-51-829Z/browser.json",
+    "sha256": "cb36aad00d91bc40e41eeb368849f824fd35bf99e5bea8a197fe2ec33e4d47a3",
+    "result": "REVIEW_RECTANGULAR_CROP_CONTAMINATION",
+    "start": "2026-10-11T08:24:52.568Z",
+    "end": "2026-10-11T08:24:57.321Z",
+    "version": "155.0.4283.45",
+    "naturalLastDraw": {
+      "time": 1.1786999999880756,
+      "state": "move",
+      "frameIndex": 3,
+      "sourceRect": [
+        443.5,
+        0,
+        443.5,
+        443.5
+      ],
+      "character": "wujing",
+      "radius": 18
+    },
+    "errors": [
+      0,
+      0,
+      0
+    ],
+    "screenshots": [
+      {
+        "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/browser-2026-10-11T08-24-51-829Z/baseline-keyboard-sample.png",
+        "sha256": "3ba425399b080a26856be29f329f29012c764b1751fa2d85ce2b60bd76196051"
+      },
+      {
+        "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/browser-2026-10-11T08-24-51-829Z/source-overlay.png",
+        "sha256": "4e048e41052c6a549ed9cb45927599956e6ba2f0d32e5fcbb5fcee4f683d4913"
+      },
+      {
+        "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/browser-2026-10-11T08-24-51-829Z/candidate-tight.png",
+        "sha256": "1f083b94a865e547505a42eca13957db9b4dbaa1e2b018a9b81cfd84414df5ba"
+      },
+      {
+        "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/browser-2026-10-11T08-24-51-829Z/candidate-padded.png",
+        "sha256": "cf88e2cb4dc146328280aa83ea17fd32dc1a4fa000a156db06d80bf897a9efa2"
+      }
+    ]
+  },
+  "npmTest": {
+    "date": "2026-10-11T08:25:39.427Z",
+    "result": "PASS",
+    "exitCode": 0,
+    "log": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/npm-test.txt",
+    "sha256": "ba18fd36c9a2e70888b72eda9effba6cd85d57de056425b5e08cc3c2ffabb102",
+    "fullRun": "Rerun in current complete log; full-run.json remains historical"
+  },
+  "assetAudit": {
+    "date": "2026-10-11T08:25:40.042Z",
+    "media": 80,
+    "unique": 76,
+    "explainedDuplicates": 4,
+    "result": "PASS"
+  },
+  "snapshots": [
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/asset-dedup-audit.json",
+      "sha256": "79d9a55ac397f3eeb95c02dc416fd8d54a0fd7f0948ec69457594ad0bf4afe85",
+      "date": "2026-10-11T08:25:40.042Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/bear/engine-runtime.json",
+      "sha256": "ae6a3c54004dc236acc304d4a5fc54c0a664cbb804b18b097fa5f4cd61131a23",
+      "date": "2026-10-11T08:25:34.496Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/bear/public-contract-node.json",
+      "sha256": "49623c56ab30aaede438cb9b10f5b11c87beaa9a0b2d9247be94f07280e93b45",
+      "date": "2026-10-11T08:25:34.281Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/bull/engine-runtime.json",
+      "sha256": "33a161491ab74a6e92ec00b9df8d3c6c6b58ac344eb1e71e3e73e814ff294a77",
+      "date": "2026-10-11T08:25:34.589Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/bull/public-contract-node.json",
+      "sha256": "49623c56ab30aaede438cb9b10f5b11c87beaa9a0b2d9247be94f07280e93b45",
+      "date": "2026-10-11T08:25:34.281Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/damage-labels/node.json",
+      "sha256": "c24a0329aef1d6b0eadaa9f7fd943b6bffa9f3faaa58cb2d2e4c05643b93f492",
+      "date": "2026-10-11T08:25:34.938Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/deer/engine-runtime.json",
+      "sha256": "2123b757bc1ef873bba005efdddacdf4e4de007a19e2415a90d380de7d927f34",
+      "date": "2026-10-11T08:25:34.822Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/deer/public-contract-node.json",
+      "sha256": "49623c56ab30aaede438cb9b10f5b11c87beaa9a0b2d9247be94f07280e93b45",
+      "date": "2026-10-11T08:25:34.281Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/feedback-overlap/node.json",
+      "sha256": "d555a7d0e78c4e803caacf40b73793c44d8cc27637232ca908dbbb425b590daa",
+      "date": "2026-10-11T08:25:35.220Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/hawk/engine-runtime.json",
+      "sha256": "135f7a2a98f62af6e479210d5db12ef24d61af576045ec82cdf297cafb83eeb0",
+      "date": "2026-10-11T08:25:34.830Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/hawk/public-contract-node.json",
+      "sha256": "49623c56ab30aaede438cb9b10f5b11c87beaa9a0b2d9247be94f07280e93b45",
+      "date": "2026-10-11T08:25:34.281Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/monkey/engine-runtime.json",
+      "sha256": "55c0a2f5a0c7a0de7f8c59b4e24cee054d3f546af6313bf559eb11b6cc86db92",
+      "date": "2026-10-11T08:25:34.748Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/monkey/public-contract-node.json",
+      "sha256": "49623c56ab30aaede438cb9b10f5b11c87beaa9a0b2d9247be94f07280e93b45",
+      "date": "2026-10-11T08:25:34.281Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/normal-run.json",
+      "sha256": "be60ecd36335aae7e968be3629ab8c04426d938a00f85ade79ad05ff973abd85",
+      "date": "2026-10-11T08:25:38.720Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/platform.json",
+      "sha256": "277ae797ed0f4defb1adf076df97f9e47d4c61b5c0e3da1cf5274783c0fcbd18",
+      "date": "2026-10-11T08:25:39.425Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/snake/engine-runtime.json",
+      "sha256": "ed2d319c6310fb139176bdd59e46b44ae7b2d72c5da9f0d37d8cdb3c5b9dfdf2",
+      "date": "2026-10-11T08:25:34.911Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/snake/public-contract-node.json",
+      "sha256": "49623c56ab30aaede438cb9b10f5b11c87beaa9a0b2d9247be94f07280e93b45",
+      "date": "2026-10-11T08:25:34.281Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/status-badges/node.json",
+      "sha256": "0bdf79f114d59809f6e1273ac7855c588bda8266e5fd60abaf52c26e4051dd61",
+      "date": "2026-10-11T08:25:34.929Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/tiger/engine-runtime.json",
+      "sha256": "801d353490b97cf81152e8bc0a9406be420d4fd7aa1d0be1b4a138f54ab3b770",
+      "date": "2026-10-11T08:25:34.408Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/validation.json",
+      "sha256": "7befcfd336f7852dde4973e4348a8d56c4f287753e3b50225062a2e1cfa501ee",
+      "date": "2026-10-11T08:25:39.427Z",
+      "currentMatches": true
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/current-regression/wolf/engine-runtime.json",
+      "sha256": "f65168c92a7db71d689720718af5a8b74e9b68376b6e20c60f083207ae29c070",
+      "date": "2026-10-11T08:25:34.678Z",
+      "currentMatches": true
+    }
+  ],
+  "zipHashes": {
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2"
+  },
+  "priorFailures": [
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-19-38-295Z/preflight.json",
+      "cause": "Diagnostic used a case-sensitive SHA comparison; manifest uppercase and computed lowercase represented identical bytes. Comparator normalized and rerun separately."
+    },
+    {
+      "file": "evidence/current/wujing-crop-isolation/2026-10-11T08-23-36-875Z/browser-2026-10-11T08-24-08-811Z/browser.json",
+      "cause": "Restricted child-process spawn EPERM; permitted serial retry is separate."
+    }
+  ],
+  "runtimeChanged": false,
+  "assetGenerated": false,
+  "deployed": false,
+  "publicRetested": false,
+  "result": "PRESERVATION_AND_REGRESSION_PASS_CROP_CANDIDATE_REJECTED"
+}

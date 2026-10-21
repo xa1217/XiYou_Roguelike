@@ -1,0 +1,73 @@
+{
+  "generatedAt": "2026-10-10T05:47:48.238Z",
+  "target": "stage1+normal+bull",
+  "decision": "GENERATE_ONE_MISSING_ASSET",
+  "scope": "Ordinary wild-bull 32-pose gameplay sheet only; excludes named Boss 特处士, elite and later-stage bull variants",
+  "currentInventory": {
+    "path": "evidence/current/asset-dedup-audit.json",
+    "scanned": 74,
+    "uniqueSha256": 70,
+    "duplicateGroups": 4,
+    "result": "PASS"
+  },
+  "existingCandidates": [
+    {
+      "path": "prototype-2d/assets/enemy-creature-kr-v1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "5eb03be680a6e4a7b8aba3b53695d7eb22c2c5f19c1a31a710c711743ba8d102",
+      "reason": "Viewed: single wood/horn demon with club, not ordinary bovine animation; retired illustration"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-brute-kr-v1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d",
+      "reason": "Viewed: armored stone/horn giant with mace, not ordinary bull; retired single pose"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png",
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+      "reason": "Approved tiger32; never repurpose as bull"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-bear-battle-v1-sheet.png",
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+      "reason": "Approved bear32; never repurpose as bull"
+    }
+  ],
+  "runtimeReferences": {
+    "content": "prototype-2d/src/content.js:186 normal bull; :199 named Boss 特处士",
+    "loader": "Only tiger/bear enemy PNG frame sheets; ordinary bull currently uses vector fallback",
+    "identityRisk": "variant bull is shared by ordinary enemy and Boss; future runtime identity must also check stage and kind",
+    "registry": "prototype-2d/src/battle-enemy-animation.js registers only tiger/bear"
+  },
+  "generatedImageDirectoryReview": "8 PNG files in this chat directory: 4 inventory-matched heroes, 2 inventory-matched approved tiger/bear sheets and their 2 prior drafts; no bull output.",
+  "originalProjectReadOnlyReview": "Read-only reviewer inspected F:/Project/Xiyou_EightyOne_Calamities active assets; existing apocalypse human/environment/crawler/rig media, no ordinary bull animation found. Original untouched.",
+  "toolMode": "built-in image_gen; tool discovery found no directly callable video generator",
+  "intent": "generate new asset without input image arguments",
+  "plannedOutput": "prototype-2d/assets/enemy-bull-battle-v1-sheet.png",
+  "plannedStates": {
+    "idle": 8,
+    "move": 8,
+    "attack": 8,
+    "hit": 4,
+    "death": 4
+  },
+  "runtimeApproved": false,
+  "prompt": "prompts/enemy-bull-battle-v1-sheet.txt",
+  "concurrency": "one asset task and one built-in image call at a time; no browser during generation",
+  "previousCandidateEvidenceBackup": "work/bull-preflight-backup-20261010T054206Z"
+}

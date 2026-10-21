@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-10-14T03:18:15.611Z",
+  "result": "PASS_DIAGNOSTIC_HANDOFF_CONSISTENCY_ONLY",
+  "browserDiagnosticResult": "DIAGNOSTIC_COMPLETED_SAME_DEPTH_TRANSFORM_ROUND_TRIP",
+  "protectedFilesChecked": 218,
+  "protectedChanged": [],
+  "newEvidenceChanged": [],
+  "screenshotsChecked": 9,
+  "screenshotChanged": [],
+  "mainChangedPixels": 0,
+  "perMaskDifferences": {
+    "playerLayer": 56,
+    "playerSprite": 82,
+    "candidate": 0
+  },
+  "maskUnionDifferences": 82,
+  "strictMatricesEqual": false,
+  "previousDepthFailuresPreserved": 3,
+  "independentCountsMatch": true,
+  "fullNpmLogWithoutTruncation": true,
+  "freshNpmDate": "2026-10-14T03:11:48.194Z",
+  "archivedNpmCharacters": 49164,
+  "allApprovalGatesRemainFalse": true,
+  "docAndHandoffSha256": {
+    "STATUS.md": "a3073c76103bda17f01dd73fca5df667e420ba4eef44c600074d0111a195fe28",
+    "docs/REQUIREMENTS-ACCEPTANCE.md": "920d960c4945b1977e795ad133d9f0e5d1e45509f283ae30ef2a2569fbb3f8c8",
+    "docs/FINAL-REPORT.md": "63941524ff445ea24cf41ecd1bba79ca7a5375123a499c23f0e59c316779a1da",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md": "65ab22d946ab686baf3887dce1a112f989a81277d64712f2a613e8f8d907be1d",
+    "evidence/current/tiger-vanguard/transform-control/2026-10-14T03-09-23-021Z/review.md": "2cf2ca42f13ddaa3f53bb0dcdcda7c0d7d9f66ab712ab4f0bac769b8481922a3",
+    "evidence/current/tiger-vanguard/transform-control/2026-10-14T03-09-23-021Z/handoff.json": "fad02d1671562eb1d741a7f5c74ad367a58d8ffea98a058e6aefe7f70a580a57",
+    "evidence/current/tiger-vanguard/transform-control/2026-10-14T03-09-23-021Z/independent-review.json": "4cd50c974d07d9b1ea1b4e4f87568ace1b597297a76fac7e6f30db66c93fb5c0",
+    "evidence/current/tiger-vanguard/transform-control/2026-10-14T03-09-23-021Z/post-test-integrity.json": "4b4d71822d229dd13027ac1493594aaa476b8aee4cf8a283984c47f072bd8baa",
+    "evidence/current/tiger-vanguard/transform-control/2026-10-14T03-09-23-021Z/npm-validation.json": "2b2018af374f8eef53cbfc89a810dda4728fcb1dd333f2ebbb0787980383caf9",
+    "evidence/current/tiger-vanguard/transform-control/2026-10-14T03-09-23-021Z/npm-test.txt": "f335c60206992a9011b779f03cf3aace3aabe474460e679b5298211c39d5e6a1"
+  },
+  "productionChanged": false,
+  "sourceImagesChanged": false,
+  "zipChanged": false,
+  "publicRetested": false,
+  "releaseReady": false
+}

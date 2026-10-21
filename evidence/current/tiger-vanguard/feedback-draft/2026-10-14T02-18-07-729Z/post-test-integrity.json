@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-14T02:20:59.477Z",
+  "result": "PASS_POST_TEST_EVIDENCE_INTEGRITY_ONLY",
+  "protectedFilesChecked": 173,
+  "protectedChanged": [],
+  "protectedBeforeAfterEqual": true,
+  "newScreenshotsChecked": 5,
+  "screenshotChanged": [],
+  "screenshotSha256": {
+    "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/real-ui-before-fixture.png": "36e2876b9f64c4ef8a87f3b6290b746b7b544804f8a921fe1f62718e42bd1a17",
+    "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/hit26-generic-obstacles.png": "777c785721bf446c000699d05be7bdf4207f855b01411cd0963246a811203749",
+    "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/hit26-current-draw-obstacles.png": "eead3b66180dd9b16f6f8cb9e5b08027565bfa41cbbea0b25be41f0c59f81754",
+    "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/death-frame31-no-bar.png": "2158a3d42e3af98ed31bed199be71d850a690ae4b97dd084be0b0915af4b265e",
+    "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/original-death-expired.png": "91e26a4296d86023bfdc8dbf135edf327a3d35a032cc8a10fde7c68552809464"
+  },
+  "scriptAndEvidenceSha256": {
+    "scripts/tiger-vanguard-feedback-draft.mjs": "da9c4bacc044f71927f9f64b8feda58584b1a74cd3c7b6472bb88a2f7e0f7aa9",
+    "scripts/tiger-vanguard-feedback-smoke.mjs": "8df1fa24d2d8c067b7d06f5e3614531f3757e891f436c821c6481683ce50175c",
+    "scripts/browser-tiger-vanguard-feedback-draft.mjs": "591eb9182a6092aed98aa838dd62a69c987bc8b13f95e17b98846906b22ab6aa",
+    "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/node.json": "cee3c4d975dbee6b5194ce5f2779021371cd716c4d28dc7faa27da9e56e40c8d",
+    "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/browser.json": "2110863dcb29a25387d90d7e6afe65c9ec9947a2269f77c9441508b97b3f0311",
+    "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/npm-test.txt": "615641e7aefac430572be114c81edd5287a1699c4ebfe07c55710adebd22d255",
+    "evidence/current/tiger-vanguard/feedback-draft/2026-10-14T02-18-07-729Z/npm-validation.json": "f7843a01777738016b424258a3060b80a5a7c311075343acac044f03557e8d1f"
+  },
+  "freshNpmDate": "2026-10-14T02:18:45.931Z",
+  "freshNpmResult": "PASS",
+  "fullNpmLogWithoutTruncation": true,
+  "browserClosed": true,
+  "contextClosed": true,
+  "serverClosed": true,
+  "productionChanged": false,
+  "sourceImagesChanged": false,
+  "zipChanged": false,
+  "publicPass": false,
+  "releaseReady": false
+}

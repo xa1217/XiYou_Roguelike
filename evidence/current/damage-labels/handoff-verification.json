@@ -1,0 +1,63 @@
+{
+  "generatedAt": "2026-10-11T05:24:36.277Z",
+  "scope": "damage-number self-decoration paint order only; not actor, HUD or global overlap avoidance",
+  "result": "PASS",
+  "checks": {
+    "baselineDefectRecorded": true,
+    "browserAfter": true,
+    "node": true,
+    "npm": true,
+    "mediaUnchanged": true,
+    "sourceHashes": true,
+    "engineUnchanged": true,
+    "archivesUnchanged": true
+  },
+  "beforeAt": "2026-10-11T05:20:54.566Z",
+  "afterAt": "2026-10-11T05:22:28.377Z",
+  "afterFinishedAt": "2026-10-11T05:22:30.930Z",
+  "validationAt": "2026-10-11T05:23:34.967Z",
+  "nodeAt": "2026-10-11T05:23:47.231Z",
+  "mediaInventory": {
+    "source": "evidence/current/asset-dedup-audit.json",
+    "sourceGeneratedAt": "2026-10-11T05:02:24.506Z",
+    "checkedFiles": 80,
+    "changedOrMissing": []
+  },
+  "sources": {
+    "prototype-2d/src/renderer.js": {
+      "expected": "6146169a3bbfdbfb19f1f80569656ba90ae7707e402d7145d05e910dc0e92874",
+      "actual": "6146169a3bbfdbfb19f1f80569656ba90ae7707e402d7145d05e910dc0e92874",
+      "matches": true
+    },
+    "prototype-2d/src/engine.js": {
+      "expected": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+      "actual": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+      "matches": true
+    },
+    "scripts/browser-damage-label-smoke.mjs": {
+      "expected": "f782dbb338b16df4254ffcbc50ac839567c8e27a4bc97df840a9eab2b80750d4",
+      "actual": "f782dbb338b16df4254ffcbc50ac839567c8e27a4bc97df840a9eab2b80750d4",
+      "matches": true
+    }
+  },
+  "archives": [
+    {
+      "path": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "sha256": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+      "unchanged": true
+    },
+    {
+      "path": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "sha256": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+      "unchanged": true
+    }
+  ],
+  "baselineMeasurementNote": "Before-run 2.8 lineWidth read back as 2.799999952316284; strict-equality outline check was false. After browser gate uses 1e-6 numerical tolerance, without changing production lineWidth. Baseline draw-order defect and pixels remain recorded unchanged.",
+  "boundary": {
+    "publicInternetTested": false,
+    "currentArchiveBrowserTested": false,
+    "finalVisualApproved": false,
+    "deployed": false,
+    "wechatDeviceTested": false
+  }
+}

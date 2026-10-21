@@ -1,0 +1,200 @@
+{
+  "generatedAt": "2026-10-12T19:15:18.651Z",
+  "result": "PASS_READ_ONLY_CATALOG",
+  "scope": "Four playable hero sheets plus existing hero selection, portrait, and retired provenance assets. Existing files were hashed and measured; no asset was generated, renamed, rasterized, or modified.",
+  "sourceManifest": {
+    "path": "prototype-2d/assets/manifest.json",
+    "version": 3,
+    "updatedAt": "2026-10-11",
+    "declaredAssetCount": 51,
+    "heroAssetEntries": 12
+  },
+  "runtime": {
+    "entry": "prototype-2d/native-app.js",
+    "selectionCard": {
+      "file": "hero-cards-v2-comic.png",
+      "loadReference": "prototype-2d/native-app.js:21",
+      "consumer": "prototype-2d/src/native-ui.js:40",
+      "purpose": "character-select card sheet only"
+    },
+    "portraitSvgs": {
+      "loadReference": "prototype-2d/native-app.js:67-68",
+      "consumer": "prototype-2d/src/native-ui.js:35",
+      "purpose": "selection/gallery portrait fallback; not battlefield animation"
+    },
+    "battleSheets": {
+      "fileMapReference": "prototype-2d/native-app.js:108-110",
+      "queue": "priorityImageQueue, one large PNG at a time",
+      "frameAttach": "attachBattleV3Frames",
+      "consumer": "prototype-2d/src/native-ui.js:64 -> prototype-2d/src/renderer.js:1432",
+      "battleArtMode": "authoredFrames",
+      "battleSceneMode": "vector",
+      "independentMoveAttackFiles": false
+    }
+  },
+  "assets": [
+    {
+      "id": "hero-cards",
+      "path": "prototype-2d/assets/hero-cards-v1.png",
+      "bytes": 3072734,
+      "sha256": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+      "size": [1915, 821],
+      "purpose": "historical selection/promotional card art (manifest source); not current web selection entry",
+      "runtimeReferences": [],
+      "status": "retained-history"
+    },
+    {
+      "id": "hero-cards-v2",
+      "path": "prototype-2d/assets/hero-cards-v2-comic.png",
+      "bytes": 3016136,
+      "sha256": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad",
+      "size": [1870, 841],
+      "purpose": "primary high-saturation comic character-selection card sheet",
+      "runtimeReferences": ["prototype-2d/native-app.js:21", "prototype-2d/src/native-ui.js:40"],
+      "status": "current-selection-only"
+    },
+    {
+      "id": "hero-wukong",
+      "path": "prototype-2d/assets/hero-wukong.svg",
+      "bytes": 3115,
+      "sha256": "0121755c5ed96abf2508d3ef8fb77804ac8e2e103d284f75d1403c7c8b9b732d",
+      "size": [240, 300],
+      "purpose": "original vector portrait/direction art",
+      "runtimeReferences": ["prototype-2d/native-app.js:67-68", "prototype-2d/src/native-ui.js:35"],
+      "status": "current-selection-gallery"
+    },
+    {
+      "id": "hero-tangseng",
+      "path": "prototype-2d/assets/hero-tangseng.svg",
+      "bytes": 3115,
+      "sha256": "481bd327822e262287684750ffee74316de807236b97cb7758815d6a3cc1335d",
+      "size": [240, 300],
+      "purpose": "original vector portrait/direction art",
+      "runtimeReferences": ["prototype-2d/native-app.js:67-68", "prototype-2d/src/native-ui.js:35"],
+      "status": "current-selection-gallery"
+    },
+    {
+      "id": "hero-bajie",
+      "path": "prototype-2d/assets/hero-bajie.svg",
+      "bytes": 4038,
+      "sha256": "19eb81b91664409d54619eb3aefe48fe2add07b880a160c3d4756dd6ad2ad56a",
+      "size": [240, 300],
+      "purpose": "original vector portrait/direction art",
+      "runtimeReferences": ["prototype-2d/native-app.js:67-68", "prototype-2d/src/native-ui.js:35"],
+      "status": "current-selection-gallery"
+    },
+    {
+      "id": "hero-wujing",
+      "path": "prototype-2d/assets/hero-wujing.svg",
+      "bytes": 3210,
+      "sha256": "d78054b2dcdedfc127ddbd8a7bcfe5db7315d13e034b5d934cca7b6c8c0c81f6",
+      "size": [240, 300],
+      "purpose": "original vector portrait/direction art",
+      "runtimeReferences": ["prototype-2d/native-app.js:67-68", "prototype-2d/src/native-ui.js:35"],
+      "status": "current-selection-gallery"
+    },
+    {
+      "id": "hero-wukong-battle-v3-sheet",
+      "path": "prototype-2d/assets/hero-wukong-battle-v3-sheet.png",
+      "bytes": 1387002,
+      "sha256": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+      "size": [1774, 887],
+      "purpose": "悟空 current battlefield authored frame sheet",
+      "runtimeReferences": ["prototype-2d/native-app.js:108-110", "prototype-2d/src/native-ui.js:64", "prototype-2d/src/renderer.js:1432"],
+      "frameContract": {
+        "grid": [4, 2],
+        "atlasCells": 8,
+        "scheduledFrames": {"idle": 6, "move": 8, "attack": 8, "hit": 4, "stun": 4, "dash": 8, "intro": 10, "death": 8},
+        "uniqueSourceCells": {"idle": 4, "move": 3, "attack": 2, "hit": 2, "stun": 3, "dash": 2, "intro": 4, "death": 4},
+        "fps": {"idle": 8, "move": 12, "attack": 16, "hit": 18, "stun": 8, "dash": 18, "intro": 12, "death": 14},
+        "pivot": [0.5, 0.88]
+      },
+      "status": "current-playable-battle-sheet"
+    },
+    {
+      "id": "hero-tangseng-battle-v3-sheet",
+      "path": "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png",
+      "bytes": 1942037,
+      "sha256": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61",
+      "size": [1774, 887],
+      "purpose": "唐三藏 current battlefield authored frame sheet",
+      "runtimeReferences": ["prototype-2d/native-app.js:108-110", "prototype-2d/src/native-ui.js:64", "prototype-2d/src/renderer.js:1432"],
+      "frameContract": {
+        "grid": [4, 2],
+        "atlasCells": 8,
+        "scheduledFrames": {"idle": 6, "move": 8, "attack": 8, "hit": 4, "stun": 4, "dash": 8, "intro": 10, "death": 8},
+        "uniqueSourceCells": {"idle": 4, "move": 3, "attack": 2, "hit": 2, "stun": 3, "dash": 2, "intro": 4, "death": 4},
+        "fps": {"idle": 8, "move": 12, "attack": 16, "hit": 18, "stun": 8, "dash": 18, "intro": 12, "death": 14},
+        "pivot": [0.5, 0.88]
+      },
+      "status": "current-playable-battle-sheet"
+    },
+    {
+      "id": "hero-bajie-battle-v3-sheet",
+      "path": "prototype-2d/assets/hero-bajie-battle-v3-sheet.png",
+      "bytes": 1490905,
+      "sha256": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b",
+      "size": [1774, 887],
+      "purpose": "猪八戒 current battlefield authored frame sheet",
+      "runtimeReferences": ["prototype-2d/native-app.js:108-110", "prototype-2d/src/native-ui.js:64", "prototype-2d/src/renderer.js:1432"],
+      "frameContract": {
+        "grid": [4, 2],
+        "atlasCells": 8,
+        "scheduledFrames": {"idle": 6, "move": 8, "attack": 8, "hit": 4, "stun": 4, "dash": 8, "intro": 10, "death": 8},
+        "uniqueSourceCells": {"idle": 4, "move": 3, "attack": 2, "hit": 2, "stun": 3, "dash": 2, "intro": 4, "death": 4},
+        "fps": {"idle": 8, "move": 12, "attack": 16, "hit": 18, "stun": 8, "dash": 18, "intro": 12, "death": 14},
+        "pivot": [0.5, 0.88]
+      },
+      "status": "current-playable-battle-sheet"
+    },
+    {
+      "id": "hero-wujing-battle-v3-sheet",
+      "path": "prototype-2d/assets/hero-wujing-battle-v3-sheet.png",
+      "bytes": 1558610,
+      "sha256": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+      "size": [1774, 887],
+      "purpose": "沙悟净 current battlefield authored frame sheet",
+      "runtimeReferences": ["prototype-2d/native-app.js:108-110", "prototype-2d/src/native-ui.js:64", "prototype-2d/src/renderer.js:1432"],
+      "frameContract": {
+        "grid": [4, 2],
+        "atlasCells": 8,
+        "scheduledFrames": {"idle": 6, "move": 8, "attack": 8, "hit": 4, "stun": 4, "dash": 8, "intro": 10, "death": 8},
+        "uniqueSourceCells": {"idle": 4, "move": 3, "attack": 2, "hit": 2, "stun": 3, "dash": 2, "intro": 4, "death": 4},
+        "fps": {"idle": 8, "move": 12, "attack": 16, "hit": 18, "stun": 8, "dash": 18, "intro": 12, "death": 14},
+        "pivot": [0.5, 0.88]
+      },
+      "status": "current-playable-battle-sheet"
+    },
+    {
+      "id": "hero-battle-v2-atlas",
+      "path": "prototype-2d/assets/hero-battle-v2-atlas.png",
+      "bytes": 2249404,
+      "sha256": "589412a2857dcb34ef828cee24e31abb94acb8a3b6b8e37813051b06e03e8565",
+      "size": [2087, 753],
+      "purpose": "retired historical transparent hero atlas; old single-pose provenance/gallery",
+      "runtimeReferences": [],
+      "status": "retired-from-playable-battle"
+    },
+    {
+      "id": "hero-tangseng-kr-v1",
+      "path": "prototype-2d/assets/hero-tangseng-kr-v1.png",
+      "bytes": 1720632,
+      "sha256": "162fdcbbf62ba747e0cc9c8f6c89e695b2b0a6e5aabc74455e5d1705918b0a4f",
+      "size": [1312, 1199],
+      "purpose": "retired historical 唐三藏 single-pose transparent battle art",
+      "runtimeReferences": [],
+      "status": "retired-from-playable-battle"
+    }
+  ],
+  "findings": {
+    "allCurrentBattleSheetsMeasured": true,
+    "allCurrentBattleSheetsHashMatchesManifest": true,
+    "existingIndependentMoveAttackAssets": false,
+    "currentMoveUniqueSourceCells": 3,
+    "currentAttackUniqueSourceCells": 2,
+    "retiredAssetsCannotSubstituteForIndependentMotion": true,
+    "noNewAssetGenerated": true,
+    "noProductionFileModified": true,
+    "releaseOrPublicPass": false
+  }
+}

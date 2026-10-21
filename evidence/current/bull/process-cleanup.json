@@ -1,0 +1,21 @@
+{
+  "capturedAt": "2026-10-10T08:51:39.6823657Z",
+  "scope": "Read-only local process/memory snapshot; no unrelated process terminated",
+  "totalMemoryGiB": 31.9,
+  "freeMemoryGiB": 20.95,
+  "matchingTestOrServiceProcesses": [],
+  "browserAndAgentGroups": [
+    {
+      "name": "codex.exe",
+      "count": 1,
+      "workingSetMiB": 479.1
+    },
+    {
+      "name": "node.exe",
+      "count": 20,
+      "workingSetMiB": 1220.1
+    }
+  ],
+  "listenersOnOwnTestPort8091": [],
+  "note": "Working sets may share pages; group values are not unique physical allocation. No guarantee against future HTTP 429."
+}

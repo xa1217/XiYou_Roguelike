@@ -1,0 +1,403 @@
+{
+  "generatedAt": "2026-10-11T05:05:07.488Z",
+  "url": "http://127.0.0.1:8088/",
+  "scope": "local workspace real Edge; ordinary stage1 normal snake only; not public internet, archive-extracted package, WeChat device, real-time FPS or final art approval",
+  "mode": "UI entry then legal-input accelerated production simulation plus renderer fixture; natural idle coverage is reported, not required",
+  "pageErrors": [],
+  "failedRequests": [],
+  "consoleErrors": [],
+  "screenshots": [
+    {
+      "name": "runtime-natural-move",
+      "file": "evidence/current/snake/runtime-natural-move.png",
+      "bytes": 36217,
+      "sha256": "a71fc5d733771ed94bf3d600deba63df178ded1f9074c1f6939854f5e4fb58b8",
+      "productionCapture": {
+        "state": "move",
+        "gameTime": 2.9695999999940375
+      }
+    },
+    {
+      "name": "runtime-natural-hit",
+      "file": "evidence/current/snake/runtime-natural-hit.png",
+      "bytes": 45073,
+      "sha256": "2dbdc1a83260d16243792bf26d14e7bc84a99405f1a1c353b58f1538d0590438",
+      "productionCapture": {
+        "state": "hit",
+        "gameTime": 4.019599999994034
+      }
+    },
+    {
+      "name": "runtime-natural-attack",
+      "file": "evidence/current/snake/runtime-natural-attack.png",
+      "bytes": 38345,
+      "sha256": "caa25b6dc0c33e441d717aab75d484dd3d5d12f56dc70b501e3056dd32547f0f",
+      "productionCapture": {
+        "state": "attack",
+        "gameTime": 4.269599999994033
+      }
+    },
+    {
+      "name": "runtime-natural-death",
+      "file": "evidence/current/snake/runtime-natural-death.png",
+      "bytes": 42238,
+      "sha256": "f79c951663b6d4cd53fae3e96236498c1234913364738b9c03ad6a482ec5a288",
+      "productionCapture": {
+        "state": "death",
+        "gameTime": 5.01959999999403
+      }
+    },
+    {
+      "name": "runtime-natural-battle",
+      "file": "evidence/current/snake/runtime-natural-battle.png",
+      "bytes": 41313,
+      "sha256": "b0fbdac7a3d7bc86b0ee96fee6952d240bea275f7353ef1a6574c0eba7e6845b"
+    },
+    {
+      "name": "runtime-paused-a",
+      "file": "evidence/current/snake/runtime-paused-a.png",
+      "bytes": 23417,
+      "sha256": "74ba5bdc6a92159c49184a4c605ee78d45e820467c706c9749acf86a393ba57e"
+    },
+    {
+      "name": "runtime-paused-b",
+      "file": "evidence/current/snake/runtime-paused-b.png",
+      "bytes": 23417,
+      "sha256": "74ba5bdc6a92159c49184a4c605ee78d45e820467c706c9749acf86a393ba57e"
+    },
+    {
+      "name": "runtime-fixture-right",
+      "file": "evidence/current/snake/runtime-fixture-right.png",
+      "bytes": 149205,
+      "sha256": "e0bc09561f7673055c58b85dbbb749dd476e6f15e1ca4bab3281f21e948df631",
+      "fixture": {
+        "direction": "right",
+        "frames": 32,
+        "distinctRenderedCells": 32,
+        "cssWidth": 896,
+        "cssHeight": 620
+      }
+    },
+    {
+      "name": "runtime-fixture-left",
+      "file": "evidence/current/snake/runtime-fixture-left.png",
+      "bytes": 149031,
+      "sha256": "5f4fb5f1aea1e9e369d3bf80d168653293d7598bc645d65b427fa68eac03b9e0",
+      "fixture": {
+        "direction": "left",
+        "frames": 32,
+        "distinctRenderedCells": 32,
+        "cssWidth": 896,
+        "cssHeight": 620
+      }
+    }
+  ],
+  "result": "PASS",
+  "inputs": {
+    "prototype-2d/assets/enemy-snake-battle-v3-sheet.png": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+    "prototype-2d/assets/enemy-snake-battle-v3-frames.json": "5c75ff4ebfdd765c0fbe3b1087b992426b708ca7634e370a6b984690e201ca70",
+    "prototype-2d/src/snake-animation.js": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13",
+    "prototype-2d/src/renderer.js": "4ca1aa9d83d05e77cdc558b53f3b9ff04f08603915e5543d69dfc92c63814dae",
+    "scripts/browser-snake-smoke.mjs": "6d5d216b5b9ce9a48705b8772504070a2f2f93409cf4bd28b0f7077bb4d5d72f"
+  },
+  "phase": "finished",
+  "updatedAt": "2026-10-11T05:05:11.017Z",
+  "browser": "155.0.4283.45",
+  "samples": [
+    {
+      "time": 2.019599999994041,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      },
+      "capture": null
+    },
+    {
+      "time": 2.9695999999940375,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          7
+        ],
+        "attack": [],
+        "hit": [],
+        "death": []
+      },
+      "facing": [
+        "left"
+      ],
+      "events": {
+        "hits": 0,
+        "kills": 0
+      },
+      "capture": "move"
+    },
+    {
+      "time": 4.019599999994034,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          7,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "attack": [],
+        "hit": [
+          0
+        ],
+        "death": []
+      },
+      "facing": [
+        "left"
+      ],
+      "events": {
+        "hits": 1,
+        "kills": 0
+      },
+      "capture": "hit"
+    },
+    {
+      "time": 4.269599999994033,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          7,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "attack": [
+          0
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": []
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 1,
+        "kills": 0
+      },
+      "capture": "attack"
+    },
+    {
+      "time": 5.01959999999403,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          7,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": [
+          0
+        ]
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 2,
+        "kills": 1
+      },
+      "capture": "death"
+    },
+    {
+      "time": 7.019599999994023,
+      "status": "playing",
+      "seen": {
+        "idle": [],
+        "move": [
+          7,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "facing": [
+        "left",
+        "right"
+      ],
+      "events": {
+        "hits": 2,
+        "kills": 1
+      },
+      "capture": null
+    }
+  ],
+  "natural": {
+    "seed": 693747211,
+    "time": 7.019599999994023,
+    "status": "playing",
+    "seen": {
+      "idle": [],
+      "move": [
+        7,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "attack": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "hit": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "death": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "facing": [
+      "left",
+      "right"
+    ],
+    "events": {
+      "hits": 2,
+      "kills": 1
+    },
+    "steps": 140,
+    "upgrades": 0,
+    "peakEnemies": 4,
+    "peakEffects": 2,
+    "capturedStates": [
+      "move",
+      "hit",
+      "attack",
+      "death"
+    ],
+    "mapAssetDraws": 0,
+    "battleArtMode": "authoredFrames",
+    "battleSceneMode": "vector"
+  },
+  "pause": {
+    "status": "paused",
+    "clockFrozen": true,
+    "snapshotFrozen": true,
+    "pixelsFrozen": true,
+    "scope": "stable pause panel after its intentional entrance transition",
+    "resumed": true
+  },
+  "fixtures": [
+    {
+      "direction": "right",
+      "frames": 32,
+      "distinctRenderedCells": 32,
+      "cssWidth": 896,
+      "cssHeight": 620
+    },
+    {
+      "direction": "left",
+      "frames": 32,
+      "distinctRenderedCells": 32,
+      "cssWidth": 896,
+      "cssHeight": 620
+    }
+  ],
+  "checks": {
+    "naturalFrames": true,
+    "bothOrientations": true,
+    "naturalDamageAndDeath": true,
+    "naturalStateScreenshots": true,
+    "fixture64BothDirections": true,
+    "fixtureAspectRatio": true,
+    "pauseResume": true,
+    "noStaticBattleMap": true,
+    "authoredVectorModes": true,
+    "noErrors": true
+  },
+  "browserClosed": true
+}

@@ -1,0 +1,439 @@
+{
+  "generatedAt": "2026-10-10T09:40:21.124Z",
+  "scope": "Wolf candidate preflight only; no gameplay integration, archive rebuild, deployment or public-network retest",
+  "checks": {
+    "sourcePngCopiedExactly": true,
+    "pngMetadataMatches": true,
+    "alphaAndIsolation": true,
+    "measuredPaddedCrops": true,
+    "exactStateCounts": true,
+    "oneScaleFixedRoots": true,
+    "ordinaryIdentity": true,
+    "approvalRemainsFalse": true,
+    "noRuntimeIntegration": true,
+    "isolatedBrowserFresh": true,
+    "browserCleaned": true,
+    "screenshotHashes": true,
+    "videoHash": true,
+    "videoReadback": true,
+    "npmFresh": true,
+    "inventoryFresh": true,
+    "onlyNewWolfMedia": true,
+    "runtimeSourcesAndArchivesUnchanged": true,
+    "previousPublicReportNotOverwritten": true,
+    "backupOldNodeEvidence": true
+  },
+  "result": "PASS",
+  "baseline": [
+    {
+      "path": "prototype-2d/src/audio.js",
+      "bytes": 3819,
+      "sha256": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94",
+      "currentSha256": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/battle-enemy-animation.js",
+      "bytes": 1363,
+      "sha256": "c8c4442cb990c85a05ccde9e38ef9b6f309d3636f707638276cc39aaef743a64",
+      "currentSha256": "c8c4442cb990c85a05ccde9e38ef9b6f309d3636f707638276cc39aaef743a64",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/bear-animation.js",
+      "bytes": 3333,
+      "sha256": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+      "currentSha256": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/bull-animation.js",
+      "bytes": 3333,
+      "sha256": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4",
+      "currentSha256": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/content.js",
+      "bytes": 39026,
+      "sha256": "1383d25a9cfe36577de4cd1b0cbde56b408e4ab0328fce3d1b647da2533ec730",
+      "currentSha256": "1383d25a9cfe36577de4cd1b0cbde56b408e4ab0328fce3d1b647da2533ec730",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/engine.js",
+      "bytes": 66320,
+      "sha256": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+      "currentSha256": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/native-ui.js",
+      "bytes": 29178,
+      "sha256": "e1b8db4a47fb4b6d0ed31b21c23c5e4bb3c139e93a6403f2efa5d5c53377d4f4",
+      "currentSha256": "e1b8db4a47fb4b6d0ed31b21c23c5e4bb3c139e93a6403f2efa5d5c53377d4f4",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/progression.js",
+      "bytes": 4132,
+      "sha256": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd",
+      "currentSha256": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/renderer.js",
+      "bytes": 92592,
+      "sha256": "9fe4a514372ef32240551b6a66402236d504274b5e877d04107309b24040d699",
+      "currentSha256": "9fe4a514372ef32240551b6a66402236d504274b5e877d04107309b24040d699",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/src/tiger-animation.js",
+      "bytes": 3356,
+      "sha256": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+      "currentSha256": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+      "unchanged": true
+    },
+    {
+      "path": "prototype-2d/native-app.js",
+      "bytes": 11820,
+      "sha256": "6940d26f7d13a0756f67921c3a79c3b901a531632ab08be6daf4a32eea87dfab",
+      "currentSha256": "6940d26f7d13a0756f67921c3a79c3b901a531632ab08be6daf4a32eea87dfab",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/release.mjs",
+      "bytes": 7095,
+      "sha256": "6822de1b418e9487ffad1b9045bb115552528cf48a82deb1e09231f348f23b44",
+      "currentSha256": "6822de1b418e9487ffad1b9045bb115552528cf48a82deb1e09231f348f23b44",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/serve.mjs",
+      "bytes": 4746,
+      "sha256": "83a4aa4437cf9535b79a0e89d938dd4c0b76bcd28bc66aa5c94ed7c2aee83f9c",
+      "currentSha256": "83a4aa4437cf9535b79a0e89d938dd4c0b76bcd28bc66aa5c94ed7c2aee83f9c",
+      "unchanged": true
+    },
+    {
+      "path": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "bytes": 12591435,
+      "sha256": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+      "currentSha256": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+      "unchanged": true
+    },
+    {
+      "path": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "bytes": 5043614,
+      "sha256": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+      "currentSha256": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+      "unchanged": true
+    }
+  ],
+  "oldMediaChanged": [],
+  "addedMedia": [
+    {
+      "path": "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png",
+      "bytes": 1410175,
+      "sha256": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299"
+    }
+  ],
+  "alphaThreshold": 8,
+  "footContourOffsets": {
+    "idle": {
+      "sourcePixelOffsets": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "min": 0,
+      "max": 0
+    },
+    "move": {
+      "sourcePixelOffsets": [
+        0,
+        -1,
+        0,
+        -1,
+        -1,
+        0,
+        2,
+        0
+      ],
+      "min": -1,
+      "max": 2
+    },
+    "attack": {
+      "sourcePixelOffsets": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0
+      ],
+      "min": -1,
+      "max": 0
+    },
+    "hit": {
+      "sourcePixelOffsets": [
+        -1,
+        -2,
+        -2,
+        -1
+      ],
+      "min": -2,
+      "max": -1
+    },
+    "death": {
+      "sourcePixelOffsets": [
+        1,
+        1,
+        -1,
+        0
+      ],
+      "min": -1,
+      "max": 1
+    }
+  },
+  "sourcePixelScale": 170,
+  "browser": {
+    "startedAt": "2026-10-10T09:31:04.610Z",
+    "finishedAt": "2026-10-10T09:31:14.415Z",
+    "preview": {
+      "mimeType": "video/webm;codecs=vp9",
+      "paints": 91,
+      "seen": {
+        "idle": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "move": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "attack": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "hit": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "death": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "file": "evidence/current/wolf/animation-preview.webm",
+      "bytes": 271799,
+      "sha256": "059ddebda621075c59ada6d452f8e7ac233a61fa84b54753274f1e7e68f43d78",
+      "note": "Finite Node-driven Canvas frame-sheet preview recorded in a real browser, not directly generated video, real-time game performance or production-game evidence."
+    },
+    "decode": {
+      "decoded": true,
+      "ended": true,
+      "width": 1000,
+      "height": 720,
+      "decodedFrames": 90,
+      "distinctSampledPixels": 90,
+      "playedSeconds": 4.173,
+      "note": "Readback of recorded isolated preview; not all-source-pose codec coverage, final animation quality or game FPS."
+    },
+    "screenshots": [
+      {
+        "file": "evidence/current/wolf/atlas-right-48px.png",
+        "sha256": "bd3bcd2a1967a66859eccad612663c46c16e5964b1ff71f53326bd4f2641d8ee",
+        "verified": true
+      },
+      {
+        "file": "evidence/current/wolf/atlas-left-48px.png",
+        "sha256": "05b9c5d23207258e01fd67460cc2d1af12ad670ad6a2c6a21e3dbb32aefcfeb3",
+        "verified": true
+      },
+      {
+        "file": "evidence/current/wolf/motion-sample-48-56-96px.png",
+        "sha256": "92dfde1f3d070e254ab7641394c20cf6398e5b3c3e8045aef74e91caa9ee0d3d",
+        "verified": true
+      }
+    ]
+  },
+  "validation": {
+    "date": "2026-10-10T09:33:09.086Z",
+    "version": "1.0.0",
+    "result": "PASS",
+    "mainBytes": 2447601,
+    "artBytes": 3072775,
+    "totalBytes": 5520376,
+    "errors": []
+  },
+  "inventory": {
+    "generatedAt": "2026-10-10T09:34:37.738Z",
+    "scanned": 76,
+    "unique": 72,
+    "duplicates": 4
+  },
+  "failuresPreserved": [
+    "browser-fail-1791624624848.json"
+  ],
+  "files": [
+    {
+      "path": "evidence/current/wolf/atlas-right-48px.png",
+      "bytes": 197111,
+      "sha256": "bd3bcd2a1967a66859eccad612663c46c16e5964b1ff71f53326bd4f2641d8ee"
+    },
+    {
+      "path": "evidence/current/wolf/atlas-left-48px.png",
+      "bytes": 196419,
+      "sha256": "05b9c5d23207258e01fd67460cc2d1af12ad670ad6a2c6a21e3dbb32aefcfeb3"
+    },
+    {
+      "path": "evidence/current/wolf/motion-sample-48-56-96px.png",
+      "bytes": 124504,
+      "sha256": "92dfde1f3d070e254ab7641394c20cf6398e5b3c3e8045aef74e91caa9ee0d3d"
+    },
+    {
+      "path": "evidence/current/wolf/animation-preview.webm",
+      "bytes": 271799,
+      "sha256": "059ddebda621075c59ada6d452f8e7ac233a61fa84b54753274f1e7e68f43d78"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png",
+      "bytes": 1410175,
+      "sha256": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-wolf-battle-v1-frames.json",
+      "bytes": 5598,
+      "sha256": "db5297069fec7b83f11c3c3a6a9529c4933666767d0143dafe784dbf2842b83c"
+    },
+    {
+      "path": "prototype-2d/assets/manifest.json",
+      "bytes": 37058,
+      "sha256": "24264fad6182967335a8b0fc4c85526ad99f8fabb5a72a183b98f65005db8001"
+    },
+    {
+      "path": "prompts/enemy-wolf-battle-v1-sheet.txt",
+      "bytes": 3641,
+      "sha256": "a57360be1729b18174df760c9363f16755de3a9f2d63fecb9f68a3ba41b4dcff"
+    },
+    {
+      "path": "scripts/browser-actor-preflight.mjs",
+      "bytes": 14774,
+      "sha256": "c85444e979236c745871c0e8c51cd5782e8c05c694ccdc6befb6ce1eee8c096f"
+    },
+    {
+      "path": "evidence/current/validation.json",
+      "bytes": 170,
+      "sha256": "ed1f2d8ecf129be8105e7a4725ad444afa744a8e2f8731ba4986f62231c194bd"
+    },
+    {
+      "path": "evidence/current/asset-dedup-audit.json",
+      "bytes": 16877,
+      "sha256": "d9c51cdef384f6dc0976c64f3672f8600648923389f9349050ccc7e4e95aa70f"
+    },
+    {
+      "path": "evidence/current/wolf/generation-preflight.json",
+      "bytes": 9508,
+      "sha256": "eda06086a97b3b7edfb831484898617b26e72832a9d756a22f669c100223d0fb"
+    },
+    {
+      "path": "evidence/current/wolf/asset-preflight.json",
+      "bytes": 11075,
+      "sha256": "9a1208af08754e967cdba61e967f6f0b5d7beb6749b7db48f7414cf175b03f63"
+    },
+    {
+      "path": "evidence/current/wolf/browser-preflight.json",
+      "bytes": 5546,
+      "sha256": "e156c1e3836bf45c1cbf4bd94e8c9864405d23d5e39df9007abd0cb3107ee2f4"
+    },
+    {
+      "path": "evidence/current/wolf/npm-test.txt",
+      "bytes": 21687,
+      "sha256": "be0f233c5e92645e6e1b02c90914d352f0db6913df992b88797da546dd73ddec"
+    },
+    {
+      "path": "docs/WOLF-ANIMATION-HANDOFF.md",
+      "bytes": 6828,
+      "sha256": "19a7684ff318a5b0a9922545c5565dc0bbdd1ea4bbe24a304851e20bb81a72d6"
+    },
+    {
+      "path": "STATUS.md",
+      "bytes": 27701,
+      "sha256": "26a2c9ddc321a893e649a93fcea396adc36d8ff9bebf8100bef97a4077ea0e13"
+    },
+    {
+      "path": "docs/REQUIREMENTS-ACCEPTANCE.md",
+      "bytes": 7856,
+      "sha256": "c95bc0cce163542ce8d1c3a71fac423a991ee119c567199fc459d1c14c55e5d5"
+    },
+    {
+      "path": "docs/FINAL-REPORT.md",
+      "bytes": 22584,
+      "sha256": "903b9417d3ea37d8f47d2cdbbabfc283eeceecf94547a2fef975464b57691bef"
+    },
+    {
+      "path": "prototype-2d/assets/README.md",
+      "bytes": 17192,
+      "sha256": "311a75c5217dfb75556c870b95a73a1ffb13235769901417921ac0da030be33c"
+    },
+    {
+      "path": "docs/BULL-RELEASE-HANDOFF.md",
+      "bytes": 6241,
+      "sha256": "c192875b013cae87013a23ca807d93577d49772a3beefb2394f1b3358507b888"
+    },
+    {
+      "path": "evidence/current/wolf/process-cleanup.json",
+      "bytes": 666,
+      "sha256": "f3243b1728eaead2dea389dcc6bca3655a8f5090c89fcf129c344f008828c5df"
+    }
+  ],
+  "processCleanup": {
+    "observedAt": "2026-10-10T09:34:02.7710539Z",
+    "inspection": "authorized read-only CIM; no process terminated",
+    "matchingTestOrHeadlessProcesses": [],
+    "totalVisibleMemoryKiB": 33449580,
+    "freePhysicalMemoryKiB": 22027264,
+    "totalGiB": 31.900005340576172,
+    "freeGiB": 21.0068359375,
+    "rawOutput": "\r\nTotalVisibleMemorySize FreePhysicalMemory\r\n---------------------- ------------------\r\n              33449580           22027264\r\n{\r\n  \"TimeUtc\": \"2026-10-10T09:34:02.7710539Z\",\r\n  \"MatchingTestOrHeadlessProcesses\": []\r\n}\r\n\r\n",
+    "boundary": "Snapshot only, not proof of no unrelated processes or a guarantee against future 429"
+  },
+  "review": {
+    "reviewer": "reused read-only bear_contract_review",
+    "result": "No new blocker for isolated candidate preflight; no runtime approval",
+    "checks": "32 measured crops expanded 2px, identity/metadata/hash and runtime absence verified; fixed 170 scale and roots",
+    "caveat": "Visible contour bottoms are not semantic foot contacts; production-game footfall, horizontal drift, state transitions and occlusion remain unverified."
+  },
+  "finalizedAt": "2026-10-10T09:59:47.331Z"
+}

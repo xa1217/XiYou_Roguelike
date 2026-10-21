@@ -1,0 +1,326 @@
+{
+  "generatedAt": "2026-10-11T05:39:17.265Z",
+  "phase": "after",
+  "result": "FAIL",
+  "url": "http://127.0.0.1:8088/",
+  "scope": "local real Edge; status badges versus damage-label envelopes only; no internet, ZIP, body/HUD or device approval",
+  "inputs": {
+    "prototype-2d/src/renderer.js": "cb9fda832810c8ddd24dfb66e9842ec50af127e6123b7999b1a1d5ee2fc32b10",
+    "prototype-2d/src/engine.js": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+    "scripts/browser-feedback-overlap-smoke.mjs": "d615929d1207f446f200bfcfb4dc2fc35e0bd5eb29dc730b519d10af532ca133"
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "screenshots": [
+    {
+      "file": "evidence/current/feedback-overlap/after/natural-damage.png",
+      "bytes": 52146,
+      "sha256": "caac44c134063a200e04a1794597586a16aca6d58da4b95b3889d92a95cd621a"
+    },
+    {
+      "file": "evidence/current/feedback-overlap/after/fixture-390x844.png",
+      "bytes": 93568,
+      "sha256": "d5f230c9baa5dbb8adc118744f5fa3158b1be2adfc8346ac325b3506a28d2f3b"
+    },
+    {
+      "file": "evidence/current/feedback-overlap/after/fixture-360x640.png",
+      "bytes": 75924,
+      "sha256": "68b88f8ccfc34194dcdcb5f460b18238d4f67fc3b6d6cb0170e917087fffc131"
+    }
+  ],
+  "fixtures": [
+    {
+      "width": 390,
+      "height": 844,
+      "badges": [
+        {
+          "x": 832,
+          "y": 702.25,
+          "left": 824,
+          "right": 840,
+          "top": 694.25,
+          "bottom": 710.25
+        },
+        {
+          "x": 832,
+          "y": 953.25,
+          "left": 824,
+          "right": 840,
+          "top": 945.25,
+          "bottom": 961.25
+        },
+        {
+          "x": 968,
+          "y": 915.25,
+          "left": 960,
+          "right": 976,
+          "top": 907.25,
+          "bottom": 923.25
+        }
+      ],
+      "glyphs": [
+        {
+          "text": "23",
+          "matrix": [
+            1.5476096916822346,
+            -0.005397635576079627,
+            0.005397635576079627,
+            1.5476096916822346,
+            89.76190090179443,
+            174.7678480744362
+          ],
+          "fillStyle": "#fff0a6",
+          "font": "900 17px sans-serif"
+        },
+        {
+          "text": "105",
+          "matrix": [
+            1.5441953453598412,
+            0.10288647932354693,
+            -0.10288647932354693,
+            1.5441953453598412,
+            300.23809909820557,
+            174.7678480744362
+          ],
+          "fillStyle": "#ffdd3d",
+          "font": "900 22px sans-serif"
+        },
+        {
+          "text": "105",
+          "matrix": [
+            1.5474965271166476,
+            -0.019477957298137064,
+            0.019477957298137064,
+            1.5474965271166476,
+            300.23809909820557,
+            115.9583221077919
+          ],
+          "fillStyle": "#ffdd3d",
+          "font": "900 22px sans-serif"
+        },
+        {
+          "text": "0.8",
+          "matrix": [
+            1.5426883343309503,
+            0.1234406552874357,
+            -0.1234406552874357,
+            1.5426883343309503,
+            300.23809909820557,
+            504.41071730852127
+          ],
+          "fillStyle": "#fff0a6",
+          "font": "900 17px sans-serif"
+        }
+      ],
+      "damageBounds": [
+        {
+          "left": 820.0757282065197,
+          "right": 843.9242717934803,
+          "top": 728.6086230861345,
+          "bottom": 751.8913769138655
+        },
+        {
+          "left": 944.9539360809986,
+          "right": 991.0460639190014,
+          "top": 723.863783225533,
+          "bottom": 756.636216774467
+        },
+        {
+          "left": 945.712519209067,
+          "right": 990.287480790933,
+          "top": 687.0230253565018,
+          "bottom": 717.4769746434982
+        },
+        {
+          "left": 952.2940288019046,
+          "right": 983.7059711980954,
+          "top": 940.504253965397,
+          "bottom": 965.995746034603
+        }
+      ],
+      "stats": {
+        "enemies": 4,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 4,
+        "statusBadges": 3,
+        "statusSuppressed": 1
+      },
+      "checks": {
+        "avoidsDamage": true,
+        "boundedSlots": false,
+        "allDamageDrawn": true,
+        "noMutation": true,
+        "expectedStatusPolicy": true,
+        "mapModes": true,
+        "repeatedDrawStable": true
+      }
+    },
+    {
+      "width": 360,
+      "height": 640,
+      "badges": [
+        {
+          "x": 832,
+          "y": 702.25,
+          "left": 824,
+          "right": 840,
+          "top": 694.25,
+          "bottom": 710.25
+        },
+        {
+          "x": 832,
+          "y": 953.25,
+          "left": 824,
+          "right": 840,
+          "top": 945.25,
+          "bottom": 961.25
+        },
+        {
+          "x": 968,
+          "y": 915.25,
+          "left": 960,
+          "right": 976,
+          "top": 907.25,
+          "bottom": 923.25
+        }
+      ],
+      "glyphs": [
+        {
+          "text": "23",
+          "matrix": [
+            1.4285627739822835,
+            -0.004982432775494028,
+            0.004982432775494028,
+            1.4285627739822835,
+            82.85714054107666,
+            91.78570884466171
+          ],
+          "fillStyle": "#fff0a6",
+          "font": "900 17px sans-serif"
+        },
+        {
+          "text": "105",
+          "matrix": [
+            1.425411069725151,
+            0.0949721335409522,
+            -0.0949721335409522,
+            1.425411069725151,
+            277.14285945892334,
+            91.78570884466171
+          ],
+          "fillStyle": "#ffdd3d",
+          "font": "900 22px sans-serif"
+        },
+        {
+          "text": "105",
+          "matrix": [
+            1.4284583143846212,
+            -0.01797965265976666,
+            0.01797965265976666,
+            1.4284583143846212,
+            277.14285945892334,
+            37.49999326467514
+          ],
+          "fillStyle": "#ffdd3d",
+          "font": "900 22px sans-serif"
+        },
+        {
+          "text": "0.8",
+          "matrix": [
+            1.424019982639418,
+            0.11394521880250529,
+            -0.11394521880250529,
+            1.424019982639418,
+            277.14285945892334,
+            396.07143038511276
+          ],
+          "fillStyle": "#fff0a6",
+          "font": "900 17px sans-serif"
+        }
+      ],
+      "damageBounds": [
+        {
+          "left": 820.0757282065197,
+          "right": 843.9242717934803,
+          "top": 728.6086230861345,
+          "bottom": 751.8913769138655
+        },
+        {
+          "left": 944.9539360809986,
+          "right": 991.0460639190014,
+          "top": 723.863783225533,
+          "bottom": 756.636216774467
+        },
+        {
+          "left": 945.712519209067,
+          "right": 990.287480790933,
+          "top": 687.0230253565018,
+          "bottom": 717.4769746434982
+        },
+        {
+          "left": 952.2940288019046,
+          "right": 983.7059711980954,
+          "top": 940.504253965397,
+          "bottom": 965.995746034603
+        }
+      ],
+      "stats": {
+        "enemies": 4,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 4,
+        "statusBadges": 3,
+        "statusSuppressed": 1
+      },
+      "checks": {
+        "avoidsDamage": true,
+        "boundedSlots": false,
+        "allDamageDrawn": true,
+        "noMutation": true,
+        "expectedStatusPolicy": true,
+        "mapModes": true,
+        "repeatedDrawStable": true
+      }
+    }
+  ],
+  "browser": "155.0.4283.45",
+  "natural": {
+    "mode": "UI entry then legal-input accelerated production simulation; not a natural status/number conflict claim",
+    "steps": 60,
+    "time": 3.020599999994037,
+    "damageNumbers": [
+      {
+        "x": 619.9100521093269,
+        "y": 1237.800718411549,
+        "damage": 28,
+        "ttl": 1.25,
+        "maxTtl": 1.25,
+        "color": "#fff3b8",
+        "critical": false,
+        "size": 17
+      }
+    ],
+    "battleArtMode": "authoredFrames",
+    "battleSceneMode": "vector",
+    "mapAssetDraws": 0
+  },
+  "checks": {
+    "naturalDamageObserved": true,
+    "fixtureChecks": false,
+    "noErrors": true
+  },
+  "browserClosed": true,
+  "finishedAt": "2026-10-11T05:39:19.746Z"
+}

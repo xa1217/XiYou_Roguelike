@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-10-13T12:00:07.310Z",
+  "result": "REVIEW_FULL_STATE_REGISTRATION_TIMING_DRAFT",
+  "scope": "Evidence-only source registration and timing draft",
+  "input": {
+    "file": "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json",
+    "sha256": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f"
+  },
+  "draft": {
+    "file": "motion-draft.json",
+    "sha256": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5",
+    "states": { "idle": 8, "move": 12, "attack": 16, "hit": 16, "death": 10 },
+    "rootStatus": "hypothesis only; source column and state planes, death includes blade in visible-bottom proxy",
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "publicPass": false
+  },
+  "browser": {
+    "file": "browser.json",
+    "browserClosed": true,
+    "errors": 0,
+    "externalRequests": 0,
+    "recordedWebm": { "file": "motion-draft.webm", "bytes": 1088504, "sha256": "e75a826b6bed5ea044ae2aac43df830f563b59aa82d4152a2140647490fd2ff4", "decodedSamples": 5, "humanMotionReviewed": false },
+    "screenshotsViewed": 3,
+    "fpsAcceptance": false
+  },
+  "regression": {
+    "command": "npm test",
+    "date": "2026-10-13T12:39:42.410Z",
+    "result": "PASS",
+    "file": "npm-validation.json",
+    "sha256": "203afbed6172ee6a1d65be1b1c7021058a6c6afa10234985e09aa1ab9730fc38"
+  },
+  "protectedInputCount": 92,
+  "productionChanges": 0,
+  "nextStep": "Use this draft for a bounded human root and frame-drift review; keep runtime integration gated."
+}

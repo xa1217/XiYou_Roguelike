@@ -1,0 +1,241 @@
+{
+  "checkedAt": "2026-10-14T03:58:18.841Z",
+  "result": "PASS_INTEGRITY_ONLY_BROWSER_FAIL_PRESERVED",
+  "browserResult": "FAIL",
+  "protectedFilesChecked": 256,
+  "protectedChanged": [],
+  "protectedBeforeAfterEqual": true,
+  "screenshotChecks": [
+    {
+      "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/real-ui-before-fixture.png",
+      "bytes": 32172,
+      "sha256": "6c203a3b82f093e562db5e404c80e420ed99a95604bc9b4724226efd24c62f9f",
+      "kind": "real-ui-before-explicit-fixture",
+      "actualSha256": "6c203a3b82f093e562db5e404c80e420ed99a95604bc9b4724226efd24c62f9f",
+      "actualBytes": 32172,
+      "width": 390,
+      "height": 844,
+      "unchanged": true
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-1-png-only.png",
+      "bytes": 69535,
+      "sha256": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+      "kind": "explicit-evidence-only-same-depth-main-readback-control",
+      "actualSha256": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+      "actualBytes": 69535,
+      "width": 390,
+      "height": 844,
+      "unchanged": true
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-2-png-only.png",
+      "bytes": 69535,
+      "sha256": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+      "kind": "explicit-evidence-only-same-depth-main-readback-control",
+      "actualSha256": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+      "actualBytes": 69535,
+      "width": 390,
+      "height": 844,
+      "unchanged": true
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-3-png-only.png",
+      "bytes": 69535,
+      "sha256": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+      "kind": "explicit-evidence-only-same-depth-main-readback-control",
+      "actualSha256": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+      "actualBytes": 69535,
+      "width": 390,
+      "height": 844,
+      "unchanged": true
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-4-png-plus-getImageData.png",
+      "bytes": 69535,
+      "sha256": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+      "kind": "explicit-evidence-only-same-depth-main-readback-control",
+      "actualSha256": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+      "actualBytes": 69535,
+      "width": 390,
+      "height": 844,
+      "unchanged": true
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-5-png-plus-getImageData.png",
+      "bytes": 69535,
+      "sha256": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+      "kind": "explicit-evidence-only-same-depth-main-readback-control",
+      "actualSha256": "2b12e2c78768c3426310a55d7c7153beee4acc6c05299b282c113b09cee4a44b",
+      "actualBytes": 69535,
+      "width": 390,
+      "height": 844,
+      "unchanged": true
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-6-png-plus-getImageData.png",
+      "bytes": 69927,
+      "sha256": "d2f1eefdd49d57ec9bad5cdd8beb5476ec4b0a75ba45116130f94c5e0f24359d",
+      "kind": "explicit-evidence-only-same-depth-main-readback-control",
+      "actualSha256": "d2f1eefdd49d57ec9bad5cdd8beb5476ec4b0a75ba45116130f94c5e0f24359d",
+      "actualBytes": 69927,
+      "width": 390,
+      "height": 844,
+      "unchanged": true
+    }
+  ],
+  "rawReadChecks": [
+    {
+      "frameIndex": 4,
+      "width": 390,
+      "height": 844,
+      "colorSpace": "srgb",
+      "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-4-main-getImageData.rgba",
+      "bytes": 1316640,
+      "sha256": "83ee6554351d7f23ebbe61099fbf255805ecaaa885d09c3de592104e9f851998",
+      "format": "RGBA8 row-major; exact unmodified main getImageData bytes",
+      "actualSha256": "83ee6554351d7f23ebbe61099fbf255805ecaaa885d09c3de592104e9f851998",
+      "actualBytes": 1316640,
+      "unchanged": true
+    },
+    {
+      "frameIndex": 5,
+      "width": 390,
+      "height": 844,
+      "colorSpace": "srgb",
+      "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-5-main-getImageData.rgba",
+      "bytes": 1316640,
+      "sha256": "83ee6554351d7f23ebbe61099fbf255805ecaaa885d09c3de592104e9f851998",
+      "format": "RGBA8 row-major; exact unmodified main getImageData bytes",
+      "actualSha256": "83ee6554351d7f23ebbe61099fbf255805ecaaa885d09c3de592104e9f851998",
+      "actualBytes": 1316640,
+      "unchanged": true
+    },
+    {
+      "frameIndex": 6,
+      "width": 390,
+      "height": 844,
+      "colorSpace": "srgb",
+      "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/frame-6-main-getImageData.rgba",
+      "bytes": 1316640,
+      "sha256": "23afe21220a1eb8ac3cd2c2da4eb0d284245af55578c1099740360e35e5bc964",
+      "format": "RGBA8 row-major; exact unmodified main getImageData bytes",
+      "actualSha256": "23afe21220a1eb8ac3cd2c2da4eb0d284245af55578c1099740360e35e5bc964",
+      "actualBytes": 1316640,
+      "unchanged": true
+    }
+  ],
+  "script": {
+    "file": "scripts/browser-tiger-vanguard-main-readback-control.mjs",
+    "expectedSha256": "52c00393e65a2d71314c068b24d783f4ebc49b268de85c35e472cae841df2ba3",
+    "actualSha256": "52c00393e65a2d71314c068b24d783f4ebc49b268de85c35e472cae841df2ba3",
+    "unchanged": true
+  },
+  "browserReport": {
+    "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/browser.json",
+    "sha256": "89cf8cfe1680e62c207d364f3f31a7dc0cdc3f190892d6a9e8b6f1aa9b483a58"
+  },
+  "locks": [
+    {
+      "file": "prototype-2d/assets/hero-wukong-battle-v3-sheet.png",
+      "expectedSha256": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+      "actualSha256": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+      "unchanged": true
+    },
+    {
+      "file": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "expectedSha256": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+      "actualSha256": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+      "unchanged": true
+    },
+    {
+      "file": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "expectedSha256": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+      "actualSha256": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+      "unchanged": true
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json",
+      "expectedSha256": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+      "actualSha256": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+      "unchanged": true
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/motion-draft/2026-10-13T12-00-07-310Z/motion-draft.json",
+      "expectedSha256": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5",
+      "actualSha256": "b1fc330ce13c962701b5ae38f36e23a96cd3154f7a025874c5ced29fa34a6cc5",
+      "unchanged": true
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/layout-draft.json",
+      "expectedSha256": "35cc74c1353e0004948cf1c3c3dca72c23bc66bb27ea69dbd30d7a18a345023c",
+      "actualSha256": "35cc74c1353e0004948cf1c3c3dca72c23bc66bb27ea69dbd30d7a18a345023c",
+      "unchanged": true
+    }
+  ],
+  "approvalGates": {
+    "humanMotionReviewed": false,
+    "rootApproved": false,
+    "healthBarLayoutApproved": false,
+    "playerReadabilityApproved": false,
+    "viewportEdgeApproved": false,
+    "extremeMissingBarAt512Approved": false,
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "fpsAcceptance": false,
+    "publicPass": false,
+    "releaseReady": false
+  },
+  "runDetails": {
+    "generatedAt": "2026-10-14T03:55:06.397Z",
+    "finishedAt": "2026-10-14T03:55:11.159Z",
+    "analysisFinishedAt": "2026-10-14T03:55:11.269Z",
+    "browser": "155.0.4283.45",
+    "uiEntry": {
+      "screen": "game",
+      "status": "playing",
+      "debug": false,
+      "time": 1.0036999999955305
+    },
+    "renderChecks": 31,
+    "consumerChecks": 6,
+    "rngCalls": 16,
+    "rendererElapsed": 1.0036999999955305,
+    "errorCounts": {
+      "page": 0,
+      "console": 0,
+      "request": 0,
+      "http": 0,
+      "external": 0
+    },
+    "cleanup": {
+      "hooks": true,
+      "disposed": true,
+      "context": true,
+      "browser": true,
+      "server": true
+    }
+  },
+  "freshNpm": {
+    "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/npm-validation.json",
+    "startedAt": "2026-10-14T03:57:19Z",
+    "finishedAt": "2026-10-14T03:57:26Z",
+    "command": "npm test",
+    "exitCode": 0,
+    "result": "PASS",
+    "scope": "Fresh workspace regression after the final main-readback evidence script and its failing real Edge control. It does not override repeat-PNG FAIL or approve depth, artistic/natural gameplay/high-frame/FPS/public/current-ZIP/device acceptance.",
+    "fullOutputFile": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/npm-test.txt",
+    "outputCharacters": 49163,
+    "originalTokenCount": 12295,
+    "outputTruncated": false,
+    "evidenceScriptSyntaxChecked": true,
+    "buildMayRefreshDerivedEntrypoints": true,
+    "releaseZipRebuilt": false,
+    "publicRetested": false,
+    "publicPass": false,
+    "doesNotOverrideBrowserFail": true
+  },
+  "productionChanged": false,
+  "sourceImagesChanged": false,
+  "zipChanged": false
+}

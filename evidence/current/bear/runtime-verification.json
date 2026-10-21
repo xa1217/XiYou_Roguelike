@@ -1,0 +1,112 @@
+{
+  "generatedAt": "2026-10-10T05:22:04.180Z",
+  "result": "PASS",
+  "scope": "Local ordinary bear integration only; old release archives must be rebuilt, public acceptance incomplete, not deployed",
+  "checks": {
+    "evidencePass": true,
+    "freshRun": true,
+    "pngUnchanged": true,
+    "runtimeApproved": true,
+    "screenshotsMatch": true,
+    "bearBrowserClosed": true,
+    "oldArchivesPreserved": true,
+    "workspaceNotArchiveTest": true
+  },
+  "evidence": [
+    {
+      "file": "evidence/current/validation.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:20:08.160Z",
+      "sha256": "047a6e49942f8ff1453f6283d45c62de75265fb4125a4916efec7ade7c7d5aae"
+    },
+    {
+      "file": "evidence/current/bear/engine-runtime.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:20:03.592Z",
+      "sha256": "b9885871dc2bc7eb8383e80b50880b68b51787cbda5a76d2629af498a450311b"
+    },
+    {
+      "file": "evidence/current/bear/browser-runtime.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:11:52.046Z",
+      "sha256": "37f0325fa4a7767b738dc6a74f1ead82fdb1f68dce1232d7974c1961f9766075"
+    },
+    {
+      "file": "evidence/current/tiger/browser-runtime.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:13:15.324Z",
+      "sha256": "e5967e14e0d824e2cfd9a88d01bc9c93876f6182172b266c8b04d08a448b851d"
+    },
+    {
+      "file": "evidence/current/animation/browser-animation-smoke.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:14:28.017Z",
+      "sha256": "dce6795a6f60b4240a167939877924da0d9945053635d6800f34253f19d06c5f"
+    },
+    {
+      "file": "evidence/current/visual.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:15:26.780Z",
+      "sha256": "badeafc8833f44838ecd6857b43aa7845e7ddc16f73f6aefd9520007817bfcd1"
+    },
+    {
+      "file": "evidence/current/status-badges/browser.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:16:13.194Z",
+      "sha256": "7fe45b2455533eaad52e48ad11d09837fc6dda5f8c73ad1bd01946adb0c039f9"
+    },
+    {
+      "file": "evidence/current/browser-public-smoke.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:17:23.586Z",
+      "sha256": "6b55a9f63c7c5fb213a9ac7f120f6954232a3b58b241f758d8708338606d0f81"
+    },
+    {
+      "file": "evidence/current/asset-dedup-audit.json",
+      "result": "PASS",
+      "at": "2026-10-10T05:20:10.080Z",
+      "sha256": "1151ec124e10248940877ada618ee9c171e37eeef6f559311b318ecb73106ffb"
+    }
+  ],
+  "sourceHashes": {
+    "prototype-2d/native-app.js": "8bf3d8959145c28a20e38c8669466a3f64b9c194fd6b2f30ef173b008ac02591",
+    "prototype-2d/src/bear-animation.js": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+    "prototype-2d/src/battle-enemy-animation.js": "19449eec7f956947633889be9e1eef1b0c225c7ddc3f5d11af13ae70fabc8b53",
+    "prototype-2d/src/engine.js": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+    "prototype-2d/src/renderer.js": "9fe4a514372ef32240551b6a66402236d504274b5e877d04107309b24040d699",
+    "prototype-2d/assets/enemy-bear-battle-v1-frames.json": "f32378ac72370c586e9f4dcd0b005640a239caf6e951e4eabf0fae3cee09a544",
+    "scripts/build.mjs": "8c18611ddb1a2b22a26bc8be69f5c6087da9377e022b467b9c3d36bd6dd07ee2",
+    "scripts/serve.mjs": "0ffa5a668f579307b4c6f19c2dcf7bee80af4506e6b1833b336368c1e7eee428",
+    "scripts/release.mjs": "707b3bea1256514fddc6d63112c53db77d11d4c2c917f439de20c1d45376f819"
+  },
+  "assetSha256": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+  "archives": [
+    {
+      "channel": "web",
+      "file": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "bytes": 10553223,
+      "sha256": "0222fd98851d3ba99736fd51fb02af32aacbc70f0c843a330cec8580b09f4dcf",
+      "unchanged": true,
+      "containsBear": false
+    },
+    {
+      "channel": "wechatGame",
+      "file": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "bytes": 5042835,
+      "sha256": "5c21e1f2c6150e953e8ef8ee76301afa449e6c4f477c5214232d200bb192f386",
+      "unchanged": true,
+      "containsBear": false
+    }
+  ],
+  "releaseRebuildRequired": true,
+  "publicRetested": false,
+  "deployed": false,
+  "imageGenerationCalls": 0,
+  "processReview": {
+    "checkedAt": "2026-10-10T05:22:42.2698147Z",
+    "matchingSmokeOrPlaywrightRoots": [],
+    "totalMemoryKiB": 33449580,
+    "freeMemoryKiB": 22859024,
+    "note": "Read-only matching-process snapshot; task-owned local serve session was closed separately; no unrelated process terminated"
+  }
+}

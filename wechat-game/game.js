@@ -1,0 +1,23 @@
+const {NativeGame}=require('./core/bundle.js');
+const {WxAudio}=require('./audio.js');
+const info=wx.getWindowInfo?wx.getWindowInfo():wx.getSystemInfoSync();
+const canvas=wx.createCanvas();
+const requestFrame=fn=>canvas.requestAnimationFrame?canvas.requestAnimationFrame(fn):requestAnimationFrame(fn);
+const cancelFrame=id=>canvas.cancelAnimationFrame?canvas.cancelAnimationFrame(id):cancelAnimationFrame(id);
+const game=new NativeGame(canvas,{width:info.windowWidth,height:info.windowHeight,pixelRatio:info.pixelRatio,safeArea:info.safeArea||{},audio:new WxAudio(wx),requestFrame,cancelFrame,load:key=>{try{return wx.getStorageSync(key);}catch{return null;}},save:(key,value)=>wx.setStorageSync(key,value),confirm:(message,accept)=>wx.showModal({title:'取经路',content:message,success:r=>{if(r.confirm)accept();}})});
+let moveTouch=null;
+const point=t=>({x:t.clientX??t.x,y:t.clientY??t.y});
+const start=e=>{for(const t of e.changedTouches||e.touches||[]){const p=point(t);game.touchStart(p.x,p.y);if(game.touchOrigin&&moveTouch===null)moveTouch=t.identifier;}};
+const move=e=>{const t=(e.touches||[]).find(t=>t.identifier===moveTouch);if(t){const p=point(t);game.touchMove(p.x,p.y);}};
+const end=e=>{if((e.changedTouches||[]).some(t=>t.identifier===moveTouch)){moveTouch=null;game.touchEnd();}};
+const hide=()=>game.onHide(),show=()=>game.onShow();
+const resize=()=>{const i=wx.getWindowInfo?wx.getWindowInfo():wx.getSystemInfoSync();game.resize(i.windowWidth,i.windowHeight,i.pixelRatio,i.safeArea||{});};
+const memory=()=>{game.save.quality='low';game.renderer?.setQuality('low');game.resize(game.w,game.h,1,{top:game.top,bottom:game.h-game.bottom});};
+wx.onTouchStart(start);wx.onTouchMove(move);wx.onTouchEnd(end);wx.onTouchCancel?.(end);wx.onHide(hide);wx.onShow(show);wx.onWindowResize?.(resize);wx.onMemoryWarning?.(memory);
+wx.setKeepScreenOn?.({keepScreenOn:true});
+wx.showShareMenu?.({menus:['shareAppMessage']});
+const share=()=>({title:'一棒破局！西游·八十一难，十分钟渡一难'});
+wx.onShareAppMessage?.(share);
+module.exports={game,dispose(){wx.offTouchStart?.(start);wx.offTouchMove?.(move);wx.offTouchEnd?.(end);wx.offTouchCancel?.(end);wx.offHide?.(hide);wx.offShow?.(show);wx.offWindowResize?.(resize);wx.offMemoryWarning?.(memory);wx.offShareAppMessage?.(share);game.dispose();wx.setKeepScreenOn?.({keepScreenOn:false});}};
+// Artwork is optional and loaded after the playable menu. A failed load never blocks a run.
+wx.loadSubpackage?.({name:'illustrations',success(){const image=wx.createImage();image.onload=()=>{if(!game.disposed){game.heroSheet=image;game.draw();}};image.src='illustrations/hero-cards-v1.png';}});

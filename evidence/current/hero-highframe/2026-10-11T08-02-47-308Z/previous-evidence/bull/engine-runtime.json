@@ -1,0 +1,56 @@
+{
+  "ok": true,
+  "generatedAt": "2026-10-11T07:11:44.516Z",
+  "tests": 13,
+  "testNames": [
+    "real PNG and JSON specify 32 distinct explicit crops at one source-pixel scale",
+    "invalid dimensions, duplicate frame order and out-of-bounds rectangles are rejected",
+    "only first-stage normal bulls acquire the art identity; named bull Bosses cannot share it",
+    "ordinary bull idle and walk independently traverse all eight frames and loop",
+    "natural contact shows all eight attack frames without changing movement, contact damage or RNG",
+    "hit uses four frames, holds the last pose and leaves the original damage/stun/movement rules intact",
+    "pause freezes bull attack, hit and retained death clocks; resume advances them",
+    "death preserves facing/body size, presents 0..3 once, expires at .42s and clears recycled fields",
+    "Canvas draws all 32 crops in both directions without bob, rotation, squash or death stretch",
+    "renderer rejects elite/Boss/untagged identities and falls back safely when the bull sheet is absent",
+    "viewport culling preserves visible bull limbs and death poses beyond all four screen edges",
+    "bull health bars and status badges clear all pose bounds without per-frame anchor jitter",
+    "bull/bear/tiger identities, images and pooled death records stay isolated across all six ordered pairs"
+  ],
+  "atlasFrames": 32,
+  "mirroredCanvasChecks": 64,
+  "healthBarBounds": {
+    "checks": 128,
+    "radii": [
+      7,
+      15,
+      30,
+      72
+    ],
+    "stableRadiusOffset": 3.45
+  },
+  "crossSpecies": {
+    "variants": [
+      "bull",
+      "bear",
+      "tiger"
+    ],
+    "orderedPairs": 6,
+    "pooledBossExclusion": "特处士"
+  },
+  "viewportEdgeChecks": {
+    "visibleOutsideRoots": 8,
+    "fullyOffscreenRejected": 2
+  },
+  "runtime": {
+    "kind": "Node.js with deterministic Canvas mock",
+    "nodeVersion": "v26.7.0"
+  },
+  "boundary": {
+    "realBrowser": false,
+    "pixelRendering": false,
+    "gpuPerformance": false,
+    "wechatDevice": false
+  },
+  "note": "Node/Canvas mock only; this verifies simulation and Canvas calls, not decoded browser pixels, GPU performance or WeChat-device behavior. Real-browser evidence is a separate gate."
+}

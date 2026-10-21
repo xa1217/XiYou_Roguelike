@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-10-14T01:42:53.676Z",
+  "result": "PASS_EVIDENCE_HANDOFF_CONSISTENCY_ONLY",
+  "freshNpmDate": "2026-10-14T01:36:20.181Z",
+  "protectedFilesChecked": 137,
+  "protectedChanged": [],
+  "newScreenshotsChecked": 10,
+  "fullNpmLogHasFinalPass": true,
+  "fullNpmLogHasNoTruncationMarker": true,
+  "allApprovalGatesRemainFalse": true,
+  "knownLayoutDefectsRecorded": true,
+  "docAndHandoffSha256": {
+    "STATUS.md": "3ea9f5de0e956fc466bbac93d07bc2a11a3b8a35c2482daa30a06efcc84573f7",
+    "docs/REQUIREMENTS-ACCEPTANCE.md": "4459450905a1b621b4bd4bb058db2d0c4bc6de263b36298b96f8c628cbe2cdf3",
+    "docs/FINAL-REPORT.md": "d486b5991584c2cfb1c903ccf24d95db1553ea59070a0e475fc995afb1ae41eb",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md": "c69270e72376714e2c303f4578211f86ffeb9bbec14330f570f95cea53a1fe7f",
+    "evidence/current/tiger-vanguard/event-preview/2026-10-14T01-27-39-382Z/review.md": "976003e78960d8fdb64bd1b2e62900a4a0fb9629e5bba7b3114b953bd79ea52d",
+    "evidence/current/tiger-vanguard/event-preview/2026-10-14T01-27-39-382Z/handoff.json": "64468f574817897a48251ba96ef8543ddceb440b4e0fc2adf8d55a50883b2cde",
+    "evidence/current/tiger-vanguard/event-preview/2026-10-14T01-27-39-382Z/post-test-integrity.json": "b8d1b596af1bc5bdca02a821ddcb54f8bed10d56a9dd39d576a87e7638413e13"
+  },
+  "productionChanged": false,
+  "publicRetested": false,
+  "releaseReady": false
+}

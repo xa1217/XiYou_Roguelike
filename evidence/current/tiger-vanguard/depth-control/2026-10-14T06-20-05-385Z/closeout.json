@@ -1,0 +1,112 @@
+{
+  "checkedAt": "2026-10-14T06:39:18.791Z",
+  "browserResult": "FAIL",
+  "overall": "NOT_READY",
+  "protectedFilesChecked": 302,
+  "protectedChanged": [],
+  "observedRawEvidenceUnchanged": true,
+  "screenshotsChecked": 9,
+  "recomputed": {
+    "main": {
+      "changedPixels": 5139,
+      "maxAbsChannelDelta": 243,
+      "bboxInclusive": {
+        "minX": 167,
+        "maxX": 260,
+        "minY": 362,
+        "maxY": 455
+      }
+    },
+    "playerLayer": {
+      "changedPixels": 0,
+      "maxAbsChannelDelta": 0,
+      "bboxInclusive": null
+    },
+    "playerSprite": {
+      "changedPixels": 0,
+      "maxAbsChannelDelta": 0,
+      "bboxInclusive": null
+    },
+    "candidate": {
+      "changedPixels": 0,
+      "maxAbsChannelDelta": 0,
+      "bboxInclusive": null
+    },
+    "outsidePlayerPaintSupport": 8,
+    "bodyAlphaOverlap": 4062,
+    "paintSupportPixels": 8449
+  },
+  "preservedFailures": [
+    {
+      "file": "evidence/current/tiger-vanguard/depth-control/2026-10-14T05-51-20-859Z/browser.json",
+      "result": "FAIL",
+      "sha256": "343b276f46f3dbd83954353f9ea043b17f569829931d7caaff341ccecfa8641d",
+      "executedScriptSha256": "0a8a8852208f19812390be272e8c20891f148291ef1dc694196a685b2906596d",
+      "recordedScriptSha256": "0a8a8852208f19812390be272e8c20891f148291ef1dc694196a685b2906596d",
+      "screenshotCount": 9
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-15-01-093Z/browser.json",
+      "result": "FAIL",
+      "sha256": "1778c0504910a465711629a76bab8ef03f47244e87f40078ccfd6fee4cb3e91b",
+      "executedScriptSha256": "2c93f4971e1167a22549a875bdd52c601cc54dd8f8ef178c150a64f6e22af619",
+      "recordedScriptSha256": "2c93f4971e1167a22549a875bdd52c601cc54dd8f8ef178c150a64f6e22af619",
+      "screenshotCount": 0
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/browser.json",
+      "result": "FAIL",
+      "sha256": "9136f138dda131e6db5751282c1883ded40e5e4dfae826a0bb16f6998ec36a07",
+      "executedScriptSha256": "2c93f4971e1167a22549a875bdd52c601cc54dd8f8ef178c150a64f6e22af619",
+      "recordedScriptSha256": "2c93f4971e1167a22549a875bdd52c601cc54dd8f8ef178c150a64f6e22af619",
+      "screenshotCount": 9
+    }
+  ],
+  "completeIndependentReviewAvailable": false,
+  "independentReviewFailure": "503 auth_unavailable; full pixel/hash review not delivered; no retry this turn.",
+  "freshNpmExitCode": 0,
+  "actual8088ListenerCount": 0,
+  "approvals": {
+    "humanMotionReviewed": false,
+    "rootApproved": false,
+    "healthBarLayoutApproved": false,
+    "playerReadabilityApproved": false,
+    "viewportEdgeApproved": false,
+    "statusBadgeGeometryUpdated": false,
+    "deathFeedbackObstaclesIntegrated": false,
+    "extremeMissingBarAt512Approved": false,
+    "attackEventSupported": false,
+    "attackPreviewed": false,
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "fpsAcceptance": false,
+    "publicPass": false,
+    "releaseReady": false,
+    "proxyEquivalentToActualMainPaintSupportProven": false
+  },
+  "sha256": {
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/after-candidate-current-source-draw.png": "a4355415469aa8615a8161b5753257b22ba008a4a8737e6aeef4bc5a13cc846c",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/after-player-current-source-draw.png": "239081c39e9b1b6a76b5085251421bb83337594efb540f0ea41d1468c76f2316",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/after-player-full-paint-support.png": "06a23e1d616dbdfda1476037982b72cbdfac81bb2374e01af9e0af6046a6c04f",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/before-candidate-current-source-draw.png": "a4355415469aa8615a8161b5753257b22ba008a4a8737e6aeef4bc5a13cc846c",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/before-player-current-source-draw.png": "239081c39e9b1b6a76b5085251421bb83337594efb540f0ea41d1468c76f2316",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/before-player-full-paint-support.png": "06a23e1d616dbdfda1476037982b72cbdfac81bb2374e01af9e0af6046a6c04f",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/browser.json": "9136f138dda131e6db5751282c1883ded40e5e4dfae826a0bb16f6998ec36a07",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/executed-script.mjs": "2c93f4971e1167a22549a875bdd52c601cc54dd8f8ef178c150a64f6e22af619",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/handoff.json": "2b9d8c2774daa48f23d97df823f2a0b1159293c4173c99ff6437868d28984c55",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/hit26-original-depth.png": "22b9591c17378733023ec28dd5319557a916ca069fce4bdcb7e95cfdcc620468",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/hit26-player-contact-priority.png": "fd5adcf456ad00ff9a2435cf9ab0e2fcf52c5339b445c2cda6399d2ae4a8ae85",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/independent-review.json": "53598d093bf641ecc5fb9832990fadf63889f699b1bdea25901bd5d5c985bf48",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/npm-test.json": "1f56984dcccbeda7df4cfcc32f5aa5fec836bfe28f1c7accd981f98f37e749d6",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/npm-test.log": "47e5eab5127bb364e1c7ca5f22c7d2ca7dea226e973a39af7f8d17b23fd77e56",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/real-ui-before-fixture.png": "6c203a3b82f093e562db5e404c80e420ed99a95604bc9b4724226efd24c62f9f",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/review.md": "faa591864fbc5ac2e855c1752abe9d8cc6833559bc49ba16d079075bd8a9157f",
+    "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/root-pixel-review.json": "42e79adf28871297b9075488642c4e96a254356dc48f16370db7400ac85575c4",
+    "STATUS.md": "8c425c3968c492db0400eb6216ae25d728a008a3611a27ef0ecd6fdc2be80783",
+    "docs/REQUIREMENTS-ACCEPTANCE.md": "4cf3bf5186c59e72209c7c809cf6277ce0f75106de266175d9f321f0a6999a55",
+    "docs/FINAL-REPORT.md": "71475d9f4e0a6b781e76aad05ce4eb231d8f13dc9a0a89ce87fc59d0c541bfd4",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md": "2335830a2c79f926d14936f34d8a08b67cb60b741b6273943cb4c5d376456d73",
+    "scripts/browser-tiger-vanguard-depth-control.mjs": "2c93f4971e1167a22549a875bdd52c601cc54dd8f8ef178c150a64f6e22af619",
+    "scripts/tiger-vanguard-depth-closeout.mjs": "14b9e0f2fbcb7a971dbd15b765a5c73a9ec29aaf2eebf99fc10b22651efedaed"
+  }
+}

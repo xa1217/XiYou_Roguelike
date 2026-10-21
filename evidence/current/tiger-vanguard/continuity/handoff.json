@@ -1,0 +1,328 @@
+{
+  "generatedAt": "2026-10-13T05:15:02.450Z",
+  "result": "NOT_APPROVED_TRANSLATION_ONLY_MIX",
+  "scope": "One read-only art feasibility step: four transition endpoints from existing Tiger Vanguard drafts. No source image edits, generation, repacking, production animation integration or deployment.",
+  "sources": [
+    {
+      "id": "v1",
+      "file": "evidence/current/tiger-vanguard/candidate-v1-sheet.png",
+      "sha256": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+      "bytes": 1985514,
+      "width": 1774,
+      "height": 887,
+      "purpose": "Tiger Vanguard candidate only; not ordinary tiger or a final Boss",
+      "selectedStates": [
+        "attack"
+      ]
+    },
+    {
+      "id": "v2",
+      "file": "evidence/current/tiger-vanguard/candidate-v2-sheet.png",
+      "sha256": "03fadd27018012715d083fb92206dd7eb0967e54adaff84b45d6442cb1492e62",
+      "bytes": 2101074,
+      "width": 1774,
+      "height": 887,
+      "purpose": "Tiger Vanguard candidate only; not ordinary tiger or a final Boss",
+      "selectedStates": [
+        "idle",
+        "move",
+        "hit",
+        "death"
+      ]
+    }
+  ],
+  "evidence": {
+    "finalBrowser": {
+      "file": "evidence/current/tiger-vanguard/continuity/2026-10-13T04-41-02-531Z/browser.json",
+      "generatedAt": "2026-10-13T04:41:02.531Z",
+      "finishedAt": "2026-10-13T04:41:04.243Z",
+      "result": "REVIEW_ENDPOINT_ALIGNMENT_ONLY",
+      "technicalPreviewPassed": true,
+      "browser": "155.0.4283.45",
+      "checks": {
+        "sourcesDecoded": true,
+        "fourEndpointsMeasured": true,
+        "bothScalesAndFacings": true,
+        "noRuntimeReferences": true,
+        "noErrorsOrNetwork": true
+      },
+      "screenshots": [
+        {
+          "file": "evidence/current/tiger-vanguard/continuity/2026-10-13T04-41-02-531Z/support-foot-windows.png",
+          "bytes": 463177,
+          "sha256": "52d5d4c77dfc43ae2682e139cbea6050e828cb8d047533f65bdcbcb5a7b4feff"
+        },
+        {
+          "file": "evidence/current/tiger-vanguard/continuity/2026-10-13T04-41-02-531Z/bbox-vs-support-foot-128.png",
+          "bytes": 225992,
+          "sha256": "e4a46444ce1db155cca50a5cf3aaabd585bd5651b451ac1cbb3441ddf32ab933"
+        },
+        {
+          "file": "evidence/current/tiger-vanguard/continuity/2026-10-13T04-41-02-531Z/support-foot-aligned-64-48-both-facings.png",
+          "bytes": 119583,
+          "sha256": "1d807e5781775b91e6e3e9b84a312a3ef2e21dd5dec81ceed64abbbd5e5ec7f1"
+        }
+      ],
+      "consoleErrors": 0,
+      "pageErrors": 0,
+      "failedRequests": 0,
+      "externalRequests": 0
+    },
+    "supersededPreview": {
+      "file": "evidence/current/tiger-vanguard/continuity/2026-10-13T04-37-19-301Z/browser.json",
+      "sha256": "fc036f39503dbc2352a96f1660c98d8811a9e132cfeb63771713d8222225a08e",
+      "reason": "Manual review found that the initial foot windows cut off part of the toe edge. Windows were widened and the browser rerun serially; the v2 idle-last x pivot changed 52 -> 49.5 source pixels. Original report and screenshots retained, not presented as final pivot evidence."
+    },
+    "npmTest": {
+      "command": "npm test",
+      "file": "evidence/current/tiger-vanguard/continuity/2026-10-13T04-41-02-531Z/npm-validation.json",
+      "date": "2026-10-13T04:44:06.378Z",
+      "result": "PASS"
+    },
+    "sha256": {
+      "evidence/current/tiger-vanguard/continuity/2026-10-13T04-41-02-531Z/npm-validation.json": "496fb4e2c5af0af463093b9d7e9c4b13e74a891f9ce7ed474dd9162ce8e5df8e",
+      "evidence/current/tiger-vanguard/continuity/2026-10-13T04-41-02-531Z/browser.json": "9ccd18365ed30d70f2f51ac654fabb22a73813bfbb60f150cdd259641d2c1dbf",
+      "scripts/browser-tiger-vanguard-continuity.mjs": "f53153ec25dfc0bf08c6b87a2d98848455a7bca79b04c968b0d54ec54b0b0695"
+    }
+  },
+  "measurement": {
+    "method": "Manually selected near-side support-foot windows; alpha>8 and alpha>16 scans, bottom three visible rows. Use alpha>16 edge midpoint and bottom+1 as a diagnostic alignment point.",
+    "endpoints": [
+      {
+        "index": 7,
+        "page": "v2",
+        "state": "idle",
+        "sourceRect": {
+          "x": 1564,
+          "y": 26,
+          "w": 204,
+          "h": 196
+        },
+        "footWindow": {
+          "x": 30,
+          "y": 169,
+          "w": 62,
+          "h": 26
+        },
+        "footMeasurements": [
+          {
+            "threshold": 8,
+            "visible": 709,
+            "bottom": 193,
+            "edgeLeft": 39,
+            "edgeRight": 61,
+            "root": {
+              "x": 50,
+              "y": 194
+            }
+          },
+          {
+            "threshold": 16,
+            "visible": 693,
+            "bottom": 191,
+            "edgeLeft": 34,
+            "edgeRight": 65,
+            "root": {
+              "x": 49.5,
+              "y": 192
+            }
+          }
+        ],
+        "pivot": {
+          "x": 49.5,
+          "y": 192
+        },
+        "headTopToGround": 190
+      },
+      {
+        "index": 16,
+        "page": "v1",
+        "state": "attack",
+        "sourceRect": {
+          "x": 10,
+          "y": 480,
+          "w": 214,
+          "h": 175
+        },
+        "footWindow": {
+          "x": 31,
+          "y": 146,
+          "w": 65,
+          "h": 27
+        },
+        "footMeasurements": [
+          {
+            "threshold": 8,
+            "visible": 888,
+            "bottom": 172,
+            "edgeLeft": 43,
+            "edgeRight": 74,
+            "root": {
+              "x": 58.5,
+              "y": 173
+            }
+          },
+          {
+            "threshold": 16,
+            "visible": 870,
+            "bottom": 172,
+            "edgeLeft": 44,
+            "edgeRight": 74,
+            "root": {
+              "x": 59,
+              "y": 173
+            }
+          }
+        ],
+        "pivot": {
+          "x": 59,
+          "y": 173
+        },
+        "headTopToGround": 171
+      },
+      {
+        "index": 23,
+        "page": "v1",
+        "state": "attack",
+        "sourceRect": {
+          "x": 1564,
+          "y": 481,
+          "w": 202,
+          "h": 176
+        },
+        "footWindow": {
+          "x": 30,
+          "y": 145,
+          "w": 65,
+          "h": 29
+        },
+        "footMeasurements": [
+          {
+            "threshold": 8,
+            "visible": 965,
+            "bottom": 173,
+            "edgeLeft": 45,
+            "edgeRight": 74,
+            "root": {
+              "x": 59.5,
+              "y": 174
+            }
+          },
+          {
+            "threshold": 16,
+            "visible": 935,
+            "bottom": 172,
+            "edgeLeft": 43,
+            "edgeRight": 74,
+            "root": {
+              "x": 58.5,
+              "y": 173
+            }
+          }
+        ],
+        "pivot": {
+          "x": 58.5,
+          "y": 173
+        },
+        "headTopToGround": 171
+      },
+      {
+        "index": 0,
+        "page": "v2",
+        "state": "idle",
+        "sourceRect": {
+          "x": 23,
+          "y": 25,
+          "w": 194,
+          "h": 197
+        },
+        "footWindow": {
+          "x": 20,
+          "y": 169,
+          "w": 62,
+          "h": 26
+        },
+        "footMeasurements": [
+          {
+            "threshold": 8,
+            "visible": 729,
+            "bottom": 194,
+            "edgeLeft": 41,
+            "edgeRight": 60,
+            "root": {
+              "x": 50.5,
+              "y": 195
+            }
+          },
+          {
+            "threshold": 16,
+            "visible": 711,
+            "bottom": 192,
+            "edgeLeft": 34,
+            "edgeRight": 64,
+            "root": {
+              "x": 49,
+              "y": 193
+            }
+          }
+        ],
+        "pivot": {
+          "x": 49,
+          "y": 193
+        },
+        "headTopToGround": 191
+      }
+    ],
+    "normalization": "One fixed source-pixel reference (193) at 128/64/48px, with positive/negative horizontal mirroring. No per-frame scale, rotation, deformation or redrawing.",
+    "candidateOnly": true,
+    "authoredRootsApproved": false,
+    "limits": "Four neutral-ish idle/attack endpoints only. This does not certify all attack poses or the other 28 regions, hit/death anchors, movement contact timing, semantic pose count or full-sequence animation quality. Window labels are human review annotations, not inferred artist-authored pivots."
+  },
+  "humanReview": {
+    "viewed": [
+      "evidence/current/tiger-vanguard/continuity/2026-10-13T04-41-02-531Z/support-foot-windows.png",
+      "evidence/current/tiger-vanguard/continuity/2026-10-13T04-41-02-531Z/bbox-vs-support-foot-128.png",
+      "evidence/current/tiger-vanguard/continuity/2026-10-13T04-41-02-531Z/support-foot-aligned-64-48-both-facings.png"
+    ],
+    "decision": "Do not integrate the v2 idle/move/hit/death plus v1 attack combination by merely changing pivots/translations.",
+    "observations": [
+      "After near-foot alignment, v2 endpoints retain a high front breastplate/closed collar and plated wrist/shin features; v1 attack bookends have a more open fur neckline, different wrist treatment and trouser/ankle silhouette. These structural contours persist in the aligned diagnostic.",
+      "The exposed blade contour and body proportions also change across the two source drafts. Small 64/48px comparisons preserve the differing silhouette; enlarged 128px/1.6x views expose the gear changes.",
+      "Head-top-to-support-foot heights are 190/171/171/191 source pixels. The 19-20px difference alone is not a rejection criterion: a coherent attack can legitimately crouch.",
+      "Translations can remove positional offset but cannot change the depicted gear/shape. This rejects only the translation-only mixed-source proposal; it does not prove all possible source-level repair strategies impossible."
+    ],
+    "automaticSemanticJudgment": false
+  },
+  "unchanged": {
+    "sourceAndRuntimeCheckCount": 90,
+    "protectedManifestIn": "evidence/current/tiger-vanguard/continuity/2026-10-13T04-41-02-531Z/browser.json",
+    "checkedAt": "2026-10-13T05:07:08.521Z",
+    "changedFiles": [],
+    "candidateProductionReferences": [],
+    "sourcePngEdited": false,
+    "newRasterAssets": 0,
+    "zipRebuilt": false,
+    "deployed": false
+  },
+  "cleanup": {
+    "browserClosed": true,
+    "serverStarted": false,
+    "portCheck": {
+      "checkedAt": "2026-10-13T04:44:08.5693288Z",
+      "port": 8088,
+      "listenerCount": 0
+    }
+  },
+  "boundaries": {
+    "candidateStatus": "REVIEW",
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "naturalGameplayReviewed": false,
+    "publicPass": false,
+    "currentZipPass": false,
+    "wechatDevicePass": false,
+    "fpsPass": false,
+    "releaseReadiness": "NOT_READY"
+  },
+  "nextSafeStep": "Identify reusable frames and the exact missing actions within one consistent character design before choosing a source-level remedy. Do not keep adjusting pivots to hide mixed-draft gear changes, bind unapproved art through the new identity, or regenerate an entire same-purpose sheet merely to reach 32 regions."
+}

@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-10-14T11:16:23.272Z",
+  "url": "https://typical-tension-inexpensive-angeles.trycloudflare.com/",
+  "networkScope": "public-url",
+  "buildTarget": "workspace-public-20261014T1042Z-cloudflare-http2-proxy-approved",
+  "mode": "public-no-debug-normal-flow",
+  "screenshots": [
+    {
+      "file": "evidence\\current\\public\\20261014T1042Z\\cloudflare-http2-proxy-approved\\failure.png",
+      "bytes": 37241
+    }
+  ],
+  "consoleMessages": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 530 ()"
+    }
+  ],
+  "consoleErrors": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 530 ()",
+      "url": "https://typical-tension-inexpensive-angeles.trycloudflare.com/"
+    }
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "httpErrors": [
+    {
+      "url": "https://typical-tension-inexpensive-angeles.trycloudflare.com/",
+      "status": 530
+    }
+  ],
+  "fpsAcceptance": false,
+  "releaseReady": false,
+  "result": "FAIL",
+  "browserVersion": "155.0.4283.45",
+  "navigation": {
+    "status": 530,
+    "url": "https://typical-tension-inexpensive-angeles.trycloudflare.com/"
+  },
+  "error": "Error: Public entry HTTP 530\n    at file:///F:/Project/Xiyou_Survivor_Commercial/scripts/browser-public-smoke.mjs:44:32",
+  "failureTitle": "Cloudflare Tunnel error | typical-tension-inexpensive-angeles.trycloudflare.com | Cloudflare",
+  "failureText": "Error 1033\nRay ID: a4a62c0668ea6097 •\n2026-10-14 11:16:27 UTC\nCloudflare Tunnel error\nWhat happened?\n\nYou've requested a page on a website (typical-tension-inexpensive-angeles.trycloudflare.com) that is on the Cloudflare network. The host (typical-tension-inexpensive-angeles.trycloudflare.com) is configured as a Cloudflare Tunnel, and Cloudflare is currently unable to resolve it.\n\nWhat can I do?\n\nIf you are a visitor of this website:\nPlease try again in a few minutes.\n\nIf you are the owner of this website:\nEnsure that cloudflared is running and can reach the network. You may wish to enable load balancing for your tunnel.\n\nWas this page helpful? Yes No\n\nCloudflare Ray ID: a4a62c0668ea6097\nYour IP: Click to reveal\nPerformance & security by Cloudflare",
+  "completedAt": "2026-10-14T11:16:30.499Z"
+}

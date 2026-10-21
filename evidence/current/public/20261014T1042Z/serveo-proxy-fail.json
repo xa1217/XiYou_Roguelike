@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-10-14T11:23:20.000Z",
+  "result": "FAIL",
+  "scope": "Anonymous Serveo SSH reverse-tunnel attempt through the local SOCKS proxy",
+  "command": "ssh -o ProxyCommand=node tmp/socks5-proxy-command.mjs %h %p -R 80:127.0.0.1:8088 serveo.net",
+  "proxy": "127.0.0.1:10808",
+  "localOrigin": "http://127.0.0.1:8088/",
+  "error": "Connection closed by UNKNOWN port 65535",
+  "publicPass": false,
+  "deploymentPerformed": false,
+  "notes": [
+    "No credentials, source upload, or repository mutation was performed.",
+    "This was the final low-frequency anonymous tunnel attempt for this turn."
+  ]
+}

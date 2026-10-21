@@ -1,0 +1,16 @@
+{
+  "reviewDate": "2026-10-10",
+  "result": "INCOMPLETE",
+  "scope": "Recovery note for previous browser-bear-preflight run; not a fresh browser PASS",
+  "previousSessionId": 77627,
+  "observed": [
+    "Previous command returned a running session and later polls still returned no completion.",
+    "atlas-left-48px.png and atlas-right-48px.png were written, but no recording or final result was saved.",
+    "browser-preflight.json still contained the earlier EPERM launch failure rather than results from this interrupted run.",
+    "On recovery the exec session was unknown and a targeted process query found no bear preflight Node or Playwright Edge root process. No process was terminated."
+  ],
+  "causeBoundary": "The exact unresolved await cannot be proven from the lost process. The old code awaited requestAnimationFrame playback and MediaRecorder stop without timeouts or intermediate checkpoints.",
+  "repair": "Use finite Node-driven manual capture frames, bounded evaluations/frame loop/recorder finalization/browser cleanup, and persist phase checkpoints. Preserve launch and interruption failures separately.",
+  "assetChanged": false,
+  "runtimeApproved": false
+}

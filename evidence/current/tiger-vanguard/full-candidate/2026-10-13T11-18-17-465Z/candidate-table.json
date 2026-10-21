@@ -1,0 +1,1285 @@
+{
+  "schema": "xiyou-source-candidate-review/v1",
+  "id": "tiger-vanguard-v1-with-three-frame-patch",
+  "generatedAt": "2026-10-13T11:18:17.465Z",
+  "status": "REVIEW",
+  "scope": "EVIDENCE_ONLY_NOT_A_RUNTIME_CONTRACT",
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "intendedIdentity": "tiger-vanguard only; never all elite+tiger, ordinary tiger, or a final Boss",
+  "pages": [
+    {
+      "id": "v1",
+      "file": "evidence/current/tiger-vanguard/candidate-v1-sheet.png",
+      "width": 1774,
+      "height": 887,
+      "bytes": 1985514,
+      "sha256": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+      "standingReferenceHeight": 170,
+      "purpose": "Original29 unchanged regions, excluding7/30/31"
+    },
+    {
+      "id": "patch",
+      "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/candidate-v1-three-frame-patch.png",
+      "width": 2172,
+      "height": 724,
+      "bytes": 704203,
+      "sha256": "e04bdf485aae996872827efe6ad8ef9e575eb7671a7e101f70c5c8f54b510e5a",
+      "standingReferenceHeight": 443,
+      "purpose": "Existing local repair regions7/30/31 only"
+    }
+  ],
+  "scalePolicy": "One standing-reference scale per page (v1:170, patch:443). No per-pose stretching, rotation or generated in-between frames.",
+  "rootPolicy": "All32 use the SAME visible-bbox-bottom-center diagnostic policy. Do not mix earlier endpoint foot/shoulder measurements into unreviewed frames. These are explicitly not authored runtime pivots.",
+  "timingPolicy": "12 source poses/second for this preview only; not approved gameplay animation durations or display FPS.",
+  "states": {
+    "idle": {
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "previewLoop": true,
+      "previewEnd": "loop"
+    },
+    "move": {
+      "frames": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "previewLoop": true,
+      "previewEnd": "loop"
+    },
+    "attack": {
+      "frames": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "previewLoop": false,
+      "previewEnd": "return-idle0"
+    },
+    "hit": {
+      "frames": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "previewLoop": false,
+      "previewEnd": "return-idle0"
+    },
+    "death": {
+      "frames": [
+        28,
+        29,
+        30,
+        31
+      ],
+      "previewLoop": false,
+      "previewEnd": "hold-last-no-revival"
+    }
+  },
+  "frames": [
+    {
+      "index": 0,
+      "state": "idle",
+      "stateIndex": 0,
+      "page": "v1",
+      "visibleRect": {
+        "x": 19,
+        "y": 40,
+        "w": 204,
+        "h": 171
+      },
+      "sourceRect": {
+        "x": 17,
+        "y": 38,
+        "w": 208,
+        "h": 175
+      },
+      "rgbaSha256": "48103fc5a96216c529dad1ed49656050709ac4b0742168f6ead9730a0d2cd0c9",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 104,
+        "y": 173,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 19115,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 18860,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "state": "idle",
+      "stateIndex": 1,
+      "page": "v1",
+      "visibleRect": {
+        "x": 241,
+        "y": 41,
+        "w": 206,
+        "h": 171
+      },
+      "sourceRect": {
+        "x": 239,
+        "y": 39,
+        "w": 210,
+        "h": 175
+      },
+      "rgbaSha256": "6e3e6407af206d7cccd43b0bd739e6c8946986a0427e8a5fc55d3d500eacefa1",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 105,
+        "y": 173,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 18957,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 18725,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "state": "idle",
+      "stateIndex": 2,
+      "page": "v1",
+      "visibleRect": {
+        "x": 468,
+        "y": 40,
+        "w": 198,
+        "h": 172
+      },
+      "sourceRect": {
+        "x": 466,
+        "y": 38,
+        "w": 202,
+        "h": 176
+      },
+      "rgbaSha256": "d9850540d8178b38f30be65cab5fb495e26c41081793fc8738af3ba50191fbb0",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 101,
+        "y": 174,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 19390,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 19094,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "state": "idle",
+      "stateIndex": 3,
+      "page": "v1",
+      "visibleRect": {
+        "x": 684,
+        "y": 41,
+        "w": 204,
+        "h": 171
+      },
+      "sourceRect": {
+        "x": 682,
+        "y": 39,
+        "w": 208,
+        "h": 175
+      },
+      "rgbaSha256": "81cd5d24cef4caf6ca18cf024d24a676a8b4791ddd499fd808d48c054389ffd4",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 104,
+        "y": 173,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 18960,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 18741,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "state": "idle",
+      "stateIndex": 4,
+      "page": "v1",
+      "visibleRect": {
+        "x": 912,
+        "y": 41,
+        "w": 198,
+        "h": 171
+      },
+      "sourceRect": {
+        "x": 910,
+        "y": 39,
+        "w": 202,
+        "h": 175
+      },
+      "rgbaSha256": "64709be0e97cb772f5efc7c247a75543c79c93c991cd9ed25482d80f0ab35258",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 101,
+        "y": 173,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 19164,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 18917,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "state": "idle",
+      "stateIndex": 5,
+      "page": "v1",
+      "visibleRect": {
+        "x": 1128,
+        "y": 41,
+        "w": 204,
+        "h": 171
+      },
+      "sourceRect": {
+        "x": 1126,
+        "y": 39,
+        "w": 208,
+        "h": 175
+      },
+      "rgbaSha256": "6e06e513dfffe00cfe7355c661cc4b213e9b95c61d185e5abbff18e7fd5c5fd8",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 104,
+        "y": 173,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 18843,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 18577,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "state": "idle",
+      "stateIndex": 6,
+      "page": "v1",
+      "visibleRect": {
+        "x": 1350,
+        "y": 43,
+        "w": 203,
+        "h": 169
+      },
+      "sourceRect": {
+        "x": 1348,
+        "y": 41,
+        "w": 207,
+        "h": 173
+      },
+      "rgbaSha256": "f02fe295cf4ab39ba4aafa4a77634349a5c65b891daa1388581d9046de49c4d4",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 103.5,
+        "y": 171,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 18723,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 18428,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "state": "idle",
+      "stateIndex": 7,
+      "page": "patch",
+      "visibleRect": {
+        "x": 46,
+        "y": 148,
+        "w": 525,
+        "h": 443
+      },
+      "sourceRect": {
+        "x": 44,
+        "y": 146,
+        "w": 529,
+        "h": 447
+      },
+      "rgbaSha256": "e870478f0e0d8983780ad1f7b5ca3576c4484d95dbf0d0bb3d96b3bb520ffbd6",
+      "standingReferenceHeight": 443,
+      "diagnosticPivot": {
+        "x": 264.5,
+        "y": 445,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 125465,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 125133,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "state": "move",
+      "stateIndex": 0,
+      "page": "v1",
+      "visibleRect": {
+        "x": 13,
+        "y": 262,
+        "w": 184,
+        "h": 167
+      },
+      "sourceRect": {
+        "x": 11,
+        "y": 260,
+        "w": 188,
+        "h": 171
+      },
+      "rgbaSha256": "933af40b0fb730fbc081227b9846b94b83719a96ba12c77698ba32185a1265be",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 94,
+        "y": 169,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 17513,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 17229,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "state": "move",
+      "stateIndex": 1,
+      "page": "v1",
+      "visibleRect": {
+        "x": 237,
+        "y": 260,
+        "w": 193,
+        "h": 171
+      },
+      "sourceRect": {
+        "x": 235,
+        "y": 258,
+        "w": 197,
+        "h": 175
+      },
+      "rgbaSha256": "e316ec4a07ecc25814ca79ef41bdd6d10f934417f551cb65ba9ae50b6f6007c1",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 98.5,
+        "y": 173,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 16860,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 16563,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "state": "move",
+      "stateIndex": 2,
+      "page": "v1",
+      "visibleRect": {
+        "x": 459,
+        "y": 254,
+        "w": 193,
+        "h": 175
+      },
+      "sourceRect": {
+        "x": 457,
+        "y": 252,
+        "w": 197,
+        "h": 179
+      },
+      "rgbaSha256": "a92f08040c35389559ba0b18322fad53a1d75946b73d21cd7a48e0002e2f7344",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 98.5,
+        "y": 177,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 18696,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 18355,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "state": "move",
+      "stateIndex": 3,
+      "page": "v1",
+      "visibleRect": {
+        "x": 681,
+        "y": 261,
+        "w": 184,
+        "h": 171
+      },
+      "sourceRect": {
+        "x": 679,
+        "y": 259,
+        "w": 188,
+        "h": 175
+      },
+      "rgbaSha256": "3f79de1ccb9c3045c335cff29030e441385f5c4d2bea95f11dea839a1711be7b",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 94,
+        "y": 173,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 16166,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 15894,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "state": "move",
+      "stateIndex": 4,
+      "page": "v1",
+      "visibleRect": {
+        "x": 897,
+        "y": 261,
+        "w": 188,
+        "h": 169
+      },
+      "sourceRect": {
+        "x": 895,
+        "y": 259,
+        "w": 192,
+        "h": 173
+      },
+      "rgbaSha256": "4a064b91db0235406af8ab93b2dee95eff9e2cb6bd82e81bd1dd3b54a5af6252",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 96,
+        "y": 171,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 17398,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 17133,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "state": "move",
+      "stateIndex": 5,
+      "page": "v1",
+      "visibleRect": {
+        "x": 1117,
+        "y": 255,
+        "w": 207,
+        "h": 167
+      },
+      "sourceRect": {
+        "x": 1115,
+        "y": 253,
+        "w": 211,
+        "h": 171
+      },
+      "rgbaSha256": "9a1a4bf6a8527e13ab543c1010dc9fa3f7047b0af3fde1f7b18d5c5e12adceca",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 105.5,
+        "y": 169,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 18389,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 18050,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "state": "move",
+      "stateIndex": 6,
+      "page": "v1",
+      "visibleRect": {
+        "x": 1345,
+        "y": 261,
+        "w": 186,
+        "h": 171
+      },
+      "sourceRect": {
+        "x": 1343,
+        "y": 259,
+        "w": 190,
+        "h": 175
+      },
+      "rgbaSha256": "551e4c4dd179ad2dfca9c8c890589285ee74de1927d2619fe72810355e4847d9",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 95,
+        "y": 173,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 16027,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 15775,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "state": "move",
+      "stateIndex": 7,
+      "page": "v1",
+      "visibleRect": {
+        "x": 1552,
+        "y": 259,
+        "w": 190,
+        "h": 172
+      },
+      "sourceRect": {
+        "x": 1550,
+        "y": 257,
+        "w": 194,
+        "h": 176
+      },
+      "rgbaSha256": "bf25b244caf91880d85d9ec95bb85ebe3004c9c3a09f14970815b7f29fb02025",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 97,
+        "y": 174,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 17527,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 17228,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "state": "attack",
+      "stateIndex": 0,
+      "page": "v1",
+      "visibleRect": {
+        "x": 12,
+        "y": 482,
+        "w": 210,
+        "h": 171
+      },
+      "sourceRect": {
+        "x": 10,
+        "y": 480,
+        "w": 214,
+        "h": 175
+      },
+      "rgbaSha256": "4cf1b245f163b4373386feb06cad5944fbfdd1143c982179f2843b54ec54be96",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 107,
+        "y": 173,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 18931,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 18672,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "state": "attack",
+      "stateIndex": 1,
+      "page": "v1",
+      "visibleRect": {
+        "x": 241,
+        "y": 514,
+        "w": 192,
+        "h": 139
+      },
+      "sourceRect": {
+        "x": 239,
+        "y": 512,
+        "w": 196,
+        "h": 143
+      },
+      "rgbaSha256": "1b60503b617c6f61d3131d1044d2e0a0298da0389c4a426ab75c3fbf2c168121",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 98,
+        "y": 141,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 16569,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 16350,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "state": "attack",
+      "stateIndex": 2,
+      "page": "v1",
+      "visibleRect": {
+        "x": 458,
+        "y": 465,
+        "w": 183,
+        "h": 191
+      },
+      "sourceRect": {
+        "x": 456,
+        "y": 463,
+        "w": 187,
+        "h": 195
+      },
+      "rgbaSha256": "c0c60fb4b2579c8780e41f02398e9c9af4c61d02a05e10a0b67fa854289ea776",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 93.5,
+        "y": 193,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 20962,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 20639,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "state": "attack",
+      "stateIndex": 3,
+      "page": "v1",
+      "visibleRect": {
+        "x": 691,
+        "y": 475,
+        "w": 199,
+        "h": 180
+      },
+      "sourceRect": {
+        "x": 689,
+        "y": 473,
+        "w": 203,
+        "h": 184
+      },
+      "rgbaSha256": "7a2ee2f3684ce57777c8ec9e3e0331ae1402088ea97925cd12f1d4c5251263ad",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 101.5,
+        "y": 182,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 20514,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 20169,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "state": "attack",
+      "stateIndex": 4,
+      "page": "v1",
+      "visibleRect": {
+        "x": 908,
+        "y": 483,
+        "w": 189,
+        "h": 173
+      },
+      "sourceRect": {
+        "x": 906,
+        "y": 481,
+        "w": 193,
+        "h": 177
+      },
+      "rgbaSha256": "f24ab683949c6df436c1361ee8344e76b07af14ba755c3c37669aac259a2eedc",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 96.5,
+        "y": 175,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 18953,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 18606,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "state": "attack",
+      "stateIndex": 5,
+      "page": "v1",
+      "visibleRect": {
+        "x": 1121,
+        "y": 486,
+        "w": 193,
+        "h": 169
+      },
+      "sourceRect": {
+        "x": 1119,
+        "y": 484,
+        "w": 197,
+        "h": 173
+      },
+      "rgbaSha256": "8a8db86c63dde3e81f8f09efd83e599dfe9c7507f606ff1560e8c4158df9a4f6",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 98.5,
+        "y": 171,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 18298,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 17917,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "state": "attack",
+      "stateIndex": 6,
+      "page": "v1",
+      "visibleRect": {
+        "x": 1341,
+        "y": 475,
+        "w": 205,
+        "h": 178
+      },
+      "sourceRect": {
+        "x": 1339,
+        "y": 473,
+        "w": 209,
+        "h": 182
+      },
+      "rgbaSha256": "122dd9ca66097031dab692fdb0d14b6216dc0062da2b8e837972b16037997553",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 104.5,
+        "y": 180,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 19745,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 19436,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "state": "attack",
+      "stateIndex": 7,
+      "page": "v1",
+      "visibleRect": {
+        "x": 1566,
+        "y": 483,
+        "w": 198,
+        "h": 172
+      },
+      "sourceRect": {
+        "x": 1564,
+        "y": 481,
+        "w": 202,
+        "h": 176
+      },
+      "rgbaSha256": "b69f7b24a2113f8617f801e1effa9a1578776441f77113db13222213e31ca7e6",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 101,
+        "y": 174,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 18439,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 18150,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "state": "hit",
+      "stateIndex": 0,
+      "page": "v1",
+      "visibleRect": {
+        "x": 17,
+        "y": 679,
+        "w": 197,
+        "h": 182
+      },
+      "sourceRect": {
+        "x": 15,
+        "y": 677,
+        "w": 201,
+        "h": 186
+      },
+      "rgbaSha256": "d158360d5927803cd9ae3539ef45a7c2672a03ef8ace7ea535cebf3cafa15c4e",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 100.5,
+        "y": 184,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 21463,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 21198,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "state": "hit",
+      "stateIndex": 1,
+      "page": "v1",
+      "visibleRect": {
+        "x": 250,
+        "y": 685,
+        "w": 181,
+        "h": 178
+      },
+      "sourceRect": {
+        "x": 248,
+        "y": 683,
+        "w": 185,
+        "h": 182
+      },
+      "rgbaSha256": "a7f5111ed40941bce3af97843a48fbeef40b9277a77d3b864edeb2b11648b9e8",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 92.5,
+        "y": 180,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 19475,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 19126,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "state": "hit",
+      "stateIndex": 2,
+      "page": "v1",
+      "visibleRect": {
+        "x": 453,
+        "y": 700,
+        "w": 167,
+        "h": 158
+      },
+      "sourceRect": {
+        "x": 451,
+        "y": 698,
+        "w": 171,
+        "h": 162
+      },
+      "rgbaSha256": "ed6f0e8599b14f4a8d23efa6228c312347f956276a7ceaeb7fde0d48893ba0dd",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 85.5,
+        "y": 160,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 16395,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 16222,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 27,
+      "state": "hit",
+      "stateIndex": 3,
+      "page": "v1",
+      "visibleRect": {
+        "x": 665,
+        "y": 687,
+        "w": 219,
+        "h": 171
+      },
+      "sourceRect": {
+        "x": 663,
+        "y": 685,
+        "w": 223,
+        "h": 175
+      },
+      "rgbaSha256": "ba25fcdae4ce9e370edc26bd92600b1650cc049f301475bb4a13f1e9ec8e96bd",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 111.5,
+        "y": 173,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 19629,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 19382,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "state": "death",
+      "stateIndex": 0,
+      "page": "v1",
+      "visibleRect": {
+        "x": 901,
+        "y": 712,
+        "w": 202,
+        "h": 144
+      },
+      "sourceRect": {
+        "x": 899,
+        "y": 710,
+        "w": 206,
+        "h": 148
+      },
+      "rgbaSha256": "73564ffb5ebc2620489631997e8b3c0974f1b2fd3b08f0566155cfc4267d1816",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 103,
+        "y": 146,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 17099,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 16841,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "state": "death",
+      "stateIndex": 1,
+      "page": "v1",
+      "visibleRect": {
+        "x": 1111,
+        "y": 729,
+        "w": 209,
+        "h": 124
+      },
+      "sourceRect": {
+        "x": 1109,
+        "y": 727,
+        "w": 213,
+        "h": 128
+      },
+      "rgbaSha256": "03e056d7b0249d56719a19ad4efba619ddcc52156c1f58d50dd349ca52da203c",
+      "standingReferenceHeight": 170,
+      "diagnosticPivot": {
+        "x": 106.5,
+        "y": 126,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 16315,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 16021,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "state": "death",
+      "stateIndex": 2,
+      "page": "patch",
+      "visibleRect": {
+        "x": 699,
+        "y": 400,
+        "w": 620,
+        "h": 224
+      },
+      "sourceRect": {
+        "x": 697,
+        "y": 398,
+        "w": 624,
+        "h": 228
+      },
+      "rgbaSha256": "869bb4799160b0ad16559904d911c57f8e4e6bd38007314c9929317e3ceda84a",
+      "standingReferenceHeight": 443,
+      "diagnosticPivot": {
+        "x": 312,
+        "y": 226,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 94787,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 94575,
+          "guard": 0
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "state": "death",
+      "stateIndex": 3,
+      "page": "patch",
+      "visibleRect": {
+        "x": 1452,
+        "y": 431,
+        "w": 657,
+        "h": 192
+      },
+      "sourceRect": {
+        "x": 1450,
+        "y": 429,
+        "w": 661,
+        "h": 196
+      },
+      "rgbaSha256": "f4d3c451fb3e7f753757a7c5f233ab39d96fdd1971c8e6362e4bab05efa4a3a7",
+      "standingReferenceHeight": 443,
+      "diagnosticPivot": {
+        "x": 330.5,
+        "y": 194,
+        "policy": "VISIBLE_BBOX_BOTTOM_CENTER_UNAPPROVED"
+      },
+      "measurements": [
+        {
+          "threshold": 8,
+          "visible": 87326,
+          "guard": 0
+        },
+        {
+          "threshold": 16,
+          "visible": 87150,
+          "guard": 0
+        }
+      ]
+    }
+  ]
+}

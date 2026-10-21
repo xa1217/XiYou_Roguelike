@@ -1,0 +1,350 @@
+{
+  "generatedAt": "2026-10-13T07:21:17.582Z",
+  "result": "REVIEW_THREE_FRAME_PATCH_NOT_APPROVED_FOR_REPLACEMENT",
+  "scope": "One built-in imagegen edit produced a separate patch of existing v1 indices7/30/31 only. No entire 32-pose sheet generation, source overwrite or production changes.",
+  "skill": {
+    "name": "imagegen",
+    "mode": "built-in edit",
+    "influence": "Use existing v1 as sole edit target; request only three repaired poses with transparent gutters, preserve other29 in the original file, save non-destructively and inspect before any runtime use.",
+    "promptFile": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/prompt.txt",
+    "promptSha256": "0e874f647ccf90eefb93d1648d59e45717c2332e6ece2c9274498484910df950",
+    "calls": 1
+  },
+  "source": {
+    "file": "evidence/current/tiger-vanguard/candidate-v1-sheet.png",
+    "sha256": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+    "bytes": 1985514,
+    "width": 1774,
+    "height": 887,
+    "purpose": "Existing armored Tiger Vanguard draft v1 only, not ordinary tiger or final Boss; no v2 mixing."
+  },
+  "candidate": {
+    "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/candidate-v1-three-frame-patch.png",
+    "sha256": "e04bdf485aae996872827efe6ad8ef9e575eb7671a7e101f70c5c8f54b510e5a",
+    "bytes": 704203,
+    "width": 2172,
+    "height": 724,
+    "purpose": "v1 indices7/30/31 local repair patch only; original other29 remain untouched",
+    "mode": "built-in image_gen edit",
+    "generatedAssetCount": 1
+  },
+  "originalGeneratedFile": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-607658a5-b555-4f2f-be50-1075e1d8b3f3.png",
+  "copyIdentical": true,
+  "preEdit": {
+    "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/pre-edit.json",
+    "sha256": "74b6454924abe1179c79d6793e180517133f1d5cf6c16796fe3a4ddf70eca4bf",
+    "hashDimensionPurposeAndReferenceCheck": true
+  },
+  "evidence": {
+    "browser": {
+      "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/review/2026-10-13T07-10-12-432Z/browser.json",
+      "sha256": "54ab8e24ed961e9fbc79b021f4659281e5fcd2dd0ad33db29436683ac260c846",
+      "generatedAt": "2026-10-13T07:10:12.432Z",
+      "finishedAt": "2026-10-13T07:10:15.066Z",
+      "result": "REVIEW_REPAIR_GEOMETRY_ONLY",
+      "browser": "155.0.4283.45",
+      "checks": {
+        "geometryIsolation": true,
+        "decodedSizesMatch": true,
+        "candidateAlphaCountsMatchNode": true,
+        "noProductionReferences": true,
+        "noErrorsOrNetwork": true
+      },
+      "preflight": [
+        {
+          "threshold": 8,
+          "frames": [
+            {
+              "rect": {
+                "x": 46,
+                "y": 148,
+                "w": 525,
+                "h": 443
+              },
+              "visible": 125465
+            },
+            {
+              "rect": {
+                "x": 699,
+                "y": 400,
+                "w": 620,
+                "h": 224
+              },
+              "visible": 94787
+            },
+            {
+              "rect": {
+                "x": 1452,
+                "y": 431,
+                "w": 657,
+                "h": 192
+              },
+              "visible": 87326
+            }
+          ],
+          "horizontalGaps": [
+            128,
+            133
+          ],
+          "edgeMargins": [
+            {
+              "left": 46,
+              "top": 148,
+              "right": 1601,
+              "bottom": 133
+            },
+            {
+              "left": 699,
+              "top": 400,
+              "right": 853,
+              "bottom": 100
+            },
+            {
+              "left": 1452,
+              "top": 431,
+              "right": 63,
+              "bottom": 101
+            }
+          ]
+        },
+        {
+          "threshold": 16,
+          "frames": [
+            {
+              "rect": {
+                "x": 46,
+                "y": 149,
+                "w": 525,
+                "h": 442
+              },
+              "visible": 125133
+            },
+            {
+              "rect": {
+                "x": 700,
+                "y": 401,
+                "w": 619,
+                "h": 223
+              },
+              "visible": 94575
+            },
+            {
+              "rect": {
+                "x": 1452,
+                "y": 432,
+                "w": 657,
+                "h": 191
+              },
+              "visible": 87150
+            }
+          ],
+          "horizontalGaps": [
+            129,
+            133
+          ],
+          "edgeMargins": [
+            {
+              "left": 46,
+              "top": 149,
+              "right": 1601,
+              "bottom": 133
+            },
+            {
+              "left": 700,
+              "top": 401,
+              "right": 853,
+              "bottom": 100
+            },
+            {
+              "left": 1452,
+              "top": 432,
+              "right": 63,
+              "bottom": 101
+            }
+          ]
+        }
+      ],
+      "comparison": {
+        "frames": [
+          {
+            "index": 7,
+            "original": {
+              "x": 1569,
+              "y": 42,
+              "w": 205,
+              "h": 170
+            },
+            "candidate": {
+              "x": 46,
+              "y": 148,
+              "w": 525,
+              "h": 443
+            }
+          },
+          {
+            "index": 30,
+            "original": {
+              "x": 1327,
+              "y": 758,
+              "w": 226,
+              "h": 95
+            },
+            "candidate": {
+              "x": 699,
+              "y": 400,
+              "w": 620,
+              "h": 224
+            }
+          },
+          {
+            "index": 31,
+            "original": {
+              "x": 1552,
+              "y": 765,
+              "w": 213,
+              "h": 79
+            },
+            "candidate": {
+              "x": 1452,
+              "y": 431,
+              "w": 657,
+              "h": 192
+            }
+          }
+        ],
+        "originalStandingHeight": 170,
+        "candidateStandingHeight": 443,
+        "policy": "One whole-page scale per source, calibrated using its standing region height. Both death frames retain this same scale; no per-pose normalization, rotation or root claim. Bbox bottom-centers are diagnostic placement only."
+      },
+      "screenshots": [
+        {
+          "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/review/2026-10-13T07-10-12-432Z/patch-original.png",
+          "sha256": "43d6d103bda6e1a14193d7074f031fe211e2213205bff73d7820596eee6b0f04",
+          "bytes": 219547
+        },
+        {
+          "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/review/2026-10-13T07-10-12-432Z/source-vs-patch-128.png",
+          "sha256": "cc5d0c6ba4f976776337a256a0bdb5ba542cbd2ee534c1ffbc96ecc2f9ae17d9",
+          "bytes": 167326
+        },
+        {
+          "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/review/2026-10-13T07-10-12-432Z/source-vs-patch-64-48.png",
+          "sha256": "7f0367b09cd662395ec601d0e86a28ffbbd91c356dc30c358750bc6dea918c44",
+          "bytes": 153070
+        }
+      ],
+      "browserClosed": true,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "failedRequests": 0,
+      "externalRequests": 0
+    },
+    "npmTest": {
+      "command": "npm test",
+      "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/review/2026-10-13T07-10-12-432Z/npm-validation.json",
+      "date": "2026-10-13T07:10:23.285Z",
+      "version": "1.0.0",
+      "result": "PASS",
+      "mainBytes": 2490105,
+      "artBytes": 3072775,
+      "totalBytes": 5562880,
+      "errors": []
+    },
+    "scriptSha256": "b0c39a859c2ec81d482c6c5ba77c29ecc4bb3dda77bef9ad16536d3fed12b10c"
+  },
+  "geometry": {
+    "threeIsolatedRegions": true,
+    "alphaThresholds": [
+      8,
+      16
+    ],
+    "twoPixelIsolationPassed": true,
+    "requested100PixelGuttersPassed": true,
+    "horizontalGapsAt8": [
+      128,
+      133
+    ],
+    "requested50PixelOuterMarginPassed": false,
+    "minimumOuterMargin": 46,
+    "note": "Meets diagnostic 2px crop guard but misses prompt's 50px margin by4. Geometry is not animation or shape approval."
+  },
+  "humanReview": {
+    "viewed": [
+      "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/review/2026-10-13T07-10-12-432Z/patch-original.png",
+      "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/review/2026-10-13T07-10-12-432Z/source-vs-patch-128.png",
+      "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/review/2026-10-13T07-10-12-432Z/source-vs-patch-64-48.png"
+    ],
+    "decision": "Do not use this patch as a drop-in replacement yet.",
+    "observations": [
+      "All three sprites are separated, the standing blade no longer hits the image boundary, and the original file remains unchanged.",
+      "The patch is not merely the old pixels moved into larger gutters. The last prone pose has a more extended tail/body silhouette; the preceding prone pose also changes head/eye treatment.",
+      "A single whole-patch scale, calibrated from standing height443 versus source170, gives death widths237.923/252.122 versus source226/213. This is supporting geometry, not a standalone art-quality failure criterion.",
+      "128px and64/48px mirrored comparisons are static diagnostics. Original idle[6] -> candidate idle[7] -> original idle[0] and original death[1] -> candidate death[2/3] have not been reviewed with stable authored roots and timing."
+    ],
+    "scaledGeometry": [
+      {
+        "index": 7,
+        "original": {
+          "w": 205,
+          "h": 170
+        },
+        "candidateAtOriginalStandingScale": {
+          "w": 201.467,
+          "h": 170
+        }
+      },
+      {
+        "index": 30,
+        "original": {
+          "w": 226,
+          "h": 95
+        },
+        "candidateAtOriginalStandingScale": {
+          "w": 237.923,
+          "h": 85.959
+        }
+      },
+      {
+        "index": 31,
+        "original": {
+          "w": 213,
+          "h": 79
+        },
+        "candidateAtOriginalStandingScale": {
+          "w": 252.122,
+          "h": 73.679
+        }
+      }
+    ],
+    "approvedForRuntime": false,
+    "fullAnimationApproved": false
+  },
+  "protection": {
+    "checkedAt": "2026-10-13T07:21:17.582Z",
+    "protectedFileCount": 90,
+    "changedFiles": [],
+    "originalSourceAndOther29Unchanged": true,
+    "existingZipUnchanged": true,
+    "newGeneratedAssets": 1,
+    "sourceOverwritten": false,
+    "productionReferences": [],
+    "zipRebuilt": false,
+    "deployed": false
+  },
+  "cleanup": {
+    "browserClosed": true,
+    "serverStarted": false
+  },
+  "boundaries": {
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "sourceShapePreservationApproved": false,
+    "gameplayReviewed": false,
+    "publicPass": false,
+    "currentZipPass": false,
+    "fpsPass": false,
+    "wechatDevicePass": false,
+    "releaseReadiness": "NOT_READY"
+  },
+  "nextSafeStep": "Reuse this existing patch for a narrowly scoped authored-root/transition review before deciding whether any of its three regions can replace v1 source regions. Do not immediately request another generation, widen the project scope, or integrate based on geometry checks alone."
+}

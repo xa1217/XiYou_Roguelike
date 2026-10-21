@@ -1,0 +1,373 @@
+{
+  "checkedAt": "2026-10-14T03:58:31Z",
+  "authoredBy": "root transcription of independent agent findings",
+  "reviewer": "/root/player_depth_guard_review",
+  "result": "FAIL_CONFIRMED_READ_ONLY",
+  "evidenceDir": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/",
+  "decodeMethod": "Node pngjs PNG.sync.read on all 7 saved PNG bytes; exact RGBA per-pixel comparison (any of 4 channels differs); raw .rgba read without conversion; no files written",
+  "pngDimensions": {
+    "real-ui-before-fixture.png": [
+      390,
+      844
+    ],
+    "frame-1-png-only.png": [
+      390,
+      844
+    ],
+    "frame-2-png-only.png": [
+      390,
+      844
+    ],
+    "frame-3-png-only.png": [
+      390,
+      844
+    ],
+    "frame-4-png-plus-getImageData.png": [
+      390,
+      844
+    ],
+    "frame-5-png-plus-getImageData.png": [
+      390,
+      844
+    ],
+    "frame-6-png-plus-getImageData.png": [
+      390,
+      844
+    ]
+  },
+  "adjacent": {
+    "1to2": 0,
+    "2to3": 0,
+    "3to4": 0,
+    "4to5": 0,
+    "5to6": {
+      "changedPixels": 265010,
+      "maxAbsChannelDelta": 47,
+      "bboxInclusive": {
+        "minX": 0,
+        "maxX": 389,
+        "minY": 15,
+        "maxY": 824
+      },
+      "maxDeltaDistribution": {
+        "exactly1": 239969,
+        "exactly2": 20409,
+        "atLeast3": 4632
+      },
+      "changedChannelPixelsRGBA": [
+        260897,
+        16434,
+        18267,
+        0
+      ],
+      "changedRows": 772,
+      "nonzeroRowCountMin": 1,
+      "nonzeroRowCountMax": 390,
+      "regionChangedPixels": {
+        "banner_y0_23": 1129,
+        "topUi_y24_144": 32788,
+        "arena_y145_741": 230322,
+        "bottomUi_y742_843": 771
+      },
+      "frequentSignedDeltaTuples": [
+        {
+          "delta": [
+            -1,
+            0,
+            0,
+            0
+          ],
+          "count": 228809
+        },
+        {
+          "delta": [
+            -2,
+            0,
+            0,
+            0
+          ],
+          "count": 12391
+        },
+        {
+          "delta": [
+            -2,
+            0,
+            -1,
+            0
+          ],
+          "count": 2967
+        },
+        {
+          "delta": [
+            -1,
+            -1,
+            -1,
+            0
+          ],
+          "count": 2949
+        },
+        {
+          "delta": [
+            -1,
+            0,
+            -1,
+            0
+          ],
+          "count": 1838
+        }
+      ],
+      "largestExample": {
+        "x": 175,
+        "y": 464,
+        "before": [
+          145,
+          199,
+          171,
+          255
+        ],
+        "after": [
+          98,
+          179,
+          154,
+          255
+        ],
+        "delta": [
+          -47,
+          -20,
+          -17,
+          0
+        ]
+      }
+    }
+  },
+  "pngVsRaw": {
+    "frame4": 0,
+    "frame5": 0,
+    "frame6": 0
+  },
+  "rawEvidence": {
+    "eachDimensions": [
+      390,
+      844
+    ],
+    "eachBytes": 1316640,
+    "format": "RGBA8 row-major",
+    "colorSpace": "srgb",
+    "frame4Sha256": "83ee6554351d7f23ebbe61099fbf255805ecaaa885d09c3de592104e9f851998",
+    "frame5Sha256": "83ee6554351d7f23ebbe61099fbf255805ecaaa885d09c3de592104e9f851998",
+    "frame6Sha256": "23afe21220a1eb8ac3cd2c2da4eb0d284245af55578c1099740360e35e5bc964"
+  },
+  "hashVerification": {
+    "protectedFilesChecked": 256,
+    "protectedBeforeEqualsProtectedAfter": true,
+    "allProtectedHashesMatch": true,
+    "pngBytesAndHashesChecked": 7,
+    "rawBytesAndHashesChecked": 3,
+    "scriptSha256": "52c00393e65a2d71314c068b24d783f4ebc49b268de85c35e472cae841df2ba3",
+    "scriptMatchesReport": true,
+    "reportComputedSha256": "89cf8cfe1680e62c207d364f3f31a7dc0cdc3f190892d6a9e8b6f1aa9b483a58",
+    "mismatches": []
+  },
+  "strictRecords": {
+    "normalization": "Only per-render draw.renderToken removed; frame index/group excluded; complete commands/states/captures/context/UI/state/RNG/elapsed/view/HUD/feedback compared",
+    "strictDiff": [],
+    "traceReferenceErrors": [],
+    "eachCommandCount": 395,
+    "eachStateTableCount": 74,
+    "eachTransformCount": 33,
+    "originalPlayerCalls": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "interceptedPlayerCalls": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "eachStackDepth": 0,
+    "anyStackUnderflow": false,
+    "eachClipCalls": 0,
+    "segmentCounts": {
+      "other": 312,
+      "player": 58,
+      "candidate": 1,
+      "feedback": 19,
+      "annotation": 5
+    },
+    "annotationTail": [
+      "save",
+      "setTransform",
+      "fillRect",
+      "fillText",
+      "restore"
+    ],
+    "eachDrawImageCalls": 3,
+    "eachMeasureTextCalls": 1,
+    "eachFillTextCalls": 10,
+    "eachStrokeTextCalls": 1,
+    "stateEntriesFinite": true,
+    "engineIntraFrameAndCrossFrameEqual": true,
+    "rngBeforeAndAfterEachFrame": 16,
+    "rendererElapsedBeforeAndAfterEachFrame": 1.0036999999955305,
+    "renderChecks": 31,
+    "consumerChecks": 6,
+    "allContextSnapshotsEqual": true,
+    "allUiSnapshotsEqual": true,
+    "uiStatic": {
+      "activeMotion": false,
+      "press": null,
+      "joy": null,
+      "input": {
+        "x": 0,
+        "y": 0
+      },
+      "running": false,
+      "frame": 0,
+      "renderDt": 0
+    },
+    "view": {
+      "left": 774,
+      "top": 987.323076923077,
+      "right": 1026,
+      "bottom": 1532.676923076923
+    },
+    "hudBounds": {
+      "left": 0,
+      "right": 390,
+      "top": 147,
+      "bottom": 742,
+      "invalid": false
+    }
+  },
+  "contextAttributes": {
+    "alpha": true,
+    "colorSpace": "srgb",
+    "colorType": "unorm8",
+    "desynchronized": false,
+    "toneMapping": {
+      "mode": "standard"
+    },
+    "willReadFrequently": false
+  },
+  "sourceAudit": {
+    "objectRefs": [
+      {
+        "ref": 0,
+        "file": "prototype-2d/assets/hero-wukong-battle-v3-sheet.png",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "sha256": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127"
+      },
+      {
+        "ref": 1,
+        "file": "evidence/current/tiger-vanguard/candidate-v1-sheet.png",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "sha256": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824"
+      },
+      {
+        "ref": 2,
+        "file": "prototype-2d/assets/weapon-skill-wukong.svg",
+        "dimensions": [
+          128,
+          128
+        ],
+        "sha256": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27"
+      }
+    ],
+    "allCurrentLocalSourceHashesMatch": true,
+    "recordedHttpRefs": [
+      0,
+      2
+    ],
+    "recordedHttpStatuses": [
+      200,
+      200
+    ],
+    "recordedHttpActualExpectedLocalHashesConsistent": true,
+    "independentNewHttpRequestPerformed": false,
+    "candidateLoadedFromLockedDataUrl": true,
+    "unknownSourceOrUnsupportedErrors": []
+  },
+  "readSequence": {
+    "frameIndices": [
+      1,
+      2,
+      3,
+      4,
+      4,
+      5,
+      5,
+      6,
+      6
+    ],
+    "kinds": [
+      "main-toDataURL",
+      "main-toDataURL",
+      "main-toDataURL",
+      "main-toDataURL",
+      "main-getImageData",
+      "main-toDataURL",
+      "main-getImageData",
+      "main-toDataURL",
+      "main-getImageData"
+    ],
+    "sequenceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "allOutsideRender": true
+  },
+  "failedGate": "allSixPngPixelsStable",
+  "recordedCleanup": {
+    "qualification": "Record and script reviewed; not independent process observation",
+    "hookReferenceRestorationChecked": true,
+    "disposed": true,
+    "contextClosed": true,
+    "browserClosed": true,
+    "serverClosed": true,
+    "pixelAnalysisAfterBrowserClosed": true
+  },
+  "errorCounts": {
+    "fixture": 0,
+    "page": 0,
+    "consoleErrors": 0,
+    "requests": 0,
+    "http": 0,
+    "external": 0
+  },
+  "visualReview": {
+    "viewed": [
+      "frame-5-png-plus-getImageData.png",
+      "frame-6-png-plus-getImageData.png"
+    ],
+    "playerStillOccluded": true
+  },
+  "limitations": [
+    "No-proxy repeated main bitmap FAIL occurs despite identical recorded source/commands/CTM/styles; this does not prove getImageData or backend is the cause.",
+    "PNG-only is itself readback; groups are sequential and subject to prior draws/export/read history and heat-up.",
+    "Context attrs unchanged do not identify actual GPU/CPU backend; console warnings not collected.",
+    "Property assignments are sampled at method entries, not independently setter-traced; initial native path/clip/stack not fully directly observable.",
+    "Explicit accelerated 300s hit26 fixture, not natural five-minute gameplay; no depth/art/runtime/highFrame/FPS/public/release approval.",
+    "Different run seed/facing/elapsed/RNG can prevent direct cross-run pixel attribution."
+  ],
+  "nextSafeStep": "Preserve this FAIL and matching script; future one-window evidence-only same-depth original-transform-chain mirror control with all main.getImageData removed, six original-player-once frames, complete main/annotation/source trace and deferred Node PNG decoding; proxies remain raster proxies and get separate trace/read logs. No main context/reset/threshold changes, no depth restoration, no causal or production approval."
+}

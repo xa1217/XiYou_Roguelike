@@ -1,0 +1,142 @@
+{
+  "fullRun": [
+    {
+      "character": "wukong",
+      "stage": 1,
+      "seconds": 600,
+      "frames": 12000,
+      "level": 25,
+      "upgrades": 24,
+      "kills": 1026,
+      "max": {
+        "enemies": 33,
+        "projectiles": 9,
+        "effects": 33,
+        "gems": 17
+      },
+      "status": "won",
+      "pools": {
+        "created": {
+          "projectile": 9,
+          "effect": 33,
+          "gem": 17
+        },
+        "reused": {
+          "projectile": 121,
+          "effect": 2364,
+          "gem": 1283
+        },
+        "released": {
+          "projectile": 130,
+          "effect": 2387,
+          "gem": 1294
+        }
+      },
+      "wallMs": 311
+    },
+    {
+      "character": "tangseng",
+      "stage": 25,
+      "seconds": 600.05,
+      "frames": 12000,
+      "level": 24,
+      "upgrades": 23,
+      "kills": 1042,
+      "max": {
+        "enemies": 21,
+        "projectiles": 61,
+        "effects": 23,
+        "gems": 69
+      },
+      "status": "won",
+      "pools": {
+        "created": {
+          "projectile": 61,
+          "effect": 23,
+          "gem": 69
+        },
+        "reused": {
+          "projectile": 6411,
+          "effect": 714,
+          "gem": 1271
+        },
+        "released": {
+          "projectile": 6441,
+          "effect": 730,
+          "gem": 1274
+        }
+      },
+      "wallMs": 691
+    },
+    {
+      "character": "bajie",
+      "stage": 49,
+      "seconds": 600.05,
+      "frames": 12000,
+      "level": 23,
+      "upgrades": 22,
+      "kills": 1046,
+      "max": {
+        "enemies": 18,
+        "projectiles": 45,
+        "effects": 32,
+        "gems": 140
+      },
+      "status": "won",
+      "pools": {
+        "created": {
+          "projectile": 45,
+          "effect": 32,
+          "gem": 142
+        },
+        "reused": {
+          "projectile": 5591,
+          "effect": 6226,
+          "gem": 1180
+        },
+        "released": {
+          "projectile": 5607,
+          "effect": 6255,
+          "gem": 1180
+        }
+      },
+      "wallMs": 615
+    },
+    {
+      "character": "wujing",
+      "stage": 73,
+      "seconds": 600.05,
+      "frames": 12000,
+      "level": 24,
+      "upgrades": 23,
+      "kills": 1015,
+      "max": {
+        "enemies": 58,
+        "projectiles": 8,
+        "effects": 17,
+        "gems": 42
+      },
+      "status": "won",
+      "pools": {
+        "created": {
+          "projectile": 8,
+          "effect": 17,
+          "gem": 43
+        },
+        "reused": {
+          "projectile": 106,
+          "effect": 2013,
+          "gem": 1280
+        },
+        "released": {
+          "projectile": 110,
+          "effect": 2022,
+          "gem": 1316
+        }
+      },
+      "wallMs": 329
+    }
+  ],
+  "stages": 81,
+  "verdict": "PASS: four real 600-second timelines plus victory and caps"
+}

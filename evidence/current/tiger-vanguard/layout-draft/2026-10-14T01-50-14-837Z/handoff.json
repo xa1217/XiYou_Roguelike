@@ -1,0 +1,225 @@
+{
+  "generatedAt": "2026-10-14T01:57:19.813Z",
+  "result": "REVIEW_EVIDENCE_ONLY_STABLE_OWN_BAR_LAYOUT",
+  "overall": "NOT_READY",
+  "evidenceDirectory": "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z",
+  "scope": "Evidence-only fixed-source layout and local pointer UI then accelerated/reposition/direct-damage/partial-subsystem fixture; no natural survival, production integration, motion/FPS/public acceptance.",
+  "files": {
+    "review": "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/review.md",
+    "node": "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/node.json",
+    "browser": "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/browser.json",
+    "layout": "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/layout-draft.json",
+    "postTestIntegrity": "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/post-test-integrity.json"
+  },
+  "hashes": {
+    "scripts/tiger-vanguard-layout-draft.mjs": "5ab6d88850f62ce36388e72155a526c79844b13fbc79a4a83b5466c458bc9cd9",
+    "scripts/tiger-vanguard-layout-smoke.mjs": "98d18af30990bb736945cbe965b1c091d726ba888d61e577e7c0107bf8b3c2f3",
+    "scripts/browser-tiger-vanguard-layout-draft.mjs": "fc22ae52ee2462396e3e2bde7cb2c3f9443b792478da0c1e6885877dc43689a1",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/layout-draft.json": "35cc74c1353e0004948cf1c3c3dca72c23bc66bb27ea69dbd30d7a18a345023c",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/node.json": "3479e64f9abc36cb980f3ce5603d081a842588b923488247de472cd412922603",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/browser.json": "9da917c7e2bc38fc60233fac3e1880f5d8f4be0bdaf3745f33f582787fdef5fe",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/npm-test.txt": "ee60f3ad603bc0ec9b045a950c2d61d65ad753e5a5abcbbd5875dc042018d487",
+    "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/npm-validation.json": "b7f1f59e57b7170e7e13bab536f86994c29cfd4bf64ea641b9ab3b8ae826b613"
+  },
+  "node": {
+    "geometryChecks": 192,
+    "aliveBarChecks": 168,
+    "sourcePoseCount": 32,
+    "facings": [
+      -1,
+      1
+    ],
+    "radii": [
+      7,
+      25,
+      72
+    ],
+    "scope": "Rectangle math, not pixels or motion; direct independent proxy L/R/T equations, other bounds via containment/clearance"
+  },
+  "formula": {
+    "ground": "y + .7r",
+    "standingHeight": "3.2r",
+    "fixedSourceReferences": {
+      "v1": 170,
+      "patch": 443
+    },
+    "aliveDrawTopRelativeEnemyYInRadii": -2.932941176470588,
+    "aliveVisibleAlpha8TopRelativeEnemyYInRadii": -2.895294117647059,
+    "stableGapWorld": 4,
+    "barWidth": "max(20,2.3r)",
+    "barHeight": "max(3,.08w)",
+    "barTop": "aliveDrawUnionTop - gapWorld - barHeight",
+    "barOffsetWorldAtR25": 81.9235294117647,
+    "barUpwardChangeWorldAtR25": 35.6735294117647,
+    "attack18ConservativeEnvelopeOnly": true,
+    "authorPivotsApproved": false,
+    "fullDrawCropIncludesTransparentGuard": true,
+    "visibleRectIsHistoricalAlpha8Proxy": true
+  },
+  "browser": {
+    "generatedAt": "2026-10-14T01:54:15.003Z",
+    "finishedAt": "2026-10-14T01:54:21.082Z",
+    "freshRealPointerUi": true,
+    "debug": false,
+    "uiTime": 1.0015,
+    "rendererMode": "vector",
+    "artMode": "authoredFrames",
+    "memoryHooksOnly": true,
+    "partialSubsystemFixture": true,
+    "naturalFiveMinuteSurvival": false,
+    "renderChecks": 53,
+    "consumerChecks": 8,
+    "rngCalls": 32,
+    "sourceIndices": {
+      "move": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "hit": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "death": [
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    "comparisons": [
+      {
+        "name": "world-start-move",
+        "at": 300,
+        "index": 8,
+        "facing": -1,
+        "actualHitTimer": 0,
+        "visualHitRemainingMs": 0,
+        "changedPixels": 1107,
+        "outsideBarMasks": 0,
+        "oldOverlapsProxy": true,
+        "newGapWorld": 13.88235294117635,
+        "barYDelta": -35.67352941176455,
+        "ratio": 1
+      },
+      {
+        "name": "world-follow-move",
+        "at": 300.39999999999964,
+        "index": 12,
+        "facing": -1,
+        "actualHitTimer": 0,
+        "visualHitRemainingMs": 0,
+        "changedPixels": 1417,
+        "outsideBarMasks": 0,
+        "oldOverlapsProxy": true,
+        "newGapWorld": 13.411764705882206,
+        "barYDelta": -35.67352941176455,
+        "ratio": 1
+      },
+      {
+        "name": "hit-after-actual-timer",
+        "at": 300.5749999999995,
+        "index": 26,
+        "facing": -1,
+        "actualHitTimer": 0,
+        "visualHitRemainingMs": 100.00000000013642,
+        "changedPixels": 1380,
+        "outsideBarMasks": 0,
+        "oldOverlapsProxy": true,
+        "newGapWorld": 17.176470588235134,
+        "barYDelta": -35.67352941176455,
+        "ratio": 0.9968253968253968
+      }
+    ],
+    "barMaskHaloPixels": 3,
+    "oldNewFullFramePixelDifferencesOnlyInBarMasks": true
+  },
+  "ownBodyClearanceAtObservedFixtures": true,
+  "observedOpenDefects": [
+    {
+      "kind": "NEW_BAR_DAMAGE_NUMBER_CONFLICT",
+      "file": "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/hit-after-actual-timer-after.png",
+      "description": "Raised bar y306.416–313.536 intersects damage number 1 upper edge/outline around y309/310; damage obstacle producer remains generic."
+    },
+    {
+      "kind": "PLAYER_BODY_OCCLUSION_REMAINS",
+      "file": "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/hit-after-actual-timer-after.png",
+      "description": "Candidate still covers most player body/shield; death overlap remains."
+    },
+    {
+      "kind": "VIEWPORT_CLIPPING_REMAINS",
+      "file": "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/world-start-move-after.png",
+      "description": "Candidate visible right446.807 and bar right409.732 exceed390px; follow visible right414.906 also exceeds390px."
+    }
+  ],
+  "damageObstacleGeometryUpdated": false,
+  "damageNumberReadabilityApproved": false,
+  "originalHpRatioWidthColorPreserved": true,
+  "bodyPoseScaleAndWorldPositionPreservedBetweenPairs": true,
+  "originalDeathTtlSeconds": 0.42,
+  "originalExpiryConfirmed": true,
+  "noDeathBar": true,
+  "actualHitTimerAtHitPair": 0,
+  "visualHitRemainingMsAtHitPair": 100,
+  "attackEventSupported": false,
+  "attackPreviewed": false,
+  "review": {
+    "rootStaticPngCount": 9,
+    "independentReviewer": "/root/incontext_evidence_audit",
+    "independentPairPngCount": 6,
+    "independentFormulaReview": true,
+    "continuousHumanMotionReview": false
+  },
+  "npmTest": {
+    "date": "2026-10-14T01:55:27.487Z",
+    "result": "PASS",
+    "exitCode": 0,
+    "log": "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/npm-test.txt",
+    "validation": "evidence/current/tiger-vanguard/layout-draft/2026-10-14T01-50-14-837Z/npm-validation.json",
+    "fullOutputChars": 49163,
+    "scope": "Fresh workspace Node/Canvas mock/platform regressions only"
+  },
+  "integrity": {
+    "protectedFiles": 156,
+    "changed": [],
+    "newScreenshots": 9,
+    "productionChanged": false,
+    "sourceImagesChanged": false,
+    "zipChanged": false
+  },
+  "cleanup": {
+    "hookReferenceRestorationChecked": true,
+    "disposed": true,
+    "contextClosed": true,
+    "browserClosed": true,
+    "serverClosed": true
+  },
+  "errors": {
+    "page": 0,
+    "console": 0,
+    "requestFailed": 0,
+    "http": 0,
+    "external": 0
+  },
+  "expiryLastDrawCaveat": "Snapshot at301.125 retains historical lastDraw at301.10 with TTL.02; PNG/effects/retained0, not lastDraw, establish expiry.",
+  "humanMotionReviewed": false,
+  "rootApproved": false,
+  "healthBarLayoutApproved": false,
+  "playerReadabilityApproved": false,
+  "viewportEdgeApproved": false,
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "fpsAcceptance": false,
+  "publicPass": false,
+  "releaseReady": false,
+  "newImagesGenerated": 0,
+  "newRecording": false,
+  "deploymentPerformed": false,
+  "publicTestThisRun": false,
+  "nextSafeStep": "Evidence-only damage-label finite obstacles must consume same candidate body/bar geometry; limited current-hit comparison, preserve value/style/TTL/gameplay/body world position, no player relocation, no suppressed numbers, no invented attack, production integration, generation, packaging or deployment."
+}

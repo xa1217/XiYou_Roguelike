@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-10-14T02:33:06.911Z",
+  "result": "PASS_POST_TEST_EVIDENCE_INTEGRITY_ONLY",
+  "protectedFilesChecked": 186,
+  "protectedChanged": [],
+  "protectedBeforeAfterEqual": true,
+  "newScreenshotsChecked": 6,
+  "screenshotChanged": [],
+  "screenshotSha256": {
+    "evidence/current/tiger-vanguard/player-outline-draft/2026-10-14T02-27-22-432Z/real-ui-before-fixture.png": "6c203a3b82f093e562db5e404c80e420ed99a95604bc9b4724226efd24c62f9f",
+    "evidence/current/tiger-vanguard/player-outline-draft/2026-10-14T02-27-22-432Z/hit26-without-player-hint.png": "9191b3bf7f0d0e2bbd487cec939a05413fe799ad289960c0d68f4674e259ae6d",
+    "evidence/current/tiger-vanguard/player-outline-draft/2026-10-14T02-27-22-432Z/hit26-with-player-hint.png": "9a76c1e71c6cc2b51ee6d0f07bb15d77c3749d124df8ed68d00cf5f03c1ea018",
+    "evidence/current/tiger-vanguard/player-outline-draft/2026-10-14T02-27-22-432Z/player-current-source-draw.png": "c87273671686ef231d5fc148a7ce4d6ebe0a58aac295b300a7d2c5953a44f3b4",
+    "evidence/current/tiger-vanguard/player-outline-draft/2026-10-14T02-27-22-432Z/candidate-current-source-draw.png": "a4355415469aa8615a8161b5753257b22ba008a4a8737e6aeef4bc5a13cc846c",
+    "evidence/current/tiger-vanguard/player-outline-draft/2026-10-14T02-27-22-432Z/occluded-player-inner-outline-mask.png": "fba3b4acc4cbe7d29312367a2de51d226c2f1083116cd0e45ac7c18fd5232ad0"
+  },
+  "scriptAndEvidenceSha256": {
+    "scripts/tiger-vanguard-player-outline-draft.mjs": "108062d61cb485a5a65be735df4422d36fbf197467986906289f8c617f63f2ea",
+    "scripts/tiger-vanguard-player-outline-smoke.mjs": "b5637414afa1df72d73c31e7ff7bcfd38f49a2dee1a9da82badc137bf839e35e",
+    "scripts/browser-tiger-vanguard-player-outline-draft.mjs": "58c21f86cb81ce9c2f7ddb122502f01cbe060417ba0ab89977ea528c3316e083",
+    "evidence/current/tiger-vanguard/player-outline-draft/2026-10-14T02-27-22-432Z/node.json": "2a7f37ba3d685b772f59647c8c3ef59f2fc2e3df2a8232309537aa11d01b4eb4",
+    "evidence/current/tiger-vanguard/player-outline-draft/2026-10-14T02-27-22-432Z/browser.json": "785db63b61c6aa126282c027c5ed8a49c87c73a5498b639a6a7c38c36872fdeb",
+    "evidence/current/tiger-vanguard/player-outline-draft/2026-10-14T02-27-22-432Z/npm-test.txt": "b0a3bb9ad939c996803829e0a404567a8f2460239dba8bfe7f9979d508b1d0fd",
+    "evidence/current/tiger-vanguard/player-outline-draft/2026-10-14T02-27-22-432Z/npm-validation.json": "934b60483ff2700c536db62a9bdcd32e425fa8956740a58e5b350f8818e1075b"
+  },
+  "freshNpmDate": "2026-10-14T02:30:57.261Z",
+  "freshNpmResult": "PASS",
+  "fullNpmLogWithoutTruncation": true,
+  "browserClosed": true,
+  "contextClosed": true,
+  "serverClosed": true,
+  "productionChanged": false,
+  "sourceImagesChanged": false,
+  "zipChanged": false,
+  "publicPass": false,
+  "releaseReady": false
+}

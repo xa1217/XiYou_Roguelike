@@ -1,0 +1,79 @@
+{
+  "generatedAt": "2026-10-11T05:13:47.993Z",
+  "result": "PASS",
+  "scope": "Local snake runtime handoff only; not final art, FPS, public internet, current archive acceptance or WeChat device",
+  "checks": {
+    "npmTest": true,
+    "nodeSnake": true,
+    "browserSnake": true,
+    "publicWorkspace": true,
+    "inventory": true,
+    "sourceHashes": true,
+    "oldArchives": true
+  },
+  "validationAt": "2026-10-11T05:03:26.474Z",
+  "snakeBrowserAt": "2026-10-11T05:05:07.488Z",
+  "snakeBrowserFinishedAt": "2026-10-11T05:05:11.017Z",
+  "publicWorkspaceAt": "2026-10-11T05:01:19.121Z",
+  "inventory": {
+    "files": 80,
+    "unique": 76,
+    "duplicates": 4,
+    "previousInventoryAssetsChangedOrMissing": [],
+    "newMedia": ["prototype-2d/assets/enemy-snake-battle-v3-sheet.png"]
+  },
+  "sourceHashes": [
+    {
+      "file": "prototype-2d/assets/enemy-snake-battle-v3-sheet.png",
+      "expected": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+      "actual": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+      "matches": true
+    },
+    {
+      "file": "prototype-2d/assets/enemy-snake-battle-v3-frames.json",
+      "expected": "5c75ff4ebfdd765c0fbe3b1087b992426b708ca7634e370a6b984690e201ca70",
+      "actual": "5c75ff4ebfdd765c0fbe3b1087b992426b708ca7634e370a6b984690e201ca70",
+      "matches": true
+    },
+    {
+      "file": "prototype-2d/src/snake-animation.js",
+      "expected": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13",
+      "actual": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13",
+      "matches": true
+    },
+    {
+      "file": "prototype-2d/src/renderer.js",
+      "expected": "4ca1aa9d83d05e77cdc558b53f3b9ff04f08603915e5543d69dfc92c63814dae",
+      "actual": "4ca1aa9d83d05e77cdc558b53f3b9ff04f08603915e5543d69dfc92c63814dae",
+      "matches": true
+    },
+    {
+      "file": "scripts/browser-snake-smoke.mjs",
+      "expected": "6d5d216b5b9ce9a48705b8772504070a2f2f93409cf4bd28b0f7077bb4d5d72f",
+      "actual": "6d5d216b5b9ce9a48705b8772504070a2f2f93409cf4bd28b0f7077bb4d5d72f",
+      "matches": true
+    }
+  ],
+  "archives": [
+    {
+      "file": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "sha256": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+      "unchanged": true
+    },
+    {
+      "file": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "sha256": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+      "unchanged": true
+    }
+  ],
+  "runtimeProjectionSha256": "a109b12cf30911487e99d02a3501e350c314e02dc19a3771c3a6322e597be493",
+  "boundary": {
+    "finalVisualApproved": false,
+    "publicInternetTested": false,
+    "currentArchivesRebuilt": false,
+    "currentArchiveBrowserTested": false,
+    "deployed": false,
+    "wechatDeviceTested": false
+  },
+  "environmentEvidence": "evidence/current/snake/environment-after-tests.json"
+}

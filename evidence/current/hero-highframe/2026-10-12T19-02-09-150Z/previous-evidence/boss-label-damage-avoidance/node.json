@@ -1,0 +1,58 @@
+{
+  "ok": true,
+  "generatedAt": "2026-10-12T18:36:37.950Z",
+  "tests": [
+    {
+      "name": "nearby damage moves outside the finite Boss nameplate rectangle",
+      "result": "PASS"
+    },
+    {
+      "name": "distant damage keeps its transform and does not count Boss avoidance",
+      "result": "PASS"
+    },
+    {
+      "name": "direct helper callers retain the legacy transform when Boss avoidance is omitted",
+      "result": "PASS"
+    },
+    {
+      "name": "candidate exhaustion draws in place and records an explicit unresolved Boss collision",
+      "result": "PASS"
+    },
+    {
+      "name": "Boss label array and damage slots remain bounded and release without actor references",
+      "result": "PASS"
+    }
+  ],
+  "totals": {
+    "tests": 5,
+    "passed": 5,
+    "failed": 0,
+    "repeatedFrozenFrames": 30
+  },
+  "runtime": {
+    "kind": "Node.js with deterministic Canvas command recording",
+    "nodeVersion": "v26.7.0"
+  },
+  "boundary": {
+    "realBrowser": false,
+    "pixelRendering": false,
+    "bodyAvoidance": false,
+    "healthBars": false,
+    "hudAvoidance": false,
+    "numberToNumberAvoidance": false,
+    "gpuPerformance": false,
+    "wechatDevice": false
+  },
+  "strategy": {
+    "obstacle": "laid-out Boss nameplate rectangle",
+    "candidates": [
+      "above",
+      "left",
+      "right",
+      "below"
+    ],
+    "gap": 4,
+    "unresolved": "draw original label and count damageBossUnresolved"
+  },
+  "note": "Renderer-only finite Boss-nameplate avoidance. This is not a pixel, HUD, number-to-number, or global occlusion guarantee."
+}

@@ -1,0 +1,9 @@
+{
+  "startedAt": "2026-10-15T16:51:00.053Z",
+  "finishedAt": "2026-10-15T16:51:00.055Z",
+  "command": "npm test",
+  "exitCode": null,
+  "error": "Error: spawnSync C:\\Program Files\\nodejs\\node.exe EPERM",
+  "outputCharacters": 0,
+  "scope": "LOCAL_TEST_ONLY_NOT_BROWSER_PUBLIC_OR_ART_ACCEPTANCE"
+}

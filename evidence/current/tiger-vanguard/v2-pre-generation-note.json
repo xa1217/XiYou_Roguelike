@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-10-11T06:38:55.126Z",
+  "scope": "Preparation only; no image generation in this heartbeat.",
+  "sourceCandidate": "evidence/current/tiger-vanguard/candidate-v1-sheet.png",
+  "sourceSha256": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+  "sourceResult": "REVIEW",
+  "failureReasons": [
+    "death row produced 7 connected regions instead of 8",
+    "31 unique frames instead of 32",
+    "edge clipping"
+  ],
+  "plannedBuiltInCalls": 1,
+  "productionIntegration": false,
+  "deploy": false,
+  "rateLimitPolicy": "Waited for a separate heartbeat; if generated, use one targeted repair only and stop on another REVIEW."
+}

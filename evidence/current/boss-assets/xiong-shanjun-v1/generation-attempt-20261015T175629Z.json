@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-10-15T17:56:29Z",
+  "assetId": "xiong-shanjun-v1",
+  "scope": "single serialized evidence-only generation attempt; no production write",
+  "requested": true,
+  "result": "FAILED_BEFORE_GENERATION",
+  "tool": "built-in image_gen",
+  "error": "HTTP 400 upstream_error: The gpt-5.5 model is not supported when using Codex with a ChatGPT account.",
+  "outputPath": null,
+  "productionAssetWrite": false,
+  "runtimeWrite": false,
+  "zipWrite": false,
+  "deploymentAttempted": false,
+  "fallbackNotUsed": true,
+  "fallbackNote": "CLI/API fallback requires explicit user confirmation and OPENAI_API_KEY; no automatic fallback was attempted.",
+  "nextSafeStep": "Wait for a supported built-in image model or explicit user authorization for the CLI/API fallback; do not reuse ordinary bear frames or connect an unpreflighted candidate."
+}

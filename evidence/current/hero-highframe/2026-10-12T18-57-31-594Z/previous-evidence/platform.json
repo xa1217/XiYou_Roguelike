@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "date": "2026-10-12T18:36:42.259Z",
+  "scope": "wx API simulation, not device",
+  "canvasCalls": 52100,
+  "framesAfterDispose": 0,
+  "audioNodes": 2
+}

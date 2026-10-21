@@ -1,0 +1,89 @@
+{
+  "generatedAt": "2026-10-13T03:45:21.474Z",
+  "scope": "NativeGame safe-area bottom=0 handling only; no art, renderer or engine changes",
+  "branch": "work/codex/xiyou-commercial",
+  "result": "PASS_LOCAL_BOUNDARY_REGRESSION",
+  "change": "Preserve explicit finite zero as an absolute CSS edge; absent/nullish/non-finite inputs fall back to viewport height. Invalid HUD band retains damage-label draws in place and counts unresolved; restoration re-enables normal layout.",
+  "evidence": {
+    "nodeBefore": "evidence/current/hud-occlusion/safe-area-zero-node-before.json",
+    "browserBefore": {
+      "path": "evidence/current/hud-occlusion/2026-10-13T03-40-45-508Z/browser.json",
+      "result": "FAIL",
+      "cases": 11,
+      "failedCases": [
+        "zero-bottom-360x640-dpr1"
+      ]
+    },
+    "browserAfter": {
+      "path": "evidence/current/hud-occlusion/2026-10-13T03-41-44-099Z/browser.json",
+      "result": "PASS",
+      "cases": 11,
+      "errors": {
+        "console": 0,
+        "page": 0,
+        "request": 0,
+        "http": 0
+      },
+      "browserClosed": true
+    },
+    "nodeAfter": {
+      "path": "evidence/current/hud-occlusion/node.json",
+      "generatedAt": "2026-10-13T03:41:21.706Z",
+      "result": "PASS",
+      "productionCases": 4,
+      "boundaryCases": 8,
+      "sha256": "d5fa1825eba70720c8effa0407135f590710e7053cd4218dc700b90c4df84c30"
+    },
+    "npmTest": {
+      "path": "evidence/current/validation.json",
+      "generatedAt": "2026-10-13T03:41:26.262Z",
+      "result": "PASS",
+      "sha256": "4fe439f13fdcf000cfeb1a0f5828341c788f925b7479f744241984995c80cbd9"
+    },
+    "generalBrowser": {
+      "path": "evidence/current/visual.json",
+      "generatedAt": "2026-10-13T03:42:38.459Z",
+      "result": "PASS",
+      "screenshots": 9,
+      "consoleErrors": 0,
+      "pageErrors": 0,
+      "requestErrors": "not collected",
+      "httpErrors": "not collected",
+      "sha256": "7373d9391daaa7250f41297cd9dfdf2b84657dbfd0921e7825e5126a1d57d345"
+    }
+  },
+  "sourceHashes": {
+    "prototype-2d/src/native-ui.js": "dd84edca168df81681667b76e897f54b347c42486166a72b1c143bcd2bcbbe5c",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/tests/hud-occlusion-smoke.mjs": "46bfca4535f50f3ced8bd8bd7c683b3159bf0505af5a1745a39dacbe3a69fa87",
+    "scripts/browser-hud-occlusion-smoke.mjs": "2d15ee50daeb26d65f4e00c4a6f131706f9af84fd2219c02152dfecbd2f67439"
+  },
+  "preservation": {
+    "protectedFiles": 70,
+    "scope": "Engine, asset root files including manifest, existing ZIPs, as listed in browser reports",
+    "beforeAfterCurrentHashesMatch": true,
+    "sameBrowserHarnessBeforeAfter": true,
+    "zipRebuilt": false,
+    "assetsGenerated": false,
+    "deployAuthorized": false,
+    "deployed": false
+  },
+  "cleanup": {
+    "checkedAt": "2026-10-13T03:43:35.931Z",
+    "port8088Listeners": 0,
+    "ownedServerStopped": true
+  },
+  "boundaries": {
+    "invalidFixtureIsPlayable": false,
+    "invalidFixtureGuaranteesVisibleLabels": false,
+    "note": "Zero-bottom fixture intentionally has no safe playable band. It only verifies retained draw calls, unchanged simulation, finite full-screen fail-closed obstacle, unresolved counters and successful recovery. Real browser DPR remains 2; DPR1/safe-area values are injected adapter fixtures.",
+    "globalOcclusionPass": false,
+    "modalOcclusionPass": false,
+    "pixelPerfectPass": false,
+    "fpsPass": false,
+    "publicPass": false,
+    "currentZipPass": false,
+    "wechatDevicePass": false,
+    "releaseReadiness": "NOT_READY"
+  }
+}

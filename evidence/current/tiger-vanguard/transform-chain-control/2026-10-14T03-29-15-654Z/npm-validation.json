@@ -1,0 +1,24 @@
+{
+  "startedAt": "2026-10-14 03:34:10 UTC",
+  "finishedAt": "2026-10-14 03:34:18 UTC",
+  "command": "npm test",
+  "exitCode": 0,
+  "result": "PASS",
+  "scope": "Fresh workspace regression after the final chain-control evidence script and its failing real Edge control. This does not execute the control as an npm acceptance gate or override browser FAIL; no depth/artistic/natural gameplay/high-frame/FPS/public/current-ZIP/device approval.",
+  "fullOutputFile": "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/npm-test.txt",
+  "outputCharacters": 49163,
+  "originalTokenCount": 12295,
+  "outputTruncated": false,
+  "evidenceScriptSyntaxChecked": true,
+  "buildMayRefreshDerivedEntrypoints": true,
+  "releaseZipRebuilt": false,
+  "publicRetested": false,
+  "publicPass": false,
+  "firstCapture": {
+    "startedAt": "2026-10-14 03:33:31 UTC",
+    "outputFile": "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/npm-test-first-capture.txt",
+    "outputCharacters": 49161,
+    "commandExitCodeNotRetained": true,
+    "orchestrationError": "Unable to store undefined chainNpmSession after command completion. The first full output ended with VALIDATE PASS, but exit metadata was not retained. npm test was rerun to capture exitCode 0 unambiguously; no browser rerun."
+  }
+}

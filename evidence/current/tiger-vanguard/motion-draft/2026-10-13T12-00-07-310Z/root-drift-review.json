@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-10-13T13:11:00.679Z",
+  "result": "REVIEW_STATIC_ROOT_LINES_AND_FRAME_DRIFT",
+  "source": {
+    "browserReport": "browser.json",
+    "draft": "motion-draft.json",
+    "candidateTable": "../full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json",
+    "renderScale": 64,
+    "meaning": "alpha-centroid transition deltas are a visual drift diagnostic; they are not anatomical root measurements or a quality score"
+  },
+  "humanStaticReview": {
+    "screenshots": ["registration-64-right.png", "registration-48-left.png", "playback-final-held-death.png"],
+    "observations": [
+      "idle draft pivots keep the standing bodies on one ground line; small weapon/tail centroid motion remains",
+      "move draft keeps each frame on the state line while frame13 visibly retains an airborne gap",
+      "attack draft keeps a common registration line, while sword and torso changes create real pose motion",
+      "hit draft is visually compact around the line; no static crop jump was accepted as a pass",
+      "death frames stay on their per-frame visible-bottom line while the blade is included in that proxy; this is not anatomical foot contact"
+    ],
+    "dynamicMotionReviewed": false,
+    "gameplayReviewed": false
+  },
+  "transitionsAt64px": [
+    { "state": "idle", "count": 8, "maxAbsDraftDx": 1.001, "maxAbsDraftDy": 0.705, "maxAbsControlDx": 1.632, "maxAbsControlDy": 0.394 },
+    { "state": "move", "count": 8, "maxAbsDraftDx": 5.931, "maxAbsDraftDy": 3.007, "maxAbsControlDx": 4.331, "maxAbsControlDy": 2.475 },
+    { "state": "attack", "count": 7, "maxAbsDraftDx": 7.549, "maxAbsDraftDy": 6.659, "maxAbsControlDx": 4.342, "maxAbsControlDy": 7.789 },
+    { "state": "hit", "count": 3, "maxAbsDraftDx": 1.284, "maxAbsDraftDy": 1.453, "maxAbsControlDx": 9.203, "maxAbsControlDy": 3.335 },
+    { "state": "death", "count": 3, "maxAbsDraftDx": 5.373, "maxAbsDraftDy": 6.990, "maxAbsControlDx": 3.436, "maxAbsControlDy": 6.990 }
+  ],
+  "gates": {
+    "rootApproved": false,
+    "highFrameApproved": false,
+    "runtimeApproved": false,
+    "publicPass": false,
+    "nextReview": "Use an in-context game scene to check body contact, facing, health bars and attack readability before considering an isolated runtime adapter."
+  }
+}

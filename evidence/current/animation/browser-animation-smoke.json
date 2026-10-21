@@ -1,0 +1,3124 @@
+{
+  "generatedAt": "2026-10-10T08:34:57.596Z",
+  "url": "http://127.0.0.1:8091/",
+  "viewport": "390x844 DPR1",
+  "screenshots": [
+    {
+      "name": "battle-resource-ready-390x844",
+      "file": "evidence\\current\\animation\\battle-resource-ready-390x844.png",
+      "bytes": 35092,
+      "sha256": "b103c05ef5064928256f3fe7468d06f015fa217a2ff9a2b7326514d224ab28e5"
+    },
+    {
+      "name": "normal-gameplay-20s-390x844",
+      "file": "evidence\\current\\animation\\normal-gameplay-20s-390x844.png",
+      "bytes": 72579,
+      "sha256": "4b3b715d3bef8cfc7a04f3465bba3db6e74ef687674879bd67f8b919090de310"
+    },
+    {
+      "name": "accelerated-gameplay-60s-390x844",
+      "file": "evidence\\current\\animation\\accelerated-gameplay-60s-390x844.png",
+      "bytes": 17868,
+      "sha256": "b550d2c2c70ca7147f9f7ed8e7a85396722a89994cca245911a18b5ce1efaa2b"
+    }
+  ],
+  "loadedBeforeBattle": {
+    "screen": "game",
+    "status": "playing",
+    "time": 0.4835,
+    "kills": 0,
+    "level": 1,
+    "xp": 0,
+    "player": {
+      "animationState": "idle",
+      "frameIndex": 2,
+      "pose": null,
+      "animationFrames": 6
+    },
+    "heroes": {
+      "wukong": {
+        "src": "http://127.0.0.1:8091/assets/hero-wukong-battle-v3-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": true,
+        "battleFrameContract": {
+          "id": "wukong",
+          "cols": 4,
+          "rows": 2,
+          "fps": {
+            "idle": 8,
+            "move": 12,
+            "attack": 16,
+            "hit": 18,
+            "stun": 8,
+            "dash": 18,
+            "intro": 12,
+            "death": 14
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.88
+          }
+        },
+        "sourceRects": null
+      },
+      "tangsanzang": {
+        "src": "http://127.0.0.1:8091/assets/hero-tangseng-battle-v3-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": true,
+        "battleFrameContract": {
+          "id": "tangsanzang",
+          "cols": 4,
+          "rows": 2,
+          "fps": {
+            "idle": 8,
+            "move": 12,
+            "attack": 16,
+            "hit": 18,
+            "stun": 8,
+            "dash": 18,
+            "intro": 12,
+            "death": 14
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.88
+          }
+        },
+        "sourceRects": null
+      },
+      "bajie": {
+        "src": "http://127.0.0.1:8091/assets/hero-bajie-battle-v3-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": true,
+        "battleFrameContract": {
+          "id": "bajie",
+          "cols": 4,
+          "rows": 2,
+          "fps": {
+            "idle": 8,
+            "move": 12,
+            "attack": 16,
+            "hit": 18,
+            "stun": 8,
+            "dash": 18,
+            "intro": 12,
+            "death": 14
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.88
+          }
+        },
+        "sourceRects": null
+      },
+      "shajing": {
+        "src": "http://127.0.0.1:8091/assets/hero-wujing-battle-v3-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": true,
+        "battleFrameContract": {
+          "id": "shajing",
+          "cols": 4,
+          "rows": 2,
+          "fps": {
+            "idle": 8,
+            "move": 12,
+            "attack": 16,
+            "hit": 18,
+            "stun": 8,
+            "dash": 18,
+            "intro": 12,
+            "death": 14
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.88
+          }
+        },
+        "sourceRects": null
+      }
+    },
+    "skills": {
+      "weapon:wukong": {
+        "src": "http://127.0.0.1:8091/assets/weapon-skill-wukong.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "weapon:tangsanzang": {
+        "src": "http://127.0.0.1:8091/assets/weapon-skill-tangseng.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "weapon:bajie": {
+        "src": "http://127.0.0.1:8091/assets/weapon-skill-bajie.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "weapon:shajing": {
+        "src": "http://127.0.0.1:8091/assets/weapon-skill-wujing.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "purple-gourd": {
+        "src": "http://127.0.0.1:8091/assets/artifact-purple-gourd.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "iron-fan": {
+        "src": "http://127.0.0.1:8091/assets/artifact-iron-fan.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "diamond-snare": {
+        "src": "http://127.0.0.1:8091/assets/artifact-diamond-snare.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "nine-dragon": {
+        "src": "http://127.0.0.1:8091/assets/artifact-nine-dragon.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "lotus-lantern": {
+        "src": "http://127.0.0.1:8091/assets/artifact-lotus-lantern.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "golden-rope": {
+        "src": "http://127.0.0.1:8091/assets/artifact-golden-rope.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "moon-mirror": {
+        "src": "http://127.0.0.1:8091/assets/artifact-moon-mirror.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "samadhi-fire": {
+        "src": "http://127.0.0.1:8091/assets/artifact-samadhi-fire.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      }
+    },
+    "enemies": {
+      "creature": {
+        "src": "http://127.0.0.1:8091/assets/enemy-creature.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "brute": {
+        "src": "http://127.0.0.1:8091/assets/enemy-brute.svg",
+        "naturalWidth": 160,
+        "naturalHeight": 160,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "bird": {
+        "src": "http://127.0.0.1:8091/assets/enemy-bird.svg",
+        "naturalWidth": 144,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "spider": {
+        "src": "http://127.0.0.1:8091/assets/enemy-spider.svg",
+        "naturalWidth": 150,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "boss": {
+        "src": "http://127.0.0.1:8091/assets/enemy-boss.svg",
+        "naturalWidth": 220,
+        "naturalHeight": 220,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "tiger": {
+        "src": "http://127.0.0.1:8091/assets/enemy-tiger-battle-v1-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "bear": {
+        "src": "http://127.0.0.1:8091/assets/enemy-bear-battle-v1-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "bull": {
+        "src": "http://127.0.0.1:8091/assets/enemy-bull-battle-v1-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      }
+    },
+    "maps": {
+      "forest": {},
+      "temple": {},
+      "doublefork": {}
+    },
+    "renderer": {
+      "mapAssetDraws": 0,
+      "elapsed": 0.4835,
+      "battleArtMode": "authoredFrames",
+      "battleSceneMode": "vector"
+    },
+    "uiMotion": {
+      "key": "game:playing",
+      "sequence": 3,
+      "frameIndex": 0,
+      "elapsedMs": 0,
+      "progress": 1,
+      "eased": 1,
+      "active": false,
+      "pressActive": false,
+      "reducedMotion": false,
+      "selectedCharacter": "tangseng"
+    }
+  },
+  "resources": {
+    "screen": "game",
+    "status": "playing",
+    "time": 60.03129999999546,
+    "kills": 40,
+    "level": 3,
+    "xp": 23,
+    "player": {
+      "animationState": "hit",
+      "frameIndex": 3,
+      "pose": null,
+      "animationFrames": 4
+    },
+    "heroes": {
+      "wukong": {
+        "src": "http://127.0.0.1:8091/assets/hero-wukong-battle-v3-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": true,
+        "battleFrameContract": {
+          "id": "wukong",
+          "cols": 4,
+          "rows": 2,
+          "fps": {
+            "idle": 8,
+            "move": 12,
+            "attack": 16,
+            "hit": 18,
+            "stun": 8,
+            "dash": 18,
+            "intro": 12,
+            "death": 14
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.88
+          }
+        },
+        "sourceRects": null
+      },
+      "tangsanzang": {
+        "src": "http://127.0.0.1:8091/assets/hero-tangseng-battle-v3-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": true,
+        "battleFrameContract": {
+          "id": "tangsanzang",
+          "cols": 4,
+          "rows": 2,
+          "fps": {
+            "idle": 8,
+            "move": 12,
+            "attack": 16,
+            "hit": 18,
+            "stun": 8,
+            "dash": 18,
+            "intro": 12,
+            "death": 14
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.88
+          }
+        },
+        "sourceRects": null
+      },
+      "bajie": {
+        "src": "http://127.0.0.1:8091/assets/hero-bajie-battle-v3-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": true,
+        "battleFrameContract": {
+          "id": "bajie",
+          "cols": 4,
+          "rows": 2,
+          "fps": {
+            "idle": 8,
+            "move": 12,
+            "attack": 16,
+            "hit": 18,
+            "stun": 8,
+            "dash": 18,
+            "intro": 12,
+            "death": 14
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.88
+          }
+        },
+        "sourceRects": null
+      },
+      "shajing": {
+        "src": "http://127.0.0.1:8091/assets/hero-wujing-battle-v3-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": true,
+        "battleFrameContract": {
+          "id": "shajing",
+          "cols": 4,
+          "rows": 2,
+          "fps": {
+            "idle": 8,
+            "move": 12,
+            "attack": 16,
+            "hit": 18,
+            "stun": 8,
+            "dash": 18,
+            "intro": 12,
+            "death": 14
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.88
+          }
+        },
+        "sourceRects": null
+      }
+    },
+    "skills": {
+      "weapon:wukong": {
+        "src": "http://127.0.0.1:8091/assets/weapon-skill-wukong.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "weapon:tangsanzang": {
+        "src": "http://127.0.0.1:8091/assets/weapon-skill-tangseng.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "weapon:bajie": {
+        "src": "http://127.0.0.1:8091/assets/weapon-skill-bajie.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "weapon:shajing": {
+        "src": "http://127.0.0.1:8091/assets/weapon-skill-wujing.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "purple-gourd": {
+        "src": "http://127.0.0.1:8091/assets/artifact-purple-gourd.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "iron-fan": {
+        "src": "http://127.0.0.1:8091/assets/artifact-iron-fan.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "diamond-snare": {
+        "src": "http://127.0.0.1:8091/assets/artifact-diamond-snare.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "nine-dragon": {
+        "src": "http://127.0.0.1:8091/assets/artifact-nine-dragon.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "lotus-lantern": {
+        "src": "http://127.0.0.1:8091/assets/artifact-lotus-lantern.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "golden-rope": {
+        "src": "http://127.0.0.1:8091/assets/artifact-golden-rope.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "moon-mirror": {
+        "src": "http://127.0.0.1:8091/assets/artifact-moon-mirror.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "samadhi-fire": {
+        "src": "http://127.0.0.1:8091/assets/artifact-samadhi-fire.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      }
+    },
+    "enemies": {
+      "creature": {
+        "src": "http://127.0.0.1:8091/assets/enemy-creature.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "brute": {
+        "src": "http://127.0.0.1:8091/assets/enemy-brute.svg",
+        "naturalWidth": 160,
+        "naturalHeight": 160,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "bird": {
+        "src": "http://127.0.0.1:8091/assets/enemy-bird.svg",
+        "naturalWidth": 144,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "spider": {
+        "src": "http://127.0.0.1:8091/assets/enemy-spider.svg",
+        "naturalWidth": 150,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "boss": {
+        "src": "http://127.0.0.1:8091/assets/enemy-boss.svg",
+        "naturalWidth": 220,
+        "naturalHeight": 220,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "tiger": {
+        "src": "http://127.0.0.1:8091/assets/enemy-tiger-battle-v1-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "bear": {
+        "src": "http://127.0.0.1:8091/assets/enemy-bear-battle-v1-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "bull": {
+        "src": "http://127.0.0.1:8091/assets/enemy-bull-battle-v1-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      }
+    },
+    "maps": {
+      "forest": {},
+      "temple": {},
+      "doublefork": {}
+    },
+    "renderer": {
+      "mapAssetDraws": 0,
+      "elapsed": 20.95119999998796,
+      "battleArtMode": "authoredFrames",
+      "battleSceneMode": "vector"
+    },
+    "uiMotion": {
+      "key": "game:playing",
+      "sequence": 5,
+      "frameIndex": 0,
+      "elapsedMs": 0,
+      "progress": 1,
+      "eased": 1,
+      "active": false,
+      "pressActive": false,
+      "reducedMotion": false,
+      "selectedCharacter": "tangseng"
+    }
+  },
+  "realtime": {
+    "screen": "game",
+    "status": "playing",
+    "time": 21.046499999999877,
+    "kills": 5,
+    "level": 1,
+    "xp": 8,
+    "player": {
+      "animationState": "hit",
+      "frameIndex": 1,
+      "pose": null,
+      "animationFrames": 4
+    },
+    "heroes": {
+      "wukong": {
+        "src": "http://127.0.0.1:8091/assets/hero-wukong-battle-v3-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": true,
+        "battleFrameContract": {
+          "id": "wukong",
+          "cols": 4,
+          "rows": 2,
+          "fps": {
+            "idle": 8,
+            "move": 12,
+            "attack": 16,
+            "hit": 18,
+            "stun": 8,
+            "dash": 18,
+            "intro": 12,
+            "death": 14
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.88
+          }
+        },
+        "sourceRects": null
+      },
+      "tangsanzang": {
+        "src": "http://127.0.0.1:8091/assets/hero-tangseng-battle-v3-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": true,
+        "battleFrameContract": {
+          "id": "tangsanzang",
+          "cols": 4,
+          "rows": 2,
+          "fps": {
+            "idle": 8,
+            "move": 12,
+            "attack": 16,
+            "hit": 18,
+            "stun": 8,
+            "dash": 18,
+            "intro": 12,
+            "death": 14
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.88
+          }
+        },
+        "sourceRects": null
+      },
+      "bajie": {
+        "src": "http://127.0.0.1:8091/assets/hero-bajie-battle-v3-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": true,
+        "battleFrameContract": {
+          "id": "bajie",
+          "cols": 4,
+          "rows": 2,
+          "fps": {
+            "idle": 8,
+            "move": 12,
+            "attack": 16,
+            "hit": 18,
+            "stun": 8,
+            "dash": 18,
+            "intro": 12,
+            "death": 14
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.88
+          }
+        },
+        "sourceRects": null
+      },
+      "shajing": {
+        "src": "http://127.0.0.1:8091/assets/hero-wujing-battle-v3-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": true,
+        "battleFrameContract": {
+          "id": "shajing",
+          "cols": 4,
+          "rows": 2,
+          "fps": {
+            "idle": 8,
+            "move": 12,
+            "attack": 16,
+            "hit": 18,
+            "stun": 8,
+            "dash": 18,
+            "intro": 12,
+            "death": 14
+          },
+          "pivot": {
+            "x": 0.5,
+            "y": 0.88
+          }
+        },
+        "sourceRects": null
+      }
+    },
+    "skills": {
+      "weapon:wukong": {
+        "src": "http://127.0.0.1:8091/assets/weapon-skill-wukong.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "weapon:tangsanzang": {
+        "src": "http://127.0.0.1:8091/assets/weapon-skill-tangseng.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "weapon:bajie": {
+        "src": "http://127.0.0.1:8091/assets/weapon-skill-bajie.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "weapon:shajing": {
+        "src": "http://127.0.0.1:8091/assets/weapon-skill-wujing.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "purple-gourd": {
+        "src": "http://127.0.0.1:8091/assets/artifact-purple-gourd.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "iron-fan": {
+        "src": "http://127.0.0.1:8091/assets/artifact-iron-fan.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "diamond-snare": {
+        "src": "http://127.0.0.1:8091/assets/artifact-diamond-snare.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "nine-dragon": {
+        "src": "http://127.0.0.1:8091/assets/artifact-nine-dragon.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "lotus-lantern": {
+        "src": "http://127.0.0.1:8091/assets/artifact-lotus-lantern.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "golden-rope": {
+        "src": "http://127.0.0.1:8091/assets/artifact-golden-rope.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "moon-mirror": {
+        "src": "http://127.0.0.1:8091/assets/artifact-moon-mirror.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "samadhi-fire": {
+        "src": "http://127.0.0.1:8091/assets/artifact-samadhi-fire.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      }
+    },
+    "enemies": {
+      "creature": {
+        "src": "http://127.0.0.1:8091/assets/enemy-creature.svg",
+        "naturalWidth": 128,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "brute": {
+        "src": "http://127.0.0.1:8091/assets/enemy-brute.svg",
+        "naturalWidth": 160,
+        "naturalHeight": 160,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "bird": {
+        "src": "http://127.0.0.1:8091/assets/enemy-bird.svg",
+        "naturalWidth": 144,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "spider": {
+        "src": "http://127.0.0.1:8091/assets/enemy-spider.svg",
+        "naturalWidth": 150,
+        "naturalHeight": 128,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "boss": {
+        "src": "http://127.0.0.1:8091/assets/enemy-boss.svg",
+        "naturalWidth": 220,
+        "naturalHeight": 220,
+        "complete": true,
+        "priority": false,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "tiger": {
+        "src": "http://127.0.0.1:8091/assets/enemy-tiger-battle-v1-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "bear": {
+        "src": "http://127.0.0.1:8091/assets/enemy-bear-battle-v1-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      },
+      "bull": {
+        "src": "http://127.0.0.1:8091/assets/enemy-bull-battle-v1-sheet.png",
+        "naturalWidth": 1774,
+        "naturalHeight": 887,
+        "complete": true,
+        "priority": true,
+        "v2": false,
+        "v3": false,
+        "battleFrameContract": null,
+        "sourceRects": null
+      }
+    },
+    "maps": {
+      "forest": {},
+      "temple": {},
+      "doublefork": {}
+    },
+    "renderer": {
+      "mapAssetDraws": 0,
+      "elapsed": 20.89899999999988,
+      "battleArtMode": "authoredFrames",
+      "battleSceneMode": "vector"
+    },
+    "uiMotion": {
+      "key": "game:playing",
+      "sequence": 5,
+      "frameIndex": 0,
+      "elapsedMs": 0,
+      "progress": 1,
+      "eased": 1,
+      "active": false,
+      "pressActive": false,
+      "reducedMotion": false,
+      "selectedCharacter": "tangseng"
+    }
+  },
+  "accelerated": {
+    "ok": true,
+    "mode": "accelerated-production-update",
+    "frames": 779,
+    "simulatedSeconds": 60.03129999999546,
+    "status": "playing",
+    "kills": 40,
+    "level": 3,
+    "upgrades": 2,
+    "noDebugMutation": true
+  },
+  "animation": {
+    "clip": {
+      "x": 82,
+      "y": 210,
+      "width": 226,
+      "height": 300
+    },
+    "activeA": {
+      "screen": "game",
+      "status": "playing",
+      "time": 0.5855,
+      "kills": 0,
+      "level": 1,
+      "xp": 0,
+      "player": {
+        "animationState": "move",
+        "frameIndex": 0,
+        "pose": null,
+        "animationFrames": 8
+      },
+      "heroes": {
+        "wukong": {
+          "src": "http://127.0.0.1:8091/assets/hero-wukong-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "wukong",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "tangsanzang": {
+          "src": "http://127.0.0.1:8091/assets/hero-tangseng-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "tangsanzang",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "bajie": {
+          "src": "http://127.0.0.1:8091/assets/hero-bajie-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "bajie",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "shajing": {
+          "src": "http://127.0.0.1:8091/assets/hero-wujing-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "shajing",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        }
+      },
+      "skills": {
+        "weapon:wukong": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-wukong.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:tangsanzang": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-tangseng.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:bajie": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-bajie.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:shajing": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-wujing.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "purple-gourd": {
+          "src": "http://127.0.0.1:8091/assets/artifact-purple-gourd.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "iron-fan": {
+          "src": "http://127.0.0.1:8091/assets/artifact-iron-fan.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "diamond-snare": {
+          "src": "http://127.0.0.1:8091/assets/artifact-diamond-snare.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "nine-dragon": {
+          "src": "http://127.0.0.1:8091/assets/artifact-nine-dragon.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "lotus-lantern": {
+          "src": "http://127.0.0.1:8091/assets/artifact-lotus-lantern.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "golden-rope": {
+          "src": "http://127.0.0.1:8091/assets/artifact-golden-rope.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "moon-mirror": {
+          "src": "http://127.0.0.1:8091/assets/artifact-moon-mirror.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "samadhi-fire": {
+          "src": "http://127.0.0.1:8091/assets/artifact-samadhi-fire.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        }
+      },
+      "enemies": {
+        "creature": {
+          "src": "http://127.0.0.1:8091/assets/enemy-creature.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "brute": {
+          "src": "http://127.0.0.1:8091/assets/enemy-brute.svg",
+          "naturalWidth": 160,
+          "naturalHeight": 160,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bird": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bird.svg",
+          "naturalWidth": 144,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "spider": {
+          "src": "http://127.0.0.1:8091/assets/enemy-spider.svg",
+          "naturalWidth": 150,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "boss": {
+          "src": "http://127.0.0.1:8091/assets/enemy-boss.svg",
+          "naturalWidth": 220,
+          "naturalHeight": 220,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "tiger": {
+          "src": "http://127.0.0.1:8091/assets/enemy-tiger-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bear": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bear-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bull": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bull-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        }
+      },
+      "maps": {
+        "forest": {},
+        "temple": {},
+        "doublefork": {}
+      },
+      "renderer": {
+        "mapAssetDraws": 0,
+        "elapsed": 0.5529999999999999,
+        "battleArtMode": "authoredFrames",
+        "battleSceneMode": "vector"
+      },
+      "uiMotion": {
+        "key": "game:playing",
+        "sequence": 3,
+        "frameIndex": 0,
+        "elapsedMs": 0,
+        "progress": 1,
+        "eased": 1,
+        "active": false,
+        "pressActive": false,
+        "reducedMotion": false,
+        "selectedCharacter": "tangseng"
+      }
+    },
+    "activeB": {
+      "screen": "game",
+      "status": "playing",
+      "time": 0.7355,
+      "kills": 0,
+      "level": 1,
+      "xp": 0,
+      "player": {
+        "animationState": "move",
+        "frameIndex": 2,
+        "pose": null,
+        "animationFrames": 8
+      },
+      "heroes": {
+        "wukong": {
+          "src": "http://127.0.0.1:8091/assets/hero-wukong-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "wukong",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "tangsanzang": {
+          "src": "http://127.0.0.1:8091/assets/hero-tangseng-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "tangsanzang",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "bajie": {
+          "src": "http://127.0.0.1:8091/assets/hero-bajie-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "bajie",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "shajing": {
+          "src": "http://127.0.0.1:8091/assets/hero-wujing-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "shajing",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        }
+      },
+      "skills": {
+        "weapon:wukong": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-wukong.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:tangsanzang": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-tangseng.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:bajie": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-bajie.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:shajing": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-wujing.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "purple-gourd": {
+          "src": "http://127.0.0.1:8091/assets/artifact-purple-gourd.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "iron-fan": {
+          "src": "http://127.0.0.1:8091/assets/artifact-iron-fan.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "diamond-snare": {
+          "src": "http://127.0.0.1:8091/assets/artifact-diamond-snare.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "nine-dragon": {
+          "src": "http://127.0.0.1:8091/assets/artifact-nine-dragon.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "lotus-lantern": {
+          "src": "http://127.0.0.1:8091/assets/artifact-lotus-lantern.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "golden-rope": {
+          "src": "http://127.0.0.1:8091/assets/artifact-golden-rope.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "moon-mirror": {
+          "src": "http://127.0.0.1:8091/assets/artifact-moon-mirror.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "samadhi-fire": {
+          "src": "http://127.0.0.1:8091/assets/artifact-samadhi-fire.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        }
+      },
+      "enemies": {
+        "creature": {
+          "src": "http://127.0.0.1:8091/assets/enemy-creature.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "brute": {
+          "src": "http://127.0.0.1:8091/assets/enemy-brute.svg",
+          "naturalWidth": 160,
+          "naturalHeight": 160,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bird": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bird.svg",
+          "naturalWidth": 144,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "spider": {
+          "src": "http://127.0.0.1:8091/assets/enemy-spider.svg",
+          "naturalWidth": 150,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "boss": {
+          "src": "http://127.0.0.1:8091/assets/enemy-boss.svg",
+          "naturalWidth": 220,
+          "naturalHeight": 220,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "tiger": {
+          "src": "http://127.0.0.1:8091/assets/enemy-tiger-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bear": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bear-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bull": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bull-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        }
+      },
+      "maps": {
+        "forest": {},
+        "temple": {},
+        "doublefork": {}
+      },
+      "renderer": {
+        "mapAssetDraws": 0,
+        "elapsed": 0.5704999999999999,
+        "battleArtMode": "authoredFrames",
+        "battleSceneMode": "vector"
+      },
+      "uiMotion": {
+        "key": "game:playing",
+        "sequence": 3,
+        "frameIndex": 0,
+        "elapsedMs": 0,
+        "progress": 1,
+        "eased": 1,
+        "active": false,
+        "pressActive": false,
+        "reducedMotion": false,
+        "selectedCharacter": "tangseng"
+      }
+    },
+    "activeShotA": {
+      "name": "actor-active-a",
+      "file": "evidence\\current\\animation\\actor-active-a.png",
+      "bytes": 23794,
+      "sha256": "11ba7e6a7f94dd4e4892a07b7ecd0469977f8de98dd86f59600188dd25cb2b8d"
+    },
+    "activeShotB": {
+      "name": "actor-active-b",
+      "file": "evidence\\current\\animation\\actor-active-b.png",
+      "bytes": 22125,
+      "sha256": "25603c1ab20253926fe89bcdd09f3ed38c5ace6f381fb04ea1caefcdb1766c34"
+    },
+    "pausedA": {
+      "screen": "game",
+      "status": "paused",
+      "time": 0.7355,
+      "kills": 0,
+      "level": 1,
+      "xp": 0,
+      "player": {
+        "animationState": "move",
+        "frameIndex": 2,
+        "pose": null,
+        "animationFrames": 8
+      },
+      "heroes": {
+        "wukong": {
+          "src": "http://127.0.0.1:8091/assets/hero-wukong-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "wukong",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "tangsanzang": {
+          "src": "http://127.0.0.1:8091/assets/hero-tangseng-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "tangsanzang",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "bajie": {
+          "src": "http://127.0.0.1:8091/assets/hero-bajie-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "bajie",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "shajing": {
+          "src": "http://127.0.0.1:8091/assets/hero-wujing-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "shajing",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        }
+      },
+      "skills": {
+        "weapon:wukong": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-wukong.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:tangsanzang": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-tangseng.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:bajie": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-bajie.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:shajing": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-wujing.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "purple-gourd": {
+          "src": "http://127.0.0.1:8091/assets/artifact-purple-gourd.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "iron-fan": {
+          "src": "http://127.0.0.1:8091/assets/artifact-iron-fan.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "diamond-snare": {
+          "src": "http://127.0.0.1:8091/assets/artifact-diamond-snare.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "nine-dragon": {
+          "src": "http://127.0.0.1:8091/assets/artifact-nine-dragon.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "lotus-lantern": {
+          "src": "http://127.0.0.1:8091/assets/artifact-lotus-lantern.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "golden-rope": {
+          "src": "http://127.0.0.1:8091/assets/artifact-golden-rope.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "moon-mirror": {
+          "src": "http://127.0.0.1:8091/assets/artifact-moon-mirror.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "samadhi-fire": {
+          "src": "http://127.0.0.1:8091/assets/artifact-samadhi-fire.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        }
+      },
+      "enemies": {
+        "creature": {
+          "src": "http://127.0.0.1:8091/assets/enemy-creature.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "brute": {
+          "src": "http://127.0.0.1:8091/assets/enemy-brute.svg",
+          "naturalWidth": 160,
+          "naturalHeight": 160,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bird": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bird.svg",
+          "naturalWidth": 144,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "spider": {
+          "src": "http://127.0.0.1:8091/assets/enemy-spider.svg",
+          "naturalWidth": 150,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "boss": {
+          "src": "http://127.0.0.1:8091/assets/enemy-boss.svg",
+          "naturalWidth": 220,
+          "naturalHeight": 220,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "tiger": {
+          "src": "http://127.0.0.1:8091/assets/enemy-tiger-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bear": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bear-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bull": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bull-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        }
+      },
+      "maps": {
+        "forest": {},
+        "temple": {},
+        "doublefork": {}
+      },
+      "renderer": {
+        "mapAssetDraws": 0,
+        "elapsed": 0.5879999999999999,
+        "battleArtMode": "authoredFrames",
+        "battleSceneMode": "vector"
+      },
+      "uiMotion": {
+        "key": "game:paused",
+        "sequence": 4,
+        "frameIndex": 16,
+        "elapsedMs": 254,
+        "progress": 1,
+        "eased": 1,
+        "active": false,
+        "pressActive": false,
+        "reducedMotion": false,
+        "selectedCharacter": "tangseng"
+      }
+    },
+    "pausedB": {
+      "screen": "game",
+      "status": "paused",
+      "time": 0.7355,
+      "kills": 0,
+      "level": 1,
+      "xp": 0,
+      "player": {
+        "animationState": "move",
+        "frameIndex": 2,
+        "pose": null,
+        "animationFrames": 8
+      },
+      "heroes": {
+        "wukong": {
+          "src": "http://127.0.0.1:8091/assets/hero-wukong-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "wukong",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "tangsanzang": {
+          "src": "http://127.0.0.1:8091/assets/hero-tangseng-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "tangsanzang",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "bajie": {
+          "src": "http://127.0.0.1:8091/assets/hero-bajie-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "bajie",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "shajing": {
+          "src": "http://127.0.0.1:8091/assets/hero-wujing-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "shajing",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        }
+      },
+      "skills": {
+        "weapon:wukong": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-wukong.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:tangsanzang": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-tangseng.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:bajie": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-bajie.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:shajing": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-wujing.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "purple-gourd": {
+          "src": "http://127.0.0.1:8091/assets/artifact-purple-gourd.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "iron-fan": {
+          "src": "http://127.0.0.1:8091/assets/artifact-iron-fan.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "diamond-snare": {
+          "src": "http://127.0.0.1:8091/assets/artifact-diamond-snare.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "nine-dragon": {
+          "src": "http://127.0.0.1:8091/assets/artifact-nine-dragon.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "lotus-lantern": {
+          "src": "http://127.0.0.1:8091/assets/artifact-lotus-lantern.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "golden-rope": {
+          "src": "http://127.0.0.1:8091/assets/artifact-golden-rope.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "moon-mirror": {
+          "src": "http://127.0.0.1:8091/assets/artifact-moon-mirror.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "samadhi-fire": {
+          "src": "http://127.0.0.1:8091/assets/artifact-samadhi-fire.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        }
+      },
+      "enemies": {
+        "creature": {
+          "src": "http://127.0.0.1:8091/assets/enemy-creature.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "brute": {
+          "src": "http://127.0.0.1:8091/assets/enemy-brute.svg",
+          "naturalWidth": 160,
+          "naturalHeight": 160,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bird": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bird.svg",
+          "naturalWidth": 144,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "spider": {
+          "src": "http://127.0.0.1:8091/assets/enemy-spider.svg",
+          "naturalWidth": 150,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "boss": {
+          "src": "http://127.0.0.1:8091/assets/enemy-boss.svg",
+          "naturalWidth": 220,
+          "naturalHeight": 220,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "tiger": {
+          "src": "http://127.0.0.1:8091/assets/enemy-tiger-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bear": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bear-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bull": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bull-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        }
+      },
+      "maps": {
+        "forest": {},
+        "temple": {},
+        "doublefork": {}
+      },
+      "renderer": {
+        "mapAssetDraws": 0,
+        "elapsed": 0.5879999999999999,
+        "battleArtMode": "authoredFrames",
+        "battleSceneMode": "vector"
+      },
+      "uiMotion": {
+        "key": "game:paused",
+        "sequence": 4,
+        "frameIndex": 16,
+        "elapsedMs": 254,
+        "progress": 1,
+        "eased": 1,
+        "active": false,
+        "pressActive": false,
+        "reducedMotion": false,
+        "selectedCharacter": "tangseng"
+      }
+    },
+    "pausedShotA": {
+      "name": "actor-paused-a",
+      "file": "evidence\\current\\animation\\actor-paused-a.png",
+      "bytes": 5977,
+      "sha256": "21cb89a717026278c233acfbc5ca63baf4d4c4561c8100726d6684a95fa72a86"
+    },
+    "pausedShotB": {
+      "name": "actor-paused-b",
+      "file": "evidence\\current\\animation\\actor-paused-b.png",
+      "bytes": 5977,
+      "sha256": "21cb89a717026278c233acfbc5ca63baf4d4c4561c8100726d6684a95fa72a86"
+    },
+    "resumed": {
+      "screen": "game",
+      "status": "playing",
+      "time": 1.0062000000029803,
+      "kills": 0,
+      "level": 1,
+      "xp": 0,
+      "player": {
+        "animationState": "idle",
+        "frameIndex": 3,
+        "pose": null,
+        "animationFrames": 6
+      },
+      "heroes": {
+        "wukong": {
+          "src": "http://127.0.0.1:8091/assets/hero-wukong-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "wukong",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "tangsanzang": {
+          "src": "http://127.0.0.1:8091/assets/hero-tangseng-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "tangsanzang",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "bajie": {
+          "src": "http://127.0.0.1:8091/assets/hero-bajie-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "bajie",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        },
+        "shajing": {
+          "src": "http://127.0.0.1:8091/assets/hero-wujing-battle-v3-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": true,
+          "battleFrameContract": {
+            "id": "shajing",
+            "cols": 4,
+            "rows": 2,
+            "fps": {
+              "idle": 8,
+              "move": 12,
+              "attack": 16,
+              "hit": 18,
+              "stun": 8,
+              "dash": 18,
+              "intro": 12,
+              "death": 14
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.88
+            }
+          },
+          "sourceRects": null
+        }
+      },
+      "skills": {
+        "weapon:wukong": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-wukong.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:tangsanzang": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-tangseng.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:bajie": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-bajie.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "weapon:shajing": {
+          "src": "http://127.0.0.1:8091/assets/weapon-skill-wujing.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "purple-gourd": {
+          "src": "http://127.0.0.1:8091/assets/artifact-purple-gourd.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "iron-fan": {
+          "src": "http://127.0.0.1:8091/assets/artifact-iron-fan.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "diamond-snare": {
+          "src": "http://127.0.0.1:8091/assets/artifact-diamond-snare.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "nine-dragon": {
+          "src": "http://127.0.0.1:8091/assets/artifact-nine-dragon.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "lotus-lantern": {
+          "src": "http://127.0.0.1:8091/assets/artifact-lotus-lantern.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "golden-rope": {
+          "src": "http://127.0.0.1:8091/assets/artifact-golden-rope.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "moon-mirror": {
+          "src": "http://127.0.0.1:8091/assets/artifact-moon-mirror.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "samadhi-fire": {
+          "src": "http://127.0.0.1:8091/assets/artifact-samadhi-fire.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        }
+      },
+      "enemies": {
+        "creature": {
+          "src": "http://127.0.0.1:8091/assets/enemy-creature.svg",
+          "naturalWidth": 128,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "brute": {
+          "src": "http://127.0.0.1:8091/assets/enemy-brute.svg",
+          "naturalWidth": 160,
+          "naturalHeight": 160,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bird": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bird.svg",
+          "naturalWidth": 144,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "spider": {
+          "src": "http://127.0.0.1:8091/assets/enemy-spider.svg",
+          "naturalWidth": 150,
+          "naturalHeight": 128,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "boss": {
+          "src": "http://127.0.0.1:8091/assets/enemy-boss.svg",
+          "naturalWidth": 220,
+          "naturalHeight": 220,
+          "complete": true,
+          "priority": false,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "tiger": {
+          "src": "http://127.0.0.1:8091/assets/enemy-tiger-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bear": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bear-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        },
+        "bull": {
+          "src": "http://127.0.0.1:8091/assets/enemy-bull-battle-v1-sheet.png",
+          "naturalWidth": 1774,
+          "naturalHeight": 887,
+          "complete": true,
+          "priority": true,
+          "v2": false,
+          "v3": false,
+          "battleFrameContract": null,
+          "sourceRects": null
+        }
+      },
+      "maps": {
+        "forest": {},
+        "temple": {},
+        "doublefork": {}
+      },
+      "renderer": {
+        "mapAssetDraws": 0,
+        "elapsed": 0.8587000000029802,
+        "battleArtMode": "authoredFrames",
+        "battleSceneMode": "vector"
+      },
+      "uiMotion": {
+        "key": "game:playing",
+        "sequence": 5,
+        "frameIndex": 0,
+        "elapsedMs": 0,
+        "progress": 1,
+        "eased": 1,
+        "active": false,
+        "pressActive": false,
+        "reducedMotion": false,
+        "selectedCharacter": "tangseng"
+      }
+    },
+    "resumedShot": {
+      "name": "actor-resumed",
+      "file": "evidence\\current\\animation\\actor-resumed.png",
+      "bytes": 22104,
+      "sha256": "a5595452fcca29107ae6c96b9c7e132821149d3c03c4c7e630ee7f2252f5e97d"
+    },
+    "activeFrameAdvanced": true,
+    "activeHashChanged": true,
+    "pauseFrameStable": true,
+    "pauseHashStable": true,
+    "resumeFrameContinued": true,
+    "resumeHashChanged": true,
+    "uiEntranceSettled": true,
+    "uiPauseSettled": true
+  },
+  "assetAssertions": {
+    "battleMode": true,
+    "heroV3Sheets": true,
+    "heroFrameCounts": true,
+    "skillIcons": true,
+    "battleMapVector": true
+  },
+  "consoleMessages": [],
+  "pageErrors": [],
+  "verdict": "PASS"
+}

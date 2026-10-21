@@ -1,0 +1,173 @@
+{
+  "generatedAt": "2026-10-14T01:37:46.103Z",
+  "result": "REVIEW_IDENTITY_EVENT_WORLD_FOLLOW_PREVIEW",
+  "overall": "NOT_READY",
+  "scope": "Evidence-only local pointer UI then accelerated 300s, repositioned, direct-damage and partial fixed-step engine subsystem fixtures; no natural five-minute survival, production integration, FPS or public acceptance.",
+  "evidenceDirectory": "evidence/current/tiger-vanguard/event-preview/2026-10-14T01-27-39-382Z",
+  "finalNode": {
+    "file": "evidence/current/tiger-vanguard/event-preview/2026-10-14T01-27-39-382Z/node.json",
+    "sha256": "d9bdfdefec21cb4dd8dee428ae5ccb91f1710dca4c9ae28caef6ccd0d969f6a0",
+    "result": "PASS_EVIDENCE_ONLY_EVENT_CLOCK"
+  },
+  "finalBrowser": {
+    "file": "evidence/current/tiger-vanguard/event-preview/2026-10-14T01-27-39-382Z/browser.json",
+    "sha256": "ecc6404a91243670b6c4226f3ab34c35c5c7a76c927397940470904c54e6edd1",
+    "result": "REVIEW_IDENTITY_EVENT_WORLD_FOLLOW_PREVIEW",
+    "generatedAt": "2026-10-14T01:31:42.349Z",
+    "finishedAt": "2026-10-14T01:31:47.274Z"
+  },
+  "npmTest": {
+    "date": "2026-10-14T01:36:20.181Z",
+    "result": "PASS",
+    "exitCode": 0,
+    "log": "evidence/current/tiger-vanguard/event-preview/2026-10-14T01-27-39-382Z/npm-test.txt",
+    "validation": "evidence/current/tiger-vanguard/event-preview/2026-10-14T01-27-39-382Z/npm-validation.json",
+    "fullOutputChars": 49163,
+    "scope": "Fresh current-workspace regression, not browser/FPS/public/current ZIP approval"
+  },
+  "integrity": {
+    "file": "evidence/current/tiger-vanguard/event-preview/2026-10-14T01-27-39-382Z/post-test-integrity.json",
+    "protectedFiles": 137,
+    "changed": [],
+    "screenshots": 10,
+    "sourceImagesChanged": false,
+    "productionChanged": false,
+    "zipChanged": false
+  },
+  "checks": {
+    "nodeObserverReads": 71,
+    "nodeRngCallsOffAndOn": 17,
+    "nodeExactStateEventsRngSchedulePoolsMatch": true,
+    "browserRenderChecks": 48,
+    "browserConsumerChecks": 8,
+    "browserObserverStateAndRngUnchanged": true,
+    "actualHpAndMaxHpRetained": true,
+    "original120msActualHitTimer": true,
+    "visualHitDurationMs": 250,
+    "originalDeathTtlSeconds": 0.42,
+    "expiredAndRetainedRecordsZero": true
+  },
+  "sourceCoverage": {
+    "node": {
+      "move": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "hit": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "death": [
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    "browser": {
+      "move": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "hit": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "death": [
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    "browserIdleCoverage": [],
+    "browserAttackCoverage": [],
+    "note": "No Node-to-browser coverage promotion; no all-state/both-facing natural combat approval"
+  },
+  "attackEventSupported": false,
+  "attackPreviewed": false,
+  "attackGap": "Scheduled elite has no attackPattern. Contact player-hit lacks sourceId/enemy; player attack is not elite attack. Preview refuses both without invented attribution.",
+  "observedStaticDefects": [
+    {
+      "screenshots": [
+        "world-start-move.png",
+        "world-follow-move.png",
+        "hit-visual-after-actual-timer.png"
+      ],
+      "defect": "Original generic elite health bar intersects candidate head/face."
+    },
+    {
+      "screenshots": [
+        "hit-visual-after-actual-timer.png",
+        "death-frame31-before-original-expiry.png"
+      ],
+      "defect": "Explicit close-contact fixture candidate obscures player and overlaps shield/damage feedback."
+    },
+    {
+      "screenshots": [
+        "world-start-move.png",
+        "world-follow-move.png"
+      ],
+      "defect": "Candidate clipped at viewport right edge; not an edge-visibility acceptance."
+    }
+  ],
+  "review": {
+    "file": "evidence/current/tiger-vanguard/event-preview/2026-10-14T01-27-39-382Z/review.md",
+    "rootStaticPngCount": 10,
+    "independentReviewer": "/root/incontext_evidence_audit",
+    "independentStaticKeyPngCount": 4,
+    "continuousHumanMotionReview": false
+  },
+  "rejectedEvidence": {
+    "directory": "evidence/current/tiger-vanguard/event-preview/2026-10-14T01-25-31-546Z",
+    "review": "rejected-review.json",
+    "reason": "Pooled death.maxTtl incorrectly read after reuse; final scalar captured at creation"
+  },
+  "lastDrawCaveat": "Expiry snapshot contains historical lastDraw from 301.10s while current screenshot is 301.125s. Current effects/retained records and image, not stale lastDraw, establish expiry.",
+  "cleanup": {
+    "hookRestorationFinallySourceInspected": true,
+    "hookReferenceEqualityTested": false,
+    "browserHooksRestoredFieldActuallyDisposeResult": true,
+    "disposed": true,
+    "contextClosed": true,
+    "browserClosed": true,
+    "serverClosed": true
+  },
+  "errors": {
+    "page": 0,
+    "console": 0,
+    "failedRequests": 0,
+    "http": 0,
+    "externalRequests": 0
+  },
+  "humanMotionReviewed": false,
+  "rootApproved": false,
+  "healthBarLayoutApproved": false,
+  "playerReadabilityApproved": false,
+  "viewportEdgeApproved": false,
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "fpsAcceptance": false,
+  "publicPass": false,
+  "releaseReady": false,
+  "newImagesGenerated": 0,
+  "newRecording": false,
+  "productionReferences": [],
+  "deploymentPerformed": false,
+  "publicTestThisRun": false,
+  "nextSafeStep": "Evidence-only fixed-source-scale bounds and stable health-bar placement draft; limited same-fixture review without changing HP/width/damage/control/world position/death TTL. Keep body and edge defects open. No invented attack, production contract, repeat generation, packaging or deployment."
+}

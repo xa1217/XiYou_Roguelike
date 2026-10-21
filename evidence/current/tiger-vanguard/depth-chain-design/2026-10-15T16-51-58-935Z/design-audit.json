@@ -1,0 +1,107 @@
+{
+  "createdAt": "2026-10-15T16:51:58.935Z",
+  "checkedAt": "2026-10-15T16:52:05.361Z",
+  "result": "DESIGN_STATIC_VALIDATED_ONLY",
+  "browserStatus": "NOT_RUN",
+  "overall": "NOT_READY",
+  "checks": [
+    "fixed design schedule, exact gates and all approvals false",
+    "reject missing repeat",
+    "reject mixed observer path",
+    "reject second player draw",
+    "reject getter matrix refill",
+    "reject main readback added",
+    "reject whole transform trace excluded",
+    "reject HUD trace omitted",
+    "reject channel tolerance widened",
+    "reject mask dilated",
+    "reject missing cross pair",
+    "reject premature public approval",
+    "reject design reported as browser PASS",
+    "reject unsupported causal claim",
+    "prior FAIL bytes, execution scripts, production and ZIP hashes frozen",
+    "candidate hash/dimensions and no production references",
+    "fresh npm test exit 0 and post-test protected integrity"
+  ],
+  "assetAudit": [
+    {
+      "file": "evidence/current/tiger-vanguard/candidate-v1-sheet.png",
+      "sha256": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+      "bytes": 1985514,
+      "width": 1774,
+      "height": 887,
+      "purpose": "existing evidence-only tiger-vanguard candidate page",
+      "generated": false
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/candidate-v1-three-frame-patch.png",
+      "sha256": "e04bdf485aae996872827efe6ad8ef9e575eb7671a7e101f70c5c8f54b510e5a",
+      "bytes": 704203,
+      "width": 2172,
+      "height": 724,
+      "purpose": "existing evidence-only tiger-vanguard candidate page",
+      "generated": false
+    }
+  ],
+  "runtimeReferences": [],
+  "protectedFilesChecked": 325,
+  "protectedChanged": [],
+  "preservedFailureCount": 3,
+  "priorPixelResult": {
+    "main": {
+      "changedPixels": 5139,
+      "maxAbsChannelDelta": 243,
+      "bboxInclusive": {
+        "minX": 167,
+        "maxX": 260,
+        "minY": 362,
+        "maxY": 455
+      }
+    },
+    "playerLayer": {
+      "changedPixels": 0,
+      "maxAbsChannelDelta": 0,
+      "bboxInclusive": null
+    },
+    "playerSprite": {
+      "changedPixels": 0,
+      "maxAbsChannelDelta": 0,
+      "bboxInclusive": null
+    },
+    "candidate": {
+      "changedPixels": 0,
+      "maxAbsChannelDelta": 0,
+      "bboxInclusive": null
+    },
+    "changedPixels": 5139,
+    "outsidePlayerPaintSupport": 8,
+    "bodyAlphaOverlap": 4062,
+    "paintSupportPixels": 8449,
+    "sourceMaskDifferences": 0
+  },
+  "npmExitCode": 0,
+  "browserLaunchCount": 0,
+  "serverLaunchCount": 0,
+  "imageGenerationCount": 0,
+  "approvals": {
+    "humanMotionReviewed": false,
+    "rootApproved": false,
+    "playerReadabilityApproved": false,
+    "healthBarLayoutApproved": false,
+    "viewportEdgeApproved": false,
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "fpsAcceptance": false,
+    "publicPass": false,
+    "releaseReady": false
+  },
+  "sha256": {
+    "scripts/tiger-vanguard-depth-chain-plan.json": "cab5c2d62b383c97d3debb984d7c323b610f009e41e7c5f93e5f27e5476194ae",
+    "scripts/.verify-tiger-vanguard-depth-chain-post-upload-1792083118578.mjs": "7400d0fb904f67f9244579cf7fd06b8a0ee37c1ce8292df3e28f4471e55b3571",
+    "docs/TIGER-VANGUARD-DEPTH-CHAIN-DESIGN.md": "74e8495129a34e72ea24f8ccc11c476155a8eda388b256c6567e3ec8aee108ae",
+    "STATUS.md": "567163492f9f5c36ea5e598a14a4a47c256d50c0b3dd9adc2f767c7602c1251d",
+    "docs/REQUIREMENTS-ACCEPTANCE.md": "4cf3bf5186c59e72209c7c809cf6277ce0f75106de266175d9f321f0a6999a55",
+    "docs/FINAL-REPORT.md": "71475d9f4e0a6b781e76aad05ce4eb231d8f13dc9a0a89ce87fc59d0c541bfd4",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md": "2335830a2c79f926d14936f34d8a08b67cb60b741b6273943cb4c5d376456d73"
+  }
+}

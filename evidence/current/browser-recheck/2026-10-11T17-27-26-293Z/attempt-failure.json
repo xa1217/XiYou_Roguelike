@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-10-11T17:27:26.293Z",
+  "result": "BLOCKED",
+  "scope": "Local real-browser recheck after Boss identity contract",
+  "command": "node scripts/browser-visual-smoke.mjs",
+  "browser": "Playwright msedge headless 155.0.4283.45",
+  "failure": {
+    "name": "Error",
+    "message": "browserType.launch: spawn EPERM",
+    "executable": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"
+  },
+  "interpretation": "No browser PASS was produced. The existing visual.json remains historical and is not reused as a recheck result.",
+  "nextSafeWork": "Keep the identity-only code change local; do not claim real-browser, public-network, ZIP, or deployment acceptance."
+}

@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-10-14T01:25:31.546Z",
+  "result": "PASS_EVIDENCE_ONLY_EVENT_CLOCK",
+  "scope": "Accelerated 300s, repositioned, direct-damage, fixed-step engine subsystem fixture; not natural gameplay, runtime integration, browser quality or public acceptance.",
+  "baseline": {
+    "stateSha256": "5d2ffd1f3b671f1e21bd7856e2aaa6b70c75f2682b8b1ec874e31471926f0f60",
+    "emittedSha256": "1eec9cf8cd9b4f8c9fcd1babcf4cee8a6ad51a015ec98d69a2bd70c8ef0031cb",
+    "rngCalls": 17,
+    "poolSha256": "959834433bc79140a82fb5536b4c74c833aa962bf75784e3a418efdecde145aa",
+    "unchangedReads": 0,
+    "sampledSourceIndices": [],
+    "states": [],
+    "actualDeathTtl": 0.01
+  },
+  "preview": {
+    "stateSha256": "5d2ffd1f3b671f1e21bd7856e2aaa6b70c75f2682b8b1ec874e31471926f0f60",
+    "emittedSha256": "1eec9cf8cd9b4f8c9fcd1babcf4cee8a6ad51a015ec98d69a2bd70c8ef0031cb",
+    "rngCalls": 17,
+    "poolSha256": "959834433bc79140a82fb5536b4c74c833aa962bf75784e3a418efdecde145aa",
+    "unchangedReads": 71,
+    "sampledSourceIndices": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "states": [
+      "move",
+      "hit",
+      "death"
+    ],
+    "actualDeathTtl": 0.01
+  },
+  "checks": {
+    "exactGameplayEventsRngPoolMatch": true,
+    "noEngineWritesByPreview": true,
+    "move8Hit4Death4SourceClockCoverage": true,
+    "isolated250msHitDoesNotExtendActual120msHit": true,
+    "existing420msDeathExpiryAndPoolReuse": true,
+    "identityAndStageGuards": true,
+    "noInventedAttackEvent": true
+  },
+  "attackEventSupported": false,
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "releaseReady": false
+}

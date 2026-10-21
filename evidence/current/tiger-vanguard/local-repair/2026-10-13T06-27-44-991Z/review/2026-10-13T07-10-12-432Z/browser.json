@@ -1,0 +1,468 @@
+{
+  "generatedAt": "2026-10-13T07:10:12.432Z",
+  "result": "REVIEW_REPAIR_GEOMETRY_ONLY",
+  "scope": "Three-frame local repair candidate geometry and original-source visual comparison only; not animation continuity, runtime, gameplay, public, ZIP, device or FPS approval.",
+  "scriptSha256": "b0c39a859c2ec81d482c6c5ba77c29ecc4bb3dda77bef9ad16536d3fed12b10c",
+  "protectedBefore": {
+    "prototype-2d/native-app.js": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+    "prototype-2d/src/audio.js": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "prototype-2d/src/bear-animation.js": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+    "prototype-2d/src/bull-animation.js": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4",
+    "prototype-2d/src/content.js": "7af8cfe07b8aea17ae4c2220918aefad7b97cc7bb547650e0f131e617af07f87",
+    "prototype-2d/src/deer-animation.js": "7fca4fc497bd38abe62afc1b3f051001888195035e22573a5b7e323d5988653b",
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/hawk-animation.js": "60e7cb55d6c2966223d54145af3134e4507a449a976fbc4a5c962a3a6dde0285",
+    "prototype-2d/src/monkey-animation.js": "99dec7c46f8615d09e9c9fd0381c7e8ebdb9e41504c9f5a41a5a59fa598e1fc6",
+    "prototype-2d/src/native-ui.js": "dd84edca168df81681667b76e897f54b347c42486166a72b1c143bcd2bcbbe5c",
+    "prototype-2d/src/progression.js": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/src/snake-animation.js": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13",
+    "prototype-2d/src/tiger-animation.js": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+    "prototype-2d/src/wolf-animation.js": "e677a1be849717d0790715b08a8fb8a4b76aff27e24930c7e8962f3e8574e85e",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "scripts/serve.mjs": "300f782732b7bde8590abe40a3c20feab92d4705432386967fd298430f6713d7",
+    "scripts/release.mjs": "4134cd0ccb13c27e940793bff3860eb3d0ab092a0fe542aa48ffa1f2b53a53de",
+    "scripts/runtime-frame-contract.mjs": "22793d976f92b1d9d0c3310c985c4ac41c0d9e02432bff576ba6dfc15b522f84",
+    "prototype-2d/assets/artifact-diamond-snare.svg": "c0dd49e0d324d509573fccb0c847e63e69d014a375998143d768375bb7d7601d",
+    "prototype-2d/assets/artifact-golden-rope.svg": "2f7c85de5bf3ea8396002def45bebf18775380e6aa75b4262b2d3b951a48c0f7",
+    "prototype-2d/assets/artifact-iron-fan.svg": "60c256224ee13f5cf1eea868938bba3f8a6eefdea04502a1a9999601839b8347",
+    "prototype-2d/assets/artifact-lotus-lantern.svg": "61f888c1dd2425ff01127ee979bdb4241a6c171e5b7ab400cb64dc2c7bb2d528",
+    "prototype-2d/assets/artifact-moon-mirror.svg": "83c28876e88f5c6c6c0703db3a7ee334291b16f6c6c851d5d36bef1f5e69f2cd",
+    "prototype-2d/assets/artifact-nine-dragon.svg": "208984a5b25c26b18cf470c1e11e0193e26cef1eb96113207590f93b3e3b1dc5",
+    "prototype-2d/assets/artifact-purple-gourd.svg": "efc7b02dd2ad6991b5093fedef0e8447c44485c849d3ef4918f3739db5688a65",
+    "prototype-2d/assets/artifact-samadhi-fire.svg": "cb6011a7b5298253fe9a91d92c39b4ba027f2aa10cb803224089cd829514fcaf",
+    "prototype-2d/assets/enemy-bear-battle-v1-frames.json": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+    "prototype-2d/assets/enemy-bear-battle-v1-sheet.png": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+    "prototype-2d/assets/enemy-bird.svg": "0cdfbb376fef61809681e8a1c346ffcd079514721d8f31a1a5f4197b9908a580",
+    "prototype-2d/assets/enemy-boss-kr-v1.png": "15f5393abf19e83b2d0087d4ac0a068c5cec4ae45d740798cb5ec8c2807d8601",
+    "prototype-2d/assets/enemy-boss.svg": "3878f941259a93790631307e0102600d8734326d9b529f4fb2b6cb5ac5cb48ee",
+    "prototype-2d/assets/enemy-brute-kr-v1.png": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d",
+    "prototype-2d/assets/enemy-brute.svg": "625c5abc3730e7e176c8948d1da1524176f0b2e2c92f80156225ea23ed9bcb1c",
+    "prototype-2d/assets/enemy-bull-battle-v1-frames.json": "e32da6acfc9bbea64ffb74b6cfb06e30e736b7f2c042c1d8949348e506b11527",
+    "prototype-2d/assets/enemy-bull-battle-v1-sheet.png": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+    "prototype-2d/assets/enemy-creature-kr-v1.png": "5eb03be680a6e4a7b8aba3b53695d7eb22c2c5f19c1a31a710c711743ba8d102",
+    "prototype-2d/assets/enemy-creature.svg": "aea810adc49f2f2cfddf3b75f035bc4db4b1671f61278d00b322ffdfa827954f",
+    "prototype-2d/assets/enemy-deer-battle-v1-frames.json": "6bf255f4f3823b089585a3eeaed3534b9ac283660e863b72cb71035490cbe927",
+    "prototype-2d/assets/enemy-deer-battle-v1-sheet.png": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
+    "prototype-2d/assets/enemy-hawk-battle-v1-frames.json": "c2ac21f266056a976425e37a7e24e34fba6b7a1269d592da3354ca49ef6d60ec",
+    "prototype-2d/assets/enemy-hawk-battle-v1-sheet.png": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7",
+    "prototype-2d/assets/enemy-monkey-battle-v1-frames.json": "46dcb42789e67c95d640f26578d799c2c3e831bce062f9417d2dc2d0f097c21c",
+    "prototype-2d/assets/enemy-monkey-battle-v1-sheet.png": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44",
+    "prototype-2d/assets/enemy-snake-battle-v3-frames.json": "5c75ff4ebfdd765c0fbe3b1087b992426b708ca7634e370a6b984690e201ca70",
+    "prototype-2d/assets/enemy-snake-battle-v3-sheet.png": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+    "prototype-2d/assets/enemy-spider.svg": "575571fed6c63d3050ff0a60c86f1293501f6399f23448ba14661f99dbd8b5dd",
+    "prototype-2d/assets/enemy-tiger-battle-v1-frames.json": "b66e62a1a40b00e36711523621c94d1b73b33a05f71ee46ec2094b4ae007156d",
+    "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+    "prototype-2d/assets/enemy-wolf-battle-v1-frames.json": "777a2f232307a23bbda913feb17aec2ac680c10528c3f29bf1fe0e98823d4637",
+    "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299",
+    "prototype-2d/assets/generate-art-assets.mjs": "d56eb58a8fc8c5843f27465e3be6150830a4dc03488885056c9e8d07cd888fa3",
+    "prototype-2d/assets/hero-bajie-battle-v3-sheet.png": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b",
+    "prototype-2d/assets/hero-bajie.svg": "19eb81b91664409d54619eb3aefe48fe2add07b880a160c3d4756dd6ad2ad56a",
+    "prototype-2d/assets/hero-battle-v2-atlas.png": "589412a2857dcb34ef828cee24e31abb94acb8a3b6b8e37813051b06e03e8565",
+    "prototype-2d/assets/hero-cards-v1.png": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+    "prototype-2d/assets/hero-cards-v2-comic.png": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad",
+    "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61",
+    "prototype-2d/assets/hero-tangseng-kr-v1.png": "162fdcbbf62ba747e0cc9c8f6c89e695b2b0a6e5aabc74455e5d1705918b0a4f",
+    "prototype-2d/assets/hero-tangseng.svg": "481bd327822e262287684750ffee74316de807236b97cb7758815d6a3cc1335d",
+    "prototype-2d/assets/hero-wujing-battle-v3-sheet.png": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "prototype-2d/assets/hero-wujing.svg": "d78054b2dcdedfc127ddbd8a7bcfe5db7315d13e034b5d934cca7b6c8c0c81f6",
+    "prototype-2d/assets/hero-wukong-battle-v3-sheet.png": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+    "prototype-2d/assets/hero-wukong.svg": "0121755c5ed96abf2508d3ef8fb77804ac8e2e103d284f75d1403c7c8b9b732d",
+    "prototype-2d/assets/map-doublefork-high-ridge-v1.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-doublefork-v2-optimized.png": "e014fafd243bf430aa48d58634879a3077ba67697d1ad3b3f27262dd35e5a8e5",
+    "prototype-2d/assets/map-doublefork-v2.png": "690363b6757576103190cc6a7461f0231fbfe79c158381dfbb637cc7b8dde12b",
+    "prototype-2d/assets/map-doublefork-v3-optimized.png": "20174da20cf3df773f6f0665e928e06fe3ed73f9d40b81154649dce7455d9530",
+    "prototype-2d/assets/map-doublefork-v3.png": "79d3c48b57d319ff2b56c21b16e5ad207423f181fd4c119a0aadc9517bf866ca",
+    "prototype-2d/assets/map-doublefork-v4-high-ridge-candidate.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-forest-qv1.png": "2944c17b771ad04a2c0205722f72df6a6126bae5f6ebf2e3aac1b1485bb50f23",
+    "prototype-2d/assets/map-temple-qv1.png": "1d7627c6153e2583842821ca5b2fa9c36027a85fe2b888f440e4e1c58f067ef9",
+    "prototype-2d/assets/README.md": "f2db10e10df7573a3e8fc2855cb8433dca35a121515dd278558a3dc86cbabbdc",
+    "prototype-2d/assets/theme-fire.svg": "8669bc3310052658aa37623537ca37ef7a51d690521f604cf66f309c2b55a11d",
+    "prototype-2d/assets/theme-forest.svg": "aa116a57c9776189afbec44ef88be18f8ea21e423b9ce1a59feb6dcc2be25558",
+    "prototype-2d/assets/theme-sand.svg": "6a0ee4411722136d48ffeeac040bf78c255b94f1602b430a99d443fbd2c65604",
+    "prototype-2d/assets/theme-snow.svg": "56e23a7e861e54d309680469dfc5dd6d3c99206dc2a1ae45d4ef061650ff0997",
+    "prototype-2d/assets/theme-temple.svg": "ebc4f5149d7fe5064a03a0db5610af77e6e90848c1a0e1b52e984e780aa0bf8e",
+    "prototype-2d/assets/theme-water.svg": "399b5a854be22e373806fc4711d6392fa27f370eb1435eaf82162b897a19f093",
+    "prototype-2d/assets/weapon-skill-bajie.svg": "67b0841a9ad517ea9f7a83ef8c669f1d632f9df8796a32656c73f5773d0ec737",
+    "prototype-2d/assets/weapon-skill-tangseng.svg": "3bcf292f0e0c5de76f80573dc55eb8883142efcd48186d3981a31383289684a3",
+    "prototype-2d/assets/weapon-skill-wujing.svg": "baff2be3abbe0e1637457f0600c8a9f7e8bc0c7993d56075c79be19209d9582e",
+    "prototype-2d/assets/weapon-skill-wukong.svg": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27",
+    "prototype-2d/assets/xiyou-art-preview.png": "6517fd98be3b7cc81c4bd9e8a3a54d5371c8355eca4722102d78e5732655b9d0",
+    "prototype-2d/assets/xiyou-art-preview.svg": "c0f540a2b4b2021036a49d65d76e095643df74073a296527028e9f3f87372b2a",
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+    "evidence/current/tiger-vanguard/candidate-v1-sheet.png": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+    "evidence/current/tiger-vanguard/candidate-v2-sheet.png": "03fadd27018012715d083fb92206dd7eb0967e54adaff84b45d6442cb1492e62"
+  },
+  "screenshots": [
+    {
+      "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/review/2026-10-13T07-10-12-432Z/patch-original.png",
+      "sha256": "43d6d103bda6e1a14193d7074f031fe211e2213205bff73d7820596eee6b0f04",
+      "bytes": 219547
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/review/2026-10-13T07-10-12-432Z/source-vs-patch-128.png",
+      "sha256": "cc5d0c6ba4f976776337a256a0bdb5ba542cbd2ee534c1ffbc96ecc2f9ae17d9",
+      "bytes": 167326
+    },
+    {
+      "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/review/2026-10-13T07-10-12-432Z/source-vs-patch-64-48.png",
+      "sha256": "7f0367b09cd662395ec601d0e86a28ffbbd91c356dc30c358750bc6dea918c44",
+      "bytes": 153070
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "externalRequests": [],
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "source": {
+    "file": "evidence/current/tiger-vanguard/candidate-v1-sheet.png",
+    "sha256": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+    "bytes": 1985514,
+    "width": 1774,
+    "height": 887,
+    "purpose": "Existing armored Tiger Vanguard draft v1 only, not ordinary tiger or final Boss; no v2 mixing."
+  },
+  "candidate": {
+    "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/candidate-v1-three-frame-patch.png",
+    "sha256": "e04bdf485aae996872827efe6ad8ef9e575eb7671a7e101f70c5c8f54b510e5a",
+    "bytes": 704203,
+    "width": 2172,
+    "height": 724,
+    "purpose": "v1 indices7/30/31 local repair patch only; original other29 remain untouched",
+    "mode": "built-in image_gen edit",
+    "generatedAssetCount": 1
+  },
+  "preflight": [
+    {
+      "threshold": 8,
+      "frames": [
+        {
+          "rect": {
+            "x": 46,
+            "y": 148,
+            "w": 525,
+            "h": 443
+          },
+          "visible": 125465
+        },
+        {
+          "rect": {
+            "x": 699,
+            "y": 400,
+            "w": 620,
+            "h": 224
+          },
+          "visible": 94787
+        },
+        {
+          "rect": {
+            "x": 1452,
+            "y": 431,
+            "w": 657,
+            "h": 192
+          },
+          "visible": 87326
+        }
+      ],
+      "horizontalGaps": [
+        128,
+        133
+      ],
+      "edgeMargins": [
+        {
+          "left": 46,
+          "top": 148,
+          "right": 1601,
+          "bottom": 133
+        },
+        {
+          "left": 699,
+          "top": 400,
+          "right": 853,
+          "bottom": 100
+        },
+        {
+          "left": 1452,
+          "top": 431,
+          "right": 63,
+          "bottom": 101
+        }
+      ]
+    },
+    {
+      "threshold": 16,
+      "frames": [
+        {
+          "rect": {
+            "x": 46,
+            "y": 149,
+            "w": 525,
+            "h": 442
+          },
+          "visible": 125133
+        },
+        {
+          "rect": {
+            "x": 700,
+            "y": 401,
+            "w": 619,
+            "h": 223
+          },
+          "visible": 94575
+        },
+        {
+          "rect": {
+            "x": 1452,
+            "y": 432,
+            "w": 657,
+            "h": 191
+          },
+          "visible": 87150
+        }
+      ],
+      "horizontalGaps": [
+        129,
+        133
+      ],
+      "edgeMargins": [
+        {
+          "left": 46,
+          "top": 149,
+          "right": 1601,
+          "bottom": 133
+        },
+        {
+          "left": 700,
+          "top": 401,
+          "right": 853,
+          "bottom": 100
+        },
+        {
+          "left": 1452,
+          "top": 432,
+          "right": 63,
+          "bottom": 101
+        }
+      ]
+    }
+  ],
+  "geometryChecks": {
+    "exactlyThreeRegionsBothThresholds": true,
+    "twoPixelIsolation": true,
+    "requested50PixelOuterMargin": false,
+    "requested100PixelGutters": true
+  },
+  "comparison": {
+    "frames": [
+      {
+        "index": 7,
+        "original": {
+          "x": 1569,
+          "y": 42,
+          "w": 205,
+          "h": 170
+        },
+        "candidate": {
+          "x": 46,
+          "y": 148,
+          "w": 525,
+          "h": 443
+        }
+      },
+      {
+        "index": 30,
+        "original": {
+          "x": 1327,
+          "y": 758,
+          "w": 226,
+          "h": 95
+        },
+        "candidate": {
+          "x": 699,
+          "y": 400,
+          "w": 620,
+          "h": 224
+        }
+      },
+      {
+        "index": 31,
+        "original": {
+          "x": 1552,
+          "y": 765,
+          "w": 213,
+          "h": 79
+        },
+        "candidate": {
+          "x": 1452,
+          "y": 431,
+          "w": 657,
+          "h": 192
+        }
+      }
+    ],
+    "originalStandingHeight": 170,
+    "candidateStandingHeight": 443,
+    "policy": "One whole-page scale per source, calibrated using its standing region height. Both death frames retain this same scale; no per-pose normalization, rotation or root claim. Bbox bottom-centers are diagnostic placement only."
+  },
+  "productionReferences": [],
+  "browser": "155.0.4283.45",
+  "decoded": {
+    "sizes": {
+      "original": [
+        1774,
+        887
+      ],
+      "candidate": [
+        2172,
+        724
+      ]
+    },
+    "counts": [
+      {
+        "threshold": 8,
+        "index": 0,
+        "visible": 125465,
+        "matched": true
+      },
+      {
+        "threshold": 8,
+        "index": 1,
+        "visible": 94787,
+        "matched": true
+      },
+      {
+        "threshold": 8,
+        "index": 2,
+        "visible": 87326,
+        "matched": true
+      },
+      {
+        "threshold": 16,
+        "index": 0,
+        "visible": 125133,
+        "matched": true
+      },
+      {
+        "threshold": 16,
+        "index": 1,
+        "visible": 94575,
+        "matched": true
+      },
+      {
+        "threshold": 16,
+        "index": 2,
+        "visible": 87150,
+        "matched": true
+      }
+    ],
+    "allMatch": true
+  },
+  "checks": {
+    "geometryIsolation": true,
+    "decodedSizesMatch": true,
+    "candidateAlphaCountsMatchNode": true,
+    "noProductionReferences": true,
+    "noErrorsOrNetwork": true
+  },
+  "technicalPreviewPassed": true,
+  "browserClosed": true,
+  "protectedAfter": {
+    "prototype-2d/native-app.js": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+    "prototype-2d/src/audio.js": "92584a521d9932e8c8ea35f59ece5f3e56c2987e88a7c6251082853052180f94",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "prototype-2d/src/bear-animation.js": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+    "prototype-2d/src/bull-animation.js": "a510c3d65bd1609e49677b24162d97298674ab7b66b7056f14f00aedab5668a4",
+    "prototype-2d/src/content.js": "7af8cfe07b8aea17ae4c2220918aefad7b97cc7bb547650e0f131e617af07f87",
+    "prototype-2d/src/deer-animation.js": "7fca4fc497bd38abe62afc1b3f051001888195035e22573a5b7e323d5988653b",
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/hawk-animation.js": "60e7cb55d6c2966223d54145af3134e4507a449a976fbc4a5c962a3a6dde0285",
+    "prototype-2d/src/monkey-animation.js": "99dec7c46f8615d09e9c9fd0381c7e8ebdb9e41504c9f5a41a5a59fa598e1fc6",
+    "prototype-2d/src/native-ui.js": "dd84edca168df81681667b76e897f54b347c42486166a72b1c143bcd2bcbbe5c",
+    "prototype-2d/src/progression.js": "9d98747e122e3ca7a6bdc9ee1738bb8fec9ad5a6bb958be19a2a5acb1e213bdd",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/src/snake-animation.js": "057dc10149f552b946529c28d731b6933228c86ab33a90beccba572914153d13",
+    "prototype-2d/src/tiger-animation.js": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+    "prototype-2d/src/wolf-animation.js": "e677a1be849717d0790715b08a8fb8a4b76aff27e24930c7e8962f3e8574e85e",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "scripts/serve.mjs": "300f782732b7bde8590abe40a3c20feab92d4705432386967fd298430f6713d7",
+    "scripts/release.mjs": "4134cd0ccb13c27e940793bff3860eb3d0ab092a0fe542aa48ffa1f2b53a53de",
+    "scripts/runtime-frame-contract.mjs": "22793d976f92b1d9d0c3310c985c4ac41c0d9e02432bff576ba6dfc15b522f84",
+    "prototype-2d/assets/artifact-diamond-snare.svg": "c0dd49e0d324d509573fccb0c847e63e69d014a375998143d768375bb7d7601d",
+    "prototype-2d/assets/artifact-golden-rope.svg": "2f7c85de5bf3ea8396002def45bebf18775380e6aa75b4262b2d3b951a48c0f7",
+    "prototype-2d/assets/artifact-iron-fan.svg": "60c256224ee13f5cf1eea868938bba3f8a6eefdea04502a1a9999601839b8347",
+    "prototype-2d/assets/artifact-lotus-lantern.svg": "61f888c1dd2425ff01127ee979bdb4241a6c171e5b7ab400cb64dc2c7bb2d528",
+    "prototype-2d/assets/artifact-moon-mirror.svg": "83c28876e88f5c6c6c0703db3a7ee334291b16f6c6c851d5d36bef1f5e69f2cd",
+    "prototype-2d/assets/artifact-nine-dragon.svg": "208984a5b25c26b18cf470c1e11e0193e26cef1eb96113207590f93b3e3b1dc5",
+    "prototype-2d/assets/artifact-purple-gourd.svg": "efc7b02dd2ad6991b5093fedef0e8447c44485c849d3ef4918f3739db5688a65",
+    "prototype-2d/assets/artifact-samadhi-fire.svg": "cb6011a7b5298253fe9a91d92c39b4ba027f2aa10cb803224089cd829514fcaf",
+    "prototype-2d/assets/enemy-bear-battle-v1-frames.json": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+    "prototype-2d/assets/enemy-bear-battle-v1-sheet.png": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+    "prototype-2d/assets/enemy-bird.svg": "0cdfbb376fef61809681e8a1c346ffcd079514721d8f31a1a5f4197b9908a580",
+    "prototype-2d/assets/enemy-boss-kr-v1.png": "15f5393abf19e83b2d0087d4ac0a068c5cec4ae45d740798cb5ec8c2807d8601",
+    "prototype-2d/assets/enemy-boss.svg": "3878f941259a93790631307e0102600d8734326d9b529f4fb2b6cb5ac5cb48ee",
+    "prototype-2d/assets/enemy-brute-kr-v1.png": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d",
+    "prototype-2d/assets/enemy-brute.svg": "625c5abc3730e7e176c8948d1da1524176f0b2e2c92f80156225ea23ed9bcb1c",
+    "prototype-2d/assets/enemy-bull-battle-v1-frames.json": "e32da6acfc9bbea64ffb74b6cfb06e30e736b7f2c042c1d8949348e506b11527",
+    "prototype-2d/assets/enemy-bull-battle-v1-sheet.png": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+    "prototype-2d/assets/enemy-creature-kr-v1.png": "5eb03be680a6e4a7b8aba3b53695d7eb22c2c5f19c1a31a710c711743ba8d102",
+    "prototype-2d/assets/enemy-creature.svg": "aea810adc49f2f2cfddf3b75f035bc4db4b1671f61278d00b322ffdfa827954f",
+    "prototype-2d/assets/enemy-deer-battle-v1-frames.json": "6bf255f4f3823b089585a3eeaed3534b9ac283660e863b72cb71035490cbe927",
+    "prototype-2d/assets/enemy-deer-battle-v1-sheet.png": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
+    "prototype-2d/assets/enemy-hawk-battle-v1-frames.json": "c2ac21f266056a976425e37a7e24e34fba6b7a1269d592da3354ca49ef6d60ec",
+    "prototype-2d/assets/enemy-hawk-battle-v1-sheet.png": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7",
+    "prototype-2d/assets/enemy-monkey-battle-v1-frames.json": "46dcb42789e67c95d640f26578d799c2c3e831bce062f9417d2dc2d0f097c21c",
+    "prototype-2d/assets/enemy-monkey-battle-v1-sheet.png": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44",
+    "prototype-2d/assets/enemy-snake-battle-v3-frames.json": "5c75ff4ebfdd765c0fbe3b1087b992426b708ca7634e370a6b984690e201ca70",
+    "prototype-2d/assets/enemy-snake-battle-v3-sheet.png": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+    "prototype-2d/assets/enemy-spider.svg": "575571fed6c63d3050ff0a60c86f1293501f6399f23448ba14661f99dbd8b5dd",
+    "prototype-2d/assets/enemy-tiger-battle-v1-frames.json": "b66e62a1a40b00e36711523621c94d1b73b33a05f71ee46ec2094b4ae007156d",
+    "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+    "prototype-2d/assets/enemy-wolf-battle-v1-frames.json": "777a2f232307a23bbda913feb17aec2ac680c10528c3f29bf1fe0e98823d4637",
+    "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299",
+    "prototype-2d/assets/generate-art-assets.mjs": "d56eb58a8fc8c5843f27465e3be6150830a4dc03488885056c9e8d07cd888fa3",
+    "prototype-2d/assets/hero-bajie-battle-v3-sheet.png": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b",
+    "prototype-2d/assets/hero-bajie.svg": "19eb81b91664409d54619eb3aefe48fe2add07b880a160c3d4756dd6ad2ad56a",
+    "prototype-2d/assets/hero-battle-v2-atlas.png": "589412a2857dcb34ef828cee24e31abb94acb8a3b6b8e37813051b06e03e8565",
+    "prototype-2d/assets/hero-cards-v1.png": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+    "prototype-2d/assets/hero-cards-v2-comic.png": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad",
+    "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61",
+    "prototype-2d/assets/hero-tangseng-kr-v1.png": "162fdcbbf62ba747e0cc9c8f6c89e695b2b0a6e5aabc74455e5d1705918b0a4f",
+    "prototype-2d/assets/hero-tangseng.svg": "481bd327822e262287684750ffee74316de807236b97cb7758815d6a3cc1335d",
+    "prototype-2d/assets/hero-wujing-battle-v3-sheet.png": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "prototype-2d/assets/hero-wujing.svg": "d78054b2dcdedfc127ddbd8a7bcfe5db7315d13e034b5d934cca7b6c8c0c81f6",
+    "prototype-2d/assets/hero-wukong-battle-v3-sheet.png": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+    "prototype-2d/assets/hero-wukong.svg": "0121755c5ed96abf2508d3ef8fb77804ac8e2e103d284f75d1403c7c8b9b732d",
+    "prototype-2d/assets/map-doublefork-high-ridge-v1.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-doublefork-v2-optimized.png": "e014fafd243bf430aa48d58634879a3077ba67697d1ad3b3f27262dd35e5a8e5",
+    "prototype-2d/assets/map-doublefork-v2.png": "690363b6757576103190cc6a7461f0231fbfe79c158381dfbb637cc7b8dde12b",
+    "prototype-2d/assets/map-doublefork-v3-optimized.png": "20174da20cf3df773f6f0665e928e06fe3ed73f9d40b81154649dce7455d9530",
+    "prototype-2d/assets/map-doublefork-v3.png": "79d3c48b57d319ff2b56c21b16e5ad207423f181fd4c119a0aadc9517bf866ca",
+    "prototype-2d/assets/map-doublefork-v4-high-ridge-candidate.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-forest-qv1.png": "2944c17b771ad04a2c0205722f72df6a6126bae5f6ebf2e3aac1b1485bb50f23",
+    "prototype-2d/assets/map-temple-qv1.png": "1d7627c6153e2583842821ca5b2fa9c36027a85fe2b888f440e4e1c58f067ef9",
+    "prototype-2d/assets/README.md": "f2db10e10df7573a3e8fc2855cb8433dca35a121515dd278558a3dc86cbabbdc",
+    "prototype-2d/assets/theme-fire.svg": "8669bc3310052658aa37623537ca37ef7a51d690521f604cf66f309c2b55a11d",
+    "prototype-2d/assets/theme-forest.svg": "aa116a57c9776189afbec44ef88be18f8ea21e423b9ce1a59feb6dcc2be25558",
+    "prototype-2d/assets/theme-sand.svg": "6a0ee4411722136d48ffeeac040bf78c255b94f1602b430a99d443fbd2c65604",
+    "prototype-2d/assets/theme-snow.svg": "56e23a7e861e54d309680469dfc5dd6d3c99206dc2a1ae45d4ef061650ff0997",
+    "prototype-2d/assets/theme-temple.svg": "ebc4f5149d7fe5064a03a0db5610af77e6e90848c1a0e1b52e984e780aa0bf8e",
+    "prototype-2d/assets/theme-water.svg": "399b5a854be22e373806fc4711d6392fa27f370eb1435eaf82162b897a19f093",
+    "prototype-2d/assets/weapon-skill-bajie.svg": "67b0841a9ad517ea9f7a83ef8c669f1d632f9df8796a32656c73f5773d0ec737",
+    "prototype-2d/assets/weapon-skill-tangseng.svg": "3bcf292f0e0c5de76f80573dc55eb8883142efcd48186d3981a31383289684a3",
+    "prototype-2d/assets/weapon-skill-wujing.svg": "baff2be3abbe0e1637457f0600c8a9f7e8bc0c7993d56075c79be19209d9582e",
+    "prototype-2d/assets/weapon-skill-wukong.svg": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27",
+    "prototype-2d/assets/xiyou-art-preview.png": "6517fd98be3b7cc81c4bd9e8a3a54d5371c8355eca4722102d78e5732655b9d0",
+    "prototype-2d/assets/xiyou-art-preview.svg": "c0f540a2b4b2021036a49d65d76e095643df74073a296527028e9f3f87372b2a",
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2",
+    "evidence/current/tiger-vanguard/candidate-v1-sheet.png": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+    "evidence/current/tiger-vanguard/candidate-v2-sheet.png": "03fadd27018012715d083fb92206dd7eb0967e54adaff84b45d6442cb1492e62"
+  },
+  "protectedUnchanged": true,
+  "finishedAt": "2026-10-13T07:10:15.066Z"
+}

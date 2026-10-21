@@ -1,0 +1,246 @@
+{
+  "generatedAt": "2026-10-11T11:41:39.225Z",
+  "result": "REVIEW_LAYOUT_CONSTRAINTS_NOT_MET",
+  "scope": "Real Edge candidate-only local HTML preview. Not gameplay, runtime fix, FPS, high-frame animation, public internet, ZIP or device acceptance.",
+  "preflight": "evidence/current/wujing-layout/2026-10-11T08-43-56-039Z/preflight-2026-10-11T11-39-07-334Z.json",
+  "preflightSha256": "8520987a7910eed6abf53264b5ffe08eb1c81871d2f4a88f56d0d4ec8cea4f59",
+  "scriptSha256": "bd0e5d4f975c754f6021e17e002a2ed2d7800ddd6771b12372d4c834edbfbc26",
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "candidateLayoutPassed": false,
+  "pageErrors": [],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "screenshots": [
+    {
+      "file": "evidence/current/wujing-layout/2026-10-11T08-43-56-039Z/browser-2026-10-11T11-41-39-224Z/original-source.png",
+      "sha256": "81faab21e650724066ec7037acd3f4e6cae3bc3a7f3377d3056dd38d826a2aee",
+      "bytes": 1233263,
+      "mode": "original-source",
+      "actualCanvasDrawCalls": [
+        [
+          12,
+          76
+        ]
+      ],
+      "canvasRgbaFNV1a": "39eeadbe",
+      "previewScale": 1,
+      "note": "Per-card translation/centering is for inspection only; not proposed runtime roots or body scale."
+    },
+    {
+      "file": "evidence/current/wujing-layout/2026-10-11T08-43-56-039Z/browser-2026-10-11T11-41-39-224Z/candidate-source-grid.png",
+      "sha256": "c30840eef11a73f88df3f0261d695803ed1949f08470d7586d76b2e763d87512",
+      "bytes": 1150836,
+      "mode": "candidate-source-grid",
+      "actualCanvasDrawCalls": [
+        [
+          12,
+          76
+        ]
+      ],
+      "canvasRgbaFNV1a": "9ee1853a",
+      "previewScale": 1,
+      "note": "Per-card translation/centering is for inspection only; not proposed runtime roots or body scale."
+    },
+    {
+      "file": "evidence/current/wujing-layout/2026-10-11T08-43-56-039Z/browser-2026-10-11T11-41-39-224Z/candidate-padded.png",
+      "sha256": "15fceb8fbd4f8d39c7245c3542cc7c3add693e0bf9882b2142d13ab40291e2fa",
+      "bytes": 563213,
+      "mode": "candidate-padded",
+      "actualCanvasDrawCalls": [
+        [
+          45,
+          77,
+          352,
+          347,
+          113.6,
+          209.225,
+          228.8,
+          225.55
+        ],
+        [
+          458,
+          64,
+          356,
+          362,
+          560.3,
+          204.35,
+          231.4,
+          235.3
+        ],
+        [
+          877,
+          74,
+          376,
+          354,
+          1001.8,
+          206.95,
+          244.4,
+          230.1
+        ],
+        [
+          1305,
+          73,
+          394,
+          354,
+          1443.95,
+          206.95,
+          256.1,
+          230.1
+        ],
+        [
+          48,
+          450,
+          351,
+          378,
+          113.925,
+          639.15,
+          228.15,
+          245.70000000000002
+        ],
+        [
+          415,
+          532,
+          507,
+          295,
+          511.225,
+          666.125,
+          329.55,
+          191.75
+        ],
+        [
+          915,
+          489,
+          363,
+          337,
+          1006.025,
+          652.475,
+          235.95000000000002,
+          219.05
+        ],
+        [
+          1278,
+          520,
+          440,
+          308,
+          1429,
+          661.9,
+          286,
+          200.20000000000002
+        ]
+      ],
+      "canvasRgbaFNV1a": "1663e144",
+      "previewScale": 0.65,
+      "note": "Per-card translation/centering is for inspection only; not proposed runtime roots or body scale."
+    },
+    {
+      "file": "evidence/current/wujing-layout/2026-10-11T08-43-56-039Z/browser-2026-10-11T11-41-39-224Z/candidate-equal-cell.png",
+      "sha256": "0ef1622e95b9caf238e3201393f93b8d835b1435979e1c9be2dbd9521d486770",
+      "bytes": 565289,
+      "mode": "candidate-equal-cell",
+      "actualCanvasDrawCalls": [
+        [
+          0,
+          0,
+          443.5,
+          443.5,
+          83.86249999999998,
+          177.86249999999998,
+          288.27500000000003,
+          288.27500000000003
+        ],
+        [
+          443.5,
+          0,
+          443.5,
+          443.5,
+          531.8625,
+          177.86249999999998,
+          288.27500000000003,
+          288.27500000000003
+        ],
+        [
+          887,
+          0,
+          443.5,
+          443.5,
+          979.8625,
+          177.86249999999998,
+          288.27500000000003,
+          288.27500000000003
+        ],
+        [
+          1330.5,
+          0,
+          443.5,
+          443.5,
+          1427.8625,
+          177.86249999999998,
+          288.27500000000003,
+          288.27500000000003
+        ],
+        [
+          0,
+          443.5,
+          443.5,
+          443.5,
+          83.86249999999998,
+          617.8625,
+          288.27500000000003,
+          288.27500000000003
+        ],
+        [
+          443.5,
+          443.5,
+          443.5,
+          443.5,
+          531.8625,
+          617.8625,
+          288.27500000000003,
+          288.27500000000003
+        ],
+        [
+          887,
+          443.5,
+          443.5,
+          443.5,
+          979.8625,
+          617.8625,
+          288.27500000000003,
+          288.27500000000003
+        ],
+        [
+          1330.5,
+          443.5,
+          443.5,
+          443.5,
+          1427.8625,
+          617.8625,
+          288.27500000000003,
+          288.27500000000003
+        ]
+      ],
+      "canvasRgbaFNV1a": "620a8c56",
+      "previewScale": 0.65,
+      "note": "Per-card translation/centering is for inspection only; not proposed runtime roots or body scale."
+    }
+  ],
+  "serverStarted": false,
+  "previewChecksPassed": true,
+  "browserVersion": "155.0.4283.45",
+  "browserStartedAt": "2026-10-11T11:41:39.721Z",
+  "decoded": {
+    "original": {
+      "width": 1774,
+      "height": 887,
+      "complete": true
+    },
+    "candidate": {
+      "width": 1774,
+      "height": 887,
+      "complete": true
+    }
+  },
+  "ownedBrowserClosed": true,
+  "finishedAt": "2026-10-11T11:41:41.099Z"
+}

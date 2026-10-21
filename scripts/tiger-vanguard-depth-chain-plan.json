@@ -1,0 +1,93 @@
+{
+  "schema": "xiyou-depth-chain-diagnostic-design/v1",
+  "scope": "DESIGN_ONLY",
+  "browserStatus": "NOT_RUN",
+  "maximumFutureResult": "REVIEW_EVIDENCE_ONLY",
+  "overall": "NOT_READY",
+  "baseScript": "scripts/browser-tiger-vanguard-chain-png-control.mjs",
+  "baseScriptSha256": "bbad11be3790f8b5228e419d9f26a4946046d2200cbb569c42c0420bf509619c",
+  "priorReport": "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/browser.json",
+  "priorReportSha256": "9136f138dda131e6db5751282c1883ded40e5e4dfae826a0bb16f6998ec36a07",
+  "priorCloseout": "evidence/current/tiger-vanguard/depth-control/2026-10-14T06-20-05-385Z/closeout.json",
+  "assetPolicy": "REUSE_LOCKED_PAGES_NO_GENERATION",
+  "futureRun": {
+    "browserCount": 1,
+    "pageCount": 1,
+    "serverPort": 8088,
+    "viewport": { "width": 390, "height": 844, "dpr": 1 },
+    "frames": [
+      { "id": "A1", "depth": "original", "mirror": true },
+      { "id": "A2", "depth": "original", "mirror": true },
+      { "id": "B1", "depth": "deferred-once", "mirror": true },
+      { "id": "B2", "depth": "deferred-once", "mirror": true }
+    ],
+    "synchronousBlock": true,
+    "interframeAwaitRafOrStateAdvance": false,
+    "originalPlayerCallsPerFrame": 1,
+    "interceptedPlayerCallsPerFrame": 1,
+    "proxyCanvasCount": 3,
+    "proxyResetPerFrame": true,
+    "mainCanvasResetOrConfigChange": false,
+    "exportOrder": ["main", "playerLayer", "playerSprite", "candidate"],
+    "fixturePngCount": 16,
+    "realEntryPngCount": 1,
+    "mainGetImageDataGuardCalls": 0,
+    "decodeOnlyAfterAllClosed": true,
+    "pngExportIsReadback": true,
+    "naturalFiveMinuteSurvival": false
+  },
+  "mirror": {
+    "mode": "ORIGINAL_TRANSFORM_CALL_CHAIN",
+    "methods": ["save", "restore", "setTransform", "resetTransform", "translate", "scale", "rotate", "transform"],
+    "getterToSetterMatrixRefill": false,
+    "exactMatrixChecks": true,
+    "stylesAndDashRecordedSeparately": true,
+    "proxyEquivalentToActualMainPaintSupportProven": false
+  },
+  "trace": {
+    "segments": ["background", "world", "player", "candidate", "bar", "feedback", "hud", "annotation"],
+    "stateIdsResolvedBeforeComparison": true,
+    "imageRefsResolvedBeforeComparison": true,
+    "crossModeRemovalWhitelist": ["moved-player-segment", "one-tagged-depth-style-transaction"],
+    "removeWholeTransformOrStyleTrace": false,
+    "firstCommand": "setTransform",
+    "firstPlayerPath": "beginPath",
+    "clipCalls": 0,
+    "stackBalance": 0,
+    "stackUnderflow": false,
+    "maximumCommandsPerFrame": 30000,
+    "unknownOperationPolicy": "FAIL_CLOSED"
+  },
+  "pixels": {
+    "sameModePairs": [["A1", "A2"], ["B1", "B2"]],
+    "crossModePairs": [["A1", "B1"], ["A1", "B2"], ["A2", "B1"], ["A2", "B2"]],
+    "sameModeChangedPixels": 0,
+    "proxyChangedPixels": 0,
+    "allCrossDifferenceMapsExact": true,
+    "crossChangedPixelsMustBePositive": true,
+    "outsidePlayerAlphaUnionChangedPixels": 0,
+    "supportAlphaThreshold": 0,
+    "bodyOverlapAlphaThreshold": 8,
+    "channelTolerance": 0,
+    "maskDilationPixels": 0,
+    "preserveEveryOutsidePixelRgba": true
+  },
+  "limitations": {
+    "phaseOrderConfounded": true,
+    "actualBackendIdentified": false,
+    "initialNativePathClipStackProven": false,
+    "causalDiagnosisProven": false
+  },
+  "approvals": {
+    "humanMotionReviewed": false,
+    "rootApproved": false,
+    "playerReadabilityApproved": false,
+    "healthBarLayoutApproved": false,
+    "viewportEdgeApproved": false,
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "fpsAcceptance": false,
+    "publicPass": false,
+    "releaseReady": false
+  }
+}

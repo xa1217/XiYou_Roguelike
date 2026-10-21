@@ -1,0 +1,17 @@
+{
+  "startedAt": "2026-10-14T03:11:48.194Z",
+  "finishedAt": "2026-10-14T03:13:17.910Z",
+  "command": "npm test",
+  "exitCode": 0,
+  "result": "PASS",
+  "scope": "Fresh current workspace regression after the final evidence-only script edit and browser control. Does not run the evidence script as an npm gate, or approve depth/artistic readability/natural gameplay/high-frame/FPS/public/ZIP/device acceptance.",
+  "fullOutputFile": "evidence/current/tiger-vanguard/transform-control/2026-10-14T03-09-23-021Z/npm-test.txt",
+  "outputCharacters": 49163,
+  "originalTokenCount": 12295,
+  "outputTruncated": false,
+  "evidenceScriptSyntaxChecked": true,
+  "buildMayRefreshDerivedEntrypoints": true,
+  "releaseZipRebuilt": false,
+  "publicRetested": false,
+  "publicPass": false
+}

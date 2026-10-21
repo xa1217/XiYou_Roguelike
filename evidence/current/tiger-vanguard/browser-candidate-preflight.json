@@ -1,0 +1,202 @@
+{
+  "generatedAt": "2026-10-11T06:16:44.841Z",
+  "result": "REVIEW",
+  "scope": "Single real Edge decode/draw preview of a rejected Tiger Vanguard candidate; not production gameplay, runtime approval, ZIP, public or FPS evidence.",
+  "asset": {
+    "path": "evidence/current/tiger-vanguard/candidate-v1-sheet.png",
+    "sha256": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824",
+    "bytes": 1985514,
+    "size": [
+      1774,
+      887
+    ]
+  },
+  "sourcePreflight": {
+    "path": "evidence/current/tiger-vanguard/asset-preflight-v1.json",
+    "result": "REVIEW",
+    "checks": {
+      "transparentBackground": true,
+      "fourIsolatedRows": true,
+      "eightIsolatedFiguresPerRow": false,
+      "thirtyTwoDistinctFrames": false,
+      "allVisiblePixelsAccountedFor": true,
+      "noCanvasEdgeClipping": false
+    }
+  },
+  "pageErrors": [],
+  "browser": "155.0.4283.45",
+  "browserDecode": {
+    "decoded": true,
+    "rendered": [
+      {
+        "index": 0,
+        "state": "idle",
+        "pixelHash": 3870388957
+      },
+      {
+        "index": 1,
+        "state": "idle",
+        "pixelHash": 3581548631
+      },
+      {
+        "index": 2,
+        "state": "idle",
+        "pixelHash": 2175475482
+      },
+      {
+        "index": 3,
+        "state": "idle",
+        "pixelHash": 178906616
+      },
+      {
+        "index": 4,
+        "state": "idle",
+        "pixelHash": 2932176030
+      },
+      {
+        "index": 5,
+        "state": "idle",
+        "pixelHash": 2210112757
+      },
+      {
+        "index": 6,
+        "state": "idle",
+        "pixelHash": 626723894
+      },
+      {
+        "index": 7,
+        "state": "idle",
+        "pixelHash": 3923298484
+      },
+      {
+        "index": 8,
+        "state": "move",
+        "pixelHash": 3399406922
+      },
+      {
+        "index": 9,
+        "state": "move",
+        "pixelHash": 3492780035
+      },
+      {
+        "index": 10,
+        "state": "move",
+        "pixelHash": 1527162780
+      },
+      {
+        "index": 11,
+        "state": "move",
+        "pixelHash": 4174885485
+      },
+      {
+        "index": 12,
+        "state": "move",
+        "pixelHash": 2774483682
+      },
+      {
+        "index": 13,
+        "state": "move",
+        "pixelHash": 1959408821
+      },
+      {
+        "index": 14,
+        "state": "move",
+        "pixelHash": 2982944577
+      },
+      {
+        "index": 15,
+        "state": "move",
+        "pixelHash": 583199142
+      },
+      {
+        "index": 16,
+        "state": "attack",
+        "pixelHash": 1361986628
+      },
+      {
+        "index": 17,
+        "state": "attack",
+        "pixelHash": 454794654
+      },
+      {
+        "index": 18,
+        "state": "attack",
+        "pixelHash": 3829592966
+      },
+      {
+        "index": 19,
+        "state": "attack",
+        "pixelHash": 2899357178
+      },
+      {
+        "index": 20,
+        "state": "attack",
+        "pixelHash": 684714672
+      },
+      {
+        "index": 21,
+        "state": "attack",
+        "pixelHash": 548369454
+      },
+      {
+        "index": 22,
+        "state": "attack",
+        "pixelHash": 2539070543
+      },
+      {
+        "index": 23,
+        "state": "attack",
+        "pixelHash": 2743443484
+      },
+      {
+        "index": 24,
+        "state": "hit",
+        "pixelHash": 4050307229
+      },
+      {
+        "index": 25,
+        "state": "hit",
+        "pixelHash": 1907990307
+      },
+      {
+        "index": 26,
+        "state": "hit",
+        "pixelHash": 2965572045
+      },
+      {
+        "index": 27,
+        "state": "hit",
+        "pixelHash": 2995155092
+      },
+      {
+        "index": 28,
+        "state": "death",
+        "pixelHash": 1190847438
+      },
+      {
+        "index": 29,
+        "state": "death",
+        "pixelHash": 3578433486
+      },
+      {
+        "index": 30,
+        "state": "death",
+        "pixelHash": 357173596
+      }
+    ],
+    "distinctRendered": 31
+  },
+  "screenshot": {
+    "path": "evidence/current/tiger-vanguard/browser-candidate-atlas.png",
+    "sha256": "ba7ddfcffdfd0c7f2e447a2d02d65f4c49dbe0a0648f44ea7badab8a78a12340",
+    "bytes": 386391
+  },
+  "checks": {
+    "browserDecoded": true,
+    "allMeasuredRegionsDrawn": true,
+    "browserDistinctRenderedRegions": true,
+    "noPageErrors": true,
+    "sourceLayoutApproved": false
+  },
+  "browserClosed": true
+}

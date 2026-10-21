@@ -1,0 +1,60 @@
+{
+  "ok": true,
+  "generatedAt": "2026-10-12T18:36:37.550Z",
+  "tests": [
+    {
+      "name": "only an active speed multiplier between zero and one produces a slow badge",
+      "result": "PASS"
+    },
+    {
+      "name": "real rope slow enters and recovers through nextSlow without changing movement rules",
+      "result": "PASS"
+    },
+    {
+      "name": "status priority recovers from stun through burn, bleed, slow and knockback to no badge",
+      "result": "PASS"
+    },
+    {
+      "name": "crowded status badges have a twelve-label cap, named-threat priority and non-overlapping bounded slots",
+      "result": "PASS"
+    },
+    {
+      "name": "placement avoids the player and suppresses badges that cannot fit inside the viewport",
+      "result": "PASS"
+    },
+    {
+      "name": "paused rendering is deterministic and never mutates the engine or its frozen snapshot",
+      "result": "PASS"
+    },
+    {
+      "name": "badge rectangle storage is numeric, bounded, reused across frames and emptied on dispose",
+      "result": "PASS"
+    },
+    {
+      "name": "tiger health bars clear all 32 authored pose bounds and stun is not drawn twice",
+      "result": "PASS"
+    }
+  ],
+  "totals": {
+    "tests": 8,
+    "passed": 8,
+    "failed": 0,
+    "maxStatusBadges": 12,
+    "placementCandidatesPerBadge": 3,
+    "tigerAtlasPoses": 32,
+    "tigerPoseBoundsChecks": 128,
+    "tigerLivingDrawChecks": 112,
+    "rectangleReuseFrames": 120
+  },
+  "runtime": {
+    "kind": "Node.js with deterministic Canvas mock",
+    "nodeVersion": "v26.7.0"
+  },
+  "boundary": {
+    "realBrowser": false,
+    "pixelRendering": false,
+    "gpuPerformance": false,
+    "wechatDevice": false
+  },
+  "note": "Verifies status semantics, bounded placement, Canvas calls and authored crop bounds; not browser pixels, subjective mobile readability, GPU performance or WeChat device behavior."
+}

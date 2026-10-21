@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-10-11T07:13:18.597Z",
+  "result": "GAP_CONFIRMED",
+  "scope": "Read-only first-stage final-boss identity and asset audit. No generated art, browser or runtime writes.",
+  "bosses": [
+    {
+      "name": "寅将军",
+      "variant": "tiger"
+    },
+    {
+      "name": "熊山君",
+      "variant": "bear"
+    },
+    {
+      "name": "特处士",
+      "alias": "待处士",
+      "variant": "bull"
+    }
+  ],
+  "evidence": [
+    "prototype-2d/src/content.js:196-200",
+    "prototype-2d/src/engine.js:328-350",
+    "prototype-2d/src/battle-enemy-animation.js:12-30",
+    "prototype-2d/src/renderer.js:1013-1060",
+    "prototype-2d/native-app.js:115-128"
+  ],
+  "findings": [
+    "spawnBoss writes kind/name/variant/final but not a dedicated battle sprite identity",
+    "normal tiger/bear/bull authored frames exclude boss and elite",
+    "enemy-boss.svg fallback is 220x220; old enemy-boss-kr-v1.png is a retired single pose",
+    "No final-boss-specific PNG/JSON/runtime allowlist exists"
+  ],
+  "nextStep": "Establish unique boss identity/frame contract and separate preflight for each boss; do not reuse ordinary monster sheets."
+}

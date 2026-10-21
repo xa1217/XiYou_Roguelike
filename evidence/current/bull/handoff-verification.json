@@ -1,0 +1,321 @@
+{
+  "generatedAt": "2026-10-10T08:20:49.826Z",
+  "result": "PASS",
+  "scope": "Ordinary bull isolated candidate preview and registration; not production gameplay, public network or deployment",
+  "checks": {
+    "assetMatchesContractAndManifest": true,
+    "originalImageUnchanged": true,
+    "contractCandidateOnly": true,
+    "identityRestricted": true,
+    "expectedPoseCounts": true,
+    "measuredCropsExpandedTwoPixels": true,
+    "noRuntimeReferences": true,
+    "isolatedBrowserPass": true,
+    "screenshotsAndVideoUnchanged": true,
+    "assetAuditPass": true,
+    "freshLocalValidation": true,
+    "archivesUnchangedAndNoBull": true,
+    "runtimeAndReleaseSourceUnchanged": true,
+    "previousEvidenceBackedUp": true
+  },
+  "asset": {
+    "file": "prototype-2d/assets/enemy-bull-battle-v1-sheet.png",
+    "bytes": 1137073,
+    "sha256": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb"
+  },
+  "contract": {
+    "file": "prototype-2d/assets/enemy-bull-battle-v1-frames.json",
+    "bytes": 5574,
+    "sha256": "78bdbfab2dca37986d7539b70f65252b6f15a613a47f3f9874755ff7b1defd90",
+    "states": {
+      "idle": 8,
+      "move": 8,
+      "attack": 8,
+      "hit": 4,
+      "death": 4
+    },
+    "referenceBodyHeight": 150,
+    "anchorStatus": "provisional fixed row/column roots for isolated playback only; no per-frame bottom snapping; real gameplay foot contact, scale and state transitions remain unapproved",
+    "runtimeApproved": false
+  },
+  "screenshots": [
+    {
+      "file": "evidence/current/bull/atlas-right-48px.png",
+      "bytes": 206747,
+      "sha256": "ab4ce62ab8282cec9f936ecab0f26566db6a47de677823552c56658a239a71a8",
+      "matchesBrowserRecord": true
+    },
+    {
+      "file": "evidence/current/bull/atlas-left-48px.png",
+      "bytes": 207100,
+      "sha256": "ede2aa34a9a38c9b7f57d308ea2d9dede69206a2f03945eb64b0b0463e3b7f7e",
+      "matchesBrowserRecord": true
+    },
+    {
+      "file": "evidence/current/bull/motion-sample-48-56-96px.png",
+      "bytes": 129394,
+      "sha256": "589f4181b3bf800ab52b72f7a1a6cdb455a532b10a1eb3a09537918185869bdb",
+      "matchesBrowserRecord": true
+    }
+  ],
+  "preview": {
+    "file": "evidence/current/bull/animation-preview.webm",
+    "bytes": 276425,
+    "sha256": "9b8aea834df7b34e5a0f31e45745875d6b7d2995a10b67d2a528a5edf14bd608",
+    "matchesBrowserRecord": true,
+    "decodedInBrowser": {
+      "decoded": true,
+      "ended": true,
+      "width": 1000,
+      "height": 720,
+      "decodedFrames": 90,
+      "distinctSampledPixels": 90,
+      "playedSeconds": 4.154,
+      "note": "Readback of recorded isolated preview; not all-source-pose codec coverage, final animation quality or game FPS."
+    },
+    "decodeSource": "In-memory recorded dataUrl, not disk playback; disk SHA checked separately"
+  },
+  "evidence": [
+    {
+      "file": "evidence/current/bull/asset-preflight.json",
+      "bytes": 11073,
+      "sha256": "0621c10e9061f733a83cd5a180a1053a043794002d02150bd36656ff2bbeaad5",
+      "result": "PASS",
+      "generatedAt": "2026-10-10T08:18:57.480Z"
+    },
+    {
+      "file": "evidence/current/bull/browser-preflight.json",
+      "bytes": 5546,
+      "sha256": "45e3f1bf127c2d77583d5215965a9d6711beb12835dcd4d1e1c82e8a40456f98",
+      "result": "PASS",
+      "generatedAt": "2026-10-10T08:14:57.182Z"
+    },
+    {
+      "file": "evidence/current/asset-dedup-audit.json",
+      "bytes": 16689,
+      "sha256": "81bb6ddc61ca380e03b617f51d5cf5b3348c60a9fbfd0d67510a79c00b471e8d",
+      "result": "PASS",
+      "generatedAt": "2026-10-10T08:17:01.992Z"
+    },
+    {
+      "file": "evidence/current/validation.json",
+      "bytes": 170,
+      "sha256": "5e1c5b337b95088f8fbaae02356bb9b29c7d7dc074e7b8b93151458463546266",
+      "result": "PASS",
+      "generatedAt": "2026-10-10T08:17:08.181Z"
+    },
+    {
+      "file": "evidence/current/bear/public-contract-node.json",
+      "bytes": 857,
+      "sha256": "b315d61fbe358ada2c06925126cbc3acf18a3bb3d8335111b4d5ad75ae27a9aa",
+      "result": "PASS",
+      "generatedAt": "2026-10-10T08:17:03.384Z"
+    }
+  ],
+  "inventory": {
+    "scanned": 75,
+    "uniqueSha256": 71,
+    "duplicateGroups": 4
+  },
+  "archives": [
+    {
+      "file": "dist/xiyou-survivor-web-v1.0.0.zip",
+      "bytes": 11495592,
+      "sha256": "66308f0516ac8ea68aaf35a42f4038ebdf9fd1fadd8f8f1503f926d4379d8468",
+      "channel": "web",
+      "matchesPreviousPackage": true,
+      "bullInManifest": false
+    },
+    {
+      "file": "dist/xiyou-survivor-wechat-game-v1.0.0.zip",
+      "bytes": 5043356,
+      "sha256": "b74a0b67f25a9ef01043e82b9876a7727b3ce6c40cd7272bd7e53a87dfe1d34c",
+      "channel": "wechatGame",
+      "matchesPreviousPackage": true,
+      "bullInManifest": false
+    }
+  ],
+  "sourceComparison": [
+    {
+      "file": "scripts/runtime-frame-contract.mjs",
+      "bytes": 1635,
+      "sha256": "8f04db9834971aa8621e52224e0a34318ff5c8e99f0bd963c31e22f3238d4c30",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/test-runtime-contracts.mjs",
+      "bytes": 2838,
+      "sha256": "cf723684bfab92e879c196b8b19e7a0c03f1a553423c4a6bfc666d47a93932f7",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/release.mjs",
+      "bytes": 7023,
+      "sha256": "25ced262b0aa0b81630835598f37cf96dcd74c1eff04e144c1a92046e98187b1",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/serve.mjs",
+      "bytes": 4635,
+      "sha256": "a7e47a67c4b8da9486fb84deae50c98bd77662caa37b683fd2701c4b74c4d751",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/verify-release.ps1",
+      "bytes": 8172,
+      "sha256": "9d76b8436e27d1d998be174ca09d0a7ec742a6cdd81edffc8844f2514be8292f",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/validate.mjs",
+      "bytes": 4675,
+      "sha256": "2c194595984b320f646d7f1aa569eb70a81f8a2e294b9c699415cc718b78c80f",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/browser-public-smoke.mjs",
+      "bytes": 8205,
+      "sha256": "623af56af87598ce1a6f54393bf0e942465846f68ac1193d4f64cd232735a6b7",
+      "unchanged": true
+    },
+    {
+      "file": "prototype-2d/native-app.js",
+      "bytes": 11736,
+      "sha256": "8bf3d8959145c28a20e38c8669466a3f64b9c194fd6b2f30ef173b008ac02591",
+      "unchanged": true
+    },
+    {
+      "file": "prototype-2d/src/engine.js",
+      "bytes": 66320,
+      "sha256": "663acf5fdc887e736f137b46f438b847e013c814d0ba7398ecdebd6fc1344415",
+      "unchanged": true
+    },
+    {
+      "file": "prototype-2d/src/renderer.js",
+      "bytes": 92592,
+      "sha256": "9fe4a514372ef32240551b6a66402236d504274b5e877d04107309b24040d699",
+      "unchanged": true
+    },
+    {
+      "file": "prototype-2d/src/bear-animation.js",
+      "bytes": 3333,
+      "sha256": "534e4ce72f5c0962a6e24b91df83cc8a04fe55e3aaf5d0a00eb20ea9fce102e7",
+      "unchanged": true
+    },
+    {
+      "file": "prototype-2d/src/tiger-animation.js",
+      "bytes": 3356,
+      "sha256": "a1ee6efd926e5f723a0124548dde1a2198d75d8e929253787da9351ad5ba73ed",
+      "unchanged": true
+    },
+    {
+      "file": "prototype-2d/src/battle-enemy-animation.js",
+      "bytes": 1073,
+      "sha256": "19449eec7f956947633889be9e1eef1b0c225c7ddc3f5d11af13ae70fabc8b53",
+      "unchanged": true
+    },
+    {
+      "file": "prototype-2d/assets/enemy-bear-battle-v1-frames.json",
+      "bytes": 5705,
+      "sha256": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+      "unchanged": true
+    }
+  ],
+  "checkedRuntimeFiles": [
+    "prototype-2d/native-app.js",
+    "scripts/serve.mjs",
+    "scripts/release.mjs",
+    "scripts/runtime-frame-contract.mjs",
+    "prototype-2d/src/audio.js",
+    "prototype-2d/src/battle-enemy-animation.js",
+    "prototype-2d/src/bear-animation.js",
+    "prototype-2d/src/content.js",
+    "prototype-2d/src/engine.js",
+    "prototype-2d/src/native-ui.js",
+    "prototype-2d/src/progression.js",
+    "prototype-2d/src/renderer.js",
+    "prototype-2d/src/tiger-animation.js"
+  ],
+  "matchingRuntimeFiles": [],
+  "previousEvidenceBackup": "work/bull-preflight-backup-20261010T054206Z",
+  "backupEvidence": [
+    {
+      "file": "work/bull-preflight-backup-20261010T054206Z/evidence/current/validation.json",
+      "bytes": 170,
+      "sha256": "c2254fe9cdcf2ae4f6061d79f5daaf06a13ebc79b21de861560fcf7bd0f2e131",
+      "matchesPreviousEvidence": true
+    },
+    {
+      "file": "work/bull-preflight-backup-20261010T054206Z/evidence/current/bear/public-contract-node.json",
+      "bytes": 857,
+      "sha256": "890c570819bd103a57c9493f6d32fdfee9e1b1409f9851a34d370228fcf6b0ff",
+      "matchesPreviousEvidence": true
+    },
+    {
+      "file": "work/bull-preflight-backup-20261010T054206Z/evidence/current/bear/release-verification.json",
+      "bytes": 1412,
+      "sha256": "a003685eb91991f64d537f0621e46e3d0c0093449a2ec513acd31f9b969890dc",
+      "matchesPreviousEvidence": true
+    },
+    {
+      "file": "work/bull-preflight-backup-20261010T054206Z/evidence/current/browser-public-smoke.json",
+      "bytes": 10518,
+      "sha256": "4e8bc6333c55c72ca9890b13086f425a414d82d3fb68e30d7d780a73b60dc682",
+      "matchesPreviousEvidence": true
+    },
+    {
+      "file": "work/bull-preflight-backup-20261010T054206Z/evidence/current/bear/release-http.json",
+      "bytes": 473,
+      "sha256": "ce3c3541aa1df931bab0b21e3c7522b1dedddbdf0d1f1384f49ce4f233521a49",
+      "matchesPreviousEvidence": true
+    },
+    {
+      "file": "work/bull-preflight-backup-20261010T054206Z/evidence/current/asset-dedup-audit.json",
+      "bytes": 16501,
+      "sha256": "baa0a9ce179eb203cc9d6f087c9081c3ff6bcad830e0301af9aa116f2addd827",
+      "matchesPreviousEvidence": true
+    }
+  ],
+  "generation": {
+    "mode": "built-in",
+    "newImageCallsThisCandidateStep": 1,
+    "targetedLayoutEditCalls": 1,
+    "additionalGenerationCallsDuringResume": 0,
+    "prompts": [
+      {
+        "file": "prompts/enemy-bull-battle-v1-sheet.txt",
+        "bytes": 3771,
+        "sha256": "35194d9d785f2f4c1947739d09f1a9c266e621a6104b4ca89a06ccba5b864667"
+      },
+      {
+        "file": "prompts/enemy-bull-battle-v1-layout-edit.txt",
+        "bytes": 1702,
+        "sha256": "02a16bc30ec5702d2e8d15ca317f64e381e1c5db6970fec65732bf21ee21c697"
+      }
+    ]
+  },
+  "retainedFailureFiles": [
+    "evidence/current/bull/browser-fail-1791616690731.json"
+  ],
+  "deployed": false,
+  "publicRetested": false,
+  "gameBrowserRetested": false,
+  "releaseRebuilt": false,
+  "processReview": {
+    "checkedAt": "2026-10-10T08:19:04.7609886Z",
+    "matchingTestOrHeadlessEdgeProcesses": [],
+    "totalMemoryKiB": 33449580,
+    "freeMemoryKiB": 22154608,
+    "processesTerminated": 0,
+    "scope": "Read-only scoped snapshot, not a guarantee about future 429 errors or all machine processes"
+  },
+  "visualReview": {
+    "reviewedBy": "root agent",
+    "screenshots": [
+      "evidence/current/bull/atlas-right-48px.png",
+      "evidence/current/bull/atlas-left-48px.png",
+      "evidence/current/bull/motion-sample-48-56-96px.png"
+    ],
+    "findings": "Original small chibi bovine silhouette stays legible at 48px in both directions; no obvious truncation or neighboring figure visible in inspected atlases and sampled poses. Fixed roots and gameplay transitions remain provisional. No claim of perfect animation or subjective full-video quality."
+  }
+}

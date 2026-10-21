@@ -1,0 +1,36 @@
+{
+  "verifiedDate": "2026-10-09",
+  "result": "PASS",
+  "method": "Read actual ZIP entries with .NET ZipArchive; compare exact entry set, bytes and SHA256 with dist/RELEASE-MANIFEST.json. Real Edge separately served release-staging/web with ?debug=1.",
+  "web": {
+    "files": 39,
+    "exactManifest": true,
+    "bytes": 10551987,
+    "sha256": "a37bfb276c292e4d011c090347231dd2b293d3db5d3e46945bdb54448284cb02",
+    "forbiddenFiles": 0,
+    "includesTigerPngJsonAndModule": true,
+    "browserEvidence": "evidence/current/browser-public-smoke.json",
+    "debugDisabledWithQueryParameter": true
+  },
+  "wechatGame": {
+    "files": 25,
+    "exactManifest": true,
+    "bytes": 5041604,
+    "sha256": "9b0fdece50b6085714d4d07e3d801a2795da9f2c610342aef357b6d095c20f02",
+    "forbiddenFiles": 0,
+    "currentAndStagedCoreSha256": "21a754f8729d24eee5f8ab08bd7c70e01da9134c0e1df4a4d7bac10472bcabb8",
+    "note": "Logic bundle only; tiger bitmap not wired to WeChat adapter; vector fallback retained. No device acceptance."
+  },
+  "limits": {
+    "externalPublic": "Not tested this turn; prior external 502 remains unresolved, not PASS.",
+    "wechatDevice": "Not tested.",
+    "visualPolish": "Dense slow-status labels still overlap in natural combat screenshots; remaining enemy atlases not complete."
+  },
+  "execution": {
+    "assetGenerationCalls": 0,
+    "maxConcurrentTestBrowsers": 1,
+    "remainingEdgeAndChromeProcessesAfterCleanup": 0,
+    "ownedTestServersStopped": true,
+    "releaseSandboxAttempt": "Build child process failed in sandbox before cleanup; approved npm run release retry succeeded."
+  }
+}

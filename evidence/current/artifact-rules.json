@@ -1,0 +1,26 @@
+{
+  "version": "artifact-rules-v2",
+  "compatibility": {
+    "purple-gourd": "紫金葫芦",
+    "iron-fan": "芭蕉扇",
+    "diamond-snare": "乾坤圈",
+    "nine-dragon": "风火轮",
+    "lotus-lantern": "七十二变",
+    "golden-rope": "念力佛珠",
+    "moon-mirror": "如来神掌",
+    "samadhi-fire": "搬山诀"
+  },
+  "effects": {
+    "monkey-clone": "七十二变环绕木棍猴；levels count 3/6/9/12/15, intercepts 1/1/2/2/3",
+    "palm-strike": "如来神掌落地范围打击；directions 1/2/3/4/5",
+    "bead": "念力佛珠环绕伤害；count 1/3/5/6/9",
+    "skull-bead": "念力佛珠 level 5 骷髅珠变体",
+    "gourd": "紫金葫芦扇形吸附；普通怪吸入秒杀，精英/首领 DOT 与减速",
+    "mountain": "搬山诀落山范围伤害；人物 5 倍尺寸基准随等级增强",
+    "fire-wheel": "风火轮直线投射，沿途伤害",
+    "fire-trail": "风火轮火径 DOT；duration 1/2/3/4/5 秒",
+    "ring": "乾坤圈高伤首击；bounce count 3/5/7/9/11，反弹 AoE 1/2/3/4/5",
+    "ring-child": "乾坤圈 level 3/4/5 分裂子圈，bounce 3/4/5，不递归"
+  },
+  "acceptance": "旧存档继续使用八个稳定 id；UI 以 content name 显示新法宝名。"
+}

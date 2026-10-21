@@ -1,0 +1,61 @@
+{
+  "generatedAt": "2026-10-09T12:25:45.202Z",
+  "target": "stage1+normal+bear",
+  "decision": "GENERATE_ONE_MISSING_ASSET",
+  "scope": "single original ordinary bear 32-pose gameplay sheet; not named boss 熊山君",
+  "currentInventory": {
+    "path": "evidence/current/asset-dedup-audit.json",
+    "scanned": 73,
+    "uniqueSha256": 69,
+    "duplicateGroups": 4,
+    "result": "PASS"
+  },
+  "existingCandidates": [
+    {
+      "path": "prototype-2d/assets/enemy-creature-kr-v1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "5eb03be680a6e4a7b8aba3b53695d7eb22c2c5f19c1a31a710c711743ba8d102",
+      "reason": "Inspected: single-pose wood/horn demon with club, not ordinary bear or animation; retired from battle"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-brute-kr-v1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d",
+      "reason": "Inspected: armored stone/horn elite, not bear; single-pose retired image"
+    },
+    {
+      "path": "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png",
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+      "reason": "Already approved tiger32; keep unchanged; not bear substitute"
+    }
+  ],
+  "runtimeReferences": {
+    "content": "prototype-2d/src/content.js:185 ordinary bear, :198 named bear boss; same variant, different kind",
+    "loader": "prototype-2d/native-app.js loads generic SVG fallbacks and approved tiger sheet, no bear sheet",
+    "renderer": "prototype-2d/src/renderer.js uses generic bear/brute vector fallback; no authored bear frame contract"
+  },
+  "generatedImageDirectoryReview": "Six PNGs: four current hero v3s (matching inventory hashes), approved tiger and rejected initial tiger. No bear output exists in this thread directory.",
+  "originalProjectReadOnlyReview": "Auxiliary read-only audit of F:/Project/Xiyou_EightyOne_Calamities active assets found only apocalypse/rig/crawler/environment media matching legacy-source hashes; no bear animation. Original project unchanged.",
+  "toolMode": "built-in image_gen; no directly callable video generation tool discovered",
+  "plannedOutput": "prototype-2d/assets/enemy-bear-battle-v1-sheet.png",
+  "plannedStates": {
+    "idle": 8,
+    "move": 8,
+    "attack": 8,
+    "hit": 4,
+    "death": 4
+  },
+  "runtimeApproval": false,
+  "prompt": "prompts/enemy-bear-battle-v1-sheet.txt",
+  "concurrency": "one asset task, one image call; no browser during generation"
+}

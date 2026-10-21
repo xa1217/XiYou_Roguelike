@@ -1,0 +1,91 @@
+{
+  "verifiedAt": "2026-10-13T11:35:18.141Z",
+  "result": "REVIEW_FULL32_CANDIDATE_PREVIEW_ONLY",
+  "browser": {
+    "version": "155.0.4283.45",
+    "generatedAt": "2026-10-13T11:20:21.840Z",
+    "finishedAt": "2026-10-13T11:20:26.191Z",
+    "closed": true,
+    "contextClosed": true,
+    "checks": {
+      "tableSelfTests": true,
+      "browserNodeAlphaAndGuardMeasurementsMatch": true,
+      "decodedSizesMatch": true,
+      "all32DistinctAtBothSizesAndFacings": true,
+      "allStatesTraversed": true,
+      "oneShotStatesFinishCorrectly": true,
+      "noProductionReferences": true,
+      "noErrorsOrNetwork": true
+    }
+  },
+  "candidateTable": {
+    "file": "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json",
+    "sha256": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+    "frames": 32,
+    "v1": 29,
+    "patch": 3,
+    "stateCounts": {
+      "idle": 8,
+      "move": 8,
+      "attack": 8,
+      "hit": 4,
+      "death": 4
+    }
+  },
+  "recording": {
+    "file": "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/full-state-preview.webm",
+    "bytes": 409093,
+    "sha256": "081194ca3938842905ece4cdf91a9013ae61c6b4358899d724dcc51c2ad8f64a",
+    "mimeType": "video/webm;codecs=vp9",
+    "backend": "Edge canvas.captureStream + MediaRecorder, no host ffmpeg",
+    "captureFramesPerSecond": 30,
+    "streamTracksStopped": true,
+    "humanMotionReviewCompleted": false
+  },
+  "regression": {
+    "command": "npm test",
+    "exitCode": 0,
+    "date": "2026-10-13T11:22:20.318Z",
+    "result": "PASS",
+    "fullOutputArchived": true,
+    "archiveMatchesCurrentJson": true
+  },
+  "protectedFiles": 91,
+  "protectedChanged": [],
+  "files": {
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/browser.json": "c8b9682c3f218b2ed5bf99477110db6eb68947466a66bae523dd90f31e91e483",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/candidate-table.json": "8ea3d6e36fd490f5f81f8a6b13b5f1166c41c7a88c73bf1648162bdf1b91f75f",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/full-state-preview.webm": "081194ca3938842905ece4cdf91a9013ae61c6b4358899d724dcc51c2ad8f64a",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/npm-validation.json": "bdd587b2a782631dac8ad3b62b601b646e87d20598b29b66842b2e97dfbdd087",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/npm-test.txt": "70237f5771f43002b1f11183ea3061a8f442e21fe54dc6043673d8e94699f87d",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-20-21-840Z/review.md": "9e8700d5862dfaabd674c91e4ed62204afc8818f4565112268b2fa04dbd5f2c2",
+    "scripts/browser-tiger-vanguard-full-candidate.mjs": "5e580b49e5f5c0839f0f4d1b6b69cf7002837794bb0ffc523513d2bcb3d2f282",
+    "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-18-17-465Z/browser.json": "8bc2269c4f6e71b9ec11e29d406b32fcae6cce63af3ed68b24f87f67778a5c7b",
+    "STATUS.md": "57cba46cf325f7947e18aa654a14b3df23b80453a3e15c1b1c5235433e2d5712",
+    "docs/REQUIREMENTS-ACCEPTANCE.md": "b3cee4d45ab5988ae10dfca3247bd463d4c15e75134e8b4d0e2fd450d3ea514c",
+    "docs/FINAL-REPORT.md": "aa719d6743a36a4d7cb9c18331dde7d430a9d0de045aba7ffd6356eb994a7c69",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md": "98f138c8910677556555c1afc6b87297f1af07dc5b57842d076ae40e6bbbcce4"
+  },
+  "retainedFailure": {
+    "file": "evidence/current/tiger-vanguard/full-candidate/2026-10-13T11-18-17-465Z/browser.json",
+    "result": "FAIL",
+    "reason": "Optional Playwright ffmpeg executable missing; closed browser and used native Edge recording without dependency install."
+  },
+  "humanReviewedStaticScreenshots": 6,
+  "humanReviewedMotionRecording": false,
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "releaseReady": false,
+  "deployAuthorized": false,
+  "newImageGenerationCalls": 0,
+  "productionChanges": 0,
+  "localServerStarted": false,
+  "limitations": [
+    "Temporary bbox-bottom-center pivots, not authored whole-state body/ground roots",
+    "12 source poses per second is diagnostic timing, not approved engine durations",
+    "Recorded WebM was checked for nonempty EBML header, not separately decoded or human motion reviewed",
+    "No gameplay, public, release ZIP, FPS or device acceptance"
+  ],
+  "nextStep": "Reuse this REVIEW table and recording to draft coherent full-state body/ground pivots and action timing, checking actual frame drift without repeating inventory, endpoint audits, or image generation. Protect candidate-table.json as an input and keep all production integrations gated."
+}

@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-14T05:44:13.378Z",
+  "script": "scripts/browser-tiger-vanguard-depth-control.mjs",
+  "scriptSha256": "0a8a8852208f19812390be272e8c20891f148291ef1dc694196a685b2906596d",
+  "checks": {
+    "syntaxChecked": true,
+    "noBrowserRun": true,
+    "mainGetImageDataOnlyGuard": true,
+    "noGetterToSetterCtmRoundTrip": true,
+    "styleTransactionPresent": true,
+    "postBrowserDecodePresent": true,
+    "historicalBaselineFrozen": true,
+    "productionScriptsUntouched": true
+  },
+  "npmExitCode": 0,
+  "npmOutputCharacters": 49163,
+  "browserResult": "NOT_RUN",
+  "approvals": {
+    "humanMotionReviewed": false,
+    "rootApproved": false,
+    "playerReadabilityApproved": false,
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "fpsAcceptance": false,
+    "publicPass": false,
+    "releaseReady": false
+  }
+}

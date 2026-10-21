@@ -1,0 +1,384 @@
+{
+  "recordedAt": "2026-10-14T04:02:30Z",
+  "result": "FAIL",
+  "overall": "NOT_READY",
+  "evidenceDirectory": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/",
+  "scope": "No-proxy same-depth main repetition/read-order control; no depth, art, runtime, high-frame, FPS or public acceptance",
+  "scriptSha256": "52c00393e65a2d71314c068b24d783f4ebc49b268de85c35e472cae841df2ba3",
+  "browserReportSha256": "89cf8cfe1680e62c207d364f3f31a7dc0cdc3f190892d6a9e8b6f1aa9b483a58",
+  "checks": {
+    "realPointerUiBeforeFixture": true,
+    "sixSynchronousFrames": true,
+    "oneOriginalPlayerExecutionEachMode": true,
+    "sameOriginalDepthOrder": true,
+    "fullRecordedFrameInvariantsEqual": true,
+    "allFullFrameChainsBalancedAndNoClip": true,
+    "allMethodsAndSourcesRecorded": true,
+    "mainDimensionsUnchanged": true,
+    "noProxyCanvasesCreated": true,
+    "uiAndRafStatic": true,
+    "controlledReadOrder": true,
+    "stateRngRendererElapsedUnchanged": true,
+    "rawReadBytesSaved": true,
+    "noProductionReferences": true,
+    "fixtureErrorsEmpty": true,
+    "noErrorsOrExternalNetwork": true,
+    "allSixPngPixelsStable": false,
+    "sameFramePngMatchesRawGetImageData": true
+  },
+  "pixelComparisons": {
+    "adjacent": [
+      {
+        "from": 1,
+        "to": 2,
+        "changedPixels": 0,
+        "maxAbsChannelDelta": 0,
+        "bboxInclusive": null,
+        "maxDeltaDistribution": {
+          "exactly1": 0,
+          "exactly2": 0,
+          "atLeast3": 0
+        },
+        "changedChannelPixels": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "from": 2,
+        "to": 3,
+        "changedPixels": 0,
+        "maxAbsChannelDelta": 0,
+        "bboxInclusive": null,
+        "maxDeltaDistribution": {
+          "exactly1": 0,
+          "exactly2": 0,
+          "atLeast3": 0
+        },
+        "changedChannelPixels": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "from": 3,
+        "to": 4,
+        "changedPixels": 0,
+        "maxAbsChannelDelta": 0,
+        "bboxInclusive": null,
+        "maxDeltaDistribution": {
+          "exactly1": 0,
+          "exactly2": 0,
+          "atLeast3": 0
+        },
+        "changedChannelPixels": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "from": 4,
+        "to": 5,
+        "changedPixels": 0,
+        "maxAbsChannelDelta": 0,
+        "bboxInclusive": null,
+        "maxDeltaDistribution": {
+          "exactly1": 0,
+          "exactly2": 0,
+          "atLeast3": 0
+        },
+        "changedChannelPixels": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "from": 5,
+        "to": 6,
+        "changedPixels": 265010,
+        "maxAbsChannelDelta": 47,
+        "bboxInclusive": {
+          "minX": 0,
+          "maxX": 389,
+          "minY": 15,
+          "maxY": 824
+        },
+        "maxDeltaDistribution": {
+          "exactly1": 239969,
+          "exactly2": 20409,
+          "atLeast3": 4632
+        },
+        "changedChannelPixels": [
+          260897,
+          16434,
+          18267,
+          0
+        ]
+      }
+    ],
+    "pngVsGetImageData": [
+      {
+        "frameIndex": 4,
+        "changedPixels": 0,
+        "maxAbsChannelDelta": 0,
+        "bboxInclusive": null,
+        "maxDeltaDistribution": {
+          "exactly1": 0,
+          "exactly2": 0,
+          "atLeast3": 0
+        },
+        "changedChannelPixels": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "frameIndex": 5,
+        "changedPixels": 0,
+        "maxAbsChannelDelta": 0,
+        "bboxInclusive": null,
+        "maxDeltaDistribution": {
+          "exactly1": 0,
+          "exactly2": 0,
+          "atLeast3": 0
+        },
+        "changedChannelPixels": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "frameIndex": 6,
+        "changedPixels": 0,
+        "maxAbsChannelDelta": 0,
+        "bboxInclusive": null,
+        "maxDeltaDistribution": {
+          "exactly1": 0,
+          "exactly2": 0,
+          "atLeast3": 0
+        },
+        "changedChannelPixels": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "independentCountsMatch": true,
+  "strictRecordedFrameInvariantsEqual": true,
+  "commandsPerFrame": 395,
+  "stateEntriesPerFrame": 74,
+  "styleKeys": 26,
+  "transformsPerFrame": 33,
+  "playerCommandsPerFrame": 58,
+  "annotationCommandsPerFrame": 5,
+  "playerCalls": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "sameOriginalPlayerThenCandidateOrder": true,
+  "contextAttributes": {
+    "alpha": true,
+    "colorSpace": "srgb",
+    "colorType": "unorm8",
+    "desynchronized": false,
+    "toneMapping": {
+      "mode": "standard"
+    },
+    "willReadFrequently": false
+  },
+  "readSequence": {
+    "frameIndices": [
+      1,
+      2,
+      3,
+      4,
+      4,
+      5,
+      5,
+      6,
+      6
+    ],
+    "kinds": [
+      "main-toDataURL",
+      "main-toDataURL",
+      "main-toDataURL",
+      "main-toDataURL",
+      "main-getImageData",
+      "main-toDataURL",
+      "main-getImageData",
+      "main-toDataURL",
+      "main-getImageData"
+    ],
+    "sequenceNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "allOutsideRender": true
+  },
+  "sourceAudit": {
+    "objectRefs": [
+      {
+        "ref": 0,
+        "file": "prototype-2d/assets/hero-wukong-battle-v3-sheet.png",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "sha256": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127"
+      },
+      {
+        "ref": 1,
+        "file": "evidence/current/tiger-vanguard/candidate-v1-sheet.png",
+        "dimensions": [
+          1774,
+          887
+        ],
+        "sha256": "9f59a6bab970bd3a4b68383a392488c9634a61e5fd4a71152af786fc4ee34824"
+      },
+      {
+        "ref": 2,
+        "file": "prototype-2d/assets/weapon-skill-wukong.svg",
+        "dimensions": [
+          128,
+          128
+        ],
+        "sha256": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27"
+      }
+    ],
+    "allCurrentLocalSourceHashesMatch": true,
+    "recordedHttpRefs": [
+      0,
+      2
+    ],
+    "recordedHttpStatuses": [
+      200,
+      200
+    ],
+    "recordedHttpActualExpectedLocalHashesConsistent": true,
+    "independentNewHttpRequestPerformed": false,
+    "candidateLoadedFromLockedDataUrl": true,
+    "unknownSourceOrUnsupportedErrors": []
+  },
+  "noProxyCanvasesCreated": true,
+  "mainContextCreationChanged": false,
+  "mainCanvasReset": false,
+  "thresholdRelaxed": false,
+  "mirrorNotNecessaryToReproduceObservedPhenomenonInThisFixture": true,
+  "getImageDataCauseProven": false,
+  "actualBackendIdentified": false,
+  "phaseOrderConfounded": true,
+  "pngOnlyIsReadback": true,
+  "initialNativePathClipStackDirectlyVerified": false,
+  "rootStaticPngsViewed": 7,
+  "rootStaticObservation": "All six main PNGs visually close; tiger still masks player's face and much of body. Static appearance does not override exact pixel gate.",
+  "naturalFiveMinuteSurvival": false,
+  "partialEngineStepFixture": true,
+  "attackPreviewed": false,
+  "deathExercised": false,
+  "statusBadgesEmpty": true,
+  "generatedAt": "2026-10-14T03:55:06.397Z",
+  "finishedAt": "2026-10-14T03:55:11.159Z",
+  "analysisFinishedAt": "2026-10-14T03:55:11.269Z",
+  "browser": "155.0.4283.45",
+  "uiEntry": {
+    "screen": "game",
+    "status": "playing",
+    "debug": false,
+    "time": 1.0036999999955305
+  },
+  "renderChecks": 31,
+  "consumerChecks": 6,
+  "rngCalls": 16,
+  "rendererElapsed": 1.0036999999955305,
+  "errorCounts": {
+    "page": 0,
+    "console": 0,
+    "request": 0,
+    "http": 0,
+    "external": 0
+  },
+  "cleanup": {
+    "hooks": true,
+    "disposed": true,
+    "context": true,
+    "browser": true,
+    "server": true
+  },
+  "freshNpm": {
+    "file": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/npm-validation.json",
+    "startedAt": "2026-10-14T03:57:19Z",
+    "finishedAt": "2026-10-14T03:57:26Z",
+    "command": "npm test",
+    "exitCode": 0,
+    "result": "PASS",
+    "scope": "Fresh workspace regression after the final main-readback evidence script and its failing real Edge control. It does not override repeat-PNG FAIL or approve depth, artistic/natural gameplay/high-frame/FPS/public/current-ZIP/device acceptance.",
+    "fullOutputFile": "evidence/current/tiger-vanguard/main-readback-control/2026-10-14T03-55-06-392Z/npm-test.txt",
+    "outputCharacters": 49163,
+    "originalTokenCount": 12295,
+    "outputTruncated": false,
+    "evidenceScriptSyntaxChecked": true,
+    "buildMayRefreshDerivedEntrypoints": true,
+    "releaseZipRebuilt": false,
+    "publicRetested": false,
+    "publicPass": false,
+    "doesNotOverrideBrowserFail": true
+  },
+  "protectedFilesChecked": 256,
+  "protectedChanged": [],
+  "productionChanged": false,
+  "sourceImagesChanged": false,
+  "zipChanged": false,
+  "releaseZipRebuilt": false,
+  "publicRetested": false,
+  "oldDepthAndChainFailuresPreserved": true,
+  "approvalGates": {
+    "humanMotionReviewed": false,
+    "rootApproved": false,
+    "healthBarLayoutApproved": false,
+    "playerReadabilityApproved": false,
+    "viewportEdgeApproved": false,
+    "extremeMissingBarAt512Approved": false,
+    "runtimeApproved": false,
+    "highFrameApproved": false,
+    "fpsAcceptance": false,
+    "publicPass": false,
+    "releaseReady": false,
+    "playerDepthApproved": false,
+    "enemyReadabilityApproved": false
+  },
+  "limitations": [
+    "No-proxy repeated main bitmap FAIL occurs despite identical recorded source/commands/CTM/styles; this does not prove getImageData or backend is the cause.",
+    "PNG-only is itself readback; groups are sequential and subject to prior draws/export/read history and heat-up.",
+    "Context attrs unchanged do not identify actual GPU/CPU backend; console warnings not collected.",
+    "Property assignments are sampled at method entries, not independently setter-traced; initial native path/clip/stack not fully directly observable.",
+    "Explicit accelerated 300s hit26 fixture, not natural five-minute gameplay; no depth/art/runtime/highFrame/FPS/public/release approval.",
+    "Different run seed/facing/elapsed/RNG can prevent direct cross-run pixel attribution."
+  ],
+  "nextSafeStep": "仅建立证据层“无额外main.getImageData的同深度原链镜像基线”：单真实Edge六帧，原玩家各1次、原顺序，完整main/annotation/source trace保持；原始变换链镜像及proxy调用/读取另表，逐帧保存主/proxy PNG后在关闭浏览器后解码比较。main.toDataURL仍为readback，不称无读取或无干扰；另记console warning供诊断，不变主context创建/尺寸/阈值、不宣称跨run像素恒等或已证明读取因果。保留匹配FAIL，先确认该基线重复性，再另步恢复深度对照，不接入/打包/部署。"
+}

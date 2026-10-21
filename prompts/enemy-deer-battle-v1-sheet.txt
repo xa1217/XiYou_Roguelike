@@ -1,0 +1,13 @@
+Use case: stylized-concept
+Asset type: in-game 32-pose sprite sheet for a chapter-one ordinary deer demon enemy in a Journey to the West survivor game.
+Primary request: create exactly one transparent PNG sprite sheet on a wide 1774x887 canvas, laid out as 4 equal horizontal rows by 8 equal vertical columns (32 cells total). The same single original chibi deer demon character appears once per cell, full body fully inside its cell, consistent proportions, fixed feet baseline, readable at small Canvas scale.
+Subject: an ordinary deer demon (鹿妖), antlered deer-like humanoid monster with warm russet-brown fur, cream muzzle and chest, small jade-green waist sash, simple dark-red cloth armor, short curved antlers, expressive but non-gory face, carrying no extra weapon. It must look like a minor enemy, not a boss or elite.
+Animation rows, left to right:
+row 1 idle8: eight subtly different breathing/ear/tail idle poses;
+row 2 move8: eight clear running poses with alternating legs and body bob;
+row 3 attack8: eight clear forward claw/antler lunge poses with anticipation and recovery;
+row 4 hit4 then death4: four distinct hit reactions followed by four distinct falling/vanishing death poses.
+Style/medium: Kingdom Rush-inspired readable 2D mobile tower-defense/survivor sprite art, bold dark-brown outlines, warm parchment/forest palette, clean cel shading, consistent light from upper left, crisp edges, transparent background. Use the same character design in all 32 cells and keep each pose visibly distinct.
+Composition/framing: strict evenly aligned 4x8 grid, no gutters, no panel borders, no labels, no text, no UI, no scenery, no shadows outside the character, no cropping of antlers or feet. Keep each cell empty except for the one deer character.
+Constraints: this is a production animation sheet, not a polished character card or static illustration; preserve alpha transparency and consistent scale, anchors, and baseline across cells; no perspective changes.
+Avoid: extra characters, extra limbs, merged cells, duplicated identical poses, weapons, blood, gore, boss armor, wings, scenery, logos, watermarks, lettering, frames, checkerboard background, opaque backdrop.

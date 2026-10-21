@@ -1,0 +1,14 @@
+{
+  "startedAt": "2026-10-14T02:30:57.261Z",
+  "finishedAt": "2026-10-14T02:32:16.921Z",
+  "command": "npm test",
+  "exitCode": 0,
+  "result": "PASS",
+  "scope": "Current workspace regression only, not historic PASS, outline artistic readability/natural gameplay/high-frame/FPS/public/ZIP/device acceptance.",
+  "fullOutputFile": "evidence/current/tiger-vanguard/player-outline-draft/2026-10-14T02-27-22-432Z/npm-test.txt",
+  "outputCharacters": 49163,
+  "originalTokenCount": 12295,
+  "buildMayRefreshDerivedEntrypoints": true,
+  "releaseZipRebuilt": false,
+  "publicPass": false
+}

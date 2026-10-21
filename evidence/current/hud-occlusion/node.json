@@ -1,0 +1,313 @@
+{
+  "generatedAt": "2026-10-16T12:09:46.515Z",
+  "result": "PASS",
+  "tests": [
+    "CSS-pixel HUD bounds convert to finite world rectangles without DPR multiplication",
+    "top-band damage labels move into the playable band",
+    "invalid HUD bounds fail closed and retain unresolved labels",
+    "Canvas save/restore remains balanced and dispose clears HUD buffers",
+    "production NativeGame resize and zoom resolve combined enemy/HUD collisions at both screen edges",
+    "four production viewport/safe-area/DPR cases preserve simulation, safe labels and repeated layout",
+    "eight safe-area boundary cases preserve finite zero, nullish fallback, fail-closed labels and recovery"
+  ],
+  "productionCases": [
+    {
+      "width": 390,
+      "height": 844,
+      "dpr": 2,
+      "safe": {
+        "top": 0,
+        "bottom": 844
+      },
+      "zoom": 1.5476190476190477,
+      "safeBand": {
+        "top": 147,
+        "bottom": 742
+      },
+      "rects": [
+        {
+          "left": 169.5390665948525,
+          "right": 220.46093340514747,
+          "top": 153.19047619047623,
+          "bottom": 198.71485614496663
+        },
+        {
+          "left": 168.1170779475117,
+          "right": 221.88292205248834,
+          "top": 676.9908930079467,
+          "bottom": 725.7261904761905
+        },
+        {
+          "left": 24.912685971423958,
+          "right": 79.08731402857612,
+          "top": 419.899367189485,
+          "bottom": 469.10063281051504
+        }
+      ],
+      "damageHudCandidates": 2,
+      "damageHudMoved": 2,
+      "damageHudUnresolved": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "dpr": 2,
+      "safe": {
+        "top": 44,
+        "bottom": 810
+      },
+      "zoom": 1.5476190476190477,
+      "safeBand": {
+        "top": 179,
+        "bottom": 720
+      },
+      "rects": [
+        {
+          "left": 169.5390665948525,
+          "right": 220.46093340514747,
+          "top": 185.19047619047612,
+          "bottom": 230.71485614496652
+        },
+        {
+          "left": 168.1170779475117,
+          "right": 221.88292205248834,
+          "top": 665.0742263412799,
+          "bottom": 713.8095238095237
+        },
+        {
+          "left": 24.893000049805668,
+          "right": 79.1069999501944,
+          "top": 424.8768949946041,
+          "bottom": 474.1231050053957
+        }
+      ],
+      "damageHudCandidates": 2,
+      "damageHudMoved": 2,
+      "damageHudUnresolved": 0
+    },
+    {
+      "width": 360,
+      "height": 640,
+      "dpr": 1,
+      "safe": {
+        "top": 24,
+        "bottom": 616
+      },
+      "zoom": 1.4285714285714286,
+      "safeBand": {
+        "top": 159,
+        "bottom": 526
+      },
+      "rects": [
+        {
+          "left": 154.97573454805612,
+          "right": 205.0242654519439,
+          "top": 164.71428571428564,
+          "bottom": 210.17785006775998
+        },
+        {
+          "left": 155.6375587962116,
+          "right": 204.3624412037884,
+          "top": 476.32660439465553,
+          "bottom": 520.2857142857143
+        },
+        {
+          "left": 26.975895781761857,
+          "right": 77.02410421823808,
+          "top": 319.7684019071729,
+          "bottom": 365.2315980928271
+        }
+      ],
+      "damageHudCandidates": 2,
+      "damageHudMoved": 2,
+      "damageHudUnresolved": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "dpr": 2,
+      "safe": {
+        "top": 0,
+        "bottom": 844
+      },
+      "zoom": 1.5476190476190477,
+      "safeBand": {
+        "top": 147,
+        "bottom": 742
+      },
+      "rects": [
+        {
+          "left": 169.5390665948525,
+          "right": 220.46093340514747,
+          "top": 153.19047619047623,
+          "bottom": 198.71485614496663
+        },
+        {
+          "left": 168.1170779475117,
+          "right": 221.88292205248834,
+          "top": 676.9908930079467,
+          "bottom": 725.7261904761905
+        },
+        {
+          "left": 24.912685971423958,
+          "right": 79.08731402857612,
+          "top": 419.899367189485,
+          "bottom": 469.10063281051504
+        }
+      ],
+      "damageHudCandidates": 2,
+      "damageHudMoved": 2,
+      "damageHudUnresolved": 0
+    }
+  ],
+  "boundaryCases": [
+    {
+      "name": "explicit-zero",
+      "inputBottom": "0",
+      "bottomInset": 640,
+      "hudBounds": {
+        "left": 0,
+        "right": 360,
+        "top": 159,
+        "bottom": 0,
+        "invalid": true
+      },
+      "center": {
+        "x": 51.999999999999964,
+        "y": 320
+      },
+      "damageHudUnresolved": 1
+    },
+    {
+      "name": "negative-edge",
+      "inputBottom": "-1",
+      "bottomInset": 640,
+      "hudBounds": {
+        "left": 0,
+        "right": 360,
+        "top": 159,
+        "bottom": 0,
+        "invalid": true
+      },
+      "center": {
+        "x": 51.999999999999964,
+        "y": 320
+      },
+      "damageHudUnresolved": 1
+    },
+    {
+      "name": "inverted-edges",
+      "inputBottom": "320",
+      "bottomInset": 320,
+      "hudBounds": {
+        "left": 0,
+        "right": 360,
+        "top": 640,
+        "bottom": 230,
+        "invalid": true
+      },
+      "center": {
+        "x": 51.999999999999964,
+        "y": 320
+      },
+      "damageHudUnresolved": 1
+    },
+    {
+      "name": "missing-bottom",
+      "inputBottom": "undefined",
+      "bottomInset": 12,
+      "hudBounds": {
+        "left": 0,
+        "right": 360,
+        "top": 159,
+        "bottom": 538,
+        "invalid": false
+      },
+      "center": {
+        "x": 51.999999999999964,
+        "y": 320
+      },
+      "damageHudUnresolved": 0
+    },
+    {
+      "name": "null-bottom",
+      "inputBottom": "null",
+      "bottomInset": 12,
+      "hudBounds": {
+        "left": 0,
+        "right": 360,
+        "top": 159,
+        "bottom": 538,
+        "invalid": false
+      },
+      "center": {
+        "x": 51.999999999999964,
+        "y": 320
+      },
+      "damageHudUnresolved": 0
+    },
+    {
+      "name": "non-finite-bottom",
+      "inputBottom": "NaN",
+      "bottomInset": 12,
+      "hudBounds": {
+        "left": 0,
+        "right": 360,
+        "top": 159,
+        "bottom": 538,
+        "invalid": false
+      },
+      "center": {
+        "x": 51.999999999999964,
+        "y": 320
+      },
+      "damageHudUnresolved": 0
+    },
+    {
+      "name": "infinite-bottom",
+      "inputBottom": "Infinity",
+      "bottomInset": 12,
+      "hudBounds": {
+        "left": 0,
+        "right": 360,
+        "top": 159,
+        "bottom": 538,
+        "invalid": false
+      },
+      "center": {
+        "x": 51.999999999999964,
+        "y": 320
+      },
+      "damageHudUnresolved": 0
+    },
+    {
+      "name": "restored-safe-area",
+      "inputBottom": "616",
+      "bottomInset": 24,
+      "hudBounds": {
+        "left": 0,
+        "right": 360,
+        "top": 159,
+        "bottom": 526,
+        "invalid": false
+      },
+      "center": {
+        "x": 51.999999999999964,
+        "y": 320
+      },
+      "damageHudUnresolved": 0
+    }
+  ],
+  "viewport": {
+    "cssWidth": 390,
+    "cssHeight": 844,
+    "pixelRatio": 2
+  },
+  "boundary": {
+    "realBrowser": false,
+    "pixelRendering": false,
+    "gpuPerformance": false,
+    "wechatDevice": false
+  },
+  "note": "Node deterministic Canvas-command smoke only; this is finite HUD-band avoidance, not a pixel/global/modal occlusion guarantee."
+}

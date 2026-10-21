@@ -1,0 +1,234 @@
+{
+  "checkedAt": "2026-10-14T03:35:47Z",
+  "authoredBy": "root transcription of independent agent findings",
+  "reviewer": "/root/player_depth_guard_review",
+  "result": "FAIL_CONFIRMED_READ_ONLY",
+  "evidenceDir": "evidence/current/tiger-vanguard/transform-chain-control/2026-10-14T03-29-15-654Z/",
+  "decoding": {
+    "library": "pngjs",
+    "method": "PNG.sync.read; exact RGBA per-pixel comparison; any differing channel counts one changed pixel",
+    "fallback": "CODEX_NODE_MODULES or USERPROFILE/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules",
+    "wroteFiles": false
+  },
+  "pngDimensions": {
+    "browserUi": "real-ui-before-fixture.png:390x844",
+    "A": "hit26-mirror-off.png:390x844",
+    "B": "hit26-chain-mirror-on.png:390x844",
+    "C": "hit26-chain-mirror-repeat.png:390x844",
+    "playerLayerBefore": "before-playerLayer-chain-proxy.png:390x844",
+    "playerLayerAfter": "after-playerLayer-chain-proxy.png:390x844",
+    "playerSpriteBefore": "before-playerSprite-chain-proxy.png:390x844",
+    "playerSpriteAfter": "after-playerSprite-chain-proxy.png:390x844",
+    "candidateBefore": "before-candidate-chain-proxy.png:390x844",
+    "candidateAfter": "after-candidate-chain-proxy.png:390x844"
+  },
+  "AB": {
+    "changedPixels": 0,
+    "bboxInclusive": null,
+    "maxAbsChannelDelta": 0
+  },
+  "BC": {
+    "changedPixels": 265128,
+    "bboxInclusive": {
+      "minX": 0,
+      "maxX": 389,
+      "minY": 15,
+      "maxY": 824
+    },
+    "maxAbsChannelDelta": 47,
+    "changedRows": 772,
+    "nonzeroRowCountMin": 1,
+    "nonzeroRowCountMax": 390,
+    "changedChannelPixelCountsRGBA": [
+      260944,
+      15994,
+      17906,
+      0
+    ],
+    "regionChangedPixels": {
+      "banner_y0_23": 1201,
+      "topUi_y24_144": 32788,
+      "arena_y145_741": 230368,
+      "bottomUi_y742_843": 771
+    },
+    "maxDeltaDistribution": {
+      "exactly1": 240667,
+      "exactly2": 20239,
+      "atLeast3": 4222
+    },
+    "frequentSignedDeltaTuples": [
+      {
+        "delta": [
+          -1,
+          0,
+          0,
+          0
+        ],
+        "count": 229419
+      },
+      {
+        "delta": [
+          -2,
+          0,
+          0,
+          0
+        ],
+        "count": 12320
+      },
+      {
+        "delta": [
+          -1,
+          -1,
+          -1,
+          0
+        ],
+        "count": 2960
+      },
+      {
+        "delta": [
+          -2,
+          0,
+          -1,
+          0
+        ],
+        "count": 2952
+      },
+      {
+        "delta": [
+          -1,
+          0,
+          -1,
+          0
+        ],
+        "count": 1872
+      }
+    ],
+    "outsidePlayerLayerAlphaSupport": 257449,
+    "outsideAllProxyAlphaSupportUnion": 252980,
+    "largestExample": {
+      "x": 214,
+      "y": 464,
+      "B": [
+        145,
+        199,
+        171,
+        255
+      ],
+      "C": [
+        98,
+        179,
+        154,
+        255
+      ],
+      "delta": [
+        -47,
+        -20,
+        -17,
+        0
+      ]
+    },
+    "flatBackgroundExample": {
+      "x": 195,
+      "y": 600,
+      "B": [
+        28,
+        148,
+        129,
+        255
+      ],
+      "C": [
+        27,
+        148,
+        129,
+        255
+      ]
+    }
+  },
+  "proxies": {
+    "changedPixels": {
+      "playerLayer": 0,
+      "playerSprite": 0,
+      "candidate": 0,
+      "union": 0
+    },
+    "afterAlphaGreaterThanZeroCounts": {
+      "playerLayer": 8343,
+      "playerSprite": 7465,
+      "candidate": 10705
+    }
+  },
+  "hashVerification": {
+    "protectedAfterFilesChecked": 236,
+    "protectedBeforeEqualsProtectedAfter": true,
+    "allProtectedHashesMatch": true,
+    "screenshotsChecked": 10,
+    "allScreenshotBytesAndHashesMatch": true,
+    "scriptSha256": "58c9f24671f6990c373222a2a6c04befad55636c4fc9228500240140f0f8f4a9",
+    "scriptMatchesReport": true,
+    "reportComputedSha256": "5a02e103726d2fc23531106ff9700d0a63ac64ad6bd2e922450e491fcc7c356e",
+    "mismatches": []
+  },
+  "strictRecordReview": {
+    "normalization": "Removed only per-render tokens in draw, captures and contactGate; independently reconstructed invariants from browser.json",
+    "strictDiff": [],
+    "transformChainCounts": [
+      30,
+      30,
+      30
+    ],
+    "playerCommandsCounts": [
+      50,
+      50,
+      50
+    ],
+    "matrixChecks": [
+      0,
+      142,
+      142
+    ],
+    "expectedBCMatrixChecks": 142,
+    "allBCRecordedMatrixEqualFlags": true,
+    "stackDepth": [
+      0,
+      0,
+      0
+    ],
+    "stackUnderflow": [
+      false,
+      false,
+      false
+    ],
+    "capturedClipCalls": [
+      0,
+      0,
+      0
+    ],
+    "originalPlayerCalls": [
+      1,
+      1,
+      1
+    ],
+    "fixtureErrors": [],
+    "rendererElapsedBeforeAndAfter": 1.001700000002981,
+    "rngCalls": 18
+  },
+  "cleanupReview": {
+    "qualification": "Recorded fields reviewed, not independent browser-process observation",
+    "hookReferenceRestorationChecked": true,
+    "disposed": true,
+    "contextClosed": true,
+    "browserClosed": true,
+    "serverClosed": true
+  },
+  "failedGate": "noMainFramePixelChanges=false",
+  "limitations": [
+    "Accelerated explicit hit26 fixture, not natural five-minute gameplay.",
+    "Recorded visible command/CTM/style fidelity does not prove all native Canvas path, clip, stack or backend state.",
+    "proxyEquivalentToActualMainPaintSupportProven=false; initialMainClipDirectlyVerified=false.",
+    "Main context uses plain canvas.getContext('2d'); backend/readback settings not recorded.",
+    "B/C differences span UI and background, not merely actor fringes; do not dismiss as local 1-2 unit precision noise.",
+    "Raster/readback/backend explanation is a hypothesis, not isolated or proven.",
+    "Player still obscured by tiger; no depth, artwork, runtime, high-frame, FPS, public or release approval."
+  ],
+  "nextSafeStep": "Preserve this FAIL and matching script. In a future single-window evidence-only control, isolate unchanged-depth main raster/readback repeatability and gather original drawing/readback order plus backend/context diagnostics before any depth comparison; do not relax tolerance or integrate into production."
+}

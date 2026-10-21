@@ -1,0 +1,686 @@
+{
+  "generatedAt": "2026-10-10T12:19:08.880Z",
+  "url": "http://127.0.0.1:8088/",
+  "scope": "local real Edge; not external public or WeChat device",
+  "mode": "UI entry, then accelerated production update with legal movement/upgrade input; no debug or HP/spawn/kill/time mutation",
+  "pageErrors": [],
+  "failedRequests": [],
+  "screenshots": [
+    {
+      "name": "natural-move-0",
+      "file": "evidence/current/wolf/natural-move-0.png",
+      "bytes": 44672,
+      "sha256": "936c564cc329f585a933ce052627d80c8056723a8572e239e789063a806caa16",
+      "sample": {
+        "capture": {
+          "state": "move",
+          "index": 0,
+          "facing": "left",
+          "source": [
+            32,
+            257,
+            171,
+            176
+          ],
+          "destination": [
+            -22.870588235294118,
+            -38.34705882352941,
+            48.28235294117647,
+            49.694117647058825
+          ],
+          "left": 247.99175211058943,
+          "top": 152.46119970707684
+        },
+        "time": 9.870400000005967,
+        "seen": {
+          "move": [
+            7,
+            0
+          ],
+          "attack": [],
+          "hit": [],
+          "death": []
+        },
+        "facing": [
+          "left"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "natural-attack-0",
+      "file": "evidence/current/wolf/natural-attack-0.png",
+      "bytes": 57359,
+      "sha256": "9af6459b16bba06314254162d260a41c6ce27bc8490e6093521691a0ad106784",
+      "sample": {
+        "capture": {
+          "state": "attack",
+          "index": 0,
+          "facing": "left",
+          "source": [
+            40,
+            480,
+            146,
+            173
+          ],
+          "destination": [
+            -20.611764705882354,
+            -37.5,
+            41.22352941176471,
+            48.84705882352941
+          ],
+          "left": 179.80537730670082,
+          "top": 325.93161966261687
+        },
+        "time": 10.720400000005979,
+        "seen": {
+          "move": [
+            7,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "attack": [
+            0
+          ],
+          "hit": [],
+          "death": []
+        },
+        "facing": [
+          "left",
+          "right"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "runtime-paused-a",
+      "file": "evidence/current/wolf/runtime-paused-a.png",
+      "bytes": 31744,
+      "sha256": "f370beffc88e3cff4e5c0495bbc00c2409978c0f626e2b47643fc803fae86ad2"
+    },
+    {
+      "name": "runtime-paused-b",
+      "file": "evidence/current/wolf/runtime-paused-b.png",
+      "bytes": 31744,
+      "sha256": "f370beffc88e3cff4e5c0495bbc00c2409978c0f626e2b47643fc803fae86ad2"
+    },
+    {
+      "name": "natural-hit-0",
+      "file": "evidence/current/wolf/natural-hit-0.png",
+      "bytes": 61300,
+      "sha256": "9b62e8bec27c918bf5b7b6d98730f0a629ac502f02490d7faba425ec79b8e74c",
+      "sample": {
+        "capture": {
+          "state": "hit",
+          "index": 0,
+          "facing": "left",
+          "source": [
+            46,
+            699,
+            161,
+            169
+          ],
+          "destination": [
+            -18.91764705882353,
+            -36.652941176470584,
+            45.45882352941177,
+            47.71764705882353
+          ],
+          "left": 157.7544043634167,
+          "top": 356.5548315325706
+        },
+        "time": 11.021000000014926,
+        "seen": {
+          "move": [
+            7,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "attack": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "hit": [
+            0
+          ],
+          "death": []
+        },
+        "facing": [
+          "left",
+          "right"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "natural-hit-3",
+      "file": "evidence/current/wolf/natural-hit-3.png",
+      "bytes": 58103,
+      "sha256": "436bb3a82b3001fd3c9876c513d88d2e2e2a80886bae4da6796da9bc20bc4fef",
+      "sample": {
+        "capture": {
+          "state": "hit",
+          "index": 3,
+          "facing": "left",
+          "source": [
+            697,
+            702,
+            154,
+            166
+          ],
+          "destination": [
+            -23.152941176470588,
+            -35.805882352941175,
+            43.48235294117647,
+            46.870588235294115
+          ],
+          "left": 167.36785009418708,
+          "top": 357.8657559504029
+        },
+        "time": 11.221000000014929,
+        "seen": {
+          "move": [
+            7,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "attack": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "hit": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "death": []
+        },
+        "facing": [
+          "left",
+          "right"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "natural-attack-7",
+      "file": "evidence/current/wolf/natural-attack-7.png",
+      "bytes": 57764,
+      "sha256": "33aa03d3f9247651564da6b9fe3f1241d0ce9124863a84b7fbd23b4b68bf0797",
+      "sample": {
+        "capture": {
+          "state": "attack",
+          "index": 7,
+          "facing": "right",
+          "source": [
+            1591,
+            480,
+            147,
+            173
+          ],
+          "destination": [
+            -20.894117647058824,
+            -37.5,
+            41.50588235294118,
+            48.84705882352941
+          ],
+          "left": 160.17883241444702,
+          "top": 369.62210472174047
+        },
+        "time": 11.671000000014935,
+        "seen": {
+          "move": [
+            7,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "attack": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "hit": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "death": []
+        },
+        "facing": [
+          "left",
+          "right"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "natural-death-0",
+      "file": "evidence/current/wolf/natural-death-0.png",
+      "bytes": 63493,
+      "sha256": "2fed3f56ba14293c6f7189da21d1338f1326b09888129b6952dd0323dd6a5f68",
+      "sample": {
+        "capture": {
+          "state": "death",
+          "index": 0,
+          "facing": "left",
+          "source": [
+            917,
+            742,
+            168,
+            128
+          ],
+          "destination": [
+            -23.435294117647057,
+            -24.51176470588235,
+            47.43529411764706,
+            36.141176470588235
+          ],
+          "left": 161.6871776169137,
+          "top": 375.34474818816716
+        },
+        "time": 12.02100000001494,
+        "seen": {
+          "move": [
+            7,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "attack": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "hit": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "death": [
+            0
+          ]
+        },
+        "facing": [
+          "left",
+          "right"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "natural-death-3",
+      "file": "evidence/current/wolf/natural-death-3.png",
+      "bytes": 55454,
+      "sha256": "f2b39dafc6c74a7ebe3b1c9cdfcd0995480dc241c71c286511e7f4a138d78586",
+      "sample": {
+        "capture": {
+          "state": "death",
+          "index": 3,
+          "facing": "left",
+          "source": [
+            1556,
+            783,
+            200,
+            86
+          ],
+          "destination": [
+            -30.776470588235295,
+            -12.935294117647057,
+            56.470588235294116,
+            24.28235294117647
+          ],
+          "left": 205.95193444681695,
+          "top": 286.5098524644358
+        },
+        "time": 12.321000000014944,
+        "seen": {
+          "move": [
+            7,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "attack": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "hit": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "death": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "facing": [
+          "left",
+          "right"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "runtime-natural-battle",
+      "file": "evidence/current/wolf/runtime-natural-battle.png",
+      "bytes": 55454,
+      "sha256": "f2b39dafc6c74a7ebe3b1c9cdfcd0995480dc241c71c286511e7f4a138d78586"
+    },
+    {
+      "name": "runtime-fixture-right",
+      "file": "evidence/current/wolf/runtime-fixture-right.png",
+      "bytes": 128777,
+      "sha256": "90b1fe326194e8b6c6b4f8d7840d68ad24edcb3fae41e98f04ff60363ec3a0fd",
+      "fixture": {
+        "facing": 0,
+        "frames": 32,
+        "distinctRenderedCells": 32
+      }
+    },
+    {
+      "name": "runtime-fixture-left",
+      "file": "evidence/current/wolf/runtime-fixture-left.png",
+      "bytes": 128746,
+      "sha256": "581e72d3a4a0fd742ddca6743e760765c44de8f0cfd86a7c253bffb285bfc042",
+      "fixture": {
+        "facing": 3.141592653589793,
+        "frames": 32,
+        "distinctRenderedCells": 32
+      }
+    }
+  ],
+  "result": "PASS",
+  "phase": "finished",
+  "updatedAt": "2026-10-10T12:19:12.728Z",
+  "browser": "155.0.4283.45",
+  "entry": {
+    "seed": 633388601,
+    "character": "wukong",
+    "stage": 1,
+    "source": "http://127.0.0.1:8088/assets/enemy-wolf-battle-v1-sheet.png",
+    "width": 1774,
+    "height": 887,
+    "battleArtMode": "authoredFrames",
+    "battleSceneMode": "vector"
+  },
+  "pause": {
+    "a": {
+      "time": 10.720400000005979,
+      "status": "paused",
+      "actors": [
+        [
+          "enemy-3",
+          "attack",
+          0,
+          0.05,
+          null,
+          0.5,
+          0
+        ],
+        [
+          "enemy-5",
+          "move",
+          4,
+          0.4000000000000021,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-9",
+          "move",
+          0,
+          0.05000000000000156,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-11",
+          "move",
+          2,
+          0.18333333333333457,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-18",
+          "move",
+          0,
+          0.01666666666666694,
+          null,
+          0,
+          0
+        ]
+      ]
+    },
+    "b": {
+      "time": 10.720400000005979,
+      "status": "paused",
+      "actors": [
+        [
+          "enemy-3",
+          "attack",
+          0,
+          0.05,
+          null,
+          0.5,
+          0
+        ],
+        [
+          "enemy-5",
+          "move",
+          4,
+          0.4000000000000021,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-9",
+          "move",
+          0,
+          0.05000000000000156,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-11",
+          "move",
+          2,
+          0.18333333333333457,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-18",
+          "move",
+          0,
+          0.01666666666666694,
+          null,
+          0,
+          0
+        ]
+      ]
+    },
+    "resumedState": {
+      "time": 10.871000000014924,
+      "status": "playing",
+      "actors": [
+        [
+          "enemy-3",
+          "attack",
+          3,
+          0.20060000000894082,
+          null,
+          0.34939999999105975,
+          0
+        ],
+        [
+          "enemy-5",
+          "move",
+          6,
+          0.550600000008942,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-9",
+          "move",
+          2,
+          0.20060000000894238,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-11",
+          "move",
+          4,
+          0.33393333334227504,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-18",
+          "move",
+          2,
+          0.16726666667560772,
+          null,
+          0,
+          0
+        ]
+      ]
+    },
+    "clocksFrozen": true,
+    "imageFrozen": true,
+    "resumed": true
+  },
+  "natural": {
+    "seed": 633388601,
+    "time": 12.321000000014944,
+    "status": "playing",
+    "seen": {
+      "move": [
+        7,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "attack": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "hit": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "death": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "facing": [
+      "left",
+      "right"
+    ],
+    "events": {
+      "hits": 2,
+      "kills": 1
+    },
+    "steps": 243,
+    "upgrades": 0,
+    "peakEnemies": 10,
+    "peakEffects": 2,
+    "renderP95Ms": 0.3999999910593033,
+    "mapAssetDraws": 0,
+    "note": "Accelerated real production simulation and Canvas draws; render timings are desktop samples, not phone FPS."
+  },
+  "checks": {
+    "naturalFrames": true,
+    "naturalDamageAndDeath": true,
+    "bothOrientations": true,
+    "pauseResume": true,
+    "noStaticBattleMap": true,
+    "boundedActors": true,
+    "fixture32Each": true,
+    "noErrors": true
+  },
+  "browserClosed": true
+}

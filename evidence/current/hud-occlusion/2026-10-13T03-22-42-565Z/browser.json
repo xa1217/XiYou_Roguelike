@@ -1,0 +1,1360 @@
+{
+  "generatedAt": "2026-10-13T03:22:42.565Z",
+  "result": "FAIL",
+  "url": "http://127.0.0.1:8088/",
+  "scope": "Local real Edge NativeGame HUD-band fixtures after real pointer UI entry; not natural combat conflict coverage, global/modal/pixel-perfect occlusion, internet, ZIP or device acceptance.",
+  "inputs": {
+    "prototype-2d/src/renderer.js": "795e27461024cd793ec8c5b4ba2fd11b0deeb068a0f6278cb275e30e38ced0bc",
+    "prototype-2d/src/native-ui.js": "f757a4bf5945e6140a61529814187c88eb4a6ca6b232c2bb439e3990482ed476",
+    "scripts/browser-hud-occlusion-smoke.mjs": "d17e4d65b760b96767815bb239c416a1f94c8890d078ceb3bd0cad4288694e4f"
+  },
+  "protectedBefore": {
+    "prototype-2d/src/engine.js": "1b2ea2b11cc187882672b3e1b2ca4bb944f469f5eebd57752d014a828702975f",
+    "prototype-2d/assets/artifact-diamond-snare.svg": "c0dd49e0d324d509573fccb0c847e63e69d014a375998143d768375bb7d7601d",
+    "prototype-2d/assets/artifact-golden-rope.svg": "2f7c85de5bf3ea8396002def45bebf18775380e6aa75b4262b2d3b951a48c0f7",
+    "prototype-2d/assets/artifact-iron-fan.svg": "60c256224ee13f5cf1eea868938bba3f8a6eefdea04502a1a9999601839b8347",
+    "prototype-2d/assets/artifact-lotus-lantern.svg": "61f888c1dd2425ff01127ee979bdb4241a6c171e5b7ab400cb64dc2c7bb2d528",
+    "prototype-2d/assets/artifact-moon-mirror.svg": "83c28876e88f5c6c6c0703db3a7ee334291b16f6c6c851d5d36bef1f5e69f2cd",
+    "prototype-2d/assets/artifact-nine-dragon.svg": "208984a5b25c26b18cf470c1e11e0193e26cef1eb96113207590f93b3e3b1dc5",
+    "prototype-2d/assets/artifact-purple-gourd.svg": "efc7b02dd2ad6991b5093fedef0e8447c44485c849d3ef4918f3739db5688a65",
+    "prototype-2d/assets/artifact-samadhi-fire.svg": "cb6011a7b5298253fe9a91d92c39b4ba027f2aa10cb803224089cd829514fcaf",
+    "prototype-2d/assets/enemy-bear-battle-v1-frames.json": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+    "prototype-2d/assets/enemy-bear-battle-v1-sheet.png": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+    "prototype-2d/assets/enemy-bird.svg": "0cdfbb376fef61809681e8a1c346ffcd079514721d8f31a1a5f4197b9908a580",
+    "prototype-2d/assets/enemy-boss-kr-v1.png": "15f5393abf19e83b2d0087d4ac0a068c5cec4ae45d740798cb5ec8c2807d8601",
+    "prototype-2d/assets/enemy-boss.svg": "3878f941259a93790631307e0102600d8734326d9b529f4fb2b6cb5ac5cb48ee",
+    "prototype-2d/assets/enemy-brute-kr-v1.png": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d",
+    "prototype-2d/assets/enemy-brute.svg": "625c5abc3730e7e176c8948d1da1524176f0b2e2c92f80156225ea23ed9bcb1c",
+    "prototype-2d/assets/enemy-bull-battle-v1-frames.json": "e32da6acfc9bbea64ffb74b6cfb06e30e736b7f2c042c1d8949348e506b11527",
+    "prototype-2d/assets/enemy-bull-battle-v1-sheet.png": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+    "prototype-2d/assets/enemy-creature-kr-v1.png": "5eb03be680a6e4a7b8aba3b53695d7eb22c2c5f19c1a31a710c711743ba8d102",
+    "prototype-2d/assets/enemy-creature.svg": "aea810adc49f2f2cfddf3b75f035bc4db4b1671f61278d00b322ffdfa827954f",
+    "prototype-2d/assets/enemy-deer-battle-v1-frames.json": "6bf255f4f3823b089585a3eeaed3534b9ac283660e863b72cb71035490cbe927",
+    "prototype-2d/assets/enemy-deer-battle-v1-sheet.png": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
+    "prototype-2d/assets/enemy-hawk-battle-v1-frames.json": "c2ac21f266056a976425e37a7e24e34fba6b7a1269d592da3354ca49ef6d60ec",
+    "prototype-2d/assets/enemy-hawk-battle-v1-sheet.png": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7",
+    "prototype-2d/assets/enemy-monkey-battle-v1-frames.json": "46dcb42789e67c95d640f26578d799c2c3e831bce062f9417d2dc2d0f097c21c",
+    "prototype-2d/assets/enemy-monkey-battle-v1-sheet.png": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44",
+    "prototype-2d/assets/enemy-snake-battle-v3-frames.json": "5c75ff4ebfdd765c0fbe3b1087b992426b708ca7634e370a6b984690e201ca70",
+    "prototype-2d/assets/enemy-snake-battle-v3-sheet.png": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+    "prototype-2d/assets/enemy-spider.svg": "575571fed6c63d3050ff0a60c86f1293501f6399f23448ba14661f99dbd8b5dd",
+    "prototype-2d/assets/enemy-tiger-battle-v1-frames.json": "b66e62a1a40b00e36711523621c94d1b73b33a05f71ee46ec2094b4ae007156d",
+    "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+    "prototype-2d/assets/enemy-wolf-battle-v1-frames.json": "777a2f232307a23bbda913feb17aec2ac680c10528c3f29bf1fe0e98823d4637",
+    "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299",
+    "prototype-2d/assets/generate-art-assets.mjs": "d56eb58a8fc8c5843f27465e3be6150830a4dc03488885056c9e8d07cd888fa3",
+    "prototype-2d/assets/hero-bajie-battle-v3-sheet.png": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b",
+    "prototype-2d/assets/hero-bajie.svg": "19eb81b91664409d54619eb3aefe48fe2add07b880a160c3d4756dd6ad2ad56a",
+    "prototype-2d/assets/hero-battle-v2-atlas.png": "589412a2857dcb34ef828cee24e31abb94acb8a3b6b8e37813051b06e03e8565",
+    "prototype-2d/assets/hero-cards-v1.png": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+    "prototype-2d/assets/hero-cards-v2-comic.png": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad",
+    "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61",
+    "prototype-2d/assets/hero-tangseng-kr-v1.png": "162fdcbbf62ba747e0cc9c8f6c89e695b2b0a6e5aabc74455e5d1705918b0a4f",
+    "prototype-2d/assets/hero-tangseng.svg": "481bd327822e262287684750ffee74316de807236b97cb7758815d6a3cc1335d",
+    "prototype-2d/assets/hero-wujing-battle-v3-sheet.png": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "prototype-2d/assets/hero-wujing.svg": "d78054b2dcdedfc127ddbd8a7bcfe5db7315d13e034b5d934cca7b6c8c0c81f6",
+    "prototype-2d/assets/hero-wukong-battle-v3-sheet.png": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+    "prototype-2d/assets/hero-wukong.svg": "0121755c5ed96abf2508d3ef8fb77804ac8e2e103d284f75d1403c7c8b9b732d",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "prototype-2d/assets/map-doublefork-high-ridge-v1.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-doublefork-v2-optimized.png": "e014fafd243bf430aa48d58634879a3077ba67697d1ad3b3f27262dd35e5a8e5",
+    "prototype-2d/assets/map-doublefork-v2.png": "690363b6757576103190cc6a7461f0231fbfe79c158381dfbb637cc7b8dde12b",
+    "prototype-2d/assets/map-doublefork-v3-optimized.png": "20174da20cf3df773f6f0665e928e06fe3ed73f9d40b81154649dce7455d9530",
+    "prototype-2d/assets/map-doublefork-v3.png": "79d3c48b57d319ff2b56c21b16e5ad207423f181fd4c119a0aadc9517bf866ca",
+    "prototype-2d/assets/map-doublefork-v4-high-ridge-candidate.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-forest-qv1.png": "2944c17b771ad04a2c0205722f72df6a6126bae5f6ebf2e3aac1b1485bb50f23",
+    "prototype-2d/assets/map-temple-qv1.png": "1d7627c6153e2583842821ca5b2fa9c36027a85fe2b888f440e4e1c58f067ef9",
+    "prototype-2d/assets/README.md": "f2db10e10df7573a3e8fc2855cb8433dca35a121515dd278558a3dc86cbabbdc",
+    "prototype-2d/assets/theme-fire.svg": "8669bc3310052658aa37623537ca37ef7a51d690521f604cf66f309c2b55a11d",
+    "prototype-2d/assets/theme-forest.svg": "aa116a57c9776189afbec44ef88be18f8ea21e423b9ce1a59feb6dcc2be25558",
+    "prototype-2d/assets/theme-sand.svg": "6a0ee4411722136d48ffeeac040bf78c255b94f1602b430a99d443fbd2c65604",
+    "prototype-2d/assets/theme-snow.svg": "56e23a7e861e54d309680469dfc5dd6d3c99206dc2a1ae45d4ef061650ff0997",
+    "prototype-2d/assets/theme-temple.svg": "ebc4f5149d7fe5064a03a0db5610af77e6e90848c1a0e1b52e984e780aa0bf8e",
+    "prototype-2d/assets/theme-water.svg": "399b5a854be22e373806fc4711d6392fa27f370eb1435eaf82162b897a19f093",
+    "prototype-2d/assets/weapon-skill-bajie.svg": "67b0841a9ad517ea9f7a83ef8c669f1d632f9df8796a32656c73f5773d0ec737",
+    "prototype-2d/assets/weapon-skill-tangseng.svg": "3bcf292f0e0c5de76f80573dc55eb8883142efcd48186d3981a31383289684a3",
+    "prototype-2d/assets/weapon-skill-wujing.svg": "baff2be3abbe0e1637457f0600c8a9f7e8bc0c7993d56075c79be19209d9582e",
+    "prototype-2d/assets/weapon-skill-wukong.svg": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27",
+    "prototype-2d/assets/xiyou-art-preview.png": "6517fd98be3b7cc81c4bd9e8a3a54d5371c8355eca4722102d78e5732655b9d0",
+    "prototype-2d/assets/xiyou-art-preview.svg": "c0f540a2b4b2021036a49d65d76e095643df74073a296527028e9f3f87372b2a",
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2"
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "httpErrors": [],
+  "fixtures": [
+    {
+      "name": "default-390x844-dpr2",
+      "mode": "Real browser resize while NativeGame remains playing",
+      "width": 390,
+      "height": 844,
+      "dpr": 2,
+      "browserDpr": 2,
+      "safe": {
+        "top": 0,
+        "bottom": 844
+      },
+      "safeBand": {
+        "top": 147,
+        "bottom": 742
+      },
+      "view": {
+        "left": 774,
+        "top": 627.323076923077,
+        "right": 1026,
+        "bottom": 1172.676923076923
+      },
+      "camera": {
+        "x": 900,
+        "y": 900
+      },
+      "hudBounds": {
+        "left": 0,
+        "right": 390,
+        "top": 147,
+        "bottom": 742,
+        "invalid": false
+      },
+      "bandRects": [
+        {
+          "left": 774,
+          "right": 1026,
+          "top": 627.323076923077,
+          "bottom": 722.3076923076924
+        },
+        {
+          "left": 774,
+          "right": 1026,
+          "top": 1106.7692307692307,
+          "bottom": 1172.676923076923
+        }
+      ],
+      "hudPaints": [
+        {
+          "top": 0,
+          "bottom": 146
+        },
+        {
+          "top": 743,
+          "bottom": 844
+        },
+        {
+          "top": 144,
+          "bottom": 147
+        },
+        {
+          "top": 742,
+          "bottom": 745
+        }
+      ],
+      "glyphs": [
+        {
+          "text": "701",
+          "x": 195,
+          "y": 175.95661677735916,
+          "left": 168.41576418266277,
+          "right": 221.58423581733723,
+          "top": 153.19045547260666,
+          "bottom": 198.72277808211166,
+          "transform": [
+            3.095218873238446,
+            0.01094055679094376,
+            -0.01094055679094376,
+            3.095218873238446,
+            390,
+            351.9132335547183
+          ]
+        },
+        {
+          "text": "702",
+          "x": 195,
+          "y": 711.3645329120045,
+          "left": 166.996438456097,
+          "right": 223.003561543903,
+          "top": 686.9194796908077,
+          "bottom": 735.8095861332013,
+          "transform": [
+            3.087881142236221,
+            -0.2132829586636168,
+            0.2132829586636168,
+            3.087881142236221,
+            390,
+            1422.729065824009
+          ]
+        },
+        {
+          "text": "703",
+          "x": 51.99995697112172,
+          "y": 444.4999862931145,
+          "left": 23.79282078558756,
+          "right": 80.20709315665587,
+          "top": 419.8109074676986,
+          "bottom": 469.1890651185304,
+          "transform": [
+            3.0856289843871285,
+            0.2437074880762415,
+            -0.2437074880762415,
+            3.0856289843871285,
+            103.99991394224344,
+            888.999972586229
+          ]
+        }
+      ],
+      "stats": {
+        "enemies": 0,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 0,
+        "statusBadges": 0,
+        "statusSuppressed": 0,
+        "damagePlayerCandidates": 0,
+        "damagePlayerMoved": 0,
+        "damagePlayerUnresolved": 0,
+        "damageEnemyCandidates": 0,
+        "damageEnemyMoved": 0,
+        "damageEnemyUnresolved": 0,
+        "damageBossCandidates": 0,
+        "damageBossMoved": 0,
+        "damageBossUnresolved": 0,
+        "damageLabelCandidates": 0,
+        "damageLabelMoved": 0,
+        "damageLabelUnresolved": 0,
+        "damageHudCandidates": 2,
+        "damageHudMoved": 2,
+        "damageHudUnresolved": 0
+      },
+      "checks": {
+        "productionHudOption": true,
+        "allThreeDrawn": true,
+        "insidePlayableBand": true,
+        "topMovesDown": true,
+        "bottomMovesUp": true,
+        "safeLabelUnchanged": false,
+        "nativeHudPaintMatchesBands": true,
+        "denseTwoRects": true,
+        "movedCounters": true,
+        "enemyCrossingResolved": true,
+        "frozenStateUnchanged": true,
+        "repeatedGlyphsStable": true,
+        "stillPlaying": true,
+        "canvasDimensions": true,
+        "repeatedPixelsStable": true
+      }
+    },
+    {
+      "name": "enemy-hud-390x844-dpr2",
+      "mode": "Real browser resize while NativeGame remains playing",
+      "width": 390,
+      "height": 844,
+      "dpr": 2,
+      "browserDpr": 2,
+      "safe": {
+        "top": 0,
+        "bottom": 844
+      },
+      "safeBand": {
+        "top": 147,
+        "bottom": 742
+      },
+      "view": {
+        "left": 774,
+        "top": 627.323076923077,
+        "right": 1026,
+        "bottom": 1172.676923076923
+      },
+      "camera": {
+        "x": 900,
+        "y": 900
+      },
+      "hudBounds": {
+        "left": 0,
+        "right": 390,
+        "top": 147,
+        "bottom": 742,
+        "invalid": false
+      },
+      "bandRects": [
+        {
+          "left": 774,
+          "right": 1026,
+          "top": 627.323076923077,
+          "bottom": 722.3076923076924
+        },
+        {
+          "left": 774,
+          "right": 1026,
+          "top": 1106.7692307692307,
+          "bottom": 1172.676923076923
+        }
+      ],
+      "hudPaints": [
+        {
+          "top": 0,
+          "bottom": 146
+        },
+        {
+          "top": 743,
+          "bottom": 844
+        },
+        {
+          "top": 144,
+          "bottom": 147
+        },
+        {
+          "top": 742,
+          "bottom": 745
+        }
+      ],
+      "glyphs": [
+        {
+          "text": "701",
+          "x": 195,
+          "y": 64.99995929417491,
+          "left": 168.41576418266277,
+          "right": 221.58423581733723,
+          "top": 42.23379798942241,
+          "bottom": 87.76612059892742,
+          "transform": [
+            3.095218873238446,
+            0.01094055679094376,
+            -0.01094055679094376,
+            3.095218873238446,
+            390,
+            129.99991858834983
+          ]
+        },
+        {
+          "text": "702",
+          "x": 195,
+          "y": 701.281205021689,
+          "left": 166.996438456097,
+          "right": 223.003561543903,
+          "top": 676.8361518004922,
+          "bottom": 725.7262582428857,
+          "transform": [
+            3.087881142236221,
+            -0.2132829586636168,
+            0.2132829586636168,
+            3.087881142236221,
+            390,
+            1402.562410043378
+          ]
+        },
+        {
+          "text": "703",
+          "x": 51.99995697112172,
+          "y": 444.4999862931145,
+          "left": 23.79282078558756,
+          "right": 80.20709315665587,
+          "top": 419.8109074676986,
+          "bottom": 469.1890651185304,
+          "transform": [
+            3.0856289843871285,
+            0.2437074880762415,
+            -0.2437074880762415,
+            3.0856289843871285,
+            103.99991394224344,
+            888.999972586229
+          ]
+        }
+      ],
+      "stats": {
+        "enemies": 2,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 0,
+        "statusBadges": 0,
+        "statusSuppressed": 0,
+        "damagePlayerCandidates": 0,
+        "damagePlayerMoved": 0,
+        "damagePlayerUnresolved": 0,
+        "damageEnemyCandidates": 2,
+        "damageEnemyMoved": 1,
+        "damageEnemyUnresolved": 1,
+        "damageBossCandidates": 0,
+        "damageBossMoved": 0,
+        "damageBossUnresolved": 0,
+        "damageLabelCandidates": 0,
+        "damageLabelMoved": 0,
+        "damageLabelUnresolved": 0,
+        "damageHudCandidates": 2,
+        "damageHudMoved": 1,
+        "damageHudUnresolved": 1
+      },
+      "checks": {
+        "productionHudOption": true,
+        "allThreeDrawn": true,
+        "insidePlayableBand": false,
+        "topMovesDown": false,
+        "bottomMovesUp": true,
+        "safeLabelUnchanged": false,
+        "nativeHudPaintMatchesBands": true,
+        "denseTwoRects": true,
+        "movedCounters": false,
+        "enemyCrossingResolved": false,
+        "frozenStateUnchanged": true,
+        "repeatedGlyphsStable": true,
+        "stillPlaying": true,
+        "canvasDimensions": true,
+        "repeatedPixelsStable": true
+      }
+    },
+    {
+      "name": "safe-390x844-dpr2",
+      "mode": "Injected adapter safe-area/DPR fixture",
+      "width": 390,
+      "height": 844,
+      "dpr": 2,
+      "browserDpr": 2,
+      "safe": {
+        "top": 44,
+        "bottom": 810
+      },
+      "safeBand": {
+        "top": 179,
+        "bottom": 720
+      },
+      "view": {
+        "left": 774,
+        "top": 627.323076923077,
+        "right": 1026,
+        "bottom": 1172.676923076923
+      },
+      "camera": {
+        "x": 900,
+        "y": 900
+      },
+      "hudBounds": {
+        "left": 0,
+        "right": 390,
+        "top": 179,
+        "bottom": 720,
+        "invalid": false
+      },
+      "bandRects": [
+        {
+          "left": 774,
+          "right": 1026,
+          "top": 627.323076923077,
+          "bottom": 742.9846153846154
+        },
+        {
+          "left": 774,
+          "right": 1026,
+          "top": 1092.553846153846,
+          "bottom": 1172.676923076923
+        }
+      ],
+      "hudPaints": [
+        {
+          "top": 0,
+          "bottom": 178
+        },
+        {
+          "top": 721,
+          "bottom": 844
+        },
+        {
+          "top": 176,
+          "bottom": 179
+        },
+        {
+          "top": 720,
+          "bottom": 723
+        }
+      ],
+      "glyphs": [
+        {
+          "text": "701",
+          "x": 195,
+          "y": 207.9566455622553,
+          "left": 168.41576418266277,
+          "right": 221.58423581733723,
+          "top": 185.1904842575028,
+          "bottom": 230.7228068670078,
+          "transform": [
+            3.095218873238446,
+            0.01094055679094376,
+            -0.01094055679094376,
+            3.095218873238446,
+            390,
+            415.9132911245106
+          ]
+        },
+        {
+          "text": "702",
+          "x": 195,
+          "y": 689.3644245669129,
+          "left": 166.996438456097,
+          "right": 223.003561543903,
+          "top": 664.9193713457162,
+          "bottom": 713.8094777881097,
+          "transform": [
+            3.087881142236221,
+            -0.2132829586636168,
+            0.2132829586636168,
+            3.087881142236221,
+            390,
+            1378.7288491338259
+          ]
+        },
+        {
+          "text": "703",
+          "x": 51.99995697112172,
+          "y": 449.4999937426037,
+          "left": 23.773219933013024,
+          "right": 80.22669400923041,
+          "top": 424.78737215638336,
+          "bottom": 474.21261532882403,
+          "transform": [
+            3.0853945775521434,
+            0.24665739365809689,
+            -0.24665739365809689,
+            3.0853945775521434,
+            103.99991394224344,
+            898.9999874852074
+          ]
+        }
+      ],
+      "stats": {
+        "enemies": 0,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 0,
+        "statusBadges": 0,
+        "statusSuppressed": 0,
+        "damagePlayerCandidates": 0,
+        "damagePlayerMoved": 0,
+        "damagePlayerUnresolved": 0,
+        "damageEnemyCandidates": 0,
+        "damageEnemyMoved": 0,
+        "damageEnemyUnresolved": 0,
+        "damageBossCandidates": 0,
+        "damageBossMoved": 0,
+        "damageBossUnresolved": 0,
+        "damageLabelCandidates": 0,
+        "damageLabelMoved": 0,
+        "damageLabelUnresolved": 0,
+        "damageHudCandidates": 2,
+        "damageHudMoved": 2,
+        "damageHudUnresolved": 0
+      },
+      "checks": {
+        "productionHudOption": true,
+        "allThreeDrawn": true,
+        "insidePlayableBand": true,
+        "topMovesDown": true,
+        "bottomMovesUp": true,
+        "safeLabelUnchanged": false,
+        "nativeHudPaintMatchesBands": true,
+        "denseTwoRects": true,
+        "movedCounters": true,
+        "enemyCrossingResolved": true,
+        "frozenStateUnchanged": true,
+        "repeatedGlyphsStable": true,
+        "stillPlaying": true,
+        "canvasDimensions": true,
+        "repeatedPixelsStable": true
+      }
+    },
+    {
+      "name": "resize-360x640-dpr2",
+      "mode": "Real browser resize while NativeGame remains playing",
+      "width": 360,
+      "height": 640,
+      "dpr": 2,
+      "browserDpr": 2,
+      "safe": {
+        "top": 0,
+        "bottom": 640
+      },
+      "safeBand": {
+        "top": 147,
+        "bottom": 538
+      },
+      "view": {
+        "left": 774,
+        "top": 676,
+        "right": 1026,
+        "bottom": 1124
+      },
+      "camera": {
+        "x": 900,
+        "y": 900
+      },
+      "hudBounds": {
+        "left": 0,
+        "right": 360,
+        "top": 147,
+        "bottom": 538,
+        "invalid": false
+      },
+      "bandRects": [
+        {
+          "left": 774,
+          "right": 1026,
+          "top": 676,
+          "bottom": 778.9
+        },
+        {
+          "left": 774,
+          "right": 1026,
+          "top": 1052.6,
+          "bottom": 1124
+        }
+      ],
+      "hudPaints": [
+        {
+          "top": 0,
+          "bottom": 146
+        },
+        {
+          "top": 539,
+          "bottom": 640
+        },
+        {
+          "top": 144,
+          "bottom": 147
+        },
+        {
+          "top": 538,
+          "bottom": 541
+        }
+      ],
+      "glyphs": [
+        {
+          "text": "701",
+          "x": 180,
+          "y": 175.52882258790487,
+          "left": 153.9421419503449,
+          "right": 206.0578580496551,
+          "top": 152.7142783563507,
+          "bottom": 198.34336681945905,
+          "transform": [
+            2.8480274715435145,
+            -0.22804652312791637,
+            0.22804652312791637,
+            2.8480274715435145,
+            360,
+            351.05764517580974
+          ]
+        },
+        {
+          "text": "702",
+          "x": 180,
+          "y": 510.25861921245814,
+          "left": 154.60174599545985,
+          "right": 205.39825400454015,
+          "top": 488.23157755740726,
+          "bottom": 532.285660867509,
+          "transform": [
+            2.8541452087013885,
+            -0.13084656290550792,
+            0.13084656290550792,
+            2.8541452087013885,
+            360,
+            1020.5172384249163
+          ]
+        },
+        {
+          "text": "703",
+          "x": 52.00003182547516,
+          "y": 342.5000005364418,
+          "left": 25.94233430695542,
+          "right": 78.05772934399491,
+          "top": 319.68564916357985,
+          "bottom": 365.31435190930375,
+          "transform": [
+            2.848029407462903,
+            0.22802234452742565,
+            -0.22802234452742565,
+            2.848029407462903,
+            104.00006365095032,
+            685.0000010728836
+          ]
+        }
+      ],
+      "stats": {
+        "enemies": 0,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 0,
+        "statusBadges": 0,
+        "statusSuppressed": 0,
+        "damagePlayerCandidates": 0,
+        "damagePlayerMoved": 0,
+        "damagePlayerUnresolved": 0,
+        "damageEnemyCandidates": 0,
+        "damageEnemyMoved": 0,
+        "damageEnemyUnresolved": 0,
+        "damageBossCandidates": 0,
+        "damageBossMoved": 0,
+        "damageBossUnresolved": 0,
+        "damageLabelCandidates": 0,
+        "damageLabelMoved": 0,
+        "damageLabelUnresolved": 0,
+        "damageHudCandidates": 2,
+        "damageHudMoved": 2,
+        "damageHudUnresolved": 0
+      },
+      "checks": {
+        "productionHudOption": true,
+        "allThreeDrawn": true,
+        "insidePlayableBand": true,
+        "topMovesDown": true,
+        "bottomMovesUp": true,
+        "safeLabelUnchanged": false,
+        "nativeHudPaintMatchesBands": true,
+        "denseTwoRects": true,
+        "movedCounters": true,
+        "enemyCrossingResolved": true,
+        "frozenStateUnchanged": true,
+        "repeatedGlyphsStable": true,
+        "stillPlaying": true,
+        "canvasDimensions": true,
+        "repeatedPixelsStable": true
+      }
+    },
+    {
+      "name": "enemy-hud-360x640-dpr2",
+      "mode": "Real browser resize while NativeGame remains playing",
+      "width": 360,
+      "height": 640,
+      "dpr": 2,
+      "browserDpr": 2,
+      "safe": {
+        "top": 0,
+        "bottom": 640
+      },
+      "safeBand": {
+        "top": 147,
+        "bottom": 538
+      },
+      "view": {
+        "left": 774,
+        "top": 676,
+        "right": 1026,
+        "bottom": 1124
+      },
+      "camera": {
+        "x": 900,
+        "y": 900
+      },
+      "hudBounds": {
+        "left": 0,
+        "right": 360,
+        "top": 147,
+        "bottom": 538,
+        "invalid": false
+      },
+      "bandRects": [
+        {
+          "left": 774,
+          "right": 1026,
+          "top": 676,
+          "bottom": 778.9
+        },
+        {
+          "left": 774,
+          "right": 1026,
+          "top": 1052.6,
+          "bottom": 1124
+        }
+      ],
+      "hudPaints": [
+        {
+          "top": 0,
+          "bottom": 146
+        },
+        {
+          "top": 539,
+          "bottom": 640
+        },
+        {
+          "top": 144,
+          "bottom": 147
+        },
+        {
+          "top": 538,
+          "bottom": 541
+        }
+      ],
+      "glyphs": [
+        {
+          "text": "701",
+          "x": 180,
+          "y": 64.99999392032623,
+          "left": 153.9421419503449,
+          "right": 206.0578580496551,
+          "top": 42.18544968877204,
+          "bottom": 87.81453815188043,
+          "transform": [
+            2.8480274715435145,
+            -0.22804652312791637,
+            0.22804652312791637,
+            2.8480274715435145,
+            360,
+            129.99998784065247
+          ]
+        },
+        {
+          "text": "702",
+          "x": 180,
+          "y": 507.25865401816554,
+          "left": 154.60174599545985,
+          "right": 205.39825400454015,
+          "top": 485.23161236311466,
+          "bottom": 529.2856956732164,
+          "transform": [
+            2.8541452087013885,
+            -0.13084656290550792,
+            0.13084656290550792,
+            2.8541452087013885,
+            360,
+            1014.5173080363311
+          ]
+        },
+        {
+          "text": "703",
+          "x": 52.00003182547516,
+          "y": 342.5000005364418,
+          "left": 25.94233430695542,
+          "right": 78.05772934399491,
+          "top": 319.68564916357985,
+          "bottom": 365.31435190930375,
+          "transform": [
+            2.848029407462903,
+            0.22802234452742565,
+            -0.22802234452742565,
+            2.848029407462903,
+            104.00006365095032,
+            685.0000010728836
+          ]
+        }
+      ],
+      "stats": {
+        "enemies": 2,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 0,
+        "statusBadges": 0,
+        "statusSuppressed": 0,
+        "damagePlayerCandidates": 0,
+        "damagePlayerMoved": 0,
+        "damagePlayerUnresolved": 0,
+        "damageEnemyCandidates": 2,
+        "damageEnemyMoved": 1,
+        "damageEnemyUnresolved": 1,
+        "damageBossCandidates": 0,
+        "damageBossMoved": 0,
+        "damageBossUnresolved": 0,
+        "damageLabelCandidates": 0,
+        "damageLabelMoved": 0,
+        "damageLabelUnresolved": 0,
+        "damageHudCandidates": 2,
+        "damageHudMoved": 1,
+        "damageHudUnresolved": 1
+      },
+      "checks": {
+        "productionHudOption": true,
+        "allThreeDrawn": true,
+        "insidePlayableBand": false,
+        "topMovesDown": false,
+        "bottomMovesUp": true,
+        "safeLabelUnchanged": false,
+        "nativeHudPaintMatchesBands": true,
+        "denseTwoRects": true,
+        "movedCounters": false,
+        "enemyCrossingResolved": false,
+        "frozenStateUnchanged": true,
+        "repeatedGlyphsStable": true,
+        "stillPlaying": true,
+        "canvasDimensions": true,
+        "repeatedPixelsStable": true
+      }
+    },
+    {
+      "name": "safe-360x640-dpr1",
+      "mode": "Injected adapter safe-area/DPR fixture",
+      "width": 360,
+      "height": 640,
+      "dpr": 1,
+      "browserDpr": 2,
+      "safe": {
+        "top": 24,
+        "bottom": 616
+      },
+      "safeBand": {
+        "top": 159,
+        "bottom": 526
+      },
+      "view": {
+        "left": 774,
+        "top": 676,
+        "right": 1026,
+        "bottom": 1124
+      },
+      "camera": {
+        "x": 900,
+        "y": 900
+      },
+      "hudBounds": {
+        "left": 0,
+        "right": 360,
+        "top": 159,
+        "bottom": 526,
+        "invalid": false
+      },
+      "bandRects": [
+        {
+          "left": 774,
+          "right": 1026,
+          "top": 676,
+          "bottom": 787.3
+        },
+        {
+          "left": 774,
+          "right": 1026,
+          "top": 1044.2,
+          "bottom": 1124
+        }
+      ],
+      "hudPaints": [
+        {
+          "top": 0,
+          "bottom": 158
+        },
+        {
+          "top": 527,
+          "bottom": 640
+        },
+        {
+          "top": 156,
+          "bottom": 159
+        },
+        {
+          "top": 526,
+          "bottom": 529
+        }
+      ],
+      "glyphs": [
+        {
+          "text": "701",
+          "x": 180,
+          "y": 187.52885775124014,
+          "left": 153.9421419503449,
+          "right": 206.0578580496551,
+          "top": 164.71431351968596,
+          "bottom": 210.34340198279432,
+          "transform": [
+            1.4240137357717573,
+            -0.11402326156395819,
+            0.11402326156395819,
+            1.4240137357717573,
+            180,
+            187.52885775124014
+          ]
+        },
+        {
+          "text": "702",
+          "x": 180,
+          "y": 498.25875843528775,
+          "left": 154.60174599545985,
+          "right": 205.39825400454015,
+          "top": 476.23171678023687,
+          "bottom": 520.2858000903386,
+          "transform": [
+            1.4270726043506943,
+            -0.06542328145275396,
+            0.06542328145275396,
+            1.4270726043506943,
+            180,
+            498.25875843528775
+          ]
+        },
+        {
+          "text": "703",
+          "x": 52.00003182547516,
+          "y": 342.5000005364418,
+          "left": 25.94233430695542,
+          "right": 78.05772934399491,
+          "top": 319.68564916357985,
+          "bottom": 365.31435190930375,
+          "transform": [
+            1.4240147037314514,
+            0.11401117226371282,
+            -0.11401117226371282,
+            1.4240147037314514,
+            52.00003182547516,
+            342.5000005364418
+          ]
+        }
+      ],
+      "stats": {
+        "enemies": 0,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 0,
+        "statusBadges": 0,
+        "statusSuppressed": 0,
+        "damagePlayerCandidates": 0,
+        "damagePlayerMoved": 0,
+        "damagePlayerUnresolved": 0,
+        "damageEnemyCandidates": 0,
+        "damageEnemyMoved": 0,
+        "damageEnemyUnresolved": 0,
+        "damageBossCandidates": 0,
+        "damageBossMoved": 0,
+        "damageBossUnresolved": 0,
+        "damageLabelCandidates": 0,
+        "damageLabelMoved": 0,
+        "damageLabelUnresolved": 0,
+        "damageHudCandidates": 2,
+        "damageHudMoved": 2,
+        "damageHudUnresolved": 0
+      },
+      "checks": {
+        "productionHudOption": true,
+        "allThreeDrawn": true,
+        "insidePlayableBand": true,
+        "topMovesDown": true,
+        "bottomMovesUp": true,
+        "safeLabelUnchanged": false,
+        "nativeHudPaintMatchesBands": true,
+        "denseTwoRects": true,
+        "movedCounters": true,
+        "enemyCrossingResolved": true,
+        "frozenStateUnchanged": true,
+        "repeatedGlyphsStable": true,
+        "stillPlaying": true,
+        "canvasDimensions": true,
+        "repeatedPixelsStable": true
+      }
+    },
+    {
+      "name": "regrow-390x844-dpr2",
+      "mode": "Real browser resize while NativeGame remains playing",
+      "width": 390,
+      "height": 844,
+      "dpr": 2,
+      "browserDpr": 2,
+      "safe": {
+        "top": 0,
+        "bottom": 844
+      },
+      "safeBand": {
+        "top": 147,
+        "bottom": 742
+      },
+      "view": {
+        "left": 774,
+        "top": 627.323076923077,
+        "right": 1026,
+        "bottom": 1172.676923076923
+      },
+      "camera": {
+        "x": 900,
+        "y": 900
+      },
+      "hudBounds": {
+        "left": 0,
+        "right": 390,
+        "top": 147,
+        "bottom": 742,
+        "invalid": false
+      },
+      "bandRects": [
+        {
+          "left": 774,
+          "right": 1026,
+          "top": 627.323076923077,
+          "bottom": 722.3076923076924
+        },
+        {
+          "left": 774,
+          "right": 1026,
+          "top": 1106.7692307692307,
+          "bottom": 1172.676923076923
+        }
+      ],
+      "hudPaints": [
+        {
+          "top": 0,
+          "bottom": 146
+        },
+        {
+          "top": 743,
+          "bottom": 844
+        },
+        {
+          "top": 144,
+          "bottom": 147
+        },
+        {
+          "top": 742,
+          "bottom": 745
+        }
+      ],
+      "glyphs": [
+        {
+          "text": "701",
+          "x": 195,
+          "y": 175.95661677735916,
+          "left": 168.41576418266277,
+          "right": 221.58423581733723,
+          "top": 153.19045547260666,
+          "bottom": 198.72277808211166,
+          "transform": [
+            3.095218873238446,
+            0.01094055679094376,
+            -0.01094055679094376,
+            3.095218873238446,
+            390,
+            351.9132335547183
+          ]
+        },
+        {
+          "text": "702",
+          "x": 195,
+          "y": 711.3645329120045,
+          "left": 166.996438456097,
+          "right": 223.003561543903,
+          "top": 686.9194796908077,
+          "bottom": 735.8095861332013,
+          "transform": [
+            3.087881142236221,
+            -0.2132829586636168,
+            0.2132829586636168,
+            3.087881142236221,
+            390,
+            1422.729065824009
+          ]
+        },
+        {
+          "text": "703",
+          "x": 51.99995697112172,
+          "y": 444.4999862931145,
+          "left": 23.79282078558756,
+          "right": 80.20709315665587,
+          "top": 419.8109074676986,
+          "bottom": 469.1890651185304,
+          "transform": [
+            3.0856289843871285,
+            0.2437074880762415,
+            -0.2437074880762415,
+            3.0856289843871285,
+            103.99991394224344,
+            888.999972586229
+          ]
+        }
+      ],
+      "stats": {
+        "enemies": 0,
+        "projectiles": 0,
+        "effects": 0,
+        "gems": 0,
+        "culledEnemies": 0,
+        "culledProjectiles": 0,
+        "culledEffects": 0,
+        "culledGems": 0,
+        "statusCandidates": 0,
+        "statusBadges": 0,
+        "statusSuppressed": 0,
+        "damagePlayerCandidates": 0,
+        "damagePlayerMoved": 0,
+        "damagePlayerUnresolved": 0,
+        "damageEnemyCandidates": 0,
+        "damageEnemyMoved": 0,
+        "damageEnemyUnresolved": 0,
+        "damageBossCandidates": 0,
+        "damageBossMoved": 0,
+        "damageBossUnresolved": 0,
+        "damageLabelCandidates": 0,
+        "damageLabelMoved": 0,
+        "damageLabelUnresolved": 0,
+        "damageHudCandidates": 2,
+        "damageHudMoved": 2,
+        "damageHudUnresolved": 0
+      },
+      "checks": {
+        "productionHudOption": true,
+        "allThreeDrawn": true,
+        "insidePlayableBand": true,
+        "topMovesDown": true,
+        "bottomMovesUp": true,
+        "safeLabelUnchanged": false,
+        "nativeHudPaintMatchesBands": true,
+        "denseTwoRects": true,
+        "movedCounters": true,
+        "enemyCrossingResolved": true,
+        "frozenStateUnchanged": true,
+        "repeatedGlyphsStable": true,
+        "stillPlaying": true,
+        "canvasDimensions": true,
+        "repeatedPixelsStable": true
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "evidence/current/hud-occlusion/2026-10-13T03-22-42-565Z/default-390x844-dpr2.png",
+      "bytes": 113719,
+      "sha256": "2d84887b85841562dd1ff63e7e3159f1602b9da37cf10deba150d8749710b856"
+    },
+    {
+      "file": "evidence/current/hud-occlusion/2026-10-13T03-22-42-565Z/enemy-hud-390x844-dpr2.png",
+      "bytes": 132489,
+      "sha256": "bb3149cd3c4d40604ce9f28b9134e0c7c4718ad88a3552628e2ab710983cc64f"
+    },
+    {
+      "file": "evidence/current/hud-occlusion/2026-10-13T03-22-42-565Z/safe-390x844-dpr2.png",
+      "bytes": 114091,
+      "sha256": "1352d230923bba155e7dc9469fbce9c1be09d24c019f59581c4b780ba1399b4d"
+    },
+    {
+      "file": "evidence/current/hud-occlusion/2026-10-13T03-22-42-565Z/resize-360x640-dpr2.png",
+      "bytes": 98753,
+      "sha256": "a90e77d2f212ec4025aa67b9eb1ffe6735b1124a8db3d3d03957a0dc38fca33e"
+    },
+    {
+      "file": "evidence/current/hud-occlusion/2026-10-13T03-22-42-565Z/enemy-hud-360x640-dpr2.png",
+      "bytes": 117434,
+      "sha256": "0d0650130e57a2411df9008cad3dd1ce16d7b7358984e62e981f74eac223857a"
+    },
+    {
+      "file": "evidence/current/hud-occlusion/2026-10-13T03-22-42-565Z/safe-360x640-dpr1.png",
+      "bytes": 112718,
+      "sha256": "d627647dd18fa396ecbb2e47f3fdc268515a5019377d86748791f550b94ea168"
+    },
+    {
+      "file": "evidence/current/hud-occlusion/2026-10-13T03-22-42-565Z/regrow-390x844-dpr2.png",
+      "bytes": 113719,
+      "sha256": "2d84887b85841562dd1ff63e7e3159f1602b9da37cf10deba150d8749710b856"
+    }
+  ],
+  "publicPass": false,
+  "wechatDevice": false,
+  "browser": "155.0.4283.45",
+  "uiEntry": {
+    "screen": "game",
+    "status": "playing",
+    "time": 0.024600000001490117,
+    "browserDpr": 2,
+    "nativeDpr": 2,
+    "debug": false,
+    "canvasCount": 1
+  },
+  "checks": {
+    "realPointerUiEntry": true,
+    "allFixtures": false,
+    "noErrors": true,
+    "sourcesUnchanged": true
+  },
+  "browserClosed": true,
+  "protectedAfter": {
+    "prototype-2d/src/engine.js": "1b2ea2b11cc187882672b3e1b2ca4bb944f469f5eebd57752d014a828702975f",
+    "prototype-2d/assets/artifact-diamond-snare.svg": "c0dd49e0d324d509573fccb0c847e63e69d014a375998143d768375bb7d7601d",
+    "prototype-2d/assets/artifact-golden-rope.svg": "2f7c85de5bf3ea8396002def45bebf18775380e6aa75b4262b2d3b951a48c0f7",
+    "prototype-2d/assets/artifact-iron-fan.svg": "60c256224ee13f5cf1eea868938bba3f8a6eefdea04502a1a9999601839b8347",
+    "prototype-2d/assets/artifact-lotus-lantern.svg": "61f888c1dd2425ff01127ee979bdb4241a6c171e5b7ab400cb64dc2c7bb2d528",
+    "prototype-2d/assets/artifact-moon-mirror.svg": "83c28876e88f5c6c6c0703db3a7ee334291b16f6c6c851d5d36bef1f5e69f2cd",
+    "prototype-2d/assets/artifact-nine-dragon.svg": "208984a5b25c26b18cf470c1e11e0193e26cef1eb96113207590f93b3e3b1dc5",
+    "prototype-2d/assets/artifact-purple-gourd.svg": "efc7b02dd2ad6991b5093fedef0e8447c44485c849d3ef4918f3739db5688a65",
+    "prototype-2d/assets/artifact-samadhi-fire.svg": "cb6011a7b5298253fe9a91d92c39b4ba027f2aa10cb803224089cd829514fcaf",
+    "prototype-2d/assets/enemy-bear-battle-v1-frames.json": "d20fbba817d0a89150c777f43db6646a666e1fe1980355145ca4472bdfede7a9",
+    "prototype-2d/assets/enemy-bear-battle-v1-sheet.png": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
+    "prototype-2d/assets/enemy-bird.svg": "0cdfbb376fef61809681e8a1c346ffcd079514721d8f31a1a5f4197b9908a580",
+    "prototype-2d/assets/enemy-boss-kr-v1.png": "15f5393abf19e83b2d0087d4ac0a068c5cec4ae45d740798cb5ec8c2807d8601",
+    "prototype-2d/assets/enemy-boss.svg": "3878f941259a93790631307e0102600d8734326d9b529f4fb2b6cb5ac5cb48ee",
+    "prototype-2d/assets/enemy-brute-kr-v1.png": "99471fed9880d0328cf6438df1157bc3e6fd5b07a3e4123dee17481bfe3fdf8d",
+    "prototype-2d/assets/enemy-brute.svg": "625c5abc3730e7e176c8948d1da1524176f0b2e2c92f80156225ea23ed9bcb1c",
+    "prototype-2d/assets/enemy-bull-battle-v1-frames.json": "e32da6acfc9bbea64ffb74b6cfb06e30e736b7f2c042c1d8949348e506b11527",
+    "prototype-2d/assets/enemy-bull-battle-v1-sheet.png": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
+    "prototype-2d/assets/enemy-creature-kr-v1.png": "5eb03be680a6e4a7b8aba3b53695d7eb22c2c5f19c1a31a710c711743ba8d102",
+    "prototype-2d/assets/enemy-creature.svg": "aea810adc49f2f2cfddf3b75f035bc4db4b1671f61278d00b322ffdfa827954f",
+    "prototype-2d/assets/enemy-deer-battle-v1-frames.json": "6bf255f4f3823b089585a3eeaed3534b9ac283660e863b72cb71035490cbe927",
+    "prototype-2d/assets/enemy-deer-battle-v1-sheet.png": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
+    "prototype-2d/assets/enemy-hawk-battle-v1-frames.json": "c2ac21f266056a976425e37a7e24e34fba6b7a1269d592da3354ca49ef6d60ec",
+    "prototype-2d/assets/enemy-hawk-battle-v1-sheet.png": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7",
+    "prototype-2d/assets/enemy-monkey-battle-v1-frames.json": "46dcb42789e67c95d640f26578d799c2c3e831bce062f9417d2dc2d0f097c21c",
+    "prototype-2d/assets/enemy-monkey-battle-v1-sheet.png": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44",
+    "prototype-2d/assets/enemy-snake-battle-v3-frames.json": "5c75ff4ebfdd765c0fbe3b1087b992426b708ca7634e370a6b984690e201ca70",
+    "prototype-2d/assets/enemy-snake-battle-v3-sheet.png": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
+    "prototype-2d/assets/enemy-spider.svg": "575571fed6c63d3050ff0a60c86f1293501f6399f23448ba14661f99dbd8b5dd",
+    "prototype-2d/assets/enemy-tiger-battle-v1-frames.json": "b66e62a1a40b00e36711523621c94d1b73b33a05f71ee46ec2094b4ae007156d",
+    "prototype-2d/assets/enemy-tiger-battle-v1-sheet.png": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
+    "prototype-2d/assets/enemy-wolf-battle-v1-frames.json": "777a2f232307a23bbda913feb17aec2ac680c10528c3f29bf1fe0e98823d4637",
+    "prototype-2d/assets/enemy-wolf-battle-v1-sheet.png": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299",
+    "prototype-2d/assets/generate-art-assets.mjs": "d56eb58a8fc8c5843f27465e3be6150830a4dc03488885056c9e8d07cd888fa3",
+    "prototype-2d/assets/hero-bajie-battle-v3-sheet.png": "74e1332bc908e992fab2277902dcbcb2be1558896172470f4af4b4d98647e54b",
+    "prototype-2d/assets/hero-bajie.svg": "19eb81b91664409d54619eb3aefe48fe2add07b880a160c3d4756dd6ad2ad56a",
+    "prototype-2d/assets/hero-battle-v2-atlas.png": "589412a2857dcb34ef828cee24e31abb94acb8a3b6b8e37813051b06e03e8565",
+    "prototype-2d/assets/hero-cards-v1.png": "06fa853ec9f30f30216be7b3423b513268efc781853be397b25edcb78de52d7c",
+    "prototype-2d/assets/hero-cards-v2-comic.png": "8cc7beb16d475ce6d92fbcd25e3622d138b5be00744b89a1c45cec89325aa5ad",
+    "prototype-2d/assets/hero-tangseng-battle-v3-sheet.png": "08f1819dd09725a94908906cf12f4294724ce425f9a763768de0d723f1487b61",
+    "prototype-2d/assets/hero-tangseng-kr-v1.png": "162fdcbbf62ba747e0cc9c8f6c89e695b2b0a6e5aabc74455e5d1705918b0a4f",
+    "prototype-2d/assets/hero-tangseng.svg": "481bd327822e262287684750ffee74316de807236b97cb7758815d6a3cc1335d",
+    "prototype-2d/assets/hero-wujing-battle-v3-sheet.png": "8788002d9482ab92797dc0dfb41742b28e811d18c5a764485c54ae1578dce747",
+    "prototype-2d/assets/hero-wujing.svg": "d78054b2dcdedfc127ddbd8a7bcfe5db7315d13e034b5d934cca7b6c8c0c81f6",
+    "prototype-2d/assets/hero-wukong-battle-v3-sheet.png": "6d5e900a45300320f5072f6c0072c59975d9db9d8fa564c8e4418d0996d19127",
+    "prototype-2d/assets/hero-wukong.svg": "0121755c5ed96abf2508d3ef8fb77804ac8e2e103d284f75d1403c7c8b9b732d",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "prototype-2d/assets/map-doublefork-high-ridge-v1.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-doublefork-v2-optimized.png": "e014fafd243bf430aa48d58634879a3077ba67697d1ad3b3f27262dd35e5a8e5",
+    "prototype-2d/assets/map-doublefork-v2.png": "690363b6757576103190cc6a7461f0231fbfe79c158381dfbb637cc7b8dde12b",
+    "prototype-2d/assets/map-doublefork-v3-optimized.png": "20174da20cf3df773f6f0665e928e06fe3ed73f9d40b81154649dce7455d9530",
+    "prototype-2d/assets/map-doublefork-v3.png": "79d3c48b57d319ff2b56c21b16e5ad207423f181fd4c119a0aadc9517bf866ca",
+    "prototype-2d/assets/map-doublefork-v4-high-ridge-candidate.png": "3b2b15606e6548f128123201faa782e6af625f0be4f22f8faedc5d94c5980bf8",
+    "prototype-2d/assets/map-forest-qv1.png": "2944c17b771ad04a2c0205722f72df6a6126bae5f6ebf2e3aac1b1485bb50f23",
+    "prototype-2d/assets/map-temple-qv1.png": "1d7627c6153e2583842821ca5b2fa9c36027a85fe2b888f440e4e1c58f067ef9",
+    "prototype-2d/assets/README.md": "f2db10e10df7573a3e8fc2855cb8433dca35a121515dd278558a3dc86cbabbdc",
+    "prototype-2d/assets/theme-fire.svg": "8669bc3310052658aa37623537ca37ef7a51d690521f604cf66f309c2b55a11d",
+    "prototype-2d/assets/theme-forest.svg": "aa116a57c9776189afbec44ef88be18f8ea21e423b9ce1a59feb6dcc2be25558",
+    "prototype-2d/assets/theme-sand.svg": "6a0ee4411722136d48ffeeac040bf78c255b94f1602b430a99d443fbd2c65604",
+    "prototype-2d/assets/theme-snow.svg": "56e23a7e861e54d309680469dfc5dd6d3c99206dc2a1ae45d4ef061650ff0997",
+    "prototype-2d/assets/theme-temple.svg": "ebc4f5149d7fe5064a03a0db5610af77e6e90848c1a0e1b52e984e780aa0bf8e",
+    "prototype-2d/assets/theme-water.svg": "399b5a854be22e373806fc4711d6392fa27f370eb1435eaf82162b897a19f093",
+    "prototype-2d/assets/weapon-skill-bajie.svg": "67b0841a9ad517ea9f7a83ef8c669f1d632f9df8796a32656c73f5773d0ec737",
+    "prototype-2d/assets/weapon-skill-tangseng.svg": "3bcf292f0e0c5de76f80573dc55eb8883142efcd48186d3981a31383289684a3",
+    "prototype-2d/assets/weapon-skill-wujing.svg": "baff2be3abbe0e1637457f0600c8a9f7e8bc0c7993d56075c79be19209d9582e",
+    "prototype-2d/assets/weapon-skill-wukong.svg": "e509ee55bcbdf2804a67cb6fef1ac476e800eef6a7ad27d37669495597841c27",
+    "prototype-2d/assets/xiyou-art-preview.png": "6517fd98be3b7cc81c4bd9e8a3a54d5371c8355eca4722102d78e5732655b9d0",
+    "prototype-2d/assets/xiyou-art-preview.svg": "c0f540a2b4b2021036a49d65d76e095643df74073a296527028e9f3f87372b2a",
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2"
+  },
+  "protectedUnchanged": true,
+  "finishedAt": "2026-10-13T03:22:46.409Z"
+}

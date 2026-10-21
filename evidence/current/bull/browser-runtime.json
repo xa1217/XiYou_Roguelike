@@ -1,0 +1,683 @@
+{
+  "generatedAt": "2026-10-10T08:31:23.557Z",
+  "url": "http://127.0.0.1:8091/",
+  "scope": "local real Edge; not external public or WeChat device",
+  "mode": "UI entry, then accelerated production update with legal movement/upgrade input; no debug or HP/spawn/kill/time mutation",
+  "pageErrors": [],
+  "failedRequests": [],
+  "screenshots": [
+    {
+      "name": "natural-move-0",
+      "file": "evidence/current/bull/natural-move-0.png",
+      "bytes": 59937,
+      "sha256": "a14758c331cc33a5c96d2b8ca91d0aed9325782d61d570a3954ef6bb582ec299",
+      "sample": {
+        "capture": {
+          "state": "move",
+          "index": 0,
+          "facing": "left",
+          "source": [
+            53,
+            288,
+            147,
+            147
+          ],
+          "destination": [
+            -28.16,
+            -36.54,
+            47.04,
+            47.04
+          ],
+          "left": 256.1258613845683,
+          "top": 161.86034579900152
+        },
+        "time": 22.370200000003162,
+        "seen": {
+          "move": [
+            4,
+            5,
+            6,
+            7,
+            0
+          ],
+          "attack": [],
+          "hit": [],
+          "death": []
+        },
+        "facing": [
+          "left"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "natural-attack-0",
+      "file": "evidence/current/bull/natural-attack-0.png",
+      "bytes": 67008,
+      "sha256": "62821fdfe42eb55cb64f62ce38c6ae218333942b69fc8fe1a0c55c34934f28f1",
+      "sample": {
+        "capture": {
+          "state": "attack",
+          "index": 0,
+          "facing": "left",
+          "source": [
+            61,
+            499,
+            148,
+            141
+          ],
+          "destination": [
+            -25.6,
+            -34.62,
+            47.36,
+            45.12
+          ],
+          "left": 181.81512024973344,
+          "top": 322.2448705504532
+        },
+        "time": 22.97020000000317,
+        "seen": {
+          "move": [
+            4,
+            5,
+            6,
+            7,
+            0,
+            1,
+            2,
+            3
+          ],
+          "attack": [
+            0
+          ],
+          "hit": [],
+          "death": []
+        },
+        "facing": [
+          "left"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "runtime-paused-a",
+      "file": "evidence/current/bull/runtime-paused-a.png",
+      "bytes": 38321,
+      "sha256": "61684365be68d3e1ad18f1b7867954f56a1c4e63d808f89879d13ee548efc234"
+    },
+    {
+      "name": "runtime-paused-b",
+      "file": "evidence/current/bull/runtime-paused-b.png",
+      "bytes": 38321,
+      "sha256": "61684365be68d3e1ad18f1b7867954f56a1c4e63d808f89879d13ee548efc234"
+    },
+    {
+      "name": "natural-hit-3",
+      "file": "evidence/current/bull/natural-hit-3.png",
+      "bytes": 61876,
+      "sha256": "d8e09acfbe3781ca670fb46d0f89ae6964603de615dcb09d2b27c89d194e1664",
+      "sample": {
+        "capture": {
+          "state": "hit",
+          "index": 3,
+          "facing": "right",
+          "source": [
+            695,
+            705,
+            141,
+            139
+          ],
+          "destination": [
+            -27.84,
+            -33.660000000000004,
+            45.12,
+            44.480000000000004
+          ],
+          "left": 146.8549563232431,
+          "top": 381.3081743119343
+        },
+        "time": 23.26310000000913,
+        "seen": {
+          "move": [
+            4,
+            5,
+            6,
+            7,
+            0,
+            1,
+            2,
+            3
+          ],
+          "attack": [
+            0,
+            1
+          ],
+          "hit": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "death": []
+        },
+        "facing": [
+          "left",
+          "right"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "natural-attack-7",
+      "file": "evidence/current/bull/natural-attack-7.png",
+      "bytes": 64237,
+      "sha256": "5ecf200390f0f62d974240d0d8f408c5a2c2d1492979be64b97a9f0f344f82b0",
+      "sample": {
+        "capture": {
+          "state": "attack",
+          "index": 7,
+          "facing": "left",
+          "source": [
+            1568,
+            502,
+            152,
+            144
+          ],
+          "destination": [
+            -23.68,
+            -33.660000000000004,
+            48.64,
+            46.08
+          ],
+          "left": 157.66646242804708,
+          "top": 366.98882477024165
+        },
+        "time": 23.713100000009135,
+        "seen": {
+          "move": [
+            4,
+            5,
+            6,
+            7,
+            0,
+            1,
+            2,
+            3
+          ],
+          "attack": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "hit": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "death": []
+        },
+        "facing": [
+          "left",
+          "right"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "natural-death-0",
+      "file": "evidence/current/bull/natural-death-0.png",
+      "bytes": 71693,
+      "sha256": "1e75b0eca7a0a65d11c76d5c31a05cb84ca4fc7fbf515d4f2779c2b8a121bd4f",
+      "sample": {
+        "capture": {
+          "state": "death",
+          "index": 0,
+          "facing": "right",
+          "source": [
+            905,
+            738,
+            174,
+            107
+          ],
+          "destination": [
+            -29.12,
+            -23.1,
+            55.68,
+            34.24
+          ],
+          "left": 144.8740038696298,
+          "top": 397.65103205424384
+        },
+        "time": 24.06310000000914,
+        "seen": {
+          "move": [
+            4,
+            5,
+            6,
+            7,
+            0,
+            1,
+            2,
+            3
+          ],
+          "attack": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "hit": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "death": [
+            0
+          ]
+        },
+        "facing": [
+          "left",
+          "right"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "natural-death-3",
+      "file": "evidence/current/bull/natural-death-3.png",
+      "bytes": 65264,
+      "sha256": "71fe6e21a2c4a7eb0147dc7699e7799445f34c99fc2f04a19be383efd9314868",
+      "sample": {
+        "capture": {
+          "state": "death",
+          "index": 3,
+          "facing": "right",
+          "source": [
+            1563,
+            763,
+            159,
+            82
+          ],
+          "destination": [
+            -25.28,
+            -15.100000000000001,
+            50.88,
+            26.240000000000002
+          ],
+          "left": 103.52455341320892,
+          "top": 516.6037530631438
+        },
+        "time": 24.363100000009144,
+        "seen": {
+          "move": [
+            4,
+            5,
+            6,
+            7,
+            0,
+            1,
+            2,
+            3
+          ],
+          "attack": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "hit": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "death": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "facing": [
+          "left",
+          "right"
+        ],
+        "status": "playing"
+      }
+    },
+    {
+      "name": "runtime-natural-battle",
+      "file": "evidence/current/bull/runtime-natural-battle.png",
+      "bytes": 65264,
+      "sha256": "71fe6e21a2c4a7eb0147dc7699e7799445f34c99fc2f04a19be383efd9314868"
+    },
+    {
+      "name": "runtime-fixture-right",
+      "file": "evidence/current/bull/runtime-fixture-right.png",
+      "bytes": 136930,
+      "sha256": "d3b1edd23fee4e8a8f604e4133797229225b36b1a863ec0306f28499397bfd10",
+      "fixture": {
+        "facing": 0,
+        "frames": 32,
+        "distinctRenderedCells": 32
+      }
+    },
+    {
+      "name": "runtime-fixture-left",
+      "file": "evidence/current/bull/runtime-fixture-left.png",
+      "bytes": 136984,
+      "sha256": "5973f963f164c9ccbcc125c2f62c012073bc8e031ccf794c9cd3dd9babf3665e",
+      "fixture": {
+        "facing": 3.141592653589793,
+        "frames": 32,
+        "distinctRenderedCells": 32
+      }
+    }
+  ],
+  "result": "PASS",
+  "phase": "finished",
+  "updatedAt": "2026-10-10T08:31:28.638Z",
+  "browser": "155.0.4283.45",
+  "entry": {
+    "seed": 619723271,
+    "character": "wukong",
+    "stage": 1,
+    "source": "http://127.0.0.1:8091/assets/enemy-bull-battle-v1-sheet.png",
+    "width": 1774,
+    "height": 887,
+    "battleArtMode": "authoredFrames",
+    "battleSceneMode": "vector"
+  },
+  "pause": {
+    "a": {
+      "time": 22.97020000000317,
+      "status": "paused",
+      "actors": [
+        [
+          "enemy-22",
+          "attack",
+          0,
+          0.05,
+          null,
+          0.5,
+          0
+        ],
+        [
+          "enemy-24",
+          "move",
+          1,
+          0.1500000000000027,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-28",
+          "move",
+          4,
+          0.33333333333333565,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-35",
+          "move",
+          7,
+          0.6500000000000017,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-39",
+          "move",
+          2,
+          0.16666666666666807,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-44",
+          "move",
+          4,
+          0.350000000000001,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-48",
+          "move",
+          6,
+          0.533333333333334,
+          null,
+          0,
+          0
+        ]
+      ]
+    },
+    "b": {
+      "time": 22.97020000000317,
+      "status": "paused",
+      "actors": [
+        [
+          "enemy-22",
+          "attack",
+          0,
+          0.05,
+          null,
+          0.5,
+          0
+        ],
+        [
+          "enemy-24",
+          "move",
+          1,
+          0.1500000000000027,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-28",
+          "move",
+          4,
+          0.33333333333333565,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-35",
+          "move",
+          7,
+          0.6500000000000017,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-39",
+          "move",
+          2,
+          0.16666666666666807,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-44",
+          "move",
+          4,
+          0.350000000000001,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-48",
+          "move",
+          6,
+          0.533333333333334,
+          null,
+          0,
+          0
+        ]
+      ]
+    },
+    "resumedState": {
+      "time": 23.113100000009126,
+      "status": "playing",
+      "actors": [
+        [
+          "enemy-22",
+          "hit",
+          1,
+          0.08730000001192094,
+          null,
+          0,
+          0.16269999998807913
+        ],
+        [
+          "enemy-24",
+          "move",
+          3,
+          0.2929000000059631,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-28",
+          "hit",
+          1,
+          0.08730000001192094,
+          null,
+          0,
+          0.16269999998807913
+        ],
+        [
+          "enemy-35",
+          "move",
+          1,
+          0.12623333333929554,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-39",
+          "move",
+          3,
+          0.30956666667262855,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-44",
+          "move",
+          5,
+          0.49290000000596146,
+          null,
+          0,
+          0
+        ],
+        [
+          "enemy-48",
+          "move",
+          0,
+          0.009566666672627733,
+          null,
+          0,
+          0
+        ]
+      ]
+    },
+    "clocksFrozen": true,
+    "imageFrozen": true,
+    "resumed": true
+  },
+  "natural": {
+    "seed": 619723271,
+    "time": 24.363100000009144,
+    "status": "playing",
+    "seen": {
+      "move": [
+        4,
+        5,
+        6,
+        7,
+        0,
+        1,
+        2,
+        3
+      ],
+      "attack": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "hit": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "death": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "facing": [
+      "left",
+      "right"
+    ],
+    "events": {
+      "hits": 2,
+      "kills": 1
+    },
+    "steps": 484,
+    "upgrades": 0,
+    "peakEnemies": 14,
+    "peakEffects": 4,
+    "renderP95Ms": 0.5,
+    "mapAssetDraws": 0,
+    "note": "Accelerated real production simulation and Canvas draws; render timings are desktop samples, not phone FPS."
+  },
+  "checks": {
+    "naturalFrames": true,
+    "naturalDamageAndDeath": true,
+    "bothOrientations": true,
+    "pauseResume": true,
+    "noStaticBattleMap": true,
+    "boundedActors": true,
+    "fixture32Each": true,
+    "noErrors": true
+  },
+  "browserClosed": true
+}

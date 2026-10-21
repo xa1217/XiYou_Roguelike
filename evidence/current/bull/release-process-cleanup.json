@@ -1,0 +1,24 @@
+{
+  "capturedAt": "2026-10-10T09:09:55.2655605Z",
+  "scope": "Read-only cleanup snapshot for bull candidate archive verification",
+  "totalMemoryGiB": 31.9,
+  "freeMemoryGiB": 20.92,
+  "matchingTestOrServiceProcesses": [],
+  "browserAndAgentGroups": [
+    {
+      "name": "codex.exe",
+      "count": 1,
+      "workingSetMiB": 457.5
+    },
+    {
+      "name": "node.exe",
+      "count": 21,
+      "workingSetMiB": 1320.4
+    }
+  ],
+  "listenersOnOwnTestPort8091": [],
+  "ownServerSession": 41449,
+  "ownServerStopped": true,
+  "unrelatedProcessesTerminated": 0,
+  "note": "Process working sets may share pages. Snapshot is not a guarantee against future 429 or a claim that all background processes are closed."
+}

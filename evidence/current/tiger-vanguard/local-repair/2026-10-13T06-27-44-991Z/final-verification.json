@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-13T07:42:14.462Z",
+  "result": "PASS_EVIDENCE_INTEGRITY_ONLY",
+  "sourceAndCandidateHashesMatch": true,
+  "promptHashMatches": true,
+  "browserAndScreenshotHashesMatch": true,
+  "npmArchive": {
+    "file": "evidence/current/tiger-vanguard/local-repair/2026-10-13T06-27-44-991Z/review/2026-10-13T07-10-12-432Z/npm-validation.json",
+    "sha256": "70402c38de4e52d95be92233101c27d806886b993a7418fd1a06f084d13ed3c8",
+    "date": "2026-10-13T07:10:23.285Z",
+    "result": "PASS"
+  },
+  "protectedFiles": 90,
+  "changedFiles": [],
+  "browserClosed": true,
+  "serverStarted": false,
+  "publicPass": false,
+  "runtimeApproved": false
+}

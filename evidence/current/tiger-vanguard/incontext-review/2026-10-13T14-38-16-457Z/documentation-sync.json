@@ -1,0 +1,34 @@
+{
+  "heartbeatAt": "2026-10-13T15:02:02.394Z",
+  "result": "DOCUMENTATION_SYNCED_ONLY",
+  "updatedDocuments": [
+    "STATUS.md",
+    "docs/REQUIREMENTS-ACCEPTANCE.md",
+    "docs/FINAL-REPORT.md",
+    "docs/TIGER-VANGUARD-CANDIDATE-HANDOFF.md"
+  ],
+  "checks": {
+    "latestSectionPresentInAllFourDocuments": true,
+    "productionHashesMatchPreTestBaseline": true,
+    "zipHashesMatchPreTestBaseline": true,
+    "port8088HasNoListener": true
+  },
+  "protectedHashes": {
+    "prototype-2d/src/engine.js": "8b46d9e845cdb5f54bb1b69e5bbce04960c975824ad1e79e29885470a207e997",
+    "prototype-2d/src/renderer.js": "b0043ae2de03cac1973422520434cfe02fd633f4cf2b5ae713ee395802f1eeb5",
+    "prototype-2d/src/battle-enemy-animation.js": "712f8d5487aff4c8e3ed04ffdcf8351d60a3d8b4140d7422e4f2db857ee560d8",
+    "prototype-2d/native-app.js": "2fec6ad76ff247877f202a5fc2b7110967368d10c1fee38c3fc9215d410de7f8",
+    "prototype-2d/assets/manifest.json": "e63d9eda0ce20562944ace349794474a1fddbbb249e34bfd30a7d005593e08ad",
+    "dist/xiyou-survivor-web-v1.0.0.zip": "9c9bd515b0e8dcb5c4d4101838f1ebc3679b0f425ab31685909503c9519ae097",
+    "dist/xiyou-survivor-wechat-game-v1.0.0.zip": "f017493aaf8eeebccc1ac040ded0397a8bfcc4f8d0cbee56e6be5b04e4dec4e2"
+  },
+  "newBrowserRun": false,
+  "newNpmTestRun": false,
+  "regressionArchive": "npm-validation.json",
+  "regressionArchiveSha256": "eb8d7b13e2322a094b9fc51380a3b4e7e7d91a47c17d46064e07ce7770eb05e8",
+  "note": "Only documents and evidence handoff changed. This does not create a new browser, high-frame, FPS, ZIP, public or device PASS.",
+  "runtimeApproved": false,
+  "highFrameApproved": false,
+  "publicPass": false,
+  "releaseReady": false
+}
