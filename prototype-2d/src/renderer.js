@@ -356,6 +356,7 @@ class GameRenderer {
     this._hudScreenBounds = null;
     this._hudOcclusionRects = [];
     this._view = { left: 0, top: 0, right: 0, bottom: 0 };
+    this._viewCenter = null;
     this.stats = { enemies: 0, projectiles: 0, effects: 0, gems: 0, culledEnemies: 0, culledProjectiles: 0, culledEffects: 0, culledGems: 0, statusCandidates: 0, statusBadges: 0, statusSuppressed: 0,
       damagePlayerCandidates: 0, damagePlayerMoved: 0, damagePlayerUnresolved: 0,
       damageEnemyCandidates: 0, damageEnemyMoved: 0, damageEnemyUnresolved: 0,
@@ -393,6 +394,21 @@ class GameRenderer {
     return this;
   }
 
+  // The world is framed inside the HUD-free band (between the top and
+  // bottom UI bars) so the player is never hidden behind the UI when
+  // moving to the top or bottom of the view. Falls back to the full
+  // canvas when no valid HUD bounds are set. (2026-10-21 playtest change)
+  _viewFrame(zoom) {
+    const bounds = this._hudScreenBounds;
+    const valid = bounds && !bounds.invalid && bounds.right > bounds.left && bounds.bottom > bounds.top;
+    const left = valid ? bounds.left : 0, right = valid ? bounds.right : this.width;
+    const top = valid ? bounds.top : 0, bottom = valid ? bounds.bottom : this.height;
+    return {
+      cx: (left + right) / 2, cy: (top + bottom) / 2,
+      viewWorldW: (right - left) / zoom, viewWorldH: (bottom - top) / zoom,
+    };
+  }
+
   render(state, dt = 0) {
     if (this.disposed || !this.ctx) return;
     const safeState = state || {};
@@ -400,8 +416,10 @@ class GameRenderer {
     const player = safeState.player || { x: WORLD_SIZE / 2, y: WORLD_SIZE / 2, radius: 18 };
     const mapTheme = themeFor(safeState.stage);
     const zoom = this._zoom(player);
-    const viewWorldW = this.width / zoom;
-    const viewWorldH = this.height / zoom;
+    const frame = this._viewFrame(zoom);
+    const viewWorldW = frame.viewWorldW;
+    const viewWorldH = frame.viewWorldH;
+    this._viewCenter = { x: frame.cx, y: frame.cy };
     const targetX = viewWorldW >= WORLD_SIZE ? WORLD_SIZE / 2 : clamp(n(player.x, WORLD_SIZE / 2), viewWorldW / 2, WORLD_SIZE - viewWorldW / 2);
     const targetY = viewWorldH >= WORLD_SIZE ? WORLD_SIZE / 2 : clamp(n(player.y, WORLD_SIZE / 2), viewWorldH / 2, WORLD_SIZE - viewWorldH / 2);
     const smoothing = this.quality === 'low' || n(dt) <= 0 ? 1 : clamp(n(dt, 0) * 8, 0, 1);
@@ -423,7 +441,7 @@ class GameRenderer {
     method(ctx, 'setTransform', this.pixelRatio, 0, 0, this.pixelRatio, 0, 0);
     paint(ctx, mapTheme.paper);
     method(ctx, 'fillRect', 0, 0, this.width, this.height);
-    method(ctx, 'translate', this.width / 2, this.height / 2);
+    method(ctx, 'translate', frame.cx, frame.cy);
     method(ctx, 'scale', zoom, zoom);
     method(ctx, 'translate', -this.camera.x, -this.camera.y);
     const mapKey = safeState.battlefield?.mapAssetKey || safeState.stage?.mapAssetKey || null;
@@ -679,8 +697,10 @@ class GameRenderer {
     const bounds = this._hudScreenBounds;
     if (!bounds) return rects;
     const scale = Math.max(.0001, n(zoom, 1));
-    const toWorldX = screenX => this.camera.x + (screenX - this.width / 2) / scale;
-    const toWorldY = screenY => this.camera.y + (screenY - this.height / 2) / scale;
+    const centerX = this._viewCenter ? this._viewCenter.x : this.width / 2;
+    const centerY = this._viewCenter ? this._viewCenter.y : this.height / 2;
+    const toWorldX = screenX => this.camera.x + (screenX - centerX) / scale;
+    const toWorldY = screenY => this.camera.y + (screenY - centerY) / scale;
     const add = (left, top, right, bottom) => {
       if (rects.length >= MAX_HUD_OCCLUSION_RECTS || right <= left || bottom <= top) return;
       const index = rects.length;
@@ -837,7 +857,9 @@ class GameRenderer {
     // Keep the four heroes readable at phone scale: their silhouette and
     // weapon should occupy a clear action focal point while the arena still
     // leaves room for incoming mobs.
-    return clamp(base / (radius * 14), 1.05, 2.2);
+    // 2026-10-21 playtest change: camera raised 2x — halving the zoom doubles
+    // the visible world height (and width) inside a stage.
+    return clamp(base / (radius * 14), 1.05, 2.2) / 2;
   }
 
   _drawMap(ctx, theme, mapKey = null) {

@@ -256,11 +256,11 @@ const weaponTuning = {
     { cooldown: 1.5, damage: 1.5, range: 8 * 36, projectileSpeed: 520, radius: 13, linger: 1, bounce: 5, bounceTargets: 5, split: 15, knockback: 0.25 },
   ],
   bajie: [
-    { cooldown: 1, damage: 1, range: 270, width: 28, bleed: 0.05, bleedTicks: [0.015, 0.015, 0.02], birds: 0, explosion: 0 },
-    { cooldown: 1, damage: 1.1, range: 285, width: 35, bleed: 0.1, bleedTicks: [0.03, 0.03, 0.04], birds: 0, explosion: 0 },
-    { cooldown: 1, damage: 1.2, range: 300, width: 42, bleed: 0.15, bleedTicks: [0.045, 0.045, 0.06], birds: 3, explosion: 0 },
-    { cooldown: 1, damage: 1.3, range: 315, width: 49, bleed: 0.2, bleedTicks: [0.06, 0.06, 0.08], birds: 6, explosion: 0 },
-    { cooldown: 1, damage: 1.45, range: 330, width: 56, bleed: 0.25, bleedTicks: [0.075, 0.075, 0.1], birds: 9, explosion: 64 },
+    { cooldown: 1, damage: 1, range: 135, width: 28, bleed: 0.05, bleedTicks: [0.015, 0.015, 0.02], birds: 0, explosion: 0 },
+    { cooldown: 1, damage: 1.1, range: 142.5, width: 35, bleed: 0.1, bleedTicks: [0.03, 0.03, 0.04], birds: 0, explosion: 0 },
+    { cooldown: 1, damage: 1.2, range: 150, width: 42, bleed: 0.15, bleedTicks: [0.045, 0.045, 0.06], birds: 3, explosion: 0 },
+    { cooldown: 1, damage: 1.3, range: 157.5, width: 49, bleed: 0.2, bleedTicks: [0.06, 0.06, 0.08], birds: 6, explosion: 0 },
+    { cooldown: 1, damage: 1.45, range: 165, width: 56, bleed: 0.25, bleedTicks: [0.075, 0.075, 0.1], birds: 9, explosion: 64 },
   ],
   wujing: [
     { cooldown: 1.5, damage: 1, range: 76, whirlRadius: 0, whirlDuration: 0, whirlDamage: 0 },

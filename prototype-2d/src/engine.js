@@ -37,6 +37,10 @@ function mulberry32(seed) {
 }
 
 const WEAPON_PREFIX = 'weapon:';
+// Playtest change (2026-10-21): normals arrive in waves every WAVE_SECONDS.
+// Small waves are single-species; every 5th wave is a big mixed-species wave.
+const WAVE_SECONDS = 5;
+const BIG_WAVE_EVERY = 5;
 
 export class GameEngine {
   constructor(options = {}) {
@@ -54,7 +58,8 @@ export class GameEngine {
     this.disposed = false;
     this.elapsed = 0;
     this.weaponShots = 0;
-    this.spawnAccumulator = 0;
+    this.spawnAccumulator = WAVE_SECONDS - 1;
+    this.waveIndex = 0;
     this.elitesSpawned = new Set();
     this.bossSpawned = false;
     this.finalBossSpawned = false;
@@ -219,9 +224,12 @@ export class GameEngine {
 
   advanceSpawns() {
     const time = this.state.time;
-    while (this.spawnAccumulator >= this.spawnInterval(time) && this.state.enemies.length < BALANCE.maxEnemies) {
-      this.spawnAccumulator -= this.spawnInterval(time);
-      this.spawnEnemy('normal');
+    // Wave spawning replaces the old per-enemy trickle: the accumulator now
+    // counts toward whole waves, so overall pressure still follows
+    // spawnInterval(time) via the batch size computed in spawnWave.
+    while (this.spawnAccumulator >= WAVE_SECONDS && this.state.enemies.length < BALANCE.maxEnemies) {
+      this.spawnAccumulator -= WAVE_SECONDS;
+      this.spawnWave(time);
     }
     BALANCE.eliteTimes.forEach((mark, index) => {
       if (time >= mark && !this.elitesSpawned.has(mark)) {
@@ -270,6 +278,28 @@ export class GameEngine {
   spawnInterval(time) {
     // 1.18s at start, reaching 0.22s near the final minute.
     return clamp(1.18 - (time / BALANCE.duration) * 0.96, 0.22, 1.18);
+  }
+
+  spawnWave(time) {
+    const roster = this.stage.enemyRoster || this.stage.enemies || [];
+    const index = this.waveIndex;
+    this.waveIndex += 1;
+    const big = index % BIG_WAVE_EVERY === BIG_WAVE_EVERY - 1;
+    // Batch size preserves the old trickle's throughput over one wave
+    // window; big waves double it and mix every species in the roster.
+    const batch = Math.max(1, Math.round(WAVE_SECONDS / this.spawnInterval(time))) * (big ? 2 : 1);
+    let forced;
+    if (!big && roster.length) {
+      // Small wave: a single species, rotating through the roster so each
+      // kind gets its own wave before the next big mixed wave lands.
+      const entry = roster[index % roster.length];
+      forced = typeof entry === 'string' ? { name: entry } : { name: entry.name, variant: entry.variant };
+    }
+    let spawned = 0;
+    for (let i = 0; i < batch && this.state.enemies.length < BALANCE.maxEnemies; i += 1) {
+      if (this.spawnEnemy('normal', 0, forced)) spawned += 1;
+    }
+    this.emit({ type: 'wave', index, big, count: spawned, species: big ? null : (forced ? forced.name : null) });
   }
 
   spawnPoint() {
