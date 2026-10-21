@@ -564,8 +564,8 @@
         1774,
         887
       ],
-      "bytes": 1387002,
-      "sha256": "6D5E900A45300320F5072F6C0072C59975D9DB9D8FA564C8E4418D0996D19127",
+      "bytes": 807747,
+      "sha256": "A1B667FF0C3682122E797548C3BFB7AC1064DD26EBD302986C7875A2500045A9",
       "inGameSize": "4×2透明帧格；按角色半径缩放",
       "purpose": "悟空局内真实多帧战斗精灵",
       "runtime": "native-app.js priority queue; renderer battleArtMode=authoredFrames",
@@ -589,8 +589,8 @@
         1774,
         887
       ],
-      "bytes": 1942037,
-      "sha256": "08F1819DD09725A94908906CF12F4294724CE425F9A763768DE0D723F1487B61",
+      "bytes": 893354,
+      "sha256": "CBBA75BAB554318E9076E30E870A946096F9360512E378275729C87323B368DB",
       "inGameSize": "4×2透明帧格；按角色半径缩放",
       "purpose": "唐三藏局内真实多帧战斗精灵",
       "runtime": "native-app.js priority queue; renderer battleArtMode=authoredFrames",
@@ -614,8 +614,8 @@
         1774,
         887
       ],
-      "bytes": 1490905,
-      "sha256": "74E1332BC908E992FAB2277902DCBCB2BE1558896172470F4AF4B4D98647E54B",
+      "bytes": 941534,
+      "sha256": "822529FAAA407D2694F97A55BF7F1C9C8821610EDB93C07A69E51BF2D2744B69",
       "inGameSize": "4×2透明帧格；按角色半径缩放",
       "purpose": "猪八戒局内真实多帧战斗精灵",
       "runtime": "native-app.js priority queue; renderer battleArtMode=authoredFrames",
@@ -639,8 +639,8 @@
         1774,
         887
       ],
-      "bytes": 1558610,
-      "sha256": "8788002D9482AB92797DC0DFB41742B28E811D18C5A764485C54AE1578DCE747",
+      "bytes": 716935,
+      "sha256": "8F4A4FAD3965F8BC42F619208B9A5C0A57DA589BEA6DBF5921F1A87961D1EB10",
       "inGameSize": "4×2透明帧格；按角色半径缩放",
       "purpose": "沙悟净局内真实多帧战斗精灵",
       "runtime": "native-app.js priority queue; renderer battleArtMode=authoredFrames",
