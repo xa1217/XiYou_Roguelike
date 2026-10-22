@@ -1,0 +1,60 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Boss integration harness (temporary, public verification)</title>
+<style>
+  body { background: #14100c; color: #e8dcc0; font: 14px/1.5 monospace; margin: 0; display: flex; flex-direction: column; align-items: center; }
+  #status { padding: 8px 12px; white-space: pre-wrap; max-width: 90vw; }
+  iframe { width: 390px; height: 844px; border: 2px solid #8a6d3b; background: #000; }
+</style>
+<div id="status">LOADING</div>
+<iframe id="game" src="index.html"></iframe>
+<script>
+const status = document.getElementById('status');
+const frame = document.getElementById('game');
+const say = text => { status.textContent = text; document.title = text.split('\n')[0]; };
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+async function waitFor(fn, timeoutMs, label) {
+  const start = Date.now();
+  while (Date.now() - start < timeoutMs) {
+    try { const v = fn(); if (v) return v; } catch {}
+    await sleep(250);
+  }
+  throw new Error('timeout: ' + label);
+}
+
+(async () => {
+  try {
+    const win = await waitFor(() => frame.contentWindow, 10000, 'iframe');
+    const g = await waitFor(() => win.xiyou, 15000, 'xiyou');
+    say('GAME READY; waiting for boss atlases to attach…');
+    await waitFor(() => ['yin-general', 'xiong-shanjun', 'te-chushi']
+      .every(id => g.enemyImages?.[id]?.__bossBattleSprite === true), 60000, 'boss atlases');
+    say('ATLASES ATTACHED: all three boss images validated + attached.\nStarting run and summoning the three final bosses via the normal spawn path…');
+    g.startRun();
+    await waitFor(() => g.engine?.stage?.finalBosses, 5000, 'engine');
+    const engine = g.engine, player = engine.state.player;
+    for (const override of engine.stage.finalBosses) engine.spawnBoss(true, override);
+    const bosses = engine.state.enemies.filter(e => e.final);
+    if (bosses.length < 3) throw new Error('only ' + bosses.length + ' final bosses spawned');
+    say('FINAL BOSSES SPAWNED: ' + bosses.map(b => `${b.name}[${b.bossIdentity?.bossId}] sprite=${b.battleSpriteId}`).join(' | ') + '\nPinning them around the player for framing…');
+    const offsets = [[-135, 10], [140, -20], [5, 175]];
+    const pin = setInterval(() => {
+      if (engine.state.status === 'upgrade' && engine.state.choices?.length) engine.chooseUpgrade(engine.state.choices[0].id);
+      if (player.hp < player.maxHp) player.hp = player.maxHp;
+      engine.state.enemies.filter(e => e.final).forEach((b, i) => {
+        const [dx, dy] = offsets[i % offsets.length]; b.x = player.x + dx; b.y = player.y + dy;
+      });
+    }, 400);
+    await sleep(5000);
+    say('PHASE1-PINNED: three final bosses framed around the player. Screenshot now.\n' +
+      engine.state.enemies.filter(e => e.final).map(b => `${b.name} state=${b.animationState} frame=${b.frameIndex}/${b.animationFrames}`).join(' | '));
+    await sleep(9000);
+    clearInterval(pin);
+    say('PHASE2-FREE: bosses unpinned, attack patterns running. Screenshot now.\n' +
+      engine.state.enemies.filter(e => e.final).map(b => `${b.name} state=${b.animationState} frame=${b.frameIndex}/${b.animationFrames} phase=${b.attackPhase}`).join(' | '));
+  } catch (error) {
+    say('HARNESS ERROR: ' + (error?.message || error));
+  }
+})();
+</script>
