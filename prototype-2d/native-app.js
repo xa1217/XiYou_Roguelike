@@ -146,7 +146,11 @@ const skillFxFiles={
   'slash-arc':'skill-fx-slash-arc.png',
   'light-orb':'skill-fx-light-orb.png',
   'rake-sweep':'skill-fx-rake-sweep.png',
-  'water-ring':'skill-fx-water-ring.png'
+  'water-ring':'skill-fx-water-ring.png',
+  'fan-wave':'skill-fx-fan-wave.png',
+  'gourd-vortex':'skill-fx-gourd-vortex.png',
+  'palm-burst':'skill-fx-palm-burst.png',
+  'fire-burst':'skill-fx-fire-burst.png'
 };
 for(const [fxId,file] of Object.entries(skillFxFiles)){
   const image=new Image();
