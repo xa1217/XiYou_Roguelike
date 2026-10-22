@@ -7,6 +7,7 @@ import {attachMonkeyFrames} from './src/monkey-animation.js';
 import {attachDeerFrames} from './src/deer-animation.js';
 import {attachHawkFrames} from './src/hawk-animation.js';
 import {attachSnakeFrames} from './src/snake-animation.js';
+import {attachBossFrames} from './src/boss-animation.js';
 const canvas=document.querySelector('canvas');const audio=new AudioManager();const debugAllowed=(location.hostname==='localhost'||location.hostname==='127.0.0.1')&&new URLSearchParams(location.search).has('debug');const game=new NativeGame(canvas,{width:390,height:Math.min(844,window.innerHeight),pixelRatio:window.devicePixelRatio,debug:debugAllowed,audio,requestFrame:fn=>requestAnimationFrame(fn),cancelFrame:id=>cancelAnimationFrame(id),now:()=>performance.now(),load:key=>{try{return JSON.parse(localStorage.getItem(key));}catch{return null;}},save:(key,v)=>localStorage.setItem(key,JSON.stringify(v)),confirm:(text,accept)=>{if(confirm(text))accept();}});window.xiyou=game;
 const fit=()=>{const r=canvas.getBoundingClientRect();if(r.width>0&&r.height>0)game.resize(Math.round(r.width),Math.round(r.height),window.devicePixelRatio||1,{top:0,bottom:r.height});};window.addEventListener('resize',fit,{passive:true});window.addEventListener('orientationchange',()=>setTimeout(fit,80),{passive:true});fit();
 const p=e=>{const r=canvas.getBoundingClientRect();return {x:(e.clientX-r.left)*game.w/r.width,y:(e.clientY-r.top)*game.h/r.height};};canvas.addEventListener('pointerdown',e=>{audio.unlock();canvas.setPointerCapture(e.pointerId);const q=p(e);game.touchStart(q.x,q.y);});canvas.addEventListener('pointermove',e=>{const q=p(e);game.touchMove(q.x,q.y);});canvas.addEventListener('pointerup',()=>game.touchEnd());canvas.addEventListener('pointercancel',()=>game.touchEnd());
@@ -124,6 +125,21 @@ for(const [id,attach,version='v1'] of [['tiger',attachTigerFrames],['bear',attac
       const response=await fetch(`./assets/enemy-${id}-battle-${version}-frames.json`,{signal:controller.signal});
       if(!response.ok)throw new Error('Enemy frame contract unavailable');
       attach(image,await response.json());enemyImages[id]=image;
+      if(game.renderer)game.renderer.enemyImages=enemyImages;game.draw();
+    }catch{/* Missing/invalid/timed-out contract retains the vector fallback. */}
+    finally{clearTimeout(timeout);}
+  },()=>{},true);
+}
+// Named final-boss atlases load through the same serial queue and contract
+// discipline, keyed by bossId; failures keep the vector identity profiles.
+for(const bossId of ['yin-general','xiong-shanjun','te-chushi']){
+  const image=new Image();
+  queueImage(image,`./assets/enemy-${bossId}-battle-v1-sheet.png`,async()=>{
+    const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),10000);
+    try{
+      const response=await fetch(`./assets/enemy-${bossId}-battle-v1-frames.json`,{signal:controller.signal});
+      if(!response.ok)throw new Error('Boss frame contract unavailable');
+      attachBossFrames(bossId)(image,await response.json());enemyImages[bossId]=image;
       if(game.renderer)game.renderer.enemyImages=enemyImages;game.draw();
     }catch{/* Missing/invalid/timed-out contract retains the vector fallback. */}
     finally{clearTimeout(timeout);}
