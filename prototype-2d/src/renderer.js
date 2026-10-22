@@ -871,6 +871,13 @@ class GameRenderer {
     const right = this._view.right + 80;
     const bottom = this._view.bottom + 80;
     paint(ctx, theme.paper); method(ctx, 'fillRect', 0, 0, WORLD_SIZE, WORLD_SIZE);
+    // Painted chapter scenes (playtest line, 2026-10-22, user-directed):
+    // when the stage's authored scene painting has loaded, it IS the
+    // battlefield art — one quiet full-world draw under the actors. The
+    // vector plate below stays as the pre-load and no-image fallback.
+    const scene = this._sceneFor(theme, mapKey);
+    const sceneBack = scene?.back || scene?.background || scene;
+    if (imageReady(sceneBack)) { this._drawPaintedBattleMap(ctx, theme, sceneBack, left, top, right, bottom); return; }
     if (this.battleSceneMode === 'vector') {
       this._drawVectorBattleMap(ctx, theme, left, top, right, bottom, mapKey);
       return;
@@ -913,6 +920,28 @@ class GameRenderer {
       paint(ctx, null, alphaColor(i % 2 ? theme.motif : theme.sticker, .46), 5 + (i % 2) * 2); method(ctx, 'stroke');
     }
     this._drawFrontLayer(ctx, theme, left, top, right, bottom, mapKey);
+  }
+
+  _drawPaintedBattleMap(ctx, theme, back, left, top, right, bottom) {
+    // One quiet cover draw of the authored scene over the whole world — no
+    // mid/front sticker layers compete with the actors. A portrait scene
+    // (the doublefork valley) is geometry-authored: it is drawn stretched
+    // to the full world so its painted ridge and central pass land on the
+    // engine's collision ridge (y 700-1100) and corridor (x 790-1010).
+    // Square/landscape scenes cover-crop, as the original back layer did.
+    const iw = n(back.naturalWidth || back.width, 0), ih = n(back.naturalHeight || back.height, 0);
+    const drawn = (iw > 0 && ih > iw)
+      ? drawImageIfReady(ctx, back, 0, 0, iw, ih, 0, 0, WORLD_SIZE, WORLD_SIZE)
+      : drawImageCover(ctx, back, 0, 0, WORLD_SIZE, WORLD_SIZE);
+    if (drawn) this.mapAssetDraws += 1;
+    // A light wash keeps the HUD's warm ink palette coherent and the actors
+    // the highest-contrast objects on the field.
+    paint(ctx, alphaColor(theme.sky, .06));
+    method(ctx, 'fillRect', left, top, right - left, bottom - top);
+    if (left < 90 || top < 90 || right > WORLD_SIZE - 90 || bottom > WORLD_SIZE - 90) {
+      path(ctx, [['M', 26, 26], ['L', WORLD_SIZE - 26, 26], ['L', WORLD_SIZE - 26, WORLD_SIZE - 26], ['L', 26, WORLD_SIZE - 26], ['Z']], null, alphaColor(theme.deep, .40), 12);
+      path(ctx, [['M', 52, 52], ['L', WORLD_SIZE - 52, 52], ['L', WORLD_SIZE - 52, WORLD_SIZE - 52], ['L', 52, WORLD_SIZE - 52], ['Z']], null, alphaColor(theme.ink, .20), 3);
+    }
   }
 
   _drawVectorBattleMap(ctx, theme, left, top, right, bottom, mapKey = null) {
