@@ -8,6 +8,7 @@ import {attachDeerFrames} from './src/deer-animation.js';
 import {attachHawkFrames} from './src/hawk-animation.js';
 import {attachSnakeFrames} from './src/snake-animation.js';
 import {attachBossFrames} from './src/boss-animation.js';
+import {attachSkillFx} from './src/skill-fx-animation.js';
 const canvas=document.querySelector('canvas');const audio=new AudioManager();const debugAllowed=(location.hostname==='localhost'||location.hostname==='127.0.0.1')&&new URLSearchParams(location.search).has('debug');const game=new NativeGame(canvas,{width:390,height:Math.min(844,window.innerHeight),pixelRatio:window.devicePixelRatio,debug:debugAllowed,audio,requestFrame:fn=>requestAnimationFrame(fn),cancelFrame:id=>cancelAnimationFrame(id),now:()=>performance.now(),load:key=>{try{return JSON.parse(localStorage.getItem(key));}catch{return null;}},save:(key,v)=>localStorage.setItem(key,JSON.stringify(v)),confirm:(text,accept)=>{if(confirm(text))accept();}});window.xiyou=game;
 const fit=()=>{const r=canvas.getBoundingClientRect();if(r.width>0&&r.height>0)game.resize(Math.round(r.width),Math.round(r.height),window.devicePixelRatio||1,{top:0,bottom:r.height});};window.addEventListener('resize',fit,{passive:true});window.addEventListener('orientationchange',()=>setTimeout(fit,80),{passive:true});fit();
 const p=e=>{const r=canvas.getBoundingClientRect();return {x:(e.clientX-r.left)*game.w/r.width,y:(e.clientY-r.top)*game.h/r.height};};canvas.addEventListener('pointerdown',e=>{audio.unlock();canvas.setPointerCapture(e.pointerId);const q=p(e);game.touchStart(q.x,q.y);});canvas.addEventListener('pointermove',e=>{const q=p(e);game.touchMove(q.x,q.y);});canvas.addEventListener('pointerup',()=>game.touchEnd());canvas.addEventListener('pointercancel',()=>game.touchEnd());
@@ -131,6 +132,20 @@ for(const [id,attach,version='v1'] of [['tiger',attachTigerFrames],['bear',attac
     }catch{/* Missing/invalid/timed-out contract retains the vector fallback. */}
     finally{clearTimeout(timeout);}
   },()=>{},true);
+}
+// Signature-weapon skill-effect strips: the renderer prefers these
+// painted animations for the four signature effects once a strip loads
+// and keeps its vector effects otherwise, so they ride the same serial
+// queue after the battle sheets.
+const skillFxFiles={
+  'slash-arc':'skill-fx-slash-arc.png',
+  'light-orb':'skill-fx-light-orb.png',
+  'rake-sweep':'skill-fx-rake-sweep.png',
+  'water-ring':'skill-fx-water-ring.png'
+};
+for(const [fxId,file] of Object.entries(skillFxFiles)){
+  const image=new Image();
+  queueImage(image,`./assets/${file}`,()=>{if(attachSkillFx(image,fxId)){skillFxImages[fxId]=image;if(game.renderer)game.renderer.skillFxImages=skillFxImages;}},()=>{},true);
 }
 // Named final-boss atlases load through the same serial queue and contract
 // discipline, keyed by bossId; failures keep the vector identity profiles.
