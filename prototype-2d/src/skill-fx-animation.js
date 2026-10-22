@@ -36,6 +36,10 @@ export const SKILL_FX = Object.freeze({
   'ring-spin': Object.freeze({ cell: 256, frames: 6 }),
   'gold-bead': Object.freeze({ cell: 256, frames: 6 }),
   'fire-pool': Object.freeze({ cell: 256, frames: 6 }),
+  // Batch 3 (2026-10-22): the seventy-two-changes wooden monkey clones and
+  // Wujing's water whirl pools complete the acquired-skill set.
+  'monkey-clone': Object.freeze({ cell: 256, frames: 6 }),
+  'whirl-pool': Object.freeze({ cell: 256, frames: 6 }),
 });
 
 // The effect kinds each strip serves.  Signature kinds come from the
@@ -50,6 +54,8 @@ export function skillFxIdForEffect(kind) {
   if (kind === 'mountain') return 'fire-burst';
   if (kind === 'bead' || kind === 'skull-bead') return 'gold-bead';
   if (kind === 'fire-trail' || kind === 'fire-pool') return 'fire-pool';
+  if (kind === 'monkey-clone') return 'monkey-clone';
+  if (kind === 'whirl') return 'whirl-pool';
   return null;
 }
 

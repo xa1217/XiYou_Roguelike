@@ -1289,7 +1289,18 @@ class GameRenderer {
     const fxRect = fxImage && fxAge >= fxDelay && skillFxFrameRect(fxImage, fxPhase);
     if (fxRect) {
       ctx.globalAlpha = n(ctx.globalAlpha, 1) * fade;
-      if (fxId === 'gold-bead' || fxId === 'fire-pool') {
+      if (fxId === 'monkey-clone') {
+        // The wooden monkey clones scamper outward: run cycle on renderer
+        // time, flipped to face their travel direction.
+        const rect = skillFxFrameRect(fxImage, (this.elapsed * 3) % 1) || fxRect;
+        const size = radius * 3.6;
+        if (n(effect.vx) < 0) method(ctx, 'scale', -1, 1);
+        method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
+      } else if (fxId === 'whirl-pool') {
+        const rect = skillFxFrameRect(fxImage, (this.elapsed * 2.2) % 1) || fxRect;
+        const size = radius * 2.6;
+        method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
+      } else if (fxId === 'gold-bead' || fxId === 'fire-pool') {
         // Looping props: the rope bead pulses and the fire pool flickers on
         // renderer time; both are drawn centered on the effect position.
         const rect = skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'gold-bead' ? 1.8 : 2.6)) % 1) || fxRect;
