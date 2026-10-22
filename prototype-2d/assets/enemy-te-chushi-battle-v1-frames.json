@@ -1,0 +1,336 @@
+{
+ "schemaVersion": 1,
+ "asset": "enemy-te-chushi-battle-v1-sheet.png",
+ "sha256": "05bdf2448827e9ddd57f78ae6f9e6906d2641075258fd142f8e5bbfb519931cd",
+ "size": [
+  1774,
+  887
+ ],
+ "lifecycle": "runtime-approved on the playtest line (2026-10-22); bound only via bossIdentity for stage-1 final bosses; serial browser image/JSON queue and vector identity fallback retained when unattached",
+ "approvedForRuntime": true,
+ "identity": {
+  "stageId": 1,
+  "kind": "boss",
+  "bossId": "te-chushi",
+  "name": "特处士",
+  "variant": "bull",
+  "excluded": [
+   "ordinary enemies",
+   "elite"
+  ]
+ },
+ "layout": "8 figures x 4 rows normalized grid; explicit sourceRects",
+ "referenceBodyHeight": 165,
+ "previewRootXs": [
+  111,
+  333,
+  554,
+  776,
+  997,
+  1220,
+  1441,
+  1663
+ ],
+ "previewBaselines": [
+  211,
+  433,
+  655,
+  877
+ ],
+ "anchorStatus": "uniform scale; feet on shared per-row baseline; roots at pose centers",
+ "states": {
+  "idle": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "move": [
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14
+  ],
+  "attack": [
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21
+  ],
+  "hit": [
+   22,
+   23,
+   24,
+   25
+  ],
+  "death": [
+   26,
+   27,
+   28,
+   29
+  ]
+ },
+ "fps": {
+  "idle": 8,
+  "move": 12,
+  "attack": 16,
+  "hit": 16,
+  "death": 10
+ },
+ "sourceRects": [
+  {
+   "index": 0,
+   "state": "idle",
+   "x": 49,
+   "y": 46,
+   "w": 124,
+   "h": 166
+  },
+  {
+   "index": 1,
+   "state": "idle",
+   "x": 268,
+   "y": 47,
+   "w": 130,
+   "h": 165
+  },
+  {
+   "index": 2,
+   "state": "idle",
+   "x": 473,
+   "y": 57,
+   "w": 163,
+   "h": 155
+  },
+  {
+   "index": 3,
+   "state": "idle",
+   "x": 714,
+   "y": 47,
+   "w": 124,
+   "h": 165
+  },
+  {
+   "index": 4,
+   "state": "idle",
+   "x": 920,
+   "y": 57,
+   "w": 155,
+   "h": 155
+  },
+  {
+   "index": 5,
+   "state": "idle",
+   "x": 1141,
+   "y": 57,
+   "w": 158,
+   "h": 155
+  },
+  {
+   "index": 6,
+   "state": "idle",
+   "x": 1376,
+   "y": 46,
+   "w": 130,
+   "h": 166
+  },
+  {
+   "index": 7,
+   "state": "idle",
+   "x": 1601,
+   "y": 46,
+   "w": 125,
+   "h": 166
+  },
+  {
+   "index": 8,
+   "state": "move",
+   "x": 28,
+   "y": 286,
+   "w": 165,
+   "h": 148
+  },
+  {
+   "index": 9,
+   "state": "move",
+   "x": 249,
+   "y": 286,
+   "w": 167,
+   "h": 147
+  },
+  {
+   "index": 10,
+   "state": "move",
+   "x": 468,
+   "y": 290,
+   "w": 172,
+   "h": 143
+  },
+  {
+   "index": 11,
+   "state": "move",
+   "x": 690,
+   "y": 290,
+   "w": 172,
+   "h": 143
+  },
+  {
+   "index": 12,
+   "state": "move",
+   "x": 911,
+   "y": 296,
+   "w": 174,
+   "h": 138
+  },
+  {
+   "index": 13,
+   "state": "move",
+   "x": 1131,
+   "y": 300,
+   "w": 178,
+   "h": 133
+  },
+  {
+   "index": 14,
+   "state": "move",
+   "x": 1354,
+   "y": 296,
+   "w": 174,
+   "h": 137
+  },
+  {
+   "index": 15,
+   "state": "attack",
+   "x": 28,
+   "y": 514,
+   "w": 166,
+   "h": 141
+  },
+  {
+   "index": 16,
+   "state": "attack",
+   "x": 247,
+   "y": 515,
+   "w": 171,
+   "h": 140
+  },
+  {
+   "index": 17,
+   "state": "attack",
+   "x": 472,
+   "y": 502,
+   "w": 165,
+   "h": 153
+  },
+  {
+   "index": 18,
+   "state": "attack",
+   "x": 689,
+   "y": 512,
+   "w": 174,
+   "h": 143
+  },
+  {
+   "index": 19,
+   "state": "attack",
+   "x": 899,
+   "y": 512,
+   "w": 198,
+   "h": 143
+  },
+  {
+   "index": 20,
+   "state": "attack",
+   "x": 1132,
+   "y": 517,
+   "w": 175,
+   "h": 138
+  },
+  {
+   "index": 21,
+   "state": "attack",
+   "x": 1352,
+   "y": 510,
+   "w": 179,
+   "h": 145
+  },
+  {
+   "index": 22,
+   "state": "hit",
+   "x": 46,
+   "y": 720,
+   "w": 129,
+   "h": 157
+  },
+  {
+   "index": 23,
+   "state": "hit",
+   "x": 270,
+   "y": 721,
+   "w": 126,
+   "h": 156
+  },
+  {
+   "index": 24,
+   "state": "hit",
+   "x": 494,
+   "y": 718,
+   "w": 120,
+   "h": 159
+  },
+  {
+   "index": 25,
+   "state": "hit",
+   "x": 715,
+   "y": 719,
+   "w": 122,
+   "h": 158
+  },
+  {
+   "index": 26,
+   "state": "death",
+   "x": 918,
+   "y": 783,
+   "w": 159,
+   "h": 94
+  },
+  {
+   "index": 27,
+   "state": "death",
+   "x": 1137,
+   "y": 788,
+   "w": 165,
+   "h": 89
+  },
+  {
+   "index": 28,
+   "state": "death",
+   "x": 1362,
+   "y": 780,
+   "w": 158,
+   "h": 97
+  },
+  {
+   "index": 29,
+   "state": "death",
+   "x": 1582,
+   "y": 783,
+   "w": 162,
+   "h": 94
+  }
+ ],
+ "source": {
+  "type": "ai-generated + programmatic normalization",
+  "rawFile": "evidence/current/playtest-handoff/2026-10-21/assets-work/media-generation-boss-te-chushi-sheet-raw-0-b877d552-7fdb-4f6e-85aa-2f554a4ea1f3.png"
+ }
+}
