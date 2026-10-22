@@ -35,12 +35,12 @@
     ],
     "skillIcons": {
       "weapon": [
-        "weapon-skill-wukong.svg",
-        "weapon-skill-tangseng.svg",
-        "weapon-skill-bajie.svg",
-        "weapon-skill-wujing.svg"
+        "skill-icon-wukong.png",
+        "skill-icon-tangsanzang.png",
+        "skill-icon-bajie.png",
+        "skill-icon-shajing.png"
       ],
-      "artifacts": "artifact-*.svg",
+      "artifacts": "skill-icon-*.png",
       "runtime": "native-app.js loads existing artifact icons and the four new weapon emblems for HUD, upgrade cards and codex; deterministic fallbacks remain available."
     },
     "verification": "node prototype-2d/tests/render-smoke.mjs",
@@ -106,7 +106,27 @@
         "mid": "theme-temple.svg",
         "front": "theme-temple.svg"
       },
-      "runtime": "forest/temple/doublefork authored layers are gallery/preview resources; playable native-app.js uses battleSceneMode=vector and does not fetch them",
+      "water": {
+        "back": "map-water-qv1.png",
+        "mid": "theme-water.svg",
+        "front": "theme-water.svg"
+      },
+      "fire": {
+        "back": "map-fire-qv1.png",
+        "mid": "theme-fire.svg",
+        "front": "theme-fire.svg"
+      },
+      "sand": {
+        "back": "map-sand-qv1.png",
+        "mid": "theme-sand.svg",
+        "front": "theme-sand.svg"
+      },
+      "snow": {
+        "back": "map-snow-qv1.png",
+        "mid": "theme-snow.svg",
+        "front": "theme-snow.svg"
+      },
+      "runtime": "playtest line (2026-10-22, user-directed): the authored scene backs ARE the battlefield art — native-app.js fetches them via loadMapScene (doublefork eagerly, themes on run start) and renderer.js draws the loaded painting full-world (painted-first, quiet vector plate as fallback). Upstream baseline treated them as gallery/preview only.",
       "doublefork": {
         "back": "map-doublefork-high-ridge-v1.png",
         "mid": "theme-forest.svg",
@@ -264,53 +284,53 @@
     },
     {
       "id": "weapon-skill-wukong",
-      "path": "weapon-skill-wukong.svg",
-      "origin": "original-code-vector",
+      "path": "skill-icon-wukong.png",
+      "origin": "ai-generated-painted-icon",
       "size": [
-        128,
-        128
+        256,
+        256
       ],
-      "bytes": 990,
-      "sha256": "E509EE55BCBDF2804A67CB6FEF1AC476E800EEF6A7AD27D37669495597841C27",
+      "bytes": 131083,
+      "sha256": "EE8C422CDDC5846C3075ADB3B96832EF8EB849F473F3413779F53354BE75D839",
       "inGameSize": "28×28 px HUD；40×40 px 升级卡",
       "purpose": "悟空本命武器技能图标"
     },
     {
       "id": "weapon-skill-tangseng",
-      "path": "weapon-skill-tangseng.svg",
-      "origin": "original-code-vector",
+      "path": "skill-icon-tangsanzang.png",
+      "origin": "ai-generated-painted-icon",
       "size": [
-        128,
-        128
+        256,
+        256
       ],
-      "bytes": 1167,
-      "sha256": "3BCF292F0E0C5DE76F80573DC55EB8883142EFCD48186D3981A31383289684A3",
+      "bytes": 123081,
+      "sha256": "DD5F4844AB0C1EE64E6143A3E2F5017FA34E1437231BC51B8C207F25045F8A8B",
       "inGameSize": "28×28 px HUD；40×40 px 升级卡",
       "purpose": "三藏本命武器技能图标"
     },
     {
       "id": "weapon-skill-bajie",
-      "path": "weapon-skill-bajie.svg",
-      "origin": "original-code-vector",
+      "path": "skill-icon-bajie.png",
+      "origin": "ai-generated-painted-icon",
       "size": [
-        128,
-        128
+        256,
+        256
       ],
-      "bytes": 1960,
-      "sha256": "67B0841A9AD517EA9F7A83EF8C669F1D632F9DF8796A32656C73F5773D0EC737",
+      "bytes": 125856,
+      "sha256": "14DFADF92B764C03D2150FF9D9C50FAF91CAE5A86A5613068D03BD2700DF562A",
       "inGameSize": "28×28 px HUD；40×40 px 升级卡",
       "purpose": "八戒本命武器技能图标"
     },
     {
       "id": "weapon-skill-wujing",
-      "path": "weapon-skill-wujing.svg",
-      "origin": "original-code-vector",
+      "path": "skill-icon-shajing.png",
+      "origin": "ai-generated-painted-icon",
       "size": [
-        128,
-        128
+        256,
+        256
       ],
-      "bytes": 1009,
-      "sha256": "BAFF2BE3ABBE0E1637457F0600C8A9F7E8BC0C7993D56075C79BE19209D9582E",
+      "bytes": 118609,
+      "sha256": "FB58FEFFD3953380E6DF5E372A9E28DA3540E38FA0F8964B07699760BDDE7C96",
       "inGameSize": "28×28 px HUD；40×40 px 升级卡",
       "purpose": "悟净本命武器技能图标"
     },
@@ -382,88 +402,88 @@
     },
     {
       "id": "purple-gourd",
-      "path": "artifact-purple-gourd.svg",
-      "origin": "original-code-vector",
+      "path": "skill-icon-purple-gourd.png",
+      "origin": "ai-generated-painted-icon",
       "size": [
-        128,
-        128
+        256,
+        256
       ],
       "inGameSize": "48×48 px 法宝UI",
       "purpose": "法宝图鉴/升级选择原始矢量"
     },
     {
       "id": "iron-fan",
-      "path": "artifact-iron-fan.svg",
-      "origin": "original-code-vector",
+      "path": "skill-icon-iron-fan.png",
+      "origin": "ai-generated-painted-icon",
       "size": [
-        128,
-        128
+        256,
+        256
       ],
       "inGameSize": "48×48 px 法宝UI",
       "purpose": "法宝图鉴/升级选择原始矢量"
     },
     {
       "id": "diamond-snare",
-      "path": "artifact-diamond-snare.svg",
-      "origin": "original-code-vector",
+      "path": "skill-icon-diamond-snare.png",
+      "origin": "ai-generated-painted-icon",
       "size": [
-        128,
-        128
+        256,
+        256
       ],
       "inGameSize": "48×48 px 法宝UI",
       "purpose": "法宝图鉴/升级选择原始矢量"
     },
     {
       "id": "nine-dragon",
-      "path": "artifact-nine-dragon.svg",
-      "origin": "original-code-vector",
+      "path": "skill-icon-nine-dragon.png",
+      "origin": "ai-generated-painted-icon",
       "size": [
-        128,
-        128
+        256,
+        256
       ],
       "inGameSize": "48×48 px 法宝UI",
       "purpose": "法宝图鉴/升级选择原始矢量"
     },
     {
       "id": "lotus-lantern",
-      "path": "artifact-lotus-lantern.svg",
-      "origin": "original-code-vector",
+      "path": "skill-icon-lotus-lantern.png",
+      "origin": "ai-generated-painted-icon",
       "size": [
-        128,
-        128
+        256,
+        256
       ],
       "inGameSize": "48×48 px 法宝UI",
       "purpose": "法宝图鉴/升级选择原始矢量"
     },
     {
       "id": "golden-rope",
-      "path": "artifact-golden-rope.svg",
-      "origin": "original-code-vector",
+      "path": "skill-icon-golden-rope.png",
+      "origin": "ai-generated-painted-icon",
       "size": [
-        128,
-        128
+        256,
+        256
       ],
       "inGameSize": "48×48 px 法宝UI",
       "purpose": "法宝图鉴/升级选择原始矢量"
     },
     {
       "id": "moon-mirror",
-      "path": "artifact-moon-mirror.svg",
-      "origin": "original-code-vector",
+      "path": "skill-icon-moon-mirror.png",
+      "origin": "ai-generated-painted-icon",
       "size": [
-        128,
-        128
+        256,
+        256
       ],
       "inGameSize": "48×48 px 法宝UI",
       "purpose": "法宝图鉴/升级选择原始矢量"
     },
     {
       "id": "samadhi-fire",
-      "path": "artifact-samadhi-fire.svg",
-      "origin": "original-code-vector",
+      "path": "skill-icon-samadhi-fire.png",
+      "origin": "ai-generated-painted-icon",
       "size": [
-        128,
-        128
+        256,
+        256
       ],
       "inGameSize": "48×48 px 法宝UI",
       "purpose": "法宝图鉴/升级选择原始矢量"
@@ -471,7 +491,7 @@
     {
       "id": "art-preview",
       "path": "xiyou-art-preview.svg",
-      "origin": "original-code-vector",
+      "origin": "ai-generated-painted-icon",
       "size": [
         1500,
         1410
@@ -493,10 +513,10 @@
     {
       "id": "enemy-creature",
       "path": "enemy-creature.svg",
-      "origin": "original-code-vector",
+      "origin": "ai-generated-painted-icon",
       "size": [
-        128,
-        128
+        256,
+        256
       ],
       "inGameSize": "renderer sprite; scale by enemy radius",
       "purpose": "普通妖怪透明战斗精灵"
@@ -504,7 +524,7 @@
     {
       "id": "enemy-brute",
       "path": "enemy-brute.svg",
-      "origin": "original-code-vector",
+      "origin": "ai-generated-painted-icon",
       "size": [
         160,
         160
@@ -515,7 +535,7 @@
     {
       "id": "enemy-bird",
       "path": "enemy-bird.svg",
-      "origin": "original-code-vector",
+      "origin": "ai-generated-painted-icon",
       "size": [
         144,
         128
@@ -526,7 +546,7 @@
     {
       "id": "enemy-spider",
       "path": "enemy-spider.svg",
-      "origin": "original-code-vector",
+      "origin": "ai-generated-painted-icon",
       "size": [
         150,
         128
@@ -537,7 +557,7 @@
     {
       "id": "enemy-boss",
       "path": "enemy-boss.svg",
-      "origin": "original-code-vector",
+      "origin": "ai-generated-painted-icon",
       "size": [
         220,
         220
@@ -564,8 +584,8 @@
         1774,
         887
       ],
-      "bytes": 807747,
-      "sha256": "A1B667FF0C3682122E797548C3BFB7AC1064DD26EBD302986C7875A2500045A9",
+      "bytes": 138901,
+      "sha256": "5EE79840AE8D7AC5EB190E516F1AD744653AE0872462405E4E477A0E2239E6DF",
       "inGameSize": "4×2透明帧格；按角色半径缩放",
       "purpose": "悟空局内真实多帧战斗精灵",
       "runtime": "native-app.js priority queue; renderer battleArtMode=authoredFrames",
@@ -734,7 +754,7 @@
       "sha256": "2944C17B771AD04A2C0205722F72DF6A6126BAE5F6EBF2E3AAC1B1485BB50F23",
       "inGameSize": "WORLD_SIZE×WORLD_SIZE后景裁切",
       "purpose": "森林主题手绘山寺地图后景（章节预览）",
-      "lifecycle": "gallery-preview-only; not fetched by the playable battle path"
+      "lifecycle": "playtest line: fetched as the battle scene backdrop (painted-first, vector fallback)"
     },
     {
       "id": "map-temple-qv1",
@@ -748,7 +768,7 @@
       "sha256": "1D7627C6153E2583842821CA5B2FA9C36027A85FE2B888F440E4E1C58F067EF9",
       "inGameSize": "WORLD_SIZE×WORLD_SIZE后景裁切",
       "purpose": "寺院主题手绘山寺地图后景（章节预览）",
-      "lifecycle": "gallery-preview-only; not fetched by the playable battle path"
+      "lifecycle": "playtest line: fetched as the battle scene backdrop (painted-first, vector fallback)"
     },
     {
       "id": "map-doublefork-high-ridge",
@@ -762,9 +782,65 @@
       "sha256": "3B2B15606E6548F128123201FAA782E6AF625F0BE4F22F8FAEDC5D94C5980BF8",
       "inGameSize": "WORLD_SIZE×WORLD_SIZE 后景 cover 裁切（941×1672 源图）",
       "purpose": "首关双叉岭高峻山体后景；上下战斗区与中央小径的视觉锚点",
-        "runtime": "章节预览/追溯资源；当前 playable battle 不加载该 PNG，renderer.js 使用 doublefork 的安静向量场景。",
-      "lifecycle": "gallery-preview-only; not fetched by the playable battle path",
+        "runtime": "试玩线（2026-10-22）：playable battle 直接加载该 PNG 作全图底图（纵向图按世界拉伸绘制，使画中山脊/中央小径对齐引擎碰撞）；未加载完时用安静向量场景保底。",
+      "lifecycle": "playtest line: fetched as the battle scene backdrop (painted-first, vector fallback)",
       "collision": "ridge y=700..1100；central path x=790..1010 within ridge"
+    },
+    {
+      "id": "map-water-qv1",
+      "path": "map-water-qv1.png",
+      "origin": "built-in-imagegen, style-matched to map-forest-qv1 (playtest line, 2026-10-22)",
+      "size": [
+        1024,
+        1024
+      ],
+      "bytes": 1775154,
+      "sha256": "20A74445D4F41DF4F5F1059C8FCD8D7677412F0D2C3A1333C87B0A0E1DCB14B8",
+      "inGameSize": "WORLD_SIZE×WORLD_SIZE后景裁切",
+      "purpose": "水主题手绘河岸战场后景（试玩线补齐，与例图同画风）",
+      "lifecycle": "playtest line: fetched as the battle scene backdrop (painted-first, vector fallback)"
+    },
+    {
+      "id": "map-fire-qv1",
+      "path": "map-fire-qv1.png",
+      "origin": "built-in-imagegen, style-matched to map-forest-qv1 (playtest line, 2026-10-22)",
+      "size": [
+        1024,
+        1024
+      ],
+      "bytes": 1886453,
+      "sha256": "B4BCB85D8CD2A3E2C02640AEE19329022869EDE7730648DEA0C895E212381795",
+      "inGameSize": "WORLD_SIZE×WORLD_SIZE后景裁切",
+      "purpose": "火主题手绘火山战场后景（试玩线补齐，与例图同画风）",
+      "lifecycle": "playtest line: fetched as the battle scene backdrop (painted-first, vector fallback)"
+    },
+    {
+      "id": "map-sand-qv1",
+      "path": "map-sand-qv1.png",
+      "origin": "built-in-imagegen, style-matched to map-forest-qv1 (playtest line, 2026-10-22)",
+      "size": [
+        1024,
+        1024
+      ],
+      "bytes": 2012976,
+      "sha256": "1708B0E76035DFEDB2A557F06E280D8F7D4657C9B9AC94C2B901413E47DB00DA",
+      "inGameSize": "WORLD_SIZE×WORLD_SIZE后景裁切",
+      "purpose": "沙主题手绘大漠遗迹战场后景（试玩线补齐，与例图同画风）",
+      "lifecycle": "playtest line: fetched as the battle scene backdrop (painted-first, vector fallback)"
+    },
+    {
+      "id": "map-snow-qv1",
+      "path": "map-snow-qv1.png",
+      "origin": "built-in-imagegen, style-matched to map-forest-qv1 (playtest line, 2026-10-22)",
+      "size": [
+        1024,
+        1024
+      ],
+      "bytes": 2023554,
+      "sha256": "BE0AAFBCCA30BB503B28BB07904BA1D8207267BAFB8CF0116ED66285EDD99C12",
+      "inGameSize": "WORLD_SIZE×WORLD_SIZE后景裁切",
+      "purpose": "雪主题手绘雪山关隘战场后景（试玩线补齐，与例图同画风）",
+      "lifecycle": "playtest line: fetched as the battle scene backdrop (painted-first, vector fallback)"
     },
     {
       "id": "enemy-creature-kr-v1",
@@ -1026,6 +1102,50 @@
       "generationNote": "首个特处士专属候选（2026-10-21，白底2240×1120）；生成源图行走/攻击行各只有7个姿态，如实按30帧入册，未复制补帧；处理管线同寅将军v2",
       "runtimeEvidence": ["evidence/current/boss-animation/engine-runtime.json"],
       "runtimeApproved": true,
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-slash-arc",
+      "path": "skill-fx-slash-arc.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [1536, 256],
+      "bytes": 203749,
+      "sha256": "187bef3af353777a8c600653e576457bfb462bb9b3533d486ad6d3867bf67004",
+      "purpose": "悟空本命金箍棒挥击弧光技能动画（6帧）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-22); serial queue, vector effect fallback",
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-light-orb",
+      "path": "skill-fx-light-orb.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [1536, 256],
+      "bytes": 173224,
+      "sha256": "eda478b5c514e6640c4748e3d38108646c499422ccf85be81cbf27a295ee8da4",
+      "purpose": "三藏本命禅杖光弹技能动画（6帧）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-22); serial queue, vector effect fallback",
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-rake-sweep",
+      "path": "skill-fx-rake-sweep.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [1536, 256],
+      "bytes": 297581,
+      "sha256": "72c001f4091f4fc7e173e9481999a6e7fdf0faa888ee0ec8e70ed74b2069d67e",
+      "purpose": "八戒本命钉耙横扫技能动画（6帧）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-22); serial queue, vector effect fallback",
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-water-ring",
+      "path": "skill-fx-water-ring.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [1536, 256],
+      "bytes": 251982,
+      "sha256": "07fa15633ed8fd2838ea78b47b0b6bc9d6b62bddeee0651bfb452c8b94e49330",
+      "purpose": "悟净本命宝杖水环技能动画（6帧）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-22); serial queue, vector effect fallback",
       "finalVisualApproved": false
     }
   ],
