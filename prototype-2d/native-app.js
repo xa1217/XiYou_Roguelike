@@ -154,7 +154,9 @@ const skillFxFiles={
   'fire-wheel':'skill-fx-fire-wheel.png',
   'ring-spin':'skill-fx-ring-spin.png',
   'gold-bead':'skill-fx-gold-bead.png',
-  'fire-pool':'skill-fx-fire-pool.png'
+  'fire-pool':'skill-fx-fire-pool.png',
+  'monkey-clone':'skill-fx-monkey-clone.png',
+  'whirl-pool':'skill-fx-whirl-pool.png'
 };
 for(const [fxId,file] of Object.entries(skillFxFiles)){
   const image=new Image();
