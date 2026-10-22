@@ -1,0 +1,62 @@
+/*
+ * 西游·八十一难 — authored skill-effect sprite strips
+ *
+ * The four signature weapons fire constantly, so their battle effects are
+ * the most-seen animation in the game.  Each effect kind can be backed by
+ * a painted horizontal strip (square cells, one row) generated for this
+ * project:
+ *
+ *   sweep / heavy-sweep (Wukong)  -> 'slash-arc'  golden staff slash
+ *   light-orb projectile (Sanzang)-> 'light-orb'  pulsing prayer orb
+ *   hoe-line (Bajie)              -> 'rake-sweep' rake energy streak
+ *   staff-ring (Wujing)           -> 'water-ring' expanding water ring
+ *
+ * Frames advance with the effect's own progress (ttl), so the animation
+ * always matches the gameplay timing; the orb loops on renderer time
+ * instead.  When a strip has not loaded (or the platform supplies none,
+ * as on WeChat), the renderer keeps its procedural vector effect — this
+ * module only ever upgrades the pixels, never the mechanics.
+ */
+
+export const SKILL_FX = Object.freeze({
+  'slash-arc': Object.freeze({ cell: 256, frames: 6 }),
+  'light-orb': Object.freeze({ cell: 256, frames: 6 }),
+  'rake-sweep': Object.freeze({ cell: 256, frames: 6 }),
+  'water-ring': Object.freeze({ cell: 256, frames: 6 }),
+});
+
+// The effect kinds each strip serves.  These kinds are emitted only by
+// the signature-weapon code paths in the engine; artifacts use their own
+// kinds ('fan', 'gourd', 'mountain', 'palm-strike', ...) and are never
+// routed here.
+export function skillFxIdForEffect(kind) {
+  if (kind === 'sweep' || kind === 'heavy-sweep') return 'slash-arc';
+  if (kind === 'hoe-line') return 'rake-sweep';
+  if (kind === 'staff-ring') return 'water-ring';
+  return null;
+}
+
+export function attachSkillFx(image, fxId) {
+  const def = SKILL_FX[fxId];
+  if (!def || !image) return null;
+  const width = Number(image.naturalWidth || image.width || 0);
+  const height = Number(image.naturalHeight || image.height || 0);
+  if (width !== def.cell * def.frames || height !== def.cell) return null;
+  image.__skillFx = fxId;
+  return image;
+}
+
+export function skillFxReady(image) {
+  return !!(image && SKILL_FX[image.__skillFx]);
+}
+
+// Source rect for a phase in [0, 1].  Phases outside the range clamp to
+// the first/last frame so a long-lived effect never samples outside the
+// strip.
+export function skillFxFrameRect(image, phase) {
+  const def = image && SKILL_FX[image.__skillFx];
+  if (!def) return null;
+  const p = Math.min(0.9999, Math.max(0, Number(phase) || 0));
+  const frame = Math.floor(p * def.frames);
+  return { x: frame * def.cell, y: 0, w: def.cell, h: def.cell, frame, frames: def.frames };
+}

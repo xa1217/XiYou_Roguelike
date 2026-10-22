@@ -9,6 +9,7 @@
  */
 
 import { battleEnemyAnimation } from './battle-enemy-animation.js';
+import { skillFxIdForEffect, skillFxFrameRect } from './skill-fx-animation.js';
 
 const TAU = Math.PI * 2;
 const WORLD_SIZE = 1800;
@@ -333,6 +334,7 @@ class GameRenderer {
     // adding a runtime network or DOM dependency to the renderer.
     this.heroImages = options.heroImages || {};
     this.skillImages = options.skillImages || {};
+    this.skillFxImages = options.skillFxImages || {};
     this.enemyImages = options.enemyImages || {};
     // Scene assets are optional. Browser builds load the authored PNG/SVG
     // layers; the wx adapter can leave this empty and receive the exact same
@@ -1132,6 +1134,18 @@ class GameRenderer {
     const color = projectile.color || (projectileKind === 'holy' || projectileKind.includes('light') ? '#35d7ff' : projectileKind.includes('bird') ? '#ff6338' : projectileKind.includes('fire') ? '#ffb52e' : '#f3d34a');
     const angle = Math.atan2(n(projectile.vy), n(projectile.vx));
     method(ctx, 'save'); method(ctx, 'translate', x, y); method(ctx, 'rotate', Number.isFinite(angle) ? angle : 0);
+    if (projectileKind === 'light-orb') {
+      // Authored orb strip: a pulsing painted orb replaces the vector orb
+      // once loaded; the pulse loops on renderer time while it flies.
+      const fxImage = this.skillFxImages?.['light-orb'];
+      const fxRect = fxImage && skillFxFrameRect(fxImage, (this.elapsed * 1.6) % 1);
+      if (fxRect) {
+        const size = radius * 5.2;
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
+        method(ctx, 'restore');
+        return;
+      }
+    }
     circle(ctx, 0, 0, radius * 1.4, alphaColor(color, .18));
     if (projectileKind.includes('bird')) {
       path(ctx, [['M', -radius * 1.5, 0], ['Q', -radius * .2, -radius * 1.2, radius * 1.7, 0], ['Q', -radius * .2, radius * 1.2, -radius * 1.5, 0], ['Z']], color, '#703a2a', 1.2);
@@ -1185,6 +1199,32 @@ class GameRenderer {
       ctx.globalAlpha = n(ctx.globalAlpha, 1) * (progress > .75 ? (1 - progress) * 4 : 1);
       method(ctx, 'drawImage', authoredSprite, authoredFrame.x, authoredFrame.y, authoredFrame.w, authoredFrame.h,
         authoredFrame.dx, authoredFrame.dy, authoredFrame.dw, authoredFrame.dh);
+      method(ctx, 'restore');
+      return;
+    }
+    // Authored skill-effect strips: signature-weapon effects prefer their
+    // painted strip once it has loaded; the frame follows the effect's
+    // own progress so animation and gameplay timing stay locked.  Any
+    // other kind, or an unloaded strip, falls through to the vector
+    // effects below unchanged.
+    const fxId = skillFxIdForEffect(kind);
+    const fxImage = fxId && this.skillFxImages?.[fxId];
+    const fxRect = fxImage && skillFxFrameRect(fxImage, progress);
+    if (fxRect) {
+      ctx.globalAlpha = n(ctx.globalAlpha, 1) * fade;
+      if (fxId === 'rake-sweep') {
+        const length = n(effect.length, radius * 2.3), width = n(effect.width, radius * .48);
+        method(ctx, 'rotate', n(effect.angle));
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h,
+          -radius * .3, -width * 1.1, length + radius * .6, width * 2.2);
+      } else if (fxId === 'water-ring') {
+        const size = radius * 2.3;
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
+      } else {
+        method(ctx, 'rotate', n(effect.angle, 0));
+        const size = radius * 2.2;
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
+      }
       method(ctx, 'restore');
       return;
     }
