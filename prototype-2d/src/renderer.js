@@ -953,13 +953,42 @@ class GameRenderer {
       circle(ctx, 900, 1135, 13, alphaColor(theme.sticker, .84), alphaColor(theme.ink, .70), 3);
       return;
     }
-    // Other chapters retain a quiet procedural plate with sparse landmarks.
+    // Other chapters: a quiet themed plate, completed on the playtest line
+    // (2026-10-22). The five authored landmarks stay; around them a
+    // deterministic, view-culled scatter of themed scenery fills the whole
+    // world so no region reads as empty plate, and a double ink border
+    // marks the world edge as a deliberate scroll boundary. All vector:
+    // mapAssetDraws stays 0 and no image decoding is involved.
+    const themeKey = Object.keys(THEMES).find(key => THEMES[key] === theme) || 'forest';
+    // Road first (under the scatter): a gentle S across the world.
+    path(ctx, [['M', 80, WORLD_SIZE * .76], ['C', WORLD_SIZE * .35, WORLD_SIZE * .56, WORLD_SIZE * .62, WORLD_SIZE * .86, WORLD_SIZE - 80, WORLD_SIZE * .36]], null, alphaColor(theme.ink, .15), 44);
+    path(ctx, [['M', 80, WORLD_SIZE * .76], ['C', WORLD_SIZE * .35, WORLD_SIZE * .56, WORLD_SIZE * .62, WORLD_SIZE * .86, WORLD_SIZE - 80, WORLD_SIZE * .36]], null, alphaColor(theme.road, .50), 36);
+    // Sampled road points keep scatter off the route so it stays readable.
+    const roadPts = [[80, WORLD_SIZE * .76], [520, WORLD_SIZE * .62], [900, WORLD_SIZE * .68], [1280, WORLD_SIZE * .58], [WORLD_SIZE - 80, WORLD_SIZE * .36]];
+    method(ctx, 'save'); ctx.globalAlpha = .26;
+    const step = 216;
+    const minX = Math.max(step, Math.floor(left / step) * step);
+    const minY = Math.max(step, Math.floor(top / step) * step);
+    for (let x = minX; x < Math.min(WORLD_SIZE - step / 2, right); x += step) {
+      for (let y = minY; y < Math.min(WORLD_SIZE - step / 2, bottom); y += step) {
+        const h = hash2(x / step, y / step);
+        const px = x + (h - .5) * 90, py = y + (hash2(y, x) - .5) * 90;
+        if (roadPts.some(([rx, ry]) => (px - rx) * (px - rx) + (py - ry) * (py - ry) < 150 * 150)) continue;
+        if (h < .30) this._drawScenery(ctx, px, py, theme, themeKey);
+        else if (h < .42) this._drawStone(ctx, px + 12, py - 8, theme);
+        else if (h < .50) this._drawCloudMark(ctx, px, py, theme);
+      }
+    }
+    method(ctx, 'restore');
     method(ctx, 'save'); ctx.globalAlpha = .30;
     const landmarks = [[180,220],[510,420],[1450,280],[1650,1380],[260,1460]];
-    landmarks.forEach(([x,y]) => this._drawScenery(ctx, x, y, theme, Object.keys(THEMES).find(key => THEMES[key] === theme) || 'forest'));
+    landmarks.forEach(([x,y]) => this._drawScenery(ctx, x, y, theme, themeKey));
     method(ctx, 'restore');
-    path(ctx, [['M', 80, WORLD_SIZE * .76], ['C', WORLD_SIZE * .35, WORLD_SIZE * .56, WORLD_SIZE * .62, WORLD_SIZE * .86, WORLD_SIZE - 80, WORLD_SIZE * .36]], null, alphaColor(theme.road, .50), 36);
-    path(ctx, [['M', 80, WORLD_SIZE * .76], ['C', WORLD_SIZE * .35, WORLD_SIZE * .56, WORLD_SIZE * .62, WORLD_SIZE * .86, WORLD_SIZE - 80, WORLD_SIZE * .36]], null, alphaColor(theme.ink, .15), 44);
+    // World boundary: nested ink borders, drawn only where the view reaches.
+    if (left < 90 || top < 90 || right > WORLD_SIZE - 90 || bottom > WORLD_SIZE - 90) {
+      path(ctx, [['M', 26, 26], ['L', WORLD_SIZE - 26, 26], ['L', WORLD_SIZE - 26, WORLD_SIZE - 26], ['L', 26, WORLD_SIZE - 26], ['Z']], null, alphaColor(theme.deep, .40), 12);
+      path(ctx, [['M', 52, 52], ['L', WORLD_SIZE - 52, 52], ['L', WORLD_SIZE - 52, WORLD_SIZE - 52], ['L', 52, WORLD_SIZE - 52], ['Z']], null, alphaColor(theme.ink, .20), 3);
+    }
   }
 
   _sceneFor(theme, mapKey = null) {

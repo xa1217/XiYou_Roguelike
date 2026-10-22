@@ -541,6 +541,65 @@ export class GameEngine {
       }
       this.stepEnemyAnimation(enemy, (actor ? enemy.visualHitTimer : enemy.hitTimer) > 1e-8 ? 'hit' : enemy.attackWindup > 0 || enemy.attackTimer > 0 || enemy.visualAttackTimer > 0 ? 'attack' : 'move', dt, enemy.kind === 'boss' ? 8 : 12);
     }
+    this.separateEnemies();
+  }
+
+  // Playtest addition (2026-10-22): soft body separation. Enemies steer to
+  // the exact same point (the player) with no mutual collision, so a
+  // converging wave interpenetrated into one stacked blob — visible
+  // clipping the user reported. After each movement tick, overlapping
+  // bodies are eased apart along their axis, weighted by mass (radius^2)
+  // so bosses barely yield, and enemies are kept out of the player's disc
+  // so the hero is never stood inside of. Pushes go through moveEntity, so
+  // ridge and world bounds still apply. Iteration follows the stable enemy
+  // array order with an index-hash tiebreak for coincident bodies: fully
+  // deterministic and consumes no RNG.
+  separateEnemies() {
+    const enemies = this.state.enemies;
+    const player = this.state.player;
+    const cell = 64;
+    const grid = new Map();
+    for (let i = 0; i < enemies.length; i += 1) {
+      const key = `${Math.floor(enemies[i].x / cell)},${Math.floor(enemies[i].y / cell)}`;
+      const bucket = grid.get(key);
+      if (bucket) bucket.push(i); else grid.set(key, [i]);
+    }
+    const push = (enemy, dx, dy) => { if (dx || dy) this.moveEntity(enemy, dx, dy, enemy.radius); };
+    for (let i = 0; i < enemies.length; i += 1) {
+      const a = enemies[i];
+      if (a.hp <= 0) continue;
+      if (player && player.hp > 0) {
+        const dx = a.x - player.x, dy = a.y - player.y;
+        const min = (a.radius + player.radius) * .92;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < min * min) {
+          const d = Math.sqrt(d2);
+          if (d > 1e-4) push(a, dx / d * (min - d), dy / d * (min - d));
+          else push(a, min, 0);
+        }
+      }
+      const cx = Math.floor(a.x / cell), cy = Math.floor(a.y / cell);
+      for (let gx = cx - 1; gx <= cx + 1; gx += 1) for (let gy = cy - 1; gy <= cy + 1; gy += 1) {
+        const bucket = grid.get(`${gx},${gy}`);
+        if (!bucket) continue;
+        for (const j of bucket) {
+          if (j <= i) continue;
+          const b = enemies[j];
+          if (b.hp <= 0) continue;
+          const dx = b.x - a.x, dy = b.y - a.y;
+          const min = (a.radius + b.radius) * .82;
+          const d2 = dx * dx + dy * dy;
+          if (d2 >= min * min) continue;
+          const d = Math.sqrt(d2);
+          let ux, uy;
+          if (d > 1e-4) { ux = dx / d; uy = dy / d; } else { const t = ((i * 31 + j * 17) % 628) / 100; ux = Math.cos(t); uy = Math.sin(t); }
+          const overlap = min - d;
+          const ma = a.radius * a.radius, mb = b.radius * b.radius, total = ma + mb;
+          push(a, -ux * overlap * (mb / total), -uy * overlap * (mb / total));
+          push(b, ux * overlap * (ma / total), uy * overlap * (ma / total));
+        }
+      }
+    }
   }
 
   autoAttack(dt) {
