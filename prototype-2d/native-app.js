@@ -69,23 +69,25 @@ for(const [id,file] of Object.entries({wukong:'hero-wukong.svg',tangsanzang:'her
   const image=new Image();image.onload=()=>{portraitImages[id]=image;game.draw();};image.src=`./assets/${file}`;
 }
 // Skill slots reuse the eight authored artifact icons and add four distinct
-// weapon emblems.  They are queued as tiny SVGs, so they never compete with
-// the multi-megabyte battle PNGs and always retain the renderer fallback.
+// weapon emblems.  They are small painted PNGs queued ahead of the
+// multi-megabyte battle sheets, and the renderer fallback remains if one
+// has not loaded yet.
 const skillIconFiles={
-  'weapon:wukong':'weapon-skill-wukong.svg',
-  'weapon:tangsanzang':'weapon-skill-tangseng.svg',
-  'weapon:bajie':'weapon-skill-bajie.svg',
-  'weapon:shajing':'weapon-skill-wujing.svg',
-  'purple-gourd':'artifact-purple-gourd.svg',
-  'iron-fan':'artifact-iron-fan.svg',
-  'diamond-snare':'artifact-diamond-snare.svg',
-  'nine-dragon':'artifact-nine-dragon.svg',
-  'lotus-lantern':'artifact-lotus-lantern.svg',
-  'golden-rope':'artifact-golden-rope.svg',
-  'moon-mirror':'artifact-moon-mirror.svg',
-  'samadhi-fire':'artifact-samadhi-fire.svg'
+  'weapon:wukong':'skill-icon-wukong.png',
+  'weapon:tangsanzang':'skill-icon-tangsanzang.png',
+  'weapon:bajie':'skill-icon-bajie.png',
+  'weapon:shajing':'skill-icon-shajing.png',
+  'purple-gourd':'skill-icon-purple-gourd.png',
+  'iron-fan':'skill-icon-iron-fan.png',
+  'diamond-snare':'skill-icon-diamond-snare.png',
+  'nine-dragon':'skill-icon-nine-dragon.png',
+  'lotus-lantern':'skill-icon-lotus-lantern.png',
+  'golden-rope':'skill-icon-golden-rope.png',
+  'moon-mirror':'skill-icon-moon-mirror.png',
+  'samadhi-fire':'skill-icon-samadhi-fire.png'
 };
 const skillImages={};game.skillImages=skillImages;
+const skillFxImages={};game.skillFxImages=skillFxImages;
 for(const [id,file] of Object.entries(skillIconFiles)){
   const image=new Image();queueImage(image,`./assets/${file}`,()=>{skillImages[id]=image;if(game.renderer)game.renderer.skillImages=skillImages;game.draw();},()=>{});
 }
