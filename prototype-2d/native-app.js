@@ -13,14 +13,19 @@ const canvas=document.querySelector('canvas');const audio=new AudioManager();con
 const fit=()=>{const r=canvas.getBoundingClientRect();if(r.width>0&&r.height>0)game.resize(Math.round(r.width),Math.round(r.height),window.devicePixelRatio||1,{top:0,bottom:r.height});};window.addEventListener('resize',fit,{passive:true});window.addEventListener('orientationchange',()=>setTimeout(fit,80),{passive:true});fit();
 const p=e=>{const r=canvas.getBoundingClientRect();return {x:(e.clientX-r.left)*game.w/r.width,y:(e.clientY-r.top)*game.h/r.height};};canvas.addEventListener('pointerdown',e=>{audio.unlock();canvas.setPointerCapture(e.pointerId);const q=p(e);game.touchStart(q.x,q.y);});canvas.addEventListener('pointermove',e=>{const q=p(e);game.touchMove(q.x,q.y);});canvas.addEventListener('pointerup',()=>game.touchEnd());canvas.addEventListener('pointercancel',()=>game.touchEnd());
 const keys=new Set();const input=()=>{game.input={x:Number(keys.has('d')||keys.has('arrowright'))-Number(keys.has('a')||keys.has('arrowleft')),y:Number(keys.has('s')||keys.has('arrowdown'))-Number(keys.has('w')||keys.has('arrowup'))};};window.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(e.key===' '){e.preventDefault();game.engine?.useDash(game.input);}else if(k==='p'||e.key==='escape'){e.preventDefault();if(game.engine?.state.status==='playing'){game.engine.pause();game.draw();}else if(game.engine?.state.status==='paused'){game.engine.resume();game.wake();game.draw();}}else if(k==='m'){game.save.muted=!game.save.muted;game.audio.setMuted(game.save.muted);game.persist();game.draw();}else{keys.add(k);input();}});window.addEventListener('keyup',e=>{keys.delete(e.key.toLowerCase());input();});document.addEventListener('visibilitychange',()=>document.hidden?game.onHide():game.onShow());window.addEventListener('pagehide',()=>game.dispose());
-// Large authored PNGs are fetched one at a time. This keeps the playable
-// entry responsive on a public Quick Tunnel, where many concurrent multi-MB
-// streams can be cancelled by the anonymous edge connection. SVG fallbacks
+// Authored PNGs load through a small concurrency pool (4 in flight).
+// The pool used to be strictly serial for an anonymous Quick Tunnel that
+// cancelled concurrent multi-MB streams; the playtest is now served by a
+// CDN, where serial fetching was the dominant load-time cost (~22 MB of
+// sheets arriving one by one). Queue order is the staging: menu cards and
+// skill icons first, then hero sheets, species, skill FX, and the boss
+// atlases last (bosses cannot appear before 570 s). SVG/vector fallbacks
 // remain immediate while the queued sprites decode.
-const imageQueue=[],priorityImageQueue=[];let imageQueueScheduled=false,imageQueueBusy=false;
-const pumpImageQueue=()=>{if(imageQueueBusy)return;const item=priorityImageQueue.shift()||imageQueue.shift();if(!item)return;imageQueueBusy=true;const finish=()=>{imageQueueBusy=false;pumpImageQueue();};item.image.onload=async()=>{try{await item.onload?.();}catch{item.onerror?.();}finally{finish();}};item.image.onerror=()=>{try{item.onerror?.();}finally{finish();}};item.image.src=item.src;};
+const imageQueue=[],priorityImageQueue=[];let imageQueueScheduled=false,imageQueueInFlight=0;
+const IMAGE_QUEUE_CONCURRENCY=4;
+const pumpImageQueue=()=>{while(imageQueueInFlight<IMAGE_QUEUE_CONCURRENCY){const item=priorityImageQueue.shift()||imageQueue.shift();if(!item)return;imageQueueInFlight++;const finish=()=>{imageQueueInFlight--;pumpImageQueue();};item.image.onload=async()=>{try{await item.onload?.();}catch{item.onerror?.();}finally{finish();}};item.image.onerror=()=>{try{item.onerror?.();}finally{finish();}};item.image.src=item.src;}};
 const queueImage=(image,src,onload,onerror,priority=false)=>{const item={image,src,onload,onerror};(priority?priorityImageQueue:imageQueue).push(item);if(!imageQueueScheduled){imageQueueScheduled=true;queueMicrotask(()=>{imageQueueScheduled=false;pumpImageQueue();});}};
-const sheet=new Image();queueImage(sheet,'./assets/hero-cards-v2-comic.png',()=>{game.heroSheet=sheet;game.draw();});
+const sheet=new Image();queueImage(sheet,'./assets/hero-cards-v2-comic.png',()=>{game.heroSheet=sheet;game.draw();},()=>{},true);
 // Transparent authored SVG art is retained for character cards and special
 // previews. The playable battle slice uses the real v3 frame sheets below;
 // the renderer's vector rig remains the deterministic fallback, so a single
@@ -90,7 +95,7 @@ const skillIconFiles={
 const skillImages={};game.skillImages=skillImages;
 const skillFxImages={};game.skillFxImages=skillFxImages;
 for(const [id,file] of Object.entries(skillIconFiles)){
-  const image=new Image();queueImage(image,`./assets/${file}`,()=>{skillImages[id]=image;if(game.renderer)game.renderer.skillImages=skillImages;game.draw();},()=>{});
+  const image=new Image();queueImage(image,`./assets/${file}`,()=>{skillImages[id]=image;if(game.renderer)game.renderer.skillImages=skillImages;game.draw();},()=>{},true);
 }
 // Battle v3 sheets are real 4×2 animation atlases generated for gameplay,
 // not crops of the old gallery illustrations.  Each cell is a distinct pose:
