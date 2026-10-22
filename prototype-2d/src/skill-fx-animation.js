@@ -23,16 +23,24 @@ export const SKILL_FX = Object.freeze({
   'light-orb': Object.freeze({ cell: 256, frames: 6 }),
   'rake-sweep': Object.freeze({ cell: 256, frames: 6 }),
   'water-ring': Object.freeze({ cell: 256, frames: 6 }),
+  // Acquired-artifact effects (playtest line, 2026-10-22): the treasures a
+  // run picks up get the same painted treatment as the signature weapons.
+  'fan-wave': Object.freeze({ cell: 256, frames: 6 }),
+  'gourd-vortex': Object.freeze({ cell: 256, frames: 6 }),
+  'palm-burst': Object.freeze({ cell: 256, frames: 6 }),
+  'fire-burst': Object.freeze({ cell: 256, frames: 6 }),
 });
 
-// The effect kinds each strip serves.  These kinds are emitted only by
-// the signature-weapon code paths in the engine; artifacts use their own
-// kinds ('fan', 'gourd', 'mountain', 'palm-strike', ...) and are never
-// routed here.
+// The effect kinds each strip serves.  Signature kinds come from the
+// weapon code paths; artifact kinds from fireArtifact in the engine.
 export function skillFxIdForEffect(kind) {
   if (kind === 'sweep' || kind === 'heavy-sweep') return 'slash-arc';
   if (kind === 'hoe-line') return 'rake-sweep';
   if (kind === 'staff-ring') return 'water-ring';
+  if (kind === 'fan') return 'fan-wave';
+  if (kind === 'gourd') return 'gourd-vortex';
+  if (kind === 'palm-strike') return 'palm-burst';
+  if (kind === 'mountain') return 'fire-burst';
   return null;
 }
 

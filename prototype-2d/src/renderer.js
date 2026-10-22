@@ -1267,10 +1267,35 @@ class GameRenderer {
     // effects below unchanged.
     const fxId = skillFxIdForEffect(kind);
     const fxImage = fxId && this.skillFxImages?.[fxId];
-    const fxRect = fxImage && skillFxFrameRect(fxImage, progress);
+    // The samadhi-fire burst ('mountain') telegraphs with a falling rock
+    // during its delay — the vector branch keeps that phase; the painted
+    // burst takes over only once the burst itself starts.
+    const fxDelay = fxId === 'fire-burst' ? n(effect.delay, 0) : 0;
+    const fxAge = maxTtl - ttl;
+    const fxPhase = fxId === 'fire-burst' && fxDelay > 0 ? clamp((fxAge - fxDelay) / Math.max(.001, maxTtl - fxDelay), 0, 1) : progress;
+    const fxRect = fxImage && fxAge >= fxDelay && skillFxFrameRect(fxImage, fxPhase);
     if (fxRect) {
       ctx.globalAlpha = n(ctx.globalAlpha, 1) * fade;
-      if (fxId === 'rake-sweep') {
+      if (fxId === 'fan-wave' || fxId === 'gourd-vortex') {
+        // Cone effects: the strip's narrow point sits at the effect origin
+        // and the cone widens along +X after rotation.  The gourd vortex
+        // lives for seconds, so its frames cycle on renderer time instead
+        // of the one-shot progress.
+        const rect = fxId === 'gourd-vortex' ? (skillFxFrameRect(fxImage, (this.elapsed * 1.3) % 1) || fxRect) : fxRect;
+        const size = radius * 2;
+        method(ctx, 'rotate', n(effect.angle));
+        method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h,
+          -size * .06, -size / 2, size, size);
+      } else if (fxId === 'palm-burst') {
+        // The painted palm faces up in its cell; rotate so it strikes
+        // outward along the effect angle.
+        const size = radius * 2.6;
+        method(ctx, 'rotate', n(effect.angle) + Math.PI / 2);
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
+      } else if (fxId === 'fire-burst') {
+        const size = radius * 2.3;
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
+      } else if (fxId === 'rake-sweep') {
         const length = n(effect.length, radius * 2.3), width = n(effect.width, radius * .48);
         method(ctx, 'rotate', n(effect.angle));
         method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h,
