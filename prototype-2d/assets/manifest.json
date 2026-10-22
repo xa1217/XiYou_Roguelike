@@ -1147,6 +1147,50 @@
       "purpose": "悟净本命宝杖水环技能动画（6帧）",
       "lifecycle": "runtime-approved on the playtest line (2026-10-22); serial queue, vector effect fallback",
       "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-fan-wave",
+      "path": "skill-fx-fan-wave.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [1536, 256],
+      "bytes": 289756,
+      "sha256": "0d49a8e5caf1147939b77c061e4e2cd2c87c401cada0251a5ff8cc8150407483",
+      "purpose": "芭蕉扇青色风浪技能动画（6帧）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-gourd-vortex",
+      "path": "skill-fx-gourd-vortex.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [1536, 256],
+      "bytes": 350464,
+      "sha256": "60b88fcf5d479fc053ee731625d3e09bf39ace9e473a314e685e3de0ea7448e1",
+      "purpose": "紫金葫芦紫色吸力漩涡技能动画（6帧）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-palm-burst",
+      "path": "skill-fx-palm-burst.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [1536, 256],
+      "bytes": 303045,
+      "sha256": "54c7570a69ba64064dd32ff0f53dbb1465bd84397bd8391064e502f4f3553dda",
+      "purpose": "照妖镜金色佛掌爆发技能动画（6帧）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-fire-burst",
+      "path": "skill-fx-fire-burst.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [1536, 256],
+      "bytes": 272055,
+      "sha256": "50180f84bf6ee5c972cd251697b946db06d0b4bbc4312f3cec00f7a884249eb7",
+      "purpose": "三昧真火火焰爆裂技能动画（6帧，延迟期保留矢量预警）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
+      "finalVisualApproved": false
     }
   ],
   "runtimeNotes": [
