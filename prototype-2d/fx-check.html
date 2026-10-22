@@ -3,7 +3,7 @@
 <title>skill fx check</title>
 <body style="margin:0;background:#2b2118">
 <div id="status" style="color:#ffe9a8;font:16px monospace;padding:8px">loading strips…</div>
-<canvas id="stage" width="1170" height="900" style="display:block"></canvas>
+<canvas id="stage" width="1170" height="1240" style="display:block"></canvas>
 <script type="module">
 import { GameRenderer } from './src/renderer.js';
 import { attachSkillFx } from './src/skill-fx-animation.js';
@@ -21,10 +21,9 @@ await Promise.all(ids.map((id) => new Promise((resolve) => {
 const attached = ids.filter((id) => images[id]);
 status.textContent = `attached ${attached.length}/4: ${attached.join(', ') || 'none'}`;
 
-const renderer = new GameRenderer(canvas, { width: 1170, height: 900, skillFxImages: images });
+const renderer = new GameRenderer(canvas, { width: 1170, height: 1240, skillFxImages: images });
 const ctx = canvas.getContext('2d');
-ctx.fillStyle = '#7a603e'; ctx.fillRect(0, 0, 1170, 900);
-ctx.fillStyle = '#8a6c46'; ctx.fillRect(0, 0, 1170, 900);
+ctx.fillStyle = '#8a6c46'; ctx.fillRect(0, 0, 1170, 1240);
 // A fake hero anchor at each cell center so effects read in context.
 function heroAt(x, y) {
   ctx.fillStyle = '#e8b23a'; ctx.beginPath(); ctx.arc(x, y, 16, 0, Math.PI * 2); ctx.fill();
