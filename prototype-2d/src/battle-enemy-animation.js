@@ -6,6 +6,7 @@ import { MONKEY_SPRITE_ID, MONKEY_FRAME_COUNTS, MONKEY_FPS, isBattleMonkey, monk
 import { DEER_SPRITE_ID, DEER_FRAME_COUNTS, DEER_FPS, isBattleDeer, deerDrawFrame } from './deer-animation.js';
 import { HAWK_SPRITE_ID, HAWK_FRAME_COUNTS, HAWK_FPS, isBattleHawk, hawkDrawFrame } from './hawk-animation.js';
 import { SNAKE_SPRITE_ID, SNAKE_FRAME_COUNTS, SNAKE_FPS, isBattleSnake, snakeDrawFrame } from './snake-animation.js';
+import { BOSS_DEFS, BOSS_FPS, isBattleBoss, bossDrawFrame, bossSpriteIdFor } from './boss-animation.js';
 
 // One shared decision for clocks, retained death identity, culling and drawing.
 // No per-frame allocations and no variant-only match for elites or bosses.
@@ -20,11 +21,34 @@ const actors = Object.freeze({
   snake: Object.freeze({ id: SNAKE_SPRITE_ID, variant: 'snake', frames: SNAKE_FRAME_COUNTS, fps: SNAKE_FPS, healthBarOffset: 3.45, matches: isBattleSnake, drawFrame: snakeDrawFrame }),
 });
 
+// Named final bosses resolve through their engine-issued sprite ID plus
+// frozen identity, in a registry separate from the species table. The
+// actor's `variant` slot carries the bossId because the renderer uses it
+// as the enemyImages key; it is never matched against entity.variant.
+const bossActors = Object.freeze(Object.fromEntries(Object.entries(BOSS_DEFS).map(([bossId, def]) => [
+  def.spriteId,
+  Object.freeze({
+    id: def.spriteId, variant: bossId, frames: def.frameCounts, fps: BOSS_FPS,
+    healthBarOffset: def.healthBarOffset,
+    matches: entity => isBattleBoss(entity, bossId),
+    drawFrame: (image, state, frameIndex, radius) => bossDrawFrame(bossId, image, state, frameIndex, radius),
+  }),
+])));
+
 export function battleEnemyAnimation(entity) {
+  const boss = bossActors[entity?.battleSpriteId];
+  if (boss?.matches?.(entity)) return boss;
   const actor = actors[entity?.variant];
   return actor?.matches?.(entity) ? actor : null;
 }
 
 export function battleEnemySpriteId(stageId, kind, variant) {
   return stageId === 1 && kind === 'normal' ? actors[variant]?.id || null : null;
+}
+
+// Boss art binds through the frozen bossIdentity issued by content, never
+// through variant: the same tiger/bear/bull variants also name ordinary
+// enemies, elites and the unbound mid-boss.
+export function battleBossSpriteId(stageId, identity) {
+  return stageId === 1 ? bossSpriteIdFor(identity?.bossId) : null;
 }

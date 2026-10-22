@@ -6,7 +6,7 @@ import {
   getStage,
   getWeaponStats,
 } from './content.js';
-import { battleEnemyAnimation, battleEnemySpriteId } from './battle-enemy-animation.js';
+import { battleEnemyAnimation, battleEnemySpriteId, battleBossSpriteId } from './battle-enemy-animation.js';
 
 const TAU = Math.PI * 2;
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
@@ -392,6 +392,12 @@ export class GameEngine {
     if (this.stage.id === 1 && ['tiger', 'bear', 'bull'].includes(boss.variant)) {
       const attackPattern = { tiger: 'tiger-claw', bear: 'bear-slam', bull: 'bull-charge' }[boss.variant];
       Object.assign(boss, { attackPattern, attackPhase: 'cooldown', attackCooldown: 4, attackWindup: 0, attackTimer: 0, attackHit: false });
+    }
+    // Named first-stage final bosses acquire their dedicated atlas through
+    // the frozen identity only. Unbound bosses keep the vector identity rig.
+    const battleSpriteId = battleBossSpriteId(this.stage.id, bossIdentity);
+    if (battleSpriteId) {
+      Object.assign(boss, { battleSpriteId, visualAttackTimer: 0, visualHitTimer: 0 });
     }
     this.state.enemies.push(boss);
     return boss;

@@ -1346,8 +1346,8 @@ class GameRenderer {
       else method(ctx, 'drawImage', sprite, -radius * scale[2], -radius * scale[3], radius * scale[0], radius * scale[1]);
     }
     else this._drawDemonBody(ctx, enemy, radius, tint, theme, battleMotion(enemy, radius));
-    if (kind !== 'normal' && !(kind === 'boss' && spriteReady)) this._drawCrown(ctx, radius, kind === 'boss' ? '#e6b951' : '#b9b9a2');
-    if (kind === 'boss' && !spriteReady) this._drawBossWeapon(ctx, radius, enemy, theme);
+    if (kind !== 'normal' && !authoredFrame && !(kind === 'boss' && spriteReady)) this._drawCrown(ctx, radius, kind === 'boss' ? '#e6b951' : '#b9b9a2');
+    if (kind === 'boss' && !authoredFrame && !spriteReady) this._drawBossWeapon(ctx, radius, enemy, theme);
     method(ctx, 'restore');
     if (enemy.maxHp > 0 && (kind !== 'normal' || enemy.hp < enemy.maxHp)) this._drawHealthBar(ctx, x, this._enemyHealthBarY(enemy, radius), radius * (kind === 'boss' ? 3.15 : 2.3), enemy.hp / enemy.maxHp, kind === 'boss' ? '#ef3e37' : '#e66b35');
     if (kind === 'boss') this._drawBossLabel(ctx, x, y - radius * 2.75 + this._bossLabelOffset(enemy), enemy);
