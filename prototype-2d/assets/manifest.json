@@ -604,15 +604,15 @@
     {
       "id": "hero-tangseng-battle-v3-sheet",
       "path": "hero-tangseng-battle-v3-sheet.png",
-      "origin": "built-in-imagegen",
+      "origin": "original-repo-art-restored",
       "size": [
         1774,
         887
       ],
-      "bytes": 893354,
-      "sha256": "CBBA75BAB554318E9076E30E870A946096F9360512E378275729C87323B368DB",
+      "bytes": 1364989,
+      "sha256": "A9876C26BC45A97F40C87F049692166CE041C6349BDB45C143EBE9314AFF7D6C",
       "inGameSize": "4×2透明帧格；按角色半径缩放",
-      "purpose": "唐三藏局内真实多帧战斗精灵",
+      "purpose": "唐三藏局内真实多帧战斗精灵（2026-10-22 按用户要求恢复原版蓝白画风：自仓库原版 v3 表逐姿态隔离重排，焊接姿态以最小透明度缝线切分；同 4×2 帧合同）",
       "runtime": "native-app.js priority queue; renderer battleArtMode=authoredFrames",
       "frameContract": {
         "grid": [
@@ -782,7 +782,7 @@
       "sha256": "3B2B15606E6548F128123201FAA782E6AF625F0BE4F22F8FAEDC5D94C5980BF8",
       "inGameSize": "WORLD_SIZE×WORLD_SIZE 后景 cover 裁切（941×1672 源图）",
       "purpose": "首关双叉岭高峻山体后景；上下战斗区与中央小径的视觉锚点",
-        "runtime": "试玩线（2026-10-22）：playable battle 直接加载该 PNG 作全图底图（纵向图按世界拉伸绘制，使画中山脊/中央小径对齐引擎碰撞）；未加载完时用安静向量场景保底。",
+      "runtime": "试玩线（2026-10-22）：playable battle 直接加载该 PNG 作全图底图（纵向图按世界拉伸绘制，使画中山脊/中央小径对齐引擎碰撞）；未加载完时用安静向量场景保底。",
       "lifecycle": "playtest line: fetched as the battle scene backdrop (painted-first, vector fallback)",
       "collision": "ridge y=700..1100；central path x=790..1010 within ridge"
     },
@@ -874,7 +874,10 @@
       "id": "enemy-tiger-battle-v1",
       "path": "enemy-tiger-battle-v1-sheet.png",
       "origin": "built-in-imagegen",
-      "size": [1774, 887],
+      "size": [
+        1774,
+        887
+      ],
       "bytes": 1166282,
       "sha256": "b1acb7e65f23b79a33397163e0dc2a51942a0899aa3916c943f695406a307389",
       "purpose": "首关普通虎妖32姿态：idle8/move8/attack8/hit4/death4；只绑定stage1+normal+tiger，精英/Boss不共用",
@@ -883,18 +886,30 @@
       "frameContract": "enemy-tiger-battle-v1-frames.json",
       "frameLayout": "8 figures × 4 rows, irregular spacing; explicit measured sourceRects required, never equal-grid slicing",
       "uniqueFrames": 32,
-      "generationPrompts": ["prompts/enemy-tiger-battle-v1-sheet.txt", "prompts/enemy-tiger-battle-v1-layout-edit.txt"],
+      "generationPrompts": [
+        "prompts/enemy-tiger-battle-v1-sheet.txt",
+        "prompts/enemy-tiger-battle-v1-layout-edit.txt"
+      ],
       "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-d5b8298b-c2ee-488b-b27e-1e23c01fe4b6.png",
-      "preflightEvidence": ["evidence/current/tiger/asset-preflight.json", "evidence/current/tiger/browser-preflight.json"],
+      "preflightEvidence": [
+        "evidence/current/tiger/asset-preflight.json",
+        "evidence/current/tiger/browser-preflight.json"
+      ],
       "rejectedInitialGeneration": "First draft attack frames overlapped adjacent cells; not copied into runtime assets. Built-in edit reduced every figure uniformly before inspection.",
-      "runtimeEvidence": ["evidence/current/tiger/browser-runtime.json", "evidence/current/tiger/engine-runtime.json"],
+      "runtimeEvidence": [
+        "evidence/current/tiger/browser-runtime.json",
+        "evidence/current/tiger/engine-runtime.json"
+      ],
       "runtimeApproved": true
     },
     {
       "id": "enemy-bear-battle-v1",
       "path": "enemy-bear-battle-v1-sheet.png",
       "origin": "built-in-imagegen",
-      "size": [1774, 887],
+      "size": [
+        1774,
+        887
+      ],
       "bytes": 978099,
       "sha256": "49cf7d76bc03808b7a7b8d0ec07e4c0fdd21876d4524a14d26b8ca1207b2571f",
       "purpose": "首关普通熊妖32姿态：idle8/move8/attack8/hit4/death4；只绑定stage1+normal+bear，不用于熊山君或其他精英/Boss",
@@ -903,18 +918,31 @@
       "frameContract": "enemy-bear-battle-v1-frames.json",
       "frameLayout": "8 figures × 4 rows, irregular spacing; explicit measured sourceRects required, never equal-grid slicing",
       "uniqueFrames": 32,
-      "generationPrompts": ["prompts/enemy-bear-battle-v1-sheet.txt", "prompts/enemy-bear-battle-v1-layout-edit.txt"],
+      "generationPrompts": [
+        "prompts/enemy-bear-battle-v1-sheet.txt",
+        "prompts/enemy-bear-battle-v1-layout-edit.txt"
+      ],
       "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-e1a192be-eaef-4da0-9a61-d717e7a8804d.png",
-      "preflightEvidence": ["evidence/current/bear/generation-preflight.json", "evidence/current/bear/asset-preflight.json", "evidence/current/bear/browser-preflight.json"],
+      "preflightEvidence": [
+        "evidence/current/bear/generation-preflight.json",
+        "evidence/current/bear/asset-preflight.json",
+        "evidence/current/bear/browser-preflight.json"
+      ],
       "rejectedInitialGeneration": "Initial attack-row figures touched; 31 isolated components instead of 32. Not copied into assets. One built-in layout edit produced the retained 32-pose sheet without script pixel edits.",
       "runtimeApproved": true,
-      "runtimeEvidence": ["evidence/current/bear/browser-runtime.json", "evidence/current/bear/engine-runtime.json"]
+      "runtimeEvidence": [
+        "evidence/current/bear/browser-runtime.json",
+        "evidence/current/bear/engine-runtime.json"
+      ]
     },
     {
       "id": "enemy-bull-battle-v1",
       "path": "enemy-bull-battle-v1-sheet.png",
       "origin": "built-in-imagegen",
-      "size": [1774, 887],
+      "size": [
+        1774,
+        887
+      ],
       "bytes": 1137073,
       "sha256": "88835913f75054ec232ff3507d7a6fd27bde22ea40a7b004de028262e4408acb",
       "purpose": "首关普通野牛妖32姿态：idle8/move8/attack8/hit4/death4；仅stage1+normal+bull，不用于特处士（待处士）或其他精英/Boss",
@@ -923,18 +951,31 @@
       "frameContract": "enemy-bull-battle-v1-frames.json",
       "frameLayout": "8 figures × 4 rows, irregular spacing; explicit measured sourceRects required, never equal-grid slicing",
       "uniqueFrames": 32,
-      "generationPrompts": ["prompts/enemy-bull-battle-v1-sheet.txt", "prompts/enemy-bull-battle-v1-layout-edit.txt"],
+      "generationPrompts": [
+        "prompts/enemy-bull-battle-v1-sheet.txt",
+        "prompts/enemy-bull-battle-v1-layout-edit.txt"
+      ],
       "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-49e0dbd2-806e-4a7c-98c9-66dd121cc91a.png",
-      "preflightEvidence": ["evidence/current/bull/generation-preflight.json", "evidence/current/bull/asset-preflight.json", "evidence/current/bull/browser-preflight.json"],
+      "preflightEvidence": [
+        "evidence/current/bull/generation-preflight.json",
+        "evidence/current/bull/asset-preflight.json",
+        "evidence/current/bull/browser-preflight.json"
+      ],
       "rejectedInitialGeneration": "Initial attack row touched, yielding 31 isolated components. Not copied into assets. One built-in layout edit produced the retained 32-pose sheet; no scripted pixel edits or re-encoding.",
       "runtimeApproved": true,
-      "runtimeEvidence": ["evidence/current/bull/browser-runtime.json", "evidence/current/bull/engine-runtime.json"]
+      "runtimeEvidence": [
+        "evidence/current/bull/browser-runtime.json",
+        "evidence/current/bull/engine-runtime.json"
+      ]
     },
     {
       "id": "enemy-wolf-battle-v1",
       "path": "enemy-wolf-battle-v1-sheet.png",
       "origin": "built-in-imagegen",
-      "size": [1774, 887],
+      "size": [
+        1774,
+        887
+      ],
       "bytes": 1410175,
       "sha256": "b116553b99a397f2fd0c28076000246e9c3528c6b28d7ab6f2482927db8d8299",
       "purpose": "首关普通苍狼妖32姿态候选：idle8/move8/attack8/hit4/death4；目标仅stage1+normal+wolf，不用于凌虚子/奎木狼、精英或其他关卡",
@@ -943,18 +984,30 @@
       "frameContract": "enemy-wolf-battle-v1-frames.json",
       "frameLayout": "8 figures × 4 rows; explicit measured sourceRects with 2px padding, not equal-grid slicing",
       "uniqueFrames": 32,
-      "generationPrompts": ["prompts/enemy-wolf-battle-v1-sheet.txt"],
+      "generationPrompts": [
+        "prompts/enemy-wolf-battle-v1-sheet.txt"
+      ],
       "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-8b7ce4f9-999d-4ce4-a6aa-3c555213adf6.png",
-      "preflightEvidence": ["evidence/current/wolf/generation-preflight.json", "evidence/current/wolf/asset-preflight.json", "evidence/current/wolf/browser-preflight.json"],
+      "preflightEvidence": [
+        "evidence/current/wolf/generation-preflight.json",
+        "evidence/current/wolf/asset-preflight.json",
+        "evidence/current/wolf/browser-preflight.json"
+      ],
       "generationNote": "One built-in generation. Initial sheet passed 32-figure isolation/alpha preflight and was copied byte-for-byte; no layout edit, scripted pixel edits or re-encoding.",
       "runtimeApproved": true,
-      "runtimeEvidence": ["evidence/current/wolf/browser-runtime.json", "evidence/current/wolf/engine-runtime.json"]
+      "runtimeEvidence": [
+        "evidence/current/wolf/browser-runtime.json",
+        "evidence/current/wolf/engine-runtime.json"
+      ]
     },
     {
       "id": "enemy-monkey-battle-v1",
       "path": "enemy-monkey-battle-v1-sheet.png",
       "origin": "built-in-imagegen",
-      "size": [1774, 887],
+      "size": [
+        1774,
+        887
+      ],
       "bytes": 1379382,
       "sha256": "eda548ce95da339409595a8f226509d2aa4de206e3ed3867cf7f750118ad4b44",
       "purpose": "首关普通猴妖32姿态：idle8/move8/attack8/hit4/death4；仅绑定stage1+normal+monkey，不用于精英、Boss或其他关卡",
@@ -963,17 +1016,27 @@
       "frameContract": "enemy-monkey-battle-v1-frames.json",
       "frameLayout": "8 figures × 4 rows, irregular spacing; explicit measured sourceRects required, never equal-grid slicing",
       "uniqueFrames": 32,
-      "generationPrompts": ["prompts/enemy-monkey-battle-v1-sheet.txt"],
+      "generationPrompts": [
+        "prompts/enemy-monkey-battle-v1-sheet.txt"
+      ],
       "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-65f2befd-ad9a-4a21-8d25-3752a3e8ef63.png",
-      "preflightEvidence": ["evidence/current/monkey/asset-preflight.json"],
-      "runtimeEvidence": ["evidence/current/monkey/engine-runtime.json", "evidence/current/monkey/browser-runtime.json"],
+      "preflightEvidence": [
+        "evidence/current/monkey/asset-preflight.json"
+      ],
+      "runtimeEvidence": [
+        "evidence/current/monkey/engine-runtime.json",
+        "evidence/current/monkey/browser-runtime.json"
+      ],
       "runtimeApproved": true
     },
     {
       "id": "enemy-deer-battle-v1",
       "path": "enemy-deer-battle-v1-sheet.png",
       "origin": "built-in-imagegen",
-      "size": [1774, 887],
+      "size": [
+        1774,
+        887
+      ],
       "bytes": 1894732,
       "sha256": "721ce755d768daca09100f7346c0f1eab6a46f2a4f1aa0ce5b0cc0def33e621e",
       "purpose": "首关普通鹿妖32姿态：idle8/move8/attack8/hit4/death4；仅绑定stage1+normal+deer，不用于精英、Boss或其他关卡",
@@ -982,17 +1045,27 @@
       "frameContract": "enemy-deer-battle-v1-frames.json",
       "frameLayout": "8 figures × 4 irregularly spaced rows; independently measured alpha bounds plus 2px, never equal-grid cuts; source idle index7 facing normalized by module",
       "uniqueFrames": 32,
-      "generationPrompts": ["prompts/enemy-deer-battle-v1-sheet.txt"],
+      "generationPrompts": [
+        "prompts/enemy-deer-battle-v1-sheet.txt"
+      ],
       "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-437d581a-0fc2-41dc-908a-14c2dc397e32.png",
-      "preflightEvidence": ["evidence/current/deer/asset-preflight.json"],
-      "runtimeEvidence": ["evidence/current/deer/engine-runtime.json", "evidence/current/deer/browser-runtime.json"],
+      "preflightEvidence": [
+        "evidence/current/deer/asset-preflight.json"
+      ],
+      "runtimeEvidence": [
+        "evidence/current/deer/engine-runtime.json",
+        "evidence/current/deer/browser-runtime.json"
+      ],
       "runtimeApproved": true
     },
     {
       "id": "enemy-hawk-battle-v1",
       "path": "enemy-hawk-battle-v1-sheet.png",
       "origin": "built-in-imagegen",
-      "size": [1774, 887],
+      "size": [
+        1774,
+        887
+      ],
       "bytes": 1776852,
       "sha256": "eaa6d8e639c9a29f1d94bcded105b584168ebc67efe9c78017b1f78e2c6cd9e7",
       "purpose": "首关普通鹰妖32姿态：idle8/move8/attack8/hit4/death4；仅绑定stage1+normal+hawk，不用于精英、Boss或其他关卡",
@@ -1001,17 +1074,27 @@
       "frameContract": "enemy-hawk-battle-v1-frames.json",
       "frameLayout": "8 figures × 4 irregularly spaced rows; independently measured alpha bounds plus 2px, never equal-grid cuts",
       "uniqueFrames": 32,
-      "generationPrompts": ["prompts/enemy-hawk-battle-v1-sheet.txt"],
+      "generationPrompts": [
+        "prompts/enemy-hawk-battle-v1-sheet.txt"
+      ],
       "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-4c363345-8455-4874-815a-c4ad285c823e.png",
-      "preflightEvidence": ["evidence/current/hawk/asset-preflight.json"],
-      "runtimeEvidence": ["evidence/current/hawk/engine-runtime.json", "evidence/current/hawk/browser-runtime.json"],
+      "preflightEvidence": [
+        "evidence/current/hawk/asset-preflight.json"
+      ],
+      "runtimeEvidence": [
+        "evidence/current/hawk/engine-runtime.json",
+        "evidence/current/hawk/browser-runtime.json"
+      ],
       "runtimeApproved": true
     },
     {
       "id": "enemy-snake-battle-v3",
       "path": "enemy-snake-battle-v3-sheet.png",
       "origin": "built-in-imagegen",
-      "size": [1774, 887],
+      "size": [
+        1774,
+        887
+      ],
       "bytes": 1749032,
       "sha256": "c10c9f951f871e0f398cef9a7ef36c46065df4fb986ed2d0bb8b246da11b0ec2",
       "purpose": "首关普通蛇妖32姿态：idle8/move8/attack8/hit4/death4；仅stage1+normal+snake，不用于精英、Boss或其他关卡",
@@ -1020,27 +1103,43 @@
       "frameContract": "enemy-snake-battle-v3-frames.json",
       "frameLayout": "4 rows x 8 isolated poses; measured alpha bounds plus 2px, never equal-grid cuts; source idle index4 normalized by module without PNG edits",
       "uniqueFrames": 32,
-      "generationPrompts": ["prompts/enemy-snake-battle-v3-sheet.txt"],
+      "generationPrompts": [
+        "prompts/enemy-snake-battle-v3-sheet.txt"
+      ],
       "source": "C:/Users/Administrator/.codex/generated_images/01a10ba8-459b-73f1-bf80-21b0b426fb23/exec-67177336-ce58-4236-b9d4-0d8b617cb548.png",
-      "preflightEvidence": ["evidence/current/snake/asset-preflight-v3.json"],
+      "preflightEvidence": [
+        "evidence/current/snake/asset-preflight-v3.json"
+      ],
       "generationNote": "Missing ordinary-snake use was audited before three serial candidates. v1/v2 failed isolation/gap gates; only v3 is a runtime asset. Original PNG bytes preserved; no scripted pixel edits or re-encoding. Earlier rejected prompts are not separately persisted; do not invent or regenerate them.",
       "rejectedCandidates": [
         {
           "path": "evidence/current/snake/rejected-enemy-snake-v1.png",
-          "size": [1774, 887], "bytes": 2458204,
+          "size": [
+            1774,
+            887
+          ],
+          "bytes": 2458204,
           "sha256": "e17f187e0c6a733572f42cd722d99d8df6793b91c67ca6b66f08a5f9e6b02089",
           "evidence": "evidence/current/snake/asset-preflight.json",
           "reason": "REVIEW: connected rows, only 16 isolated components, edge clipping; not runtime or release"
         },
         {
           "path": "evidence/current/snake/rejected-enemy-snake-v2.png",
-          "size": [1774, 887], "bytes": 2116676,
+          "size": [
+            1774,
+            887
+          ],
+          "bytes": 2116676,
           "sha256": "3e99eb9c9b26ca02424a7bc2d48f2f28c9475ce3f7704a35ef7838d46b6a19bd",
           "evidence": "evidence/current/snake/asset-preflight-v2.json",
           "reason": "REVIEW: minimum horizontal gap 5px below 6px gate; not runtime or release"
         }
       ],
-      "runtimeEvidence": ["evidence/current/snake/engine-runtime.json", "evidence/current/snake/browser-runtime.json", "evidence/current/snake/public-contract-node.json"],
+      "runtimeEvidence": [
+        "evidence/current/snake/engine-runtime.json",
+        "evidence/current/snake/browser-runtime.json",
+        "evidence/current/snake/public-contract-node.json"
+      ],
       "runtimeApproved": true,
       "finalVisualApproved": false
     },
@@ -1048,7 +1147,10 @@
       "id": "enemy-yin-general-battle-v1",
       "path": "enemy-yin-general-battle-v1-sheet.png",
       "origin": "built-in-imagegen",
-      "size": [1774, 887],
+      "size": [
+        1774,
+        887
+      ],
       "bytes": 1522224,
       "sha256": "e836bda65b5b26d298d0d48826e1b36713ddbcb6ec6ddd53c1ac5ac07175c2a9",
       "purpose": "首关最终Boss寅将军专属32姿态：idle8/move8/attack8/hit4/death4；只绑定stage1+final+bossIdentity(yin-general)，不用于普通虎妖、精英或中Boss",
@@ -1058,9 +1160,13 @@
       "frameLayout": "8 figures × 4 rows normalized grid; explicit sourceRects, never equal-grid slicing",
       "uniqueFrames": 32,
       "source": "evidence/current/playtest-handoff/2026-10-21/assets-work/media-generation-boss-yin-general-sheet-raw-0-330c90fa-83a4-4c4c-8255-b2bf663839aa.png",
-      "preflightEvidence": ["evidence/current/boss-assets/yin-general-v2/HANDOFF.md"],
+      "preflightEvidence": [
+        "evidence/current/boss-assets/yin-general-v2/HANDOFF.md"
+      ],
       "generationNote": "v1候选（2026-10-12）仅25/32独立帧未接入；本v2于2026-10-21由接棒线生图通道单次生成（白底2240×1120），经白底抠图、连通域提取、统一缩放与基线对齐程序化标准化，未做语义补画；idle行为正面朝向，待美术复核",
-      "runtimeEvidence": ["evidence/current/boss-animation/engine-runtime.json"],
+      "runtimeEvidence": [
+        "evidence/current/boss-animation/engine-runtime.json"
+      ],
       "runtimeApproved": true,
       "finalVisualApproved": false
     },
@@ -1068,7 +1174,10 @@
       "id": "enemy-xiong-shanjun-battle-v1",
       "path": "enemy-xiong-shanjun-battle-v1-sheet.png",
       "origin": "built-in-imagegen",
-      "size": [1774, 887],
+      "size": [
+        1774,
+        887
+      ],
       "bytes": 1404179,
       "sha256": "0f7c510045b0d0eddf624715d7b75c7c0cb001a64d65ede10e065241f7c3f1b3",
       "purpose": "首关最终Boss熊山君专属32姿态：idle8/move8/attack8/hit4/death4；只绑定stage1+final+bossIdentity(xiong-shanjun)，不用于普通熊妖、精英或中Boss",
@@ -1078,9 +1187,13 @@
       "frameLayout": "8 figures × 4 rows normalized grid; explicit sourceRects, never equal-grid slicing",
       "uniqueFrames": 32,
       "source": "evidence/current/playtest-handoff/2026-10-21/assets-work/media-generation-boss-xiong-shanjun-sheet-raw-0-b2b7041c-4126-4009-b47d-70b7e61fabac.png",
-      "preflightEvidence": ["evidence/current/boss-assets/xiong-shanjun-v2/HANDOFF.md"],
+      "preflightEvidence": [
+        "evidence/current/boss-assets/xiong-shanjun-v2/HANDOFF.md"
+      ],
       "generationNote": "v1四次生成均失败于工具层（模型不支持/503），本v2为首个成功生成版本（2026-10-21，白底2240×1120），处理管线同寅将军v2，未做语义补画",
-      "runtimeEvidence": ["evidence/current/boss-animation/engine-runtime.json"],
+      "runtimeEvidence": [
+        "evidence/current/boss-animation/engine-runtime.json"
+      ],
       "runtimeApproved": true,
       "finalVisualApproved": false
     },
@@ -1088,7 +1201,10 @@
       "id": "enemy-te-chushi-battle-v1",
       "path": "enemy-te-chushi-battle-v1-sheet.png",
       "origin": "built-in-imagegen",
-      "size": [1774, 887],
+      "size": [
+        1774,
+        887
+      ],
       "bytes": 1166567,
       "sha256": "05bdf2448827e9ddd57f78ae6f9e6906d2641075258fd142f8e5bbfb519931cd",
       "purpose": "首关最终Boss特处士专属30姿态：idle8/move7/attack7/hit4/death4；只绑定stage1+final+bossIdentity(te-chushi)，不用于普通牛妖、精英或中Boss",
@@ -1098,9 +1214,13 @@
       "frameLayout": "8 figures × 4 rows normalized grid; explicit sourceRects, never equal-grid slicing",
       "uniqueFrames": 30,
       "source": "evidence/current/playtest-handoff/2026-10-21/assets-work/media-generation-boss-te-chushi-sheet-raw-0-b877d552-7fdb-4f6e-85aa-2f554a4ea1f3.png",
-      "preflightEvidence": ["evidence/current/boss-assets/te-chushi-v1/HANDOFF.md"],
+      "preflightEvidence": [
+        "evidence/current/boss-assets/te-chushi-v1/HANDOFF.md"
+      ],
       "generationNote": "首个特处士专属候选（2026-10-21，白底2240×1120）；生成源图行走/攻击行各只有7个姿态，如实按30帧入册，未复制补帧；处理管线同寅将军v2",
-      "runtimeEvidence": ["evidence/current/boss-animation/engine-runtime.json"],
+      "runtimeEvidence": [
+        "evidence/current/boss-animation/engine-runtime.json"
+      ],
       "runtimeApproved": true,
       "finalVisualApproved": false
     },
@@ -1108,7 +1228,10 @@
       "id": "skill-fx-slash-arc",
       "path": "skill-fx-slash-arc.png",
       "origin": "ai-generated-painted-fx",
-      "size": [1536, 256],
+      "size": [
+        1536,
+        256
+      ],
       "bytes": 203749,
       "sha256": "187bef3af353777a8c600653e576457bfb462bb9b3533d486ad6d3867bf67004",
       "purpose": "悟空本命金箍棒挥击弧光技能动画（6帧）",
@@ -1119,7 +1242,10 @@
       "id": "skill-fx-light-orb",
       "path": "skill-fx-light-orb.png",
       "origin": "ai-generated-painted-fx",
-      "size": [1536, 256],
+      "size": [
+        1536,
+        256
+      ],
       "bytes": 173224,
       "sha256": "eda478b5c514e6640c4748e3d38108646c499422ccf85be81cbf27a295ee8da4",
       "purpose": "三藏本命禅杖光弹技能动画（6帧）",
@@ -1130,7 +1256,10 @@
       "id": "skill-fx-rake-sweep",
       "path": "skill-fx-rake-sweep.png",
       "origin": "ai-generated-painted-fx",
-      "size": [1536, 256],
+      "size": [
+        1536,
+        256
+      ],
       "bytes": 297581,
       "sha256": "72c001f4091f4fc7e173e9481999a6e7fdf0faa888ee0ec8e70ed74b2069d67e",
       "purpose": "八戒本命钉耙横扫技能动画（6帧）",
@@ -1141,7 +1270,10 @@
       "id": "skill-fx-water-ring",
       "path": "skill-fx-water-ring.png",
       "origin": "ai-generated-painted-fx",
-      "size": [1536, 256],
+      "size": [
+        1536,
+        256
+      ],
       "bytes": 251982,
       "sha256": "07fa15633ed8fd2838ea78b47b0b6bc9d6b62bddeee0651bfb452c8b94e49330",
       "purpose": "悟净本命宝杖水环技能动画（6帧）",
@@ -1152,7 +1284,10 @@
       "id": "skill-fx-fan-wave",
       "path": "skill-fx-fan-wave.png",
       "origin": "ai-generated-painted-fx",
-      "size": [1536, 256],
+      "size": [
+        1536,
+        256
+      ],
       "bytes": 289756,
       "sha256": "0d49a8e5caf1147939b77c061e4e2cd2c87c401cada0251a5ff8cc8150407483",
       "purpose": "芭蕉扇青色风浪技能动画（6帧）",
@@ -1163,7 +1298,10 @@
       "id": "skill-fx-gourd-vortex",
       "path": "skill-fx-gourd-vortex.png",
       "origin": "ai-generated-painted-fx",
-      "size": [1536, 256],
+      "size": [
+        1536,
+        256
+      ],
       "bytes": 350464,
       "sha256": "60b88fcf5d479fc053ee731625d3e09bf39ace9e473a314e685e3de0ea7448e1",
       "purpose": "紫金葫芦紫色吸力漩涡技能动画（6帧）",
@@ -1174,7 +1312,10 @@
       "id": "skill-fx-palm-burst",
       "path": "skill-fx-palm-burst.png",
       "origin": "ai-generated-painted-fx",
-      "size": [1536, 256],
+      "size": [
+        1536,
+        256
+      ],
       "bytes": 303045,
       "sha256": "54c7570a69ba64064dd32ff0f53dbb1465bd84397bd8391064e502f4f3553dda",
       "purpose": "照妖镜金色佛掌爆发技能动画（6帧）",
@@ -1185,7 +1326,10 @@
       "id": "skill-fx-fire-burst",
       "path": "skill-fx-fire-burst.png",
       "origin": "ai-generated-painted-fx",
-      "size": [1536, 256],
+      "size": [
+        1536,
+        256
+      ],
       "bytes": 272055,
       "sha256": "50180f84bf6ee5c972cd251697b946db06d0b4bbc4312f3cec00f7a884249eb7",
       "purpose": "三昧真火火焰爆裂技能动画（6帧，延迟期保留矢量预警）",
@@ -1196,7 +1340,10 @@
       "id": "skill-fx-fire-wheel",
       "path": "skill-fx-fire-wheel.png",
       "origin": "ai-generated-painted-fx",
-      "size": [1536, 256],
+      "size": [
+        1536,
+        256
+      ],
       "bytes": 535553,
       "sha256": "9f4693ee84957b0b201391ad16964b9f80247cccb690d5b87d3007854f951270",
       "purpose": "风火轮旋转火轮投射物动画（6帧）",
@@ -1207,7 +1354,10 @@
       "id": "skill-fx-ring-spin",
       "path": "skill-fx-ring-spin.png",
       "origin": "ai-generated-painted-fx",
-      "size": [1536, 256],
+      "size": [
+        1536,
+        256
+      ],
       "bytes": 430772,
       "sha256": "c56809614b9c7f7909ac1950683386a4ab9a091e63f822ae82a67d124340c511",
       "purpose": "乾坤圈金环旋转投射物动画（6帧）",
@@ -1218,7 +1368,10 @@
       "id": "skill-fx-gold-bead",
       "path": "skill-fx-gold-bead.png",
       "origin": "ai-generated-painted-fx",
-      "size": [1536, 256],
+      "size": [
+        1536,
+        256
+      ],
       "bytes": 211298,
       "sha256": "44bdd8bf13b1bc61f0b28a307be6fe4e9910922148b885a3e873df4cfbb720c1",
       "purpose": "幌金绳环绕金珠动画（6帧，第4帧原稿跑偏已用相邻帧替换）",
@@ -1229,7 +1382,10 @@
       "id": "skill-fx-fire-pool",
       "path": "skill-fx-fire-pool.png",
       "origin": "ai-generated-painted-fx",
-      "size": [1536, 256],
+      "size": [
+        1536,
+        256
+      ],
       "bytes": 325337,
       "sha256": "3a9710c548cfd696bf78b817622791bab53db9b8c8161fda1942fbc469aa0bc1",
       "purpose": "风火轮火径地面火焰动画（6帧）",
@@ -1240,7 +1396,10 @@
       "id": "skill-fx-monkey-clone",
       "path": "skill-fx-monkey-clone.png",
       "origin": "ai-generated-painted-fx",
-      "size": [1536, 256],
+      "size": [
+        1536,
+        256
+      ],
       "bytes": 377402,
       "sha256": "25a7484becb95f9d1e62e8347fe5d7efa56879d6a5306ffbded330d102c38906",
       "purpose": "七十二变木棍小猴分身奔跑动画（6帧）",
@@ -1251,7 +1410,10 @@
       "id": "skill-fx-whirl-pool",
       "path": "skill-fx-whirl-pool.png",
       "origin": "ai-generated-painted-fx",
-      "size": [1536, 256],
+      "size": [
+        1536,
+        256
+      ],
       "bytes": 565125,
       "sha256": "e4998e6c111107de333dea2487167b854e07516e98e8fe3a3b14b1788836c95b",
       "purpose": "悟净宝杖水漩涡池旋转动画（6帧）",
