@@ -168,8 +168,15 @@ for(const bossId of ['yin-general','xiong-shanjun','te-chushi']){
   },()=>{},true);
 }
 
-// Gallery maps are also kept out of the battle startup path. The combat map
-// uses the quiet vector plate, while chapter previews can opt into authored
-// layers later without competing with animation-sheet decoding.
+// Painted chapter scenes (playtest line, 2026-10-22, user-directed): the
+// authored example scenes are the battlefield art now. Doublefork loads
+// eagerly — it is the first stage and the home poster. The six theme scenes
+// load on demand via loadMapScene when a run starts, so a session fetches
+// only the scene it plays; until one arrives, the renderer keeps the quiet
+// vector plate as the fallback.
 const mapImages={forest:{},temple:{},doublefork:{}};game.mapImages=mapImages;
+const mapSceneFiles={doublefork:'map-doublefork-high-ridge-v1.png',forest:'map-forest-qv1.png',temple:'map-temple-qv1.png',water:'map-water-qv1.png',fire:'map-fire-qv1.png',sand:'map-sand-qv1.png',snow:'map-snow-qv1.png'};
+const mapSceneLoading={};
+game.loadMapScene=(key)=>{const file=mapSceneFiles[key];if(!file||mapImages[key]?.back||mapSceneLoading[key])return;mapSceneLoading[key]=true;const image=new Image();queueImage(image,`./assets/${file}`,()=>{mapImages[key]={back:image};game.draw();},()=>{mapSceneLoading[key]=false;});};
+game.loadMapScene('doublefork');
 
