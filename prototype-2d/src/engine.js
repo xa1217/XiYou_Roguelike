@@ -1025,9 +1025,13 @@ export class GameEngine {
     enemy.hitTimer = Math.max(enemy.hitTimer || 0, 0.12); this.setAnimation(enemy, 'hit');
     // Per-target feedback throttling bounds orbit/DoT labels without changing
     // damage, status application or the RNG stream. Every hit still emits below.
-    if (value > 0 && this.state.time >= (enemy.feedbackAt || -1)) {
+    // Playtest display rule (2026-10-22): labels show whole numbers only. A hit
+    // that rounds to zero (sub-point DoT ticks from whirl/fire pools) stays
+    // silent instead of floating "0.0"/"0.1"; the damage value is untouched.
+    const shownDamage = Math.round(value);
+    if (value > 0 && shownDamage > 0 && this.state.time >= (enemy.feedbackAt || -1)) {
       enemy.feedbackAt = this.state.time + .09;
-      this.state.damageNumbers.push({ x: enemy.x, y: enemy.y - enemy.radius - 8, damage: value < 1 ? value.toFixed(1) : Math.round(value), ttl: 1.25, maxTtl: 1.25, color: options.critical ? '#fff03d' : '#fff3b8', critical: Boolean(options.critical), size: options.critical ? 22 : 17 });
+      this.state.damageNumbers.push({ x: enemy.x, y: enemy.y - enemy.radius - 8, damage: shownDamage, ttl: 1.25, maxTtl: 1.25, color: options.critical ? '#fff03d' : '#fff3b8', critical: Boolean(options.critical), size: options.critical ? 22 : 17 });
       if (this.state.damageNumbers.length > 48) this.state.damageNumbers.splice(0, this.state.damageNumbers.length - 48);
     }
     this.emit({ type: 'hit', target: 'enemy', amount: value, critical: Boolean(options.critical), enemy });
