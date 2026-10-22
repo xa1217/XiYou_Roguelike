@@ -1191,6 +1191,50 @@
       "purpose": "三昧真火火焰爆裂技能动画（6帧，延迟期保留矢量预警）",
       "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
       "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-fire-wheel",
+      "path": "skill-fx-fire-wheel.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [1536, 256],
+      "bytes": 535553,
+      "sha256": "9f4693ee84957b0b201391ad16964b9f80247cccb690d5b87d3007854f951270",
+      "purpose": "风火轮旋转火轮投射物动画（6帧）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-ring-spin",
+      "path": "skill-fx-ring-spin.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [1536, 256],
+      "bytes": 430772,
+      "sha256": "c56809614b9c7f7909ac1950683386a4ab9a091e63f822ae82a67d124340c511",
+      "purpose": "乾坤圈金环旋转投射物动画（6帧）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-gold-bead",
+      "path": "skill-fx-gold-bead.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [1536, 256],
+      "bytes": 211298,
+      "sha256": "44bdd8bf13b1bc61f0b28a307be6fe4e9910922148b885a3e873df4cfbb720c1",
+      "purpose": "幌金绳环绕金珠动画（6帧，第4帧原稿跑偏已用相邻帧替换）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-fire-pool",
+      "path": "skill-fx-fire-pool.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [1536, 256],
+      "bytes": 325337,
+      "sha256": "3a9710c548cfd696bf78b817622791bab53db9b8c8161fda1942fbc469aa0bc1",
+      "purpose": "风火轮火径地面火焰动画（6帧）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
+      "finalVisualApproved": false
     }
   ],
   "runtimeNotes": [
