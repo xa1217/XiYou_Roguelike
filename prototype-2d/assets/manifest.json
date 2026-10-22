@@ -1235,6 +1235,28 @@
       "purpose": "风火轮火径地面火焰动画（6帧）",
       "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
       "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-monkey-clone",
+      "path": "skill-fx-monkey-clone.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [1536, 256],
+      "bytes": 377402,
+      "sha256": "25a7484becb95f9d1e62e8347fe5d7efa56879d6a5306ffbded330d102c38906",
+      "purpose": "七十二变木棍小猴分身奔跑动画（6帧）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-whirl-pool",
+      "path": "skill-fx-whirl-pool.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [1536, 256],
+      "bytes": 565125,
+      "sha256": "e4998e6c111107de333dea2487167b854e07516e98e8fe3a3b14b1788836c95b",
+      "purpose": "悟净宝杖水漩涡池旋转动画（6帧）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
+      "finalVisualApproved": false
     }
   ],
   "runtimeNotes": [
