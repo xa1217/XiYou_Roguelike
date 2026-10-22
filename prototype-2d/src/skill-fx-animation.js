@@ -29,6 +29,13 @@ export const SKILL_FX = Object.freeze({
   'gourd-vortex': Object.freeze({ cell: 256, frames: 6 }),
   'palm-burst': Object.freeze({ cell: 256, frames: 6 }),
   'fire-burst': Object.freeze({ cell: 256, frames: 6 }),
+  // Acquired-artifact batch 2 (2026-10-22): the wind-fire wheel and the
+  // Qiankun ring are projectiles (routed in _drawProjectile like the orb);
+  // the golden rope beads and the wheel's fire trail are effects.
+  'fire-wheel': Object.freeze({ cell: 256, frames: 6 }),
+  'ring-spin': Object.freeze({ cell: 256, frames: 6 }),
+  'gold-bead': Object.freeze({ cell: 256, frames: 6 }),
+  'fire-pool': Object.freeze({ cell: 256, frames: 6 }),
 });
 
 // The effect kinds each strip serves.  Signature kinds come from the
@@ -41,6 +48,8 @@ export function skillFxIdForEffect(kind) {
   if (kind === 'gourd') return 'gourd-vortex';
   if (kind === 'palm-strike') return 'palm-burst';
   if (kind === 'mountain') return 'fire-burst';
+  if (kind === 'bead' || kind === 'skull-bead') return 'gold-bead';
+  if (kind === 'fire-trail' || kind === 'fire-pool') return 'fire-pool';
   return null;
 }
 

@@ -1204,6 +1204,19 @@ class GameRenderer {
         return;
       }
     }
+    if (projectileKind === 'fire-wheel' || projectileKind === 'ring' || projectileKind === 'ring-child') {
+      // Painted artifact projectiles (batch 2): the wind-fire wheel and the
+      // Qiankun ring spin on renderer time while they fly/bounce.
+      const fxId = projectileKind === 'fire-wheel' ? 'fire-wheel' : 'ring-spin';
+      const fxImage = this.skillFxImages?.[fxId];
+      const fxRect = fxImage && skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'fire-wheel' ? 2.4 : 2)) % 1);
+      if (fxRect) {
+        const size = radius * (fxId === 'fire-wheel' ? 4.6 : 3.8);
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
+        method(ctx, 'restore');
+        return;
+      }
+    }
     circle(ctx, 0, 0, radius * 1.4, alphaColor(color, .18));
     if (projectileKind.includes('bird')) {
       path(ctx, [['M', -radius * 1.5, 0], ['Q', -radius * .2, -radius * 1.2, radius * 1.7, 0], ['Q', -radius * .2, radius * 1.2, -radius * 1.5, 0], ['Z']], color, '#703a2a', 1.2);
@@ -1276,7 +1289,13 @@ class GameRenderer {
     const fxRect = fxImage && fxAge >= fxDelay && skillFxFrameRect(fxImage, fxPhase);
     if (fxRect) {
       ctx.globalAlpha = n(ctx.globalAlpha, 1) * fade;
-      if (fxId === 'fan-wave' || fxId === 'gourd-vortex') {
+      if (fxId === 'gold-bead' || fxId === 'fire-pool') {
+        // Looping props: the rope bead pulses and the fire pool flickers on
+        // renderer time; both are drawn centered on the effect position.
+        const rect = skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'gold-bead' ? 1.8 : 2.6)) % 1) || fxRect;
+        const size = radius * (fxId === 'gold-bead' ? 3.2 : 2.7);
+        method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
+      } else if (fxId === 'fan-wave' || fxId === 'gourd-vortex') {
         // Cone effects: the strip's narrow point sits at the effect origin
         // and the cone widens along +X after rotation.  The gourd vortex
         // lives for seconds, so its frames cycle on renderer time instead
