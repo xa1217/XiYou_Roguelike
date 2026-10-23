@@ -946,7 +946,6 @@ const SKILL_FX = Object.freeze({
   'fan-wave': Object.freeze({ cell: 256, frames: 6 }),
   'gourd-vortex': Object.freeze({ cell: 256, frames: 6 }),
   'palm-burst': Object.freeze({ cell: 256, frames: 6 }),
-  'fire-burst': Object.freeze({ cell: 256, frames: 6 }),
   // Acquired-artifact batch 2 (2026-10-22): the wind-fire wheel and the
   // Qiankun ring are projectiles (routed in _drawProjectile like the orb);
   // the golden rope beads and the wheel's fire trail are effects.
@@ -958,6 +957,18 @@ const SKILL_FX = Object.freeze({
   // Wujing's water whirl pools complete the acquired-skill set.
   'monkey-clone': Object.freeze({ cell: 256, frames: 6 }),
   'whirl-pool': Object.freeze({ cell: 256, frames: 6 }),
+  // Style pass (2026-10-23): the last vector-glyph skills join the painted
+  // set, and two visuals that contradicted their own descriptions are
+  // corrected — Bajie's rake birds are described as 烈焰神鸟 (a flaming
+  // divine bird, not an orange leaf glyph), 搬山诀 drops a MOUNTAIN (the
+  // retired 'fire-burst' flame strip it used to borrow stays in the repo
+  // as an unreferenced legacy asset), the level-5 prayer beads are
+  // 骷髅念珠 (skull beads, not gold), and Sanzang's split sparks get the
+  // same painted light as his orbs.
+  'fire-bird': Object.freeze({ cell: 256, frames: 6 }),
+  'mountain-slam': Object.freeze({ cell: 256, frames: 6 }),
+  'skull-bead': Object.freeze({ cell: 256, frames: 6 }),
+  'holy-spark': Object.freeze({ cell: 256, frames: 6 }),
 });
 
 // The effect kinds each strip serves.  Signature kinds come from the
@@ -969,8 +980,9 @@ function skillFxIdForEffect(kind) {
   if (kind === 'fan') return 'fan-wave';
   if (kind === 'gourd') return 'gourd-vortex';
   if (kind === 'palm-strike') return 'palm-burst';
-  if (kind === 'mountain') return 'fire-burst';
-  if (kind === 'bead' || kind === 'skull-bead') return 'gold-bead';
+  if (kind === 'mountain') return 'mountain-slam';
+  if (kind === 'bead') return 'gold-bead';
+  if (kind === 'skull-bead') return 'skull-bead';
   if (kind === 'fire-trail' || kind === 'fire-pool') return 'fire-pool';
   if (kind === 'monkey-clone') return 'monkey-clone';
   if (kind === 'whirl') return 'whirl-pool';
@@ -3801,6 +3813,21 @@ class GameRenderer {
         return;
       }
     }
+    if (projectileKind === 'fire-bird' || projectileKind === 'light-spark') {
+      // Style pass (2026-10-23): Bajie's flame birds （烈焰神鸟） and
+      // Sanzang's split light sparks were the last vector-glyph
+      // projectiles in a painted game; both now fly as authored strips
+      // cycling on renderer time, inside the velocity rotation above.
+      const fxId = projectileKind === 'fire-bird' ? 'fire-bird' : 'holy-spark';
+      const fxImage = this.skillFxImages?.[fxId];
+      const fxRect = fxImage && skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'fire-bird' ? 2.2 : 3)) % 1);
+      if (fxRect) {
+        const size = radius * (fxId === 'fire-bird' ? 8 : 6);
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
+        method(ctx, 'restore');
+        return;
+      }
+    }
     if (projectileKind === 'fire-wheel' || projectileKind === 'ring' || projectileKind === 'ring-child') {
       // Painted artifact projectiles (batch 2): the wind-fire wheel and the
       // Qiankun ring spin on renderer time while they fly/bounce.
@@ -3877,12 +3904,12 @@ class GameRenderer {
     // effects below unchanged.
     const fxId = skillFxIdForEffect(kind);
     const fxImage = fxId && this.skillFxImages?.[fxId];
-    // The samadhi-fire burst ('mountain') telegraphs with a falling rock
+    // The mountain slam ('mountain') telegraphs with a falling rock
     // during its delay — the vector branch keeps that phase; the painted
-    // burst takes over only once the burst itself starts.
-    const fxDelay = fxId === 'fire-burst' ? n(effect.delay, 0) : 0;
+    // peak takes over only once the slam itself starts.
+    const fxDelay = fxId === 'mountain-slam' ? n(effect.delay, 0) : 0;
     const fxAge = maxTtl - ttl;
-    const fxPhase = fxId === 'fire-burst' && fxDelay > 0 ? clamp((fxAge - fxDelay) / Math.max(.001, maxTtl - fxDelay), 0, 1) : progress;
+    const fxPhase = fxId === 'mountain-slam' && fxDelay > 0 ? clamp((fxAge - fxDelay) / Math.max(.001, maxTtl - fxDelay), 0, 1) : progress;
     const fxRect = fxImage && fxAge >= fxDelay && skillFxFrameRect(fxImage, fxPhase);
     if (fxRect) {
       ctx.globalAlpha = n(ctx.globalAlpha, 1) * fade;
@@ -3897,11 +3924,11 @@ class GameRenderer {
         const rect = skillFxFrameRect(fxImage, (this.elapsed * 2.2) % 1) || fxRect;
         const size = radius * 2;
         method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
-      } else if (fxId === 'gold-bead' || fxId === 'fire-pool') {
-        // Looping props: the rope bead pulses and the fire pool flickers on
-        // renderer time; both are drawn centered on the effect position.
-        const rect = skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'gold-bead' ? 1.8 : 2.6)) % 1) || fxRect;
-        const size = radius * (fxId === 'gold-bead' ? 2.4 : 2);
+      } else if (fxId === 'gold-bead' || fxId === 'skull-bead' || fxId === 'fire-pool') {
+        // Looping props: the prayer beads pulse and the fire pool flickers
+        // on renderer time; all are drawn centered on the effect position.
+        const rect = skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'fire-pool' ? 2.6 : 1.8)) % 1) || fxRect;
+        const size = radius * (fxId === 'fire-pool' ? 2 : 2.4);
         method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
       } else if (fxId === 'fan-wave' || fxId === 'gourd-vortex') {
         // Cone effects: the strip's narrow point sits at the effect origin
@@ -3922,7 +3949,7 @@ class GameRenderer {
         const size = radius * 2;
         method(ctx, 'rotate', n(effect.angle) + Math.PI / 2);
         method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
-      } else if (fxId === 'fire-burst') {
+      } else if (fxId === 'mountain-slam') {
         const size = radius * 2;
         method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
       } else if (fxId === 'rake-sweep') {
