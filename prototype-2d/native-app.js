@@ -17,7 +17,7 @@ import {attachSkillFx} from './src/skill-fx-animation.js';
 let assetsTotal=0,assetsDone=0,assetsFailed=0,assetsComplete=false;
 const assetProgress=()=>({done:assetsDone,total:assetsTotal,failed:assetsFailed,complete:assetsComplete});
 const canvas=document.querySelector('canvas');const audio=new AudioManager();const debugAllowed=(location.hostname==='localhost'||location.hostname==='127.0.0.1')&&new URLSearchParams(location.search).has('debug');const game=new NativeGame(canvas,{width:390,height:Math.min(844,window.innerHeight),pixelRatio:window.devicePixelRatio,debug:debugAllowed,audio,requestFrame:fn=>requestAnimationFrame(fn),cancelFrame:id=>cancelAnimationFrame(id),now:()=>performance.now(),load:key=>{try{return JSON.parse(localStorage.getItem(key));}catch{return null;}},save:(key,v)=>localStorage.setItem(key,JSON.stringify(v)),confirm:(text,accept)=>{if(confirm(text))accept();},assetProgress});window.xiyou=game;
-const fit=()=>{const r=canvas.getBoundingClientRect();if(r.width>0&&r.height>0)game.resize(Math.round(r.width),Math.round(r.height),window.devicePixelRatio||1,{top:0,bottom:r.height});};window.addEventListener('resize',fit,{passive:true});window.addEventListener('orientationchange',()=>setTimeout(fit,80),{passive:true});fit();
+const fit=()=>{const r=canvas.getBoundingClientRect();if(r.width<=0||r.height<=0)return;const vv=window.visualViewport;const vw=vv?vv.width:window.innerWidth,vh=vv?vv.height:window.innerHeight;const w=Math.min(Math.round(r.width),Math.round(vw)),h=Math.min(Math.round(r.height),Math.round(vh));game.resize(w,h,window.devicePixelRatio||1,{top:0,bottom:h});};window.addEventListener('resize',fit,{passive:true});window.visualViewport?.addEventListener('resize',fit,{passive:true});window.addEventListener('orientationchange',()=>setTimeout(fit,80),{passive:true});fit();
 const p=e=>{const r=canvas.getBoundingClientRect();return {x:(e.clientX-r.left)*game.w/r.width,y:(e.clientY-r.top)*game.h/r.height};};canvas.addEventListener('pointerdown',e=>{audio.unlock();canvas.setPointerCapture(e.pointerId);const q=p(e);game.touchStart(q.x,q.y);});canvas.addEventListener('pointermove',e=>{const q=p(e);game.touchMove(q.x,q.y);});canvas.addEventListener('pointerup',()=>game.touchEnd());canvas.addEventListener('pointercancel',()=>game.touchEnd());
 const keys=new Set();const input=()=>{game.input={x:Number(keys.has('d')||keys.has('arrowright'))-Number(keys.has('a')||keys.has('arrowleft')),y:Number(keys.has('s')||keys.has('arrowdown'))-Number(keys.has('w')||keys.has('arrowup'))};};window.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(e.key===' '){e.preventDefault();game.engine?.useDash(game.input);}else if(k==='p'||e.key==='escape'){e.preventDefault();if(game.engine?.state.status==='playing'){game.engine.pause();game.draw();}else if(game.engine?.state.status==='paused'){game.engine.resume();game.wake();game.draw();}}else if(k==='m'){game.save.muted=!game.save.muted;game.audio.setMuted(game.save.muted);game.persist();game.draw();}else{keys.add(k);input();}});window.addEventListener('keyup',e=>{keys.delete(e.key.toLowerCase());input();});document.addEventListener('visibilitychange',()=>document.hidden?game.onHide():game.onShow());window.addEventListener('pagehide',()=>game.dispose());
 // Authored PNGs load through a small concurrency pool (4 in flight).
@@ -33,6 +33,11 @@ const IMAGE_QUEUE_CONCURRENCY=4;
 const pumpImageQueue=()=>{while(imageQueueInFlight<IMAGE_QUEUE_CONCURRENCY){const item=priorityImageQueue.shift()||imageQueue.shift();if(!item)return;imageQueueInFlight++;const finish=(ok)=>{imageQueueInFlight--;assetsDone++;if(!ok)assetsFailed++;pumpImageQueue();if(!imageQueueInFlight&&!priorityImageQueue.length&&!imageQueue.length&&assetsTotal>0&&!assetsComplete){assetsComplete=true;setTimeout(()=>game.draw(),2600);}game.draw();};item.image.onload=async()=>{let ok=true;try{await item.onload?.();}catch{ok=false;item.onerror?.();}finally{finish(ok);}};item.image.onerror=()=>{try{item.onerror?.();}finally{finish(false);}};item.image.src=item.src;}};
 const queueImage=(image,src,onload,onerror,priority=false)=>{if(!assetsComplete)assetsTotal++;const item={image,src,onload,onerror};(priority?priorityImageQueue:imageQueue).push(item);if(!imageQueueScheduled){imageQueueScheduled=true;queueMicrotask(()=>{imageQueueScheduled=false;pumpImageQueue();});}};
 const sheet=new Image();queueImage(sheet,'./assets/hero-cards-v2-comic.png',()=>{game.heroSheet=sheet;game.draw();},()=>{},true);
+// Meta-layer art (panel paper, button wood, patrol & chapter icons): tiny
+// generated textures the UI draws when present and silently skips when not
+// (e.g. the WeChat build, which supplies no uiImages yet).
+const uiImages={};game.uiImages=uiImages;
+for(const [key,file] of Object.entries({paper:'ui-paper.jpg',wood:'ui-wood.jpg',patrol:'ui-patrol.jpg',chapter:'ui-chapter.jpg',poster:'ui-poster.jpg'})){const image=new Image();queueImage(image,`./assets/${file}`,()=>{uiImages[key]=image;game.draw();},()=>{},true);}
 // Transparent authored SVG art is retained for character cards and special
 // previews. The playable battle slice uses the real v3 frame sheets below;
 // the renderer's vector rig remains the deterministic fallback, so a single
@@ -106,10 +111,12 @@ for(const [id,file] of Object.entries(skillIconFiles)){
 }
 // Battle v3 sheets are real 4×2 animation atlases generated for gameplay,
 // not crops of the old gallery illustrations.  Each cell is a distinct pose:
-// idle/walk occupy the first row, attack/hit/dash the second row.  The
+// cell 0 is the neutral stance, cells 1-3 the stride cycle (first row),
+// attack/hit/dash the second row. Idle holds cell 0; the renderer's idle
+// pose wave supplies the breathing motion, so standing still never steps.  The
 // renderer mirrors the right-facing source for left-facing travel.
 const battleV3Sequences={
-  idle:[0,1,2,3,2,1], move:[1,2,3,1,2,3,2,1], attack:[4,4,5,5,4,5,5,4],
+  idle:[0,0,0,0,0,0], move:[1,2,3,1,2,3,2,1], attack:[4,4,5,5,4,5,5,4],
   hit:[6,5,6,5], stun:[6,6,0,1], dash:[7,5,7,5,7,5,7,5], intro:[0,1,2,3,0,1,2,3,0,1], death:[6,6,5,4,0,0,6,6]
 };
 const attachBattleV3Frames=(image,id)=>{
