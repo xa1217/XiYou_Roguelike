@@ -224,7 +224,7 @@ export const TALENTS = [
 
 export const DAILY_CHALLENGES = [
   { id: 'daily-kills', name: '百妖除尽', description: '单局击败 300 名妖怪。', target: 300, reward: 120 },
-  { id: 'daily-elite', name: '降伏精怪', description: '击败 3 名精英。', target: 3, reward: 150 },
+  { id: 'daily-elite', name: '降伏精怪', description: '单局击败 3 名精英。', target: 3, reward: 150 },
   { id: 'daily-no-dash', name: '稳如金刚', description: '不使用闪避通关一难。', target: 1, reward: 220 },
   { id: 'daily-stage', name: '西行一程', description: '完成任意一难。', target: 1, reward: 100 },
 ];
