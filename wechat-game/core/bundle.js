@@ -259,11 +259,11 @@ const weaponTuning = {
     { cooldown: 1.5, damage: 1.5, range: 8 * 36, projectileSpeed: 520, radius: 13, linger: 1, bounce: 5, bounceTargets: 5, split: 15, knockback: 0.25 },
   ],
   bajie: [
-    { cooldown: 1, damage: 1, range: 270, width: 28, bleed: 0.05, bleedTicks: [0.015, 0.015, 0.02], birds: 0, explosion: 0 },
-    { cooldown: 1, damage: 1.1, range: 285, width: 35, bleed: 0.1, bleedTicks: [0.03, 0.03, 0.04], birds: 0, explosion: 0 },
-    { cooldown: 1, damage: 1.2, range: 300, width: 42, bleed: 0.15, bleedTicks: [0.045, 0.045, 0.06], birds: 3, explosion: 0 },
-    { cooldown: 1, damage: 1.3, range: 315, width: 49, bleed: 0.2, bleedTicks: [0.06, 0.06, 0.08], birds: 6, explosion: 0 },
-    { cooldown: 1, damage: 1.45, range: 330, width: 56, bleed: 0.25, bleedTicks: [0.075, 0.075, 0.1], birds: 9, explosion: 64 },
+    { cooldown: 1, damage: 1, range: 135, width: 28, bleed: 0.05, bleedTicks: [0.015, 0.015, 0.02], birds: 0, explosion: 0 },
+    { cooldown: 1, damage: 1.1, range: 142.5, width: 35, bleed: 0.1, bleedTicks: [0.03, 0.03, 0.04], birds: 0, explosion: 0 },
+    { cooldown: 1, damage: 1.2, range: 150, width: 42, bleed: 0.15, bleedTicks: [0.045, 0.045, 0.06], birds: 3, explosion: 0 },
+    { cooldown: 1, damage: 1.3, range: 157.5, width: 49, bleed: 0.2, bleedTicks: [0.06, 0.06, 0.08], birds: 6, explosion: 0 },
+    { cooldown: 1, damage: 1.45, range: 165, width: 56, bleed: 0.25, bleedTicks: [0.075, 0.075, 0.1], birds: 9, explosion: 64 },
   ],
   wujing: [
     { cooldown: 1.5, damage: 1, range: 76, whirlRadius: 0, whirlDuration: 0, whirlDamage: 0 },
@@ -804,6 +804,283 @@ function snakeDrawFrame(image, state, frameIndex, radius) {
 Object.assign(module.exports,{SNAKE_SPRITE_ID,SNAKE_FRAME_COUNTS,SNAKE_FPS,isBattleSnake,attachSnakeFrames,snakeDrawFrame});
 
 },
+"boss-animation":function(module,exports,require){
+// Dedicated atlases for the three named first-stage final bosses.
+// Binding is identity-only: an entity must carry the engine-issued
+// battleSpriteId AND the matching frozen bossIdentity. Variant, name or a
+// copied sprite ID alone never suffices, and ordinary species atlases are
+// never used for these bosses (or vice versa). Mid-bosses (including the
+// tiger vanguard) and later-stage bosses stay on the vector identity rig
+// until they receive their own scoped contracts.
+const BOSS_FPS = Object.freeze({ idle: 8, move: 12, attack: 16, hit: 16, death: 10 });
+
+const BOSS_DEFS = Object.freeze({
+  'yin-general': Object.freeze({
+    bossId: 'yin-general', spriteId: 'yin-general-boss-v1', referenceBodyHeight: 168,
+    frameCounts: Object.freeze({ idle: 8, move: 8, attack: 8, hit: 4, death: 4 }), healthBarOffset: 2.85,
+  }),
+  'xiong-shanjun': Object.freeze({
+    bossId: 'xiong-shanjun', spriteId: 'xiong-shanjun-boss-v1', referenceBodyHeight: 190,
+    frameCounts: Object.freeze({ idle: 8, move: 8, attack: 8, hit: 4, death: 4 }), healthBarOffset: 2.9,
+  }),
+  'te-chushi': Object.freeze({
+    bossId: 'te-chushi', spriteId: 'te-chushi-boss-v1', referenceBodyHeight: 165,
+    // The authored sheet genuinely contains seven move and seven attack
+    // poses; the counts record that instead of padding with duplicates.
+    frameCounts: Object.freeze({ idle: 8, move: 7, attack: 7, hit: 4, death: 4 }), healthBarOffset: 2.8,
+  }),
+});
+
+function bossSpriteIdFor(bossId) {
+  return BOSS_DEFS[bossId]?.spriteId || null;
+}
+
+function isBattleBoss(entity, bossId) {
+  const def = BOSS_DEFS[bossId];
+  return Boolean(def) && entity?.battleSpriteId === def.spriteId
+    && entity.bossIdentity?.bossId === bossId
+    && (entity.kind === 'boss' || (entity.kind === 'death' && entity.enemyKind === 'boss'));
+}
+
+function attachBossFrames(bossId) {
+  const def = BOSS_DEFS[bossId];
+  if (!def) throw new Error(`Unknown boss atlas: ${bossId}`);
+  const totalFrames = Object.values(def.frameCounts).reduce((sum, count) => sum + count, 0);
+  return function attach(image, contract) {
+    const width = Number(image?.naturalWidth || image?.width);
+    const height = Number(image?.naturalHeight || image?.height);
+    if (width !== 1774 || height !== 887 || contract?.size?.[0] !== width || contract?.size?.[1] !== height
+        || contract.referenceBodyHeight !== def.referenceBodyHeight || contract.sourceRects?.length !== totalFrames
+        || contract.previewRootXs?.length !== 8 || contract.previewBaselines?.length !== 4) {
+      throw new Error(`Invalid ${bossId} boss atlas dimensions/anchors`);
+    }
+    const states = {};
+    let expectedIndex = 0;
+    // Rows cannot be derived from the global index: te-chushi legitimately
+    // has 8/7/7/8 frames per row. Each rectangle instead proves its own
+    // cell — poses are bottom-aligned on a row baseline and horizontally
+    // centered on a column root (both within a pixel in these contracts).
+    const expectedRow = { idle: 0, move: 1, attack: 2, hit: 3, death: 3 };
+    for (const [state, count] of Object.entries(def.frameCounts)) {
+      const sequence = contract.states?.[state];
+      if (sequence?.length !== count) throw new Error(`Invalid ${bossId} ${state} frame count`);
+      states[state] = sequence.map(index => {
+        if (index !== expectedIndex++) throw new Error(`Invalid ${bossId} frame order`);
+        const source = contract.sourceRects[index];
+        if (source?.index !== index || source.state !== state
+            || ![source.x, source.y, source.w, source.h].every(Number.isFinite)
+            || source.x < 0 || source.y < 0 || source.w <= 0 || source.h <= 0
+            || source.x + source.w > width || source.y + source.h > height) {
+          throw new Error(`Invalid ${bossId} source rectangle ${index}`);
+        }
+        const bottom = source.y + source.h;
+        let row = -1, rowDistance = Infinity;
+        contract.previewBaselines.forEach((baseline, i) => {
+          const distance = Math.abs(baseline - bottom);
+          if (distance < rowDistance) { rowDistance = distance; row = i; }
+        });
+        const col = Math.min(7, Math.max(0, Math.floor((source.x + source.w / 2) / (width / 8))));
+        const rootX = contract.previewRootXs[col];
+        if (row !== expectedRow[state] || rowDistance > 3 || !Number.isFinite(rootX)
+            || Math.abs(rootX - (source.x + source.w / 2)) > 4) {
+          throw new Error(`Invalid ${bossId} source rectangle ${index} anchors`);
+        }
+        return Object.freeze({ x: source.x, y: source.y, w: source.w, h: source.h, rootX, baseline: contract.previewBaselines[row] });
+      });
+      Object.freeze(states[state]);
+    }
+    image.__bossBattleSprite = true;
+    image.__prioritySprite = true;
+    image.__bossSpriteId = def.spriteId;
+    image.__bossFrames = Object.freeze({ referenceBodyHeight: def.referenceBodyHeight, states: Object.freeze(states) });
+    return image;
+  };
+}
+
+function bossDrawFrame(bossId, image, state, frameIndex, radius) {
+  const def = BOSS_DEFS[bossId];
+  if (!def || !image?.__bossBattleSprite || image.__bossSpriteId !== def.spriteId || !image.__bossFrames) return null;
+  const resolvedState = state === 'stun' ? 'hit' : (def.frameCounts[state] ? state : 'idle');
+  const frames = image.__bossFrames.states[resolvedState];
+  const index = Math.max(0, Math.floor(Number(frameIndex) || 0));
+  const frame = frames[['idle', 'move'].includes(resolvedState) ? index % frames.length : Math.min(index, frames.length - 1)];
+  const scale = radius * 3.2 / image.__bossFrames.referenceBodyHeight;
+  // One source-pixel scale across all poses, exactly like the species
+  // atlases: no stretch-to-fit, bob, rotation or squash.
+  return { x: frame.x, y: frame.y, w: frame.w, h: frame.h,
+    dx: (frame.x - frame.rootX) * scale, dy: radius * .7 + (frame.y - frame.baseline) * scale,
+    dw: frame.w * scale, dh: frame.h * scale };
+}
+
+Object.assign(module.exports,{BOSS_FPS,BOSS_DEFS,bossSpriteIdFor,isBattleBoss,attachBossFrames,bossDrawFrame});
+
+},
+"skill-fx-animation":function(module,exports,require){
+/*
+ * 西游·八十一难 — authored skill-effect sprite strips
+ *
+ * The four signature weapons fire constantly, so their battle effects are
+ * the most-seen animation in the game.  Each effect kind can be backed by
+ * a painted horizontal strip (square cells, one row) generated for this
+ * project:
+ *
+ *   sweep / heavy-sweep (Wukong)  -> 'slash-arc'  golden staff slash
+ *   light-orb projectile (Sanzang)-> 'light-orb'  pulsing prayer orb
+ *   hoe-line (Bajie)              -> 'rake-sweep' rake energy streak
+ *   staff-ring (Wujing)           -> 'water-ring' expanding water ring
+ *
+ * Frames advance with the effect's own progress (ttl), so the animation
+ * always matches the gameplay timing; the orb loops on renderer time
+ * instead.  When a strip has not loaded (or the platform supplies none,
+ * as on WeChat), the renderer keeps its procedural vector effect — this
+ * module only ever upgrades the pixels, never the mechanics.
+ */
+
+const SKILL_FX = Object.freeze({
+  'slash-arc': Object.freeze({ cell: 256, frames: 6 }),
+  'light-orb': Object.freeze({ cell: 256, frames: 6 }),
+  'rake-sweep': Object.freeze({ cell: 256, frames: 6 }),
+  'water-ring': Object.freeze({ cell: 256, frames: 6 }),
+  // Acquired-artifact effects (playtest line, 2026-10-22): the treasures a
+  // run picks up get the same painted treatment as the signature weapons.
+  'fan-wave': Object.freeze({ cell: 256, frames: 6 }),
+  'gourd-vortex': Object.freeze({ cell: 256, frames: 6 }),
+  'palm-burst': Object.freeze({ cell: 256, frames: 6 }),
+  'fire-burst': Object.freeze({ cell: 256, frames: 6 }),
+  // Acquired-artifact batch 2 (2026-10-22): the wind-fire wheel and the
+  // Qiankun ring are projectiles (routed in _drawProjectile like the orb);
+  // the golden rope beads and the wheel's fire trail are effects.
+  'fire-wheel': Object.freeze({ cell: 256, frames: 6 }),
+  'ring-spin': Object.freeze({ cell: 256, frames: 6 }),
+  'gold-bead': Object.freeze({ cell: 256, frames: 6 }),
+  'fire-pool': Object.freeze({ cell: 256, frames: 6 }),
+  // Batch 3 (2026-10-22): the seventy-two-changes wooden monkey clones and
+  // Wujing's water whirl pools complete the acquired-skill set.
+  'monkey-clone': Object.freeze({ cell: 256, frames: 6 }),
+  'whirl-pool': Object.freeze({ cell: 256, frames: 6 }),
+});
+
+// The effect kinds each strip serves.  Signature kinds come from the
+// weapon code paths; artifact kinds from fireArtifact in the engine.
+function skillFxIdForEffect(kind) {
+  if (kind === 'sweep' || kind === 'heavy-sweep') return 'slash-arc';
+  if (kind === 'hoe-line') return 'rake-sweep';
+  if (kind === 'staff-ring') return 'water-ring';
+  if (kind === 'fan') return 'fan-wave';
+  if (kind === 'gourd') return 'gourd-vortex';
+  if (kind === 'palm-strike') return 'palm-burst';
+  if (kind === 'mountain') return 'fire-burst';
+  if (kind === 'bead' || kind === 'skull-bead') return 'gold-bead';
+  if (kind === 'fire-trail' || kind === 'fire-pool') return 'fire-pool';
+  if (kind === 'monkey-clone') return 'monkey-clone';
+  if (kind === 'whirl') return 'whirl-pool';
+  return null;
+}
+
+function attachSkillFx(image, fxId) {
+  const def = SKILL_FX[fxId];
+  if (!def || !image) return null;
+  const width = Number(image.naturalWidth || image.width || 0);
+  const height = Number(image.naturalHeight || image.height || 0);
+  if (width !== def.cell * def.frames || height !== def.cell) return null;
+  image.__skillFx = fxId;
+  return image;
+}
+
+function skillFxReady(image) {
+  return !!(image && SKILL_FX[image.__skillFx]);
+}
+
+// Source rect for a phase in [0, 1].  Phases outside the range clamp to
+// the first/last frame so a long-lived effect never samples outside the
+// strip.
+function skillFxFrameRect(image, phase) {
+  const def = image && SKILL_FX[image.__skillFx];
+  if (!def) return null;
+  const p = Math.min(0.9999, Math.max(0, Number(phase) || 0));
+  const frame = Math.floor(p * def.frames);
+  return { x: frame * def.cell, y: 0, w: def.cell, h: def.cell, frame, frames: def.frames };
+}
+
+Object.assign(module.exports,{SKILL_FX,skillFxIdForEffect,attachSkillFx,skillFxReady,skillFxFrameRect});
+
+},
+"scene-collision":function(module,exports,require){
+// Scene collision masks for the painted chapter scenes (playtest line,
+// 2026-10-23). The painted scenes are arena illustrations: an open plaza
+// surrounded by terrain masses — mountains, cliffs, rivers, lava, ponds,
+// ruins. These 120x120 bitmasks (15 world units per cell, row-major,
+// 1 = blocked) were traced from the artwork as rendered (forest/temple in
+// their center-cropped cover view) so movement collision matches the
+// background: actors can no longer walk through mountains, rivers, lava
+// or buildings, or climb onto the painted sky. Doublefork's mask adds
+// its side massifs and sky strip on top of its authored ridge rule in
+// engine.js (both must pass). Masks were baked by
+// evidence/current/scene-collision/build_scene_collision.py — regenerate
+// there, never hand-edit the base64.
+const SCENE_MASK_COLS = 120;
+const SCENE_MASK_ROWS = 120;
+const SCENE_MASKS = Object.freeze({
+  water: '///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////D////////////////4AAB//////////////4AAAAAf///////////+AAAAAAAP//////////+AAAAAAAAD/////////+AAAAAAAAAB/////////AAAAAAAAAAAf///////4AAAAAAAAAAAP///////gAAAAAAAAAAAAP/////8AAAAAAAAAAAAAP/////wAAAAAAAAAAAAAf////+AAAAAAAAAAAAAAf////4AAAAAAAAAAAAAAf////AAAAAAAAAAAAAAA////4AAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAB///4AAAAAAAAAAAAAAAB///gAAAAAAAAAAAAAAAB///gAAAAAAAAAAAAAAAD///gAAAAAAAAAAAAAAAD///gAAAAAAAAAAAAAAAH///gAAAAAAAAAAAAAAAH///gAAAAAAAAAAAAAAAH///gAAAAAAAAAAAAAAAP///gAAAAAAAAAAAAAAAP///gAAAAAAAAAAAAAAAP///gAAAAAAAAAAAAAAAP///gAAAAAAAAAAAAAAAP///gAAAAAAAAAAAAAAAP///gAAAAAAAAAAAAAAAP///gAAAAAAAAAAAAAAAP///gAAAAAAAAAAAAAAAH///AAAAAAAAAAAAAAAAH///AAAAAAAAAAAAAAAAH///AAAAAAAAAAAAAAAAH///gAAAAAAAAAAAAAAAH///gAAAAAAAAAAAAAAAH///wAAAAAAAAAAAAAAAD///wAAAAAAAAAAAAAAAD///4AAAAAAAAAAAAAAAD///4AAAAAAAAAAAAAAAD///8AAAAAAAAAAAAAAAD///8AAAAAAAAAAAAAAAD///+AAAAAAAAAAAAAAAD////AAAAAAAAAAAAAAAB////4AAAAAAAAAAAAAAB/////AAAAAAAAAAAAAAB/////wAAAAAAAAAAAAAB/////4AAAAAAAAAAAAAB/////4AAAAAAAAAAAAAB/////4AAAAAAAAAAAAAB/////4AAAAAAAAAAAAAA/////4AAAAAAAAAAAAAA/////4AAAAAAAAAAAAAA/////4AAAAAAAAAAAAAB/////8AAAAAAAAAAAAAB/////8AAAAAAAAAAAB/D/////8AAAAAAAAAAD//j/////8AAAAAAAAAAP//3/////4AAAAAAAAAAf////////wAAAAAAAAAB//////8AAAAAAAAAAAAH//////8AAAAAAAAAAAAP//////8AAAAAAAAAAAAf//////8AAAAAAAAAAAAf//////8AAAAAAAAAAAAf//////8AAAAAAAAAAAAf//////8AAAAAAAAAAAAf//////8AAAAAAAAAAAAf//////8AAAAAAAAAAAAf//////8AAAAAAAAAAAAf//////8AAAAAAAAAAAAf//////8AAAAQAAAAAAB///////8AAAAYAAAAAD////////8AAAAcAAAAH/////////8AAAAf/gAP//////////8AAAAf//////////////8AAAAf//////////////8AAAAf//////////////8AAAAf//////////////8AAAAf//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////',
+  fire: '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+H//////////////////8AP/////////////////8AH/////////////////4AD/////////////////4AA//////////+//////wAA//8AB/////wf/////gAA//AAAP7//8Af/////gAB/wAAAAAP/AAP/////AAB//AAAAAAwAAP////wAAB//gAAAAAAAAH8Af4AAAB//gAAAAAAAAHAAAAAAAB//wAAAAAAAAAAAAAAAAB//wAAAAAAAAAAAAAAAAB//wAAAAAAAAAAAAAAAAB//4AAAAAAAAAAAAAAAAB//4AAAAAAAAAAAAAAAAB//8AAAAAAAAAAAAAAAAB//8AAAAAAAAAAAAAAAAD//8AAAAAAAAAAAAAAAAD//+AAAAAAAAAAAAAAAAH//+AAAAAAAAAAAAAAAAH//+AAAAAAAAAAAAAAAAP///AAAAAAAAAAAAAAAAf///AAAAAAAAAAAAAAAAf///AAAAAAAAAAAAAAAA////gAAAAAAAAAAAAAAA////gAAAAAAAAAAAAAAA////gAAAAAAAAAAAAAAA////gAAAAAAAAAAAAAAA////wAAAAAAAAAAAAAAA////wAAAAAAAAAAAAAAAf///wAAAAAAAAAAAAAAAf///4AAAAAAAAAAAAAAAf///4AAAAAAAAAAAAAAAf///wAAAAAAAAAAAAAAAf///wAAAAAAAAAAAAAAAf///wAAAAAAAAAAAAAAAf///wAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAP///gAAAAAAAAAAAAAAAP///gAAAAAAAAAAAAAAAP///gAAAAAAAAAAAAAAAP///gAAAAAAAAAAAAAAAf///gAAAAAAAAAAAAAAAf///gAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAA////gAAAAAAAAAAAAAAA////gAAAAAAAAAAAAAAB////gAAAAAAAAAAAAAAB////wAAAAAAAAAAAAAAB////wAAAAAAAAAAAAAAD////wAAAAAAAAAAAAAP/////4AAAAAAAAAAAAA//////4AAAAAD4AAAAAB//////8AAAAAP/4AAAAH//////8AAAAA//8AAAAf//////8/4AAB///AAAAf/////////AAH///gAAAf/////////gAP///4AAAf/////////wAP///8AAAf/////////8AP///+AAAP/////////+AP///+AAAP//////////AP////AAAP//////////AP////AAAP//////////AP////gAAH//////////AP////gAAD//////////AP////wAAB///n//////AD////wAAAf//h//////AA////gAAAP//g//////AAP///AAAOD//+//////AAH//8MAAfgD///////+AAAf/w/AB/4H////8//+AAAQAB/wD/+P////4f/+AAB8AD/8P///////wH4DwAH/gH//////////jgAH8AP/4P//////////v4Af/A//+f///////////+B//x/////////////B//j///////////////wH//////////////////A///////////////////P///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////',
+  sand: '/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////7///////////////////wf///////////////////H///////////////////g///////////////////wD//////////////////4AP/////////////////4AB/////////f///////8AA////////+f///////+AAf///////8f////////AAH///////4f////////AAD///////wf////////gAB///////wP////////wAA///////wP////////wAAf//////wP////////wAAP//////4P////////4AAH//////4H//7/////4AAD//////4B//x/////8AAB/4f///4A//g/////8AAA+AB///8Af/A/////8AAAAAAf//4AP8Af////+AAAAAAf//AAAAAP////+AAAAAAB/4AAAAAP/////AAAAAAAAAAAAAAH/////AAAAAAAAAAAAAAAf////AAAAAAAAAAAAAAAP////AAAAAAAAAAAAAAH/////AAAAAAAAAAAAAAP/////AAAAAAAAAAAAAAP/////AAAAAAAAAAAAAAf/////AAAAAAAAAAAAAAf/////AAAAAAAAAAAAAA//////AAAAAAAAAAAAAB//////AAAAAAAAAAAAAB//////AAAAAAAAAAAAAD/////+AAAAAAAAAAAAAD/////+AAAAAAAAAAAAAD/////+AAAAAAAAAAAAAD/////+AAAAAAAAAAAAAB/////+AAAAAAAAAAAAAB//////AAAAAAAAAAAAAB//////AAAAAAAAAAAAAB///f//gAAAAAAAAAAAAB//4P//wAAAAAAAAAAAAB//AH//wAAAAAAAAAAAAA//AH//4AAAAAAAAAAAAA//AD//8AAAAAAAAAAAAA//AB//8AAAAAAAAAAAAB//AB//+AAAAAAAAAAAAB//AA//+AAAAAAAAAAAAD//AA//+AAAAAAAAAAAAD//AAf/+AAAAAAAAAAAAH//AAf/+AAAAAAAAAAAAP//AAf/+AAAAAAAAAAAAP//AAf/+AAAAAAAAAAAAf//AAP/+AAAAAAAAAAAAf//AAP/+AAAAAAAAAAAAf//AAP/+AAAAAAAAAAAAf//AAH/+AAAAAAAAAAAAf//AAH/8AAAAAAAAAAAA///AAH/8AAAAAAAAAAAA///AAD/8AAAAAAAAAAAA///AAB/4AAAAAAAAAAAA///AAA/4AAAAAAAAAAAA///AAAfwAAAAAAAAAAAA///AAAPgAAAAAAAAAAAAf//AAAHAAAAAAAAAAAAAP//AAADAAAAAAAAAAAAAH//AAAAAAAAAAAAAAAAPj//AAAAAAAAAAA/AH///x/////wAAAAAAD//////4/////4AAAD8AP//////+AA///4AAAH/gf///////AA///4AAAf/4////////AA///4AAA//5////////AA///4AAB///////////gA///8AAB///////////gA///8AAB///////////gA///8AAB///////////gA///8AAB///////////gA///8AAB///////////gA///+AAB///////////gA///+AAB///////////gA///+AAB///////////gA///+AAB///////////AA///+AAB///////////AA///+AAA///////////AA///8AAAf/9///////+AA///8AAAP/5///////+AA///4AAAH/4///////+AA///4AAAD/gf//////8AA///wAAAB4Af//////8AA///wAAAAAAP//////8OA///gAAAwAAP//////8/wAAAAAAB+AAH/////////AAAA/gH/gAD/////////AAAD/8f/8AD/////////AAAP/////AB/////////AAA//////gAf////////AAB//////wAP////////AAD//////4AD////////AAD//////+AB/+B/////AAD///////AAfAAH////AAD///////gAAAAAP///AAD///////gAAAAAA///AAD///////gAAAAAA///AAD///////wAAAAAA///AAD///////wAAAAAA///AAH///////wAAAAAA///',
+  snow: '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8D///////////////////x///////////////////+f///////////////////H///////////////////j/w/////////////////g8Af////////////////wAAP////////////////4AAH////////////////8AAD////////////////8AAA//////8f////////+AAAf/////4D/////////AAAP/////gA/////////gAAH/9///AAD//+f////gAAD/wf/+AAB//8P////wAAB+AP/8AAA//4P////wAAAQAD/AAAAf/wH////4AAAAABwAAAAH/gD////4AAAAAAAAAAAD4AD////8AAAAAAAAAAAAAAA////8AAAAAAAAAAAAAAAH///+AAAAAAAAAAAAAAB////+AAAAAAAAAAAAAAB////+AAAAAAAAAAAAAAD////+AAAAAAAAAAAAAAD////+AAAAAAAAAAAAAAH////+AAAAAAAAAAAAAAH////+AAAAAAAAAAAAAAP////8AAAAAAAAAAAAAAP////8AAAAAAAAAAAAAAf////8AAAAAAAAAAAAAAf////8AAAAAAAAAAAAAA/////8AAAAAAAAAAAAAA/////8AAAAAAAAAAAAAA/////8AAAAAAAAAAAAAA/////8AAAAAAAAAAAAAA/////4AAAAAAAAAAAAAA/////8AAAAAAAAAAAAAAf////8AAAAAAAAAAAAAAf////8AAAAAAAAAAAAAAf////+AAAAAAAAAAAAAAf////+AAAAAAAAAAAAAAf////+AAAAAAAAAAAAAAf/////AAAAAAAAAAAAAAf/9///AAAAAAAAAAAAAAf/B///AAAAAAAAAAAAAAf/A///gAAAAAAAAAAAAAP/A///gAAAAAAAAAAAAAf/Af//gAAAAAAAAAAAAAf/Af//gAAAAAAAAAAAAAf/Af//gAAAAAAAAAAAAA//AP//wAAAAAAAAAAAAA//AP//wAAAAAAAAAAAAA//AH//wAAAAAAAAAAAAB//AH//wAAAAAAAAAAAAB//AH//wAAAAAAAAAAAAB//AD//wAAAAAAAAAAAAB//AD//wAAAAAAAAAAAAD//AB//wAAAAAAAAAAAAD//AB//wAAAAAAAAAAAAD//AA//wAAAAAAAAAAAAD//AA//wAAAAAAAAAAAAD//AAf/wAAAAAAAAAAAAB//AAP/wAAAAAAAAAAAAB//AAH/gAAAAAAAAAAAAB//AAD/AAAAAAAAAAAAAB//AAB+AAAAAAAAAAAAAB//AAA8AAAAAAAAAAAfgB//AAAcAAAAAHAAf///4A//H//wAAAAAf8D////+A//f//wAAAAA////////g/////wAAAAD////////wf////wDwAAH////////wH////4H/4AP////////wD////4f/+AP////////wA8///4///AP////////4AA///////wP////////4AA///////4P////////4AA///////8P////////4AA///////+P////////8AA///9////P////////8AA///9////P////////4AA///9////v////////4AA///9/////////////4AA///5/////////////4AA///4/////////////wAA///4////3////////wAA///4////n////////wAA///4f///n////////gAA///wH///D////////gAA///wD///D////////n4A///wB//+B//////////4///wAf/8B///////////f//wAP/9h///////////P//gAHAHw///////////AAAADwAf4///////////AAAAP/h/8f//////////AAAAf///+f//////////AAAB/////H//////////AAAD/////h//////////AAAP/////w//////////AAAP/////wP/////////AAAP/////wH/8H//////AAAP/////wB+AAP/////AAAP/////4AAAAAf////AAAf/////4AAAAAA////AAAf/////4AAAAAA////AAAf/////4AAAAAA////AAAf/////8AAAAAA////',
+  forest: '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////4///////////////////wH//////////////////AB////////////////P+AA///////////////+D8AA///////////////8A4AA///////////////4AAAA/5/8H//////////wAAAA/8fgB//////////gAAAA/8GAAf/////////AAAAA/+AAAH/////////j8AAA/+AAAD///////////ADw//AAAB///////////w/8//AAAA////////////////gAAAP///////////////gAAAH////j//////////gAAAA///8D//////////gAAAAB//gB//////////gAAAAAB8AA//////////gAAAAAAAAA//////////gAAAAAAAAAfwB//wAH//AAAAAAAAAAOAAH4AAA//AAAAAAAAAAAAAAAAAA//AAAAAAAAAAAAAAAAAA//AAAAAAAAAAAAAAAAAA//AAAAAAAAAAAAAAAAAA/+AAAAAAAAAAAAAAAAAA/+AAAAAAAAAAAAAAAAAA/+AAAAAAAAAAAAAAAAAA//AAAAAAAAAAAAAAAAAA//AAAAAAAAAAAAAAAAAA//gAAAAAAAAAAAAAAAAA//gAAAAAAAAAAAAAAAAA//wAAAAAAAAAAAAAAAAA//wAAAAAAAAAAAAAAAAA//4AAAAAAAAAAAAAAAAA//4AAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAA//+AAAAAAAAAAAAAAAAA//+AAAAAAAAAAAAAAAAA//+AAAAAAAAAAAAAAAAA//+AAAAAAAAAAAAAAAAA///AAAAAAAAAAAAAAAAA///AAAAAAAAAAAAAAAAA///AAAAAAAAAAAAAAAAA///AAAAAAAAAAAAAAAAA///gAAAAAAAAAAAAAAAA///gAAAAAAAAAAAAAAAA///gAAAAAAAAAAAAAAAA///AAAAAAAAAAAAAAAAA///AAAAAAAAAAAAAAAAA///AAAAAAAAAAAAAAAAD///AAAAAAAAAAAAAAAAP//+AAAAAAAAAAAAAAAAf//+AAAAAAAAAAAAAAAAf//+AAAAAAAAAAAAAAAAf//+AAAAAAAAAAAAAAAAf//8AAAAAAAAAAAAAAAAf//8AAAAAAAAAAAAAAAAf//8AAAAAAAAAAAAAAAAf//8AAAAAAAAAAAAAAAA///+AAAAAAAAAAAAAAAA///+AAAAAAeAAAAAAAAA///+AAAAAB/wAAAAAAAA////AAAAAH/wAAAAAAAA////AAAAAH/wAAAAAAAA////AAAAAH/wAAAAAAAA////gAAAAH/wA/8Af//8////gAAAAH/4D///////////gAAAAD/wf///////////gAAAAAcB////////////AB/8AAAB////////////AD/+AAAB///////////+AP//gAAB///////////+Af//wAAB///////////8B///4AAB//////////+AB///8AAB//////////+AD///8AAB//////////+AD///+AAB//////////+AD///+AAB//////////+AD///+AAB//////////+AD///+AAB///////////AD////AAB///////////AD////AAA///////////AB////AAA///////////AB////fAA///////////AA/////AA///////////AA/////AA///////////AAf////gAf//////////AAf////gAf//////////AAP////wAf//////////AAH////wYf/////////+AAD////z8f/////////+AAA/////+P/////////+AAAf8H///P/////////+AAAPgA///P/////////+AAAGAAP//n/////////8AAAAAAP//n/////////8AAAAAAP//n/////////8AAAAAAf//j/////////8AAAAAAf//j/////////4AAAAAAf//h/////////4AAAAAAf//h/////////4AAAAAA///h/////////4AAAAAA///g////////',
+  temple: '//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////4///////////////////wH//////////////////AB////////////////P+AA///////////////+D8AA///////////////8A4AA///////////////4AAAA/5/8H//////////wAAAA/8fgB//////////gAAAA/8GAAf/////////AAAAA/+AAAH/////////j8AAA/+AAAD///////////ADw//AAAB///////////w/8//AAAA////////////////gAAAP///////////////gAAAH////j//////////gAAAA///8D//////////gAAAAB//gB//////////gAAAAAB8AA//////////gAAAAAAAAA//////////gAAAAAAAAAfwB//wAH//AAAAAAAAAAOAAH4AAA//AAAAAAAAAAAAAAAAAA//AAAAAAAAAAAAAAAAAA//AAAAAAAAAAAAAAAAAA//AAAAAAAAAAAAAAAAAA/+AAAAAAAAAAAAAAAAAA/+AAAAAAAAAAAAAAAAAA/+AAAAAAAAAAAAAAAAAA//AAAAAAAAAAAAAAAAAA//AAAAAAAAAAAAAAAAAA//gAAAAAAAAAAAAAAAAA//gAAAAAAAAAAAAAAAAA//wAAAAAAAAAAAAAAAAA//wAAAAAAAAAAAAAAAAA//4AAAAAAAAAAAAAAAAA//4AAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAA//+AAAAAAAAAAAAAAAAA//+AAAAAAAAAAAAAAAAA//+AAAAAAAAAAAAAAAAA//+AAAAAAAAAAAAAAAAA///AAAAAAAAAAAAAAAAA///AAAAAAAAAAAAAAAAA///AAAAAAAAAAAAAAAAA///AAAAAAAAAAAAAAAAA///gAAAAAAAAAAAAAAAA///gAAAAAAAAAAAAAAAA///gAAAAAAAAAAAAAAAA///AAAAAAAAAAAAAAAAA///AAAAAAAAAAAAAAAAA///AAAAAAAAAAAAAAAAD///AAAAAAAAAAAAAAAAP//+AAAAAAAAAAAAAAAAf//+AAAAAAAAAAAAAAAAf//+AAAAAAAAAAAAAAAAf//+AAAAAAAAAAAAAAAAf//8AAAAAAAAAAAAAAAAf//8AAAAAAAAAAAAAAAAf//8AAAAAAAAAAAAAAAAf//8AAAAAAAAAAAAAAAA///+AAAAAAAAAAAAAAAA///+AAAAAAeAAAAAAAAA///+AAAAAB/wAAAAAAAA////AAAAAH/wAAAAAAAA////AAAAAH/wAAAAAAAA////AAAAAH/wAAAAAAAA////gAAAAH/wA/8Af//8////gAAAAH/4D///////////gAAAAD/wf///////////gAAAAAcB////////////AB/8AAAB////////////AD/+AAAB///////////+AP//gAAB///////////+Af//wAAB///////////8B///4AAB//////////+AB///8AAB//////////+AD///8AAB//////////+AD///+AAB//////////+AD///+AAB//////////+AD///+AAB//////////+AD///+AAB///////////AD////AAB///////////AD////AAA///////////AB////AAA///////////AB////fAA///////////AA/////AA///////////AA/////AA///////////AAf////gAf//////////AAf////gAf//////////AAP////wAf//////////AAH////wYf/////////+AAD////z8f/////////+AAA/////+P/////////+AAAf8H///P/////////+AAAPgA///P/////////+AAAGAAP//n/////////8AAAAAAP//n/////////8AAAAAAP//n/////////8AAAAAAf//j/////////8AAAAAAf//j/////////4AAAAAAf//h/////////4AAAAAAf//h/////////4AAAAAA///h/////////4AAAAAA///g////////',
+  doublefork: '/////////////////////////////////////////////////////////////////+AAf//gD////////////8AAAAAAAB///////////8AAAAAAAAP//////////4AAAAAAAAH//////////wAAAAAAAAD//////////gAAAAAAAAA/////////+AAAAAAAAAAP////////4AAAAAAAAAAH////////wAAAAAAAAAAB////////AAAAAAAAAAAA///////+AAAAAAAAAAAB////////AAAAAAAAAAAB////////gAAAAAAAAAAB////////gAAAAAAAAAAB////////wAAAAAAAAAAD////////wAAAAAAAAAAD////////4AAAAAAAAAAD////////8AAAAAAAAAAD////////8AAAAAAAAAAD////////8AAAAAAAAAAB////////4AAAAAAAAAAA////////4AAAAAAAAAAAf///////wAAAAAAAAAAAP///////gAAAAAAAAAAAP///////gAAAAAAAAAAAH///////AAAAAAAAAAAAf///////AAAAAAAAAAAB////////AAAAAAAAAAAH////////gAAAAAAAAAAf////////4AAAAAAAAAB/////////8AAAAAAAAAH//////////AAAAAAAAAP//////////gAAAAAAAAf//////////wAAAAAAAB///////////8AAAAAAAD///////////+AAAAAAAH////////////AAAAAAAP////////////gAAAAAAf////////////wAAAAAAf////////////wAAAAAAf////////////4AAAAAAf////////////4AAAAAA/////////////8AAAAAA/////////////8AAAAAA/////////////+AAAAAB/////////////+AAAAAB//////////////AAAAAB//////////////AAAAAB//////////////gAAAAD//////////////gAAAAD//////////////gAAAAD//////////////AAAAAD//////////////AAAAAD//////////////AAAAAD//////////////AAAAAH//////////////AAAAAD//////////////AAAAAD//////////////AAAAAD/////////////+AAAAAB/////////////+AAAAAB/////////////+AAAAAB/////////////8AAAAAA/////////////8AAAAAA/////////////4AAAAAAf////////////wAAAAAAf////////////gAAAAAAH////////////AAAAAAAB///////////+AAAAAAAA///////////8AAAAAAAAP//////////4AAAAAAAAD//////////AAAAAAAAAB/////////8AAAAAAAAAAf////////gAAAAAAAAAAH////////AAAAAAAAAAAB///////+AAAAAAAAAAAAf//////8AAAAAAAAAAAAP//////4AAAAAAAAAAAAH//////wAAAAAAAAAAAAD//////gAAAAAAAAAAAAD//////wAAAAAAAAAAAAB//////8AAAAAAAAAAAAA//////+AAAAAAAAAAAAA///////gAAAAAAAAAAAAf//////4AAAAAAAAAAAA///////8AAAAAAAAAAAB////////AAAAAAAAAAAB////////gAAAAAAAAAAD////////wAAAAAAAAAAH////////wAAAAAAAAAAH////////4AAAAAAAAAAP////////4AAAAAAAAAAf////////4AAAAAAAAAB/////////8AAAAAAAAAD/////////4AAAAAAAAAH/////////wAAAAAAAAAP/////////AAAAAAAAAAf////////+AAAAAAAAAAf////////4AAAAAAAAAAP////////gAAAAAAAAAAP////////gAAAAAAAAAAH////////4AAAAAAAAAAH////////+AAAAAAAAAAD/////////gAAAAAAAAAD/////////4AAAAAAAAAH/////////8AAAAAAAAAf//////////AAAAAAAAB///////////AAAAAAAAH///////////AAAAAAEAf//////////+AAAAAAfh///////////+AAPgAB/////////////+AA/wAH/////////////+AA/4AH/////////////8AB/4AP/////////////8AB/4AP/////////////4AB/wAP/9///////////gAD/wAP/9///////////AAD/wAP/8//////',
+});
+const CAVE_MOUTHS = Object.freeze({
+  doublefork: [[668,656],[620,1136],[1132,656],[1180,1136],[520,1300]],
+  water: [[170,760],[1535,760],[1255,1280]],
+  fire: [[300,520],[1000,575],[880,1150],[580,1330]],
+  sand: [[880,520],[1420,520],[420,760],[1000,1150]],
+  snow: [[410,760],[1050,470],[1000,1170],[1560,900]],
+  forest: [[320,760],[1250,560],[720,1240],[920,1330]],
+  temple: [[320,760],[1250,560],[720,1240],[920,1330]],
+});
+function caveMouthsFor(key) { return CAVE_MOUTHS[key] || []; }
+const decoded = {};
+const B64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+function maskFor(key) {
+  // Hand-rolled base64 decode: the shared core also runs in the WeChat
+  // bundle, where atob is not guaranteed to exist.
+  if (!decoded[key]) {
+    const text = SCENE_MASKS[key].replace(/=+$/, '');
+    const bits = new Uint8Array((text.length * 3) >> 2);
+    let buffer = 0, bitsInBuffer = 0, out = 0;
+    for (let i = 0; i < text.length; i++) {
+      buffer = (buffer << 6) | B64.indexOf(text[i]); bitsInBuffer += 6;
+      if (bitsInBuffer >= 8) { bitsInBuffer -= 8; bits[out++] = (buffer >> bitsInBuffer) & 0xff; }
+    }
+    decoded[key] = bits;
+  }
+  return decoded[key];
+}
+function sceneMaskHas(key) { return Boolean(SCENE_MASKS[key]); }
+// Circle-vs-mask test in world coordinates: true when any blocked cell
+// intersects the circle. Cells outside the grid count as open (the world
+// clamp in moveEntity handles the boundary).
+function sceneCircleBlocked(key, x, y, radius, worldSize) {
+  if (!SCENE_MASKS[key]) return false;
+  const bits = maskFor(key);
+  const cell = worldSize / SCENE_MASK_COLS;
+  const c0 = Math.max(0, Math.floor((x - radius) / cell)), c1 = Math.min(SCENE_MASK_COLS - 1, Math.floor((x + radius) / cell));
+  const r0 = Math.max(0, Math.floor((y - radius) / cell)), r1 = Math.min(SCENE_MASK_ROWS - 1, Math.floor((y + radius) / cell));
+  for (let r = r0; r <= r1; r++) {
+    for (let c = c0; c <= c1; c++) {
+      const idx = r * SCENE_MASK_COLS + c;
+      if (!(bits[idx >> 3] & (0x80 >> (idx & 7)))) continue;
+      const nx = Math.max(c * cell, Math.min(x, (c + 1) * cell));
+      const ny = Math.max(r * cell, Math.min(y, (r + 1) * cell));
+      if ((x - nx) * (x - nx) + (y - ny) * (y - ny) <= radius * radius) return true;
+    }
+  }
+  return false;
+}
+
+Object.assign(module.exports,{SCENE_MASK_COLS,SCENE_MASK_ROWS,CAVE_MOUTHS,caveMouthsFor,sceneMaskHas,sceneCircleBlocked});
+
+},
 "battle-enemy-animation":function(module,exports,require){
 const { TIGER_SPRITE_ID, TIGER_FRAME_COUNTS, TIGER_FPS, isBattleTiger, tigerDrawFrame } = require('tiger-animation');
 const { BEAR_SPRITE_ID, BEAR_FRAME_COUNTS, BEAR_FPS, isBattleBear, bearDrawFrame } = require('bear-animation');
@@ -813,6 +1090,7 @@ const { MONKEY_SPRITE_ID, MONKEY_FRAME_COUNTS, MONKEY_FPS, isBattleMonkey, monke
 const { DEER_SPRITE_ID, DEER_FRAME_COUNTS, DEER_FPS, isBattleDeer, deerDrawFrame } = require('deer-animation');
 const { HAWK_SPRITE_ID, HAWK_FRAME_COUNTS, HAWK_FPS, isBattleHawk, hawkDrawFrame } = require('hawk-animation');
 const { SNAKE_SPRITE_ID, SNAKE_FRAME_COUNTS, SNAKE_FPS, isBattleSnake, snakeDrawFrame } = require('snake-animation');
+const { BOSS_DEFS, BOSS_FPS, isBattleBoss, bossDrawFrame, bossSpriteIdFor } = require('boss-animation');
 
 // One shared decision for clocks, retained death identity, culling and drawing.
 // No per-frame allocations and no variant-only match for elites or bosses.
@@ -827,7 +1105,23 @@ const actors = Object.freeze({
   snake: Object.freeze({ id: SNAKE_SPRITE_ID, variant: 'snake', frames: SNAKE_FRAME_COUNTS, fps: SNAKE_FPS, healthBarOffset: 3.45, matches: isBattleSnake, drawFrame: snakeDrawFrame }),
 });
 
+// Named final bosses resolve through their engine-issued sprite ID plus
+// frozen identity, in a registry separate from the species table. The
+// actor's `variant` slot carries the bossId because the renderer uses it
+// as the enemyImages key; it is never matched against entity.variant.
+const bossActors = Object.freeze(Object.fromEntries(Object.entries(BOSS_DEFS).map(([bossId, def]) => [
+  def.spriteId,
+  Object.freeze({
+    id: def.spriteId, variant: bossId, frames: def.frameCounts, fps: BOSS_FPS,
+    healthBarOffset: def.healthBarOffset,
+    matches: entity => isBattleBoss(entity, bossId),
+    drawFrame: (image, state, frameIndex, radius) => bossDrawFrame(bossId, image, state, frameIndex, radius),
+  }),
+])));
+
 function battleEnemyAnimation(entity) {
+  const boss = bossActors[entity?.battleSpriteId];
+  if (boss?.matches?.(entity)) return boss;
   const actor = actors[entity?.variant];
   return actor?.matches?.(entity) ? actor : null;
 }
@@ -836,7 +1130,14 @@ function battleEnemySpriteId(stageId, kind, variant) {
   return stageId === 1 && kind === 'normal' ? actors[variant]?.id || null : null;
 }
 
-Object.assign(module.exports,{battleEnemyAnimation,battleEnemySpriteId});
+// Boss art binds through the frozen bossIdentity issued by content, never
+// through variant: the same tiger/bear/bull variants also name ordinary
+// enemies, elites and the unbound mid-boss.
+function battleBossSpriteId(stageId, identity) {
+  return stageId === 1 ? bossSpriteIdFor(identity?.bossId) : null;
+}
+
+Object.assign(module.exports,{battleEnemyAnimation,battleEnemySpriteId,battleBossSpriteId});
 
 },
 "engine":function(module,exports,require){
@@ -848,7 +1149,8 @@ const {
   getStage,
   getWeaponStats,
 } = require('content');
-const { battleEnemyAnimation, battleEnemySpriteId } = require('battle-enemy-animation');
+const { battleEnemyAnimation, battleEnemySpriteId, battleBossSpriteId } = require('battle-enemy-animation');
+const { sceneCircleBlocked, sceneMaskHas, caveMouthsFor } = require('scene-collision');
 
 const TAU = Math.PI * 2;
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
@@ -879,11 +1181,16 @@ function mulberry32(seed) {
 }
 
 const WEAPON_PREFIX = 'weapon:';
+// Playtest change (2026-10-21): normals arrive in waves every WAVE_SECONDS.
+// Small waves are single-species; every 5th wave is a big mixed-species wave.
+const WAVE_SECONDS = 5;
+const BIG_WAVE_EVERY = 5;
 
 class GameEngine {
   constructor(options = {}) {
     this.options = options;
     this.debugMode = options.debug === true;
+    this.viewRect = null;
     this.debugInvincible = false;
     this.seed = Number(options.seed == null ? Date.now() : options.seed) >>> 0;
     this.random = mulberry32(this.seed);
@@ -896,7 +1203,8 @@ class GameEngine {
     this.disposed = false;
     this.elapsed = 0;
     this.weaponShots = 0;
-    this.spawnAccumulator = 0;
+    this.spawnAccumulator = WAVE_SECONDS - 1;
+    this.waveIndex = 0;
     this.elitesSpawned = new Set();
     this.bossSpawned = false;
     this.finalBossSpawned = false;
@@ -984,8 +1292,16 @@ class GameEngine {
   // which also lets dash and joystick movement share the same terrain rule.
   isWalkable(x, y, radius = this.state?.player?.radius || BALANCE.playerRadius) {
     const battlefield = this.state?.battlefield;
-    if (battlefield?.mapAssetKey !== 'doublefork') return true;
     const r = Math.max(0, Number(radius) || 0);
+    // Painted scenes carry a collision mask traced from the artwork
+    // (scene-collision.js): mountains, rivers, lava, ponds and ruins in
+    // the background block movement exactly where they are painted, and
+    // nobody climbs onto the painted sky. Doublefork's mask adds its
+    // side massifs and sky strip on top of the authored ridge rule
+    // below — both must pass.
+    const terrainKey = battlefield?.mapAssetKey || this.stage?.mapAssetKey || this.stage?.theme;
+    if (sceneMaskHas(terrainKey) && sceneCircleBlocked(terrainKey, x, y, r, BALANCE.worldSize)) return false;
+    if (battlefield?.mapAssetKey !== 'doublefork') return true;
     const ridge = battlefield.ridgeRect || { x: 0, y: 700, width: BALANCE.worldSize, height: 400 };
     const corridor = battlefield.pathCorridor || { x: 790, y: 700, width: 220, height: 400 };
     const ridgeTop = ridge.y;
@@ -1002,6 +1318,38 @@ class GameEngine {
 
   moveEntity(entity, dx, dy, radius = entity?.radius || BALANCE.playerRadius) {
     if (!entity) return false;
+    const r = Math.max(0, Number(radius) || 0);
+    // Unstick: an entity whose center is buried in scenery (half-radius
+    // probe — merely brushing a wall with the disc edge is normal play
+    // and must never teleport anyone) steps to the nearest fully
+    // walkable ground first, so a knockback edge case can never leave
+    // it trapped inside a wall.
+    if (!this.isWalkable(entity.x, entity.y, r * 0.5)) {
+      let escaped = false;
+      for (let ring = 10; ring <= 120 && !escaped; ring += 10) {
+        for (let step = 0; step < 16 && !escaped; step += 1) {
+          const angle = (step / 16) * TAU;
+          const nx = clamp(entity.x + Math.cos(angle) * ring, r, BALANCE.worldSize - r);
+          const ny = clamp(entity.y + Math.sin(angle) * ring, r, BALANCE.worldSize - r);
+          if (this.isWalkable(nx, ny, r)) { entity.x = nx; entity.y = ny; escaped = true; }
+        }
+      }
+    }
+    // Sweep in small substeps: a fast move (the 180-unit dash above all)
+    // must not tunnel through scenery thinner than the jump — only the
+    // landing point used to be checked, which let a dash cross a ruin
+    // wall and strand the hero inside it.
+    const stepX = Number(dx) || 0;
+    const stepY = Number(dy) || 0;
+    const steps = Math.max(1, Math.ceil(Math.hypot(stepX, stepY) / 8));
+    let moved = false;
+    for (let i = 0; i < steps; i += 1) {
+      if (this._moveStep(entity, stepX / steps, stepY / steps, r)) moved = true;
+    }
+    return moved;
+  }
+
+  _moveStep(entity, dx, dy, radius = entity?.radius || BALANCE.playerRadius) {
     const nextX = clamp(entity.x + (Number(dx) || 0), radius, BALANCE.worldSize - radius);
     const nextY = clamp(entity.y + (Number(dy) || 0), radius, BALANCE.worldSize - radius);
     // Try the full vector first, then slide along a clear axis so the ridge
@@ -1061,9 +1409,12 @@ class GameEngine {
 
   advanceSpawns() {
     const time = this.state.time;
-    while (this.spawnAccumulator >= this.spawnInterval(time) && this.state.enemies.length < BALANCE.maxEnemies) {
-      this.spawnAccumulator -= this.spawnInterval(time);
-      this.spawnEnemy('normal');
+    // Wave spawning replaces the old per-enemy trickle: the accumulator now
+    // counts toward whole waves, so overall pressure still follows
+    // spawnInterval(time) via the batch size computed in spawnWave.
+    while (this.spawnAccumulator >= WAVE_SECONDS && this.state.enemies.length < BALANCE.maxEnemies) {
+      this.spawnAccumulator -= WAVE_SECONDS;
+      this.spawnWave(time);
     }
     BALANCE.eliteTimes.forEach((mark, index) => {
       if (time >= mark && !this.elitesSpawned.has(mark)) {
@@ -1114,17 +1465,71 @@ class GameEngine {
     return clamp(1.18 - (time / BALANCE.duration) * 0.96, 0.22, 1.18);
   }
 
-  spawnPoint() {
+  spawnWave(time) {
+    const roster = this.stage.enemyRoster || this.stage.enemies || [];
+    const index = this.waveIndex;
+    this.waveIndex += 1;
+    const big = index % BIG_WAVE_EVERY === BIG_WAVE_EVERY - 1;
+    // Batch size preserves the old trickle's throughput over one wave
+    // window; big waves double it and mix every species in the roster.
+    const batch = Math.max(1, Math.round(WAVE_SECONDS / this.spawnInterval(time))) * (big ? 2 : 1);
+    let forced;
+    if (!big && roster.length) {
+      // Small wave: a single species, rotating through the roster so each
+      // kind gets its own wave before the next big mixed wave lands.
+      const entry = roster[index % roster.length];
+      forced = typeof entry === 'string' ? { name: entry } : { name: entry.name, variant: entry.variant };
+    }
+    let spawned = 0;
+    for (let i = 0; i < batch && this.state.enemies.length < BALANCE.maxEnemies; i += 1) {
+      if (this.spawnEnemy('normal', 0, forced)) spawned += 1;
+    }
+    this.emit({ type: 'wave', index, big, count: spawned, species: big ? null : (forced ? forced.name : null) });
+  }
+
+  spawnPoint(preferCave = false) {
     const player = this.state.player;
+    this._caveSpawn = null;
+    // Cave spawns: scenes with painted mountains have cave mouths at the
+    // rock feet (scene-collision.js). When one is in a sensible range
+    // band around the hero, small monsters mostly walk out of the
+    // mountain instead of materialising on open ground. Live builds
+    // only: debug engines keep the frozen spawn contract the animation
+    // gates choreograph against (they teleport their subjects anyway);
+    // the dedicated scene-collision gate covers cave spawns on a
+    // non-debug engine.
+    if (preferCave && !this.debugMode) {
+      const key = this.state?.battlefield?.mapAssetKey || this.stage?.mapAssetKey || this.stage?.theme;
+      const mouths = caveMouthsFor(key).filter(([mx, my]) => {
+        const distance = Math.hypot(mx - player.x, my - player.y);
+        return distance >= 300 && distance <= 780 && this.isWalkable(mx, my, 24);
+      });
+      if (mouths.length && this.rng() < 0.55) {
+        const [mx, my] = mouths[Math.floor(this.rng() * mouths.length)];
+        this._caveSpawn = { x: mx, y: my };
+        return { x: mx, y: my };
+      }
+    }
     for (let attempt = 0; attempt < 8; attempt += 1) {
       const angle = this.rng() * TAU;
       const radius = 470 + this.rng() * 130;
       const point = { x: clamp(player.x + Math.cos(angle) * radius, 24, BALANCE.worldSize - 24), y: clamp(player.y + Math.sin(angle) * radius, 24, BALANCE.worldSize - 24) };
       if (this.isWalkable(point.x, point.y, 24)) return point;
     }
-    // If the random ring lands inside the ridge repeatedly, place the spawn
-    // on the stable stone pass so it remains reachable from either clearing.
-    return { x: 900, y: clamp(player.y, 24, BALANCE.worldSize - 24) };
+    // If the random ring lands inside scenery repeatedly, search outward
+    // from the historic stable point (the doublefork stone pass) for the
+    // nearest walkable ground so a spawn never lands inside a mountain,
+    // river or ruin. Deterministic: fixed rings, fixed direction order.
+    const seed = { x: 900, y: clamp(player.y, 24, BALANCE.worldSize - 24) };
+    if (this.isWalkable(seed.x, seed.y, 24)) return seed;
+    for (let ring = 40; ring <= 900; ring += 40) {
+      for (let step = 0; step < 16; step += 1) {
+        const angle = (step / 16) * TAU;
+        const point = { x: clamp(seed.x + Math.cos(angle) * ring, 24, BALANCE.worldSize - 24), y: clamp(seed.y + Math.sin(angle) * ring, 24, BALANCE.worldSize - 24) };
+        if (this.isWalkable(point.x, point.y, 24)) return point;
+      }
+    }
+    return { x: player.x, y: player.y };
   }
 
   spawnEnemy(kind = 'normal', variant = 0, override = {}) {
@@ -1134,7 +1539,12 @@ class GameEngine {
       if (index < 0) return null;
       this.state.enemies.splice(index, 1);
     }
-    const position = this.spawnPoint();
+    const position = this.spawnPoint(kind === 'normal');
+    if (this._caveSpawn) {
+      // Dust burst at the cave mouth so the emergence reads on screen.
+      this.effect({ x: position.x, y: position.y, kind: 'cave-dust', radius: 30, color: '#9a7d55', ttl: 0.55 });
+      this._caveSpawn = null;
+    }
     const progress = clamp(this.state.time / BALANCE.duration, 0, 1);
     const hard = this.difficulty === 'hard' ? 1.25 : 1;
     const levelScale = 1 + progress * 1.5;
@@ -1204,6 +1614,12 @@ class GameEngine {
     if (this.stage.id === 1 && ['tiger', 'bear', 'bull'].includes(boss.variant)) {
       const attackPattern = { tiger: 'tiger-claw', bear: 'bear-slam', bull: 'bull-charge' }[boss.variant];
       Object.assign(boss, { attackPattern, attackPhase: 'cooldown', attackCooldown: 4, attackWindup: 0, attackTimer: 0, attackHit: false });
+    }
+    // Named first-stage final bosses acquire their dedicated atlas through
+    // the frozen identity only. Unbound bosses keep the vector identity rig.
+    const battleSpriteId = battleBossSpriteId(this.stage.id, bossIdentity);
+    if (battleSpriteId) {
+      Object.assign(boss, { battleSpriteId, visualAttackTimer: 0, visualHitTimer: 0 });
     }
     this.state.enemies.push(boss);
     return boss;
@@ -1347,6 +1763,65 @@ class GameEngine {
       }
       this.stepEnemyAnimation(enemy, (actor ? enemy.visualHitTimer : enemy.hitTimer) > 1e-8 ? 'hit' : enemy.attackWindup > 0 || enemy.attackTimer > 0 || enemy.visualAttackTimer > 0 ? 'attack' : 'move', dt, enemy.kind === 'boss' ? 8 : 12);
     }
+    this.separateEnemies();
+  }
+
+  // Playtest addition (2026-10-22): soft body separation. Enemies steer to
+  // the exact same point (the player) with no mutual collision, so a
+  // converging wave interpenetrated into one stacked blob — visible
+  // clipping the user reported. After each movement tick, overlapping
+  // bodies are eased apart along their axis, weighted by mass (radius^2)
+  // so bosses barely yield, and enemies are kept out of the player's disc
+  // so the hero is never stood inside of. Pushes go through moveEntity, so
+  // ridge and world bounds still apply. Iteration follows the stable enemy
+  // array order with an index-hash tiebreak for coincident bodies: fully
+  // deterministic and consumes no RNG.
+  separateEnemies() {
+    const enemies = this.state.enemies;
+    const player = this.state.player;
+    const cell = 64;
+    const grid = new Map();
+    for (let i = 0; i < enemies.length; i += 1) {
+      const key = `${Math.floor(enemies[i].x / cell)},${Math.floor(enemies[i].y / cell)}`;
+      const bucket = grid.get(key);
+      if (bucket) bucket.push(i); else grid.set(key, [i]);
+    }
+    const push = (enemy, dx, dy) => { if (dx || dy) this.moveEntity(enemy, dx, dy, enemy.radius); };
+    for (let i = 0; i < enemies.length; i += 1) {
+      const a = enemies[i];
+      if (a.hp <= 0) continue;
+      if (player && player.hp > 0) {
+        const dx = a.x - player.x, dy = a.y - player.y;
+        const min = (a.radius + player.radius) * .92;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < min * min) {
+          const d = Math.sqrt(d2);
+          if (d > 1e-4) push(a, dx / d * (min - d), dy / d * (min - d));
+          else push(a, min, 0);
+        }
+      }
+      const cx = Math.floor(a.x / cell), cy = Math.floor(a.y / cell);
+      for (let gx = cx - 1; gx <= cx + 1; gx += 1) for (let gy = cy - 1; gy <= cy + 1; gy += 1) {
+        const bucket = grid.get(`${gx},${gy}`);
+        if (!bucket) continue;
+        for (const j of bucket) {
+          if (j <= i) continue;
+          const b = enemies[j];
+          if (b.hp <= 0) continue;
+          const dx = b.x - a.x, dy = b.y - a.y;
+          const min = (a.radius + b.radius) * .82;
+          const d2 = dx * dx + dy * dy;
+          if (d2 >= min * min) continue;
+          const d = Math.sqrt(d2);
+          let ux, uy;
+          if (d > 1e-4) { ux = dx / d; uy = dy / d; } else { const t = ((i * 31 + j * 17) % 628) / 100; ux = Math.cos(t); uy = Math.sin(t); }
+          const overlap = min - d;
+          const ma = a.radius * a.radius, mb = b.radius * b.radius, total = ma + mb;
+          push(a, -ux * overlap * (mb / total), -uy * overlap * (mb / total));
+          push(b, ux * overlap * (ma / total), uy * overlap * (ma / total));
+        }
+      }
+    }
   }
 
   autoAttack(dt) {
@@ -1389,7 +1864,7 @@ class GameEngine {
       const targetPoint = { x: player.x + Math.cos(angle) * targetDistance, y: player.y + Math.sin(angle) * targetDistance };
       this.projectile({ x: player.x, y: player.y, vx: Math.cos(angle) * stats.projectileSpeed, vy: Math.sin(angle) * stats.projectileSpeed, radius: stats.radius, color: this.character.color, kind: 'light-orb', ttl: targetDistance / stats.projectileSpeed + stats.linger + 0.05, damage: baseDamage, target: targetPoint, linger: stats.linger, bounce: stats.bounce, targetLimit: stats.bounceTargets || (skill.level >= 5 ? 5 : skill.level >= 4 ? 3 : 2), split: stats.split, knockback: stats.knockback, pierce: true });
     } else if (this.character.id === 'bajie') {
-      this.effect({ x: player.x, y: player.y, kind: 'hoe-line', radius: stats.range, angle, color: this.character.color, ttl: 0.22, width: stats.width });
+      this.effect({ x: player.x, y: player.y, kind: 'hoe-line', radius: stats.range, length: stats.range, angle, color: this.character.color, ttl: 0.22, width: stats.width });
       this.hitLine(angle, stats.range, stats.width, baseDamage, stats.bleedTicks);
       const birds = stats.birds || 0;
       for (let i = 0; i < birds; i += 1) {
@@ -1504,6 +1979,15 @@ class GameEngine {
     this.poolStats.released[kind] += 1;
   }
 
+  // The platform reports the visible world rect (camera view) each
+  // frame; bouncing projectiles ricochet inside it so their bounces stay
+  // on screen. Invalid or degenerate rects are ignored, and headless
+  // engines simply never set one (legacy cast-box behaviour).
+  setViewRect(rect) {
+    if (!rect || !Number.isFinite(rect.x) || !Number.isFinite(rect.y) || !Number.isFinite(rect.w) || !Number.isFinite(rect.h) || rect.w < 200 || rect.h < 200) return;
+    this.viewRect = { x: rect.x, y: rect.y, w: rect.w, h: rect.h };
+  }
+
   updateProjectiles(dt) {
     for (let i = this.state.projectiles.length - 1; i >= 0; i -= 1) {
       const shot = this.state.projectiles[i];
@@ -1527,10 +2011,39 @@ class GameEngine {
         shot.trailTimer = (shot.trailTimer || 0) - dt;
         if (shot.trailTimer <= 0) { shot.trailTimer = 0.07; this.effect({ x: shot.x, y: shot.y, kind: 'fire-trail', radius: shot.radius, color: '#ef7650', ttl: shot.trail, damage: (shot.damage || 10) * 0.09 }); }
       }
-      if ((shot.kind === 'ring' || shot.kind === 'ring-child') && shot.bounds) {
-        const bounds = shot.bounds;
-        if (shot.x < bounds.x || shot.x > bounds.x + bounds.w) { shot.vx *= -1; shot.x = clamp(shot.x, bounds.x, bounds.x + bounds.w); this.bounceRing(shot, null); }
-        if (shot.y < bounds.y || shot.y > bounds.y + bounds.h) { shot.vy *= -1; shot.y = clamp(shot.y, bounds.y, bounds.y + bounds.h); this.bounceRing(shot, null); }
+      if (shot.kind === 'ring' || shot.kind === 'ring-child') {
+        // Bounce arena: the live screen rect when the platform supplies
+        // one (the ring ricochets at the visible edges), else the
+        // cast-time box kept for headless determinism. One wall bounce
+        // per frame even at a corner (the old per-axis calls could count
+        // a corner as two bounces).
+        const view = this.viewRect;
+        const inset = shot.radius || 5;
+        const box = view
+          ? { x: view.x + inset, y: view.y + inset, w: view.w - inset * 2, h: view.h - inset * 2 }
+          : shot.bounds;
+        if (box) {
+          let hitWall = false;
+          if (shot.x < box.x) { shot.x = box.x; shot.vx = Math.abs(shot.vx); hitWall = true; }
+          else if (shot.x > box.x + box.w) { shot.x = box.x + box.w; shot.vx = -Math.abs(shot.vx); hitWall = true; }
+          if (shot.y < box.y) { shot.y = box.y; shot.vy = Math.abs(shot.vy); hitWall = true; }
+          else if (shot.y > box.y + box.h) { shot.y = box.y + box.h; shot.vy = -Math.abs(shot.vy); hitWall = true; }
+          if (hitWall) this.bounceRing(shot, null);
+        }
+      }
+      if ((shot.kind === 'light-spark' || shot.kind === 'moon-blade') && this.viewRect) {
+        // Sparks chain between enemies; when their current target is
+        // gone they would otherwise drift off-screen and expire unseen.
+        // With a live view rect they ricochet at the screen edges
+        // instead, so every bounce stays where the player can see it.
+        const targetAlive = shot.targetId && this.state.enemies.some((enemy) => enemy.id === shot.targetId && enemy.hp > 0);
+        if (!targetAlive) {
+          const view = this.viewRect, r = shot.radius || 4;
+          if (shot.x < view.x + r) { shot.x = view.x + r; shot.vx = Math.abs(shot.vx); }
+          else if (shot.x > view.x + view.w - r) { shot.x = view.x + view.w - r; shot.vx = -Math.abs(shot.vx); }
+          if (shot.y < view.y + r) { shot.y = view.y + r; shot.vy = Math.abs(shot.vy); }
+          else if (shot.y > view.y + view.h - r) { shot.y = view.y + view.h - r; shot.vy = -Math.abs(shot.vy); }
+        }
       }
       if (shot.kind === 'light-orb' && shot.target && !shot.anchored && this.segmentDistance(previous, shot, shot.target) <= 0.01) {
         shot.x = shot.target.x; shot.y = shot.target.y;
@@ -1772,9 +2285,13 @@ class GameEngine {
     enemy.hitTimer = Math.max(enemy.hitTimer || 0, 0.12); this.setAnimation(enemy, 'hit');
     // Per-target feedback throttling bounds orbit/DoT labels without changing
     // damage, status application or the RNG stream. Every hit still emits below.
-    if (value > 0 && this.state.time >= (enemy.feedbackAt || -1)) {
+    // Playtest display rule (2026-10-22): labels show whole numbers only. A hit
+    // that rounds to zero (sub-point DoT ticks from whirl/fire pools) stays
+    // silent instead of floating "0.0"/"0.1"; the damage value is untouched.
+    const shownDamage = Math.round(value);
+    if (value > 0 && shownDamage > 0 && this.state.time >= (enemy.feedbackAt || -1)) {
       enemy.feedbackAt = this.state.time + .09;
-      this.state.damageNumbers.push({ x: enemy.x, y: enemy.y - enemy.radius - 8, damage: value < 1 ? value.toFixed(1) : Math.round(value), ttl: 1.25, maxTtl: 1.25, color: options.critical ? '#fff03d' : '#fff3b8', critical: Boolean(options.critical), size: options.critical ? 22 : 17 });
+      this.state.damageNumbers.push({ x: enemy.x, y: enemy.y - enemy.radius - 8, damage: shownDamage, ttl: 1.25, maxTtl: 1.25, color: options.critical ? '#fff03d' : '#fff3b8', critical: Boolean(options.critical), size: options.critical ? 22 : 17 });
       if (this.state.damageNumbers.length > 48) this.state.damageNumbers.splice(0, this.state.damageNumbers.length - 48);
     }
     this.emit({ type: 'hit', target: 'enemy', amount: value, critical: Boolean(options.critical), enemy });
@@ -1986,6 +2503,8 @@ Object.assign(module.exports,{GameEngine});
  */
 
 const { battleEnemyAnimation } = require('battle-enemy-animation');
+const { skillFxIdForEffect, skillFxFrameRect } = require('skill-fx-animation');
+const { CAVE_MOUTHS } = require('scene-collision');
 
 const TAU = Math.PI * 2;
 const WORLD_SIZE = 1800;
@@ -2310,6 +2829,7 @@ class GameRenderer {
     // adding a runtime network or DOM dependency to the renderer.
     this.heroImages = options.heroImages || {};
     this.skillImages = options.skillImages || {};
+    this.skillFxImages = options.skillFxImages || {};
     this.enemyImages = options.enemyImages || {};
     // Scene assets are optional. Browser builds load the authored PNG/SVG
     // layers; the wx adapter can leave this empty and receive the exact same
@@ -2333,6 +2853,7 @@ class GameRenderer {
     this._hudScreenBounds = null;
     this._hudOcclusionRects = [];
     this._view = { left: 0, top: 0, right: 0, bottom: 0 };
+    this._viewCenter = null;
     this.stats = { enemies: 0, projectiles: 0, effects: 0, gems: 0, culledEnemies: 0, culledProjectiles: 0, culledEffects: 0, culledGems: 0, statusCandidates: 0, statusBadges: 0, statusSuppressed: 0,
       damagePlayerCandidates: 0, damagePlayerMoved: 0, damagePlayerUnresolved: 0,
       damageEnemyCandidates: 0, damageEnemyMoved: 0, damageEnemyUnresolved: 0,
@@ -2370,6 +2891,21 @@ class GameRenderer {
     return this;
   }
 
+  // The world is framed inside the HUD-free band (between the top and
+  // bottom UI bars) so the player is never hidden behind the UI when
+  // moving to the top or bottom of the view. Falls back to the full
+  // canvas when no valid HUD bounds are set. (2026-10-21 playtest change)
+  _viewFrame(zoom) {
+    const bounds = this._hudScreenBounds;
+    const valid = bounds && !bounds.invalid && bounds.right > bounds.left && bounds.bottom > bounds.top;
+    const left = valid ? bounds.left : 0, right = valid ? bounds.right : this.width;
+    const top = valid ? bounds.top : 0, bottom = valid ? bounds.bottom : this.height;
+    return {
+      cx: (left + right) / 2, cy: (top + bottom) / 2,
+      viewWorldW: (right - left) / zoom, viewWorldH: (bottom - top) / zoom,
+    };
+  }
+
   render(state, dt = 0) {
     if (this.disposed || !this.ctx) return;
     const safeState = state || {};
@@ -2377,8 +2913,10 @@ class GameRenderer {
     const player = safeState.player || { x: WORLD_SIZE / 2, y: WORLD_SIZE / 2, radius: 18 };
     const mapTheme = themeFor(safeState.stage);
     const zoom = this._zoom(player);
-    const viewWorldW = this.width / zoom;
-    const viewWorldH = this.height / zoom;
+    const frame = this._viewFrame(zoom);
+    const viewWorldW = frame.viewWorldW;
+    const viewWorldH = frame.viewWorldH;
+    this._viewCenter = { x: frame.cx, y: frame.cy };
     const targetX = viewWorldW >= WORLD_SIZE ? WORLD_SIZE / 2 : clamp(n(player.x, WORLD_SIZE / 2), viewWorldW / 2, WORLD_SIZE - viewWorldW / 2);
     const targetY = viewWorldH >= WORLD_SIZE ? WORLD_SIZE / 2 : clamp(n(player.y, WORLD_SIZE / 2), viewWorldH / 2, WORLD_SIZE - viewWorldH / 2);
     const smoothing = this.quality === 'low' || n(dt) <= 0 ? 1 : clamp(n(dt, 0) * 8, 0, 1);
@@ -2400,7 +2938,7 @@ class GameRenderer {
     method(ctx, 'setTransform', this.pixelRatio, 0, 0, this.pixelRatio, 0, 0);
     paint(ctx, mapTheme.paper);
     method(ctx, 'fillRect', 0, 0, this.width, this.height);
-    method(ctx, 'translate', this.width / 2, this.height / 2);
+    method(ctx, 'translate', frame.cx, frame.cy);
     method(ctx, 'scale', zoom, zoom);
     method(ctx, 'translate', -this.camera.x, -this.camera.y);
     const mapKey = safeState.battlefield?.mapAssetKey || safeState.stage?.mapAssetKey || null;
@@ -2437,7 +2975,7 @@ class GameRenderer {
       // The forward rake lane can enter the viewport while its origin remains
       // outside it; its full length must therefore be included in the bound.
       const pad = battleEnemyAnimation(effect) ? n(effect.bodyRadius, r) * 3.4 + 4 : effect.kind === 'hoe-line'
-        ? Math.max(r * 1.4, Math.abs(n(effect.length, r * 2.3)) + r * .12 + Math.abs(n(effect.width, r * .48)) / 2) + 6
+        ? Math.max(r * 1.4, Math.abs(n(effect.length, r)) + r * .12 + Math.abs(n(effect.width, r * .48)) / 2) + 6
         : r * 1.4 + 6;
       if (this._inView(n(effect.x), n(effect.y), pad)) { this._drawEffect(ctx, effect); this.stats.effects += 1; }
       else this.stats.culledEffects += 1;
@@ -2656,8 +3194,10 @@ class GameRenderer {
     const bounds = this._hudScreenBounds;
     if (!bounds) return rects;
     const scale = Math.max(.0001, n(zoom, 1));
-    const toWorldX = screenX => this.camera.x + (screenX - this.width / 2) / scale;
-    const toWorldY = screenY => this.camera.y + (screenY - this.height / 2) / scale;
+    const centerX = this._viewCenter ? this._viewCenter.x : this.width / 2;
+    const centerY = this._viewCenter ? this._viewCenter.y : this.height / 2;
+    const toWorldX = screenX => this.camera.x + (screenX - centerX) / scale;
+    const toWorldY = screenY => this.camera.y + (screenY - centerY) / scale;
     const add = (left, top, right, bottom) => {
       if (rects.length >= MAX_HUD_OCCLUSION_RECTS || right <= left || bottom <= top) return;
       const index = rects.length;
@@ -2814,7 +3354,17 @@ class GameRenderer {
     // Keep the four heroes readable at phone scale: their silhouette and
     // weapon should occupy a clear action focal point while the arena still
     // leaves room for incoming mobs.
-    return clamp(base / (radius * 14), 1.05, 2.2);
+    // 2026-10-21 playtest change: camera raised 2x — halving the zoom doubles
+    // the visible world height (and width) inside a stage.
+    return clamp(base / (radius * 14), 1.05, 2.2) / 2;
+  }
+
+  // The currently visible world rect (camera view from the last draw).
+  // The platform feeds this to the engine so bouncing projectiles
+  // ricochet at the screen edges.
+  viewRect() {
+    const v = this._view;
+    return { x: v.left, y: v.top, w: v.right - v.left, h: v.bottom - v.top };
   }
 
   _drawMap(ctx, theme, mapKey = null) {
@@ -2824,8 +3374,16 @@ class GameRenderer {
     const right = this._view.right + 80;
     const bottom = this._view.bottom + 80;
     paint(ctx, theme.paper); method(ctx, 'fillRect', 0, 0, WORLD_SIZE, WORLD_SIZE);
+    // Painted chapter scenes (playtest line, 2026-10-22, user-directed):
+    // when the stage's authored scene painting has loaded, it IS the
+    // battlefield art — one quiet full-world draw under the actors. The
+    // vector plate below stays as the pre-load and no-image fallback.
+    const scene = this._sceneFor(theme, mapKey);
+    const sceneBack = scene?.back || scene?.background || scene;
+    if (imageReady(sceneBack)) { this._drawPaintedBattleMap(ctx, theme, sceneBack, left, top, right, bottom); this._drawCaveMouths(ctx, mapKey); return; }
     if (this.battleSceneMode === 'vector') {
       this._drawVectorBattleMap(ctx, theme, left, top, right, bottom, mapKey);
+      this._drawCaveMouths(ctx, mapKey);
       return;
     }
     this._drawBackLayer(ctx, theme, left, top, right, bottom, mapKey);
@@ -2866,6 +3424,47 @@ class GameRenderer {
       paint(ctx, null, alphaColor(i % 2 ? theme.motif : theme.sticker, .46), 5 + (i % 2) * 2); method(ctx, 'stroke');
     }
     this._drawFrontLayer(ctx, theme, left, top, right, bottom, mapKey);
+    this._drawCaveMouths(ctx, mapKey);
+  }
+
+  // Cave mouths (playtest line, 2026-10-23): scenes with painted
+  // mountains have dark openings at the rock feet — small monsters spawn
+  // from them (engine cave spawns), so the decal and the spawn point are
+  // the same place. A soft elliptical shadow pool with a near-black core
+  // reads as part of the cliff base rather than a pasted sticker.
+  _drawCaveMouths(ctx, mapKey) {
+    const mouths = CAVE_MOUTHS[mapKey];
+    if (!mouths) return;
+    for (const [mx, my] of mouths) {
+      if (mx < this._view.left - 90 || mx > this._view.right + 90 || my < this._view.top - 90 || my > this._view.bottom + 90) continue;
+      method(ctx, 'save'); method(ctx, 'translate', mx, my); method(ctx, 'scale', 1, .58);
+      circle(ctx, 0, 0, 34, 'rgba(24,16,10,0.55)', null, 0);
+      circle(ctx, 0, 0, 25, 'rgba(10,7,4,0.88)', null, 0);
+      circle(ctx, 0, 0, 15, 'rgba(2,2,2,0.95)', null, 0);
+      method(ctx, 'restore');
+    }
+  }
+
+  _drawPaintedBattleMap(ctx, theme, back, left, top, right, bottom) {
+    // One quiet cover draw of the authored scene over the whole world — no
+    // mid/front sticker layers compete with the actors. A portrait scene
+    // (the doublefork valley) is geometry-authored: it is drawn stretched
+    // to the full world so its painted ridge and central pass land on the
+    // engine's collision ridge (y 700-1100) and corridor (x 790-1010).
+    // Square/landscape scenes cover-crop, as the original back layer did.
+    const iw = n(back.naturalWidth || back.width, 0), ih = n(back.naturalHeight || back.height, 0);
+    const drawn = (iw > 0 && ih > iw)
+      ? drawImageIfReady(ctx, back, 0, 0, iw, ih, 0, 0, WORLD_SIZE, WORLD_SIZE)
+      : drawImageCover(ctx, back, 0, 0, WORLD_SIZE, WORLD_SIZE);
+    if (drawn) this.mapAssetDraws += 1;
+    // A light wash keeps the HUD's warm ink palette coherent and the actors
+    // the highest-contrast objects on the field.
+    paint(ctx, alphaColor(theme.sky, .06));
+    method(ctx, 'fillRect', left, top, right - left, bottom - top);
+    if (left < 90 || top < 90 || right > WORLD_SIZE - 90 || bottom > WORLD_SIZE - 90) {
+      path(ctx, [['M', 26, 26], ['L', WORLD_SIZE - 26, 26], ['L', WORLD_SIZE - 26, WORLD_SIZE - 26], ['L', 26, WORLD_SIZE - 26], ['Z']], null, alphaColor(theme.deep, .40), 12);
+      path(ctx, [['M', 52, 52], ['L', WORLD_SIZE - 52, 52], ['L', WORLD_SIZE - 52, WORLD_SIZE - 52], ['L', 52, WORLD_SIZE - 52], ['Z']], null, alphaColor(theme.ink, .20), 3);
+    }
   }
 
   _drawVectorBattleMap(ctx, theme, left, top, right, bottom, mapKey = null) {
@@ -2906,13 +3505,42 @@ class GameRenderer {
       circle(ctx, 900, 1135, 13, alphaColor(theme.sticker, .84), alphaColor(theme.ink, .70), 3);
       return;
     }
-    // Other chapters retain a quiet procedural plate with sparse landmarks.
+    // Other chapters: a quiet themed plate, completed on the playtest line
+    // (2026-10-22). The five authored landmarks stay; around them a
+    // deterministic, view-culled scatter of themed scenery fills the whole
+    // world so no region reads as empty plate, and a double ink border
+    // marks the world edge as a deliberate scroll boundary. All vector:
+    // mapAssetDraws stays 0 and no image decoding is involved.
+    const themeKey = Object.keys(THEMES).find(key => THEMES[key] === theme) || 'forest';
+    // Road first (under the scatter): a gentle S across the world.
+    path(ctx, [['M', 80, WORLD_SIZE * .76], ['C', WORLD_SIZE * .35, WORLD_SIZE * .56, WORLD_SIZE * .62, WORLD_SIZE * .86, WORLD_SIZE - 80, WORLD_SIZE * .36]], null, alphaColor(theme.ink, .15), 44);
+    path(ctx, [['M', 80, WORLD_SIZE * .76], ['C', WORLD_SIZE * .35, WORLD_SIZE * .56, WORLD_SIZE * .62, WORLD_SIZE * .86, WORLD_SIZE - 80, WORLD_SIZE * .36]], null, alphaColor(theme.road, .50), 36);
+    // Sampled road points keep scatter off the route so it stays readable.
+    const roadPts = [[80, WORLD_SIZE * .76], [520, WORLD_SIZE * .62], [900, WORLD_SIZE * .68], [1280, WORLD_SIZE * .58], [WORLD_SIZE - 80, WORLD_SIZE * .36]];
+    method(ctx, 'save'); ctx.globalAlpha = .26;
+    const step = 216;
+    const minX = Math.max(step, Math.floor(left / step) * step);
+    const minY = Math.max(step, Math.floor(top / step) * step);
+    for (let x = minX; x < Math.min(WORLD_SIZE - step / 2, right); x += step) {
+      for (let y = minY; y < Math.min(WORLD_SIZE - step / 2, bottom); y += step) {
+        const h = hash2(x / step, y / step);
+        const px = x + (h - .5) * 90, py = y + (hash2(y, x) - .5) * 90;
+        if (roadPts.some(([rx, ry]) => (px - rx) * (px - rx) + (py - ry) * (py - ry) < 150 * 150)) continue;
+        if (h < .30) this._drawScenery(ctx, px, py, theme, themeKey);
+        else if (h < .42) this._drawStone(ctx, px + 12, py - 8, theme);
+        else if (h < .50) this._drawCloudMark(ctx, px, py, theme);
+      }
+    }
+    method(ctx, 'restore');
     method(ctx, 'save'); ctx.globalAlpha = .30;
     const landmarks = [[180,220],[510,420],[1450,280],[1650,1380],[260,1460]];
-    landmarks.forEach(([x,y]) => this._drawScenery(ctx, x, y, theme, Object.keys(THEMES).find(key => THEMES[key] === theme) || 'forest'));
+    landmarks.forEach(([x,y]) => this._drawScenery(ctx, x, y, theme, themeKey));
     method(ctx, 'restore');
-    path(ctx, [['M', 80, WORLD_SIZE * .76], ['C', WORLD_SIZE * .35, WORLD_SIZE * .56, WORLD_SIZE * .62, WORLD_SIZE * .86, WORLD_SIZE - 80, WORLD_SIZE * .36]], null, alphaColor(theme.road, .50), 36);
-    path(ctx, [['M', 80, WORLD_SIZE * .76], ['C', WORLD_SIZE * .35, WORLD_SIZE * .56, WORLD_SIZE * .62, WORLD_SIZE * .86, WORLD_SIZE - 80, WORLD_SIZE * .36]], null, alphaColor(theme.ink, .15), 44);
+    // World boundary: nested ink borders, drawn only where the view reaches.
+    if (left < 90 || top < 90 || right > WORLD_SIZE - 90 || bottom > WORLD_SIZE - 90) {
+      path(ctx, [['M', 26, 26], ['L', WORLD_SIZE - 26, 26], ['L', WORLD_SIZE - 26, WORLD_SIZE - 26], ['L', 26, WORLD_SIZE - 26], ['Z']], null, alphaColor(theme.deep, .40), 12);
+      path(ctx, [['M', 52, 52], ['L', WORLD_SIZE - 52, 52], ['L', WORLD_SIZE - 52, WORLD_SIZE - 52], ['L', 52, WORLD_SIZE - 52], ['Z']], null, alphaColor(theme.ink, .20), 3);
+    }
   }
 
   _sceneFor(theme, mapKey = null) {
@@ -3087,6 +3715,31 @@ class GameRenderer {
     const color = projectile.color || (projectileKind === 'holy' || projectileKind.includes('light') ? '#35d7ff' : projectileKind.includes('bird') ? '#ff6338' : projectileKind.includes('fire') ? '#ffb52e' : '#f3d34a');
     const angle = Math.atan2(n(projectile.vy), n(projectile.vx));
     method(ctx, 'save'); method(ctx, 'translate', x, y); method(ctx, 'rotate', Number.isFinite(angle) ? angle : 0);
+    if (projectileKind === 'light-orb') {
+      // Authored orb strip: a pulsing painted orb replaces the vector orb
+      // once loaded; the pulse loops on renderer time while it flies.
+      const fxImage = this.skillFxImages?.['light-orb'];
+      const fxRect = fxImage && skillFxFrameRect(fxImage, (this.elapsed * 1.6) % 1);
+      if (fxRect) {
+        const size = radius * 4.2;
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
+        method(ctx, 'restore');
+        return;
+      }
+    }
+    if (projectileKind === 'fire-wheel' || projectileKind === 'ring' || projectileKind === 'ring-child') {
+      // Painted artifact projectiles (batch 2): the wind-fire wheel and the
+      // Qiankun ring spin on renderer time while they fly/bounce.
+      const fxId = projectileKind === 'fire-wheel' ? 'fire-wheel' : 'ring-spin';
+      const fxImage = this.skillFxImages?.[fxId];
+      const fxRect = fxImage && skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'fire-wheel' ? 2.4 : 2)) % 1);
+      if (fxRect) {
+        const size = radius * (fxId === 'fire-wheel' ? 3.6 : 3);
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
+        method(ctx, 'restore');
+        return;
+      }
+    }
     circle(ctx, 0, 0, radius * 1.4, alphaColor(color, .18));
     if (projectileKind.includes('bird')) {
       path(ctx, [['M', -radius * 1.5, 0], ['Q', -radius * .2, -radius * 1.2, radius * 1.7, 0], ['Q', -radius * .2, radius * 1.2, -radius * 1.5, 0], ['Z']], color, '#703a2a', 1.2);
@@ -3143,7 +3796,91 @@ class GameRenderer {
       method(ctx, 'restore');
       return;
     }
-    if (kind === 'hit-burst') {
+    // Authored skill-effect strips: signature-weapon effects prefer their
+    // painted strip once it has loaded; the frame follows the effect's
+    // own progress so animation and gameplay timing stay locked.  Any
+    // other kind, or an unloaded strip, falls through to the vector
+    // effects below unchanged.
+    const fxId = skillFxIdForEffect(kind);
+    const fxImage = fxId && this.skillFxImages?.[fxId];
+    // The samadhi-fire burst ('mountain') telegraphs with a falling rock
+    // during its delay — the vector branch keeps that phase; the painted
+    // burst takes over only once the burst itself starts.
+    const fxDelay = fxId === 'fire-burst' ? n(effect.delay, 0) : 0;
+    const fxAge = maxTtl - ttl;
+    const fxPhase = fxId === 'fire-burst' && fxDelay > 0 ? clamp((fxAge - fxDelay) / Math.max(.001, maxTtl - fxDelay), 0, 1) : progress;
+    const fxRect = fxImage && fxAge >= fxDelay && skillFxFrameRect(fxImage, fxPhase);
+    if (fxRect) {
+      ctx.globalAlpha = n(ctx.globalAlpha, 1) * fade;
+      if (fxId === 'monkey-clone') {
+        // The wooden monkey clones scamper outward: run cycle on renderer
+        // time, flipped to face their travel direction.
+        const rect = skillFxFrameRect(fxImage, (this.elapsed * 3) % 1) || fxRect;
+        const size = radius * 3;
+        if (n(effect.vx) < 0) method(ctx, 'scale', -1, 1);
+        method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
+      } else if (fxId === 'whirl-pool') {
+        const rect = skillFxFrameRect(fxImage, (this.elapsed * 2.2) % 1) || fxRect;
+        const size = radius * 2;
+        method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
+      } else if (fxId === 'gold-bead' || fxId === 'fire-pool') {
+        // Looping props: the rope bead pulses and the fire pool flickers on
+        // renderer time; both are drawn centered on the effect position.
+        const rect = skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'gold-bead' ? 1.8 : 2.6)) % 1) || fxRect;
+        const size = radius * (fxId === 'gold-bead' ? 2.4 : 2);
+        method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
+      } else if (fxId === 'fan-wave' || fxId === 'gourd-vortex') {
+        // Cone effects: the strip's narrow point sits at the effect origin
+        // and the cone widens along +X after rotation.  The gourd vortex
+        // lives for seconds, so its frames cycle on renderer time instead
+        // of the one-shot progress.
+        const rect = fxId === 'gourd-vortex' ? (skillFxFrameRect(fxImage, (this.elapsed * 1.3) % 1) || fxRect) : fxRect;
+        // Cone length must equal the gameplay radius: the strip is drawn
+        // from -6% of its size, so size = radius * 1.06 puts the cone tip
+        // exactly at the damage/pull reach (it was 2x before the audit).
+        const size = radius * 1.06;
+        method(ctx, 'rotate', n(effect.angle));
+        method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h,
+          -size * .06, -size / 2, size, size);
+      } else if (fxId === 'palm-burst') {
+        // The painted palm faces up in its cell; rotate so it strikes
+        // outward along the effect angle.
+        const size = radius * 2;
+        method(ctx, 'rotate', n(effect.angle) + Math.PI / 2);
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
+      } else if (fxId === 'fire-burst') {
+        const size = radius * 2;
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
+      } else if (fxId === 'rake-sweep') {
+        // The rake lane's leading edge must land exactly on the damage
+        // range (effect.length === stats.range, set by the engine). The
+        // strip is drawn from -10% so its tip reaches +length.
+        const length = n(effect.length, radius), width = n(effect.width, radius * .48);
+        method(ctx, 'rotate', n(effect.angle));
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h,
+          -radius * .1, -width * 1.1, length * 1.1, width * 2.2);
+      } else if (fxId === 'water-ring') {
+        const size = radius * 2;
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
+      } else {
+        method(ctx, 'rotate', n(effect.angle, 0));
+        const size = radius * 2;
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
+      }
+      method(ctx, 'restore');
+      return;
+    }
+    if (kind === 'cave-dust') {
+      // A monster emerges from a cave mouth: an expanding dusty ring and
+      // a low puff in earth tones, gone in about half a second.
+      const ring = radius * (.5 + progress * 1.15);
+      circle(ctx, 0, 0, ring, null, alphaColor(color, .55 * fade), 3);
+      circle(ctx, 0, -radius * .16 * progress, ring * .62, alphaColor(color, .30 * fade), null, 0);
+      for (let i = 0; i < 6; i += 1) {
+        const a = i * TAU / 6 + .4;
+        circle(ctx, Math.cos(a) * ring * .8, Math.sin(a) * ring * .45 - progress * 6, radius * .12, alphaColor(color, .5 * fade), null, 0);
+      }
+    } else if (kind === 'hit-burst') {
       // Each burst comes from a real damageEnemy call and expires after 260ms.
       const outer = radius * (.75 + progress * .52);
       method(ctx, 'beginPath');
@@ -3178,9 +3915,9 @@ class GameRenderer {
       path(ctx, [['M', radius * .65, -radius * .35], ['Q', radius * 1.08, 0, radius * .65, radius * .35]], null, alphaColor('#fff0bc', .7 * fade), Math.max(1.5, radius * .035));
       if (kind.includes('heavy')) circle(ctx, radius * .75, 0, radius * .18, alphaColor('#fff5bb', .65 * fade));
     } else if (kind === 'hoe-line') {
-      const length = n(effect.length, radius * 2.3), width = n(effect.width, radius * .48);
+      const length = n(effect.length, radius), width = n(effect.width, radius * .48);
       method(ctx, 'rotate', n(effect.angle));
-      path(ctx, [['M', 0, -width / 2], ['L', length, -width / 2], ['L', length + radius * .12, 0], ['L', length, width / 2], ['L', 0, width / 2], ['Z']], alphaColor(color, .15 * fade), alphaColor(color, .67 * fade), 2);
+      path(ctx, [['M', 0, -width / 2], ['L', length - radius * .12, -width / 2], ['L', length, 0], ['L', length - radius * .12, width / 2], ['L', 0, width / 2], ['Z']], alphaColor(color, .15 * fade), alphaColor(color, .67 * fade), 2);
       for (let i = 0; i < 4; i += 1) { const step = length / 4; path(ctx, [['M', i * step, -width * .34], ['L', (i + .7) * step, width * .34]], null, alphaColor('#fff2b8', .6 * fade), 1.5); }
     } else if (kind === 'staff-ring' || kind === 'fire-ring') {
       circle(ctx, 0, 0, radius, null, alphaColor(color, .72 * fade), Math.max(3, radius * .09));
@@ -3219,8 +3956,8 @@ class GameRenderer {
       circle(ctx, 0, 0, radius * .23, alphaColor('#fff3bb', .75 * fade));
     } else if (kind === 'fan') {
       method(ctx, 'rotate', n(effect.angle));
-      path(ctx, [['M', 0, 0], ['Q', radius * .62, -radius * .94, radius * 1.26, -radius * .1], ['Q', radius * .66, radius * .7, 0, 0], ['Z']], alphaColor(color, .42 * fade), alphaColor('#194c59', .82 * fade), 2.2);
-      for (let i = 0; i < 5; i += 1) { const a = -.9 + i * .45; method(ctx, 'beginPath'); method(ctx, 'moveTo', radius * .18, radius * .04); method(ctx, 'lineTo', Math.cos(a) * radius * 1.18, Math.sin(a) * radius * 1.18); paint(ctx, null, alphaColor('#fff1b1', .72 * fade), 1.6); method(ctx, 'stroke'); }
+      path(ctx, [['M', 0, 0], ['Q', radius * .49, -radius * .75, radius, -radius * .08], ['Q', radius * .52, radius * .56, 0, 0], ['Z']], alphaColor(color, .42 * fade), alphaColor('#194c59', .82 * fade), 2.2);
+      for (let i = 0; i < 5; i += 1) { const a = -.9 + i * .45; method(ctx, 'beginPath'); method(ctx, 'moveTo', radius * .18, radius * .04); method(ctx, 'lineTo', Math.cos(a) * radius, Math.sin(a) * radius); paint(ctx, null, alphaColor('#fff1b1', .72 * fade), 1.6); method(ctx, 'stroke'); }
     } else if (kind === 'mountain') {
       path(ctx, [['M', -radius * .9, radius * .55], ['L', -radius * .28, -radius * .78], ['L', 0, -radius * .36], ['L', radius * .32, -radius * 1.02], ['L', radius * 1.02, radius * .55], ['Z']], alphaColor('#c89763', .82 * fade), alphaColor('#402a2a', .86 * fade), 2.4);
       path(ctx, [['M', -radius * .26, -radius * .72], ['L', 0, -radius * .36], ['L', radius * .2, -radius * .74]], null, alphaColor('#fff0af', .7 * fade), 2);
@@ -3301,8 +4038,8 @@ class GameRenderer {
       else method(ctx, 'drawImage', sprite, -radius * scale[2], -radius * scale[3], radius * scale[0], radius * scale[1]);
     }
     else this._drawDemonBody(ctx, enemy, radius, tint, theme, battleMotion(enemy, radius));
-    if (kind !== 'normal' && !(kind === 'boss' && spriteReady)) this._drawCrown(ctx, radius, kind === 'boss' ? '#e6b951' : '#b9b9a2');
-    if (kind === 'boss' && !spriteReady) this._drawBossWeapon(ctx, radius, enemy, theme);
+    if (kind !== 'normal' && !authoredFrame && !(kind === 'boss' && spriteReady)) this._drawCrown(ctx, radius, kind === 'boss' ? '#e6b951' : '#b9b9a2');
+    if (kind === 'boss' && !authoredFrame && !spriteReady) this._drawBossWeapon(ctx, radius, enemy, theme);
     method(ctx, 'restore');
     if (enemy.maxHp > 0 && (kind !== 'normal' || enemy.hp < enemy.maxHp)) this._drawHealthBar(ctx, x, this._enemyHealthBarY(enemy, radius), radius * (kind === 'boss' ? 3.15 : 2.3), enemy.hp / enemy.maxHp, kind === 'boss' ? '#ef3e37' : '#e66b35');
     if (kind === 'boss') this._drawBossLabel(ctx, x, y - radius * 2.75 + this._bossLabelOffset(enemy), enemy);
@@ -3669,6 +4406,10 @@ const { SAVE_KEY, CHAPTER_NAMES, sanitizeSave, buyTalent, talentCost, recordRun,
 // menus and the in-run HUD. Text colours stay dark enough for parchment.
 const C={bg:'#e7d6ad',panel:'#f6e9c9',raised:'#d9bf8b',ink:'#34291f',muted:'#766044',gold:'#8b4d1f',red:'#a13e2a',line:'#654a31',jade:'#456943',cyan:'#416e70',blue:'#667d83',green:'#64774b',wood:'#60452e',woodLight:'#a57b49',paper:'#fff3d7',primary:'#9f4728',light:'#fff4d7'};
 const HERO_INK={wukong:'#954a22',tangsanzang:'#35676b',tangseng:'#35676b',bajie:'#884445',shajing:'#4e6652',wujing:'#4e6652'};
+// Chapter-list map chips: theme paper colours mirror renderer THEMES so a
+// stage reads as its battlefield (ridge/forest/temple/water/fire/sand/snow)
+// instead of a bare text row. Playtest addition, 2026-10-22.
+const THEME_CHIPS={doublefork:['#16866e','山'],forest:['#16866e','林'],temple:['#4e2d91','寺'],water:['#168eaa','水'],fire:['#b53b3e','炎'],sand:['#d87827','沙'],snow:['#4dc1d4','雪']};
 const MOTION={enter:250,item:190,stagger:30,press:160};
 const clamp01=x=>Math.max(0,Math.min(1,x));
 // Exact cubic-bezier(.23,1,.32,1) from the shared animate skill.
@@ -3678,7 +4419,7 @@ const idName=id=>ARTIFACTS.find(a=>a.id===id)?.name||id;
 class NativeGame {
   constructor(canvas,platform={}){
     this.canvas=canvas;this.ctx=canvas.getContext('2d');this.platform=platform;this.audio=platform.audio||{play(){},startMusic(){},stopMusic(){},setMuted(){},dispose(){}};
-    this.save=sanitizeSave(platform.load?.(SAVE_KEY));this.audio.setMuted(this.save.muted);this.screen='home';this.characterId='wukong';this.stageId=this.save.unlockedStage;this.heroImages=platform.heroImages||{};this.portraitImages=platform.portraitImages||{};this.skillImages=platform.skillImages||{};this.enemyImages=platform.enemyImages||{};this.mapImages=platform.mapImages||{};this.page=0;this.input={x:0,y:0};this.buttons=[];this.engine=null;this.renderer=null;this.frame=0;this.running=false;this.disposed=false;this.hidden=false;this.autoPaused=false;this.stats={};this.metrics={frames:0,maxUpdateMs:0,maxRenderMs:0,peakEnemies:0,peakProjectiles:0,peakEffects:0};this.samples=[];this.touchOrigin=null;this.joy=null;this.message='';this.result=null;this.clock=platform.now||(()=>Date.now());this.raf=platform.requestFrame||((fn)=>setTimeout(()=>fn(this.clock()),16));this.cancel=platform.cancelFrame||clearTimeout;
+    this.save=sanitizeSave(platform.load?.(SAVE_KEY));this.audio.setMuted(this.save.muted);this.screen='home';this.characterId='wukong';this.stageId=this.save.unlockedStage;this.heroImages=platform.heroImages||{};this.portraitImages=platform.portraitImages||{};this.skillImages=platform.skillImages||{};this.skillFxImages=platform.skillFxImages||{};this.enemyImages=platform.enemyImages||{};this.mapImages=platform.mapImages||{};this.page=0;this.input={x:0,y:0};this.buttons=[];this.engine=null;this.renderer=null;this.frame=0;this.running=false;this.disposed=false;this.hidden=false;this.autoPaused=false;this.stats={};this.metrics={frames:0,maxUpdateMs:0,maxRenderMs:0,peakEnemies:0,peakProjectiles:0,peakEffects:0};this.samples=[];this.touchOrigin=null;this.joy=null;this.message='';this.result=null;this.clock=platform.now||(()=>Date.now());this.raf=platform.requestFrame||((fn)=>setTimeout(()=>fn(this.clock()),16));this.cancel=platform.cancelFrame||clearTimeout;
     this.reducedMotion=platform.reducedMotion??globalThis.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches??false;
     this.uiAnimation={key:'',sequence:0,frameIndex:0,startedAt:0,elapsed:0,progress:1,eased:1,from:0,active:false,duration:MOTION.enter};this.press=null;
     this.resize(platform.width||390,platform.height||844,platform.pixelRatio||1,platform.safeArea||{});
@@ -3718,7 +4459,14 @@ class NativeGame {
     }[id]||C.gold);c.fillStyle=palette;c.beginPath();c.arc(x+size/2,y+size/2,size*.38,0,Math.PI*2);c.fill();c.strokeStyle=C.ink;c.lineWidth=1;c.stroke();return false;}
   header(title,sub){this.text(sub||'玄奘西行录',20,this.top+12,9,C.gold);this.text(title,20,this.top+31,25,C.ink,'left','bold');this.button(this.screen==='home'?(this.save.muted?'静音':'有声'):'返回',this.w-70,this.top+19,50,44,()=>{if(this.screen==='home'){this.save.muted=!this.save.muted;this.audio.setMuted(this.save.muted);this.persist();}else this.go('home');});}
   go(screen){if(this.screen==='game'&&screen!=='game')this.stopRun();this.screen=screen;this.page=0;this.draw();}
-  draw(){if(this.disposed||this.hidden||!this.ctx)return;this.syncMotion();const c=this.ctx;c.setTransform(this.dpr,0,0,this.dpr,0,0);this.buttons=[];if(this.screen==='game'&&this.engine){this.drawGame();this.schedule();return;}c.fillStyle=C.bg;c.fillRect(0,0,this.w,this.h);c.fillStyle=C.wood;c.fillRect(0,0,7,this.h);c.fillRect(this.w-7,0,7,this.h);c.fillStyle=C.woodLight;c.fillRect(7,0,2,this.h);c.fillRect(this.w-9,0,2,this.h);c.strokeStyle='rgba(105,74,38,.09)';c.lineWidth=1;for(let i=0;i<22;i++){const yy=(i*47+13)%this.h;c.beginPath();c.moveTo(14,yy);c.lineTo(26+(i%5)*7,yy+2);c.moveTo(this.w-18,yy+19);c.lineTo(this.w-33-(i%3)*7,yy+18);c.stroke();}const title={home:'西游·八十一难',select:'选一位同行者',chapters:'九九难图',talents:'经脉修行',daily:'每日禅试',codex:'法宝图鉴',settings:'行者设置'}[this.screen]||'西游·八十一难';this.header(title);const y=this.top+96;const paint=()=>{switch(this.screen){case'home':this.home(y);break;case'select':this.select(y);break;case'chapters':this.chapters(y);break;case'talents':this.talents(y);break;case'daily':this.daily(y);break;case'codex':this.codex(y);break;case'settings':this.settings(y);break;}};if(this.screen==='select')paint();else this.withMotion(paint);if(this.message){this.box(20,this.h-this.bottom-43,this.w-40,33,C.raised,C.gold);this.text(this.message,this.w/2,this.h-this.bottom-34,11,C.ink,'center');}this.schedule();}
+  draw(){if(this.disposed||this.hidden||!this.ctx)return;this.syncMotion();const c=this.ctx;c.setTransform(this.dpr,0,0,this.dpr,0,0);this.buttons=[];if(this.screen==='game'&&this.engine){this.drawGame();this.schedule();return;}c.fillStyle=C.bg;c.fillRect(0,0,this.w,this.h);c.fillStyle=C.wood;c.fillRect(0,0,7,this.h);c.fillRect(this.w-7,0,7,this.h);c.fillStyle=C.woodLight;c.fillRect(7,0,2,this.h);c.fillRect(this.w-9,0,2,this.h);c.strokeStyle='rgba(105,74,38,.09)';c.lineWidth=1;for(let i=0;i<22;i++){const yy=(i*47+13)%this.h;c.beginPath();c.moveTo(14,yy);c.lineTo(26+(i%5)*7,yy+2);c.moveTo(this.w-18,yy+19);c.lineTo(this.w-33-(i%3)*7,yy+18);c.stroke();}const title={home:'西游·八十一难',select:'选一位同行者',chapters:'九九难图',talents:'经脉修行',daily:'每日禅试',codex:'法宝图鉴',settings:'行者设置'}[this.screen]||'西游·八十一难';this.header(title);const y=this.top+96;const paint=()=>{switch(this.screen){case'home':this.home(y);break;case'select':this.select(y);break;case'chapters':this.chapters(y);break;case'talents':this.talents(y);break;case'daily':this.daily(y);break;case'codex':this.codex(y);break;case'settings':this.settings(y);break;}};if(this.screen==='select')paint();else this.withMotion(paint);this.loadingBar();if(this.message){this.box(20,this.h-this.bottom-43,this.w-40,33,C.raised,C.gold);this.text(this.message,this.w/2,this.h-this.bottom-34,11,C.ink,'center');}this.schedule();}
+  // Boot asset progress (playtest, 2026-10-22): one slim bar under the header
+  // on every menu screen. While assets stream in it shows the settled count
+  // and percentage; failures are counted and named instead of being folded
+  // into "complete". Once the startup queue drains, the finished state
+  // lingers ~2.5 s (the platform schedules one redraw past that point) and
+  // then the bar retires instead of occupying every menu forever.
+  loadingBar(){const p=this.platform.assetProgress?.();if(!p||!p.total)return;const failed=p.failed||0;if(p.complete){this._assetsDoneAt??=this.clock();if(this.clock()-this._assetsDoneAt>2500)return;}const c=this.ctx,y=this.top+68,w=this.w-40,ratio=Math.min(1,p.done/p.total);c.fillStyle='rgba(101,74,49,.25)';c.fillRect(20,y,w,5);c.fillStyle=p.complete?C.jade:C.gold;c.fillRect(20,y,Math.round(w*ratio),5);this.text(p.complete?(failed?`资源加载完成 · ${p.total} 项（${failed} 项失败，已用备用画面）`:`资源加载完成 · ${p.total} 项`):`资源加载中 ${p.done}/${p.total} · ${Math.round(ratio*100)}%${failed?` · ${failed} 项失败`:''}`,20,y+9,10,p.complete?(failed?C.red:C.jade):C.muted);}
   home(y){const w=this.w-40,compact=this.h<720,hh=Math.min(350,compact?220:this.h*.4);this.box(20,y,w,hh,C.raised);const c=this.ctx;
     c.save();c.beginPath();c.rect(23,y+3,w-6,hh-6);c.clip();c.fillStyle='#c1c394';c.fillRect(23,y+3,w-6,hh-6);
     const scene=this.mapImages.doublefork?.back||this.mapImages.forest?.back;if(scene&&(scene.naturalWidth||scene.width)){const iw=scene.naturalWidth||scene.width,ih=scene.naturalHeight||scene.height,scale=Math.max((w-6)/iw,(hh-6)/ih);c.drawImage(scene,23+(w-6-iw*scale)/2,y+3+(hh-6-ih*scale)/2,iw*scale,ih*scale);c.fillStyle='rgba(247,229,182,.50)';c.fillRect(23,y+3,w-6,hh-6);}else{c.fillStyle='#e9d393';c.beginPath();c.arc(this.w*.78,y+65,45,0,Math.PI*2);c.fill();for(let i=0;i<3;i++){c.fillStyle=['#9ba57a','#748663','#4e6749'][i];c.beginPath();c.moveTo(23,y+hh);c.lineTo(23,y+hh*.64+i*20);c.lineTo(75,y+hh*.39+i*25);c.lineTo(124,y+hh*.66+i*15);c.lineTo(this.w-94,y+hh*.34+i*30);c.lineTo(this.w-23,y+hh*.57+i*27);c.lineTo(this.w-23,y+hh);c.closePath();c.fill();}}
@@ -3726,24 +4474,25 @@ class NativeGame {
     c.strokeStyle='#dfc389';c.lineWidth=14;c.beginPath();c.moveTo(62,y+hh);c.bezierCurveTo(78,y+hh*.76,137,y+hh*.75,148,y+hh*.49);c.stroke();c.restore();
     this.box(30,y+16,compact?170:195,compact?84:103,'#f1dfb4',C.wood);this.text('一念成佛',42,y+27,compact?26:31,C.ink,'left','bold');this.text('一棒破局',42,y+61,compact?26:31,C.red,'left','bold');
     c.fillStyle=C.red;c.fillRect(this.w-68,y+13,30,39);c.strokeStyle=C.light;c.lineWidth=1;c.strokeRect(this.w-64,y+17,22,31);this.text('西',this.w-53,y+18,12,C.light,'center','bold');this.text('行',this.w-53,y+33,12,C.light,'center','bold');
-    this.portrait('wukong',this.w*.64,y+hh-(compact?65:99),compact?112:158);this.box(30,y+hh-42,w-20,32,C.panel,C.wood);this.text('四人取经 · 法宝构筑',40,y+hh-33,10,C.ink);this.text('十分钟一难',this.w-40,y+hh-33,10,C.gold,'right');let z=y+hh+(compact?10:16);this.button('踏上西行',20,z,w,compact?46:52,()=>this.go('select'),{primary:true});z+=compact?55:63;const labels=[['难','九九难图','chapters'],['修','经脉修行','talents'],['禅','每日禅试','daily']];const cw=(w-16)/3;labels.forEach((l,i)=>{this.button(l[1],20+i*(cw+8),z,cw,compact?44:50,()=>this.go(l[2]),{size:11});});z+=compact?54:62;this.button('法宝图鉴',20,z,(w-8)/2,42,()=>this.go('codex'));this.button('设置与帮助',24+w/2,z,(w-8)/2,42,()=>this.go('settings'));this.text(`已渡 ${this.save.wins} 难 · 悟性 ${this.save.talentPoints} · 经文 ${this.save.scrolls}`,this.w/2,z+55,10,C.muted,'center');}
+    this.homeHero(this.w*.64,y+hh-(compact?62:94),compact?106:150);this.box(30,y+hh-42,w-20,32,C.panel,C.wood);this.text('四人取经 · 法宝构筑',40,y+hh-33,10,C.ink);this.text('十分钟一难',this.w-40,y+hh-33,10,C.gold,'right');let z=y+hh+(compact?10:16);this.button('踏上西行',20,z,w,compact?46:52,()=>this.go('select'),{primary:true});z+=compact?55:63;const labels=[['难','九九难图','chapters'],['修','经脉修行','talents'],['禅','每日禅试','daily']];const cw=(w-16)/3;labels.forEach((l,i)=>{this.button(l[1],20+i*(cw+8),z,cw,compact?44:50,()=>this.go(l[2]),{size:11});});z+=compact?54:62;this.button('法宝图鉴',20,z,(w-8)/2,42,()=>this.go('codex'));this.button('设置与帮助',24+w/2,z,(w-8)/2,42,()=>this.go('settings'));this.text(`已渡 ${this.save.wins} 难 · 悟性 ${this.save.talentPoints} · 经文 ${this.save.scrolls}`,this.w/2,z+55,10,C.muted,'center');}
   select(y){const gap=8,cw=(this.w-48)/2,ph=Math.min(156,(this.h-y-225)/2);CHARACTERS.forEach((ch,i)=>{const x=20+(i%2)*(cw+gap),cy=y+Math.floor(i/2)*(ph+10),selected=this.characterId===ch.id;this.withMotion(()=>this.withPress(x,cy,cw,ph,()=>{this.box(x,cy,cw,ph,selected?'#ecd3a0':C.panel,selected?C.red:C.line);this.ctx.fillStyle=selected?'#d7b77b':'#e6d8b4';this.ctx.beginPath();this.ctx.arc(x+cw/2,cy+ph*.36,Math.min(41,ph*.3),0,Math.PI*2);this.ctx.fill();this.portrait(ch.id,x+cw/2,cy+ph*.38,Math.min(84,ph*.57));this.text(ch.name,x+12,cy+ph-48,18,HERO_INK[ch.id]||C.ink,'left','bold');this.text(ch.weapon,x+12,cy+ph-22,10,C.muted);if(selected){this.ctx.fillStyle=C.red;this.ctx.fillRect(x+cw-29,cy+8,20,20);this.text('选',x+cw-19,cy+12,11,C.light,'center','bold');}}),i,cy+ph/2);this.buttons.push({x,y:cy,w:cw,h:ph,label:ch.name,action:()=>{this.characterId=ch.id;this.draw();}});});const sy=y+2*(ph+10)+4,s=getStage(this.stageId);this.withMotion(()=>{this.box(20,sy,this.w-40,76);this.text(`第${s.id}难 · ${s.name}`,32,sy+11,15,C.gold);this.text(`${s.location} · ${s.boss}`,32,sy+36,11,C.muted);this.button('‹',20,sy+86,44,44,()=>{this.stageId=Math.max(1,this.stageId-1);this.draw();});this.button('关卡列表',72,sy+86,this.w-144,44,()=>this.go('chapters'));this.button('›',this.w-64,sy+86,44,44,()=>{this.stageId=Math.min(this.save.unlockedStage,this.stageId+1);this.draw();});this.button('入山 · 开始十分钟试炼',20,sy+144,this.w-40,52,()=>this.startRun(),{primary:true});});}
-  chapters(y){const size=this.h<720?6:9,totalPages=Math.ceil(STAGES.length/size),chapter=Math.floor(this.page*size/9),rows=STAGES.slice(this.page*size,this.page*size+size);this.text(`第${chapter+1}章 · ${CHAPTER_NAMES[chapter]}`,20,y,17,C.gold);rows.forEach((s,i)=>{const ry=y+35+i*49,open=s.id<=this.save.unlockedStage;this.box(20,ry,this.w-40,43,C.panel,this.stageId===s.id?C.gold:C.line);this.text(`${String(s.id).padStart(2,'0')} · ${s.name}`,32,ry+7,13,open?C.ink:C.muted);this.text(open?s.location:'尚未渡过前难',32,ry+25,9,C.muted);this.text(open?'选择':'锁',this.w-35,ry+14,11,open?C.gold:C.muted,'right');this.buttons.push({x:20,y:ry,w:this.w-40,h:43,disabled:!open,action:()=>{this.stageId=s.id;this.go('select');}});});const by=y+rows.length*49+50;this.button('上一页',20,by,100,44,()=>{this.page=Math.max(0,this.page-1);this.draw();},{disabled:this.page===0});this.text(`${this.page+1} / ${totalPages}`,this.w/2,by+15,12,C.muted,'center');this.button('下一页',this.w-120,by,100,44,()=>{this.page=Math.min(totalPages-1,this.page+1);this.draw();},{disabled:this.page>=totalPages-1});}
+  homeHero(x,y,size){const sheet=this.heroSheet;if(!sheet||!(sheet.width||sheet.naturalWidth))return;const pw=sheet.width/4;const index=Math.max(0,CHARACTERS.findIndex(c=>c.id==='wukong'));this.ctx.drawImage(sheet,index*pw+pw*.04,sheet.height*.1,pw*.92,sheet.height*.77,x-size*.5,y-size*.625,size,size*1.25);}
+  chapters(y){const size=this.h<720?6:9,totalPages=Math.ceil(STAGES.length/size),chapter=Math.floor(this.page*size/9),rows=STAGES.slice(this.page*size,this.page*size+size);this.text(`第${chapter+1}章 · ${CHAPTER_NAMES[chapter]}`,20,y,17,C.gold);rows.forEach((s,i)=>{const ry=y+35+i*49,open=s.id<=this.save.unlockedStage;this.box(20,ry,this.w-40,43,C.panel,this.stageId===s.id?C.gold:C.line);const chip=THEME_CHIPS[s.mapAssetKey==='doublefork'?'doublefork':s.theme]||THEME_CHIPS.forest;this.box(27,ry+6,30,30,chip[0]);this.text(chip[1],42,ry+12,14,'#fff8e6','center','bold');this.text(`${String(s.id).padStart(2,'0')} · ${s.name}`,66,ry+7,13,open?C.ink:C.muted);this.text(open?s.location:'尚未渡过前难',66,ry+25,9,C.muted);this.text(open?'选择':'锁',this.w-35,ry+14,11,open?C.gold:C.muted,'right');this.buttons.push({x:20,y:ry,w:this.w-40,h:43,disabled:!open,action:()=>{this.stageId=s.id;this.go('select');}});});const by=y+rows.length*49+50;this.button('上一页',20,by,100,44,()=>{this.page=Math.max(0,this.page-1);this.draw();},{disabled:this.page===0});this.text(`${this.page+1} / ${totalPages}`,this.w/2,by+15,12,C.muted,'center');this.button('下一页',this.w-120,by,100,44,()=>{this.page=Math.min(totalPages-1,this.page+1);this.draw();},{disabled:this.page>=totalPages-1});}
   talents(y){this.text(`悟性 ${this.save.talentPoints}`,20,y,22,C.gold,'left','bold');TALENTS.forEach((t,i)=>{const ry=y+40+i*73,lv=this.save.talents[t.id]||0;this.box(20,ry,this.w-40,65);this.text(`${t.name}  ${lv}/${t.maxLevel}`,32,ry+10,15);this.text(t.description,32,ry+33,10,C.muted);this.text(lv>=t.maxLevel?'已圆满':`${talentCost(this.save,t.id)} 悟性`,this.w-32,ry+11,10,C.gold,'right');this.buttons.push({x:20,y:ry,w:this.w-40,h:65,action:()=>{const r=buyTalent(this.save,t.id);this.message=r.message;this.persist();this.audio.play(r.ok?'level':'click');this.draw();}});});}
   daily(y){this.wrap('目标按本地日期刷新。挑战奖励每日只能领取一次；进度来自实际战斗结果。',20,y,this.w-40,12,C.muted,3);dailyRows(this.save).forEach((d,i)=>{const ry=y+67+i*110;this.box(20,ry,this.w-40,102);this.text(d.name,32,ry+10,18,C.gold);this.text(`${d.description}  ${d.progress}/${d.target}`,32,ry+38,11,C.muted);this.button(d.claimed?'已领取':d.complete?`领取 ${d.reward} 悟性`:'前往取经',32,ry+58,this.w-64,34,()=>{if(d.complete){this.message=claimDaily(this.save,d.id).message;this.persist();this.draw();}else this.go('select');},{disabled:d.claimed,size:12});});}
   codex(y){const rows=ARTIFACTS.slice(this.page*4,this.page*4+4);this.text('八件法宝 · 本命武器另占一槽',20,y,12,C.gold);rows.forEach((a,i)=>{const ry=y+31+i*113;this.box(20,ry,this.w-40,104);this.skillIcon(a.id,32,ry+12,40);this.text(a.name,82,ry+10,18,C.ink,'left','bold');this.wrap(a.description,82,ry+36,this.w-114,11,C.muted,2);this.text(this.save.seenArtifacts.includes(a.id)?'已觉醒 · Lv.1—5':'未觉醒 · 战斗升级时择得',82,ry+81,10,C.gold);});this.button('上一页',20,y+493,100,44,()=>{this.page=Math.max(0,this.page-1);this.draw();},{disabled:!this.page});this.button('下一页',this.w-120,y+493,100,44,()=>{this.page=Math.min(Math.ceil(ARTIFACTS.length/4)-1,this.page+1);this.draw();},{disabled:(this.page+1)*4>=ARTIFACTS.length});}
   settings(y){this.button(this.save.muted?'开启声音':'静音全部音效',20,y,this.w-40,48,()=>{this.save.muted=!this.save.muted;this.audio.setMuted(this.save.muted);this.persist();this.draw();});this.button(`画质：${{auto:'自动',high:'精致',low:'省电'}[this.save.quality]}`,20,y+60,this.w-40,48,()=>{const qs=['auto','high','low'];this.save.quality=qs[(qs.indexOf(this.save.quality)+1)%3];this.persist();this.draw();});this.wrap('取经生存法\n拖动任意空白区域移动，法宝自动索敌。拾取妖怪掉落的经验升级，每次三选一。共一把本命武器和四件法宝，各五级。\n每两分钟精英现身，五分钟首领来袭，九分半最终首领登场。十分钟后击败最终首领通关。\n右下“遁”可闪避，五秒冷却。升级与暂停时战斗时间冻结。',20,y+136,this.w-40,13,C.muted,13);this.text('隐私：存档仅保存本机，不收集账号信息。',20,Math.min(this.h-this.bottom-75,y+487),10,C.gold);this.text('v1.0.0 · 西游八十一难',20,Math.min(this.h-this.bottom-49,y+513),10,C.muted);}
-  startRun(){this.stopRun();this.screen='game';this.message='';this.result=null;this.stats={elites:0,dashes:0};this.engine=new GameEngine({characterId:this.characterId,stageId:this.stageId,seed:Date.now(),talents:this.save.talents,debug:this.platform.debug===true,onEvent:e=>this.event(e)});this.renderer=new GameRenderer(this.canvas,{width:this.w,height:this.h,pixelRatio:this.dpr,quality:this.save.quality==='low'?'low':'high',showHud:false,hudScreenBounds:{left:0,right:this.w,top:this.top+135,bottom:this.h-this.bottom-90},heroImages:this.heroImages,skillImages:this.skillImages,enemyImages:this.enemyImages||{},mapImages:this.mapImages||{},battleArtMode:'authoredFrames',battleSceneMode:'vector'});this.audio.startMusic(getStage(this.stageId).theme);this.lastTime=this.clock();this.running=true;this.schedule();this.draw();}
+  startRun(){this.stopRun();const st=getStage(this.stageId);this.platform.loadMapScene?.(st.mapAssetKey||st.theme);this.screen='game';this.message='';this.result=null;this.stats={elites:0,dashes:0};this.engine=new GameEngine({characterId:this.characterId,stageId:this.stageId,seed:Date.now(),talents:this.save.talents,debug:this.platform.debug===true,onEvent:e=>this.event(e)});this.renderer=new GameRenderer(this.canvas,{width:this.w,height:this.h,pixelRatio:this.dpr,quality:this.save.quality==='low'?'low':'high',showHud:false,hudScreenBounds:{left:0,right:this.w,top:this.top+135,bottom:this.h-this.bottom-90},heroImages:this.heroImages,skillImages:this.skillImages,skillFxImages:this.skillFxImages,enemyImages:this.enemyImages||{},mapImages:this.mapImages||{},battleArtMode:'authoredFrames',battleSceneMode:'vector'});this.audio.startMusic(getStage(this.stageId).theme);this.lastTime=this.clock();this.running=true;this.schedule();this.draw();}
   event(e){if(e.type==='kill'){if(e.enemy?.kind==='elite')this.stats.elites++;this.audio.play('kill');}if(e.type==='dash'){this.stats.dashes++;this.audio.play('dash');}if(e.type==='hit')this.audio.play(e.target==='player'?'hurt':(e.critical?'crit':'hit'));if(e.type==='attack')this.audio.play('attack');if(e.type==='upgrade'&&e.choices)this.audio.play('level');if(e.type==='boss')this.audio.play('boss');if(e.type==='elite')this.audio.play('elite');if(e.type==='pickup')this.audio.play('pickup');if(e.type==='win'||e.type==='lose'){this.result=recordRun(this.save,this.engine.state,this.stats);this.persist();this.audio.stopMusic();this.audio.play(e.type);}}
   wake(){if(this.hidden||this.disposed)return;if(this.engine?.state.status==='playing'&&!this.running){this.running=true;this.lastTime=this.clock();}this.schedule();}
   // Gameplay and finite UI motion share one owned RAF; static menus go idle.
   schedule(){if(!this.frame&&!this.hidden&&!this.disposed&&(this.running||this.uiAnimation.active||this.press))this.frame=this.raf(()=>this.tick());}
-  tick(){this.frame=0;if(this.hidden||this.disposed)return;const now=this.clock(),dt=Math.min(.05,Math.max(0,(now-(this.lastTime??now))/1000));this.lastTime=now;const start=this.clock();if(this.running&&this.engine?.state.status==='playing'){this.engine.update(dt,this.input);this.renderDt=dt;}else this.renderDt=0;this.running=!!(this.engine&&this.screen==='game'&&this.engine.state.status==='playing');const mid=this.clock();this.draw();const end=this.clock();this.metrics.frames++;this.metrics.maxUpdateMs=Math.max(this.metrics.maxUpdateMs,mid-start);this.metrics.maxRenderMs=Math.max(this.metrics.maxRenderMs,end-mid);if(end-start>32)this.metrics.slowFrames++;const s=this.engine?.state;if(s){this.metrics.peakEnemies=Math.max(this.metrics.peakEnemies,s.enemies.length);this.metrics.peakProjectiles=Math.max(this.metrics.peakProjectiles,s.projectiles.length);this.metrics.peakEffects=Math.max(this.metrics.peakEffects,s.effects.length);}this.samples.push(end-start);if(this.samples.length>180)this.samples.shift();this.schedule();}
+  tick(){this.frame=0;if(this.hidden||this.disposed)return;const now=this.clock(),dt=Math.min(.05,Math.max(0,(now-(this.lastTime??now))/1000));this.lastTime=now;const start=this.clock();if(this.engine&&this.renderer)this.engine.setViewRect(this.renderer.viewRect());if(this.running&&this.engine?.state.status==='playing'){this.engine.update(dt,this.input);this.renderDt=dt;}else this.renderDt=0;this.running=!!(this.engine&&this.screen==='game'&&this.engine.state.status==='playing');const mid=this.clock();this.draw();const end=this.clock();this.metrics.frames++;this.metrics.maxUpdateMs=Math.max(this.metrics.maxUpdateMs,mid-start);this.metrics.maxRenderMs=Math.max(this.metrics.maxRenderMs,end-mid);if(end-start>32)this.metrics.slowFrames++;const s=this.engine?.state;if(s){this.metrics.peakEnemies=Math.max(this.metrics.peakEnemies,s.enemies.length);this.metrics.peakProjectiles=Math.max(this.metrics.peakProjectiles,s.projectiles.length);this.metrics.peakEffects=Math.max(this.metrics.peakEffects,s.effects.length);}this.samples.push(end-start);if(this.samples.length>180)this.samples.shift();this.schedule();}
   drawGame(){const s=this.engine.state;this.renderer.render(s,this.renderDt||0);const c=this.ctx;c.setTransform(this.dpr,0,0,this.dpr,0,0);const y=this.top;c.fillStyle='rgba(236,218,174,.96)';c.fillRect(0,0,this.w,y+134);c.fillRect(0,this.h-this.bottom-89,this.w,this.bottom+89);c.fillStyle=C.wood;c.fillRect(0,y+132,this.w,3);c.fillRect(0,this.h-this.bottom-90,this.w,3);this.button('Ⅱ',this.w-57,y+10,40,44,()=>{if(s.status==='playing')this.engine.pause();this.draw();},{size:16});this.text(`${this.stageId} · ${s.stage.name}`,18,y+13,10,C.gold);this.text(fmt(s.time),18,y+29,21,C.ink);this.text(s.kills+' 击破',100,y+36,11,C.muted);this.box(16,y+65,this.w-32,5,C.line,null);this.box(16,y+65,(this.w-32)*Math.max(0,s.player.hp/s.player.maxHp),5,C.red,null);this.text('生命 '+Math.ceil(s.player.hp)+' / '+s.player.maxHp,18,y+78,9,C.ink);const boss=s.enemies.find(e=>e.kind==='boss');if(boss){this.box(18,y+99,this.w-36,6,C.line,null);this.box(18,y+99,(this.w-36)*boss.hp/boss.maxHp,6,C.gold,null);this.text(boss.name,this.w/2,y+109,12,C.gold,'center');}const by=this.h-this.bottom-65;this.button(s.player.dashCooldown>0?Math.ceil(s.player.dashCooldown)+'s':'遁',this.w-73,by,55,55,()=>{this.engine.useDash(this.input);},{disabled:s.player.dashCooldown>0});const buildY=this.h-this.bottom-66;s.skills.forEach((sk,i)=>{const sx=16+i*51;this.box(sx,buildY,45,28,C.panel,sk.isWeapon?C.gold:C.line);this.skillIcon(sk.id,sx+3,buildY+3,19);this.text(String(sk.level),sx+34,buildY+9,9,C.gold,'center','bold');});this.box(16,this.h-this.bottom-24,this.w-90,5,C.line,null);this.box(16,this.h-this.bottom-24,(this.w-90)*Math.min(1,s.player.xp/s.player.xpNext),5,C.jade,null);this.text('Lv.'+s.player.level,this.w-65,this.h-this.bottom-27,10,C.gold);if(this.joy){c.strokeStyle='rgba(100,71,39,.5)';c.lineWidth=1;c.beginPath();c.arc(this.joy.x,this.joy.y,38,0,Math.PI*2);c.stroke();c.fillStyle='rgba(192,150,86,.65)';c.beginPath();c.arc(this.joy.x+this.input.x*23,this.joy.y+this.input.y*23,14,0,Math.PI*2);c.fill();}if(s.status==='upgrade')this.upgradeOverlay(s);else if(s.status==='paused')this.pauseOverlay();else if(['won','lost'].includes(s.status))this.resultOverlay(s);}
   shade(){const c=this.ctx;c.fillStyle=`rgba(35,30,22,${.35+.3*this.uiAnimation.eased})`;c.fillRect(0,0,this.w,this.h);this.buttons=[];}
   scrollPanel(y,h){this.box(16,y,this.w-32,h,C.bg,C.wood);this.ctx.fillStyle=C.wood;this.ctx.fillRect(12,y-2,this.w-24,7);this.ctx.fillRect(12,y+h-5,this.w-24,7);this.ctx.fillStyle=C.woodLight;this.ctx.fillRect(19,y-1,this.w-38,2);this.ctx.fillRect(19,y+h-4,this.w-38,2);}
   upgradeOverlay(s){this.shade();const y=Math.max(this.top+50,(this.h-470)/2);this.withMotion(()=>{this.scrollPanel(y-20,447);this.text('悟得一法',this.w/2,y,30,C.gold,'center','bold');this.text('本命一槽 · 法宝四槽 · 选一项',this.w/2,y+43,11,C.muted,'center');});s.choices.forEach((ch,i)=>{const ry=y+82+i*111;this.withMotion(()=>this.withPress(20,ry,this.w-40,99,()=>{this.box(20,ry,this.w-40,99,C.panel,ch.isWeapon?C.red:C.line);this.ctx.fillStyle=ch.isWeapon?C.red:C.jade;this.ctx.fillRect(27,ry+13,3,24);this.skillIcon(ch.id,34,ry+12,30);this.text(ch.name,72,ry+11,18,C.ink,'left','bold');this.text(ch.isWeapon?'本命武器':'法宝',this.w-33,ry+13,10,C.muted,'right');this.wrap(ch.description,72,ry+37,this.w-104,11,C.muted,2);this.text(`将升至 Lv.${ch.level}`,72,ry+77,10,C.gold);}),i,ry+50);this.buttons.push({x:20,y:ry,w:this.w-40,h:99,label:ch.name,action:()=>{this.engine.chooseUpgrade(ch.id);this.input={x:0,y:0};this.audio.play('click');this.wake();this.draw();}});});}
-  pauseOverlay(){this.shade();const y=this.h/2-135;this.withMotion(()=>{this.scrollPanel(y-30,242);this.text('且歇片刻',this.w/2,y,32,C.gold,'center','bold');this.button('继续西行',30,y+65,this.w-60,50,()=>{this.engine.resume();this.audio.startMusic(getStage(this.stageId).theme);this.wake();this.draw();},{primary:true});this.button('退出本局',30,y+127,this.w-60,48,()=>{this.platform.confirm?.('结束本局？',()=>this.go('home'))||(!this.platform.confirm&&this.go('home'));});});}
+  pauseOverlay(){this.shade();const y=this.h/2-150;this.withMotion(()=>{this.scrollPanel(y-30,272);this.text('且歇片刻',this.w/2,y,32,C.gold,'center','bold');this.button('继续西行',30,y+65,this.w-60,50,()=>{this.engine.resume();this.audio.startMusic(getStage(this.stageId).theme);this.wake();this.draw();},{primary:true});this.button(`声音设置 · ${this.save.muted?'已静音':'已开启'}`,30,y+125,this.w-60,46,()=>{this.save.muted=!this.save.muted;this.audio.setMuted(this.save.muted);this.persist();if(!this.save.muted)this.audio.play('click');this.draw();});this.button('退出本局',30,y+181,this.w-60,48,()=>{this.platform.confirm?.('结束本局？本局不会结算，悟性、每日进度和图鉴登记都不会计入。',()=>this.go('home'))||(!this.platform.confirm&&this.go('home'));});});}
   resultOverlay(s){this.shade();const y=this.h/2-180,won=s.status==='won';this.withMotion(()=>{this.scrollPanel(y-30,348);this.text(won?'此难已破':'暂渡未成',this.w/2,y,34,won?C.gold:C.red,'center','bold');this.text(`${s.stage.location} · ${s.character.name}`,this.w/2,y+49,12,C.muted,'center');this.ctx.strokeStyle=C.woodLight;this.ctx.lineWidth=1;this.ctx.beginPath();this.ctx.moveTo(47,y+75);this.ctx.lineTo(this.w-47,y+75);this.ctx.stroke();this.text(`斩妖 ${s.kills}  等级 ${s.player.level}  用时 ${fmt(s.time)}`,this.w/2,y+88,13,C.ink,'center');this.text(`悟性 +${this.result?.reward||0}`,this.w/2,y+122,20,C.gold,'center');this.button(won&&s.stage.id<81?'再闯下一难':'再试一次',30,y+178,this.w-60,50,()=>{if(won)this.stageId=Math.min(81,s.stage.id+1);this.startRun();},{primary:true});this.button('回到大唐',30,y+240,this.w-60,48,()=>this.go('home'));});}
   touchStart(x,y){if(this.hidden||this.disposed)return;const b=this.buttons.slice().reverse().find(b=>x>=b.x&&x<=b.x+b.w&&y>=b.y&&y<=b.y+b.h);if(b){if(!b.disabled){this.press={x:b.x,y:b.y,w:b.w,h:b.h,key:this.motionKey(),startedAt:this.clock()};this.audio.play('click');b.action();this.draw();}return;}if(this.screen==='game'&&this.engine?.state.status==='playing'){this.touchOrigin={x,y};this.joy={x,y};}}
   touchMove(x,y){if(!this.touchOrigin)return;const dx=x-this.touchOrigin.x,dy=y-this.touchOrigin.y,length=Math.hypot(dx,dy);this.input={x:dx/Math.max(40,length),y:dy/Math.max(40,length)};}
@@ -3760,4 +4509,4 @@ Object.assign(module.exports,{NativeGame});
 }
 };
 const cache={};function requireCore(id){if(cache[id])return cache[id].exports;if(!factories[id])throw new Error("Missing core module "+id);const m={exports:{}};cache[id]=m;factories[id](m,m.exports,requireCore);return m.exports;}
-module.exports=Object.assign({},...["content","tiger-animation","bear-animation","bull-animation","wolf-animation","monkey-animation","deer-animation","hawk-animation","snake-animation","battle-enemy-animation","engine","renderer","progression","native-ui"].map(requireCore));
+module.exports=Object.assign({},...["content","tiger-animation","bear-animation","bull-animation","wolf-animation","monkey-animation","deer-animation","hawk-animation","snake-animation","boss-animation","skill-fx-animation","scene-collision","battle-enemy-animation","engine","renderer","progression","native-ui"].map(requireCore));
