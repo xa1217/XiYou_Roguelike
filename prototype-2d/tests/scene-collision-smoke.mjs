@@ -11,7 +11,7 @@ const results = [];
 const check = (name, fn) => { try { fn(); results.push({ name, status: 'PASS' }); } catch (error) { results.push({ name, status: 'FAIL', error: String(error && error.message || error) }); } };
 
 const BLOCKED = {
-  water: [[900, 90], [200, 450], [900, 1650], [1500, 1450], [90, 900]],
+  water: [[900, 90], [200, 450], [900, 1650], [1500, 1450], [90, 900], [1400, 470]],
   fire: [[900, 110], [90, 700], [900, 1620], [700, 1330], [1500, 1300], [1710, 800]],
   sand: [[900, 130], [300, 500], [900, 90], [1240, 1480], [1500, 300], [300, 1400]],
   snow: [[900, 130], [300, 500], [1240, 1480], [1560, 300], [200, 1300], [900, 130]],
@@ -21,10 +21,10 @@ const BLOCKED = {
 const OPEN = {
   water: [[900, 900], [700, 700], [1100, 1000], [300, 900], [250, 1520], [900, 500]],
   fire: [[900, 900], [700, 700], [1100, 1000], [500, 900], [1300, 900], [900, 500]],
-  sand: [[900, 900], [700, 700], [1100, 1000], [500, 900], [1300, 900], [250, 1600]],
-  snow: [[900, 900], [700, 700], [1100, 1000], [500, 900], [1300, 900], [1400, 500]],
-  forest: [[900, 900], [700, 700], [1100, 1000], [500, 900], [1300, 900], [300, 1550]],
-  temple: [[900, 900], [700, 700], [1100, 1000], [500, 900], [1300, 900], [300, 1550]],
+  sand: [[900, 900], [700, 700], [1100, 1000], [500, 900], [1300, 900], [250, 1600], [390, 990]],
+  snow: [[900, 900], [700, 700], [1100, 1000], [500, 900], [1300, 900], [1400, 500], [540, 1330]],
+  forest: [[900, 900], [700, 700], [1100, 1000], [500, 900], [1300, 900], [300, 1550], [500, 1400], [620, 1600]],
+  temple: [[900, 900], [700, 700], [1100, 1000], [500, 900], [1300, 900], [300, 1550], [500, 1400]],
 };
 
 for (const key of Object.keys(BLOCKED)) {
@@ -61,6 +61,7 @@ check('engine: doublefork combines its ridge rule with the side-massif/sky mask'
   assert.equal(engine.isWalkable(900, 40, 14), false, 'painted sky strip blocks at the top');
   assert.equal(engine.isWalkable(150, 150, 14), false, 'north-west peaks block');
   assert.equal(engine.isWalkable(900, 1500, 14), true, 'south valley floor open');
+  assert.equal(engine.isWalkable(1125, 1620, 14), false, 'painted rocks flank the south exit');
   // Walking the pass to the far north stops below the sky strip.
   const p = engine.state.player;
   Object.assign(p, { x: 900, y: 900 });
