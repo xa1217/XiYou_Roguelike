@@ -135,7 +135,7 @@ check('renderer draws the style-pass strips (fire bird, holy spark, skull bead)'
   renderer._drawProjectile(bird, { x: 50, y: 50, vx: 200, vy: 0, radius: 9, kind: 'fire-bird', color: '#f58c42' });
   assert.equal(bird.draws.length, 1, 'fire bird strip drawn');
   assert.equal(bird.draws[0][0], images['fire-bird']);
-  assert.equal(bird.draws[0][7], 72, 'fire bird glyph is 8x its hit radius');
+  assert.equal(bird.draws[0][7], 99, 'fire bird glyph is 11x its hit radius');
   const spark = makeCtx();
   renderer._drawProjectile(spark, { x: 50, y: 50, vx: 300, vy: 100, radius: 4, kind: 'light-spark', color: '#d8f8ff' });
   assert.equal(spark.draws.length, 1, 'holy spark strip drawn');
@@ -253,9 +253,9 @@ check('painted effect extents equal their gameplay radius (length audit)', () =>
     ['fire-pool', { kind: 'fire-trail', radius: R }],
   ];
   const glyphs = [
-    ['gold-bead', { kind: 'bead', radius: R }, 120],
-    ['skull-bead', { kind: 'skull-bead', radius: R }, 120],
-    ['monkey-clone', { kind: 'monkey-clone', radius: R, vx: 100 }, 150],
+    ['gold-bead', { kind: 'bead', radius: R }, 155],
+    ['skull-bead', { kind: 'skull-bead', radius: R }, 155],
+    ['monkey-clone', { kind: 'monkey-clone', radius: R, vx: 100 }, 190],
   ];
   const drawOne = (fxId, effect) => {
     const renderer = makeRenderer({ [fxId]: strip(fxId) });
