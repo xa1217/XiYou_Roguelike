@@ -65,10 +65,19 @@ const runtimeAssets = [
   'enemy-deer-battle-v1-sheet.png', 'enemy-deer-battle-v1-frames.json',
   'enemy-hawk-battle-v1-sheet.png', 'enemy-hawk-battle-v1-frames.json',
   'enemy-snake-battle-v3-sheet.png', 'enemy-snake-battle-v3-frames.json',
-  'weapon-skill-wukong.svg', 'weapon-skill-tangseng.svg', 'weapon-skill-bajie.svg', 'weapon-skill-wujing.svg',
-  'artifact-purple-gourd.svg', 'artifact-iron-fan.svg', 'artifact-diamond-snare.svg', 'artifact-nine-dragon.svg',
-  'artifact-lotus-lantern.svg', 'artifact-golden-rope.svg', 'artifact-moon-mirror.svg', 'artifact-samadhi-fire.svg',
+  'enemy-yin-general-battle-v1-sheet.png', 'enemy-yin-general-battle-v1-frames.json',
+  'skill-fx-slash-arc.png', 'skill-fx-light-orb.png', 'skill-fx-rake-sweep.png', 'skill-fx-water-ring.png',
+  'skill-fx-fan-wave.png', 'skill-fx-gourd-vortex.png', 'skill-fx-palm-burst.png', 'skill-fx-fire-burst.png',
+  'skill-fx-fire-wheel.png', 'skill-fx-ring-spin.png', 'skill-fx-gold-bead.png', 'skill-fx-fire-pool.png',
+  'skill-fx-monkey-clone.png', 'skill-fx-whirl-pool.png',
+  'enemy-xiong-shanjun-battle-v1-sheet.png', 'enemy-xiong-shanjun-battle-v1-frames.json',
+  'enemy-te-chushi-battle-v1-sheet.png', 'enemy-te-chushi-battle-v1-frames.json',
+  'skill-icon-wukong.png', 'skill-icon-tangsanzang.png', 'skill-icon-bajie.png', 'skill-icon-shajing.png',
+  'skill-icon-purple-gourd.png', 'skill-icon-iron-fan.png', 'skill-icon-diamond-snare.png', 'skill-icon-nine-dragon.png',
+  'skill-icon-lotus-lantern.png', 'skill-icon-golden-rope.png', 'skill-icon-moon-mirror.png', 'skill-icon-samadhi-fire.png',
   'enemy-creature.svg', 'enemy-brute.svg', 'enemy-bird.svg', 'enemy-spider.svg', 'enemy-boss.svg',
+  'map-doublefork-high-ridge-v1.png', 'map-forest-qv1.png', 'map-temple-qv1.png',
+  'map-water-qv1.png', 'map-fire-qv1.png', 'map-sand-qv1.png', 'map-snow-qv1.png',
 ];
 for (const name of runtimeAssets) {
   const source = path.join(assetRoot, name);
