@@ -47,6 +47,7 @@ export class GameEngine {
   constructor(options = {}) {
     this.options = options;
     this.debugMode = options.debug === true;
+    this.viewRect = null;
     this.debugInvincible = false;
     this.seed = Number(options.seed == null ? Date.now() : options.seed) >>> 0;
     this.random = mulberry32(this.seed);
@@ -720,7 +721,7 @@ export class GameEngine {
       const targetPoint = { x: player.x + Math.cos(angle) * targetDistance, y: player.y + Math.sin(angle) * targetDistance };
       this.projectile({ x: player.x, y: player.y, vx: Math.cos(angle) * stats.projectileSpeed, vy: Math.sin(angle) * stats.projectileSpeed, radius: stats.radius, color: this.character.color, kind: 'light-orb', ttl: targetDistance / stats.projectileSpeed + stats.linger + 0.05, damage: baseDamage, target: targetPoint, linger: stats.linger, bounce: stats.bounce, targetLimit: stats.bounceTargets || (skill.level >= 5 ? 5 : skill.level >= 4 ? 3 : 2), split: stats.split, knockback: stats.knockback, pierce: true });
     } else if (this.character.id === 'bajie') {
-      this.effect({ x: player.x, y: player.y, kind: 'hoe-line', radius: stats.range, angle, color: this.character.color, ttl: 0.22, width: stats.width });
+      this.effect({ x: player.x, y: player.y, kind: 'hoe-line', radius: stats.range, length: stats.range, angle, color: this.character.color, ttl: 0.22, width: stats.width });
       this.hitLine(angle, stats.range, stats.width, baseDamage, stats.bleedTicks);
       const birds = stats.birds || 0;
       for (let i = 0; i < birds; i += 1) {
@@ -835,6 +836,15 @@ export class GameEngine {
     this.poolStats.released[kind] += 1;
   }
 
+  // The platform reports the visible world rect (camera view) each
+  // frame; bouncing projectiles ricochet inside it so their bounces stay
+  // on screen. Invalid or degenerate rects are ignored, and headless
+  // engines simply never set one (legacy cast-box behaviour).
+  setViewRect(rect) {
+    if (!rect || !Number.isFinite(rect.x) || !Number.isFinite(rect.y) || !Number.isFinite(rect.w) || !Number.isFinite(rect.h) || rect.w < 200 || rect.h < 200) return;
+    this.viewRect = { x: rect.x, y: rect.y, w: rect.w, h: rect.h };
+  }
+
   updateProjectiles(dt) {
     for (let i = this.state.projectiles.length - 1; i >= 0; i -= 1) {
       const shot = this.state.projectiles[i];
@@ -858,10 +868,39 @@ export class GameEngine {
         shot.trailTimer = (shot.trailTimer || 0) - dt;
         if (shot.trailTimer <= 0) { shot.trailTimer = 0.07; this.effect({ x: shot.x, y: shot.y, kind: 'fire-trail', radius: shot.radius, color: '#ef7650', ttl: shot.trail, damage: (shot.damage || 10) * 0.09 }); }
       }
-      if ((shot.kind === 'ring' || shot.kind === 'ring-child') && shot.bounds) {
-        const bounds = shot.bounds;
-        if (shot.x < bounds.x || shot.x > bounds.x + bounds.w) { shot.vx *= -1; shot.x = clamp(shot.x, bounds.x, bounds.x + bounds.w); this.bounceRing(shot, null); }
-        if (shot.y < bounds.y || shot.y > bounds.y + bounds.h) { shot.vy *= -1; shot.y = clamp(shot.y, bounds.y, bounds.y + bounds.h); this.bounceRing(shot, null); }
+      if (shot.kind === 'ring' || shot.kind === 'ring-child') {
+        // Bounce arena: the live screen rect when the platform supplies
+        // one (the ring ricochets at the visible edges), else the
+        // cast-time box kept for headless determinism. One wall bounce
+        // per frame even at a corner (the old per-axis calls could count
+        // a corner as two bounces).
+        const view = this.viewRect;
+        const inset = shot.radius || 5;
+        const box = view
+          ? { x: view.x + inset, y: view.y + inset, w: view.w - inset * 2, h: view.h - inset * 2 }
+          : shot.bounds;
+        if (box) {
+          let hitWall = false;
+          if (shot.x < box.x) { shot.x = box.x; shot.vx = Math.abs(shot.vx); hitWall = true; }
+          else if (shot.x > box.x + box.w) { shot.x = box.x + box.w; shot.vx = -Math.abs(shot.vx); hitWall = true; }
+          if (shot.y < box.y) { shot.y = box.y; shot.vy = Math.abs(shot.vy); hitWall = true; }
+          else if (shot.y > box.y + box.h) { shot.y = box.y + box.h; shot.vy = -Math.abs(shot.vy); hitWall = true; }
+          if (hitWall) this.bounceRing(shot, null);
+        }
+      }
+      if ((shot.kind === 'light-spark' || shot.kind === 'moon-blade') && this.viewRect) {
+        // Sparks chain between enemies; when their current target is
+        // gone they would otherwise drift off-screen and expire unseen.
+        // With a live view rect they ricochet at the screen edges
+        // instead, so every bounce stays where the player can see it.
+        const targetAlive = shot.targetId && this.state.enemies.some((enemy) => enemy.id === shot.targetId && enemy.hp > 0);
+        if (!targetAlive) {
+          const view = this.viewRect, r = shot.radius || 4;
+          if (shot.x < view.x + r) { shot.x = view.x + r; shot.vx = Math.abs(shot.vx); }
+          else if (shot.x > view.x + view.w - r) { shot.x = view.x + view.w - r; shot.vx = -Math.abs(shot.vx); }
+          if (shot.y < view.y + r) { shot.y = view.y + r; shot.vy = Math.abs(shot.vy); }
+          else if (shot.y > view.y + view.h - r) { shot.y = view.y + view.h - r; shot.vy = -Math.abs(shot.vy); }
+        }
       }
       if (shot.kind === 'light-orb' && shot.target && !shot.anchored && this.segmentDistance(previous, shot, shot.target) <= 0.01) {
         shot.x = shot.target.x; shot.y = shot.target.y;

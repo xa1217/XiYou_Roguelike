@@ -481,7 +481,7 @@ class GameRenderer {
       // The forward rake lane can enter the viewport while its origin remains
       // outside it; its full length must therefore be included in the bound.
       const pad = battleEnemyAnimation(effect) ? n(effect.bodyRadius, r) * 3.4 + 4 : effect.kind === 'hoe-line'
-        ? Math.max(r * 1.4, Math.abs(n(effect.length, r * 2.3)) + r * .12 + Math.abs(n(effect.width, r * .48)) / 2) + 6
+        ? Math.max(r * 1.4, Math.abs(n(effect.length, r)) + r * .12 + Math.abs(n(effect.width, r * .48)) / 2) + 6
         : r * 1.4 + 6;
       if (this._inView(n(effect.x), n(effect.y), pad)) { this._drawEffect(ctx, effect); this.stats.effects += 1; }
       else this.stats.culledEffects += 1;
@@ -865,6 +865,14 @@ class GameRenderer {
     return clamp(base / (radius * 14), 1.05, 2.2) / 2;
   }
 
+  // The currently visible world rect (camera view from the last draw).
+  // The platform feeds this to the engine so bouncing projectiles
+  // ricochet at the screen edges.
+  viewRect() {
+    const v = this._view;
+    return { x: v.left, y: v.top, w: v.right - v.left, h: v.bottom - v.top };
+  }
+
   _drawMap(ctx, theme, mapKey = null) {
     const themeName = Object.keys(THEMES).find(key => THEMES[key] === theme) || 'forest';
     const left = this._view.left - 80;
@@ -1219,7 +1227,7 @@ class GameRenderer {
       const fxImage = this.skillFxImages?.['light-orb'];
       const fxRect = fxImage && skillFxFrameRect(fxImage, (this.elapsed * 1.6) % 1);
       if (fxRect) {
-        const size = radius * 5.2;
+        const size = radius * 4.2;
         method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
         method(ctx, 'restore');
         return;
@@ -1232,7 +1240,7 @@ class GameRenderer {
       const fxImage = this.skillFxImages?.[fxId];
       const fxRect = fxImage && skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'fire-wheel' ? 2.4 : 2)) % 1);
       if (fxRect) {
-        const size = radius * (fxId === 'fire-wheel' ? 4.6 : 3.8);
+        const size = radius * (fxId === 'fire-wheel' ? 3.6 : 3);
         method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
         method(ctx, 'restore');
         return;
@@ -1314,18 +1322,18 @@ class GameRenderer {
         // The wooden monkey clones scamper outward: run cycle on renderer
         // time, flipped to face their travel direction.
         const rect = skillFxFrameRect(fxImage, (this.elapsed * 3) % 1) || fxRect;
-        const size = radius * 3.6;
+        const size = radius * 3;
         if (n(effect.vx) < 0) method(ctx, 'scale', -1, 1);
         method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
       } else if (fxId === 'whirl-pool') {
         const rect = skillFxFrameRect(fxImage, (this.elapsed * 2.2) % 1) || fxRect;
-        const size = radius * 2.6;
+        const size = radius * 2;
         method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
       } else if (fxId === 'gold-bead' || fxId === 'fire-pool') {
         // Looping props: the rope bead pulses and the fire pool flickers on
         // renderer time; both are drawn centered on the effect position.
         const rect = skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'gold-bead' ? 1.8 : 2.6)) % 1) || fxRect;
-        const size = radius * (fxId === 'gold-bead' ? 3.2 : 2.7);
+        const size = radius * (fxId === 'gold-bead' ? 2.4 : 2);
         method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
       } else if (fxId === 'fan-wave' || fxId === 'gourd-vortex') {
         // Cone effects: the strip's narrow point sits at the effect origin
@@ -1333,30 +1341,36 @@ class GameRenderer {
         // lives for seconds, so its frames cycle on renderer time instead
         // of the one-shot progress.
         const rect = fxId === 'gourd-vortex' ? (skillFxFrameRect(fxImage, (this.elapsed * 1.3) % 1) || fxRect) : fxRect;
-        const size = radius * 2;
+        // Cone length must equal the gameplay radius: the strip is drawn
+        // from -6% of its size, so size = radius * 1.06 puts the cone tip
+        // exactly at the damage/pull reach (it was 2x before the audit).
+        const size = radius * 1.06;
         method(ctx, 'rotate', n(effect.angle));
         method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h,
           -size * .06, -size / 2, size, size);
       } else if (fxId === 'palm-burst') {
         // The painted palm faces up in its cell; rotate so it strikes
         // outward along the effect angle.
-        const size = radius * 2.6;
+        const size = radius * 2;
         method(ctx, 'rotate', n(effect.angle) + Math.PI / 2);
         method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
       } else if (fxId === 'fire-burst') {
-        const size = radius * 2.3;
+        const size = radius * 2;
         method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
       } else if (fxId === 'rake-sweep') {
-        const length = n(effect.length, radius * 2.3), width = n(effect.width, radius * .48);
+        // The rake lane's leading edge must land exactly on the damage
+        // range (effect.length === stats.range, set by the engine). The
+        // strip is drawn from -10% so its tip reaches +length.
+        const length = n(effect.length, radius), width = n(effect.width, radius * .48);
         method(ctx, 'rotate', n(effect.angle));
         method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h,
-          -radius * .3, -width * 1.1, length + radius * .6, width * 2.2);
+          -radius * .1, -width * 1.1, length * 1.1, width * 2.2);
       } else if (fxId === 'water-ring') {
-        const size = radius * 2.3;
+        const size = radius * 2;
         method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
       } else {
         method(ctx, 'rotate', n(effect.angle, 0));
-        const size = radius * 2.2;
+        const size = radius * 2;
         method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
       }
       method(ctx, 'restore');
@@ -1407,9 +1421,9 @@ class GameRenderer {
       path(ctx, [['M', radius * .65, -radius * .35], ['Q', radius * 1.08, 0, radius * .65, radius * .35]], null, alphaColor('#fff0bc', .7 * fade), Math.max(1.5, radius * .035));
       if (kind.includes('heavy')) circle(ctx, radius * .75, 0, radius * .18, alphaColor('#fff5bb', .65 * fade));
     } else if (kind === 'hoe-line') {
-      const length = n(effect.length, radius * 2.3), width = n(effect.width, radius * .48);
+      const length = n(effect.length, radius), width = n(effect.width, radius * .48);
       method(ctx, 'rotate', n(effect.angle));
-      path(ctx, [['M', 0, -width / 2], ['L', length, -width / 2], ['L', length + radius * .12, 0], ['L', length, width / 2], ['L', 0, width / 2], ['Z']], alphaColor(color, .15 * fade), alphaColor(color, .67 * fade), 2);
+      path(ctx, [['M', 0, -width / 2], ['L', length - radius * .12, -width / 2], ['L', length, 0], ['L', length - radius * .12, width / 2], ['L', 0, width / 2], ['Z']], alphaColor(color, .15 * fade), alphaColor(color, .67 * fade), 2);
       for (let i = 0; i < 4; i += 1) { const step = length / 4; path(ctx, [['M', i * step, -width * .34], ['L', (i + .7) * step, width * .34]], null, alphaColor('#fff2b8', .6 * fade), 1.5); }
     } else if (kind === 'staff-ring' || kind === 'fire-ring') {
       circle(ctx, 0, 0, radius, null, alphaColor(color, .72 * fade), Math.max(3, radius * .09));
@@ -1448,8 +1462,8 @@ class GameRenderer {
       circle(ctx, 0, 0, radius * .23, alphaColor('#fff3bb', .75 * fade));
     } else if (kind === 'fan') {
       method(ctx, 'rotate', n(effect.angle));
-      path(ctx, [['M', 0, 0], ['Q', radius * .62, -radius * .94, radius * 1.26, -radius * .1], ['Q', radius * .66, radius * .7, 0, 0], ['Z']], alphaColor(color, .42 * fade), alphaColor('#194c59', .82 * fade), 2.2);
-      for (let i = 0; i < 5; i += 1) { const a = -.9 + i * .45; method(ctx, 'beginPath'); method(ctx, 'moveTo', radius * .18, radius * .04); method(ctx, 'lineTo', Math.cos(a) * radius * 1.18, Math.sin(a) * radius * 1.18); paint(ctx, null, alphaColor('#fff1b1', .72 * fade), 1.6); method(ctx, 'stroke'); }
+      path(ctx, [['M', 0, 0], ['Q', radius * .49, -radius * .75, radius, -radius * .08], ['Q', radius * .52, radius * .56, 0, 0], ['Z']], alphaColor(color, .42 * fade), alphaColor('#194c59', .82 * fade), 2.2);
+      for (let i = 0; i < 5; i += 1) { const a = -.9 + i * .45; method(ctx, 'beginPath'); method(ctx, 'moveTo', radius * .18, radius * .04); method(ctx, 'lineTo', Math.cos(a) * radius, Math.sin(a) * radius); paint(ctx, null, alphaColor('#fff1b1', .72 * fade), 1.6); method(ctx, 'stroke'); }
     } else if (kind === 'mountain') {
       path(ctx, [['M', -radius * .9, radius * .55], ['L', -radius * .28, -radius * .78], ['L', 0, -radius * .36], ['L', radius * .32, -radius * 1.02], ['L', radius * 1.02, radius * .55], ['Z']], alphaColor('#c89763', .82 * fade), alphaColor('#402a2a', .86 * fade), 2.4);
       path(ctx, [['M', -radius * .26, -radius * .72], ['L', 0, -radius * .36], ['L', radius * .2, -radius * .74]], null, alphaColor('#fff0af', .7 * fade), 2);
