@@ -1,8 +1,15 @@
-import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';
+import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';import {execFileSync} from 'node:child_process';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');const dir=path.join(root,'wechat-game/assets/audio');fs.mkdirSync(dir,{recursive:true});const rate=11025;
 function wav(name,seconds,sample){const count=Math.floor(seconds*rate),b=Buffer.alloc(44+count*2);b.write('RIFF',0);b.writeUInt32LE(36+count*2,4);b.write('WAVEfmt ',8);b.writeUInt32LE(16,16);b.writeUInt16LE(1,20);b.writeUInt16LE(1,22);b.writeUInt32LE(rate,24);b.writeUInt32LE(rate*2,28);b.writeUInt16LE(2,32);b.writeUInt16LE(16,34);b.write('data',36);b.writeUInt32LE(count*2,40);for(let i=0;i<count;i++)b.writeInt16LE(Math.round(Math.max(-.9,Math.min(.9,sample(i/rate)))*32767),44+i*2);fs.writeFileSync(path.join(dir,name+'.wav'),b);}
 const hz=[261.63,293.66,329.63,392,440,523.25,587.33];const themes={forest:[0,2,4,2,5,4,2,1],sand:[0,0,3,4,3,1,0,5],snow:[4,2,1,2,5,4,2,0],fire:[0,3,4,6,4,3,1,0],water:[0,2,5,4,2,3,1,0],temple:[0,4,5,4,2,1,4,5]};
 for(const [name,notes] of Object.entries(themes))wav('bgm-'+name,16,t=>{const step=Math.floor(t/.25),a=t% .25,f=hz[notes[step%8]],phrase=Math.floor(step/16);const envelope=Math.min(1,a/.009)*Math.exp(-a*15);const lead=Math.sin(2*Math.PI*f*a)+.3*Math.sin(2*Math.PI*f*2*a)+.13*Math.sin(2*Math.PI*f*3*a);const bass=Math.sin(2*Math.PI*hz[notes[Math.floor(step/4)%8]]/2*t)*Math.exp(-(t%1)*4);const lastFade=Math.min(1,(16-t)/.04);return lastFade*(lead*envelope*.18+bass*.08+(phrase%2?Math.sin(2*Math.PI*hz[(notes[step%8]+2)%7]*a)*envelope*.035:0));});
 const sfx={attack:[280,.10],hit:[392,.08],hurt:[145,.21],kill:[523,.10],boss:[130,.72],pickup:[659,.12],dash:[784,.17],click:[440,.065],level:[523,.52],win:[523,.86],lose:[196,.74]};
 for(const [name,[freq,duration]] of Object.entries(sfx))wav(name,duration,t=>{const env=Math.min(1,t/.007)*Math.pow(1-t/duration,2);let f=freq;if(['level','win'].includes(name))f=freq*[1,1.25,1.5,2][Math.min(3,Math.floor(t/duration*4))];if(name==='dash')f=freq*(1-t/duration*.65);if(name==='lose')f=freq*(1-t/duration*.5);return env*(Math.sin(2*Math.PI*f*t)*.4+Math.sin(2*Math.PI*f*2.03*t)*.09);});
-console.log(`AUDIO PASS: ${Object.keys(themes).length} BGM + ${Object.keys(sfx).length} SFX, original PCM WAV`);
+// BGM ships as MP3: six 16 s PCM loops would take ~2 MB of the 4 MB WeChat
+// main package as WAV, versus ~0.5 MB encoded. Transcode the generated BGM
+// masters and drop the WAVs; the short SFX stay WAV (~70 KB total). If
+// ffmpeg is unavailable the WAVs are left in place with a warning, and
+// scripts/validate.mjs then fails on purpose so the heavy format cannot
+// silently come back.
+for(const name of Object.keys(themes)){const wavPath=path.join(dir,'bgm-'+name+'.wav'),mp3Path=path.join(dir,'bgm-'+name+'.mp3');try{execFileSync('ffmpeg',['-v','error','-y','-i',wavPath,'-codec:a','libmp3lame','-b:a','40k','-ar','22050',mp3Path],{stdio:'inherit'});fs.unlinkSync(wavPath);}catch{console.warn(`WARNING: ffmpeg unavailable, left ${wavPath} uncompressed; validate will fail until it is transcoded to MP3`);}}
+console.log(`AUDIO PASS: ${Object.keys(themes).length} BGM (MP3) + ${Object.keys(sfx).length} SFX (PCM WAV)`);

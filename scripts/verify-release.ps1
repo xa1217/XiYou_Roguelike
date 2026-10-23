@@ -22,7 +22,8 @@ $allowlist = [regex]::Match($serve, 'const runtimeFiles = new Set\(\[([\s\S]*?)\
 if (-not $allowlist.Success) { throw 'Cannot find explicit public runtime allowlist' }
 $webAllowed = @([regex]::Matches($allowlist.Groups[1].Value, "'([^']+)'") | ForEach-Object { $_.Groups[1].Value }) + 'RELEASE-MANIFEST.json'
 $wxAllowed = @('game.js', 'game.json', 'project.config.json', 'audio.js', 'core/bundle.js', 'illustrations/game.js', 'illustrations/hero-cards-v1.png', 'RELEASE-MANIFEST.json')
-$wxAllowed += @('attack', 'bgm-fire', 'bgm-forest', 'bgm-sand', 'bgm-snow', 'bgm-temple', 'bgm-water', 'boss', 'click', 'dash', 'hit', 'hurt', 'kill', 'level', 'lose', 'pickup', 'win') | ForEach-Object { "assets/audio/$_.wav" }
+$wxAllowed += @('attack', 'boss', 'click', 'dash', 'hit', 'hurt', 'kill', 'level', 'lose', 'pickup', 'win') | ForEach-Object { "assets/audio/$_.wav" }
+$wxAllowed += @('bgm-fire', 'bgm-forest', 'bgm-sand', 'bgm-snow', 'bgm-temple', 'bgm-water') | ForEach-Object { "assets/audio/$_.mp3" }
 $channels = @()
 foreach ($channel in @('web', 'wechatGame')) {
   $metadata = $summary.$channel

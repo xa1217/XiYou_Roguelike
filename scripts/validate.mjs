@@ -44,13 +44,15 @@ const gameConfig = JSON.parse(fs.readFileSync('wechat-game/game.json', 'utf8'));
 if (gameConfig.deviceOrientation !== 'portrait') errors.push('Portrait orientation required');
 
 for (const theme of ['forest', 'sand', 'snow', 'fire', 'water', 'temple']) {
-  const file = `wechat-game/assets/audio/bgm-${theme}.wav`;
+  const file = `wechat-game/assets/audio/bgm-${theme}.mp3`;
   if (!fs.existsSync(file)) {
     errors.push(`Missing ${file}`);
   } else {
     const bytes = fs.readFileSync(file);
-    if (bytes.toString('ascii', 0, 4) !== 'RIFF' || bytes.readUInt32LE(24) !== 11025) {
-      errors.push(`Invalid generated WAV ${file}`);
+    const id3 = bytes.toString('ascii', 0, 3) === 'ID3';
+    const frameSync = bytes[0] === 0xff && (bytes[1] & 0xe0) === 0xe0;
+    if ((!id3 && !frameSync) || bytes.length > 150 * 1024) {
+      errors.push(`Invalid or oversized MP3 ${file}`);
     }
   }
 }
