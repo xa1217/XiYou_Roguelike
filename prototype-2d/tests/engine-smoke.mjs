@@ -240,6 +240,64 @@ test('eight specified artifact rules replace legacy effects at every level', () 
   for(let i=0;i<50;i++)gourd.updateEffects(.05);assert.equal(gourd.state.kills,1);assert.ok(elite.hp>0&&elite.hp<100000);assert.ok(boss.hp>0&&boss.hp<100000);
   const fan=make();const normalFan=foe(fan,980,900);const eliteFan=foe(fan,980,900,'elite');const bossFan=foe(fan,980,900);bossFan.kind='boss';fan.fireArtifact({id:'iron-fan',level:5},{damage:1,power:1});assert.equal(fan.state.effects.length,2);assert.ok(normalFan.x>eliteFan.x&&eliteFan.x>bossFan.x);
 });
+test('bajie hoe-line effect carries the exact damage range as its length', () => {
+  const engine = new GameEngine({ characterId: 'bajie', stageId: 2, seed: 5, debug: true });
+  foe(engine, 1000, 900);
+  const weapon = engine.state.skills.find((skill) => skill.isWeapon);
+  engine.fireWeapon(weapon);
+  const fx = engine.state.effects.find((effect) => effect.kind === 'hoe-line');
+  assert.ok(fx, 'hoe-line effect exists');
+  const stats = getWeaponStats('bajie', weapon.level);
+  assert.equal(fx.radius, stats.range);
+  assert.equal(fx.length, stats.range, 'visual length must equal the damage range');
+  engine.dispose();
+});
+
+test('ring ricochets inside the view rect when the platform supplies one', () => {
+  const engine = make();
+  engine.setViewRect({ x: 400, y: 400, w: 800, h: 600 });
+  engine.fireArtifact({ id: 'diamond-snare', level: 1 }, { damage: 1, power: 1, radius: 90, duration: 2, cooldown: 12 });
+  const ring = engine.state.projectiles[0];
+  assert.ok(ring, 'ring fired');
+  ring.targetId = null; ring.x = 900; ring.y = 700; ring.vx = 410; ring.vy = 0;
+  let flips = 0, lastSign = Math.sign(ring.vx);
+  for (let i = 0; i < 240; i += 1) {
+    engine.updateProjectiles(1 / 60);
+    if (!engine.state.projectiles.includes(ring)) break;
+    assert.ok(ring.x >= 400 + ring.radius - 1e-6 && ring.x <= 1200 - ring.radius + 1e-6, `ring x ${ring.x} must stay in view`);
+    assert.ok(ring.y >= 400 + ring.radius - 1e-6 && ring.y <= 1000 - ring.radius + 1e-6, `ring y ${ring.y} must stay in view`);
+    if (Math.sign(ring.vx) !== lastSign) { flips += 1; lastSign = Math.sign(ring.vx); }
+  }
+  assert.ok(flips >= 1, 'ring must bounce off the screen edge at least once');
+  assert.ok(ring.bounceCount >= 1, 'screen bounce counts as a bounce');
+  engine.dispose();
+});
+
+test('ring without a view rect keeps its cast-time box', () => {
+  const engine = make();
+  engine.fireArtifact({ id: 'diamond-snare', level: 1 }, { damage: 1, power: 1, radius: 90, duration: 2, cooldown: 12 });
+  const ring = engine.state.projectiles[0];
+  ring.targetId = null;
+  for (let i = 0; i < 240; i += 1) {
+    engine.updateProjectiles(1 / 60);
+    if (!engine.state.projectiles.includes(ring)) break;
+    assert.ok(ring.x >= ring.bounds.x - 1e-6 && ring.x <= ring.bounds.x + ring.bounds.w + 1e-6, 'ring stays in cast box');
+    assert.ok(ring.y >= ring.bounds.y - 1e-6 && ring.y <= ring.bounds.y + ring.bounds.h + 1e-6, 'ring stays in cast box');
+  }
+  engine.dispose();
+});
+
+test('targetless light sparks ricochet at the screen edges instead of leaving', () => {
+  const engine = make();
+  engine.setViewRect({ x: 400, y: 400, w: 800, h: 600 });
+  engine.projectile({ x: 1150, y: 700, vx: 420, vy: 0, radius: 4, color: '#d8f8ff', kind: 'light-spark', ttl: 3, damage: 10, targetId: null, targetIds: [], speed: 420, maxBounces: 2, bounceCount: 0, targetLimit: 2 });
+  const spark = engine.state.projectiles[0];
+  for (let i = 0; i < 60; i += 1) engine.updateProjectiles(1 / 60);
+  assert.ok(engine.state.projectiles.includes(spark), 'spark survives inside the view');
+  assert.ok(spark.x <= 1200 - spark.radius + 1e-6 && spark.vx < 0, `spark reflected at right edge, x=${spark.x} vx=${spark.vx}`);
+  engine.dispose();
+});
+
 test('wujing every fifth whirl, exact duration, graded pull and slow', () => {
   for (const [level, duration, radius] of [[3, 1.5, 18], [4, 2, 36], [5, 3, 36]]) {
     const e = make('wujing'); e.state.skills[0].level = level;
