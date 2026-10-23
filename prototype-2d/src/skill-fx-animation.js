@@ -28,7 +28,6 @@ export const SKILL_FX = Object.freeze({
   'fan-wave': Object.freeze({ cell: 256, frames: 6 }),
   'gourd-vortex': Object.freeze({ cell: 256, frames: 6 }),
   'palm-burst': Object.freeze({ cell: 256, frames: 6 }),
-  'fire-burst': Object.freeze({ cell: 256, frames: 6 }),
   // Acquired-artifact batch 2 (2026-10-22): the wind-fire wheel and the
   // Qiankun ring are projectiles (routed in _drawProjectile like the orb);
   // the golden rope beads and the wheel's fire trail are effects.
@@ -40,6 +39,18 @@ export const SKILL_FX = Object.freeze({
   // Wujing's water whirl pools complete the acquired-skill set.
   'monkey-clone': Object.freeze({ cell: 256, frames: 6 }),
   'whirl-pool': Object.freeze({ cell: 256, frames: 6 }),
+  // Style pass (2026-10-23): the last vector-glyph skills join the painted
+  // set, and two visuals that contradicted their own descriptions are
+  // corrected — Bajie's rake birds are described as 烈焰神鸟 (a flaming
+  // divine bird, not an orange leaf glyph), 搬山诀 drops a MOUNTAIN (the
+  // retired 'fire-burst' flame strip it used to borrow stays in the repo
+  // as an unreferenced legacy asset), the level-5 prayer beads are
+  // 骷髅念珠 (skull beads, not gold), and Sanzang's split sparks get the
+  // same painted light as his orbs.
+  'fire-bird': Object.freeze({ cell: 256, frames: 6 }),
+  'mountain-slam': Object.freeze({ cell: 256, frames: 6 }),
+  'skull-bead': Object.freeze({ cell: 256, frames: 6 }),
+  'holy-spark': Object.freeze({ cell: 256, frames: 6 }),
 });
 
 // The effect kinds each strip serves.  Signature kinds come from the
@@ -51,8 +62,9 @@ export function skillFxIdForEffect(kind) {
   if (kind === 'fan') return 'fan-wave';
   if (kind === 'gourd') return 'gourd-vortex';
   if (kind === 'palm-strike') return 'palm-burst';
-  if (kind === 'mountain') return 'fire-burst';
-  if (kind === 'bead' || kind === 'skull-bead') return 'gold-bead';
+  if (kind === 'mountain') return 'mountain-slam';
+  if (kind === 'bead') return 'gold-bead';
+  if (kind === 'skull-bead') return 'skull-bead';
   if (kind === 'fire-trail' || kind === 'fire-pool') return 'fire-pool';
   if (kind === 'monkey-clone') return 'monkey-clone';
   if (kind === 'whirl') return 'whirl-pool';

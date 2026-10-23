@@ -1268,6 +1268,21 @@ class GameRenderer {
         return;
       }
     }
+    if (projectileKind === 'fire-bird' || projectileKind === 'light-spark') {
+      // Style pass (2026-10-23): Bajie's flame birds （烈焰神鸟） and
+      // Sanzang's split light sparks were the last vector-glyph
+      // projectiles in a painted game; both now fly as authored strips
+      // cycling on renderer time, inside the velocity rotation above.
+      const fxId = projectileKind === 'fire-bird' ? 'fire-bird' : 'holy-spark';
+      const fxImage = this.skillFxImages?.[fxId];
+      const fxRect = fxImage && skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'fire-bird' ? 2.2 : 3)) % 1);
+      if (fxRect) {
+        const size = radius * (fxId === 'fire-bird' ? 8 : 6);
+        method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
+        method(ctx, 'restore');
+        return;
+      }
+    }
     if (projectileKind === 'fire-wheel' || projectileKind === 'ring' || projectileKind === 'ring-child') {
       // Painted artifact projectiles (batch 2): the wind-fire wheel and the
       // Qiankun ring spin on renderer time while they fly/bounce.
@@ -1344,12 +1359,12 @@ class GameRenderer {
     // effects below unchanged.
     const fxId = skillFxIdForEffect(kind);
     const fxImage = fxId && this.skillFxImages?.[fxId];
-    // The samadhi-fire burst ('mountain') telegraphs with a falling rock
+    // The mountain slam ('mountain') telegraphs with a falling rock
     // during its delay — the vector branch keeps that phase; the painted
-    // burst takes over only once the burst itself starts.
-    const fxDelay = fxId === 'fire-burst' ? n(effect.delay, 0) : 0;
+    // peak takes over only once the slam itself starts.
+    const fxDelay = fxId === 'mountain-slam' ? n(effect.delay, 0) : 0;
     const fxAge = maxTtl - ttl;
-    const fxPhase = fxId === 'fire-burst' && fxDelay > 0 ? clamp((fxAge - fxDelay) / Math.max(.001, maxTtl - fxDelay), 0, 1) : progress;
+    const fxPhase = fxId === 'mountain-slam' && fxDelay > 0 ? clamp((fxAge - fxDelay) / Math.max(.001, maxTtl - fxDelay), 0, 1) : progress;
     const fxRect = fxImage && fxAge >= fxDelay && skillFxFrameRect(fxImage, fxPhase);
     if (fxRect) {
       ctx.globalAlpha = n(ctx.globalAlpha, 1) * fade;
@@ -1364,11 +1379,11 @@ class GameRenderer {
         const rect = skillFxFrameRect(fxImage, (this.elapsed * 2.2) % 1) || fxRect;
         const size = radius * 2;
         method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
-      } else if (fxId === 'gold-bead' || fxId === 'fire-pool') {
-        // Looping props: the rope bead pulses and the fire pool flickers on
-        // renderer time; both are drawn centered on the effect position.
-        const rect = skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'gold-bead' ? 1.8 : 2.6)) % 1) || fxRect;
-        const size = radius * (fxId === 'gold-bead' ? 2.4 : 2);
+      } else if (fxId === 'gold-bead' || fxId === 'skull-bead' || fxId === 'fire-pool') {
+        // Looping props: the prayer beads pulse and the fire pool flickers
+        // on renderer time; all are drawn centered on the effect position.
+        const rect = skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'fire-pool' ? 2.6 : 1.8)) % 1) || fxRect;
+        const size = radius * (fxId === 'fire-pool' ? 2 : 2.4);
         method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
       } else if (fxId === 'fan-wave' || fxId === 'gourd-vortex') {
         // Cone effects: the strip's narrow point sits at the effect origin
@@ -1389,7 +1404,7 @@ class GameRenderer {
         const size = radius * 2;
         method(ctx, 'rotate', n(effect.angle) + Math.PI / 2);
         method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
-      } else if (fxId === 'fire-burst') {
+      } else if (fxId === 'mountain-slam') {
         const size = radius * 2;
         method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
       } else if (fxId === 'rake-sweep') {
