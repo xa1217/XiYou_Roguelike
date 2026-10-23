@@ -43,7 +43,8 @@ const web = path.join(staging, 'web');
 for (const name of ['index.html', 'native.html']) copy(path.join(root, 'prototype-2d', name), path.join(web, name));
 // Public builds never expose the local debug seam, even if ?debug=1 is appended.
 const nativeApp = fs.readFileSync(path.join(root, 'prototype-2d/native-app.js'), 'utf8')
-  .replace(/debug\s*:\s*[^,]+(?=,audio)/, 'debug:false');
+  .replace(/debug\s*:\s*debugAllowed\|\|adminAllowed/, 'debug:false')
+  .replace(/admin\s*:\s*adminAllowed/, 'admin:false');
 if (!/debug\s*:\s*false\b/.test(nativeApp)) throw new Error('Release safety check failed: browser debug is not hard-disabled');
 fs.mkdirSync(web, { recursive: true }); fs.writeFileSync(path.join(web, 'native-app.js'), nativeApp);
 for (const name of fs.readdirSync(path.join(root, 'prototype-2d/src'))) {
@@ -67,7 +68,8 @@ const runtimeAssets = [
   'enemy-snake-battle-v3-sheet.png', 'enemy-snake-battle-v3-frames.json',
   'enemy-yin-general-battle-v1-sheet.png', 'enemy-yin-general-battle-v1-frames.json',
   'skill-fx-slash-arc.png', 'skill-fx-light-orb.png', 'skill-fx-rake-sweep.png', 'skill-fx-water-ring.png',
-  'skill-fx-fan-wave.png', 'skill-fx-gourd-vortex.png', 'skill-fx-palm-burst.png', 'skill-fx-fire-burst.png',
+  'skill-fx-fan-wave.png', 'skill-fx-gourd-vortex.png', 'skill-fx-palm-burst.png',
+  'skill-fx-fire-bird.png', 'skill-fx-mountain-slam.png', 'skill-fx-skull-bead.png', 'skill-fx-holy-spark.png',
   'skill-fx-fire-wheel.png', 'skill-fx-ring-spin.png', 'skill-fx-gold-bead.png', 'skill-fx-fire-pool.png',
   'skill-fx-monkey-clone.png', 'skill-fx-whirl-pool.png',
   'enemy-xiong-shanjun-battle-v1-sheet.png', 'enemy-xiong-shanjun-battle-v1-frames.json',
@@ -78,6 +80,9 @@ const runtimeAssets = [
   'enemy-creature.svg', 'enemy-brute.svg', 'enemy-bird.svg', 'enemy-spider.svg', 'enemy-boss.svg',
   'map-doublefork-high-ridge-v1.png', 'map-forest-qv1.png', 'map-temple-qv1.png',
   'map-water-qv1.png', 'map-fire-qv1.png', 'map-sand-qv1.png', 'map-snow-qv1.png',
+  'ui-paper.jpg', 'ui-wood.jpg', 'ui-patrol.jpg', 'ui-chapter.jpg', 'ui-poster.jpg', 'ui-logo.jpg', 'ui-divider.jpg',
+  'hero-poster-wukong.jpg', 'hero-poster-tangsanzang.jpg', 'hero-poster-bajie.jpg', 'hero-poster-shajing.jpg',
+  'header-chapters.jpg', 'header-talents.jpg', 'header-codex.jpg', 'header-daily.jpg', 'crater-decal.jpg',
 ];
 for (const name of runtimeAssets) {
   const source = path.join(assetRoot, name);
