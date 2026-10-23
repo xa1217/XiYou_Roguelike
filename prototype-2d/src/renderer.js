@@ -337,6 +337,7 @@ class GameRenderer {
     this.skillImages = options.skillImages || {};
     this.skillFxImages = options.skillFxImages || {};
     this.enemyImages = options.enemyImages || {};
+    this.craterImage = options.craterImage || null;
     // Scene assets are optional. Browser builds load the authored PNG/SVG
     // layers; the wx adapter can leave this empty and receive the exact same
     // vector scene fallback.
@@ -1410,15 +1411,44 @@ class GameRenderer {
       method(ctx, 'restore');
       return;
     }
-    if (kind === 'crater') {
+    if (kind === 'debris') {
       const age = n(effect.maxTtl, 0) - n(effect.ttl, 0);
-      const pop = clamp(age / 0.25, 0, 1);
-      circle(ctx, 0, 0, radius * pop, alphaColor('#241708', .55));
-      circle(ctx, 0, 0, radius * .68 * pop, alphaColor('#17100a', .5));
-      method(ctx, 'beginPath');
-      for (let i = 0; i < 7; i += 1) { const a = i * TAU / 7 + (n(effect.id, 0) % 5) * .3; method(ctx, 'moveTo', Math.cos(a) * radius * .3, Math.sin(a) * radius * .24); method(ctx, 'lineTo', Math.cos(a + .18) * radius * (.75 + ((i * 37) % 10) / 22) * pop, Math.sin(a + .18) * radius * (.6 + ((i * 37) % 10) / 26) * pop); }
-      paint(ctx, null, alphaColor('#120b06', .65), 2.4); method(ctx, 'stroke');
-      circle(ctx, 0, 0, radius * pop, null, alphaColor('#0f0a06', .5), 3);
+      const dx = n(effect.vx, 0) * age, dy = n(effect.vy, 0) * age + 330 * age * age;
+      const rot = n(effect.spin, 0) * age * 3 + n(effect.id, 0);
+      const fadeD = clamp(n(effect.ttl, 0) / Math.max(0.01, n(effect.maxTtl, 1) * 0.35), 0, 1);
+      method(ctx, 'save'); method(ctx, 'translate', dx, dy); method(ctx, 'rotate', rot);
+      const s = radius * (0.7 + 0.3 * fadeD);
+      path(ctx, [['M', -s, s * .6], ['L', -s * .4, -s * .7], ['L', s * .8, -s * .4], ['L', s, s * .5], ['Z']], alphaColor(color, .95 * fadeD), alphaColor('#241708', .8 * fadeD), 1);
+      method(ctx, 'restore');
+    } else if (kind === 'crater') {
+      const age = n(effect.maxTtl, 0) - n(effect.ttl, 0);
+      const decal = this.craterImage;
+      if (decal && imageReady(decal)) {
+        const ds2 = clamp(age / 0.32, 0, 1);
+        const dent2 = 1 + 2.70158 * Math.pow(ds2 - 1, 3) + 1.70158 * Math.pow(ds2 - 1, 2);
+        circle(ctx, 0, 0, radius * .8 * dent2, alphaColor('#1c1108', .35));
+        method(ctx, 'save');
+        ctx.globalCompositeOperation = 'multiply';
+        ctx.globalAlpha = Math.min(1, age * 4) * .97;
+        const dw = radius * 3.1 * dent2;
+        drawImageIfReady(ctx, decal, -dw / 2, -dw / 2, dw, dw);
+        method(ctx, 'restore');
+        if (age > 0.05) { const seed2 = n(effect.id, 0); for (let i = 0; i < 8; i += 1) { const a = i * TAU / 8 + (seed2 % 7) * .25, rx = Math.cos(a) * radius * 1.02 * dent2, ry = Math.sin(a) * radius * .82 * dent2, s2 = radius * (.12 + ((seed2 + i * 13) % 12) / 60) * dent2, rot = ((seed2 + i * 7) % 20) / 10 - 1, c2 = Math.cos(rot), sn2 = Math.sin(rot); const pt = (px, py) => [rx + px * c2 - py * sn2, ry + px * sn2 + py * c2]; const p = [pt(-s2, s2 * .55), pt(-s2 * .45, -s2 * .85), pt(s2 * .2, -s2 * .95), pt(s2 * .85, -s2 * .2), pt(s2, s2 * .6)]; path(ctx, [['M', p[0][0], p[0][1]], ['L', p[1][0], p[1][1]], ['L', p[2][0], p[2][1]], ['L', p[3][0], p[3][1]], ['L', p[4][0], p[4][1]], ['Z']], alphaColor('#40301e', .95), alphaColor('#17100a', .7), 1); } }
+      } else {
+      const ds = clamp(age / 0.32, 0, 1);
+      const dent = 1 + 2.70158 * Math.pow(ds - 1, 3) + 1.70158 * Math.pow(ds - 1, 2);
+      const grow = clamp(age / 0.5, 0, 1), crack = 1 - Math.pow(1 - grow, 2);
+      const seed = n(effect.id, 0);
+      const blobPts = (rr, squash, seedOff) => { const pts = []; for (let i = 0; i < 16; i += 1) { const a = i * TAU / 16, wob = 0.8 + ((seed * 31 + i * 47 + seedOff) % 41) / 100; pts.push([Math.cos(a) * rr * wob, Math.sin(a) * rr * wob * squash]); } return pts; };
+      const blobPath = (rr, squash, seedOff, fill) => { const pts = blobPts(rr, squash, seedOff); path(ctx, [...pts.map((p, i) => i === 0 ? ['M', p[0], p[1]] : ['L', p[0], p[1]]), ['Z']], fill, null); };
+      blobPath(radius * dent, .8, 0, alphaColor('#241708', .55));
+      blobPath(radius * .7 * dent, .78, 13, alphaColor('#17100a', .5));
+      blobPath(radius * .42 * dent, .75, 29, alphaColor('#0d0803', .45));
+      const rock = (cx2, cy2, s2, rot, fill) => { const c = Math.cos(rot), sn = Math.sin(rot); const pt = (px, py) => [cx2 + px * c - py * sn, cy2 + px * sn + py * c]; const p = [pt(-s2, s2 * .55), pt(-s2 * .45, -s2 * .85), pt(s2 * .2, -s2 * .95), pt(s2 * .85, -s2 * .2), pt(s2, s2 * .6)]; path(ctx, [['M', p[0][0], p[0][1]], ['L', p[1][0], p[1][1]], ['L', p[2][0], p[2][1]], ['L', p[3][0], p[3][1]], ['L', p[4][0], p[4][1]], ['Z']], fill, alphaColor('#17100a', .7), 1); };
+      if (age > 0.05) { for (let i = 0; i < 10; i += 1) { const a = i * TAU / 10 + (seed % 7) * .25, rx = Math.cos(a) * radius * .97 * dent, ry = Math.sin(a) * radius * .78 * dent, s2 = radius * (.13 + ((seed + i * 13) % 12) / 60) * dent; rock(rx, ry, s2, ((seed + i * 7) % 20) / 10 - 1, alphaColor('#40301e', .95)); } for (let i = 0; i < 4; i += 1) { const a = (seed * 3 + i * 97) % 628 / 100, rr = radius * (1.18 + ((seed + i * 31) % 20) / 100) * dent; rock(Math.cos(a) * rr, Math.sin(a) * rr * .8, radius * .11 * dent, i * 1.3, alphaColor('#4a3826', .85)); } }
+      if (age > 0.15) for (let i = 0; i < 6; i += 1) { const a = (seed + i * 83) % 628 / 100, rr = radius * (.18 + ((seed + i * 41) % 45) / 100), s3 = radius * (.04 + ((seed + i * 17) % 5) / 100); rock(Math.cos(a) * rr * dent, Math.sin(a) * rr * .8 * dent, s3, i * .9, alphaColor('#4a3826', .8)); }
+      for (let i = 0; i < 11; i += 1) { const a0 = i * TAU / 11 + (seed % 5) * .35; const len = radius * (.55 + ((seed + i * 37) % 80) / 100) * crack; const w0 = 3 + ((seed + i * 23) % 30) / 10; let px3 = Math.cos(a0) * radius * .24, py3 = Math.sin(a0) * radius * .19, ang = a0; const pts = [[px3, py3]]; for (let sgm = 1; sgm <= 3; sgm += 1) { ang += (((seed + i * 41 + sgm * 17) % 23) / 23 - .5) * .85; px3 += Math.cos(ang) * len / 3; py3 += Math.sin(ang) * len / 3 * .82; pts.push([px3, py3]); } for (let sgm = 0; sgm < 3; sgm += 1) { const pA = pts[sgm], pB = pts[sgm + 1], dx = pB[0] - pA[0], dy = pB[1] - pA[1], dl = Math.hypot(dx, dy) || 1, nx = -dy / dl, ny = dx / dl, wA = w0 * (1 - sgm / 3.6), wB = w0 * (1 - (sgm + 1) / 3.6); path(ctx, [['M', pA[0] + nx * wA, pA[1] + ny * wA], ['L', pB[0] + nx * wB, pB[1] + ny * wB], ['L', pB[0] - nx * wB, pB[1] - ny * wB], ['L', pA[0] - nx * wA, pA[1] - ny * wA], ['Z']], alphaColor('#120b06', .72), null); } if (crack > .5) { const bp = pts[1], ba = a0 + .95 + ((seed + i * 7) % 10) / 14; method(ctx, 'beginPath'); method(ctx, 'moveTo', bp[0], bp[1]); method(ctx, 'lineTo', bp[0] + Math.cos(ba) * radius * .24 * crack, bp[1] + Math.sin(ba) * radius * .19 * crack); paint(ctx, null, alphaColor('#120b06', .5), 1.6); method(ctx, 'stroke'); } }
+      }
     } else if (kind === 'shockwave') {
       const ez = 1 - Math.pow(1 - progress, 2);
       circle(ctx, 0, 0, radius * (.2 + .8 * ez), null, alphaColor(color, .75 * (1 - progress)), 5 * (1 - progress) + 1);
@@ -1547,7 +1577,7 @@ class GameRenderer {
 
   _drawEnemy(ctx, enemy, player, theme) {
     if (!enemy) return;
-    const x = n(enemy.x), y = n(enemy.y), radius = clamp(n(enemy.radius, 17), 7, 72);
+    const x = n(enemy.x), y = n(enemy.y), radius = clamp(n(enemy.radius, 17), 7, enemy.kind === 'boss' ? 84 : 72);
     const kind = enemy.kind === 'boss' ? 'boss' : enemy.kind === 'elite' ? 'elite' : 'normal';
     const tintList = ENEMY_TINTS[typeof enemy.theme === 'string' ? enemy.theme : Object.keys(THEMES).find(key => THEMES[key] === theme) || 'forest'] || ENEMY_TINTS.forest;
     const tint = enemy.flash > 0 ? '#fff1c7' : enemy.color || tintList[Math.abs(Math.floor(n(enemy.id, 0))) % tintList.length];

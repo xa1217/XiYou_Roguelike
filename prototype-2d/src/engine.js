@@ -395,7 +395,16 @@ export class GameEngine {
     const r = boss.radius;
     this.effect({ x: boss.x, y: boss.y, kind: 'crater', radius: r * 1.9, color: '#3a2a1c', ttl: 900 });
     this.effect({ x: boss.x, y: boss.y, kind: 'shockwave', radius: r * 3.6, color: '#d8b878', ttl: 0.55 });
-    this.effect({ x: boss.x, y: boss.y, kind: 'cave-dust', radius: r * 2.2, color: '#9a7d55', ttl: 0.8 });
+    this.effect({ x: boss.x, y: boss.y, kind: 'cave-dust', radius: r * 2.8, color: '#9a7d55', ttl: 1.0 });
+    // Chunks of shattered earth burst outward from the impact point; the
+    // renderer flies them on ballistic arcs so the landing reads as the
+    // ground itself breaking, not a decal fading in.
+    this.effect({ x: boss.x, y: boss.y, kind: 'shockwave', radius: r * 4.2, color: '#a8895a', ttl: 0.7 });
+    for (let i = 0; i < 12; i += 1) {
+      const a = (i / 12) * Math.PI * 2 + (boss.id % 7) * 0.3;
+      const sp = 130 + ((i * 53) % 110);
+      this.effect({ x: boss.x, y: boss.y, kind: 'debris', radius: 7 + ((i * 29) % 7), color: '#4a3826', ttl: 0.9 + ((i * 37) % 40) / 100, vx: Math.cos(a) * sp, vy: -(170 + ((i * 71) % 130)), spin: (i % 5) - 2 });
+    }
     this.state.shakeT = 0.55; this.state.shakeMag = 16;
     // The landing shockwave flattens every lesser demon on the field; elites
     // and bosses ride it out.
