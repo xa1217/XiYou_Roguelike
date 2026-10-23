@@ -1,0 +1,16 @@
+<!doctype html><meta charset="utf-8"><title>collision probes</title>
+<body style="background:#111;color:#eee;font-family:monospace">
+<div id="out">running...</div>
+<script type="module">
+import { sceneCircleBlocked } from './src/scene-collision.js';
+import { GameEngine } from './src/engine.js';
+const BLOCKED = {"water": [[900, 90], [200, 450], [900, 1650], [1500, 1450], [90, 900], [1400, 470]], "fire": [[900, 110], [90, 700], [900, 1620], [700, 1330], [1500, 1300], [1710, 800]], "sand": [[900, 130], [300, 500], [900, 90], [1240, 1480], [1500, 300], [300, 1400]], "snow": [[900, 130], [300, 500], [1240, 1480], [1560, 300], [200, 1300], [900, 130]], "forest": [[900, 110], [110, 700], [1350, 1520], [830, 1620], [90, 1500]], "temple": [[900, 110], [110, 700], [1350, 1520], [830, 1620], [90, 1500]]}, OPEN = {"water": [[900, 900], [700, 700], [1100, 1000], [300, 900], [250, 1520], [900, 500]], "fire": [[900, 900], [700, 700], [1100, 1000], [500, 900], [1300, 900], [900, 500]], "sand": [[900, 900], [700, 700], [1100, 1000], [500, 900], [1300, 900], [250, 1600], [390, 990]], "snow": [[900, 900], [700, 700], [1100, 1000], [500, 900], [1300, 900], [1400, 500], [540, 1330]], "forest": [[900, 900], [700, 700], [1100, 1000], [500, 900], [1300, 900], [300, 1550], [500, 1400], [620, 1600]], "temple": [[900, 900], [700, 700], [1100, 1000], [500, 900], [1300, 900], [300, 1550], [500, 1400]]}, W = 1800, lines = [];
+let bad = 0, n = 0;
+for (const k of Object.keys(BLOCKED)) for (const [x, y] of BLOCKED[k]) { n++; const b = sceneCircleBlocked(k, x, y, 14, W); if (b !== true) bad++; lines.push(`${k} blocked (${x},${y}) = ${b}`); }
+for (const k of Object.keys(OPEN)) for (const [x, y] of OPEN[k]) { n++; const b = sceneCircleBlocked(k, x, y, 14, W); if (b !== false) bad++; lines.push(`${k} open (${x},${y}) = ${b}`); }
+const e = new GameEngine({ characterId: 'wukong', stageId: 1, seed: 7, debug: true });
+for (const [x, y, want, label] of [[300,900,false,'ridge off-pass'],[900,900,true,'pass'],[90,900,false,'west massif'],[900,40,false,'sky strip'],[1125,1620,false,'exit rocks'],[900,1500,true,'south floor']]) {
+  n++; const got = e.isWalkable(x, y, 14); if (got !== want) bad++; lines.push(`doublefork ${label} (${x},${y}) = ${got}`);
+}
+document.getElementById('out').innerHTML = (bad ? `FAILURES: ${bad}` : 'ALL COLLISION PROBES OK') + ` (${n} probes)<br>` + lines.join('<br>');
+</script>
