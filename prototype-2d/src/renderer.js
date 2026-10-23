@@ -10,6 +10,7 @@
 
 import { battleEnemyAnimation } from './battle-enemy-animation.js';
 import { skillFxIdForEffect, skillFxFrameRect } from './skill-fx-animation.js';
+import { CAVE_MOUTHS } from './scene-collision.js';
 
 const TAU = Math.PI * 2;
 const WORLD_SIZE = 1800;
@@ -877,9 +878,10 @@ class GameRenderer {
     // vector plate below stays as the pre-load and no-image fallback.
     const scene = this._sceneFor(theme, mapKey);
     const sceneBack = scene?.back || scene?.background || scene;
-    if (imageReady(sceneBack)) { this._drawPaintedBattleMap(ctx, theme, sceneBack, left, top, right, bottom); return; }
+    if (imageReady(sceneBack)) { this._drawPaintedBattleMap(ctx, theme, sceneBack, left, top, right, bottom); this._drawCaveMouths(ctx, mapKey); return; }
     if (this.battleSceneMode === 'vector') {
       this._drawVectorBattleMap(ctx, theme, left, top, right, bottom, mapKey);
+      this._drawCaveMouths(ctx, mapKey);
       return;
     }
     this._drawBackLayer(ctx, theme, left, top, right, bottom, mapKey);
@@ -920,6 +922,25 @@ class GameRenderer {
       paint(ctx, null, alphaColor(i % 2 ? theme.motif : theme.sticker, .46), 5 + (i % 2) * 2); method(ctx, 'stroke');
     }
     this._drawFrontLayer(ctx, theme, left, top, right, bottom, mapKey);
+    this._drawCaveMouths(ctx, mapKey);
+  }
+
+  // Cave mouths (playtest line, 2026-10-23): scenes with painted
+  // mountains have dark openings at the rock feet — small monsters spawn
+  // from them (engine cave spawns), so the decal and the spawn point are
+  // the same place. A soft elliptical shadow pool with a near-black core
+  // reads as part of the cliff base rather than a pasted sticker.
+  _drawCaveMouths(ctx, mapKey) {
+    const mouths = CAVE_MOUTHS[mapKey];
+    if (!mouths) return;
+    for (const [mx, my] of mouths) {
+      if (mx < this._view.left - 90 || mx > this._view.right + 90 || my < this._view.top - 90 || my > this._view.bottom + 90) continue;
+      method(ctx, 'save'); method(ctx, 'translate', mx, my); method(ctx, 'scale', 1, .58);
+      circle(ctx, 0, 0, 34, 'rgba(24,16,10,0.55)', null, 0);
+      circle(ctx, 0, 0, 25, 'rgba(10,7,4,0.88)', null, 0);
+      circle(ctx, 0, 0, 15, 'rgba(2,2,2,0.95)', null, 0);
+      method(ctx, 'restore');
+    }
   }
 
   _drawPaintedBattleMap(ctx, theme, back, left, top, right, bottom) {
@@ -1341,7 +1362,17 @@ class GameRenderer {
       method(ctx, 'restore');
       return;
     }
-    if (kind === 'hit-burst') {
+    if (kind === 'cave-dust') {
+      // A monster emerges from a cave mouth: an expanding dusty ring and
+      // a low puff in earth tones, gone in about half a second.
+      const ring = radius * (.5 + progress * 1.15);
+      circle(ctx, 0, 0, ring, null, alphaColor(color, .55 * fade), 3);
+      circle(ctx, 0, -radius * .16 * progress, ring * .62, alphaColor(color, .30 * fade), null, 0);
+      for (let i = 0; i < 6; i += 1) {
+        const a = i * TAU / 6 + .4;
+        circle(ctx, Math.cos(a) * ring * .8, Math.sin(a) * ring * .45 - progress * 6, radius * .12, alphaColor(color, .5 * fade), null, 0);
+      }
+    } else if (kind === 'hit-burst') {
       // Each burst comes from a real damageEnemy call and expires after 260ms.
       const outer = radius * (.75 + progress * .52);
       method(ctx, 'beginPath');

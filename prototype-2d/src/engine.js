@@ -7,7 +7,7 @@ import {
   getWeaponStats,
 } from './content.js';
 import { battleEnemyAnimation, battleEnemySpriteId, battleBossSpriteId } from './battle-enemy-animation.js';
-import { sceneCircleBlocked, sceneMaskHas } from './scene-collision.js';
+import { sceneCircleBlocked, sceneMaskHas, caveMouthsFor } from './scene-collision.js';
 
 const TAU = Math.PI * 2;
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
@@ -149,13 +149,14 @@ export class GameEngine {
   isWalkable(x, y, radius = this.state?.player?.radius || BALANCE.playerRadius) {
     const battlefield = this.state?.battlefield;
     const r = Math.max(0, Number(radius) || 0);
-    // Painted theme scenes carry a collision mask traced from the artwork
+    // Painted scenes carry a collision mask traced from the artwork
     // (scene-collision.js): mountains, rivers, lava, ponds and ruins in
-    // the background block movement exactly where they are painted.
+    // the background block movement exactly where they are painted, and
+    // nobody climbs onto the painted sky. Doublefork's mask adds its
+    // side massifs and sky strip on top of the authored ridge rule
+    // below — both must pass.
     const terrainKey = battlefield?.mapAssetKey || this.stage?.mapAssetKey || this.stage?.theme;
-    if (terrainKey !== 'doublefork' && sceneMaskHas(terrainKey)) {
-      return !sceneCircleBlocked(terrainKey, x, y, r, BALANCE.worldSize);
-    }
+    if (sceneMaskHas(terrainKey) && sceneCircleBlocked(terrainKey, x, y, r, BALANCE.worldSize)) return false;
     if (battlefield?.mapAssetKey !== 'doublefork') return true;
     const ridge = battlefield.ridgeRect || { x: 0, y: 700, width: BALANCE.worldSize, height: 400 };
     const corridor = battlefield.pathCorridor || { x: 790, y: 700, width: 220, height: 400 };
@@ -342,8 +343,29 @@ export class GameEngine {
     this.emit({ type: 'wave', index, big, count: spawned, species: big ? null : (forced ? forced.name : null) });
   }
 
-  spawnPoint() {
+  spawnPoint(preferCave = false) {
     const player = this.state.player;
+    this._caveSpawn = null;
+    // Cave spawns: scenes with painted mountains have cave mouths at the
+    // rock feet (scene-collision.js). When one is in a sensible range
+    // band around the hero, small monsters mostly walk out of the
+    // mountain instead of materialising on open ground. Live builds
+    // only: debug engines keep the frozen spawn contract the animation
+    // gates choreograph against (they teleport their subjects anyway);
+    // the dedicated scene-collision gate covers cave spawns on a
+    // non-debug engine.
+    if (preferCave && !this.debugMode) {
+      const key = this.state?.battlefield?.mapAssetKey || this.stage?.mapAssetKey || this.stage?.theme;
+      const mouths = caveMouthsFor(key).filter(([mx, my]) => {
+        const distance = Math.hypot(mx - player.x, my - player.y);
+        return distance >= 300 && distance <= 780 && this.isWalkable(mx, my, 24);
+      });
+      if (mouths.length && this.rng() < 0.55) {
+        const [mx, my] = mouths[Math.floor(this.rng() * mouths.length)];
+        this._caveSpawn = { x: mx, y: my };
+        return { x: mx, y: my };
+      }
+    }
     for (let attempt = 0; attempt < 8; attempt += 1) {
       const angle = this.rng() * TAU;
       const radius = 470 + this.rng() * 130;
@@ -373,7 +395,12 @@ export class GameEngine {
       if (index < 0) return null;
       this.state.enemies.splice(index, 1);
     }
-    const position = this.spawnPoint();
+    const position = this.spawnPoint(kind === 'normal');
+    if (this._caveSpawn) {
+      // Dust burst at the cave mouth so the emergence reads on screen.
+      this.effect({ x: position.x, y: position.y, kind: 'cave-dust', radius: 30, color: '#9a7d55', ttl: 0.55 });
+      this._caveSpawn = null;
+    }
     const progress = clamp(this.state.time / BALANCE.duration, 0, 1);
     const hard = this.difficulty === 'hard' ? 1.25 : 1;
     const levelScale = 1 + progress * 1.5;
