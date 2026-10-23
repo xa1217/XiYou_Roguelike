@@ -33,6 +33,7 @@ const runtimeFiles = new Set([
   'assets/enemy-xiong-shanjun-battle-v1-sheet.png', 'assets/enemy-xiong-shanjun-battle-v1-frames.json',
   'assets/enemy-te-chushi-battle-v1-sheet.png', 'assets/enemy-te-chushi-battle-v1-frames.json',
   'assets/hero-cards-v2-comic.png',
+  'assets/ui-paper.jpg', 'assets/ui-wood.jpg', 'assets/ui-patrol.jpg', 'assets/ui-chapter.jpg', 'assets/ui-poster.jpg',
   'assets/hero-wukong.svg', 'assets/hero-tangseng.svg', 'assets/hero-bajie.svg', 'assets/hero-wujing.svg',
   'assets/hero-wukong-battle-v3-sheet.png', 'assets/hero-tangseng-battle-v3-sheet.png', 'assets/hero-bajie-battle-v3-sheet.png', 'assets/hero-wujing-battle-v3-sheet.png',
   'assets/skill-icon-wukong.png', 'assets/skill-icon-tangsanzang.png', 'assets/skill-icon-bajie.png', 'assets/skill-icon-shajing.png',
