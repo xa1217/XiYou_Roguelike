@@ -1538,7 +1538,16 @@ class GameEngine {
     const r = boss.radius;
     this.effect({ x: boss.x, y: boss.y, kind: 'crater', radius: r * 1.9, color: '#3a2a1c', ttl: 900 });
     this.effect({ x: boss.x, y: boss.y, kind: 'shockwave', radius: r * 3.6, color: '#d8b878', ttl: 0.55 });
-    this.effect({ x: boss.x, y: boss.y, kind: 'cave-dust', radius: r * 2.2, color: '#9a7d55', ttl: 0.8 });
+    this.effect({ x: boss.x, y: boss.y, kind: 'cave-dust', radius: r * 2.8, color: '#9a7d55', ttl: 1.0 });
+    // Chunks of shattered earth burst outward from the impact point; the
+    // renderer flies them on ballistic arcs so the landing reads as the
+    // ground itself breaking, not a decal fading in.
+    this.effect({ x: boss.x, y: boss.y, kind: 'shockwave', radius: r * 4.2, color: '#a8895a', ttl: 0.7 });
+    for (let i = 0; i < 12; i += 1) {
+      const a = (i / 12) * Math.PI * 2 + (boss.id % 7) * 0.3;
+      const sp = 130 + ((i * 53) % 110);
+      this.effect({ x: boss.x, y: boss.y, kind: 'debris', radius: 7 + ((i * 29) % 7), color: '#4a3826', ttl: 0.9 + ((i * 37) % 40) / 100, vx: Math.cos(a) * sp, vy: -(170 + ((i * 71) % 130)), spin: (i % 5) - 2 });
+    }
     this.state.shakeT = 0.55; this.state.shakeMag = 16;
     // The landing shockwave flattens every lesser demon on the field; elites
     // and bosses ride it out.
@@ -2861,6 +2870,7 @@ class GameRenderer {
     this.skillImages = options.skillImages || {};
     this.skillFxImages = options.skillFxImages || {};
     this.enemyImages = options.enemyImages || {};
+    this.craterImage = options.craterImage || null;
     // Scene assets are optional. Browser builds load the authored PNG/SVG
     // layers; the wx adapter can leave this empty and receive the exact same
     // vector scene fallback.
@@ -3934,15 +3944,44 @@ class GameRenderer {
       method(ctx, 'restore');
       return;
     }
-    if (kind === 'crater') {
+    if (kind === 'debris') {
       const age = n(effect.maxTtl, 0) - n(effect.ttl, 0);
-      const pop = clamp(age / 0.25, 0, 1);
-      circle(ctx, 0, 0, radius * pop, alphaColor('#241708', .55));
-      circle(ctx, 0, 0, radius * .68 * pop, alphaColor('#17100a', .5));
-      method(ctx, 'beginPath');
-      for (let i = 0; i < 7; i += 1) { const a = i * TAU / 7 + (n(effect.id, 0) % 5) * .3; method(ctx, 'moveTo', Math.cos(a) * radius * .3, Math.sin(a) * radius * .24); method(ctx, 'lineTo', Math.cos(a + .18) * radius * (.75 + ((i * 37) % 10) / 22) * pop, Math.sin(a + .18) * radius * (.6 + ((i * 37) % 10) / 26) * pop); }
-      paint(ctx, null, alphaColor('#120b06', .65), 2.4); method(ctx, 'stroke');
-      circle(ctx, 0, 0, radius * pop, null, alphaColor('#0f0a06', .5), 3);
+      const dx = n(effect.vx, 0) * age, dy = n(effect.vy, 0) * age + 330 * age * age;
+      const rot = n(effect.spin, 0) * age * 3 + n(effect.id, 0);
+      const fadeD = clamp(n(effect.ttl, 0) / Math.max(0.01, n(effect.maxTtl, 1) * 0.35), 0, 1);
+      method(ctx, 'save'); method(ctx, 'translate', dx, dy); method(ctx, 'rotate', rot);
+      const s = radius * (0.7 + 0.3 * fadeD);
+      path(ctx, [['M', -s, s * .6], ['L', -s * .4, -s * .7], ['L', s * .8, -s * .4], ['L', s, s * .5], ['Z']], alphaColor(color, .95 * fadeD), alphaColor('#241708', .8 * fadeD), 1);
+      method(ctx, 'restore');
+    } else if (kind === 'crater') {
+      const age = n(effect.maxTtl, 0) - n(effect.ttl, 0);
+      const decal = this.craterImage;
+      if (decal && imageReady(decal)) {
+        const ds2 = clamp(age / 0.32, 0, 1);
+        const dent2 = 1 + 2.70158 * Math.pow(ds2 - 1, 3) + 1.70158 * Math.pow(ds2 - 1, 2);
+        circle(ctx, 0, 0, radius * .8 * dent2, alphaColor('#1c1108', .35));
+        method(ctx, 'save');
+        ctx.globalCompositeOperation = 'multiply';
+        ctx.globalAlpha = Math.min(1, age * 4) * .97;
+        const dw = radius * 3.1 * dent2;
+        drawImageIfReady(ctx, decal, -dw / 2, -dw / 2, dw, dw);
+        method(ctx, 'restore');
+        if (age > 0.05) { const seed2 = n(effect.id, 0); for (let i = 0; i < 8; i += 1) { const a = i * TAU / 8 + (seed2 % 7) * .25, rx = Math.cos(a) * radius * 1.02 * dent2, ry = Math.sin(a) * radius * .82 * dent2, s2 = radius * (.12 + ((seed2 + i * 13) % 12) / 60) * dent2, rot = ((seed2 + i * 7) % 20) / 10 - 1, c2 = Math.cos(rot), sn2 = Math.sin(rot); const pt = (px, py) => [rx + px * c2 - py * sn2, ry + px * sn2 + py * c2]; const p = [pt(-s2, s2 * .55), pt(-s2 * .45, -s2 * .85), pt(s2 * .2, -s2 * .95), pt(s2 * .85, -s2 * .2), pt(s2, s2 * .6)]; path(ctx, [['M', p[0][0], p[0][1]], ['L', p[1][0], p[1][1]], ['L', p[2][0], p[2][1]], ['L', p[3][0], p[3][1]], ['L', p[4][0], p[4][1]], ['Z']], alphaColor('#40301e', .95), alphaColor('#17100a', .7), 1); } }
+      } else {
+      const ds = clamp(age / 0.32, 0, 1);
+      const dent = 1 + 2.70158 * Math.pow(ds - 1, 3) + 1.70158 * Math.pow(ds - 1, 2);
+      const grow = clamp(age / 0.5, 0, 1), crack = 1 - Math.pow(1 - grow, 2);
+      const seed = n(effect.id, 0);
+      const blobPts = (rr, squash, seedOff) => { const pts = []; for (let i = 0; i < 16; i += 1) { const a = i * TAU / 16, wob = 0.8 + ((seed * 31 + i * 47 + seedOff) % 41) / 100; pts.push([Math.cos(a) * rr * wob, Math.sin(a) * rr * wob * squash]); } return pts; };
+      const blobPath = (rr, squash, seedOff, fill) => { const pts = blobPts(rr, squash, seedOff); path(ctx, [...pts.map((p, i) => i === 0 ? ['M', p[0], p[1]] : ['L', p[0], p[1]]), ['Z']], fill, null); };
+      blobPath(radius * dent, .8, 0, alphaColor('#241708', .55));
+      blobPath(radius * .7 * dent, .78, 13, alphaColor('#17100a', .5));
+      blobPath(radius * .42 * dent, .75, 29, alphaColor('#0d0803', .45));
+      const rock = (cx2, cy2, s2, rot, fill) => { const c = Math.cos(rot), sn = Math.sin(rot); const pt = (px, py) => [cx2 + px * c - py * sn, cy2 + px * sn + py * c]; const p = [pt(-s2, s2 * .55), pt(-s2 * .45, -s2 * .85), pt(s2 * .2, -s2 * .95), pt(s2 * .85, -s2 * .2), pt(s2, s2 * .6)]; path(ctx, [['M', p[0][0], p[0][1]], ['L', p[1][0], p[1][1]], ['L', p[2][0], p[2][1]], ['L', p[3][0], p[3][1]], ['L', p[4][0], p[4][1]], ['Z']], fill, alphaColor('#17100a', .7), 1); };
+      if (age > 0.05) { for (let i = 0; i < 10; i += 1) { const a = i * TAU / 10 + (seed % 7) * .25, rx = Math.cos(a) * radius * .97 * dent, ry = Math.sin(a) * radius * .78 * dent, s2 = radius * (.13 + ((seed + i * 13) % 12) / 60) * dent; rock(rx, ry, s2, ((seed + i * 7) % 20) / 10 - 1, alphaColor('#40301e', .95)); } for (let i = 0; i < 4; i += 1) { const a = (seed * 3 + i * 97) % 628 / 100, rr = radius * (1.18 + ((seed + i * 31) % 20) / 100) * dent; rock(Math.cos(a) * rr, Math.sin(a) * rr * .8, radius * .11 * dent, i * 1.3, alphaColor('#4a3826', .85)); } }
+      if (age > 0.15) for (let i = 0; i < 6; i += 1) { const a = (seed + i * 83) % 628 / 100, rr = radius * (.18 + ((seed + i * 41) % 45) / 100), s3 = radius * (.04 + ((seed + i * 17) % 5) / 100); rock(Math.cos(a) * rr * dent, Math.sin(a) * rr * .8 * dent, s3, i * .9, alphaColor('#4a3826', .8)); }
+      for (let i = 0; i < 11; i += 1) { const a0 = i * TAU / 11 + (seed % 5) * .35; const len = radius * (.55 + ((seed + i * 37) % 80) / 100) * crack; const w0 = 3 + ((seed + i * 23) % 30) / 10; let px3 = Math.cos(a0) * radius * .24, py3 = Math.sin(a0) * radius * .19, ang = a0; const pts = [[px3, py3]]; for (let sgm = 1; sgm <= 3; sgm += 1) { ang += (((seed + i * 41 + sgm * 17) % 23) / 23 - .5) * .85; px3 += Math.cos(ang) * len / 3; py3 += Math.sin(ang) * len / 3 * .82; pts.push([px3, py3]); } for (let sgm = 0; sgm < 3; sgm += 1) { const pA = pts[sgm], pB = pts[sgm + 1], dx = pB[0] - pA[0], dy = pB[1] - pA[1], dl = Math.hypot(dx, dy) || 1, nx = -dy / dl, ny = dx / dl, wA = w0 * (1 - sgm / 3.6), wB = w0 * (1 - (sgm + 1) / 3.6); path(ctx, [['M', pA[0] + nx * wA, pA[1] + ny * wA], ['L', pB[0] + nx * wB, pB[1] + ny * wB], ['L', pB[0] - nx * wB, pB[1] - ny * wB], ['L', pA[0] - nx * wA, pA[1] - ny * wA], ['Z']], alphaColor('#120b06', .72), null); } if (crack > .5) { const bp = pts[1], ba = a0 + .95 + ((seed + i * 7) % 10) / 14; method(ctx, 'beginPath'); method(ctx, 'moveTo', bp[0], bp[1]); method(ctx, 'lineTo', bp[0] + Math.cos(ba) * radius * .24 * crack, bp[1] + Math.sin(ba) * radius * .19 * crack); paint(ctx, null, alphaColor('#120b06', .5), 1.6); method(ctx, 'stroke'); } }
+      }
     } else if (kind === 'shockwave') {
       const ez = 1 - Math.pow(1 - progress, 2);
       circle(ctx, 0, 0, radius * (.2 + .8 * ez), null, alphaColor(color, .75 * (1 - progress)), 5 * (1 - progress) + 1);
@@ -4071,7 +4110,7 @@ class GameRenderer {
 
   _drawEnemy(ctx, enemy, player, theme) {
     if (!enemy) return;
-    const x = n(enemy.x), y = n(enemy.y), radius = clamp(n(enemy.radius, 17), 7, 72);
+    const x = n(enemy.x), y = n(enemy.y), radius = clamp(n(enemy.radius, 17), 7, enemy.kind === 'boss' ? 84 : 72);
     const kind = enemy.kind === 'boss' ? 'boss' : enemy.kind === 'elite' ? 'elite' : 'normal';
     const tintList = ENEMY_TINTS[typeof enemy.theme === 'string' ? enemy.theme : Object.keys(THEMES).find(key => THEMES[key] === theme) || 'forest'] || ENEMY_TINTS.forest;
     const tint = enemy.flash > 0 ? '#fff1c7' : enemy.color || tintList[Math.abs(Math.floor(n(enemy.id, 0))) % tintList.length];
@@ -4534,7 +4573,7 @@ const idName=id=>ARTIFACTS.find(a=>a.id===id)?.name||id;
 class NativeGame {
   constructor(canvas,platform={}){
     this.canvas=canvas;this.ctx=canvas.getContext('2d');this.platform=platform;this.audio=platform.audio||{play(){},startMusic(){},stopMusic(){},setMuted(){},dispose(){}};
-    this.save=sanitizeSave(platform.load?.(SAVE_KEY));this.audio.setMuted(this.save.muted);this.screen='home';this.characterId='wukong';this.admin=platform.admin===true;this.adminOpen=false;this.adminSpeed=1;this.adminSnap=null;this.stageId=this.save.unlockedStage;this.heroImages=platform.heroImages||{};this.portraitImages=platform.portraitImages||{};this.skillImages=platform.skillImages||{};this.skillFxImages=platform.skillFxImages||{};this.enemyImages=platform.enemyImages||{};this.mapImages=platform.mapImages||{};this.uiImages=platform.uiImages||{};this.page=0;this.input={x:0,y:0};this.buttons=[];this.engine=null;this.renderer=null;this.frame=0;this.running=false;this.disposed=false;this.hidden=false;this.autoPaused=false;this.stats={};this.metrics={frames:0,maxUpdateMs:0,maxRenderMs:0,peakEnemies:0,peakProjectiles:0,peakEffects:0};this.samples=[];this.touchOrigin=null;this.joy=null;this.message='';this.result=null;this.clock=platform.now||(()=>Date.now());this.raf=platform.requestFrame||((fn)=>setTimeout(()=>fn(this.clock()),16));this.cancel=platform.cancelFrame||clearTimeout;
+    this.save=sanitizeSave(platform.load?.(SAVE_KEY));this.audio.setMuted(this.save.muted);this.screen='home';this.characterId='wukong';this.admin=platform.admin===true;this.adminOpen=false;this.adminSpeed=1;this.adminSnap=null;this.stageId=this.save.unlockedStage;this.heroImages=platform.heroImages||{};this.portraitImages=platform.portraitImages||{};this.skillImages=platform.skillImages||{};this.skillFxImages=platform.skillFxImages||{};this.enemyImages=platform.enemyImages||{};this.craterImage=platform.craterImage||null;this.mapImages=platform.mapImages||{};this.uiImages=platform.uiImages||{};this.page=0;this.input={x:0,y:0};this.buttons=[];this.engine=null;this.renderer=null;this.frame=0;this.running=false;this.disposed=false;this.hidden=false;this.autoPaused=false;this.stats={};this.metrics={frames:0,maxUpdateMs:0,maxRenderMs:0,peakEnemies:0,peakProjectiles:0,peakEffects:0};this.samples=[];this.touchOrigin=null;this.joy=null;this.message='';this.result=null;this.clock=platform.now||(()=>Date.now());this.raf=platform.requestFrame||((fn)=>setTimeout(()=>fn(this.clock()),16));this.cancel=platform.cancelFrame||clearTimeout;
     this.reducedMotion=platform.reducedMotion??globalThis.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches??false;
     this.uiAnimation={key:'',sequence:0,frameIndex:0,startedAt:0,elapsed:0,progress:1,eased:1,from:0,active:false,duration:MOTION.enter};this.press=null;
     this.resize(platform.width||390,platform.height||844,platform.pixelRatio||1,platform.safeArea||{});
@@ -4606,7 +4645,7 @@ class NativeGame {
   daily(y){this.wrap('目标按本地日期刷新，奖励每日限领一次。',20,y,this.w-40,12,C.muted,2);const patrol=patrolAccrued(this.save),patrolH=Math.floor(patrol.ms/3600000),patrolM=Math.floor(patrol.ms%3600000/60000);this.box(20,y+30,this.w-40,56,C.panel,C.gold);this.tex(this.uiImages.patrol,26,y+36,44,44);this.text('巡山遣使',78,y+38,14,C.gold,'left','bold');this.text(`已巡 ${patrolH} 小时 ${patrolM} 分 · 悟性 +${patrol.amount}${patrol.capped?'（已攒满 8 小时）':''}`,78,y+60,10,C.muted);this.button(patrol.amount>0?'领取':'攒取中',this.w-116,y+41,84,34,()=>{const r=claimPatrol(this.save);this.message=r.message;if(r.ok){this.persist();this.burst(this.w-74,y+58);}this.audio.play(r.ok?'level':'click');this.draw();},{disabled:patrol.amount<=0,size:12});dailyRows(this.save).forEach((d,i)=>{const ry=y+100+i*110;this.box(20,ry,this.w-40,102);this.text(d.name,32,ry+10,18,C.gold);this.text(`${d.description}  ${d.progress}/${d.target}`,32,ry+38,11,C.muted);this.button(d.claimed?'已领取':d.complete?`领取 ${d.reward} 悟性`:'前往取经',32,ry+58,this.w-64,34,()=>{if(d.complete){const r=claimDaily(this.save,d.id);this.message=r.message;this.persist();if(r.ok)this.burst(this.w/2,ry+75);this.draw();}else this.go('select');},{disabled:d.claimed,size:12});});}
   codex(y){const rows=ARTIFACTS.slice(this.page*4,this.page*4+4);this.text('八件法宝 · 本命武器另占一槽',20,y,12,C.gold);rows.forEach((a,i)=>{const ry=y+31+i*113,seen=this.save.seenArtifacts.includes(a.id);this.box(20,ry,this.w-40,104);if(!seen)this.ctx.globalAlpha=.3;this.skillIcon(a.id,32,ry+12,40);this.ctx.globalAlpha=1;this.text(seen?a.name:'未觉醒法宝',82,ry+10,18,C.ink,'left','bold');this.wrap(seen?a.description:'尚未在战斗中遇见。闯关升级途中择得后，这里会记下它的形貌与妙用。',82,ry+36,this.w-114,11,C.muted,2);this.text(seen?'已觉醒 · 战斗中可升至 Lv.5':'未觉醒 · 战斗升级时择得',82,ry+81,10,C.gold);});this.button('上一页',20,y+493,100,44,()=>{this.page=Math.max(0,this.page-1);this.draw();},{disabled:!this.page});this.button('下一页',this.w-120,y+493,100,44,()=>{this.page=Math.min(Math.ceil(ARTIFACTS.length/4)-1,this.page+1);this.draw();},{disabled:(this.page+1)*4>=ARTIFACTS.length});}
   settings(y){this.button(this.save.muted?'开启声音':'静音全部音效',20,y,this.w-40,48,()=>{this.save.muted=!this.save.muted;this.audio.setMuted(this.save.muted);this.persist();this.draw();});this.button(`画质：${{auto:'自动',high:'精致',low:'省电'}[this.save.quality]}`,20,y+60,this.w-40,48,()=>{const qs=['auto','high','low'];this.save.quality=qs[(qs.indexOf(this.save.quality)+1)%3];this.persist();this.draw();});this.wrap('取经生存法\n拖动任意空白区域移动，法宝自动索敌。拾取妖怪掉落的经验升级，每次三选一。共一把本命武器和四件法宝，各五级。\n每两分钟精英现身，五分钟首领来袭，九分半最终首领登场。十分钟后击败最终首领通关。\n右下“遁”可闪避，五秒冷却。升级与暂停时战斗时间冻结。',20,y+136,this.w-40,13,C.muted,13);this.text('隐私：存档仅保存本机，不收集账号信息。',20,Math.min(this.h-this.bottom-75,y+487),10,C.gold);this.text('v1.0.0 · 西游八十一难',20,Math.min(this.h-this.bottom-49,y+513),10,C.muted);}
-  startRun(){this.stopRun();const st=getStage(this.stageId);this.platform.loadMapScene?.(st.mapAssetKey||st.theme);this.screen='game';this.message='';this._runStartedAt=this.clock();this._fadePhase='in';this._fadeAt=this.clock();this.result=null;this.stats={elites:0,dashes:0};this.engine=new GameEngine({characterId:this.characterId,stageId:this.stageId,seed:Date.now(),talents:this.save.talents,debug:this.platform.debug===true,onEvent:e=>this.event(e)});this.renderer=new GameRenderer(this.canvas,{width:this.w,height:this.h,pixelRatio:this.dpr,quality:this.save.quality==='low'?'low':'high',showHud:false,hudScreenBounds:{left:0,right:this.w,top:this.top+135,bottom:this.h-this.bottom-90},heroImages:this.heroImages,skillImages:this.skillImages,skillFxImages:this.skillFxImages,enemyImages:this.enemyImages||{},mapImages:this.mapImages||{},battleArtMode:'authoredFrames',battleSceneMode:'vector'});this.audio.startMusic(getStage(this.stageId).theme);this.lastTime=this.clock();this.running=true;this.schedule();this.draw();}
+  startRun(){this.stopRun();const st=getStage(this.stageId);this.platform.loadMapScene?.(st.mapAssetKey||st.theme);this.screen='game';this.message='';this._runStartedAt=this.clock();this._fadePhase='in';this._fadeAt=this.clock();this.result=null;this.stats={elites:0,dashes:0};this.engine=new GameEngine({characterId:this.characterId,stageId:this.stageId,seed:Date.now(),talents:this.save.talents,debug:this.platform.debug===true,onEvent:e=>this.event(e)});this.renderer=new GameRenderer(this.canvas,{width:this.w,height:this.h,pixelRatio:this.dpr,quality:this.save.quality==='low'?'low':'high',showHud:false,hudScreenBounds:{left:0,right:this.w,top:this.top+135,bottom:this.h-this.bottom-90},heroImages:this.heroImages,skillImages:this.skillImages,skillFxImages:this.skillFxImages,enemyImages:this.enemyImages||{},craterImage:this.craterImage||null,mapImages:this.mapImages||{},battleArtMode:'authoredFrames',battleSceneMode:'vector'});this.audio.startMusic(getStage(this.stageId).theme);this.lastTime=this.clock();this.running=true;this.schedule();this.draw();}
   event(e){if(e.type==='kill'){if(e.enemy?.kind==='elite')this.stats.elites++;this.audio.play('kill');}if(e.type==='dash'){this.stats.dashes++;this.audio.play('dash');}if(e.type==='hit')this.audio.play(e.target==='player'?'hurt':(e.critical?'crit':'hit'));if(e.type==='attack')this.audio.play('attack');if(e.type==='upgrade'&&e.choices)this.audio.play('level');if(e.type==='boss')this.audio.play('boss');if(e.type==='boss-land')this.audio.play('boss');if(e.type==='elite')this.audio.play('elite');if(e.type==='pickup')this.audio.play('pickup');if(e.type==='win'||e.type==='lose'){const prevBest=this.save.bestScore,prevUnlocked=this.save.unlockedStage,prevSeen=new Set(this.save.seenArtifacts),prevDaily=dailyRows(this.save).map(d=>d.progress);this.result=recordRun(this.save,this.engine.state,this.stats);this.resultExtras={newBest:this.result.score>prevBest&&prevBest>0,unlocked:this.save.unlockedStage>prevUnlocked?this.save.unlockedStage:0,newArtifacts:this.save.seenArtifacts.filter(id=>!prevSeen.has(id)).map(id=>ARTIFACTS.find(a=>a.id===id)?.name||id),dailyProgress:dailyRows(this.save).some((d,i)=>d.progress>(prevDaily[i]||0))};this.persist();this.audio.stopMusic();this.audio.play(e.type);}}
   wake(){if(this.hidden||this.disposed)return;if(this.engine?.state.status==='playing'&&!this.running){this.running=true;this.lastTime=this.clock();}this.schedule();}
   // Gameplay and finite UI motion share one owned RAF; static menus go idle.
