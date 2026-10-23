@@ -7,6 +7,7 @@ import {
   getWeaponStats,
 } from './content.js';
 import { battleEnemyAnimation, battleEnemySpriteId, battleBossSpriteId } from './battle-enemy-animation.js';
+import { sceneCircleBlocked, sceneMaskHas } from './scene-collision.js';
 
 const TAU = Math.PI * 2;
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
@@ -147,8 +148,15 @@ export class GameEngine {
   // which also lets dash and joystick movement share the same terrain rule.
   isWalkable(x, y, radius = this.state?.player?.radius || BALANCE.playerRadius) {
     const battlefield = this.state?.battlefield;
-    if (battlefield?.mapAssetKey !== 'doublefork') return true;
     const r = Math.max(0, Number(radius) || 0);
+    // Painted theme scenes carry a collision mask traced from the artwork
+    // (scene-collision.js): mountains, rivers, lava, ponds and ruins in
+    // the background block movement exactly where they are painted.
+    const terrainKey = battlefield?.mapAssetKey || this.stage?.mapAssetKey || this.stage?.theme;
+    if (terrainKey !== 'doublefork' && sceneMaskHas(terrainKey)) {
+      return !sceneCircleBlocked(terrainKey, x, y, r, BALANCE.worldSize);
+    }
+    if (battlefield?.mapAssetKey !== 'doublefork') return true;
     const ridge = battlefield.ridgeRect || { x: 0, y: 700, width: BALANCE.worldSize, height: 400 };
     const corridor = battlefield.pathCorridor || { x: 790, y: 700, width: 220, height: 400 };
     const ridgeTop = ridge.y;
@@ -165,6 +173,38 @@ export class GameEngine {
 
   moveEntity(entity, dx, dy, radius = entity?.radius || BALANCE.playerRadius) {
     if (!entity) return false;
+    const r = Math.max(0, Number(radius) || 0);
+    // Unstick: an entity whose center is buried in scenery (half-radius
+    // probe — merely brushing a wall with the disc edge is normal play
+    // and must never teleport anyone) steps to the nearest fully
+    // walkable ground first, so a knockback edge case can never leave
+    // it trapped inside a wall.
+    if (!this.isWalkable(entity.x, entity.y, r * 0.5)) {
+      let escaped = false;
+      for (let ring = 10; ring <= 120 && !escaped; ring += 10) {
+        for (let step = 0; step < 16 && !escaped; step += 1) {
+          const angle = (step / 16) * TAU;
+          const nx = clamp(entity.x + Math.cos(angle) * ring, r, BALANCE.worldSize - r);
+          const ny = clamp(entity.y + Math.sin(angle) * ring, r, BALANCE.worldSize - r);
+          if (this.isWalkable(nx, ny, r)) { entity.x = nx; entity.y = ny; escaped = true; }
+        }
+      }
+    }
+    // Sweep in small substeps: a fast move (the 180-unit dash above all)
+    // must not tunnel through scenery thinner than the jump — only the
+    // landing point used to be checked, which let a dash cross a ruin
+    // wall and strand the hero inside it.
+    const stepX = Number(dx) || 0;
+    const stepY = Number(dy) || 0;
+    const steps = Math.max(1, Math.ceil(Math.hypot(stepX, stepY) / 8));
+    let moved = false;
+    for (let i = 0; i < steps; i += 1) {
+      if (this._moveStep(entity, stepX / steps, stepY / steps, r)) moved = true;
+    }
+    return moved;
+  }
+
+  _moveStep(entity, dx, dy, radius = entity?.radius || BALANCE.playerRadius) {
     const nextX = clamp(entity.x + (Number(dx) || 0), radius, BALANCE.worldSize - radius);
     const nextY = clamp(entity.y + (Number(dy) || 0), radius, BALANCE.worldSize - radius);
     // Try the full vector first, then slide along a clear axis so the ridge
@@ -310,9 +350,20 @@ export class GameEngine {
       const point = { x: clamp(player.x + Math.cos(angle) * radius, 24, BALANCE.worldSize - 24), y: clamp(player.y + Math.sin(angle) * radius, 24, BALANCE.worldSize - 24) };
       if (this.isWalkable(point.x, point.y, 24)) return point;
     }
-    // If the random ring lands inside the ridge repeatedly, place the spawn
-    // on the stable stone pass so it remains reachable from either clearing.
-    return { x: 900, y: clamp(player.y, 24, BALANCE.worldSize - 24) };
+    // If the random ring lands inside scenery repeatedly, search outward
+    // from the historic stable point (the doublefork stone pass) for the
+    // nearest walkable ground so a spawn never lands inside a mountain,
+    // river or ruin. Deterministic: fixed rings, fixed direction order.
+    const seed = { x: 900, y: clamp(player.y, 24, BALANCE.worldSize - 24) };
+    if (this.isWalkable(seed.x, seed.y, 24)) return seed;
+    for (let ring = 40; ring <= 900; ring += 40) {
+      for (let step = 0; step < 16; step += 1) {
+        const angle = (step / 16) * TAU;
+        const point = { x: clamp(seed.x + Math.cos(angle) * ring, 24, BALANCE.worldSize - 24), y: clamp(seed.y + Math.sin(angle) * ring, 24, BALANCE.worldSize - 24) };
+        if (this.isWalkable(point.x, point.y, 24)) return point;
+      }
+    }
+    return { x: player.x, y: player.y };
   }
 
   spawnEnemy(kind = 'normal', variant = 0, override = {}) {
