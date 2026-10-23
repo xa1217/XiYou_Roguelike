@@ -1333,7 +1333,7 @@
       "bytes": 272055,
       "sha256": "50180f84bf6ee5c972cd251697b946db06d0b4bbc4312f3cec00f7a884249eb7",
       "purpose": "三昧真火火焰爆裂技能动画（6帧，延迟期保留矢量预警）",
-      "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
+      "lifecycle": "RETIRED on the playtest line (2026-10-23): 搬山诀改用 skill-fx-mountain-slam 落山图，本条带不再被运行时引用，文件保留作历史素材",
       "finalVisualApproved": false
     },
     {
@@ -1418,6 +1418,62 @@
       "sha256": "e4998e6c111107de333dea2487167b854e07516e98e8fe3a3b14b1788836c95b",
       "purpose": "悟净宝杖水漩涡池旋转动画（6帧）",
       "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-fire-bird",
+      "path": "skill-fx-fire-bird.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [
+        1536,
+        256
+      ],
+      "bytes": 294211,
+      "sha256": "8f2e548d23ba99739dfdb83960c7bdb7f2f2af590e556e560287f101c200a69c",
+      "purpose": "八戒钉耙烈焰神鸟扑击动画（6帧，帧序经重排使振翅连贯）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-23); concurrent queue, vector effect fallback",
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-mountain-slam",
+      "path": "skill-fx-mountain-slam.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [
+        1536,
+        256
+      ],
+      "bytes": 454512,
+      "sha256": "2ecadf464efb22c6d28023576cb8ca1580165915a26dcfdec65302af718d2601",
+      "purpose": "搬山诀落山砸地动画（6帧，延迟期保留矢量预警；取代旧三昧真火火焰图）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-23); concurrent queue, vector effect fallback",
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-skull-bead",
+      "path": "skill-fx-skull-bead.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [
+        1536,
+        256
+      ],
+      "bytes": 632516,
+      "sha256": "a20cdbd17e66d1b00b5ac65c8fc5fb2b02a373cf6a0278a65cdd12ae9fc41500",
+      "purpose": "念力佛珠5级骷髅念珠环绕动画（6帧）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-23); concurrent queue, vector effect fallback",
+      "finalVisualApproved": false
+    },
+    {
+      "id": "skill-fx-holy-spark",
+      "path": "skill-fx-holy-spark.png",
+      "origin": "ai-generated-painted-fx",
+      "size": [
+        1536,
+        256
+      ],
+      "bytes": 308966,
+      "sha256": "f8a31a2ebcefb309a90c93c1e87c83dcbb7f5ea7cb4ed93e5f276f4776e8ac66",
+      "purpose": "三藏圣光球分裂火花动画（6帧）",
+      "lifecycle": "runtime-approved on the playtest line (2026-10-23); concurrent queue, vector effect fallback",
       "finalVisualApproved": false
     }
   ],
