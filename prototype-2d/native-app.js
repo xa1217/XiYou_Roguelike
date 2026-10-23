@@ -135,6 +135,7 @@ for(const [id,file] of Object.entries(battleV3Files)){
 // Retired single-pose battle PNGs are deliberately not fetched at startup.
 // They remain in the repository for provenance/gallery comparison only; the
 // playable path uses the four real v3 sheets above and vector fallback.
+const craterImage=new Image();queueImage(craterImage,'./assets/crater-decal.jpg',()=>{game.craterImage=craterImage;if(game.renderer)game.renderer.craterImage=craterImage;},()=>{},true);
 const enemyImages={};game.enemyImages=enemyImages;for(const [id,file] of Object.entries({creature:'enemy-creature.svg',brute:'enemy-brute.svg',bird:'enemy-bird.svg',spider:'enemy-spider.svg',boss:'enemy-boss.svg'})){const image=new Image();image.onload=()=>{attachAnimationFrames(image,id);if(!enemyImages[id]?.__prioritySprite)enemyImages[id]=image;if(game.renderer)game.renderer.enemyImages=enemyImages;game.draw();};image.src=`./assets/${file}`;}
 // This measured atlas is not a uniform grid. Publish it to the renderer only
 // after both image decoding and rectangle validation succeed; failures retain
