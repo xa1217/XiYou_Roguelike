@@ -1,0 +1,76 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>fx length + screen bounce probes</title>
+<pre id="out">running…</pre>
+<script type="module">
+import { GameEngine } from './src/engine.js';
+import { getWeaponStats } from './src/content.js';
+
+const out = [];
+let fails = 0;
+const expect = (ok, label, detail = '') => { if (!ok) { fails++; out.push(`FAIL ${label} ${detail}`); } else out.push(`ok ${label} ${detail}`); };
+
+// 1) Bajie: the hoe-line effect's visual length equals the damage range.
+{
+  const e = new GameEngine({ characterId: 'bajie', stageId: 2, seed: 5, debug: true });
+  const foe = e.debug('spawn', { kind: 'normal' });
+  Object.assign(foe, { x: 1000, y: 900, hp: 100000, maxHp: 100000, speed: 0, radius: 10 });
+  const weapon = e.state.skills.find((s) => s.isWeapon);
+  e.fireWeapon(weapon);
+  const fx = e.state.effects.find((effect) => effect.kind === 'hoe-line');
+  const stats = getWeaponStats('bajie', weapon.level);
+  expect(!!fx, 'bajie hoe-line effect exists');
+  expect(fx && fx.length === stats.range && fx.radius === stats.range, 'bajie length == range', `length=${fx?.length} range=${stats.range}`);
+  e.dispose();
+}
+
+// 2) Ring ricochets inside the supplied view rect (screen bounce).
+{
+  const e = new GameEngine({ characterId: 'wukong', stageId: 2, seed: 712, debug: true });
+  e.setViewRect({ x: 400, y: 400, w: 800, h: 600 });
+  e.fireArtifact({ id: 'diamond-snare', level: 1 }, { damage: 1, power: 1, radius: 90, duration: 2, cooldown: 12 });
+  const ring = e.state.projectiles[0];
+  ring.targetId = null; ring.x = 900; ring.y = 700; ring.vx = 410; ring.vy = 0;
+  let flips = 0, last = Math.sign(ring.vx), contained = true;
+  for (let i = 0; i < 240; i++) {
+    e.updateProjectiles(1 / 60);
+    if (!e.state.projectiles.includes(ring)) break;
+    if (ring.x < 400 + ring.radius - 1e-6 || ring.x > 1200 - ring.radius + 1e-6 || ring.y < 400 + ring.radius - 1e-6 || ring.y > 1000 - ring.radius + 1e-6) contained = false;
+    if (Math.sign(ring.vx) !== last) { flips++; last = Math.sign(ring.vx); }
+  }
+  expect(contained, 'ring stays inside view', `bounces=${ring.bounceCount}`);
+  expect(flips >= 1 && ring.bounceCount >= 1, 'ring bounced off screen edge', `flips=${flips}`);
+  e.dispose();
+}
+
+// 3) Ring without a view rect keeps the cast-time box.
+{
+  const e = new GameEngine({ characterId: 'wukong', stageId: 2, seed: 712, debug: true });
+  e.fireArtifact({ id: 'diamond-snare', level: 1 }, { damage: 1, power: 1, radius: 90, duration: 2, cooldown: 12 });
+  const ring = e.state.projectiles[0];
+  ring.targetId = null;
+  let contained = true;
+  for (let i = 0; i < 240; i++) {
+    e.updateProjectiles(1 / 60);
+    if (!e.state.projectiles.includes(ring)) break;
+    if (ring.x < ring.bounds.x - 1e-6 || ring.x > ring.bounds.x + ring.bounds.w + 1e-6 || ring.y < ring.bounds.y - 1e-6 || ring.y > ring.bounds.y + ring.bounds.h + 1e-6) contained = false;
+  }
+  expect(contained, 'ring keeps cast box without view');
+  e.dispose();
+}
+
+// 4) Targetless light spark reflects at the screen edge.
+{
+  const e = new GameEngine({ characterId: 'wukong', stageId: 2, seed: 712, debug: true });
+  e.setViewRect({ x: 400, y: 400, w: 800, h: 600 });
+  e.projectile({ x: 1150, y: 700, vx: 420, vy: 0, radius: 4, color: '#d8f8ff', kind: 'light-spark', ttl: 3, damage: 10, targetId: null, targetIds: [], speed: 420, maxBounces: 2, bounceCount: 0, targetLimit: 2 });
+  const spark = e.state.projectiles[0];
+  for (let i = 0; i < 60; i++) e.updateProjectiles(1 / 60);
+  expect(e.state.projectiles.includes(spark) && spark.x <= 1200 - spark.radius + 1e-6 && spark.vx < 0, 'spark reflected at right edge', `x=${Math.round(spark.x)} vx=${Math.round(spark.vx)}`);
+  e.dispose();
+}
+
+out.push(fails === 0 ? 'ALL FX PROBES OK' : `${fails} FX PROBE FAILURES`);
+document.getElementById('out').textContent = out.join('\n');
+document.title = fails === 0 ? 'FX PROBES OK' : 'FX PROBES FAIL';
+</script>
