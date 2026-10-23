@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { GameEngine } from '../src/engine.js';
-import { sceneCircleBlocked, sceneMaskHas } from '../src/scene-collision.js';
+import { sceneCircleBlocked, sceneMaskHas, caveMouthsFor } from '../src/scene-collision.js';
 
 // Scene collision must match the painted backgrounds (playtest, 2026-10-23):
 // mountains, rivers, lava, ponds and ruins block movement; plazas, paths
@@ -51,11 +51,60 @@ check('engine: themed stage movement is stopped by scenery but slides along it',
   engine.dispose();
 });
 
-check('engine: doublefork keeps its authored ridge rule (no mask regression)', () => {
+check('engine: doublefork combines its ridge rule with the side-massif/sky mask', () => {
   const engine = new GameEngine({ characterId: 'wukong', stageId: 1, seed: 7, debug: true });
   assert.equal(engine.isWalkable(300, 900, 14), false, 'ridge blocks off-pass');
   assert.equal(engine.isWalkable(900, 900, 14), true, 'stone pass open');
-  assert.equal(engine.isWalkable(300, 300, 14), true, 'north clearing open');
+  assert.equal(engine.isWalkable(700, 300, 14), true, 'north valley floor open');
+  assert.equal(engine.isWalkable(90, 900, 14), false, 'west massif blocks');
+  assert.equal(engine.isWalkable(1710, 900, 14), false, 'east massif blocks');
+  assert.equal(engine.isWalkable(900, 40, 14), false, 'painted sky strip blocks at the top');
+  assert.equal(engine.isWalkable(150, 150, 14), false, 'north-west peaks block');
+  assert.equal(engine.isWalkable(900, 1500, 14), true, 'south valley floor open');
+  // Walking the pass to the far north stops below the sky strip.
+  const p = engine.state.player;
+  Object.assign(p, { x: 900, y: 900 });
+  for (let i = 0; i < 260; i++) engine.movePlayer(0, -6);
+  assert.ok(p.y > 30 && p.y < 220, `north walk must stop under the sky, stopped at y=${p.y}`);
+  engine.dispose();
+});
+
+check('caves: every mouth is open ground at the foot of painted rock', () => {
+  for (const key of ['water', 'fire', 'sand', 'snow', 'forest', 'temple']) {
+    const mouths = caveMouthsFor(key);
+    assert.ok(mouths.length >= 3, `${key} needs cave mouths`);
+    for (const [x, y] of mouths) {
+      assert.equal(sceneCircleBlocked(key, x, y, 24, W), false, `${key} cave (${x},${y}) must be open at spawn radius`);
+      assert.equal(sceneCircleBlocked(key, x, y, 95, W), true, `${key} cave (${x},${y}) must sit at a rock foot`);
+    }
+  }
+  const engine = new GameEngine({ characterId: 'wukong', stageId: 1, seed: 7, debug: true });
+  for (const [x, y] of caveMouthsFor('doublefork')) {
+    assert.equal(engine.isWalkable(x, y, 24), true, `doublefork cave (${x},${y}) must be open`);
+    assert.equal(engine.isWalkable(x, y, 95), false, `doublefork cave (${x},${y}) must sit at a rock foot`);
+  }
+  engine.dispose();
+});
+
+check('caves: normal spawns often emerge from cave mouths, always on walkable ground', () => {
+  // Cave spawns are a live-build behaviour; debug engines keep the frozen
+  // spawn contract, so this gate drives a production-mode engine.
+  const engine = new GameEngine({ characterId: 'wukong', stageId: 1, seed: 1234 });
+  const mouths = caveMouthsFor('doublefork').map(([x, y]) => `${x},${y}`);
+  let caveHits = 0;
+  for (let i = 0; i < 120; i++) {
+    const point = engine.spawnPoint(true);
+    assert.equal(engine.isWalkable(point.x, point.y, 24), true, 'every spawn point must be walkable');
+    if (mouths.includes(`${point.x},${point.y}`)) caveHits += 1;
+  }
+  assert.ok(caveHits >= 25, `expected regular cave spawns, got ${caveHits}/120`);
+  let dustSeen = false;
+  for (let i = 0; i < 80 && !dustSeen; i++) {
+    engine.state.enemies.length = 0;
+    engine.spawnEnemy('normal', 0, {});
+    dustSeen = engine.state.effects.some((effect) => effect.kind === 'cave-dust');
+  }
+  assert.ok(dustSeen, 'a cave spawn must raise the cave-dust effect');
   engine.dispose();
 });
 
