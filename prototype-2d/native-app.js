@@ -37,7 +37,7 @@ const sheet=new Image();queueImage(sheet,'./assets/hero-cards-v2-comic.png',()=>
 // generated textures the UI draws when present and silently skips when not
 // (e.g. the WeChat build, which supplies no uiImages yet).
 const uiImages={};game.uiImages=uiImages;
-for(const [key,file] of Object.entries({paper:'ui-paper.jpg',wood:'ui-wood.jpg',patrol:'ui-patrol.jpg',chapter:'ui-chapter.jpg',poster:'ui-poster.jpg'})){const image=new Image();queueImage(image,`./assets/${file}`,()=>{uiImages[key]=image;game.draw();},()=>{},true);}
+for(const [key,file] of Object.entries({paper:'ui-paper.jpg',wood:'ui-wood.jpg',patrol:'ui-patrol.jpg',chapter:'ui-chapter.jpg',poster:'ui-poster.jpg',heroPoster_wukong:'hero-poster-wukong.jpg',heroPoster_tangsanzang:'hero-poster-tangsanzang.jpg',heroPoster_bajie:'hero-poster-bajie.jpg',heroPoster_shajing:'hero-poster-shajing.jpg'})){const image=new Image();queueImage(image,`./assets/${file}`,()=>{uiImages[key]=image;game.draw();},()=>{},true);}
 // Transparent authored SVG art is retained for character cards and special
 // previews. The playable battle slice uses the real v3 frame sheets below;
 // the renderer's vector rig remains the deterministic fallback, so a single
