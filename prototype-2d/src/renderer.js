@@ -423,8 +423,13 @@ class GameRenderer {
     const viewWorldW = frame.viewWorldW;
     const viewWorldH = frame.viewWorldH;
     this._viewCenter = { x: frame.cx, y: frame.cy };
-    const targetX = viewWorldW >= WORLD_SIZE ? WORLD_SIZE / 2 : clamp(n(player.x, WORLD_SIZE / 2), viewWorldW / 2, WORLD_SIZE - viewWorldW / 2);
-    const targetY = viewWorldH >= WORLD_SIZE ? WORLD_SIZE / 2 : clamp(n(player.y, WORLD_SIZE / 2), viewWorldH / 2, WORLD_SIZE - viewWorldH / 2);
+    // Keep the hero at the view centre even near the world rim. Clamping the
+    // target to the world pinned the hero against the screen edge (and under
+    // the bottom HUD) across the whole southern half of the map; the theme
+    // paper fill covers the margin this reveals, like a scroll painting.
+    const rim = 150;
+    const targetX = viewWorldW >= WORLD_SIZE ? WORLD_SIZE / 2 : clamp(n(player.x, WORLD_SIZE / 2), viewWorldW / 2 - rim, WORLD_SIZE - viewWorldW / 2 + rim);
+    const targetY = viewWorldH >= WORLD_SIZE ? WORLD_SIZE / 2 : clamp(n(player.y, WORLD_SIZE / 2), viewWorldH / 2 - rim, WORLD_SIZE - viewWorldH / 2 + rim);
     const smoothing = this.quality === 'low' || n(dt) <= 0 ? 1 : clamp(n(dt, 0) * 8, 0, 1);
     this.camera.x += (targetX - this.camera.x) * smoothing;
     this.camera.y += (targetY - this.camera.y) * smoothing;
