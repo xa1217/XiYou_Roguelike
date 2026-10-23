@@ -435,10 +435,14 @@ class GameRenderer {
     this.camera.y += (targetY - this.camera.y) * smoothing;
     if (!Number.isFinite(this.camera.x)) this.camera.x = targetX;
     if (!Number.isFinite(this.camera.y)) this.camera.y = targetY;
-    this._view.left = this.camera.x - viewWorldW / 2;
-    this._view.top = this.camera.y - viewWorldH / 2;
-    this._view.right = this.camera.x + viewWorldW / 2;
-    this._view.bottom = this.camera.y + viewWorldH / 2;
+    const shakeT = n(safeState.shakeT, 0);
+    const shakeK = shakeT > 0 ? n(safeState.shakeMag, 12) * Math.min(1, shakeT / 0.55) : 0;
+    this._shakeX = shakeK ? Math.sin(this.elapsed * 91) * shakeK : 0;
+    this._shakeY = shakeK ? Math.cos(this.elapsed * 113) * shakeK : 0;
+    this._view.left = this.camera.x + this._shakeX - viewWorldW / 2;
+    this._view.top = this.camera.y + this._shakeY - viewWorldH / 2;
+    this._view.right = this.camera.x + this._shakeX + viewWorldW / 2;
+    this._view.bottom = this.camera.y + this._shakeY + viewWorldH / 2;
     this._updateHudOcclusionRects(zoom);
     this.stats.enemies = this.stats.projectiles = this.stats.effects = this.stats.gems = 0;
     this.stats.culledEnemies = this.stats.culledProjectiles = this.stats.culledEffects = this.stats.culledGems = 0;
@@ -451,7 +455,7 @@ class GameRenderer {
     method(ctx, 'fillRect', 0, 0, this.width, this.height);
     method(ctx, 'translate', frame.cx, frame.cy);
     method(ctx, 'scale', zoom, zoom);
-    method(ctx, 'translate', -this.camera.x, -this.camera.y);
+    method(ctx, 'translate', -(this.camera.x + (this._shakeX || 0)), -(this.camera.y + (this._shakeY || 0)));
     const mapKey = safeState.battlefield?.mapAssetKey || safeState.stage?.mapAssetKey || null;
     this._drawMap(ctx, mapTheme, mapKey);
 
@@ -891,9 +895,10 @@ class GameRenderer {
     // vector plate below stays as the pre-load and no-image fallback.
     const scene = this._sceneFor(theme, mapKey);
     const sceneBack = scene?.back || scene?.background || scene;
-    if (imageReady(sceneBack)) { this._drawPaintedBattleMap(ctx, theme, sceneBack, left, top, right, bottom); this._drawCaveMouths(ctx, mapKey); return; }
+    if (imageReady(sceneBack)) { this._drawPaintedBattleMap(ctx, theme, sceneBack, left, top, right, bottom); this._drawWorldRim(ctx, theme, left, top, right, bottom); this._drawCaveMouths(ctx, mapKey); return; }
     if (this.battleSceneMode === 'vector') {
       this._drawVectorBattleMap(ctx, theme, left, top, right, bottom, mapKey);
+      this._drawWorldRim(ctx, theme, left, top, right, bottom);
       this._drawCaveMouths(ctx, mapKey);
       return;
     }
@@ -968,6 +973,25 @@ class GameRenderer {
       ? drawImageIfReady(ctx, back, 0, 0, iw, ih, 0, 0, WORLD_SIZE, WORLD_SIZE)
       : drawImageCover(ctx, back, 0, 0, WORLD_SIZE, WORLD_SIZE);
     if (drawn) this.mapAssetDraws += 1;
+    // Continue the painting past the world rim: when the centred camera
+    // looks beyond the map edge, mirror a strip of the painting across the
+    // rim so the terrain reads as continuing, over a deep shade underlay —
+    // never a flat band or a smeared stretch.
+    if (drawn && iw > 0 && ih > iw) {
+      const sx = iw / WORLD_SIZE, sy = ih / WORLD_SIZE;
+      const ovB = bottom - WORLD_SIZE, ovT = -top, ovL = -left, ovR = right - WORLD_SIZE;
+      const fx = Math.min(0, left), fw = right - fx;
+      paint(ctx, alphaColor(theme.deep, .85));
+      if (ovB > 0) method(ctx, 'fillRect', fx, WORLD_SIZE, fw, ovB);
+      if (ovT > 0) method(ctx, 'fillRect', fx, top, fw, ovT);
+      if (ovL > 0) method(ctx, 'fillRect', left, 0, ovL, WORLD_SIZE);
+      if (ovR > 0) method(ctx, 'fillRect', WORLD_SIZE, 0, ovR, WORLD_SIZE);
+      const D = 90;
+      if (ovB > 0) { const d = Math.min(D, ovB); method(ctx, 'save'); method(ctx, 'translate', 0, 2 * WORLD_SIZE); method(ctx, 'scale', 1, -1); drawImageIfReady(ctx, back, 0, ih - d * sy, iw, d * sy, 0, WORLD_SIZE - d, WORLD_SIZE, d); method(ctx, 'restore'); }
+      if (ovT > 0) { const d = Math.min(D, ovT); method(ctx, 'save'); method(ctx, 'scale', 1, -1); drawImageIfReady(ctx, back, 0, 0, iw, d * sy, 0, 0, WORLD_SIZE, d); method(ctx, 'restore'); }
+      if (ovL > 0) { const d = Math.min(D, ovL); method(ctx, 'save'); method(ctx, 'scale', -1, 1); drawImageIfReady(ctx, back, 0, 0, d * sx, ih, 0, 0, d, WORLD_SIZE); method(ctx, 'restore'); }
+      if (ovR > 0) { const d = Math.min(D, ovR); method(ctx, 'save'); method(ctx, 'translate', 2 * WORLD_SIZE, 0); method(ctx, 'scale', -1, 1); drawImageIfReady(ctx, back, iw - d * sx, 0, d * sx, ih, WORLD_SIZE - d, 0, d, WORLD_SIZE); method(ctx, 'restore'); }
+    }
     // A light wash keeps the HUD's warm ink palette coherent and the actors
     // the highest-contrast objects on the field.
     paint(ctx, alphaColor(theme.sky, .06));
@@ -976,6 +1000,11 @@ class GameRenderer {
       path(ctx, [['M', 26, 26], ['L', WORLD_SIZE - 26, 26], ['L', WORLD_SIZE - 26, WORLD_SIZE - 26], ['L', 26, WORLD_SIZE - 26], ['Z']], null, alphaColor(theme.deep, .40), 12);
       path(ctx, [['M', 52, 52], ['L', WORLD_SIZE - 52, 52], ['L', WORLD_SIZE - 52, WORLD_SIZE - 52], ['L', 52, WORLD_SIZE - 52], ['Z']], null, alphaColor(theme.ink, .20), 3);
     }
+  }
+
+  _drawWorldRim(ctx, theme, left, top, right, bottom) {
+    if (left >= 0 && top >= 0 && right <= WORLD_SIZE && bottom <= WORLD_SIZE) return;
+    path(ctx, [['M', 0, 0], ['L', WORLD_SIZE, 0], ['L', WORLD_SIZE, WORLD_SIZE], ['L', 0, WORLD_SIZE], ['Z']], null, alphaColor(theme.deep, .5), 9);
   }
 
   _drawVectorBattleMap(ctx, theme, left, top, right, bottom, mapKey = null) {
@@ -1381,7 +1410,20 @@ class GameRenderer {
       method(ctx, 'restore');
       return;
     }
-    if (kind === 'cave-dust') {
+    if (kind === 'crater') {
+      const age = n(effect.maxTtl, 0) - n(effect.ttl, 0);
+      const pop = clamp(age / 0.25, 0, 1);
+      circle(ctx, 0, 0, radius * pop, alphaColor('#241708', .55));
+      circle(ctx, 0, 0, radius * .68 * pop, alphaColor('#17100a', .5));
+      method(ctx, 'beginPath');
+      for (let i = 0; i < 7; i += 1) { const a = i * TAU / 7 + (n(effect.id, 0) % 5) * .3; method(ctx, 'moveTo', Math.cos(a) * radius * .3, Math.sin(a) * radius * .24); method(ctx, 'lineTo', Math.cos(a + .18) * radius * (.75 + ((i * 37) % 10) / 22) * pop, Math.sin(a + .18) * radius * (.6 + ((i * 37) % 10) / 26) * pop); }
+      paint(ctx, null, alphaColor('#120b06', .65), 2.4); method(ctx, 'stroke');
+      circle(ctx, 0, 0, radius * pop, null, alphaColor('#0f0a06', .5), 3);
+    } else if (kind === 'shockwave') {
+      const ez = 1 - Math.pow(1 - progress, 2);
+      circle(ctx, 0, 0, radius * (.2 + .8 * ez), null, alphaColor(color, .75 * (1 - progress)), 5 * (1 - progress) + 1);
+      circle(ctx, 0, 0, radius * .55 * ez, alphaColor('#c9a86a', .20 * (1 - progress)));
+    } else if (kind === 'cave-dust') {
       // A monster emerges from a cave mouth: an expanding dusty ring and
       // a low puff in earth tones, gone in about half a second.
       const ring = radius * (.5 + progress * 1.15);
@@ -1512,8 +1554,21 @@ class GameRenderer {
     const actor = battleEnemyAnimation(enemy), authoredSprite = this.enemyImages?.[actor?.variant];
     const authoredFrame = actor && this.battleArtMode === 'authoredFrames' && imageReady(authoredSprite)
       && actor.drawFrame(authoredSprite, animationState(enemy), animationFrame(enemy), radius);
-    method(ctx, 'save'); method(ctx, 'translate', x, y);
-    circle(ctx, 0, radius * .7, radius * .72, alphaColor('#382f2b', .2));
+    const falling = enemy.dropHeight && n(enemy.spawnTimer, 0) > 0;
+    let fallDy = 0;
+    if (falling) {
+      const fp = clamp(1 - n(enemy.spawnTimer, 0) / 1.2, 0, 1);
+      fallDy = -n(enemy.dropHeight, 0) * Math.pow(1 - fp, 1.7);
+      circle(ctx, x, y, radius * (2.3 - 1.2 * fp), null, alphaColor('#e03428', .35 + .35 * fp), 4);
+      circle(ctx, x, y, radius * (0.6 + 0.75 * fp), alphaColor('#1c1410', .16 + .22 * fp));
+    }
+    if (enemy.kind === 'elite' && !falling) {
+      const pulse = Math.sin(this.elapsed * 4.2) * .5 + .5;
+      circle(ctx, x, y + radius * .5, radius * (1.08 + pulse * .14), null, alphaColor('#e8402f', .38 + .3 * pulse), 3);
+      circle(ctx, x, y + radius * .5, radius * .8, null, alphaColor('#ffb03a', .25), 1.5);
+    }
+    method(ctx, 'save'); method(ctx, 'translate', x, y + fallDy);
+    if (!falling) circle(ctx, 0, radius * .7, radius * .72, alphaColor('#382f2b', .2));
     const pose = animationPose(enemy, radius);
     const bob = Math.sin(this.elapsed * (kind === 'boss' ? 2 : 4) + n(enemy.id, 0) * .8) * radius * .045;
     if (!authoredFrame) {
@@ -1778,6 +1833,13 @@ class GameRenderer {
     }
     method(ctx, 'restore');
     if (n(player.invulnerable, 0) > 0) circle(ctx, x, y, r * 1.35, null, alphaColor('#f6dc87', .52), Math.max(1.5, r * .08));
+    // Floating HP bar under the hero (Survivor.io grammar): only while hurt.
+    const hpFrac = clamp(n(player.hp, 0) / Math.max(1, n(player.maxHp, 1)), 0, 1);
+    if (hpFrac < 1) {
+      const bw = r * 2.3, bx = x - bw / 2, by = y + r * 1.5;
+      roundedBox(ctx, bx - 1, by - 1, bw + 2, 7, 3, alphaColor('#241a12', .72), null);
+      if (hpFrac > 0) roundedBox(ctx, bx, by, Math.max(3, bw * hpFrac), 5, 2, hpFrac > .35 ? '#7ec850' : '#e0483a', null);
+    }
   }
 
   _drawAttackTrail(ctx, r, player, style) {

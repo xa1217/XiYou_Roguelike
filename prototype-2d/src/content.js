@@ -8,10 +8,10 @@
 
 export const BALANCE = Object.freeze({
   duration: 600,
-  eliteTimes: Object.freeze([120, 240, 360, 480]),
+  eliteTimes: Object.freeze([80, 160, 250, 340, 430, 520]),
   bossTime: 300,
   finalBossTime: 570,
-  maxEnemies: 220,
+  maxEnemies: 280,
   maxProjectiles: 300,
   maxEffects: 160,
   maxGems: 240,

@@ -41,7 +41,7 @@ const WEAPON_PREFIX = 'weapon:';
 // Playtest change (2026-10-21): normals arrive in waves every WAVE_SECONDS.
 // Small waves are single-species; every 5th wave is a big mixed-species wave.
 const WAVE_SECONDS = 5;
-const BIG_WAVE_EVERY = 5;
+const BIG_WAVE_EVERY = 4;
 
 export class GameEngine {
   constructor(options = {}) {
@@ -89,7 +89,7 @@ export class GameEngine {
         animationState: 'idle', frameIndex: 0, frameTime: 0, animationFrames: animationFrames('idle'),
         attackTimer: 0, hitTimer: 0, dashTimer: 0,
       },
-      enemies: [], projectiles: [], effects: [], gems: [], damageNumbers: [], skills,
+      enemies: [], projectiles: [], effects: [], gems: [], damageNumbers: [], shakeT: 0, shakeMag: 0, skills,
       choices: [], kills: 0, damage: 0,
       stage: this.stage, battlefield: this.stage.encounterName ? {
         id: 'double-ridge', name: this.stage.encounterName, theme: this.stage.theme,
@@ -250,6 +250,7 @@ export class GameEngine {
     this.state.time = this.elapsed;
     this.state.player.invulnerable = Math.max(0, this.state.player.invulnerable - dt);
     this.state.player.dashCooldown = Math.max(0, this.state.player.dashCooldown - dt);
+    if (this.state.shakeT > 0) this.state.shakeT = Math.max(0, this.state.shakeT - dt);
     this.spawnAccumulator += dt;
     this.advanceSpawns();
     this.updateEffects(dt);
@@ -318,8 +319,9 @@ export class GameEngine {
   }
 
   spawnInterval(time) {
-    // 1.18s at start, reaching 0.22s near the final minute.
-    return clamp(1.18 - (time / BALANCE.duration) * 0.96, 0.22, 1.18);
+    // 1.02s at start, reaching 0.17s near the final minute (playtest
+    // difficulty pass, 2026-10-23: denser waves across the whole run).
+    return clamp(1.02 - (time / BALANCE.duration) * 0.85, 0.17, 1.02);
   }
 
   spawnWave(time) {
@@ -389,6 +391,27 @@ export class GameEngine {
     return { x: player.x, y: player.y };
   }
 
+  bossLand(boss) {
+    const r = boss.radius;
+    this.effect({ x: boss.x, y: boss.y, kind: 'crater', radius: r * 1.9, color: '#3a2a1c', ttl: 900 });
+    this.effect({ x: boss.x, y: boss.y, kind: 'shockwave', radius: r * 3.6, color: '#d8b878', ttl: 0.55 });
+    this.effect({ x: boss.x, y: boss.y, kind: 'cave-dust', radius: r * 2.2, color: '#9a7d55', ttl: 0.8 });
+    this.state.shakeT = 0.55; this.state.shakeMag = 16;
+    // The landing shockwave flattens every lesser demon on the field; elites
+    // and bosses ride it out.
+    for (const enemy of [...this.state.enemies]) {
+      if (enemy !== boss && enemy.kind === 'normal' && enemy.hp > 0) this.damageEnemy(enemy, enemy.hp + 1, {});
+    }
+    // Never leave the hero standing inside the boss's footprint.
+    const p = this.state.player, dx = p.x - boss.x, dy = p.y - boss.y, d = Math.hypot(dx, dy), min = r + p.radius + 4;
+    if (d < min) {
+      const a = d > 0.01 ? Math.atan2(dy, dx) : -Math.PI / 2;
+      p.x = clamp(boss.x + Math.cos(a) * min, p.radius, BALANCE.worldSize - p.radius);
+      p.y = clamp(boss.y + Math.sin(a) * min, p.radius, BALANCE.worldSize - p.radius);
+    }
+    this.emit({ type: 'boss-land', x: boss.x, y: boss.y, final: Boolean(boss.final), name: boss.name });
+  }
+
   spawnEnemy(kind = 'normal', variant = 0, override = {}) {
     if (this.state.enemies.length >= BALANCE.maxEnemies) {
       if (kind === 'normal') return null;
@@ -404,7 +427,7 @@ export class GameEngine {
     }
     const progress = clamp(this.state.time / BALANCE.duration, 0, 1);
     const hard = this.difficulty === 'hard' ? 1.25 : 1;
-    const levelScale = 1 + progress * 1.5;
+    const levelScale = 1 + progress * 1.65;
     const chapterScale = 1 + (this.stage.chapter - 1) * 0.085;
     const normalNames = this.stage.enemyRoster || this.stage.enemies;
     let hp = 36 * levelScale * chapterScale * hard;
@@ -429,7 +452,7 @@ export class GameEngine {
       facing: 0,
       animationState: 'move', frameIndex: 0, frameTime: 0, animationFrames: animationFrames('move'),
       hitTimer: 0, spawnProgress: 1, spawnTimer: 0,
-      damage: (8 + progress * 12) * (kind === 'elite' ? 1.5 : 1) * chapterScale * hard,
+      damage: (9 + progress * 13) * (kind === 'elite' ? 1.5 : 1) * chapterScale * hard,
       xp: override.xp || (kind === 'elite' ? 9 : 2),
       encounterIdentity: null,
     };
@@ -459,7 +482,7 @@ export class GameEngine {
       ? Object.freeze({ bossId: override.bossId, variant: override.variant || null, actionId: override.actionId })
       : null;
     const boss = {
-      id: this.allocId('boss'), x: position.x, y: position.y, hp, maxHp: hp, radius: override.radius || (finalBoss ? 62 : 48),
+      id: this.allocId('boss'), x: position.x, y: position.y, hp, maxHp: hp, radius: override.radius || (finalBoss ? 76 : 60),
       kind: 'boss', name: override.name || (finalBoss ? this.stage.boss : this.stage.midBoss), variant: override.variant || (finalBoss ? 1 : 0), aliases: [...(override.aliases || [])],
       color: finalBoss ? '#9b4e86' : '#a56a46', speed: finalBoss ? 34 : 38, stun: 0, flash: 0, facing: 0,
       animationState: 'intro', frameIndex: 0, frameTime: 0, animationFrames: animationFrames('intro'),
@@ -467,6 +490,7 @@ export class GameEngine {
       damage: (finalBoss ? 35 : 24) * chapterScale * (override.damageScale || 1), xp: override.xp || (finalBoss ? 80 : 30), coin: override.coin || (finalBoss ? 80 : 35), final: finalBoss,
       bossIdentity,
       encounterIdentity: null,
+      dropHeight: 780, landed: false,
     };
     if (this.stage.id === 1 && ['tiger', 'bear', 'bull'].includes(boss.variant)) {
       const attackPattern = { tiger: 'tiger-claw', bear: 'bear-slam', bull: 'bull-charge' }[boss.variant];
@@ -563,6 +587,7 @@ export class GameEngine {
       if (enemy.spawnTimer > 0) {
         enemy.spawnTimer = Math.max(0, enemy.spawnTimer - dt);
         enemy.spawnProgress = clamp(1 - enemy.spawnTimer / 1.2, 0, 1);
+        if (enemy.spawnTimer <= 0 && enemy.dropHeight && !enemy.landed) { enemy.landed = true; this.bossLand(enemy); }
         this.stepAnimation(enemy, 'intro', dt, 10);
         continue;
       }
@@ -1332,6 +1357,11 @@ export class GameEngine {
     if (action === 'xp') { this.dropGem(this.state.player.x, this.state.player.y, payload.value || 100, 'xp'); return true; }
     if (action === 'time') { this.elapsed = Number(payload.value) || 0; this.state.time = this.elapsed; return true; }
     if (action === 'killFinal') { for (const enemy of this.state.enemies.filter((item) => item.final)) this.killEnemy(enemy); return true; }
+    if (action === 'spawnBoss') return this.spawnBoss(Boolean(payload.final), payload.override || {});
+    if (action === 'spawnWave') { this.spawnWave(this.state.time); return true; }
+    if (action === 'clearField') { for (const enemy of [...this.state.enemies]) if (enemy.kind === 'normal' || (payload.all && enemy.kind === 'elite')) this.damageEnemy(enemy, enemy.hp + 1, {}); return true; }
+    if (action === 'snapshot') return { state: this.getSnapshot(), meta: { elapsed: this.elapsed, elitesSpawned: [...this.elitesSpawned], bossSpawned: this.bossSpawned, finalBossSpawned: this.finalBossSpawned, waveIndex: this.waveIndex, spawnAccumulator: this.spawnAccumulator } };
+    if (action === 'restore') { if (!payload.state) return false; this.state = payload.state; const m = payload.meta || {}; this.elapsed = m.elapsed || 0; this.state.time = this.elapsed; this.elitesSpawned = new Set(m.elitesSpawned || []); this.bossSpawned = Boolean(m.bossSpawned); this.finalBossSpawned = Boolean(m.finalBossSpawned); this.waveIndex = m.waveIndex || 0; this.spawnAccumulator = m.spawnAccumulator || 0; return true; }
     return false;
   }
 
