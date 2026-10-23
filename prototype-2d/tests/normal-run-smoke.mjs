@@ -122,10 +122,10 @@ for (const [index, characterId] of ['wukong', 'tangseng', 'bajie', 'wujing'].ent
   }
   assert.notEqual(engine.state.status, 'lost', `${characterId} should survive a normal seeded run`);
   assert.equal(engine.state.status, 'won', `${characterId} should finish its final boss`);
-  assert.ok(engine.state.time >= 600 && engine.state.time < 680);
+  assert.ok(engine.state.time >= 600 && engine.state.time < 720, `win time out of window: ${engine.state.time}`); // window widened 2026-10-23: boss sky-drop entrances + denser waves shift endgame pacing
   assert.ok(engine.state.kills >= 600);
   const eliteEvents = events.filter((event) => event.type === 'elite');
-  const expectedEliteTimes = engine.state.stage.id === 1 ? [120, 240, 300, 360, 480] : [120, 240, 360, 480];
+  const expectedEliteTimes = engine.state.stage.id === 1 ? [80, 160, 250, 300, 340, 430, 520] : [80, 160, 250, 340, 430, 520];
   assert.deepEqual(eliteEvents.map((event) => event.at), expectedEliteTimes);
   const bossEvents = events.filter((event) => event.type === 'boss');
   assert.equal(bossEvents.length, engine.state.stage.id === 1 ? 1 : 2);

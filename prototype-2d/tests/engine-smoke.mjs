@@ -321,7 +321,7 @@ test('elite x5, schedules, overtime until final boss defeated', () => {
   const normal = e.debug('spawn'); const elite = e.debug('spawn', { kind: 'elite' });
   close(elite.maxHp, normal.maxHp * 5);
   e.debug('time', { value: 570 }); e.update(0.01);
-  assert.deepEqual(events.filter((v) => v.type === 'elite').map((v) => v.at), [120, 240, 360, 480]);
+  assert.deepEqual(events.filter((v) => v.type === 'elite').map((v) => v.at), [80, 160, 250, 340, 430, 520]);
   assert.equal(e.state.enemies.filter((v) => v.kind === 'boss').length, 2);
   e.debug('time', { value: 600 }); e.update(0.01); assert.equal(e.state.status, 'playing');
   e.debug('killFinal'); e.update(0.01); assert.equal(e.state.status, 'won');

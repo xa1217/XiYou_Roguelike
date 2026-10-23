@@ -40,7 +40,7 @@ for (const [index, character] of CHARACTERS.entries()) {
     assert.ok(frames <= 12010, 'a real 600 second run must complete in bounded production frames');
   }
   const eliteEvents = events.filter((event) => event.type === 'elite');
-  assert.deepEqual(eliteEvents.map((event) => event.at), index === 0 ? [120, 240, 300, 360, 480] : [120, 240, 360, 480]);
+  assert.deepEqual(eliteEvents.map((event) => event.at), index === 0 ? [80, 160, 250, 300, 340, 430, 520] : [80, 160, 250, 340, 430, 520]);
   for (const event of eliteEvents) assert.ok(event.time >= event.at && event.time < event.at + 0.051);
   const bossEvents = events.filter((event) => event.type === 'boss');
   if (index === 0) {
