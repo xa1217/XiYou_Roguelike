@@ -44,9 +44,9 @@ check('signature kinds and the four painted artifact kinds route to strips', () 
   assert.equal(skillFxIdForEffect('fan'), 'fan-wave');
   assert.equal(skillFxIdForEffect('gourd'), 'gourd-vortex');
   assert.equal(skillFxIdForEffect('palm-strike'), 'palm-burst');
-  assert.equal(skillFxIdForEffect('mountain'), 'fire-burst');
+  assert.equal(skillFxIdForEffect('mountain'), 'mountain-slam');
   assert.equal(skillFxIdForEffect('bead'), 'gold-bead');
-  assert.equal(skillFxIdForEffect('skull-bead'), 'gold-bead');
+  assert.equal(skillFxIdForEffect('skull-bead'), 'skull-bead');
   assert.equal(skillFxIdForEffect('fire-trail'), 'fire-pool');
   assert.equal(skillFxIdForEffect('fire-pool'), 'fire-pool');
   assert.equal(skillFxIdForEffect('monkey-clone'), 'monkey-clone');
@@ -98,8 +98,8 @@ check('renderer draws batch-2 strips (beads, fire pool, wheel and ring projectil
   assert.equal(child.draws.length, 1, 'ring child strip drawn');
 });
 
-check('renderer draws the artifact strips (cones, palm, delayed fire burst)', () => {
-  const images = { 'fan-wave': strip('fan-wave'), 'gourd-vortex': strip('gourd-vortex'), 'palm-burst': strip('palm-burst'), 'fire-burst': strip('fire-burst') };
+check('renderer draws the artifact strips (cones, palm, delayed mountain slam)', () => {
+  const images = { 'fan-wave': strip('fan-wave'), 'gourd-vortex': strip('gourd-vortex'), 'palm-burst': strip('palm-burst'), 'mountain-slam': strip('mountain-slam') };
   const renderer = makeRenderer(images);
   renderer.elapsed = 0;
   const fan = makeCtx();
@@ -115,16 +115,36 @@ check('renderer draws the artifact strips (cones, palm, delayed fire burst)', ()
   renderer._drawEffect(palm, { x: 100, y: 100, radius: 40, kind: 'palm-strike', ttl: 0.25, maxTtl: 0.5, angle: 0.9, color: '#e7cb80', delay: 0.3 });
   assert.equal(palm.draws.length, 1, 'palm strip drawn');
   assert.equal(palm.draws[0][0], images['palm-burst']);
-  // Samadhi burst: during the delay the falling-rock vector telegraph owns
-  // the effect; after the delay the painted burst takes over.
+  // Mountain slam: during the delay the falling-rock vector telegraph owns
+  // the effect; after the delay the painted peak takes over.
   const during = makeCtx();
   renderer._drawEffect(during, { x: 100, y: 100, radius: 90, kind: 'mountain', ttl: 0.7, maxTtl: 0.8, delay: 0.45, color: '#b58d65' });
   assert.equal(during.draws.length, 0, 'mountain stays vector during its delay');
   const burst = makeCtx();
   renderer._drawEffect(burst, { x: 100, y: 100, radius: 90, kind: 'mountain', ttl: 0.2, maxTtl: 0.8, delay: 0.45, color: '#b58d65' });
-  assert.equal(burst.draws.length, 1, 'fire burst strip drawn after the delay');
-  assert.equal(burst.draws[0][0], images['fire-burst']);
-  assert.equal(burst.draws[0][1], 512, 'burst frame follows post-delay phase');
+  assert.equal(burst.draws.length, 1, 'mountain slam strip drawn after the delay');
+  assert.equal(burst.draws[0][0], images['mountain-slam']);
+  assert.equal(burst.draws[0][1], 512, 'slam frame follows post-delay phase');
+});
+
+check('renderer draws the style-pass strips (fire bird, holy spark, skull bead)', () => {
+  const images = { 'fire-bird': strip('fire-bird'), 'holy-spark': strip('holy-spark'), 'skull-bead': strip('skull-bead') };
+  const renderer = makeRenderer(images);
+  renderer.elapsed = 0;
+  const bird = makeCtx();
+  renderer._drawProjectile(bird, { x: 50, y: 50, vx: 200, vy: 0, radius: 9, kind: 'fire-bird', color: '#f58c42' });
+  assert.equal(bird.draws.length, 1, 'fire bird strip drawn');
+  assert.equal(bird.draws[0][0], images['fire-bird']);
+  assert.equal(bird.draws[0][7], 72, 'fire bird glyph is 8x its hit radius');
+  const spark = makeCtx();
+  renderer._drawProjectile(spark, { x: 50, y: 50, vx: 300, vy: 100, radius: 4, kind: 'light-spark', color: '#d8f8ff' });
+  assert.equal(spark.draws.length, 1, 'holy spark strip drawn');
+  assert.equal(spark.draws[0][0], images['holy-spark']);
+  assert.equal(spark.draws[0][7], 24, 'holy spark glyph is 6x its hit radius');
+  const skull = makeCtx();
+  renderer._drawEffect(skull, { x: 100, y: 100, radius: 10, kind: 'skull-bead', ttl: 5, maxTtl: 6.1, angle: 0, color: '#d9b77b' });
+  assert.equal(skull.draws.length, 1, 'skull bead strip drawn');
+  assert.equal(skull.draws[0][0], images['skull-bead']);
 });
 
 check('frame rect follows the phase and clamps at both ends', () => {
@@ -178,6 +198,7 @@ check('without a loaded strip every effect keeps the vector path', () => {
     { kind: 'palm-strike', ttl: 0.25, maxTtl: 0.5, angle: 0.9, delay: 0.3 },
     { kind: 'mountain', ttl: 0.2, maxTtl: 0.8, delay: 0.45 },
     { kind: 'bead', ttl: 5, maxTtl: 6.1, angle: 0 },
+    { kind: 'skull-bead', ttl: 5, maxTtl: 6.1, angle: 0 },
     { kind: 'fire-trail', ttl: 2, maxTtl: 3, angle: 0 },
     { kind: 'monkey-clone', ttl: 3, maxTtl: 4, angle: 0, vx: 120, vy: 0 },
     { kind: 'whirl', ttl: 1.2, maxTtl: 2, angle: 0 },
@@ -189,7 +210,7 @@ check('without a loaded strip every effect keeps the vector path', () => {
   const ctx = makeCtx();
   renderer._drawProjectile(ctx, { x: 50, y: 50, vx: 100, vy: 0, radius: 9, kind: 'light-orb', color: '#35d7ff' });
   assert.equal(ctx.draws.length, 0, 'orb fallback');
-  for (const kind of ['fire-wheel', 'ring', 'ring-child']) {
+  for (const kind of ['fire-wheel', 'ring', 'ring-child', 'fire-bird', 'light-spark']) {
     const pctx = makeCtx();
     renderer._drawProjectile(pctx, { x: 50, y: 50, vx: 100, vy: 0, radius: 12, kind, color: '#f3873c' });
     assert.equal(pctx.draws.length, 0, `${kind} fallback`);
@@ -227,12 +248,13 @@ check('painted effect extents equal their gameplay radius (length audit)', () =>
     ['slash-arc', { kind: 'sweep', radius: R }],
     ['water-ring', { kind: 'staff-ring', radius: R }],
     ['palm-burst', { kind: 'palm-strike', radius: R }],
-    ['fire-burst', { kind: 'mountain', radius: R, delay: 0 }],
+    ['mountain-slam', { kind: 'mountain', radius: R, delay: 0 }],
     ['whirl-pool', { kind: 'whirl', radius: R }],
     ['fire-pool', { kind: 'fire-trail', radius: R }],
   ];
   const glyphs = [
     ['gold-bead', { kind: 'bead', radius: R }, 120],
+    ['skull-bead', { kind: 'skull-bead', radius: R }, 120],
     ['monkey-clone', { kind: 'monkey-clone', radius: R, vx: 100 }, 150],
   ];
   const drawOne = (fxId, effect) => {

@@ -11,6 +11,8 @@ for (const name of ['beginPath', 'closePath', 'moveTo', 'lineTo', 'quadraticCurv
 ctx.save = () => { stack.push(style()); record('save', []); };
 ctx.restore = () => { assert.ok(stack.length, 'unbalanced Canvas restore'); Object.assign(ctx, stack.pop()); record('restore', []); };
 ctx.measureText = text => ({ width: String(text).length * 10, actualBoundingBoxLeft: 0, actualBoundingBoxRight: String(text).length * 5, actualBoundingBoxAscent: 9, actualBoundingBoxDescent: 3 });
+ctx.createLinearGradient = () => ({ addColorStop: () => {} });
+ctx.createRadialGradient = () => ({ addColorStop: () => {} });
 const canvas = { width: 0, height: 0, getContext: () => ctx };
 const renderer = new GameRenderer(canvas, { width: 390, height: 844, pixelRatio: 2, showHud: false });
 renderer.camera = { x: 900, y: 900 };
