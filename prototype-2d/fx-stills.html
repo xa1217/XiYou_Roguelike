@@ -1,0 +1,71 @@
+<!doctype html><meta charset="utf-8"><title>fx stills</title>
+<body style="background:#20242a;color:#eee;font-family:monospace">
+<div id="out">loading strips...</div>
+<canvas id="cv" width="1170" height="900"></canvas>
+<script type="module">
+import { GameRenderer } from './src/renderer.js';
+import { attachSkillFx } from './src/skill-fx-animation.js';
+const IDS = ['slash-arc','light-orb','rake-sweep','water-ring','fan-wave','gourd-vortex','palm-burst','fire-wheel','ring-spin','gold-bead','fire-pool','monkey-clone','whirl-pool','fire-bird','mountain-slam','skull-bead','holy-spark'];
+const images = {}, attach = {};
+await Promise.all(IDS.map(id => new Promise(res => {
+  const img = new Image();
+  img.onload = () => { attach[id] = !!attachSkillFx(img, id); if (attach[id]) images[id] = img; res(); };
+  img.onerror = () => { attach[id] = false; res(); };
+  img.src = `./assets/skill-fx-${id}.png`;
+})));
+const cv = document.getElementById('cv');
+const renderer = new GameRenderer(cv, { width: 1170, height: 900, skillFxImages: images });
+renderer.elapsed = 0.37;
+const ctx = cv.getContext('2d');
+ctx.fillStyle = '#3a4149'; ctx.fillRect(0, 0, 1170, 900);
+const FX = [
+  ['sweep', { radius: 60, ttl: .09, maxTtl: .18, angle: .3 }],
+  ['hoe-line', { radius: 120, length: 120, width: 34, ttl: .11, maxTtl: .22, angle: 0 }],
+  ['staff-ring', { radius: 60, ttl: .12, maxTtl: .24, angle: 0 }],
+  ['fan', { radius: 110, ttl: .17, maxTtl: .35, angle: 0 }],
+  ['gourd', { radius: 110, ttl: 2, maxTtl: 2.4, angle: 0 }],
+  ['palm-strike', { radius: 55, ttl: .25, maxTtl: .5, angle: 0, delay: .3 }],
+  ['mountain', { radius: 80, ttl: .2, maxTtl: .8, delay: .45 }],
+  ['bead', { radius: 26, ttl: 5, maxTtl: 6.1, angle: 0 }],
+  ['skull-bead', { radius: 26, ttl: 5, maxTtl: 6.1, angle: 0 }],
+  ['fire-trail', { radius: 40, ttl: 2, maxTtl: 3, angle: 0 }],
+  ['whirl', { radius: 44, ttl: 1.2, maxTtl: 2, angle: 0 }],
+  ['monkey-clone', { radius: 20, ttl: 3, maxTtl: 4, angle: 0, vx: 120 }],
+];
+const PROJ = [
+  ['light-orb', { radius: 11, vx: 160, vy: 0 }],
+  ['fire-wheel', { radius: 16, vx: 160, vy: 0 }],
+  ['ring', { radius: 13, vx: 160, vy: 0 }],
+  ['ring-child', { radius: 9, vx: -120, vy: 40 }],
+  ['fire-bird', { radius: 9, vx: 200, vy: 30 }],
+  ['light-spark', { radius: 4, vx: 260, vy: 60 }],
+];
+const cells = [];
+FX.forEach(([kind, e], i) => {
+  const x = 130 + (i % 4) * 290, y = 130 + Math.floor(i / 4) * 240;
+  renderer._drawEffect(ctx, { x, y, color: '#e6a43a', ...e, kind });
+  cells.push([kind, x, y]);
+});
+PROJ.forEach(([kind, p], i) => {
+  const x = 130 + (i % 4) * 290, y = 130 + (3 + Math.floor(i / 4)) * 240;
+  renderer._drawProjectile(ctx, { x, y, color: '#e6a43a', ...p, kind });
+  cells.push([kind, x, y]);
+});
+ctx.fillStyle = '#fff'; ctx.font = '16px monospace';
+cells.forEach(([kind, x, y]) => ctx.fillText(kind, x - 60, y - 95));
+// Painted-pixel probe: count non-background pixels in each cell box.
+const data = ctx.getImageData(0, 0, 1170, 900).data;
+const painted = {};
+for (const [kind, cx, cy] of cells) {
+  let n = 0;
+  for (let y = cy - 90; y < cy + 90; y += 3) for (let x = cx - 90; x < cx + 90; x += 3) {
+    const i = (y * 1170 + x) * 4, r = data[i], g = data[i + 1], b = data[i + 2];
+    if (Math.abs(r - 58) > 25 || Math.abs(g - 65) > 25 || Math.abs(b - 73) > 25) n++;
+  }
+  painted[kind] = n;
+}
+const bad = IDS.filter(id => !attach[id]);
+document.getElementById('out').textContent =
+  (bad.length ? `ATTACH FAIL: ${bad.join(',')}` : `ALL ${IDS.length} STRIPS ATTACHED`) +
+  ' | painted px: ' + cells.map(([k]) => `${k}=${painted[k]}`).join(' ');
+</script>
