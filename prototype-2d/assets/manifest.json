@@ -1372,8 +1372,8 @@
         1536,
         256
       ],
-      "bytes": 211298,
-      "sha256": "44bdd8bf13b1bc61f0b28a307be6fe4e9910922148b885a3e873df4cfbb720c1",
+      "bytes": 314623,
+      "sha256": "9cb6c804e2a3e404923c8da0814947187c0e7a32dd457ff6aed10879f0b8ad65",
       "purpose": "幌金绳环绕金珠动画（6帧，第4帧原稿跑偏已用相邻帧替换）",
       "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
       "finalVisualApproved": false
@@ -1400,8 +1400,8 @@
         1536,
         256
       ],
-      "bytes": 377402,
-      "sha256": "25a7484becb95f9d1e62e8347fe5d7efa56879d6a5306ffbded330d102c38906",
+      "bytes": 385995,
+      "sha256": "3c77b15a260c4f630f6e1c1df03c2740b3830dd1043f4119e696d82391c6ff72",
       "purpose": "七十二变木棍小猴分身奔跑动画（6帧）",
       "lifecycle": "runtime-approved on the playtest line (2026-10-22); concurrent queue, vector effect fallback",
       "finalVisualApproved": false
@@ -1428,8 +1428,8 @@
         1536,
         256
       ],
-      "bytes": 294211,
-      "sha256": "8f2e548d23ba99739dfdb83960c7bdb7f2f2af590e556e560287f101c200a69c",
+      "bytes": 218793,
+      "sha256": "75c84781a4de76691a7f8299ca6f554c83d34e5a6dba8d118a452ae202f52b8d",
       "purpose": "八戒钉耙烈焰神鸟扑击动画（6帧，帧序经重排使振翅连贯）",
       "lifecycle": "runtime-approved on the playtest line (2026-10-23); concurrent queue, vector effect fallback",
       "finalVisualApproved": false
@@ -1456,8 +1456,8 @@
         1536,
         256
       ],
-      "bytes": 632516,
-      "sha256": "a20cdbd17e66d1b00b5ac65c8fc5fb2b02a373cf6a0278a65cdd12ae9fc41500",
+      "bytes": 265838,
+      "sha256": "da17d2d366e32965c011d784495ed7d947ff273b836d930af882a2dbc7cd5628",
       "purpose": "念力佛珠5级骷髅念珠环绕动画（6帧）",
       "lifecycle": "runtime-approved on the playtest line (2026-10-23); concurrent queue, vector effect fallback",
       "finalVisualApproved": false
