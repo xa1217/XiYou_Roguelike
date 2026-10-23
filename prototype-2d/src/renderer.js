@@ -1277,7 +1277,7 @@ class GameRenderer {
       const fxImage = this.skillFxImages?.[fxId];
       const fxRect = fxImage && skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'fire-bird' ? 2.2 : 3)) % 1);
       if (fxRect) {
-        const size = radius * (fxId === 'fire-bird' ? 8 : 6);
+        const size = radius * (fxId === 'fire-bird' ? 11 : 6);
         method(ctx, 'drawImage', fxImage, fxRect.x, fxRect.y, fxRect.w, fxRect.h, -size / 2, -size / 2, size, size);
         method(ctx, 'restore');
         return;
@@ -1372,7 +1372,7 @@ class GameRenderer {
         // The wooden monkey clones scamper outward: run cycle on renderer
         // time, flipped to face their travel direction.
         const rect = skillFxFrameRect(fxImage, (this.elapsed * 3) % 1) || fxRect;
-        const size = radius * 3;
+        const size = radius * 3.8;
         if (n(effect.vx) < 0) method(ctx, 'scale', -1, 1);
         method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
       } else if (fxId === 'whirl-pool') {
@@ -1383,7 +1383,7 @@ class GameRenderer {
         // Looping props: the prayer beads pulse and the fire pool flickers
         // on renderer time; all are drawn centered on the effect position.
         const rect = skillFxFrameRect(fxImage, (this.elapsed * (fxId === 'fire-pool' ? 2.6 : 1.8)) % 1) || fxRect;
-        const size = radius * (fxId === 'fire-pool' ? 2 : 2.4);
+        const size = radius * (fxId === 'fire-pool' ? 2 : 3.1);
         method(ctx, 'drawImage', fxImage, rect.x, rect.y, rect.w, rect.h, -size / 2, -size / 2, size, size);
       } else if (fxId === 'fan-wave' || fxId === 'gourd-vortex') {
         // Cone effects: the strip's narrow point sits at the effect origin
