@@ -1003,30 +1003,35 @@ class GameRenderer {
       if (ovT > 0) method(ctx, 'fillRect', fx, top, fw, ovT);
       if (ovL > 0) method(ctx, 'fillRect', left, 0, ovL, WORLD_SIZE);
       if (ovR > 0) method(ctx, 'fillRect', WORLD_SIZE, 0, ovR, WORLD_SIZE);
-      const IN = 14, SL = 5;
-      if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, 0, SL * sx, ih, left, 0, ovL, WORLD_SIZE);
-      if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, 0, SL * sx, ih, WORLD_SIZE, 0, ovR, WORLD_SIZE);
+      // The stretch only carries the first few dozen units past the rim;
+      // stretched further, a thin slice smears into vertical streaks that
+      // read as a glitch. Beyond it the shade takes over completely, like
+      // the dark mat around a scroll painting.
+      const IN = 14, SL = 5, ST = 34, FD = 64;
+      const sB = Math.min(ovB, ST), sT = Math.min(ovT, ST), sL = Math.min(ovL, ST), sR = Math.min(ovR, ST);
+      if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, 0, SL * sx, ih, 0 - sL, 0, sL, WORLD_SIZE);
+      if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, 0, SL * sx, ih, WORLD_SIZE, 0, sR, WORLD_SIZE);
       if (ovB > 0) {
-        drawImageIfReady(ctx, back, 0, ih - (IN + SL) * sy, iw, SL * sy, 0, WORLD_SIZE, WORLD_SIZE, ovB);
-        if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, ih - (IN + SL) * sy, SL * sx, SL * sy, left, WORLD_SIZE, ovL, ovB);
-        if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, ih - (IN + SL) * sy, SL * sx, SL * sy, WORLD_SIZE, WORLD_SIZE, ovR, ovB);
+        drawImageIfReady(ctx, back, 0, ih - (IN + SL) * sy, iw, SL * sy, 0, WORLD_SIZE, WORLD_SIZE, sB);
+        if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, ih - (IN + SL) * sy, SL * sx, SL * sy, 0 - sL, WORLD_SIZE, sL, sB);
+        if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, ih - (IN + SL) * sy, SL * sx, SL * sy, WORLD_SIZE, WORLD_SIZE, sR, sB);
       }
       if (ovT > 0) {
-        drawImageIfReady(ctx, back, 0, IN * sy, iw, SL * sy, 0, top, WORLD_SIZE, ovT);
-        if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, IN * sy, SL * sx, SL * sy, left, top, ovL, ovT);
-        if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, IN * sy, SL * sx, SL * sy, WORLD_SIZE, top, ovR, ovT);
+        drawImageIfReady(ctx, back, 0, IN * sy, iw, SL * sy, 0, 0 - sT, WORLD_SIZE, sT);
+        if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, IN * sy, SL * sx, SL * sy, 0 - sL, 0 - sT, sL, sT);
+        if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, IN * sy, SL * sx, SL * sy, WORLD_SIZE, 0 - sT, sR, sT);
       }
       const fade = (x0, y0, x1, y1, rx, ry, rw, rh) => {
         if (typeof ctx.createLinearGradient !== 'function') return;
         const g = ctx.createLinearGradient(x0, y0, x1, y1);
         g.addColorStop(0, alphaColor(theme.deep, 0));
-        g.addColorStop(1, alphaColor(theme.deep, .55));
+        g.addColorStop(1, alphaColor(theme.deep, .92));
         paint(ctx, g); method(ctx, 'fillRect', rx, ry, rw, rh);
       };
-      if (ovB > 0) fade(0, WORLD_SIZE, 0, bottom, fx, WORLD_SIZE, fw, ovB);
-      if (ovT > 0) fade(0, 0, 0, top, fx, top, fw, ovT);
-      if (ovL > 0) fade(0, 0, left, 0, left, 0, ovL, WORLD_SIZE);
-      if (ovR > 0) fade(WORLD_SIZE, 0, right, 0, WORLD_SIZE, 0, ovR, WORLD_SIZE);
+      if (ovB > 0) { const d = Math.min(ovB, FD); fade(0, WORLD_SIZE, 0, WORLD_SIZE + d, fx, WORLD_SIZE, fw, d); if (ovB > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', fx, WORLD_SIZE + d, fw, ovB - d); } }
+      if (ovT > 0) { const d = Math.min(ovT, FD); fade(0, 0, 0, -d, fx, -d, fw, d); if (ovT > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', fx, top, fw, ovT - d); } }
+      if (ovL > 0) { const d = Math.min(ovL, FD); fade(0, 0, -d, 0, -d, 0, d, WORLD_SIZE); if (ovL > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', left, 0, ovL - d, WORLD_SIZE); } }
+      if (ovR > 0) { const d = Math.min(ovR, FD); fade(WORLD_SIZE, 0, WORLD_SIZE + d, 0, WORLD_SIZE, 0, d, WORLD_SIZE); if (ovR > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', WORLD_SIZE + d, 0, ovR - d, WORLD_SIZE); } }
     }
     // A light wash keeps the HUD's warm ink palette coherent and the actors
     // the highest-contrast objects on the field.
