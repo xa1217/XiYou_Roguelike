@@ -3548,30 +3548,35 @@ class GameRenderer {
       if (ovT > 0) method(ctx, 'fillRect', fx, top, fw, ovT);
       if (ovL > 0) method(ctx, 'fillRect', left, 0, ovL, WORLD_SIZE);
       if (ovR > 0) method(ctx, 'fillRect', WORLD_SIZE, 0, ovR, WORLD_SIZE);
-      const IN = 14, SL = 5;
-      if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, 0, SL * sx, ih, left, 0, ovL, WORLD_SIZE);
-      if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, 0, SL * sx, ih, WORLD_SIZE, 0, ovR, WORLD_SIZE);
+      // The stretch only carries the first few dozen units past the rim;
+      // stretched further, a thin slice smears into vertical streaks that
+      // read as a glitch. Beyond it the shade takes over completely, like
+      // the dark mat around a scroll painting.
+      const IN = 14, SL = 5, ST = 34, FD = 64;
+      const sB = Math.min(ovB, ST), sT = Math.min(ovT, ST), sL = Math.min(ovL, ST), sR = Math.min(ovR, ST);
+      if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, 0, SL * sx, ih, 0 - sL, 0, sL, WORLD_SIZE);
+      if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, 0, SL * sx, ih, WORLD_SIZE, 0, sR, WORLD_SIZE);
       if (ovB > 0) {
-        drawImageIfReady(ctx, back, 0, ih - (IN + SL) * sy, iw, SL * sy, 0, WORLD_SIZE, WORLD_SIZE, ovB);
-        if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, ih - (IN + SL) * sy, SL * sx, SL * sy, left, WORLD_SIZE, ovL, ovB);
-        if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, ih - (IN + SL) * sy, SL * sx, SL * sy, WORLD_SIZE, WORLD_SIZE, ovR, ovB);
+        drawImageIfReady(ctx, back, 0, ih - (IN + SL) * sy, iw, SL * sy, 0, WORLD_SIZE, WORLD_SIZE, sB);
+        if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, ih - (IN + SL) * sy, SL * sx, SL * sy, 0 - sL, WORLD_SIZE, sL, sB);
+        if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, ih - (IN + SL) * sy, SL * sx, SL * sy, WORLD_SIZE, WORLD_SIZE, sR, sB);
       }
       if (ovT > 0) {
-        drawImageIfReady(ctx, back, 0, IN * sy, iw, SL * sy, 0, top, WORLD_SIZE, ovT);
-        if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, IN * sy, SL * sx, SL * sy, left, top, ovL, ovT);
-        if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, IN * sy, SL * sx, SL * sy, WORLD_SIZE, top, ovR, ovT);
+        drawImageIfReady(ctx, back, 0, IN * sy, iw, SL * sy, 0, 0 - sT, WORLD_SIZE, sT);
+        if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, IN * sy, SL * sx, SL * sy, 0 - sL, 0 - sT, sL, sT);
+        if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, IN * sy, SL * sx, SL * sy, WORLD_SIZE, 0 - sT, sR, sT);
       }
       const fade = (x0, y0, x1, y1, rx, ry, rw, rh) => {
         if (typeof ctx.createLinearGradient !== 'function') return;
         const g = ctx.createLinearGradient(x0, y0, x1, y1);
         g.addColorStop(0, alphaColor(theme.deep, 0));
-        g.addColorStop(1, alphaColor(theme.deep, .55));
+        g.addColorStop(1, alphaColor(theme.deep, .92));
         paint(ctx, g); method(ctx, 'fillRect', rx, ry, rw, rh);
       };
-      if (ovB > 0) fade(0, WORLD_SIZE, 0, bottom, fx, WORLD_SIZE, fw, ovB);
-      if (ovT > 0) fade(0, 0, 0, top, fx, top, fw, ovT);
-      if (ovL > 0) fade(0, 0, left, 0, left, 0, ovL, WORLD_SIZE);
-      if (ovR > 0) fade(WORLD_SIZE, 0, right, 0, WORLD_SIZE, 0, ovR, WORLD_SIZE);
+      if (ovB > 0) { const d = Math.min(ovB, FD); fade(0, WORLD_SIZE, 0, WORLD_SIZE + d, fx, WORLD_SIZE, fw, d); if (ovB > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', fx, WORLD_SIZE + d, fw, ovB - d); } }
+      if (ovT > 0) { const d = Math.min(ovT, FD); fade(0, 0, 0, -d, fx, -d, fw, d); if (ovT > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', fx, top, fw, ovT - d); } }
+      if (ovL > 0) { const d = Math.min(ovL, FD); fade(0, 0, -d, 0, -d, 0, d, WORLD_SIZE); if (ovL > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', left, 0, ovL - d, WORLD_SIZE); } }
+      if (ovR > 0) { const d = Math.min(ovR, FD); fade(WORLD_SIZE, 0, WORLD_SIZE + d, 0, WORLD_SIZE, 0, d, WORLD_SIZE); if (ovR > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', WORLD_SIZE + d, 0, ovR - d, WORLD_SIZE); } }
     }
     // A light wash keeps the HUD's warm ink palette coherent and the actors
     // the highest-contrast objects on the field.
@@ -4711,7 +4716,7 @@ class NativeGame {
   event(e){if(e.type==='kill'){if(e.enemy?.kind==='elite')this.stats.elites++;this.audio.play('kill');}if(e.type==='dash'){this.stats.dashes++;this.audio.play('dash');}if(e.type==='hit')this.audio.play(e.target==='player'?'hurt':(e.critical?'crit':'hit'));if(e.type==='attack')this.audio.play('attack');if(e.type==='upgrade'&&e.choices)this.audio.play('level');if(e.type==='boss')this.audio.play('boss');if(e.type==='boss-land')this.audio.play('boss');if(e.type==='elite')this.audio.play('elite');if(e.type==='pickup')this.audio.play('pickup');if(e.type==='win'||e.type==='lose'){const prevBest=this.save.bestScore,prevUnlocked=this.save.unlockedStage,prevSeen=new Set(this.save.seenArtifacts),prevDaily=dailyRows(this.save).map(d=>d.progress);this.result=recordRun(this.save,this.engine.state,this.stats);this.resultExtras={newBest:this.result.score>prevBest&&prevBest>0,unlocked:this.save.unlockedStage>prevUnlocked?this.save.unlockedStage:0,newArtifacts:this.save.seenArtifacts.filter(id=>!prevSeen.has(id)).map(id=>ARTIFACTS.find(a=>a.id===id)?.name||id),dailyProgress:dailyRows(this.save).some((d,i)=>d.progress>(prevDaily[i]||0))};this.persist();this.audio.stopMusic();this.audio.play(e.type);}}
   wake(){if(this.hidden||this.disposed)return;if(this.engine?.state.status==='playing'&&!this.running){this.running=true;this.lastTime=this.clock();}this.schedule();}
   // Gameplay and finite UI motion share one owned RAF; static menus go idle.
-  schedule(){if(!this.frame&&!this.hidden&&!this.disposed&&(this.running||this.uiAnimation.active||this.press||this.fx))this.frame=this.raf(()=>this.tick());}
+  schedule(){if(!this.frame&&!this.hidden&&!this.disposed&&(this.running||this.uiAnimation.active||this.press||this.fx||this._fadePhase))this.frame=this.raf(()=>this.tick());}
   tick(){this.frame=0;if(this.hidden||this.disposed)return;const now=this.clock(),dt=Math.min(.05,Math.max(0,(now-(this.lastTime??now))/1000));this.lastTime=now;const start=this.clock();if(this.engine&&this.renderer)this.engine.setViewRect(this.renderer.viewRect());if(this.running&&this.engine?.state.status==='playing'){const reps=this.adminOpen?0:(this.adminSpeed>=1?this.adminSpeed:(this._slowFlip=!this._slowFlip,this._slowFlip?1:0));for(let i=0;i<reps;i++)this.engine.update(dt,this.input);this.renderDt=dt;}else this.renderDt=0;this.running=!!(this.engine&&this.screen==='game'&&this.engine.state.status==='playing');const mid=this.clock();this.draw();const end=this.clock();this.metrics.frames++;this.metrics.maxUpdateMs=Math.max(this.metrics.maxUpdateMs,mid-start);this.metrics.maxRenderMs=Math.max(this.metrics.maxRenderMs,end-mid);if(end-start>32)this.metrics.slowFrames++;const s=this.engine?.state;if(s){this.metrics.peakEnemies=Math.max(this.metrics.peakEnemies,s.enemies.length);this.metrics.peakProjectiles=Math.max(this.metrics.peakProjectiles,s.projectiles.length);this.metrics.peakEffects=Math.max(this.metrics.peakEffects,s.effects.length);}this.samples.push(end-start);if(this.samples.length>180)this.samples.shift();this.schedule();}
   drawGame(){const s=this.engine.state;this.renderer.render(s,this.renderDt||0);const c=this.ctx;c.setTransform(this.dpr,0,0,this.dpr,0,0);const y=this.top;c.fillStyle='rgba(236,218,174,.96)';c.fillRect(0,0,this.w,y+148);c.fillRect(0,this.h-this.bottom-89,this.w,this.bottom+89);this.tex(this.uiImages.paper,0,0,this.w,y+148,.30);this.tex(this.uiImages.paper,0,this.h-this.bottom-89,this.w,this.bottom+89,.30);c.fillStyle=C.wood;c.fillRect(0,y+146,this.w,3);const xpR=Math.min(1,s.player.xp/s.player.xpNext);c.fillStyle='#2c2115';c.fillRect(0,y,this.w,14);c.fillStyle=C.jade;c.fillRect(0,y,this.w*xpR,14);this.text('经验 '+Math.floor(s.player.xp)+' / '+s.player.xpNext,10,y+2,9,'#fff8e6','left');this.text('Lv.'+s.player.level,this.w-10,y+1,11,'#fff8e6','right','bold');c.fillRect(0,this.h-this.bottom-90,this.w,3);if(this.admin)this.button('管',this.w-104,y+24,40,44,()=>{this.adminOpen=!this.adminOpen;this.draw();});this.button('Ⅱ',this.w-57,y+24,40,44,()=>{if(s.status==='playing')this.engine.pause();this.draw();},{size:16});this.text(`${this.stageId} · ${s.stage.name}`,18,y+27,10,C.gold);this.text(fmt(s.time),18,y+43,21,C.ink);this.text(s.kills+' 击破',100,y+50,11,C.muted);this.box(16,y+79,this.w-32,5,C.line,null);this.box(16,y+79,(this.w-32)*Math.max(0,s.player.hp/s.player.maxHp),5,C.red,null);this.text('生命 '+Math.ceil(s.player.hp)+' / '+s.player.maxHp,18,y+92,9,C.ink);const boss=s.enemies.find(e=>e.kind==='boss');if(boss){this.box(18,y+113,this.w-36,6,C.line,null);this.box(18,y+113,(this.w-36)*boss.hp/boss.maxHp,6,C.gold,null);this.text(boss.name,this.w/2,y+123,12,C.gold,'center');}const by=this.h-this.bottom-65;this.button(s.player.dashCooldown>0?Math.ceil(s.player.dashCooldown)+'s':'遁',this.w-73,by,55,55,()=>{this.engine.useDash(this.input);},{disabled:s.player.dashCooldown>0});const buildY=this.h-this.bottom-66;s.skills.forEach((sk,i)=>{const sx=16+i*51;this.box(sx,buildY,45,28,C.panel,sk.isWeapon?C.gold:C.line);this.skillIcon(sk.id,sx+3,buildY+3,19);this.text(String(sk.level),sx+34,buildY+9,9,C.gold,'center','bold');});if(this.joy){c.strokeStyle='rgba(100,71,39,.5)';c.lineWidth=1;c.beginPath();c.arc(this.joy.x,this.joy.y,38,0,Math.PI*2);c.stroke();c.fillStyle='rgba(192,150,86,.65)';c.beginPath();c.arc(this.joy.x+this.input.x*23,this.joy.y+this.input.y*23,14,0,Math.PI*2);c.fill();}if(s.status==='playing'&&this._runStartedAt){const el=this.clock()-this._runStartedAt,dur=this.reducedMotion?900:1500;if(el>=0&&el<dur){const a=el<200?el/200:(el>dur-400?Math.max(0,(dur-el)/400):1),st=getStage(this.stageId),cy=this.h*.38;c.save();c.globalAlpha=a;c.fillStyle='rgba(24,17,10,.45)';c.fillRect(0,0,this.w,this.h);c.fillStyle='rgba(20,14,8,.88)';c.fillRect(0,cy-60,this.w,124);c.fillStyle=C.gold;c.fillRect(0,cy-60,this.w,2);c.fillRect(0,cy+62,this.w,2);this.text(`第 ${st.id} 难`,this.w/2,cy-46,13,'#d8b878','center');this.text(st.name,this.w/2,cy-24,27,'#fff3d7','center','bold');this.text(`${st.location} · ${st.boss}`,this.w/2,cy+16,11,'#c9b489','center');this.text('存活十分钟 · 击败最终妖王',this.w/2,cy+36,10,'#a68d5f','center');c.restore();}}
 if(s.status==='upgrade')this.upgradeOverlay(s);else if(s.status==='paused')this.pauseOverlay();else if(['won','lost'].includes(s.status))this.resultOverlay(s);if(this.admin&&this.adminOpen)this.adminOverlay();if(this._fadePhase==='in'){const a=1-Math.min(1,(this.clock()-this._fadeAt)/260);if(a<=0.01)this._fadePhase=null;else{c.fillStyle=`rgba(24,17,10,${(a*.96).toFixed(3)})`;c.fillRect(0,0,this.w,this.h);}}}
