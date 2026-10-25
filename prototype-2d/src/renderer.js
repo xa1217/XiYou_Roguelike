@@ -947,17 +947,31 @@ class GameRenderer {
   // Cave mouths (playtest line, 2026-10-23): scenes with painted
   // mountains have dark openings at the rock feet — small monsters spawn
   // from them (engine cave spawns), so the decal and the spawn point are
-  // the same place. A soft elliptical shadow pool with a near-black core
-  // reads as part of the cliff base rather than a pasted sticker.
+  // the same place. One feathered radial pool (dark core dissolving into
+  // the ground) plus a faint warm lip on the lower inner edge; the first
+  // version stacked three hard-edged circles and read as a pasted black
+  // sticker on open ground.
   _drawCaveMouths(ctx, mapKey) {
     const mouths = CAVE_MOUTHS[mapKey];
     if (!mouths) return;
     for (const [mx, my] of mouths) {
       if (mx < this._view.left - 90 || mx > this._view.right + 90 || my < this._view.top - 90 || my > this._view.bottom + 90) continue;
       method(ctx, 'save'); method(ctx, 'translate', mx, my); method(ctx, 'scale', 1, .58);
-      circle(ctx, 0, 0, 34, 'rgba(24,16,10,0.55)', null, 0);
-      circle(ctx, 0, 0, 25, 'rgba(10,7,4,0.88)', null, 0);
-      circle(ctx, 0, 0, 15, 'rgba(2,2,2,0.95)', null, 0);
+      if (typeof ctx.createRadialGradient === 'function') {
+        const g = ctx.createRadialGradient(0, 0, 2, 0, 0, 38);
+        g.addColorStop(0, 'rgba(6,4,3,0.94)');
+        g.addColorStop(.55, 'rgba(16,11,7,0.66)');
+        g.addColorStop(1, 'rgba(24,17,11,0)');
+        paint(ctx, g);
+        method(ctx, 'beginPath'); method(ctx, 'arc', 0, 0, 38, 0, TAU); method(ctx, 'fill');
+      } else {
+        circle(ctx, 0, 0, 36, 'rgba(24,17,11,0.28)', null, 0);
+        circle(ctx, 0, 0, 27, 'rgba(16,11,7,0.50)', null, 0);
+        circle(ctx, 0, 0, 18, 'rgba(8,5,3,0.78)', null, 0);
+        circle(ctx, 0, 0, 10, 'rgba(4,3,2,0.90)', null, 0);
+      }
+      paint(ctx, null, 'rgba(255,214,150,0.13)', 3);
+      method(ctx, 'beginPath'); method(ctx, 'arc', 0, 3, 23, Math.PI * .2, Math.PI * .8); method(ctx, 'stroke');
       method(ctx, 'restore');
     }
   }
@@ -975,9 +989,11 @@ class GameRenderer {
       : drawImageCover(ctx, back, 0, 0, WORLD_SIZE, WORLD_SIZE);
     if (drawn) this.mapAssetDraws += 1;
     // Continue the painting past the world rim: when the centred camera
-    // looks beyond the map edge, mirror a strip of the painting across the
-    // rim so the terrain reads as continuing, over a deep shade underlay —
-    // never a flat band or a smeared stretch.
+    // looks beyond the map edge, stretch a thin slice sampled just inside
+    // the rim across the whole overshoot, however deep it goes, and let it
+    // recede under a deepening shade. (The earlier mirror strip repeated
+    // the painting's own frame lines as hard stripes, and its fixed depth
+    // left a flat block of shade colour once the camera overshot further.)
     if (drawn && iw > 0 && ih > iw) {
       const sx = iw / WORLD_SIZE, sy = ih / WORLD_SIZE;
       const ovB = bottom - WORLD_SIZE, ovT = -top, ovL = -left, ovR = right - WORLD_SIZE;
@@ -987,11 +1003,30 @@ class GameRenderer {
       if (ovT > 0) method(ctx, 'fillRect', fx, top, fw, ovT);
       if (ovL > 0) method(ctx, 'fillRect', left, 0, ovL, WORLD_SIZE);
       if (ovR > 0) method(ctx, 'fillRect', WORLD_SIZE, 0, ovR, WORLD_SIZE);
-      const D = 90;
-      if (ovB > 0) { const d = Math.min(D, ovB); method(ctx, 'save'); method(ctx, 'translate', 0, 2 * WORLD_SIZE); method(ctx, 'scale', 1, -1); drawImageIfReady(ctx, back, 0, ih - d * sy, iw, d * sy, 0, WORLD_SIZE - d, WORLD_SIZE, d); method(ctx, 'restore'); }
-      if (ovT > 0) { const d = Math.min(D, ovT); method(ctx, 'save'); method(ctx, 'scale', 1, -1); drawImageIfReady(ctx, back, 0, 0, iw, d * sy, 0, 0, WORLD_SIZE, d); method(ctx, 'restore'); }
-      if (ovL > 0) { const d = Math.min(D, ovL); method(ctx, 'save'); method(ctx, 'scale', -1, 1); drawImageIfReady(ctx, back, 0, 0, d * sx, ih, 0, 0, d, WORLD_SIZE); method(ctx, 'restore'); }
-      if (ovR > 0) { const d = Math.min(D, ovR); method(ctx, 'save'); method(ctx, 'translate', 2 * WORLD_SIZE, 0); method(ctx, 'scale', -1, 1); drawImageIfReady(ctx, back, iw - d * sx, 0, d * sx, ih, WORLD_SIZE - d, 0, d, WORLD_SIZE); method(ctx, 'restore'); }
+      const IN = 14, SL = 5;
+      if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, 0, SL * sx, ih, left, 0, ovL, WORLD_SIZE);
+      if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, 0, SL * sx, ih, WORLD_SIZE, 0, ovR, WORLD_SIZE);
+      if (ovB > 0) {
+        drawImageIfReady(ctx, back, 0, ih - (IN + SL) * sy, iw, SL * sy, 0, WORLD_SIZE, WORLD_SIZE, ovB);
+        if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, ih - (IN + SL) * sy, SL * sx, SL * sy, left, WORLD_SIZE, ovL, ovB);
+        if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, ih - (IN + SL) * sy, SL * sx, SL * sy, WORLD_SIZE, WORLD_SIZE, ovR, ovB);
+      }
+      if (ovT > 0) {
+        drawImageIfReady(ctx, back, 0, IN * sy, iw, SL * sy, 0, top, WORLD_SIZE, ovT);
+        if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, IN * sy, SL * sx, SL * sy, left, top, ovL, ovT);
+        if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, IN * sy, SL * sx, SL * sy, WORLD_SIZE, top, ovR, ovT);
+      }
+      const fade = (x0, y0, x1, y1, rx, ry, rw, rh) => {
+        if (typeof ctx.createLinearGradient !== 'function') return;
+        const g = ctx.createLinearGradient(x0, y0, x1, y1);
+        g.addColorStop(0, alphaColor(theme.deep, 0));
+        g.addColorStop(1, alphaColor(theme.deep, .55));
+        paint(ctx, g); method(ctx, 'fillRect', rx, ry, rw, rh);
+      };
+      if (ovB > 0) fade(0, WORLD_SIZE, 0, bottom, fx, WORLD_SIZE, fw, ovB);
+      if (ovT > 0) fade(0, 0, 0, top, fx, top, fw, ovT);
+      if (ovL > 0) fade(0, 0, left, 0, left, 0, ovL, WORLD_SIZE);
+      if (ovR > 0) fade(WORLD_SIZE, 0, right, 0, WORLD_SIZE, 0, ovR, WORLD_SIZE);
     }
     // A light wash keeps the HUD's warm ink palette coherent and the actors
     // the highest-contrast objects on the field.
