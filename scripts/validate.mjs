@@ -93,6 +93,8 @@ const gates = [
   'prototype-2d/tests/normal-run-smoke.mjs',
   'prototype-2d/tests/pool-smoke.mjs',
   'prototype-2d/tests/render-smoke.mjs',
+  'prototype-2d/tests/frame-fault-smoke.mjs',
+  'prototype-2d/tests/quit-transition-smoke.mjs',
   'scripts/test-platform.mjs',
 ];
 for (const script of gates) {
