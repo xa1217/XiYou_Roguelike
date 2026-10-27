@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { GameRenderer } from '../src/renderer.js';
-import { NativeGame } from '../src/native-ui.js';
+import { NativeGame, HUD_BAND_TOP } from '../src/native-ui.js';
 
 const calls = [], stack = [];
 const ctx = { globalAlpha: 1, fillStyle: '#000', strokeStyle: '#000', lineWidth: 1, font: '10px sans-serif', textAlign: 'start', textBaseline: 'alphabetic' };
@@ -61,7 +61,7 @@ for (const sample of [
   const r = game.renderer, state = game.engine.state;
   state.enemies = []; state.damageNumbers = [];
   game.resize(width, height, dpr, safe);
-  const topY = game.top + 135, bottomY = height - game.bottom - 90;
+  const topY = game.top + HUD_BAND_TOP, bottomY = height - game.bottom - 90;
   const view = { ...r._view };
   const fromScreen = (x, y) => ({ x: view.left + x / width * (view.right - view.left), y: view.top + y / height * (view.bottom - view.top) });
   const toScreen = rect => ({ left: (rect.left - view.left) / (view.right - view.left) * width,

@@ -119,9 +119,9 @@ test('real engine damage record is not duplicated, mutated or advanced by paused
   engine.state.skills = []; engine.spawnAccumulator = -100000;
   const enemy = engine.spawnEnemy('normal', 0, { variant: 'snake' });
   Object.assign(enemy, { x: 900, y: 800, hp: 100, maxHp: 100 });
-  engine.damageEnemy(enemy, .25, { critical: true }); engine.pause();
+  engine.damageEnemy(enemy, 25, { critical: true }); engine.pause();
   const records = engine.state.damageNumbers, record = records[0], before = engine.getSnapshot();
-  assert.equal(records.length, 1); assert.equal(record.damage, '0.3'); assert.equal(record.ttl, 1.25);
+  assert.equal(records.length, 1); assert.equal(record.damage, 25); assert.equal(record.ttl, 1.25);
   const frozenState = freeze(structuredClone(before)), poolsBefore = structuredClone(engine.poolStats);
   const expected = structuredClone(h.draw(frozenState));
   for (let i = 0; i < 20; i += 1) {
