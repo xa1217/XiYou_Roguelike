@@ -673,7 +673,7 @@ export class GameEngine {
     const cell = 64;
     const grid = new Map();
     for (let i = 0; i < enemies.length; i += 1) {
-      const key = `${Math.floor(enemies[i].x / cell)},${Math.floor(enemies[i].y / cell)}`;
+      const key = (Math.floor(enemies[i].x / cell) + 64) * 256 + Math.floor(enemies[i].y / cell) + 64;
       const bucket = grid.get(key);
       if (bucket) bucket.push(i); else grid.set(key, [i]);
     }
@@ -693,7 +693,7 @@ export class GameEngine {
       }
       const cx = Math.floor(a.x / cell), cy = Math.floor(a.y / cell);
       for (let gx = cx - 1; gx <= cx + 1; gx += 1) for (let gy = cy - 1; gy <= cy + 1; gy += 1) {
-        const bucket = grid.get(`${gx},${gy}`);
+        const bucket = grid.get((gx + 64) * 256 + gy + 64);
         if (!bucket) continue;
         for (const j of bucket) {
           if (j <= i) continue;
