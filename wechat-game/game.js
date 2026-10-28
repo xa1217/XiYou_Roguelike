@@ -20,4 +20,4 @@ const share=()=>({title:'一棒破局！西游·八十一难，十分钟渡一�
 wx.onShareAppMessage?.(share);
 module.exports={game,dispose(){wx.offTouchStart?.(start);wx.offTouchMove?.(move);wx.offTouchEnd?.(end);wx.offTouchCancel?.(end);wx.offHide?.(hide);wx.offShow?.(show);wx.offWindowResize?.(resize);wx.offMemoryWarning?.(memory);wx.offShareAppMessage?.(share);game.dispose();wx.setKeepScreenOn?.({keepScreenOn:false});}};
 // Artwork is optional and loaded after the playable menu. A failed load never blocks a run.
-wx.loadSubpackage?.({name:'illustrations',success(){const image=wx.createImage();image.onload=()=>{if(!game.disposed){game.heroSheet=image;game.draw();}};image.src='illustrations/hero-cards-v1.png';}});
+wx.loadSubpackage?.({name:'illustrations',success(){const image=wx.createImage();image.onload=()=>{if(!game.disposed){game.heroSheet=image;game.draw();}};image.src='illustrations/hero-cards.jpg';}});
