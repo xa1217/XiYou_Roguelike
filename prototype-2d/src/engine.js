@@ -71,6 +71,16 @@ export class GameEngine {
     this.poolStats = { created: { projectile: 0, effect: 0, gem: 0 }, reused: { projectile: 0, effect: 0, gem: 0 }, released: { projectile: 0, effect: 0, gem: 0 } };
     this.rng = this.random;
     this.state = this.createState();
+    // Opening gem ring (batch B, 2026-10-28): six small XP gems around the
+    // spawn teach movement and bring the first upgrade inside ~15 seconds.
+    // Debug engines keep an empty field for the frozen scene contracts.
+    if (!this.debugMode) {
+      const c = BALANCE.worldSize / 2;
+      for (let i = 0; i < 6; i++) {
+        const a = (i / 6) * Math.PI * 2 + 0.4;
+        this.dropGem(c + Math.cos(a) * 215, c + Math.sin(a) * 215, 2, 'xp');
+      }
+    }
   }
 
   createState() {
@@ -85,7 +95,7 @@ export class GameEngine {
       player: {
         x: BALANCE.worldSize / 2, y: BALANCE.worldSize / 2,
         hp: maxHp, maxHp, radius: BALANCE.playerRadius, speed: character.stats.speed * (1 + speedBonus),
-        facing: 0, level: 1, xp: 0, xpNext: 24, invulnerable: 0, dashCooldown: 0,
+        facing: 0, level: 1, xp: 0, xpNext: 12, invulnerable: 0, dashCooldown: 0,
         animationState: 'idle', frameIndex: 0, frameTime: 0, animationFrames: animationFrames('idle'),
         attackTimer: 0, hitTimer: 0, dashTimer: 0,
       },
