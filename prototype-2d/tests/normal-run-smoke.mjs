@@ -138,7 +138,7 @@ for (const [index, characterId] of ['wukong', 'tangseng', 'bajie', 'wujing'].ent
   const eliteKills = events.filter((event) => event.type === 'kill' && event.enemy.kind === 'elite').length;
   const completion = recordRun(save, engine.state, { elites: eliteKills, dashes });
   assert.equal(completion.won, true);
-  assert.ok(completion.reward >= 180 && completion.reward <= 500, `reward out of expected range: ${completion.reward}`);
+  assert.ok(completion.reward >= 180 && completion.reward <= 1100, `reward out of expected range: ${completion.reward}`); // cap raised 2026-10-28 (batch A): rewards now scale per stage (x1.48 at 25, x1.96 at 49, x2.44 at 73) plus the 8:1 coin conversion
   rows.push({ characterId, stageId: engine.state.stage.id, seed: 0x2718 + index, status: engine.state.status, time: Number(engine.state.time.toFixed(2)), frames, kills: engine.state.kills, level: engine.state.player.level, hp: Number(engine.state.player.hp.toFixed(2)), upgrades, dashes, hitsTaken: damageEvents.length, damageTaken: Number(damageTaken.toFixed(2)), eliteKills, finalBossNaturalKills: finalKills.length, expectedFinalBosses: engine.state.stage.finalBosses?.length || 1, reward: completion.reward, score: completion.score, bossTimes: bossEvents.map((event) => Number(event.time.toFixed(2))), eliteTimes: events.filter((event) => event.type === 'elite').map((event) => event.at) });
 }
 

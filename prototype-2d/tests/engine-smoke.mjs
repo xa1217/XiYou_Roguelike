@@ -319,7 +319,7 @@ test('wujing every fifth whirl, exact duration, graded pull and slow', () => {
 test('elite x5, schedules, overtime until final boss defeated', () => {
   const events = []; const e = new GameEngine({ stageId: 2, debug: true, seed: 4, onEvent: (event) => events.push(event) });
   const normal = e.debug('spawn'); const elite = e.debug('spawn', { kind: 'elite' });
-  close(elite.maxHp, normal.maxHp * 5);
+  close(elite.maxHp, normal.maxHp * 5 * 1.035); // batch A (2026-10-28): elites also carry the per-stage factor (stage 2 = x1.035)
   e.debug('time', { value: 570 }); e.update(0.01);
   assert.deepEqual(events.filter((v) => v.type === 'elite').map((v) => v.at), [80, 160, 250, 340, 430, 520]);
   assert.equal(e.state.enemies.filter((v) => v.kind === 'boss').length, 2);
