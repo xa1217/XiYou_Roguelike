@@ -109,7 +109,7 @@ export class GameEngine {
         pathCorridor: this.stage.mapAssetKey === 'doublefork' ? { x: 790, y: 700, width: 220, height: 400 } : null,
       } : null,
       character: this.character, seed: this.seed,
-      coins: 0,
+      coins: 0, reviveUsed: false,
     };
   }
 
@@ -1131,6 +1131,27 @@ export class GameEngine {
 
   damagePlayer(amount) {
     this._applyPlayerDamage(amount, false);
+  }
+
+  // One revive per run (batch C, 2026-10-28): half health, a short ward,
+  // nearby enemies scattered and hostile projectiles wiped, so the player
+  // re-enters the fight instead of a death ring. The run's clock, kills and
+  // build are untouched; settlement happens only on the final outcome.
+  revive() {
+    const s = this.state;
+    if (s.status !== 'lost' || s.reviveUsed) return false;
+    s.reviveUsed = true;
+    const p = s.player;
+    p.hp = Math.max(1, Math.ceil(p.maxHp * 0.5));
+    p.invulnerable = Math.max(p.invulnerable, 3);
+    for (const e of s.enemies) {
+      const d = Math.hypot(e.x - p.x, e.y - p.y);
+      if (d < 240 && d > 0.01) { const push = 300 - d; e.x += (e.x - p.x) / d * push; e.y += (e.y - p.y) / d * push; }
+    }
+    s.projectiles = s.projectiles.filter((pr) => !pr.hostile);
+    s.status = 'playing';
+    this.emit({ type: 'revive' });
+    return true;
   }
 
   _applyPlayerDamage(amount, ignoreInvuln) {
