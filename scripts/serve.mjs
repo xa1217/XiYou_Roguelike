@@ -33,7 +33,7 @@ const runtimeFiles = new Set([
   'assets/skill-fx-monkey-clone.png', 'assets/skill-fx-whirl-pool.png',
   'assets/enemy-xiong-shanjun-battle-v1-sheet.png', 'assets/enemy-xiong-shanjun-battle-v1-frames.json',
   'assets/enemy-te-chushi-battle-v1-sheet.png', 'assets/enemy-te-chushi-battle-v1-frames.json',
-  'assets/hero-cards-v2-comic.png',
+  'assets/hero-cards.jpg',
   'assets/ui-paper.jpg', 'assets/ui-wood.jpg', 'assets/ui-patrol.jpg', 'assets/ui-chapter.jpg', 'assets/ui-poster.jpg', 'assets/hero-poster-wukong.jpg', 'assets/hero-poster-tangsanzang.jpg', 'assets/hero-poster-bajie.jpg', 'assets/hero-poster-shajing.jpg', 'assets/ui-logo.jpg', 'assets/header-chapters.jpg', 'assets/header-talents.jpg', 'assets/header-codex.jpg', 'assets/header-daily.jpg', 'assets/ui-divider.jpg', 'assets/crater-decal.jpg',
   'assets/hero-wukong.svg', 'assets/hero-tangseng.svg', 'assets/hero-bajie.svg', 'assets/hero-wujing.svg',
   'assets/hero-wukong-battle-v3-sheet.png', 'assets/hero-tangseng-battle-v3-sheet.png', 'assets/hero-bajie-battle-v3-sheet.png', 'assets/hero-wujing-battle-v3-sheet.png',
@@ -41,8 +41,8 @@ const runtimeFiles = new Set([
   'assets/skill-icon-purple-gourd.png', 'assets/skill-icon-iron-fan.png', 'assets/skill-icon-diamond-snare.png', 'assets/skill-icon-nine-dragon.png',
   'assets/skill-icon-lotus-lantern.png', 'assets/skill-icon-golden-rope.png', 'assets/skill-icon-moon-mirror.png', 'assets/skill-icon-samadhi-fire.png',
   'assets/enemy-creature.svg', 'assets/enemy-brute.svg', 'assets/enemy-bird.svg', 'assets/enemy-spider.svg', 'assets/enemy-boss.svg',
-  'assets/map-doublefork-high-ridge-v1.png', 'assets/map-forest-qv1.png', 'assets/map-temple-qv1.png',
-  'assets/map-water-qv1.png', 'assets/map-fire-qv1.png', 'assets/map-sand-qv1.png', 'assets/map-snow-qv1.png',
+  'assets/map-doublefork-high-ridge-v1.jpg', 'assets/map-forest-qv1.jpg', 'assets/map-temple-qv1.jpg',
+  'assets/map-water-qv1.jpg', 'assets/map-fire-qv1.jpg', 'assets/map-sand-qv1.jpg', 'assets/map-snow-qv1.jpg',
 ]);
 const publicMode = !process.env.SERVE_ROOT || process.env.SERVE_PUBLIC === '1';
 const normalizeRequest = pathname => pathname.replace(/^\/+/, '').replaceAll('\\', '/');

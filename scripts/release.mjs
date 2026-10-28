@@ -55,7 +55,7 @@ for (const name of fs.readdirSync(path.join(root, 'prototype-2d/src'))) {
 // public release or become reachable through a public static server.
 const assetRoot = path.join(root, 'prototype-2d/assets');
 const runtimeAssets = [
-  'hero-cards-v2-comic.png',
+  'hero-cards.jpg',
   'hero-wukong.svg', 'hero-tangseng.svg', 'hero-bajie.svg', 'hero-wujing.svg',
   'hero-wukong-battle-v3-sheet.png', 'hero-tangseng-battle-v3-sheet.png', 'hero-bajie-battle-v3-sheet.png', 'hero-wujing-battle-v3-sheet.png',
   'enemy-tiger-battle-v1-sheet.png', 'enemy-tiger-battle-v1-frames.json',
@@ -78,8 +78,8 @@ const runtimeAssets = [
   'skill-icon-purple-gourd.png', 'skill-icon-iron-fan.png', 'skill-icon-diamond-snare.png', 'skill-icon-nine-dragon.png',
   'skill-icon-lotus-lantern.png', 'skill-icon-golden-rope.png', 'skill-icon-moon-mirror.png', 'skill-icon-samadhi-fire.png',
   'enemy-creature.svg', 'enemy-brute.svg', 'enemy-bird.svg', 'enemy-spider.svg', 'enemy-boss.svg',
-  'map-doublefork-high-ridge-v1.png', 'map-forest-qv1.png', 'map-temple-qv1.png',
-  'map-water-qv1.png', 'map-fire-qv1.png', 'map-sand-qv1.png', 'map-snow-qv1.png',
+  'map-doublefork-high-ridge-v1.jpg', 'map-forest-qv1.jpg', 'map-temple-qv1.jpg',
+  'map-water-qv1.jpg', 'map-fire-qv1.jpg', 'map-sand-qv1.jpg', 'map-snow-qv1.jpg',
   'ui-paper.jpg', 'ui-wood.jpg', 'ui-patrol.jpg', 'ui-chapter.jpg', 'ui-poster.jpg', 'ui-logo.jpg', 'ui-divider.jpg',
   'hero-poster-wukong.jpg', 'hero-poster-tangsanzang.jpg', 'hero-poster-bajie.jpg', 'hero-poster-shajing.jpg',
   'header-chapters.jpg', 'header-talents.jpg', 'header-codex.jpg', 'header-daily.jpg', 'crater-decal.jpg',
@@ -106,7 +106,7 @@ const webZip = path.join(out, `xiyou-survivor-web-v${version}.zip`); zip(web, we
 const wx = path.join(staging, 'wechat-game');
 const wxFiles = [
   'game.js', 'game.json', 'project.config.json', 'audio.js', 'core/bundle.js',
-  'assets/audio', 'illustrations/game.js', 'illustrations/hero-cards-v1.png'
+  'assets/audio', 'illustrations/game.js', 'illustrations/hero-cards.jpg'
 ];
 for (const entry of wxFiles) {
   const source = path.join(root, 'wechat-game', entry);
