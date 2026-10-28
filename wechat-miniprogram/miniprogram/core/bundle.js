@@ -1403,6 +1403,16 @@ class GameEngine {
     }
     this.elapsed += dt;
     this.state.time = this.elapsed;
+    // Stillness tracking (batch A): spitters only open fire on a hero who
+    // has stayed near-stationary, so the ranged pressure taxes camping
+    // and never kiting. Displacement is measured across ticks here, in
+    // the one place every movement path (input, dash, knockback) passes.
+    {
+      const p = this.state.player;
+      const moved = Math.hypot(p.x - (p._lastX ?? p.x), p.y - (p._lastY ?? p.y));
+      p._lastX = p.x; p._lastY = p.y;
+      p.stillTime = moved / Math.max(dt, 1e-6) < 40 ? (p.stillTime || 0) + dt : 0;
+    }
     this.state.player.invulnerable = Math.max(0, this.state.player.invulnerable - dt);
     this.state.player.dashCooldown = Math.max(0, this.state.player.dashCooldown - dt);
     if (this.state.shakeT > 0) this.state.shakeT = Math.max(0, this.state.shakeT - dt);
@@ -1602,7 +1612,9 @@ class GameEngine {
     let variantName = typeof selected === 'string' ? undefined : selected.variant;
     let color = '#725d5a';
     if (kind === 'elite') {
-      hp *= 5;
+      // Elites pick up a mild per-stage factor too (batch A): at x5 flat
+      // they died in under a second to any endgame build on later stages.
+      hp *= 5 * (1 + (this.stage.id - 1) * 0.035);
       speed *= 1.12;
       radius = 25;
       name = `${this.stage.midBoss}·精锐`;
@@ -1620,6 +1632,15 @@ class GameEngine {
       xp: override.xp || (kind === 'elite' ? 9 : 2),
       encounterIdentity: null,
     };
+    // Ranged pressure (playtest batch A, 2026-10-28): a camper's auto
+    // attacks hold the melee ring open indefinitely, so part of the horde
+    // learns to spit from outside weapon range. Tagging is a deterministic
+    // cadence (every 7th normal spawn after the first minute), never an
+    // RNG draw, and debug engines keep the frozen spawn contract.
+    if (kind === 'normal' && !this.debugMode && this.state.time > 90) {
+      this._spawnSeq = (this._spawnSeq || 0) + 1;
+      if (this._spawnSeq % 9 === 4) { enemy.ranged = true; enemy.fireTimer = 1.6; }
+    }
     const battleSpriteId = battleEnemySpriteId(this.stage.id, kind, enemy.variant);
     if (battleSpriteId) {
       Object.assign(enemy, { battleSpriteId, visualAttackTimer: 0, visualHitTimer: 0 });
@@ -1637,7 +1658,25 @@ class GameEngine {
     const position = this.spawnPoint();
     const progress = clamp(this.state.time / BALANCE.duration, 0, 1);
     const chapterScale = 1 + (this.stage.chapter - 1) * 0.085;
-    const hp = (finalBoss ? 1900 : 800) * (1 + progress * 1.15) * chapterScale * (this.difficulty === 'hard' ? 1.25 : 1) * (override.hpScale || 1);
+    // Stage scaling (playtest batch A, 2026-10-28): boss health used to
+    // grow only with the chapter (x1.68 across all 81 stages), so a built
+    // hero melted the stage-49 final boss in 5.3 s. Bosses now scale per
+    // stage; stage 1 is unchanged (scale 1, authored hpScales intact).
+    // The curve bends after stage 25 (half rate beyond): a talentless
+    // hero must still be able to finish the last chapters (the repo's
+    // normal-run gate contract), while meta progression supplies the
+    // rest of the intended resistance for built accounts.
+    const stageScale = 1 + Math.min(this.stage.id - 1, 24) * 0.09 + Math.max(0, this.stage.id - 25) * 0.045;
+    // Mid bosses cap their stage factor: they arrive at 300 s alongside a
+    // full add field, and an uncapped wall there grinds down the roster's
+    // low-uptime heroes before the finale even starts. Final bosses use
+    // a softer curve of their own: roster boss-uptime spreads ~6x
+    // between the burst and sustain heroes, so the steep curve made the
+    // sustain heroes' finales unfinishable inside the run's frame.
+    const bossScale = finalBoss
+      ? 1 + Math.min(this.stage.id - 1, 24) * 0.06 + Math.max(0, this.stage.id - 25) * 0.03
+      : Math.min(stageScale, 3.5);
+    const hp = (finalBoss ? 2100 : 800) * (1 + progress * 1.15) * bossScale * (this.difficulty === 'hard' ? 1.25 : 1) * (override.hpScale || 1);
     // Final guardians may carry a stable, boss-only identity for a future
     // renderer.  Variant remains encounter metadata and must never be used as
     // a boss sprite lookup.  Mid-bosses and generic later-stage bosses stay
@@ -1735,6 +1774,7 @@ class GameEngine {
   }
 
   updateEnemies(dt) {
+    let touchingCount = 0;
     const player = this.state.player;
     for (const enemy of this.state.enemies.slice()) {
       enemy.slow = enemy.nextSlow || 1;
@@ -1779,6 +1819,25 @@ class GameEngine {
       if (vector.x || vector.y) enemy.facing = Math.atan2(vector.y, vector.x);
       const speed = enemy.speed * (enemy.slow || 1);
       if (enemy.attackPattern) this.updateBossPattern(enemy, dt);
+      else if (enemy.kind === 'boss' && (enemy._lungeT || 0) > 0) {
+        enemy._lungeT -= dt;
+        this.moveEntity(enemy, enemy._lungeVx * dt, enemy._lungeVy * dt, enemy.radius);
+      }
+      else if (enemy.ranged) {
+        // Spitters hold a 230–300 unit band and lob venom at the hero;
+        // a moving hero outruns the slow bolts, a standing one eats them.
+        const dist = distance(enemy, player);
+        const dir = dist > 320 ? 1 : dist < 250 ? -1 : 0;
+        if (dir) this.moveEntity(enemy, vector.x * dir * speed * dt, vector.y * dir * speed * dt, enemy.radius);
+        enemy.fireTimer = (enemy.fireTimer == null ? 1.6 : enemy.fireTimer) - dt;
+        if (enemy.fireTimer <= 0 && dist < 430 && (player.stillTime || 0) > 1.2) {
+          // A target that keeps camping draws ever faster fire; a hero
+          // who resumes moving is back on the slow cadence at once.
+          enemy.fireTimer = player.stillTime > 8 ? 1.4 : 3.1;
+          const aim = Math.atan2(player.y - enemy.y, player.x - enemy.x);
+          this.projectile({ x: enemy.x, y: enemy.y, vx: Math.cos(aim) * 165, vy: Math.sin(aim) * 165, radius: 8, color: '#a8c256', kind: 'spit', ttl: 3.4, damage: enemy.damage * 0.4, hostile: true });
+        }
+      }
       else this.moveEntity(enemy, vector.x * speed * dt, vector.y * speed * dt, enemy.radius);
       if (enemy.kind === 'boss' && !enemy.attackPattern) {
         enemy.attackCooldown = (enemy.attackCooldown == null ? 4 : enemy.attackCooldown) - dt;
@@ -1791,9 +1850,21 @@ class GameEngine {
             this.projectile({ x: enemy.x, y: enemy.y, vx: Math.cos(angle) * 160, vy: Math.sin(angle) * 160, radius: 9, color: '#d15c70', kind: 'boss-orb', ttl: 4, damage: enemy.damage * 0.7, hostile: true });
           }
           this.effect({ x: player.x, y: player.y, kind: 'warning', radius: enemy.final ? 74 : 56, color: '#da6377', ttl: 1.1, hostileDamage: enemy.damage * 0.9 });
+          // Lunge (batch A): a generic boss walks at 34 while every hero
+          // moves 185+, so a kiting hero used to starve the finale
+          // indefinitely — the boss simply never arrived. On each volley
+          // cycle, a boss left far behind now lunges most of the gap,
+          // forcing the duel the finale is supposed to be.
+          const gap = distance(enemy, player);
+          if (gap > 380) {
+            enemy._lungeVx = Math.cos(aim) * 540;
+            enemy._lungeVy = Math.sin(aim) * 540;
+            enemy._lungeT = Math.min(0.85, (gap - 120) / 540);
+          }
         }
       }
       const touching = distance(enemy, player) <= enemy.radius + player.radius;
+      if (touching) touchingCount += 1;
       if (actor && touching && enemy.visualAttackTimer <= 1e-8 && enemy.visualHitTimer <= 1e-8) {
         // Visual-only contact swing. Do not gate damage, movement, RNG, or
         // collision with this timer; player invulnerability is unchanged.
@@ -1808,6 +1879,32 @@ class GameEngine {
         if (this.state.status === 'lost') break;
       }
       this.stepEnemyAnimation(enemy, (actor ? enemy.visualHitTimer : enemy.hitTimer) > 1e-8 ? 'hit' : enemy.attackWindup > 0 || enemy.attackTimer > 0 || enemy.visualAttackTimer > 0 ? 'attack' : 'move', dt, enemy.kind === 'boss' ? 8 : 12);
+    }
+    // Surround pressure (playtest batch A, 2026-10-28): contact chips are
+    // capped by the player's global 0.6 s invulnerability, so a hero who
+    // simply stands inside the swarm used to out-live the whole run
+    // (playtest: an idle run survived 590 s with 97% of a normal run's
+    // kills). When three or more enemies are simultaneously touching the
+    // hero, the swarm now mauls: a damage tick every 0.5 s that bypasses
+    // the chip invulnerability and ramps the longer the surround holds.
+    // Kiting breaks the ring and the pressure decays after a 1 s grace,
+    // so ordinary play only ever feels brief pinches. Debug engines keep
+    // the frozen contact contract the animation gates choreograph against.
+    if (!this.debugMode && this.state.status === 'playing') {
+      const p = this.state.player;
+      if (touchingCount >= 3) {
+        if (!p.surroundTime) this.emit({ type: 'surround', count: touchingCount });
+        p.surroundGrace = 0;
+        p.surroundTime = (p.surroundTime || 0) + dt;
+        p.surroundTick = (p.surroundTick || 0) + dt;
+        if (p.surroundTick >= 0.5) {
+          p.surroundTick = 0;
+          this._applyPlayerDamage(1.1 + p.surroundTime * 0.16, true);
+        }
+      } else {
+        p.surroundGrace = (p.surroundGrace || 0) + dt;
+        if (p.surroundGrace > 1) { p.surroundTime = 0; p.surroundTick = 0; p.surroundGrace = 0; }
+      }
     }
     this.separateEnemies();
   }
@@ -2178,9 +2275,13 @@ class GameEngine {
   }
 
   damagePlayer(amount) {
+    this._applyPlayerDamage(amount, false);
+  }
+
+  _applyPlayerDamage(amount, ignoreInvuln) {
     const player = this.state.player;
     if (this.debugMode && this.debugInvincible) return;
-    if (this.state.status !== 'playing' || player.invulnerable > 0) return;
+    if (this.state.status !== 'playing' || (!ignoreInvuln && player.invulnerable > 0)) return;
     const value = amount * (1 - clamp(Number(this.talents.warding || 0) * 0.025, 0, 0.25));
     const absorbed = Math.min(player.shield || 0, value);
     player.shield = Math.max(0, (player.shield || 0) - absorbed); player.hp -= value - absorbed;
@@ -2329,6 +2430,14 @@ class GameEngine {
       enemy.visualAttackTimer = 0;
     }
     enemy.hitTimer = Math.max(enemy.hitTimer || 0, 0.12); this.setAnimation(enemy, 'hit');
+    // Final-boss sustain valve (batch A): the duel phase has no add
+    // field to farm, which starves heroes whose sustain comes from
+    // kills and level-ups. The guardian sheds an XP gem at every 20%
+    // health threshold, so a long duel feeds the hero fighting it.
+    if (enemy.final && enemy.hp > 0 && enemy.maxHp > 0) {
+      const step = Math.floor((1 - enemy.hp / enemy.maxHp) * 5);
+      if (step > (enemy._shed || 0)) { enemy._shed = step; this.dropGem(enemy.x, enemy.y, 16, 'xp'); }
+    }
     // Per-target feedback throttling bounds orbit/DoT labels without changing
     // damage, status application or the RNG stream. Every hit still emits below.
     // Playtest display rule (2026-10-22): labels show whole numbers only. A hit
@@ -4677,10 +4786,12 @@ function newSave(){return {version:1,unlockedStage:1,talents:{},talentPoints:0,b
 function sanitizeSave(value){const s={...newSave(),...(value&&typeof value==='object'?value:{})};for(const key of ['unlockedStage','talentPoints','bestScore','wins','runs','streak','scrolls','totalKills'])s[key]=Math.max(key==='unlockedStage'?1:0,Math.floor(Number(s[key])||0));s.unlockedStage=Math.min(81,s.unlockedStage);s.talents={...(s.talents||{})};for(const t of TALENTS)s.talents[t.id]=Math.min(t.maxLevel,Math.max(0,Math.floor(Number(s.talents[t.id])||0)));s.volume=Math.min(1,Math.max(0,Number(s.volume)||0));s.muted=!!s.muted;s.quality=['auto','high','low'].includes(s.quality)?s.quality:'auto';s.records=s.records&&typeof s.records==='object'?s.records:{};s.seenArtifacts=Array.isArray(s.seenArtifacts)?s.seenArtifacts:[];s.patrolSince=Number(s.patrolSince)>0?Number(s.patrolSince):Date.now();s.claimedChapters=Array.isArray(s.claimedChapters)?[...new Set(s.claimedChapters.map(Number).filter(n=>n>=1&&n<=9))]:[];refreshDaily(s);return s;}
 function refreshDaily(save,now=new Date()){const day=dayKey(now);if(!save.daily||save.daily.day!==day)save.daily={day,progress:{},claimed:[]};save.daily.progress=save.daily.progress||{};save.daily.claimed=Array.isArray(save.daily.claimed)?save.daily.claimed:[];return save.daily;}
 function talentCost(save,id){const t=TALENTS.find(t=>t.id===id);return t?t.baseCost*((save.talents[id]||0)+1):Infinity;}
+function talentSpent(save,id){const t=TALENTS.find(t=>t.id===id);if(!t)return 0;const lv=save.talents[id]||0;return t.baseCost*lv*(lv+1)/2;}
+function resetTalents(save){const refund=TALENTS.reduce((sum,t)=>sum+talentSpent(save,t.id),0);if(refund<=0)return {ok:false,message:'尚未参悟任何经脉'};if((save.scrolls||0)<2)return {ok:false,message:'经文不足（重置经脉需经文 2）'};save.scrolls-=2;save.talentPoints+=refund;for(const t of TALENTS)save.talents[t.id]=0;return {ok:true,message:`经脉已重置，返还悟性 ${refund}`,refund};}
 function buyTalent(save,id){const t=TALENTS.find(t=>t.id===id);if(!t)return {ok:false,message:'未知经脉'};const lv=save.talents[id]||0,cost=talentCost(save,id);if(lv>=t.maxLevel)return {ok:false,message:'此经脉已圆满'};if(save.talentPoints<cost)return {ok:false,message:'悟性不足，闯关与每日禅试可获取'};save.talentPoints-=cost;save.talents[id]=lv+1;return {ok:true,message:`${t.name}提升至${lv+1}级`};}
 function dailyRows(save){refreshDaily(save);return DAILY_CHALLENGES.map(c=>({...c,progress:Math.min(c.target,save.daily.progress[c.id]||0),claimed:save.daily.claimed.includes(c.id),complete:(save.daily.progress[c.id]||0)>=c.target}));}
 function claimDaily(save,id){const c=dailyRows(save).find(c=>c.id===id);if(!c||!c.complete||c.claimed)return {ok:false,message:c?.claimed?'今日已经领取':'达成目标后再来领取'};save.talentPoints+=c.reward;save.daily.claimed.push(id);return {ok:true,message:`悟性 +${c.reward}`};}
-function recordRun(save,state,stats={}){refreshDaily(save);const won=state.status==='won',score=state.kills*10+state.player.level*100+(won?1000:0),reward=Math.max(12,Math.floor(state.kills*.16))+Math.floor(state.time/30)+(won?80:0);save.runs++;save.totalKills+=state.kills;save.bestScore=Math.max(save.bestScore,score);save.talentPoints+=reward;save.lastRun={stageId:state.stage.id,characterId:state.character.id,characterName:state.character.name,stageName:state.stage.name,time:Math.floor(state.time),kills:state.kills,won};if(won){save.wins++;save.streak++;save.scrolls++;if(state.stage.id===save.unlockedStage)save.unlockedStage=Math.min(81,save.unlockedStage+1);}else save.streak=0;const record=save.records[state.stage.id]||{wins:0,bestScore:0};record.bestScore=Math.max(record.bestScore,score);record.wins+=(won?1:0);save.records[state.stage.id]=record;for(const skill of state.skills)if(!skill.isWeapon&&!save.seenArtifacts.includes(skill.id))save.seenArtifacts.push(skill.id);const p=save.daily.progress;p['daily-kills']=Math.max(p['daily-kills']||0,state.kills);p['daily-elite']=Math.max(p['daily-elite']||0,stats.elites||0);if(won){p['daily-stage']=1;if(!(stats.dashes||0))p['daily-no-dash']=1;}return {reward,score,won};}
+function recordRun(save,state,stats={}){refreshDaily(save);const won=state.status==='won',score=state.kills*10+state.player.level*100+(won?1000:0),stageCoef=1+(state.stage.id-1)*0.02,coinBonus=Math.floor((state.coins||0)/8),baseReward=Math.max(12,Math.floor(state.kills*.16))+Math.floor(state.time/30),reward=won?Math.floor((baseReward+80)*stageCoef)+coinBonus:Math.max(5,Math.floor(baseReward*stageCoef*0.3*(0.35+0.65*Math.min(1,state.time/600))))+coinBonus;save.runs++;save.totalKills+=state.kills;save.bestScore=Math.max(save.bestScore,score);save.talentPoints+=reward;save.lastRun={stageId:state.stage.id,characterId:state.character.id,characterName:state.character.name,stageName:state.stage.name,time:Math.floor(state.time),kills:state.kills,won};if(won){save.wins++;save.streak++;save.scrolls++;if(state.stage.id===save.unlockedStage)save.unlockedStage=Math.min(81,save.unlockedStage+1);}else save.streak=0;const record=save.records[state.stage.id]||{wins:0,bestScore:0};record.bestScore=Math.max(record.bestScore,score);record.wins+=(won?1:0);save.records[state.stage.id]=record;for(const skill of state.skills)if(!skill.isWeapon&&!save.seenArtifacts.includes(skill.id))save.seenArtifacts.push(skill.id);const p=save.daily.progress;p['daily-kills']=Math.max(p['daily-kills']||0,state.kills);p['daily-elite']=Math.max(p['daily-elite']||0,stats.elites||0);if(won){p['daily-stage']=1;if(!(stats.dashes||0))p['daily-no-dash']=1;}return {reward,score,won,coinBonus,coins:state.coins||0,stageCoef};}
 // Patrol （巡山遣使）: idle earnings that accrue in real time between
 // sessions, a meta staple of survivors-like peers. The hourly rate grows
 // with the highest unlocked stage and accrual caps at 8 hours, so coming
@@ -4696,14 +4807,14 @@ function chapterReward(chapter){return {talentPoints:300+chapter*50,scrolls:1};}
 function claimChapter(save,chapter){if(save.claimedChapters.includes(chapter))return {ok:false,message:'本章奖励已领取'};if(!chapterComplete(save,chapter))return {ok:false,message:'通关本章全部九难后领取'};const r=chapterReward(chapter);save.talentPoints+=r.talentPoints;save.scrolls+=r.scrolls;save.claimedChapters.push(chapter);return {ok:true,message:`章节奖励：悟性 +${r.talentPoints} · 经文 +${r.scrolls}`};}
 
 
-Object.assign(module.exports,{SAVE_KEY,CHAPTER_NAMES,dayKey,newSave,sanitizeSave,refreshDaily,talentCost,buyTalent,dailyRows,claimDaily,recordRun,PATROL_CAP_MS,patrolRatePerHour,patrolAccrued,claimPatrol,chapterComplete,chapterReward,claimChapter});
+Object.assign(module.exports,{SAVE_KEY,CHAPTER_NAMES,dayKey,newSave,sanitizeSave,refreshDaily,talentCost,talentSpent,resetTalents,buyTalent,dailyRows,claimDaily,recordRun,PATROL_CAP_MS,patrolRatePerHour,patrolAccrued,claimPatrol,chapterComplete,chapterReward,claimChapter});
 
 },
 "native-ui":function(module,exports,require){
 const { GameEngine } = require('engine');
 const { GameRenderer, drawPortrait } = require('renderer');
 const { CHARACTERS, ARTIFACTS, STAGES, TALENTS, BALANCE, getStage } = require('content');
-const { SAVE_KEY, CHAPTER_NAMES, sanitizeSave, buyTalent, talentCost, recordRun, dailyRows, claimDaily, patrolAccrued, claimPatrol, chapterComplete, claimChapter, chapterReward } = require('progression');
+const { SAVE_KEY, CHAPTER_NAMES, sanitizeSave, buyTalent, talentCost, resetTalents, recordRun, dailyRows, claimDaily, patrolAccrued, claimPatrol, chapterComplete, claimChapter, chapterReward } = require('progression');
 
 // River stone, tea wood, vermilion seals and aged sutra paper are shared by
 // menus and the in-run HUD. Text colours stay dark enough for parchment.
@@ -4799,7 +4910,7 @@ class NativeGame {
   const gy=ty+th+10,s=getStage(this.stageId);this.box(px,gy,pw,56);this.text(`第${s.id}难 · ${s.name}`,px+12,gy+8,14,C.gold,'left','bold');this.text(`${s.location} · ${s.boss}`,px+12,gy+31,10,C.muted);const by=gy+62;this.button('‹',px,by,40,40,()=>{this.stageId=Math.max(1,this.stageId-1);this.draw();});this.button('关卡列表',px+48,by,pw-96,40,()=>this.go('chapters'));this.button('›',px+pw-40,by,40,40,()=>{this.stageId=Math.min(this.save.unlockedStage,this.stageId+1);this.draw();});this.button('入山 · 开始十分钟试炼',px,by+48,pw,50,()=>this.startRun(),{primary:true});}
   homeHero(x,y,size){const sheet=this.heroSheet;if(!sheet||!(sheet.width||sheet.naturalWidth))return;const pw=sheet.width/4;const index=Math.max(0,CHARACTERS.findIndex(c=>c.id==='wukong'));this.ctx.drawImage(sheet,index*pw+pw*.04,sheet.height*.1,pw*.92,sheet.height*.77,x-size*.5,y-size*.625,size,size*1.25);}
   chapters(y){const size=this.h<720?6:9,totalPages=Math.ceil(STAGES.length/size),chapter=Math.floor(this.page*size/9),rows=STAGES.slice(this.page*size,this.page*size+size);this.text(`第${chapter+1}章 · ${CHAPTER_NAMES[chapter]}`,20,y,17,C.gold);const chDone=Array.from({length:9},(_,k)=>this.save.records[chapter*9+1+k]?.wins||0).filter(w=>w>0).length,chClaimed=this.save.claimedChapters.includes(chapter),chFull=chapterComplete(this.save,chapter);if(chFull&&!chClaimed){this.tex(this.uiImages.chapter,this.w-192,y-2,34,34);this.button(`领奖 ${chapterReward(chapter).talentPoints} 悟性`,this.w-150,y-5,130,34,()=>{const r=claimChapter(this.save,chapter);this.message=r.message;if(r.ok)this.burst(this.w-85,y+12);this.persist();this.audio.play('level');this.draw();},{size:11});}else this.text(chClaimed?'章节奖励已领取':`本章已通关 ${chDone}/9`,this.w-20,y+3,10,C.muted,'right');rows.forEach((s,i)=>{const ry=y+35+i*49,open=s.id<=this.save.unlockedStage;this.box(20,ry,this.w-40,43,C.panel,this.stageId===s.id?C.gold:C.line);const chip=THEME_CHIPS[s.mapAssetKey==='doublefork'?'doublefork':s.theme]||THEME_CHIPS.forest;this.box(27,ry+6,30,30,chip[0]);this.text(chip[1],42,ry+12,14,'#fff8e6','center','bold');this.text(`${String(s.id).padStart(2,'0')} · ${s.name}`,66,ry+7,13,open?C.ink:C.muted);const rec=this.save.records[s.id];this.text(open?(rec?.bestScore?`${s.location} · 最佳 ${rec.bestScore}${rec.wins?` · 已通关 ${rec.wins} 次`:''}`:s.location):'尚未渡过前难',66,ry+25,9,C.muted);this.text(open?'选择':'锁',this.w-35,ry+14,11,open?C.gold:C.muted,'right');this.buttons.push({x:20,y:ry,w:this.w-40,h:43,disabled:!open,action:()=>{this.stageId=s.id;this.go('select');}});});const by=y+rows.length*49+50;this.button('上一页',20,by,100,44,()=>{this.page=Math.max(0,this.page-1);this.draw();},{disabled:this.page===0});this.text(`${this.page+1} / ${totalPages}`,this.w/2,by+15,12,C.muted,'center');this.button('下一页',this.w-120,by,100,44,()=>{this.page=Math.min(totalPages-1,this.page+1);this.draw();},{disabled:this.page>=totalPages-1});}
-  talents(y){this.titleText(`悟性 ${this.save.talentPoints}`,20,y,20,'left','gold');const c=this.ctx,cx0=this.w/2;const pos=TALENTS.map((t,i)=>({x:cx0+(i%2?64:-64),y:y+64+i*72}));c.save();c.lineWidth=3;c.lineCap='round';for(let i=0;i<pos.length-1;i++){const a=pos[i],b=pos[i+1],la=this.save.talents[TALENTS[i].id]||0,lb=this.save.talents[TALENTS[i+1].id]||0;c.strokeStyle=la>0&&lb>0?'#c9962e':'rgba(138,109,72,.45)';c.beginPath();c.moveTo(a.x,a.y);c.quadraticCurveTo(cx0,(a.y+b.y)/2,b.x,b.y);c.stroke();}c.restore();const glyphs={'iron-body':'躯','swift-cloud':'云','sharp-eye':'眼','fortune':'福','warding':'灯','dash-master':'步'};if(!this.talentSel||!TALENTS.some(t=>t.id===this.talentSel))this.talentSel=(TALENTS.find(t=>(this.save.talents[t.id]||0)<t.maxLevel)||TALENTS[0]).id;TALENTS.forEach((t,i)=>{const p=pos[i],lv=this.save.talents[t.id]||0,maxed=lv>=t.maxLevel,sel=t.id===this.talentSel;c.beginPath();c.arc(p.x,p.y,26,0,Math.PI*2);c.fillStyle=maxed?'#c9962e':C.panel;c.fill();c.lineWidth=sel?4:2.5;c.strokeStyle=sel?C.red:(lv>0||maxed)?'#c9962e':C.line;c.stroke();this.text(glyphs[t.id]||t.name[0],p.x,p.y-11,20,maxed?C.light:C.ink,'center','bold');this.text(`${lv}/${t.maxLevel}`,p.x,p.y+34,9,C.muted,'center');this.text(t.name,i%2?p.x+44:p.x-44,p.y-7,12,C.ink,i%2?'left':'right','bold');this.buttons.push({x:p.x-32,y:p.y-32,w:64,h:64,action:()=>{this.talentSel=t.id;this.audio.play('click');this.draw();}});});const t=TALENTS.find(t=>t.id===this.talentSel),lv=this.save.talents[t.id]||0,cost=talentCost(this.save,t.id),sy=this.h-this.bottom-142;this.box(16,sy,this.w-32,80,C.panel,C.gold);this.text(`${t.name} · ${lv}/${t.maxLevel}`,28,sy+10,15,C.ink,'left','bold');this.text(`${TALENT_STATS[t.stat]||t.description} 当前 +${pct(t.value*lv)}${lv>=t.maxLevel?' · 已圆满':` · 下一级 +${pct(t.value)}`}`,28,sy+34,10,C.muted);if(lv<t.maxLevel)this.button(`参悟 · ${cost} 悟性`,this.w-148,sy+40,120,32,()=>{const doBuy=()=>{const r=buyTalent(this.save,t.id);this.message=r.message;this.persist();if(r.ok)this.burst(this.w/2,sy+20);this.audio.play(r.ok?'level':'click');this.draw();};if(this.platform.confirm)this.platform.confirm(`花费 ${cost} 悟性，将「${t.name}」提升至 ${lv+1} 级？`,doBuy);else doBuy();});}
+  talents(y){this.titleText(`悟性 ${this.save.talentPoints}`,20,y,20,'left','gold');const c=this.ctx,cx0=this.w/2;const pos=TALENTS.map((t,i)=>({x:cx0+(i%2?64:-64),y:y+64+i*72}));c.save();c.lineWidth=3;c.lineCap='round';for(let i=0;i<pos.length-1;i++){const a=pos[i],b=pos[i+1],la=this.save.talents[TALENTS[i].id]||0,lb=this.save.talents[TALENTS[i+1].id]||0;c.strokeStyle=la>0&&lb>0?'#c9962e':'rgba(138,109,72,.45)';c.beginPath();c.moveTo(a.x,a.y);c.quadraticCurveTo(cx0,(a.y+b.y)/2,b.x,b.y);c.stroke();}c.restore();const glyphs={'iron-body':'躯','swift-cloud':'云','sharp-eye':'眼','fortune':'福','warding':'灯','dash-master':'步'};if(!this.talentSel||!TALENTS.some(t=>t.id===this.talentSel))this.talentSel=(TALENTS.find(t=>(this.save.talents[t.id]||0)<t.maxLevel)||TALENTS[0]).id;TALENTS.forEach((t,i)=>{const p=pos[i],lv=this.save.talents[t.id]||0,maxed=lv>=t.maxLevel,sel=t.id===this.talentSel;c.beginPath();c.arc(p.x,p.y,26,0,Math.PI*2);c.fillStyle=maxed?'#c9962e':C.panel;c.fill();c.lineWidth=sel?4:2.5;c.strokeStyle=sel?C.red:(lv>0||maxed)?'#c9962e':C.line;c.stroke();this.text(glyphs[t.id]||t.name[0],p.x,p.y-11,20,maxed?C.light:C.ink,'center','bold');this.text(`${lv}/${t.maxLevel}`,p.x,p.y+34,9,C.muted,'center');this.text(t.name,i%2?p.x+44:p.x-44,p.y-7,12,C.ink,i%2?'left':'right','bold');this.buttons.push({x:p.x-32,y:p.y-32,w:64,h:64,action:()=>{this.talentSel=t.id;this.audio.play('click');this.draw();}});});const t=TALENTS.find(t=>t.id===this.talentSel),lv=this.save.talents[t.id]||0,cost=talentCost(this.save,t.id),sy=this.h-this.bottom-142;this.box(16,sy,this.w-32,80,C.panel,C.gold);this.text(`${t.name} · ${lv}/${t.maxLevel}`,28,sy+10,15,C.ink,'left','bold');this.text(`${TALENT_STATS[t.stat]||t.description} 当前 +${pct(t.value*lv)}${lv>=t.maxLevel?' · 已圆满':` · 下一级 +${pct(t.value)}`}`,28,sy+34,10,C.muted);if(lv<t.maxLevel)this.button(`参悟 · ${cost} 悟性`,this.w-148,sy+40,120,32,()=>{const doBuy=()=>{const r=buyTalent(this.save,t.id);this.message=r.message;this.persist();if(r.ok)this.burst(this.w/2,sy+20);this.audio.play(r.ok?'level':'click');this.draw();};if(this.platform.confirm)this.platform.confirm(`花费 ${cost} 悟性，将「${t.name}」提升至 ${lv+1} 级？`,doBuy);else doBuy();});if(TALENTS.some(tt=>(this.save.talents[tt.id]||0)>0))this.button('重置经脉 · 经文 2',28,sy+52,118,20,()=>{const doReset=()=>{const r=resetTalents(this.save);this.message=r.message;this.persist();this.audio.play(r.ok?'level':'click');this.draw();};if(this.platform.confirm)this.platform.confirm('花费经文 2 重置全部经脉？已投入的悟性将全额返还。',doReset);else doReset();},{size:10});}
   daily(y){this.wrap('目标按本地日期刷新，奖励每日限领一次。',20,y,this.w-40,12,C.muted,2);const patrol=patrolAccrued(this.save),patrolH=Math.floor(patrol.ms/3600000),patrolM=Math.floor(patrol.ms%3600000/60000);this.box(20,y+30,this.w-40,56,C.panel,C.gold);this.tex(this.uiImages.patrol,26,y+36,44,44);this.text('巡山遣使',78,y+38,14,C.gold,'left','bold');this.text(`已巡 ${patrolH} 小时 ${patrolM} 分 · 悟性 +${patrol.amount}${patrol.capped?'（已攒满 8 小时）':''}`,78,y+60,10,C.muted);this.button(patrol.amount>0?'领取':'攒取中',this.w-116,y+41,84,34,()=>{const r=claimPatrol(this.save);this.message=r.message;if(r.ok){this.persist();this.burst(this.w-74,y+58);}this.audio.play(r.ok?'level':'click');this.draw();},{disabled:patrol.amount<=0,size:12});dailyRows(this.save).forEach((d,i)=>{const ry=y+100+i*110;this.box(20,ry,this.w-40,102);this.text(d.name,32,ry+10,18,C.gold);this.text(`${d.description}  ${d.progress}/${d.target}`,32,ry+38,11,C.muted);this.button(d.claimed?'已领取':d.complete?`领取 ${d.reward} 悟性`:'前往取经',32,ry+58,this.w-64,34,()=>{if(d.complete){const r=claimDaily(this.save,d.id);this.message=r.message;this.persist();if(r.ok)this.burst(this.w/2,ry+75);this.draw();}else this.go('select');},{disabled:d.claimed,size:12});});}
   codex(y){const rows=ARTIFACTS.slice(this.page*4,this.page*4+4);this.text('八件法宝 · 本命武器另占一槽',20,y,12,C.gold);rows.forEach((a,i)=>{const ry=y+31+i*113,seen=this.save.seenArtifacts.includes(a.id);this.box(20,ry,this.w-40,104);if(!seen)this.ctx.globalAlpha=.3;this.skillIcon(a.id,32,ry+12,40);this.ctx.globalAlpha=1;this.text(seen?a.name:'未觉醒法宝',82,ry+10,18,C.ink,'left','bold');this.wrap(seen?a.description:'尚未在战斗中遇见。闯关升级途中择得后，这里会记下它的形貌与妙用。',82,ry+36,this.w-114,11,C.muted,2);this.text(seen?'已觉醒 · 战斗中可升至 Lv.5':'未觉醒 · 战斗升级时择得',82,ry+81,10,C.gold);});this.button('上一页',20,y+493,100,44,()=>{this.page=Math.max(0,this.page-1);this.draw();},{disabled:!this.page});this.button('下一页',this.w-120,y+493,100,44,()=>{this.page=Math.min(Math.ceil(ARTIFACTS.length/4)-1,this.page+1);this.draw();},{disabled:(this.page+1)*4>=ARTIFACTS.length});}
   settings(y){this.button(this.save.muted?'开启声音':'静音全部音效',20,y,this.w-40,48,()=>{this.save.muted=!this.save.muted;this.audio.setMuted(this.save.muted);this.persist();this.draw();});this.button(`画质：${{auto:'自动',high:'精致',low:'省电'}[this.save.quality]}`,20,y+60,this.w-40,48,()=>{const qs=['auto','high','low'];this.save.quality=qs[(qs.indexOf(this.save.quality)+1)%3];this.persist();this.draw();});this.wrap('取经生存法\n拖动任意空白区域移动，法宝自动索敌。拾取妖怪掉落的经验升级，每次三选一。共一把本命武器和四件法宝，各五级。\n每两分钟精英现身，五分钟首领来袭，九分半最终首领登场。十分钟后击败最终首领通关。\n右下“遁”可闪避，五秒冷却。升级与暂停时战斗时间冻结。',20,y+136,this.w-40,13,C.muted,13);this.text('隐私：存档仅保存本机，不收集账号信息。',20,Math.min(this.h-this.bottom-75,y+487),10,C.gold);this.text('v1.0.0 · 西游八十一难',20,Math.min(this.h-this.bottom-49,y+513),10,C.muted);}
@@ -4835,7 +4946,7 @@ if(s.status==='upgrade')this.upgradeOverlay(s);else if(s.status==='paused')this.
   scrollPanel(y,h){this.box(16,y,this.w-32,h,C.bg,C.wood);this.tex(this.uiImages.paper,18,y+2,this.w-36,h-4,.45);this.ctx.fillStyle=C.wood;this.ctx.fillRect(12,y-2,this.w-24,7);this.ctx.fillRect(12,y+h-5,this.w-24,7);this.ctx.fillStyle=C.woodLight;this.ctx.fillRect(19,y-1,this.w-38,2);this.ctx.fillRect(19,y+h-4,this.w-38,2);}
   upgradeOverlay(s){this.shade();const y=Math.max(this.top+50,(this.h-470)/2);this.withMotion(()=>{this.scrollPanel(y-20,447);this.text('悟得一法',this.w/2,y,30,C.gold,'center','bold');this.text('本命一槽 · 法宝四槽 · 选一项',this.w/2,y+43,11,C.muted,'center');});s.choices.forEach((ch,i)=>{const ry=y+82+i*111;this.withMotion(()=>this.withPress(20,ry,this.w-40,99,()=>{this.box(20,ry,this.w-40,99,C.panel,ch.isWeapon?C.red:C.line);this.ctx.fillStyle=ch.isWeapon?C.red:C.jade;this.ctx.fillRect(27,ry+13,3,24);this.skillIcon(ch.id,34,ry+12,30);this.text(ch.name,72,ry+11,18,C.ink,'left','bold');this.text(ch.isWeapon?'本命武器':'法宝',this.w-33,ry+13,10,C.muted,'right');this.wrap(ch.description,72,ry+37,this.w-104,11,C.muted,2);this.text(`将升至 Lv.${ch.level}`,72,ry+77,10,C.gold);}),i,ry+50);this.buttons.push({x:20,y:ry,w:this.w-40,h:99,label:ch.name,action:()=>{this.engine.chooseUpgrade(ch.id);this.input={x:0,y:0};this.audio.play('click');this.wake();this.draw();}});});}
   pauseOverlay(){this.shade();const y=this.h/2-150;this.withMotion(()=>{this.scrollPanel(y-30,272);this.text('且歇片刻',this.w/2,y,32,C.gold,'center','bold');this.button('继续西行',30,y+65,this.w-60,50,()=>{this.engine.resume();this.audio.startMusic(getStage(this.stageId).theme);this.wake();this.draw();},{primary:true});this.button(`声音设置 · ${this.save.muted?'已静音':'已开启'}`,30,y+125,this.w-60,46,()=>{this.save.muted=!this.save.muted;this.audio.setMuted(this.save.muted);this.persist();if(!this.save.muted)this.audio.play('click');this.draw();});this.button('退出本局',30,y+181,this.w-60,48,()=>{this.platform.confirm?.('结束本局？本局不会结算，悟性、每日进度和图鉴登记都不会计入。',()=>this.go('home'))||(!this.platform.confirm&&this.go('home'));});});}
-  resultOverlay(s){this.shade();const y=this.h/2-180,won=s.status==='won';this.withMotion(()=>{this.scrollPanel(y-30,348);this.text(won?'此难已破':'暂渡未成',this.w/2,y,34,won?C.gold:C.red,'center','bold');this.text(`${s.stage.location} · ${s.character.name}`,this.w/2,y+49,12,C.muted,'center');this.ctx.strokeStyle=C.woodLight;this.ctx.lineWidth=1;this.ctx.beginPath();this.ctx.moveTo(47,y+75);this.ctx.lineTo(this.w-47,y+75);this.ctx.stroke();this.text(`斩妖 ${s.kills} · 等级 ${s.player.level} · 用时 ${fmt(s.time)} · 得分 ${this.result?.score||0}`,this.w/2,y+88,13,C.ink,'center');this.text(`悟性 +${this.result?.reward||0}`,this.w/2,y+122,20,C.gold,'center');const ex=this.resultExtras,exParts=[];if(ex){if(ex.newBest)exParts.push('新纪录！');if(ex.unlocked)exParts.push(`解锁第 ${ex.unlocked} 难`);if(ex.newArtifacts?.length)exParts.push(`新图鉴 · ${ex.newArtifacts.join('、')}`);if(ex.dailyProgress)exParts.push('每日禅试有新进展');}if(exParts.length)this.text(exParts.join('  '),this.w/2,y+152,11,C.jade,'center');this.button(won&&s.stage.id<81?'再闯下一难':'再试一次',30,y+178,this.w-60,50,()=>{if(won)this.stageId=Math.min(81,s.stage.id+1);this.startRun();},{primary:true});this.button('回到大唐',30,y+240,this.w-60,48,()=>this.go('home'));});}
+  resultOverlay(s){this.shade();const y=this.h/2-180,won=s.status==='won';this.withMotion(()=>{this.scrollPanel(y-30,348);this.text(won?'此难已破':'暂渡未成',this.w/2,y,34,won?C.gold:C.red,'center','bold');this.text(`${s.stage.location} · ${s.character.name}`,this.w/2,y+49,12,C.muted,'center');this.ctx.strokeStyle=C.woodLight;this.ctx.lineWidth=1;this.ctx.beginPath();this.ctx.moveTo(47,y+75);this.ctx.lineTo(this.w-47,y+75);this.ctx.stroke();this.text(`斩妖 ${s.kills} · 等级 ${s.player.level} · 用时 ${fmt(s.time)} · 得分 ${this.result?.score||0}`,this.w/2,y+88,13,C.ink,'center');this.text(`悟性 +${this.result?.reward||0}${this.result?.coinBonus>0?`（含金币折 +${this.result.coinBonus}）`:''}`,this.w/2,y+122,20,C.gold,'center');const ex=this.resultExtras,exParts=[];if(ex){if(ex.newBest)exParts.push('新纪录！');if(ex.unlocked)exParts.push(`解锁第 ${ex.unlocked} 难`);if(ex.newArtifacts?.length)exParts.push(`新图鉴 · ${ex.newArtifacts.join('、')}`);if(ex.dailyProgress)exParts.push('每日禅试有新进展');}if(exParts.length)this.text(exParts.join('  '),this.w/2,y+152,11,C.jade,'center');this.button(won&&s.stage.id<81?'再闯下一难':'再试一次',30,y+178,this.w-60,50,()=>{if(won)this.stageId=Math.min(81,s.stage.id+1);this.startRun();},{primary:true});this.button('回到大唐',30,y+240,this.w-60,48,()=>this.go('home'));});}
   touchStart(x,y){if(this.hidden||this.disposed)return;const b=this.buttons.slice().reverse().find(b=>x>=b.x&&x<=b.x+b.w&&y>=b.y&&y<=b.y+b.h);if(b){if(!b.disabled){this.press={x:b.x,y:b.y,w:b.w,h:b.h,key:this.motionKey(),startedAt:this.clock()};this.audio.play('click');b.action();this.draw();}return;}if(this.screen==='game'&&this.engine?.state.status==='playing'){this.touchOrigin={x,y};this.joy={x,y};}}
   touchMove(x,y){if(!this.touchOrigin)return;const dx=x-this.touchOrigin.x,dy=y-this.touchOrigin.y,length=Math.hypot(dx,dy);this.input={x:dx/Math.max(40,length),y:dy/Math.max(40,length)};}
   touchEnd(){this.touchOrigin=null;this.joy=null;this.input={x:0,y:0};}
