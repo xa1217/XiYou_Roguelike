@@ -1,0 +1,354 @@
+{
+ "schemaVersion": 1,
+ "asset": "enemy-yin-general-battle-v1-sheet.png",
+ "sha256": "e836bda65b5b26d298d0d48826e1b36713ddbcb6ec6ddd53c1ac5ac07175c2a9",
+ "size": [
+  1774,
+  887
+ ],
+ "lifecycle": "runtime-approved on the playtest line (2026-10-22); bound only via bossIdentity for stage-1 final bosses; serial browser image/JSON queue and vector identity fallback retained when unattached",
+ "approvedForRuntime": true,
+ "identity": {
+  "stageId": 1,
+  "kind": "boss",
+  "bossId": "yin-general",
+  "name": "寅将军",
+  "variant": "tiger",
+  "excluded": [
+   "ordinary enemies",
+   "elite"
+  ]
+ },
+ "layout": "8 figures x 4 rows normalized grid; explicit sourceRects",
+ "referenceBodyHeight": 168,
+ "previewRootXs": [
+  111,
+  333,
+  554,
+  776,
+  997,
+  1219,
+  1441,
+  1663
+ ],
+ "previewBaselines": [
+  211,
+  433,
+  655,
+  877
+ ],
+ "anchorStatus": "uniform scale; feet on shared per-row baseline; roots at pose centers",
+ "states": {
+  "idle": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "move": [
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "attack": [
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23
+  ],
+  "hit": [
+   24,
+   25,
+   26,
+   27
+  ],
+  "death": [
+   28,
+   29,
+   30,
+   31
+  ]
+ },
+ "fps": {
+  "idle": 8,
+  "move": 12,
+  "attack": 16,
+  "hit": 16,
+  "death": 10
+ },
+ "sourceRects": [
+  {
+   "index": 0,
+   "state": "idle",
+   "x": 30,
+   "y": 40,
+   "w": 162,
+   "h": 172
+  },
+  {
+   "index": 1,
+   "state": "idle",
+   "x": 252,
+   "y": 41,
+   "w": 162,
+   "h": 171
+  },
+  {
+   "index": 2,
+   "state": "idle",
+   "x": 487,
+   "y": 46,
+   "w": 134,
+   "h": 166
+  },
+  {
+   "index": 3,
+   "state": "idle",
+   "x": 706,
+   "y": 41,
+   "w": 141,
+   "h": 171
+  },
+  {
+   "index": 4,
+   "state": "idle",
+   "x": 917,
+   "y": 41,
+   "w": 161,
+   "h": 171
+  },
+  {
+   "index": 5,
+   "state": "idle",
+   "x": 1139,
+   "y": 46,
+   "w": 161,
+   "h": 166
+  },
+  {
+   "index": 6,
+   "state": "idle",
+   "x": 1361,
+   "y": 47,
+   "w": 161,
+   "h": 165
+  },
+  {
+   "index": 7,
+   "state": "idle",
+   "x": 1582,
+   "y": 48,
+   "w": 162,
+   "h": 164
+  },
+  {
+   "index": 8,
+   "state": "move",
+   "x": 24,
+   "y": 274,
+   "w": 173,
+   "h": 159
+  },
+  {
+   "index": 9,
+   "state": "move",
+   "x": 246,
+   "y": 274,
+   "w": 174,
+   "h": 159
+  },
+  {
+   "index": 10,
+   "state": "move",
+   "x": 470,
+   "y": 272,
+   "w": 168,
+   "h": 162
+  },
+  {
+   "index": 11,
+   "state": "move",
+   "x": 692,
+   "y": 272,
+   "w": 169,
+   "h": 162
+  },
+  {
+   "index": 12,
+   "state": "move",
+   "x": 911,
+   "y": 274,
+   "w": 173,
+   "h": 159
+  },
+  {
+   "index": 13,
+   "state": "move",
+   "x": 1134,
+   "y": 274,
+   "w": 172,
+   "h": 159
+  },
+  {
+   "index": 14,
+   "state": "move",
+   "x": 1355,
+   "y": 274,
+   "w": 173,
+   "h": 159
+  },
+  {
+   "index": 15,
+   "state": "move",
+   "x": 1576,
+   "y": 274,
+   "w": 174,
+   "h": 159
+  },
+  {
+   "index": 16,
+   "state": "attack",
+   "x": 12,
+   "y": 512,
+   "w": 198,
+   "h": 143
+  },
+  {
+   "index": 17,
+   "state": "attack",
+   "x": 251,
+   "y": 504,
+   "w": 164,
+   "h": 151
+  },
+  {
+   "index": 18,
+   "state": "attack",
+   "x": 471,
+   "y": 505,
+   "w": 167,
+   "h": 150
+  },
+  {
+   "index": 19,
+   "state": "attack",
+   "x": 694,
+   "y": 505,
+   "w": 164,
+   "h": 150
+  },
+  {
+   "index": 20,
+   "state": "attack",
+   "x": 912,
+   "y": 506,
+   "w": 172,
+   "h": 149
+  },
+  {
+   "index": 21,
+   "state": "attack",
+   "x": 1134,
+   "y": 500,
+   "w": 171,
+   "h": 155
+  },
+  {
+   "index": 22,
+   "state": "attack",
+   "x": 1357,
+   "y": 499,
+   "w": 168,
+   "h": 156
+  },
+  {
+   "index": 23,
+   "state": "attack",
+   "x": 1577,
+   "y": 500,
+   "w": 172,
+   "h": 155
+  },
+  {
+   "index": 24,
+   "state": "hit",
+   "x": 40,
+   "y": 715,
+   "w": 142,
+   "h": 162
+  },
+  {
+   "index": 25,
+   "state": "hit",
+   "x": 263,
+   "y": 736,
+   "w": 140,
+   "h": 141
+  },
+  {
+   "index": 26,
+   "state": "hit",
+   "x": 477,
+   "y": 710,
+   "w": 154,
+   "h": 167
+  },
+  {
+   "index": 27,
+   "state": "hit",
+   "x": 691,
+   "y": 739,
+   "w": 170,
+   "h": 138
+  },
+  {
+   "index": 28,
+   "state": "death",
+   "x": 919,
+   "y": 784,
+   "w": 158,
+   "h": 93
+  },
+  {
+   "index": 29,
+   "state": "death",
+   "x": 1133,
+   "y": 789,
+   "w": 174,
+   "h": 88
+  },
+  {
+   "index": 30,
+   "state": "death",
+   "x": 1354,
+   "y": 784,
+   "w": 175,
+   "h": 93
+  },
+  {
+   "index": 31,
+   "state": "death",
+   "x": 1575,
+   "y": 784,
+   "w": 176,
+   "h": 93
+  }
+ ],
+ "source": {
+  "type": "ai-generated + programmatic normalization",
+  "rawFile": "evidence/current/playtest-handoff/2026-10-21/assets-work/media-generation-boss-yin-general-sheet-raw-0-330c90fa-83a4-4c4c-8255-b2bf663839aa.png"
+ }
+}
