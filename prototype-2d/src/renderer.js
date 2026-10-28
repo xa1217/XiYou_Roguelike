@@ -195,6 +195,21 @@ function imageReady(image) {
   return Boolean(image && (image.complete === undefined || image.complete || image.naturalWidth > 0 || image.width > 0));
 }
 
+// Offscreen canvas factory for the baked map cache (perf batch, 2026-10-28).
+// Browser: document.createElement; WeChat mini-game: wx.createCanvas;
+// anywhere else (Node test stubs): null, and callers keep the direct path.
+function makeCanvas(width, height) {
+  try {
+    if (typeof document !== 'undefined' && typeof document.createElement === 'function') {
+      const c = document.createElement('canvas'); c.width = width; c.height = height; return c;
+    }
+    if (typeof wx !== 'undefined' && typeof wx.createCanvas === 'function') {
+      const c = wx.createCanvas(); c.width = width; c.height = height; return c;
+    }
+  } catch { /* no offscreen canvas on this platform */ }
+  return null;
+}
+
 function drawImageIfReady(ctx, image, ...args) {
   if (!imageReady(image) || typeof ctx?.drawImage !== 'function') return false;
   try { ctx.drawImage(image, ...args); return true; } catch (_) { return false; }
@@ -360,6 +375,7 @@ class GameRenderer {
     this._hudScreenBounds = null;
     this._hudOcclusionRects = [];
     this._view = { left: 0, top: 0, right: 0, bottom: 0 };
+    this._mapCache = null;
     this._viewCenter = null;
     this.stats = { enemies: 0, projectiles: 0, effects: 0, gems: 0, culledEnemies: 0, culledProjectiles: 0, culledEffects: 0, culledGems: 0, statusCandidates: 0, statusBadges: 0, statusSuppressed: 0,
       damagePlayerCandidates: 0, damagePlayerMoved: 0, damagePlayerUnresolved: 0,
@@ -521,6 +537,7 @@ class GameRenderer {
     this.disposed = true;
     this.canvas = null;
     this.ctx = null;
+    this._mapCache = null;
     this._enemyDrawList.length = 0;
     this._statusBadgeRects.length = 0;
     this._damageLabelRects.length = 0;
@@ -589,13 +606,20 @@ class GameRenderer {
         const halfWidth = Math.max(n(metrics?.width, String(text).length * size) / 2,
           Math.abs(n(metrics?.actualBoundingBoxLeft)), Math.abs(n(metrics?.actualBoundingBoxRight)));
         const halfHeight = Math.max(size * .6, Math.abs(n(metrics?.actualBoundingBoxAscent)), Math.abs(n(metrics?.actualBoundingBoxDescent)));
+        // Dense-field throttle (perf batch, 2026-10-28): with a full swarm
+        // on screen (>120 enemy occlusion boxes) the candidate search is
+        // O(labels × candidates × enemies) and empirically relocates
+        // nothing — every candidate is inside the swarm anyway. Ordinary
+        // labels then skip enemy avoidance only; player/boss/HUD/label
+        // avoidance (tiny sets) and critical labels keep full treatment.
+        const enemyActionable = Boolean(item.critical) || enemyBoxes.length <= 120;
         // The star's 1.2-wide miter stroke reaches ~1.55 beyond each tip.
         const w = Math.max(halfWidth + outline, burst + 1.6), h = Math.max(halfHeight + outline, burst + 1.6);
         const cos = Math.abs(Math.cos(rotation)), sin = Math.abs(Math.sin(rotation));
         const rx = cos * w + sin * h, ry = sin * w + cos * h;
         damageRect = { left: centerX - rx, right: centerX + rx, top: centerY - ry, bottom: centerY + ry };
         const playerCollision = Boolean(playerBox && this._rectsOverlap(damageRect, playerBox, 3));
-        const enemyCollision = enemyBoxes.some(box => this._rectsOverlap(damageRect, box, 3));
+        const enemyCollision = enemyActionable && enemyBoxes.some(box => this._rectsOverlap(damageRect, box, 3));
         const bossCollision = bossBoxes.some(box => this._rectsOverlap(damageRect, box, 3));
         const hudCollision = hudBoxes.some(box => this._rectsOverlap(damageRect, box, 3));
         // Damage labels are transient world-space text. When the caller opts
@@ -653,7 +677,7 @@ class GameRenderer {
         for (const candidate of hudFailClosed ? EMPTY_LIST : candidates) {
           const rect = { left: candidate.x - rx, right: candidate.x + rx, top: candidate.y - ry, bottom: candidate.y + ry };
           if (playerBox && this._rectsOverlap(rect, playerBox, 3)) continue;
-          if (enemyBoxes.some(box => this._rectsOverlap(rect, box, 3))) continue;
+          if (enemyActionable && enemyBoxes.some(box => this._rectsOverlap(rect, box, 3))) continue;
           if (bossBoxes.some(box => this._rectsOverlap(rect, box, 3))) continue;
           if (hudBoxes.some(box => this._rectsOverlap(rect, box, 3))) continue;
           if (avoidDamageLabels) {
@@ -896,7 +920,35 @@ class GameRenderer {
     // vector plate below stays as the pre-load and no-image fallback.
     const scene = this._sceneFor(theme, mapKey);
     const sceneBack = scene?.back || scene?.background || scene;
-    if (imageReady(sceneBack)) { this._drawPaintedBattleMap(ctx, theme, sceneBack, left, top, right, bottom); this._drawWorldRim(ctx, theme, left, top, right, bottom); this._drawCaveMouths(ctx, mapKey); return; }
+    if (imageReady(sceneBack)) {
+      // Perf batch (2026-10-28): the painted map, its rim overshoot, the
+      // wash, borders and cave mouths are all static in world space, so
+      // they are baked once into an offscreen cache and each frame is a
+      // single blit of the visible rect. Where no offscreen canvas exists
+      // (Node test stubs) the direct path below runs unchanged.
+      const cache = this._mapCacheFor(theme, themeName, mapKey, sceneBack);
+      if (cache) {
+        // The canvas shows more world than _view (the HUD-safe rect): the
+        // full-canvas visible rect comes from the frame centre, exactly
+        // like the direct path's full-world draw being clipped by the
+        // canvas. Blit that rect (plus a small safety margin).
+        const zoomW = this.width / Math.max(1, this._view.right - this._view.left);
+        const ccx = (this._view.left + this._view.right) / 2, ccy = (this._view.top + this._view.bottom) / 2;
+        const visL = ccx - this._viewCenter.x / zoomW - 8, visR = ccx + (this.width - this._viewCenter.x) / zoomW + 8;
+        const visT = ccy - this._viewCenter.y / zoomW - 8, visB = ccy + (this.height - this._viewCenter.y) / zoomW + 8;
+        const x0 = Math.max(visL, -cache.margin), y0 = Math.max(visT, -cache.margin);
+        const x1 = Math.min(visR, WORLD_SIZE + cache.margin), y1 = Math.min(visB, WORLD_SIZE + cache.margin);
+        if (x1 > x0 && y1 > y0) {
+          method(ctx, 'drawImage', cache.canvas,
+            (x0 + cache.margin) * cache.scale, (y0 + cache.margin) * cache.scale,
+            (x1 - x0) * cache.scale, (y1 - y0) * cache.scale,
+            x0, y0, x1 - x0, y1 - y0);
+          this.mapAssetDraws += 1;
+        }
+        return;
+      }
+      this._drawPaintedBattleMap(ctx, theme, sceneBack, left, top, right, bottom); this._drawWorldRim(ctx, theme, left, top, right, bottom); this._drawCaveMouths(ctx, mapKey); return;
+    }
     if (this.battleSceneMode === 'vector') {
       this._drawVectorBattleMap(ctx, theme, left, top, right, bottom, mapKey);
       this._drawWorldRim(ctx, theme, left, top, right, bottom);
@@ -974,6 +1026,40 @@ class GameRenderer {
       method(ctx, 'beginPath'); method(ctx, 'arc', 0, 3, 23, Math.PI * .2, Math.PI * .8); method(ctx, 'stroke');
       method(ctx, 'restore');
     }
+  }
+
+  // Baked painted-map cache (perf batch, 2026-10-28). The cache covers
+  // the world plus a 640-unit margin on every side — beyond the furthest
+  // the portrait frame can overshoot (camera rim clamp 150 + widest view
+  // half-span ~380 + the 80-unit draw margin) — at 0.55 px per world
+  // unit, which is at or above the scene paintings' own sampling density
+  // (941px across 1800 units ≈ 0.52), so no authored detail is lost.
+  // Rebuilt only when the scene image, theme or map key changes.
+  _mapCacheFor(theme, themeName, mapKey, sceneBack) {
+    const hit = this._mapCache;
+    if (hit && hit.image === sceneBack && hit.themeName === themeName && hit.mapKey === mapKey) return hit;
+    const margin = 640, scale = 0.55;
+    const span = WORLD_SIZE + margin * 2;
+    const canvas = makeCanvas(Math.round(span * scale), Math.round(span * scale));
+    if (!canvas) { this._mapCache = null; return null; }
+    let c2 = null;
+    try { c2 = canvas.getContext('2d'); } catch { c2 = null; }
+    if (!c2) { this._mapCache = null; return null; }
+    const drawsBefore = this.mapAssetDraws;
+    method(c2, 'scale', scale, scale);
+    method(c2, 'translate', margin, margin);
+    // Base matches render()'s full-canvas paper fill exactly.
+    paint(c2, theme.paper);
+    method(c2, 'fillRect', -margin, -margin, span, span);
+    const L = -margin, T = -margin, R = WORLD_SIZE + margin, B = WORLD_SIZE + margin;
+    this._drawPaintedBattleMap(c2, theme, sceneBack, L, T, R, B);
+    this._drawWorldRim(c2, theme, L, T, R, B);
+    const savedView = this._view;
+    this._view = { left: L, top: T, right: R, bottom: B };
+    try { this._drawCaveMouths(c2, mapKey); } finally { this._view = savedView; }
+    this.mapAssetDraws = drawsBefore;
+    this._mapCache = { canvas, image: sceneBack, themeName, mapKey, margin, scale };
+    return this._mapCache;
   }
 
   _drawPaintedBattleMap(ctx, theme, back, left, top, right, bottom) {
