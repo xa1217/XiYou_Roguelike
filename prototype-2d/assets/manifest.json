@@ -97,38 +97,38 @@
     },
     "sceneAssets": {
       "forest": {
-        "back": "map-forest-qv1.png",
+        "back": "map-forest-qv1.jpg",
         "mid": "theme-forest.svg",
         "front": "theme-forest.svg"
       },
       "temple": {
-        "back": "map-temple-qv1.png",
+        "back": "map-temple-qv1.jpg",
         "mid": "theme-temple.svg",
         "front": "theme-temple.svg"
       },
       "water": {
-        "back": "map-water-qv1.png",
+        "back": "map-water-qv1.jpg",
         "mid": "theme-water.svg",
         "front": "theme-water.svg"
       },
       "fire": {
-        "back": "map-fire-qv1.png",
+        "back": "map-fire-qv1.jpg",
         "mid": "theme-fire.svg",
         "front": "theme-fire.svg"
       },
       "sand": {
-        "back": "map-sand-qv1.png",
+        "back": "map-sand-qv1.jpg",
         "mid": "theme-sand.svg",
         "front": "theme-sand.svg"
       },
       "snow": {
-        "back": "map-snow-qv1.png",
+        "back": "map-snow-qv1.jpg",
         "mid": "theme-snow.svg",
         "front": "theme-snow.svg"
       },
       "runtime": "playtest line (2026-10-22, user-directed): the authored scene backs ARE the battlefield art — native-app.js fetches them via loadMapScene (doublefork eagerly, themes on run start) and renderer.js draws the loaded painting full-world (painted-first, quiet vector plate as fallback). Upstream baseline treated them as gallery/preview only.",
       "doublefork": {
-        "back": "map-doublefork-high-ridge-v1.png",
+        "back": "map-doublefork-high-ridge-v1.jpg",
         "mid": "theme-forest.svg",
         "front": "theme-forest.svg",
         "backSize": [
@@ -744,7 +744,7 @@
     },
     {
       "id": "map-forest-qv1",
-      "path": "map-forest-qv1.png",
+      "path": "map-forest-qv1.jpg",
       "origin": "built-in-imagegen-derived-color-grade",
       "size": [
         1024,
@@ -758,7 +758,7 @@
     },
     {
       "id": "map-temple-qv1",
-      "path": "map-temple-qv1.png",
+      "path": "map-temple-qv1.jpg",
       "origin": "built-in-imagegen-downscaled",
       "size": [
         1024,
@@ -772,7 +772,7 @@
     },
     {
       "id": "map-doublefork-high-ridge",
-      "path": "map-doublefork-high-ridge-v1.png",
+      "path": "map-doublefork-high-ridge-v1.jpg",
       "origin": "copied-authored-high-ridge-candidate",
       "size": [
         941,
@@ -788,7 +788,7 @@
     },
     {
       "id": "map-water-qv1",
-      "path": "map-water-qv1.png",
+      "path": "map-water-qv1.jpg",
       "origin": "built-in-imagegen, style-matched to map-forest-qv1 (playtest line, 2026-10-22)",
       "size": [
         1024,
@@ -802,7 +802,7 @@
     },
     {
       "id": "map-fire-qv1",
-      "path": "map-fire-qv1.png",
+      "path": "map-fire-qv1.jpg",
       "origin": "built-in-imagegen, style-matched to map-forest-qv1 (playtest line, 2026-10-22)",
       "size": [
         1024,
@@ -816,7 +816,7 @@
     },
     {
       "id": "map-sand-qv1",
-      "path": "map-sand-qv1.png",
+      "path": "map-sand-qv1.jpg",
       "origin": "built-in-imagegen, style-matched to map-forest-qv1 (playtest line, 2026-10-22)",
       "size": [
         1024,
@@ -830,7 +830,7 @@
     },
     {
       "id": "map-snow-qv1",
-      "path": "map-snow-qv1.png",
+      "path": "map-snow-qv1.jpg",
       "origin": "built-in-imagegen, style-matched to map-forest-qv1 (playtest line, 2026-10-22)",
       "size": [
         1024,
