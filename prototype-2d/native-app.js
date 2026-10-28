@@ -14,7 +14,12 @@ import {attachSkillFx} from './src/skill-fx-animation.js';
 // drains, so the menus can draw one honest progress bar with a definite
 // "complete" state instead of assets silently popping in. Lazy map scenes
 // requested later do not reopen the count.
-let assetsTotal=0,assetsDone=0,assetsFailed=0,assetsComplete=false;
+// Perf batch (2026-10-28): the counter now tracks the GATE set only — the
+// art the menus actually need (hero cards, UI textures, skill icons).
+// Battle art (hero/enemy/boss sheets, FX, crater) streams through the
+// same pool behind the gate and pops in with vector fallbacks meanwhile,
+// so first paint no longer waits on ~25 MB of combat sprites.
+let assetsTotal=0,assetsDone=0,assetsFailed=0,assetsComplete=false,gatePending=0;
 const assetProgress=()=>({done:assetsDone,total:assetsTotal,failed:assetsFailed,complete:assetsComplete});
 const canvas=document.querySelector('canvas');const audio=new AudioManager();const debugAllowed=(location.hostname==='localhost'||location.hostname==='127.0.0.1')&&new URLSearchParams(location.search).has('debug');const adminAllowed=(location.hostname==='localhost'||location.hostname==='127.0.0.1')&&new URLSearchParams(location.search).has('admin');const game=new NativeGame(canvas,{width:390,height:Math.min(844,window.innerHeight),pixelRatio:Math.min(2,window.devicePixelRatio||1),debug:debugAllowed||adminAllowed,admin:adminAllowed,audio,requestFrame:fn=>requestAnimationFrame(fn),cancelFrame:id=>cancelAnimationFrame(id),now:()=>performance.now(),load:key=>{try{return JSON.parse(localStorage.getItem(key));}catch{return null;}},save:(key,v)=>localStorage.setItem(key,JSON.stringify(v)),confirm:(text,accept)=>{if(confirm(text))accept();},assetProgress});window.xiyou=game;
 const fit=()=>{const r=canvas.getBoundingClientRect();if(r.width<=0||r.height<=0)return;const vv=window.visualViewport;const vw=vv?vv.width:window.innerWidth,vh=vv?vv.height:window.innerHeight;const w=Math.min(Math.round(r.width),Math.round(vw)),h=Math.min(Math.round(r.height),Math.round(vh));game.resize(w,h,Math.min(2,window.devicePixelRatio||1),{top:0,bottom:h});};window.addEventListener('resize',fit,{passive:true});window.visualViewport?.addEventListener('resize',fit,{passive:true});window.addEventListener('orientationchange',()=>setTimeout(fit,80),{passive:true});fit();
@@ -30,14 +35,14 @@ const keys=new Set();const input=()=>{game.input={x:Number(keys.has('d')||keys.h
 // remain immediate while the queued sprites decode.
 const imageQueue=[],priorityImageQueue=[];let imageQueueScheduled=false,imageQueueInFlight=0;
 const IMAGE_QUEUE_CONCURRENCY=4;
-const pumpImageQueue=()=>{while(imageQueueInFlight<IMAGE_QUEUE_CONCURRENCY){const item=priorityImageQueue.shift()||imageQueue.shift();if(!item)return;imageQueueInFlight++;const finish=(ok)=>{imageQueueInFlight--;assetsDone++;if(!ok)assetsFailed++;pumpImageQueue();if(!imageQueueInFlight&&!priorityImageQueue.length&&!imageQueue.length&&assetsTotal>0&&!assetsComplete){assetsComplete=true;setTimeout(()=>game.draw(),2600);}game.draw();};item.image.onload=async()=>{let ok=true;try{await item.onload?.();}catch{ok=false;item.onerror?.();}finally{finish(ok);}};item.image.onerror=()=>{try{item.onerror?.();}finally{finish(false);}};item.image.src=item.src;}};
-const queueImage=(image,src,onload,onerror,priority=false)=>{if(!assetsComplete)assetsTotal++;const item={image,src,onload,onerror};(priority?priorityImageQueue:imageQueue).push(item);if(!imageQueueScheduled){imageQueueScheduled=true;queueMicrotask(()=>{imageQueueScheduled=false;pumpImageQueue();});}};
-const sheet=new Image();queueImage(sheet,'./assets/hero-cards-v2-comic.png',()=>{game.heroSheet=sheet;game.draw();},()=>{},true);
+const pumpImageQueue=()=>{while(imageQueueInFlight<IMAGE_QUEUE_CONCURRENCY){const item=priorityImageQueue.shift()||imageQueue.shift();if(!item)return;imageQueueInFlight++;const finish=(ok)=>{imageQueueInFlight--;if(item.gate){assetsDone++;if(!ok)assetsFailed++;gatePending--;}pumpImageQueue();if(gatePending===0&&assetsTotal>0&&!assetsComplete){assetsComplete=true;setTimeout(()=>game.draw(),2600);}game.draw();};item.image.onload=async()=>{let ok=true;try{await item.onload?.();}catch{ok=false;item.onerror?.();}finally{finish(ok);}};item.image.onerror=()=>{try{item.onerror?.();}finally{finish(false);}};item.image.src=item.src;}};
+const queueImage=(image,src,onload,onerror,priority=false,gate=false)=>{if(gate&&!assetsComplete){assetsTotal++;gatePending++;}const item={image,src,onload,onerror,gate};(priority?priorityImageQueue:imageQueue).push(item);if(!imageQueueScheduled){imageQueueScheduled=true;queueMicrotask(()=>{imageQueueScheduled=false;pumpImageQueue();});}};
+const sheet=new Image();queueImage(sheet,'./assets/hero-cards.jpg',()=>{game.heroSheet=sheet;game.draw();},()=>{},true,true);
 // Meta-layer art (panel paper, button wood, patrol & chapter icons): tiny
 // generated textures the UI draws when present and silently skips when not
 // (e.g. the WeChat build, which supplies no uiImages yet).
 const uiImages={};game.uiImages=uiImages;
-for(const [key,file] of Object.entries({paper:'ui-paper.jpg',wood:'ui-wood.jpg',patrol:'ui-patrol.jpg',chapter:'ui-chapter.jpg',poster:'ui-poster.jpg',heroPoster_wukong:'hero-poster-wukong.jpg',heroPoster_tangsanzang:'hero-poster-tangsanzang.jpg',heroPoster_bajie:'hero-poster-bajie.jpg',heroPoster_shajing:'hero-poster-shajing.jpg',logo:'ui-logo.jpg',header_chapters:'header-chapters.jpg',header_talents:'header-talents.jpg',header_codex:'header-codex.jpg',header_daily:'header-daily.jpg',divider:'ui-divider.jpg'})){const image=new Image();queueImage(image,`./assets/${file}`,()=>{uiImages[key]=image;game.draw();},()=>{},true);}
+for(const [key,file] of Object.entries({paper:'ui-paper.jpg',wood:'ui-wood.jpg',patrol:'ui-patrol.jpg',chapter:'ui-chapter.jpg',poster:'ui-poster.jpg',heroPoster_wukong:'hero-poster-wukong.jpg',heroPoster_tangsanzang:'hero-poster-tangsanzang.jpg',heroPoster_bajie:'hero-poster-bajie.jpg',heroPoster_shajing:'hero-poster-shajing.jpg',logo:'ui-logo.jpg',header_chapters:'header-chapters.jpg',header_talents:'header-talents.jpg',header_codex:'header-codex.jpg',header_daily:'header-daily.jpg',divider:'ui-divider.jpg'})){const image=new Image();queueImage(image,`./assets/${file}`,()=>{uiImages[key]=image;game.draw();},()=>{},true,true);}
 // Transparent authored SVG art is retained for character cards and special
 // previews. The playable battle slice uses the real v3 frame sheets below;
 // the renderer's vector rig remains the deterministic fallback, so a single
@@ -107,7 +112,7 @@ const skillIconFiles={
 const skillImages={};game.skillImages=skillImages;
 const skillFxImages={};game.skillFxImages=skillFxImages;
 for(const [id,file] of Object.entries(skillIconFiles)){
-  const image=new Image();queueImage(image,`./assets/${file}`,()=>{skillImages[id]=image;if(game.renderer)game.renderer.skillImages=skillImages;game.draw();},()=>{},true);
+  const image=new Image();queueImage(image,`./assets/${file}`,()=>{skillImages[id]=image;if(game.renderer)game.renderer.skillImages=skillImages;game.draw();},()=>{},true,true);
 }
 // Battle v3 sheets are real 4×2 animation atlases generated for gameplay,
 // not crops of the old gallery illustrations.  Each cell is a distinct pose:
@@ -203,7 +208,7 @@ for(const bossId of ['yin-general','xiong-shanjun','te-chushi']){
 // only the scene it plays; until one arrives, the renderer keeps the quiet
 // vector plate as the fallback.
 const mapImages={forest:{},temple:{},doublefork:{}};game.mapImages=mapImages;
-const mapSceneFiles={doublefork:'map-doublefork-high-ridge-v1.png',forest:'map-forest-qv1.png',temple:'map-temple-qv1.png',water:'map-water-qv1.png',fire:'map-fire-qv1.png',sand:'map-sand-qv1.png',snow:'map-snow-qv1.png'};
+const mapSceneFiles={doublefork:'map-doublefork-high-ridge-v1.jpg',forest:'map-forest-qv1.jpg',temple:'map-temple-qv1.jpg',water:'map-water-qv1.jpg',fire:'map-fire-qv1.jpg',sand:'map-sand-qv1.jpg',snow:'map-snow-qv1.jpg'};
 const mapSceneLoading={};
 game.loadMapScene=(key)=>{const file=mapSceneFiles[key];if(!file||mapImages[key]?.back||mapSceneLoading[key])return;mapSceneLoading[key]=true;const image=new Image();queueImage(image,`./assets/${file}`,()=>{mapImages[key]={back:image};game.draw();},()=>{mapSceneLoading[key]=false;},true);};
 game.loadMapScene('doublefork');
