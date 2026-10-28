@@ -248,6 +248,16 @@ export class GameEngine {
     }
     this.elapsed += dt;
     this.state.time = this.elapsed;
+    // Stillness tracking (batch A): spitters only open fire on a hero who
+    // has stayed near-stationary, so the ranged pressure taxes camping
+    // and never kiting. Displacement is measured across ticks here, in
+    // the one place every movement path (input, dash, knockback) passes.
+    {
+      const p = this.state.player;
+      const moved = Math.hypot(p.x - (p._lastX ?? p.x), p.y - (p._lastY ?? p.y));
+      p._lastX = p.x; p._lastY = p.y;
+      p.stillTime = moved / Math.max(dt, 1e-6) < 40 ? (p.stillTime || 0) + dt : 0;
+    }
     this.state.player.invulnerable = Math.max(0, this.state.player.invulnerable - dt);
     this.state.player.dashCooldown = Math.max(0, this.state.player.dashCooldown - dt);
     if (this.state.shakeT > 0) this.state.shakeT = Math.max(0, this.state.shakeT - dt);
@@ -447,7 +457,9 @@ export class GameEngine {
     let variantName = typeof selected === 'string' ? undefined : selected.variant;
     let color = '#725d5a';
     if (kind === 'elite') {
-      hp *= 5;
+      // Elites pick up a mild per-stage factor too (batch A): at x5 flat
+      // they died in under a second to any endgame build on later stages.
+      hp *= 5 * (1 + (this.stage.id - 1) * 0.035);
       speed *= 1.12;
       radius = 25;
       name = `${this.stage.midBoss}·精锐`;
@@ -465,6 +477,15 @@ export class GameEngine {
       xp: override.xp || (kind === 'elite' ? 9 : 2),
       encounterIdentity: null,
     };
+    // Ranged pressure (playtest batch A, 2026-10-28): a camper's auto
+    // attacks hold the melee ring open indefinitely, so part of the horde
+    // learns to spit from outside weapon range. Tagging is a deterministic
+    // cadence (every 7th normal spawn after the first minute), never an
+    // RNG draw, and debug engines keep the frozen spawn contract.
+    if (kind === 'normal' && !this.debugMode && this.state.time > 90) {
+      this._spawnSeq = (this._spawnSeq || 0) + 1;
+      if (this._spawnSeq % 9 === 4) { enemy.ranged = true; enemy.fireTimer = 1.6; }
+    }
     const battleSpriteId = battleEnemySpriteId(this.stage.id, kind, enemy.variant);
     if (battleSpriteId) {
       Object.assign(enemy, { battleSpriteId, visualAttackTimer: 0, visualHitTimer: 0 });
@@ -482,7 +503,25 @@ export class GameEngine {
     const position = this.spawnPoint();
     const progress = clamp(this.state.time / BALANCE.duration, 0, 1);
     const chapterScale = 1 + (this.stage.chapter - 1) * 0.085;
-    const hp = (finalBoss ? 1900 : 800) * (1 + progress * 1.15) * chapterScale * (this.difficulty === 'hard' ? 1.25 : 1) * (override.hpScale || 1);
+    // Stage scaling (playtest batch A, 2026-10-28): boss health used to
+    // grow only with the chapter (x1.68 across all 81 stages), so a built
+    // hero melted the stage-49 final boss in 5.3 s. Bosses now scale per
+    // stage; stage 1 is unchanged (scale 1, authored hpScales intact).
+    // The curve bends after stage 25 (half rate beyond): a talentless
+    // hero must still be able to finish the last chapters (the repo's
+    // normal-run gate contract), while meta progression supplies the
+    // rest of the intended resistance for built accounts.
+    const stageScale = 1 + Math.min(this.stage.id - 1, 24) * 0.09 + Math.max(0, this.stage.id - 25) * 0.045;
+    // Mid bosses cap their stage factor: they arrive at 300 s alongside a
+    // full add field, and an uncapped wall there grinds down the roster's
+    // low-uptime heroes before the finale even starts. Final bosses use
+    // a softer curve of their own: roster boss-uptime spreads ~6x
+    // between the burst and sustain heroes, so the steep curve made the
+    // sustain heroes' finales unfinishable inside the run's frame.
+    const bossScale = finalBoss
+      ? 1 + Math.min(this.stage.id - 1, 24) * 0.06 + Math.max(0, this.stage.id - 25) * 0.03
+      : Math.min(stageScale, 3.5);
+    const hp = (finalBoss ? 2100 : 800) * (1 + progress * 1.15) * bossScale * (this.difficulty === 'hard' ? 1.25 : 1) * (override.hpScale || 1);
     // Final guardians may carry a stable, boss-only identity for a future
     // renderer.  Variant remains encounter metadata and must never be used as
     // a boss sprite lookup.  Mid-bosses and generic later-stage bosses stay
@@ -580,6 +619,7 @@ export class GameEngine {
   }
 
   updateEnemies(dt) {
+    let touchingCount = 0;
     const player = this.state.player;
     for (const enemy of this.state.enemies.slice()) {
       enemy.slow = enemy.nextSlow || 1;
@@ -624,6 +664,25 @@ export class GameEngine {
       if (vector.x || vector.y) enemy.facing = Math.atan2(vector.y, vector.x);
       const speed = enemy.speed * (enemy.slow || 1);
       if (enemy.attackPattern) this.updateBossPattern(enemy, dt);
+      else if (enemy.kind === 'boss' && (enemy._lungeT || 0) > 0) {
+        enemy._lungeT -= dt;
+        this.moveEntity(enemy, enemy._lungeVx * dt, enemy._lungeVy * dt, enemy.radius);
+      }
+      else if (enemy.ranged) {
+        // Spitters hold a 230–300 unit band and lob venom at the hero;
+        // a moving hero outruns the slow bolts, a standing one eats them.
+        const dist = distance(enemy, player);
+        const dir = dist > 320 ? 1 : dist < 250 ? -1 : 0;
+        if (dir) this.moveEntity(enemy, vector.x * dir * speed * dt, vector.y * dir * speed * dt, enemy.radius);
+        enemy.fireTimer = (enemy.fireTimer == null ? 1.6 : enemy.fireTimer) - dt;
+        if (enemy.fireTimer <= 0 && dist < 430 && (player.stillTime || 0) > 1.2) {
+          // A target that keeps camping draws ever faster fire; a hero
+          // who resumes moving is back on the slow cadence at once.
+          enemy.fireTimer = player.stillTime > 8 ? 1.4 : 3.1;
+          const aim = Math.atan2(player.y - enemy.y, player.x - enemy.x);
+          this.projectile({ x: enemy.x, y: enemy.y, vx: Math.cos(aim) * 165, vy: Math.sin(aim) * 165, radius: 8, color: '#a8c256', kind: 'spit', ttl: 3.4, damage: enemy.damage * 0.4, hostile: true });
+        }
+      }
       else this.moveEntity(enemy, vector.x * speed * dt, vector.y * speed * dt, enemy.radius);
       if (enemy.kind === 'boss' && !enemy.attackPattern) {
         enemy.attackCooldown = (enemy.attackCooldown == null ? 4 : enemy.attackCooldown) - dt;
@@ -636,9 +695,21 @@ export class GameEngine {
             this.projectile({ x: enemy.x, y: enemy.y, vx: Math.cos(angle) * 160, vy: Math.sin(angle) * 160, radius: 9, color: '#d15c70', kind: 'boss-orb', ttl: 4, damage: enemy.damage * 0.7, hostile: true });
           }
           this.effect({ x: player.x, y: player.y, kind: 'warning', radius: enemy.final ? 74 : 56, color: '#da6377', ttl: 1.1, hostileDamage: enemy.damage * 0.9 });
+          // Lunge (batch A): a generic boss walks at 34 while every hero
+          // moves 185+, so a kiting hero used to starve the finale
+          // indefinitely — the boss simply never arrived. On each volley
+          // cycle, a boss left far behind now lunges most of the gap,
+          // forcing the duel the finale is supposed to be.
+          const gap = distance(enemy, player);
+          if (gap > 380) {
+            enemy._lungeVx = Math.cos(aim) * 540;
+            enemy._lungeVy = Math.sin(aim) * 540;
+            enemy._lungeT = Math.min(0.85, (gap - 120) / 540);
+          }
         }
       }
       const touching = distance(enemy, player) <= enemy.radius + player.radius;
+      if (touching) touchingCount += 1;
       if (actor && touching && enemy.visualAttackTimer <= 1e-8 && enemy.visualHitTimer <= 1e-8) {
         // Visual-only contact swing. Do not gate damage, movement, RNG, or
         // collision with this timer; player invulnerability is unchanged.
@@ -653,6 +724,32 @@ export class GameEngine {
         if (this.state.status === 'lost') break;
       }
       this.stepEnemyAnimation(enemy, (actor ? enemy.visualHitTimer : enemy.hitTimer) > 1e-8 ? 'hit' : enemy.attackWindup > 0 || enemy.attackTimer > 0 || enemy.visualAttackTimer > 0 ? 'attack' : 'move', dt, enemy.kind === 'boss' ? 8 : 12);
+    }
+    // Surround pressure (playtest batch A, 2026-10-28): contact chips are
+    // capped by the player's global 0.6 s invulnerability, so a hero who
+    // simply stands inside the swarm used to out-live the whole run
+    // (playtest: an idle run survived 590 s with 97% of a normal run's
+    // kills). When three or more enemies are simultaneously touching the
+    // hero, the swarm now mauls: a damage tick every 0.5 s that bypasses
+    // the chip invulnerability and ramps the longer the surround holds.
+    // Kiting breaks the ring and the pressure decays after a 1 s grace,
+    // so ordinary play only ever feels brief pinches. Debug engines keep
+    // the frozen contact contract the animation gates choreograph against.
+    if (!this.debugMode && this.state.status === 'playing') {
+      const p = this.state.player;
+      if (touchingCount >= 3) {
+        if (!p.surroundTime) this.emit({ type: 'surround', count: touchingCount });
+        p.surroundGrace = 0;
+        p.surroundTime = (p.surroundTime || 0) + dt;
+        p.surroundTick = (p.surroundTick || 0) + dt;
+        if (p.surroundTick >= 0.5) {
+          p.surroundTick = 0;
+          this._applyPlayerDamage(1.1 + p.surroundTime * 0.16, true);
+        }
+      } else {
+        p.surroundGrace = (p.surroundGrace || 0) + dt;
+        if (p.surroundGrace > 1) { p.surroundTime = 0; p.surroundTick = 0; p.surroundGrace = 0; }
+      }
     }
     this.separateEnemies();
   }
@@ -1023,9 +1120,13 @@ export class GameEngine {
   }
 
   damagePlayer(amount) {
+    this._applyPlayerDamage(amount, false);
+  }
+
+  _applyPlayerDamage(amount, ignoreInvuln) {
     const player = this.state.player;
     if (this.debugMode && this.debugInvincible) return;
-    if (this.state.status !== 'playing' || player.invulnerable > 0) return;
+    if (this.state.status !== 'playing' || (!ignoreInvuln && player.invulnerable > 0)) return;
     const value = amount * (1 - clamp(Number(this.talents.warding || 0) * 0.025, 0, 0.25));
     const absorbed = Math.min(player.shield || 0, value);
     player.shield = Math.max(0, (player.shield || 0) - absorbed); player.hp -= value - absorbed;
@@ -1174,6 +1275,14 @@ export class GameEngine {
       enemy.visualAttackTimer = 0;
     }
     enemy.hitTimer = Math.max(enemy.hitTimer || 0, 0.12); this.setAnimation(enemy, 'hit');
+    // Final-boss sustain valve (batch A): the duel phase has no add
+    // field to farm, which starves heroes whose sustain comes from
+    // kills and level-ups. The guardian sheds an XP gem at every 20%
+    // health threshold, so a long duel feeds the hero fighting it.
+    if (enemy.final && enemy.hp > 0 && enemy.maxHp > 0) {
+      const step = Math.floor((1 - enemy.hp / enemy.maxHp) * 5);
+      if (step > (enemy._shed || 0)) { enemy._shed = step; this.dropGem(enemy.x, enemy.y, 16, 'xp'); }
+    }
     // Per-target feedback throttling bounds orbit/DoT labels without changing
     // damage, status application or the RNG stream. Every hit still emits below.
     // Playtest display rule (2026-10-22): labels show whole numbers only. A hit
