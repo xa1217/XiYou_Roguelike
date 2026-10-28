@@ -1,1 +1,42 @@
-{"deviceOrientation":"portrait","showStatusBar":false,"subpackages":[{"name":"illustrations","root":"illustrations/"}]}
+{
+ "deviceOrientation": "portrait",
+ "showStatusBar": false,
+ "subpackages": [
+  {
+   "name": "illustrations",
+   "root": "illustrations/"
+  },
+  {
+   "name": "art-ui",
+   "root": "art-ui/"
+  },
+  {
+   "name": "art-heroes",
+   "root": "art-heroes/"
+  },
+  {
+   "name": "art-enemies-a",
+   "root": "art-enemies-a/"
+  },
+  {
+   "name": "art-enemies-b",
+   "root": "art-enemies-b/"
+  },
+  {
+   "name": "art-bosses",
+   "root": "art-bosses/"
+  },
+  {
+   "name": "art-fx",
+   "root": "art-fx/"
+  },
+  {
+   "name": "art-maps-a",
+   "root": "art-maps-a/"
+  },
+  {
+   "name": "art-maps-b",
+   "root": "art-maps-b/"
+  }
+ ]
+}
