@@ -5,7 +5,13 @@ const canvas={width:0,height:0,getContext:()=>ctx};const wx={getWindowInfo:()=>(
 for(const name of ['TouchStart','TouchMove','TouchEnd','TouchCancel','Hide','Show','WindowResize','MemoryWarning','ShareAppMessage']){wx['on'+name]=f=>listeners.set(name,f);wx['off'+name]=f=>{if(listeners.get(name)===f)listeners.delete(name);};}
 const cache=new Map();const sandbox={wx,console,Date:class extends Date{static now(){return clock;}},Math,Set,Map,setTimeout,clearTimeout,requestAnimationFrame:fn=>{const id=serial++;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id)};
 function load(file){file=path.resolve(file);if(cache.has(file))return cache.get(file).exports;const module={exports:{}};cache.set(file,module);const code=fs.readFileSync(file,'utf8').replace(/^\uFEFF/,'');const script=new vm.Script(`(function(require,module,exports){${code}\n})`,{filename:file});script.runInNewContext(sandbox)(s=>load(path.resolve(path.dirname(file),s.endsWith('.js')?s:s+'.js')),module,module.exports);return module.exports;}
-const entry=load(path.join(root,'wechat-game/game.js'));const game=entry.game;assert.equal(game.screen,'home');assert.equal(game.dpr,2);assert.equal(game.top,44);assert.equal(keepScreen,true);assert.ok(frames.size<=1,'Menu owns at most one finite UI RAF');
+const entry=load(path.join(root,'wechat-game/game.js'));const game=entry.game;
+// The WeChat shell enables artStreaming, so startRun waits for battle art
+// that this stub never delivers. Treat art as arrived here: the waiting
+// screen itself is covered by quit-transition-smoke, and every lifecycle
+// assertion below (pause freeze, RAF ownership, dispose) is independent
+// of the wait.
+game._runArtReady=()=>true;assert.equal(game.screen,'home');assert.equal(game.dpr,2);assert.equal(game.top,44);assert.equal(keepScreen,true);assert.ok(frames.size<=1,'Menu owns at most one finite UI RAF');
 const frame=()=>{clock+=17;const item=frames.entries().next().value;assert.ok(item,'expected one scheduled frame');const [id,fn]=item;frames.delete(id);fn(clock);};
 const drainFiniteUi=()=>{let guard=0;while(frames.size&&guard++<24)frame();assert.equal(frames.size,0,'finite menu motion settles without a RAF loop');};
 drainFiniteUi();
