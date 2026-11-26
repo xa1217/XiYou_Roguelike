@@ -7,14 +7,15 @@
 // render-smoke; no browser, no pixels.
 import assert from 'node:assert/strict';
 import { GameRenderer } from '../src/renderer.js';
+import { NativeGame } from '../src/native-ui.js';
 import { sceneBlockedCells, sceneCircleBlocked } from '../src/scene-collision.js';
 
 const METHODS = ['beginPath', 'closePath', 'moveTo', 'lineTo', 'quadraticCurveTo',
   'bezierCurveTo', 'arc', 'fill', 'stroke', 'fillRect', 'strokeRect', 'clearRect',
   'fillText', 'setTransform', 'translate', 'scale', 'rotate', 'clip', 'drawImage'];
 const DEEP = 'rgba(11,74,77,'; // forest theme.deep #0b4a4d
-const PLAYER_SHADOW = 'rgba(36,26,18,0.3)';
-const ENEMY_SHADOW = 'rgba(36,26,18,0.26)';
+const PLAYER_SHADOW = 'rgba(36,26,18,0.5)';
+const ENEMY_SHADOW = 'rgba(36,26,18,0.45)';
 
 function mockCanvas(withGradients = true) {
   const ops = [];
@@ -37,20 +38,20 @@ function mockCanvas(withGradients = true) {
 }
 
 const paintedImage = { naturalWidth: 1024, naturalHeight: 1024, complete: true };
-const makeState = (x, y, mapAssetKey = null) => ({
-  status: 'playing', time: 154, stage: { theme: 'forest', ...(mapAssetKey ? { mapAssetKey } : {}) }, character: { id: 'wukong' },
+const makeState = (x, y, mapAssetKey = null, theme = 'forest') => ({
+  status: 'playing', time: 154, stage: { theme, ...(mapAssetKey ? { mapAssetKey } : {}) }, character: { id: 'wukong' },
   player: { x, y, radius: 18, hp: 145, maxHp: 145, xp: 7, xpNext: 30, level: 4, facing: Math.PI, invulnerable: 0 },
   enemies: [{ id: 1, x: x + 40, y: y + 30, radius: 15, kind: 'normal', name: 'wolf', variant: 'wolf', hp: 50, maxHp: 100, stun: 0, flash: 0 }],
   gems: [], projectiles: [], effects: [], damageNumbers: [],
 });
-const render = (mapImages, x, y, withGradients = true, mapAssetKey = null) => {
+const render = (mapImages, x, y, withGradients = true, mapAssetKey = null, theme = 'forest') => {
   const { canvas, ctx, ops } = mockCanvas(withGradients);
   const renderer = new GameRenderer(canvas, { width: 390, height: 844, pixelRatio: 1, showHud: false, ...(mapImages ? { mapImages } : {}) });
   const originalRandom = Math.random;
   Math.random = () => { throw new Error('renderer must not use Math.random per frame'); };
   // dt 0 snaps the camera straight to its target, so veil parallax offsets
   // are exact instead of one smoothing step in from the spawn centre.
-  try { renderer.render(makeState(x, y, mapAssetKey), 0); } finally { Math.random = originalRandom; }
+  try { renderer.render(makeState(x, y, mapAssetKey, theme), 0); } finally { Math.random = originalRandom; }
   assert.equal(ctx._stack || 0, 0, 'save/restore must balance');
   return { renderer, ops };
 };
@@ -117,6 +118,59 @@ check('relief geometry is exactly the collision mask', () => {
 check('doublefork relief uses the doublefork mask', () => {
   const { ops } = render({ doublefork: { back: { naturalWidth: 941, naturalHeight: 1672, complete: true } } }, 900, 900, true, 'doublefork');
   assert.ok(reliefRects(ops).length >= 20, `expected doublefork relief rects, got ${reliefRects(ops).length}`);
+});
+
+// Regression (2026-11-26 browser acceptance): the web shell pre-seeds
+// mapImages with empty placeholder objects {forest:{},temple:{},doublefork:{}}.
+// The old imageReady counted a plain {} as ready (complete === undefined),
+// so stage 2 temple took the painted path with no image — drawImage threw,
+// the map rendered as flat paper purple, and the vector fallback never ran.
+// An empty placeholder must fall back to the vector plate (sky wash .38,
+// scatter, relief), and a real painted image must take the painted path.
+const TEMPLE_SKY_WASH = 'rgba(118,82,213,0.38)'; // temple sky #7652d5
+const TEMPLE_DEEP = 'rgba(36,21,82,'; // temple deep #241552
+check('empty placeholder mapImages fall back to the vector plate', () => {
+  const { renderer, ops } = render({ forest: {}, temple: {}, doublefork: {} }, 900, 900, true, null, 'temple');
+  assert.equal(renderer.mapAssetDraws, 0, 'no painted image must draw');
+  assert.ok(ops.some(o => o.op === 'fillRect' && o.fillStyle === TEMPLE_SKY_WASH), 'vector plate sky wash must draw');
+  const relief = ops.filter(o => o.op === 'fillRect' && typeof o.fillStyle === 'string' && o.fillStyle.startsWith(TEMPLE_DEEP));
+  assert.ok(relief.length >= 20, `expected temple relief rects, got ${relief.length}`);
+});
+
+check('real painted temple image takes the painted path', () => {
+  const { renderer, ops } = render({ temple: { back: paintedImage } }, 900, 900, true, null, 'temple');
+  assert.ok(renderer.mapAssetDraws >= 1, 'painted temple image must draw');
+  assert.ok(!ops.some(o => o.op === 'fillRect' && o.fillStyle === TEMPLE_SKY_WASH), 'vector plate must not draw when the painting is present');
+});
+
+// Regression (2026-11-26): native-app.js attaches the scene loader to the
+// game instance (game.loadMapScene), while startRun only consulted
+// this.platform.loadMapScene — which the platform options object never
+// carries — so no theme scene was ever requested except the eagerly loaded
+// doublefork. startRun must call the instance-attached loader.
+check('startRun calls the scene loader attached to the game instance', () => {
+  const audio = { play() {}, startMusic() {}, stopMusic() {}, setMuted() {}, dispose() {} };
+  const noop = () => {};
+  const ctx2 = new Proxy({
+    measureText(v) { return { width: String(v).length * 8 }; },
+    createLinearGradient() { return { addColorStop() {} }; },
+    createRadialGradient() { return { addColorStop() {} }; },
+    save: noop, restore: noop,
+  }, {
+    get(t, k) { if (k in t) return t[k]; return () => {}; },
+    set(t, k, v) { t[k] = v; return true; },
+  });
+  const canvas2 = { width: 0, height: 0, getContext() { return ctx2; } };
+  const loaded = [];
+  const game2 = new NativeGame(canvas2, {
+    width: 390, height: 844, pixelRatio: 1, now: () => 1000, audio,
+    load: () => null, save: () => {},
+    requestFrame() { return 0; }, cancelFrame() {},
+  });
+  game2.loadMapScene = (key) => { loaded.push(key); };
+  game2.stageId = 2; // 出胎几杀, temple theme, no mapAssetKey
+  game2.startRun();
+  assert.deepEqual(loaded, ['temple']);
 });
 
 for (const name of results) console.log(`PASS ${name}`);
