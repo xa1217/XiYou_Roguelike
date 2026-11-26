@@ -199,9 +199,16 @@ function method(ctx, name, ...args) {
 
 // Browser Image and WeChat's canvas image objects expose different readiness
 // fields. Keep the asset path opportunistic: a missing/undecoded image must
-// never block the deterministic vector fallback.
+// never block the deterministic vector fallback. Readiness is proven by real
+// decoded dimensions only: a plain placeholder object (e.g. the pre-seeded
+// mapImages entries {forest:{},temple:{},doublefork:{}}) has no `complete`
+// field, so the old `complete === undefined` clause counted it as ready and
+// the renderer took the painted path with no image — a flat paper fill with
+// no painting and no vector fallback (stage 2 temple, 2026-11-26 browser
+// acceptance). A fresh Image has naturalWidth/width 0 until decoded, so
+// dimensions are the honest signal on every platform.
 function imageReady(image) {
-  return Boolean(image && (image.complete === undefined || image.complete || image.naturalWidth > 0 || image.width > 0));
+  return Boolean(image && (image.naturalWidth > 0 || image.videoWidth > 0 || image.width > 0));
 }
 
 // Offscreen canvas factory for the baked map cache (perf batch, 2026-10-28).
@@ -976,6 +983,7 @@ class GameRenderer {
     }
     if (this.battleSceneMode === 'vector') {
       this._drawVectorBattleMap(ctx, theme, left, top, right, bottom, mapKey);
+      this._drawAltitudeHaze(ctx, theme);
       this._drawWorldRim(ctx, theme, left, top, right, bottom);
       this._drawMapRelief(ctx, theme, mapKey || themeName, left, top, right, bottom);
       this._drawCaveMouths(ctx, mapKey);
@@ -1079,16 +1087,16 @@ class GameRenderer {
         if (!blocked.has(`${c},${r}`)) continue;
         const x = c * cell, y = r * cell;
         if (!blocked.has(`${c},${r + 1}`)) {
-          paint(ctx, alphaColor(theme.deep, .26)); method(ctx, 'fillRect', x, y + cell + 2, cell, RELIEF_SHADOW_SOUTH);
-          paint(ctx, alphaColor(theme.deep, .38)); method(ctx, 'fillRect', x, y + cell - RELIEF_FACE_SOUTH, cell, RELIEF_FACE_SOUTH);
-          paint(ctx, alphaColor(theme.deep, .5)); method(ctx, 'fillRect', x, y + cell - 2, cell, 2);
+          paint(ctx, alphaColor(theme.deep, .45)); method(ctx, 'fillRect', x, y + cell + 2, cell, RELIEF_SHADOW_SOUTH);
+          paint(ctx, alphaColor(theme.deep, .62)); method(ctx, 'fillRect', x, y + cell - RELIEF_FACE_SOUTH, cell, RELIEF_FACE_SOUTH);
+          paint(ctx, alphaColor(theme.deep, .72)); method(ctx, 'fillRect', x, y + cell - 2, cell, 2);
         }
         if (!blocked.has(`${c + 1},${r}`)) {
-          paint(ctx, alphaColor(theme.deep, .18)); method(ctx, 'fillRect', x + cell + 2, y, RELIEF_SHADOW_EAST, cell);
-          paint(ctx, alphaColor(theme.deep, .26)); method(ctx, 'fillRect', x + cell - RELIEF_FACE_EAST, y, RELIEF_FACE_EAST, cell);
+          paint(ctx, alphaColor(theme.deep, .32)); method(ctx, 'fillRect', x + cell + 2, y, RELIEF_SHADOW_EAST, cell);
+          paint(ctx, alphaColor(theme.deep, .45)); method(ctx, 'fillRect', x + cell - RELIEF_FACE_EAST, y, RELIEF_FACE_EAST, cell);
         }
         if (!blocked.has(`${c},${r - 1}`)) {
-          paint(ctx, alphaColor(theme.sky, .15)); method(ctx, 'fillRect', x, y, cell, 3);
+          paint(ctx, alphaColor(theme.sky, .22)); method(ctx, 'fillRect', x, y, cell, 3);
         }
       }
     }
@@ -1127,6 +1135,21 @@ class GameRenderer {
     this.mapAssetDraws = drawsBefore;
     this._mapCache = { canvas, image: sceneBack, themeName, mapKey, margin, scale };
     return this._mapCache;
+  }
+
+  // Altitude haze (2026-11-26): the far (north) ground recedes under a
+  // deep tint while the near ground stays warm, so the painted scene gains
+  // a vertical depth cue without touching its art. Guarded like the other
+  // gradient uses: contexts without gradients simply skip it. Shared by the
+  // painted path and the vector fallback, so the depth cue survives while a
+  // scene image is still loading. 0.30 at the north rim: the original 0.12
+  // was invisible against the temple purple in browser acceptance.
+  _drawAltitudeHaze(ctx, theme) {
+    if (typeof ctx.createLinearGradient !== 'function') return;
+    const g = ctx.createLinearGradient(0, 0, 0, WORLD_SIZE * .55);
+    g.addColorStop(0, alphaColor(theme.deep, .30));
+    g.addColorStop(1, alphaColor(theme.deep, 0));
+    paint(ctx, g); method(ctx, 'fillRect', 0, 0, WORLD_SIZE, WORLD_SIZE * .55);
   }
 
   _drawPaintedBattleMap(ctx, theme, back, left, top, right, bottom) {
@@ -1186,16 +1209,7 @@ class GameRenderer {
       if (ovL > 0) { const d = Math.min(ovL, FD); fade(0, 0, -d, 0, -d, 0, d, WORLD_SIZE); if (ovL > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', left, 0, ovL - d, WORLD_SIZE); } }
       if (ovR > 0) { const d = Math.min(ovR, FD); fade(WORLD_SIZE, 0, WORLD_SIZE + d, 0, WORLD_SIZE, 0, d, WORLD_SIZE); if (ovR > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', WORLD_SIZE + d, 0, ovR - d, WORLD_SIZE); } }
     }
-    // Altitude haze (2026-11-26): the far (north) ground recedes under a
-    // faint deep tint while the near ground stays warm, so the painted scene
-    // gains a vertical depth cue without touching its art. Guarded like the
-    // other gradient uses: contexts without gradients simply skip it.
-    if (typeof ctx.createLinearGradient === 'function') {
-      const g = ctx.createLinearGradient(0, 0, 0, WORLD_SIZE * .45);
-      g.addColorStop(0, alphaColor(theme.deep, .12));
-      g.addColorStop(1, alphaColor(theme.deep, 0));
-      paint(ctx, g); method(ctx, 'fillRect', 0, 0, WORLD_SIZE, WORLD_SIZE * .45);
-    }
+    this._drawAltitudeHaze(ctx, theme);
     // A light wash keeps the HUD's warm ink palette coherent and the actors
     // the highest-contrast objects on the field.
     paint(ctx, alphaColor(theme.sky, .06));
@@ -1427,9 +1441,9 @@ class GameRenderer {
     const bandTop = WORLD_SIZE - FOREGROUND_BAND;
     if (this._view.bottom <= bandTop || this._view.top >= WORLD_SIZE) return;
     const px = clamp((this.camera.x - WORLD_SIZE / 2) * .05, -12, 12) + 6;
-    const py = clamp((this.camera.y - WORLD_SIZE / 2) * .05, -12, 12) + 9;
+    const py = clamp((this.camera.y - WORLD_SIZE / 2) * .05, -12, 12) + 14;
     const { sx, sy, sw, sh } = this._paintedSourceRect(back);
-    const slices = 5, alphas = [.06, .12, .2, .28, .35];
+    const slices = 5, alphas = [.14, .24, .34, .44, .55];
     method(ctx, 'save');
     for (let i = 0; i < slices; i += 1) {
       const wy0 = bandTop + (i * FOREGROUND_BAND) / slices, wh = FOREGROUND_BAND / slices;
@@ -1860,7 +1874,7 @@ class GameRenderer {
     // Cast shadow (2026-11-26): squashed south-east, pinned to the ground
     // plane like the hero's. Drawn in world space before the actor
     // transform, so the authored-sprite transform assertions stay exact.
-    if (!falling) shadowEllipse(ctx, x + 6, y + radius * .82, radius * .85, radius * .36, .26);
+    if (!falling) shadowEllipse(ctx, x + 8, y + radius * .85, radius * 1.15, radius * .48, .45);
     method(ctx, 'save'); method(ctx, 'translate', x, y + fallDy);
     const pose = animationPose(enemy, radius);
     const bob = Math.sin(this.elapsed * (kind === 'boss' ? 2 : 4) + n(enemy.id, 0) * .8) * radius * .045;
@@ -2075,10 +2089,10 @@ class GameRenderer {
     // Cast shadow (2026-11-26): a squashed south-east ellipse pins the hero
     // to the ground plane. Drawn in world space before the bob/pose
     // transform, so it never bobs with the body.
-    shadowEllipse(ctx, x + 7, y + r * 1.02, r * .95, r * .40, .30);
+    shadowEllipse(ctx, x + 9, y + r * 1.05, r * 1.3, r * .52, .50);
     method(ctx, 'save'); method(ctx, 'translate', x, y + pose.y); method(ctx, 'scale', facing * pose.scaleX, pose.scaleY); method(ctx, 'rotate', pose.rotation);
     const sprite = this.heroImages?.[id];
-    const spriteReady = this.battleArtMode === 'authoredFrames' && sprite?.__v3BattleSprite === true && (sprite.complete === undefined || sprite.complete || sprite.naturalWidth > 0 || sprite.width > 0);
+    const spriteReady = this.battleArtMode === 'authoredFrames' && sprite?.__v3BattleSprite === true && imageReady(sprite);
     if (spriteReady) {
       if (sprite.__v3BattleSprite) {
         const frame = spriteFrameRect(sprite, id, animationFrame(player), animationState(player));
