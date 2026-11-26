@@ -49,6 +49,27 @@ function maskFor(key) {
   return decoded[key];
 }
 export function sceneMaskHas(key) { return Boolean(SCENE_MASKS[key]); }
+const EMPTY_CELLS = Object.freeze([]);
+// Blocked-cell enumeration for the renderer's relief pass (2026-11-26):
+// the same mask that stops movement also marks raised terrain, so the 3D
+// side faces and shadows are drawn exactly where collision says the ground
+// rises. Read-only; collision behaviour is unchanged.
+const blockedCellCache = {};
+export function sceneBlockedCells(key) {
+  if (!SCENE_MASKS[key]) return EMPTY_CELLS;
+  if (!blockedCellCache[key]) {
+    const bits = maskFor(key);
+    const cells = [];
+    for (let r = 0; r < SCENE_MASK_ROWS; r++) {
+      for (let c = 0; c < SCENE_MASK_COLS; c++) {
+        const idx = r * SCENE_MASK_COLS + c;
+        if (bits[idx >> 3] & (0x80 >> (idx & 7))) cells.push([c, r]);
+      }
+    }
+    blockedCellCache[key] = Object.freeze(cells);
+  }
+  return blockedCellCache[key];
+}
 // Circle-vs-mask test in world coordinates: true when any blocked cell
 // intersects the circle. Cells outside the grid count as open (the world
 // clamp in moveEntity handles the boundary).

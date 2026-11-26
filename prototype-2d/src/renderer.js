@@ -10,10 +10,19 @@
 
 import { battleEnemyAnimation } from './battle-enemy-animation.js';
 import { skillFxIdForEffect, skillFxFrameRect } from './skill-fx-animation.js';
-import { CAVE_MOUTHS } from './scene-collision.js';
+import { CAVE_MOUTHS, sceneBlockedCells, sceneMaskHas, SCENE_MASK_COLS, SCENE_MASK_ROWS } from './scene-collision.js';
 
 const TAU = Math.PI * 2;
 const WORLD_SIZE = 1800;
+// 3D map relief (2026-11-26): raised terrain is read from the collision
+// mask — the same cells that block movement — so the side faces and shadows
+// always agree with walkability. Light comes from the north-west, so the
+// south/east faces are shaded and shadows fall south-east, like the Zombie
+// perspective work. One mask cell is 15 world units.
+const RELIEF_CELL = WORLD_SIZE / SCENE_MASK_COLS;
+const RELIEF_FACE_SOUTH = 16, RELIEF_FACE_EAST = 12;
+const RELIEF_SHADOW_SOUTH = 14, RELIEF_SHADOW_EAST = 10;
+const FOREGROUND_BAND = 220;
 const EMPTY_LIST = Object.freeze([]);
 const compareEnemyDepth = (a, b) => n(a.y) - n(b.y);
 const STATUS_BADGES = Object.freeze({
@@ -253,6 +262,18 @@ function circle(ctx, x, y, radius, fill, stroke, lineWidth = 1) {
   method(ctx, 'arc', x, y, Math.max(0, radius), 0, TAU);
   if (fill != null) { paint(ctx, fill); method(ctx, 'fill'); }
   if (stroke != null) { paint(ctx, null, stroke, lineWidth); method(ctx, 'stroke'); }
+}
+
+// Flat ground shadow: an ellipse drawn with absolute coordinates, so it
+// never adds a transform — the authored-sprite tests pin the exact
+// translate/scale sequence of _drawEnemy, and this must not disturb it.
+function shadowEllipse(ctx, x, y, rx, ry, alpha) {
+  paint(ctx, alphaColor('#241a12', alpha));
+  method(ctx, 'beginPath');
+  method(ctx, 'moveTo', x - rx, y);
+  method(ctx, 'bezierCurveTo', x - rx, y - ry, x + rx, y - ry, x + rx, y);
+  method(ctx, 'bezierCurveTo', x + rx, y + ry, x - rx, y + ry, x - rx, y);
+  method(ctx, 'fill');
 }
 
 function roundedBox(ctx, x, y, w, h, radius, fill, stroke, lineWidth = 1) {
@@ -524,6 +545,10 @@ class GameRenderer {
       this._drawEnemy(ctx, enemy, player, mapTheme);
     }
     if (!playerDrawn) this._drawPlayer(ctx, player, safeState.character?.id);
+    // Foreground veil: the near band of the painted scene, drawn after the
+    // actors so nearer terrain overlaps them (Y-sorted occlusion), before
+    // the combat feedback so labels stay readable.
+    this._drawMapForeground(ctx, mapTheme, mapKey);
     // Damage labels are the only transient world text that can land on top of
     // the hero silhouette.  Keep the direct helper API unchanged for Node and
     // adapter callers, while the full render pass enables its conservative,
@@ -947,11 +972,12 @@ class GameRenderer {
         }
         return;
       }
-      this._drawPaintedBattleMap(ctx, theme, sceneBack, left, top, right, bottom); this._drawWorldRim(ctx, theme, left, top, right, bottom); this._drawCaveMouths(ctx, mapKey); return;
+      this._drawPaintedBattleMap(ctx, theme, sceneBack, left, top, right, bottom); this._drawWorldRim(ctx, theme, left, top, right, bottom); this._drawMapRelief(ctx, theme, mapKey || themeName, left, top, right, bottom); this._drawCaveMouths(ctx, mapKey); return;
     }
     if (this.battleSceneMode === 'vector') {
       this._drawVectorBattleMap(ctx, theme, left, top, right, bottom, mapKey);
       this._drawWorldRim(ctx, theme, left, top, right, bottom);
+      this._drawMapRelief(ctx, theme, mapKey || themeName, left, top, right, bottom);
       this._drawCaveMouths(ctx, mapKey);
       return;
     }
@@ -993,6 +1019,7 @@ class GameRenderer {
       paint(ctx, null, alphaColor(i % 2 ? theme.motif : theme.sticker, .46), 5 + (i % 2) * 2); method(ctx, 'stroke');
     }
     this._drawFrontLayer(ctx, theme, left, top, right, bottom, mapKey);
+    this._drawMapRelief(ctx, theme, mapKey || themeName, left, top, right, bottom);
     this._drawCaveMouths(ctx, mapKey);
   }
 
@@ -1028,6 +1055,45 @@ class GameRenderer {
     }
   }
 
+  // Mask-driven relief (2026-11-26): every blocked mask cell whose south or
+  // east neighbour is open gets a shaded side face on its rim and a soft
+  // shadow cast onto the open ground south-east of it; north rims get a
+  // faint lit edge. Faces sit inside blocked territory and shadows lie on
+  // open ground, so both bake below the actors and can never cover one.
+  // Culled to the given rect; the baked cache calls this once for the whole
+  // world, the direct path once per frame for the visible rect only.
+  _drawMapRelief(ctx, theme, mapKey, left, top, right, bottom) {
+    if (!sceneMaskHas(mapKey)) return;
+    if (!this._reliefSet || this._reliefSetKey !== mapKey) {
+      const set = new Set();
+      for (const [c, r] of sceneBlockedCells(mapKey)) set.add(`${c},${r}`);
+      this._reliefSet = set; this._reliefSetKey = mapKey;
+    }
+    const blocked = this._reliefSet;
+    if (!blocked.size) return;
+    const cell = RELIEF_CELL;
+    const c0 = Math.max(0, Math.floor(left / cell)), c1 = Math.min(SCENE_MASK_COLS - 1, Math.floor(right / cell));
+    const r0 = Math.max(0, Math.floor(top / cell)), r1 = Math.min(SCENE_MASK_ROWS - 1, Math.floor(bottom / cell));
+    for (let r = r0; r <= r1; r++) {
+      for (let c = c0; c <= c1; c++) {
+        if (!blocked.has(`${c},${r}`)) continue;
+        const x = c * cell, y = r * cell;
+        if (!blocked.has(`${c},${r + 1}`)) {
+          paint(ctx, alphaColor(theme.deep, .26)); method(ctx, 'fillRect', x, y + cell + 2, cell, RELIEF_SHADOW_SOUTH);
+          paint(ctx, alphaColor(theme.deep, .38)); method(ctx, 'fillRect', x, y + cell - RELIEF_FACE_SOUTH, cell, RELIEF_FACE_SOUTH);
+          paint(ctx, alphaColor(theme.deep, .5)); method(ctx, 'fillRect', x, y + cell - 2, cell, 2);
+        }
+        if (!blocked.has(`${c + 1},${r}`)) {
+          paint(ctx, alphaColor(theme.deep, .18)); method(ctx, 'fillRect', x + cell + 2, y, RELIEF_SHADOW_EAST, cell);
+          paint(ctx, alphaColor(theme.deep, .26)); method(ctx, 'fillRect', x + cell - RELIEF_FACE_EAST, y, RELIEF_FACE_EAST, cell);
+        }
+        if (!blocked.has(`${c},${r - 1}`)) {
+          paint(ctx, alphaColor(theme.sky, .15)); method(ctx, 'fillRect', x, y, cell, 3);
+        }
+      }
+    }
+  }
+
   // Baked painted-map cache (perf batch, 2026-10-28). The cache covers
   // the world plus a 640-unit margin on every side — beyond the furthest
   // the portrait frame can overshoot (camera rim clamp 150 + widest view
@@ -1054,6 +1120,7 @@ class GameRenderer {
     const L = -margin, T = -margin, R = WORLD_SIZE + margin, B = WORLD_SIZE + margin;
     this._drawPaintedBattleMap(c2, theme, sceneBack, L, T, R, B);
     this._drawWorldRim(c2, theme, L, T, R, B);
+    this._drawMapRelief(c2, theme, mapKey || themeName, L, T, R, B);
     const savedView = this._view;
     this._view = { left: L, top: T, right: R, bottom: B };
     try { this._drawCaveMouths(c2, mapKey); } finally { this._view = savedView; }
@@ -1118,6 +1185,16 @@ class GameRenderer {
       if (ovT > 0) { const d = Math.min(ovT, FD); fade(0, 0, 0, -d, fx, -d, fw, d); if (ovT > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', fx, top, fw, ovT - d); } }
       if (ovL > 0) { const d = Math.min(ovL, FD); fade(0, 0, -d, 0, -d, 0, d, WORLD_SIZE); if (ovL > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', left, 0, ovL - d, WORLD_SIZE); } }
       if (ovR > 0) { const d = Math.min(ovR, FD); fade(WORLD_SIZE, 0, WORLD_SIZE + d, 0, WORLD_SIZE, 0, d, WORLD_SIZE); if (ovR > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', WORLD_SIZE + d, 0, ovR - d, WORLD_SIZE); } }
+    }
+    // Altitude haze (2026-11-26): the far (north) ground recedes under a
+    // faint deep tint while the near ground stays warm, so the painted scene
+    // gains a vertical depth cue without touching its art. Guarded like the
+    // other gradient uses: contexts without gradients simply skip it.
+    if (typeof ctx.createLinearGradient === 'function') {
+      const g = ctx.createLinearGradient(0, 0, 0, WORLD_SIZE * .45);
+      g.addColorStop(0, alphaColor(theme.deep, .12));
+      g.addColorStop(1, alphaColor(theme.deep, 0));
+      paint(ctx, g); method(ctx, 'fillRect', 0, 0, WORLD_SIZE, WORLD_SIZE * .45);
     }
     // A light wash keeps the HUD's warm ink palette coherent and the actors
     // the highest-contrast objects on the field.
@@ -1320,6 +1397,48 @@ class GameRenderer {
         paint(ctx, null, alphaColor(theme.accent, .6), 3); method(ctx, 'stroke');
       }
     }
+  }
+
+  // Painted-image -> world source rect (2026-11-26): the same mapping
+  // _drawPaintedBattleMap uses — portrait scenes stretch to the full world,
+  // square/landscape scenes cover-crop — so the foreground veil below samples
+  // exactly the pixels the base map shows.
+  _paintedSourceRect(back) {
+    const iw = Math.max(1, n(back.naturalWidth || back.videoWidth || back.width, WORLD_SIZE));
+    const ih = Math.max(1, n(back.naturalHeight || back.videoHeight || back.height, WORLD_SIZE));
+    if (ih > iw) return { sx: 0, sy: 0, sw: iw, sh: ih };
+    let sx = 0, sy = 0, sw = iw, sh = ih;
+    if (iw / ih > 1) { sw = ih; sx = (iw - sw) / 2; }
+    else if (iw / ih < 1) { sh = iw; sy = (ih - sh) / 2; }
+    return { sx, sy, sw, sh };
+  }
+
+  // Foreground veil (2026-11-26): the near (south) band of the painted
+  // scene, drawn AFTER the actors with a small south-east offset and a
+  // camera-relative parallax shift, fading out toward its top edge so it
+  // reads as near foliage/rock the actors pass behind rather than a second
+  // copy of the ground. Only the band's own pixels are reused, so the art
+  // stays the authored painting. Skipped when the band is off-view or no
+  // painted scene is loaded (the vector fallback keeps its own front layer).
+  _drawMapForeground(ctx, theme, mapKey = null) {
+    const scene = this._sceneFor(theme, mapKey);
+    const back = scene?.back || scene?.background || scene;
+    if (!imageReady(back)) return;
+    const bandTop = WORLD_SIZE - FOREGROUND_BAND;
+    if (this._view.bottom <= bandTop || this._view.top >= WORLD_SIZE) return;
+    const px = clamp((this.camera.x - WORLD_SIZE / 2) * .05, -12, 12) + 6;
+    const py = clamp((this.camera.y - WORLD_SIZE / 2) * .05, -12, 12) + 9;
+    const { sx, sy, sw, sh } = this._paintedSourceRect(back);
+    const slices = 5, alphas = [.06, .12, .2, .28, .35];
+    method(ctx, 'save');
+    for (let i = 0; i < slices; i += 1) {
+      const wy0 = bandTop + (i * FOREGROUND_BAND) / slices, wh = FOREGROUND_BAND / slices;
+      if (wy0 + wh < this._view.top || wy0 > this._view.bottom) continue;
+      const sY = sy + (wy0 / WORLD_SIZE) * sh, sH = (wh / WORLD_SIZE) * sh;
+      ctx.globalAlpha = alphas[i];
+      method(ctx, 'drawImage', back, sx, sY, sw, sH, px, wy0 + py, WORLD_SIZE, wh);
+    }
+    method(ctx, 'restore');
   }
 
   _drawScenery(ctx, x, y, theme, themeName) {
@@ -1738,8 +1857,11 @@ class GameRenderer {
       circle(ctx, x, y + radius * .5, radius * (1.08 + pulse * .14), null, alphaColor('#e8402f', .38 + .3 * pulse), 3);
       circle(ctx, x, y + radius * .5, radius * .8, null, alphaColor('#ffb03a', .25), 1.5);
     }
+    // Cast shadow (2026-11-26): squashed south-east, pinned to the ground
+    // plane like the hero's. Drawn in world space before the actor
+    // transform, so the authored-sprite transform assertions stay exact.
+    if (!falling) shadowEllipse(ctx, x + 6, y + radius * .82, radius * .85, radius * .36, .26);
     method(ctx, 'save'); method(ctx, 'translate', x, y + fallDy);
-    if (!falling) circle(ctx, 0, radius * .7, radius * .72, alphaColor('#382f2b', .2));
     const pose = animationPose(enemy, radius);
     const bob = Math.sin(this.elapsed * (kind === 'boss' ? 2 : 4) + n(enemy.id, 0) * .8) * radius * .045;
     if (!authoredFrame) {
@@ -1950,8 +2072,11 @@ class GameRenderer {
     const pose = animationPose(player, r);
     const motion = battleMotion(player, r);
     const gait = animationState(player) === 'move' ? pose.y * .7 : 0;
+    // Cast shadow (2026-11-26): a squashed south-east ellipse pins the hero
+    // to the ground plane. Drawn in world space before the bob/pose
+    // transform, so it never bobs with the body.
+    shadowEllipse(ctx, x + 7, y + r * 1.02, r * .95, r * .40, .30);
     method(ctx, 'save'); method(ctx, 'translate', x, y + pose.y); method(ctx, 'scale', facing * pose.scaleX, pose.scaleY); method(ctx, 'rotate', pose.rotation);
-    circle(ctx, 0, r * .9, r * .84, alphaColor('#3b302b', .26));
     const sprite = this.heroImages?.[id];
     const spriteReady = this.battleArtMode === 'authoredFrames' && sprite?.__v3BattleSprite === true && (sprite.complete === undefined || sprite.complete || sprite.naturalWidth > 0 || sprite.width > 0);
     if (spriteReady) {
