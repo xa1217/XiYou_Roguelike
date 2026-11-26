@@ -56,7 +56,10 @@ const render = (mapImages, x, y, withGradients = true, mapAssetKey = null, theme
   return { renderer, ops };
 };
 const reliefRects = ops => ops.filter(o => o.op === 'fillRect' && typeof o.fillStyle === 'string' && o.fillStyle.startsWith(DEEP));
-const veilDraws = ops => ops.filter(o => o.op === 'drawImage' && o.args.length === 9 && o.args[7] === 1800 && o.args[8] === 44 && o.args[6] >= 1580);
+// Veil slices: 9-arg drawImage, full world width, one 44u slice tall.
+// The band is view-relative (see _drawMapForeground), so the dest y is the
+// view's bottom band, clamped to the world's south band at the map edge.
+const veilSlices = ops => ops.filter(o => o.op === 'drawImage' && o.args.length === 9 && o.args[7] === 1800 && o.args[8] === 44);
 const results = [];
 const check = (name, fn) => { try { fn(); results.push(name); } catch (e) { console.error(`FAIL ${name}: ${e.message}`); process.exitCode = 1; } };
 
@@ -85,21 +88,35 @@ check('actors get squashed SE cast shadows', () => {
   assert.ok(ops.some(o => o.op === 'fill' && o.fillStyle === ENEMY_SHADOW), 'enemy shadow missing');
 });
 
-check('foreground veil draws after the actors only when the south band is in view', () => {
+// Second pass (2026-11-26, browser re-acceptance): the veil used to be the
+// world's absolute south 220u, so it only appeared when the camera reached
+// the map's south edge — a 74-second stage-2 play that moved south
+// repeatedly never showed it. The band is now the bottom 220u of the
+// CURRENT view (clamped to the world's south band at the map edge), so near
+// terrain occludes actors at the bottom of the screen during ordinary play
+// anywhere on the map. The veil therefore draws in every in-play view with
+// a painted scene, and stays off only when there is no painted scene.
+check('foreground veil draws after the actors, at the bottom of the current view', () => {
   const south = render({ forest: { back: paintedImage } }, 900, 1700);
-  const veil = veilDraws(south.ops);
+  const veil = veilSlices(south.ops);
   assert.ok(veil.length >= 1, `expected veil slices near the south edge, got ${veil.length}`);
+  assert.ok(veil.every(o => o.args[6] >= 1580), 'south-edge veil must sit on the world south band');
   const shadowIdx = south.ops.findIndex(o => o.op === 'fill' && o.fillStyle === PLAYER_SHADOW);
   const veilIdx = south.ops.findIndex(o => o.op === 'drawImage' && o.args.length === 9 && o.args[7] === 1800 && o.args[8] === 44);
   assert.ok(shadowIdx >= 0 && veilIdx > shadowIdx, 'veil must draw after the actors');
   const north = render({ forest: { back: paintedImage } }, 900, 200);
-  assert.equal(veilDraws(north.ops).length, 0, 'veil must stay off when its band is off-view');
+  const bandTop = Math.min(north.renderer._view.bottom - 220, 1580);
+  const northVeil = veilSlices(north.ops);
+  assert.ok(northVeil.length >= 1, `expected view-relative veil slices in the north view, got ${northVeil.length}`);
+  assert.ok(northVeil.every(o => o.args[6] >= bandTop && o.args[6] < bandTop + 220), 'north veil must sit on the view bottom band');
+  const vector = render(null, 900, 1700);
+  assert.equal(veilSlices(vector.ops).length, 0, 'veil must stay off without a painted scene');
 });
 
 check('foreground veil parallaxes with the camera', () => {
   const west = render({ forest: { back: paintedImage } }, 500, 1700);
   const east = render({ forest: { back: paintedImage } }, 1300, 1700);
-  const dx = ops => veilDraws(ops)[0].args[5];
+  const dx = ops => veilSlices(ops)[0].args[5];
   assert.notEqual(dx(west.ops), dx(east.ops), 'veil offset must follow the camera');
   assert.ok(dx(west.ops) >= -6 && dx(east.ops) <= 18, `veil offset in range, got ${dx(west.ops)} / ${dx(east.ops)}`);
 });
