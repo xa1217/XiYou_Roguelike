@@ -1070,6 +1070,24 @@ class GameRenderer {
   // open ground, so both bake below the actors and can never cover one.
   // Culled to the given rect; the baked cache calls this once for the whole
   // world, the direct path once per frame for the visible rect only.
+  //
+  // Second pass (2026-11-26, browser re-acceptance): the first version drew
+  // each face/shadow as ONE flat rect at one alpha (.62 face + .45 shadow +
+  // .72 rim line). Along a long mask rim those fused into a solid ~30u
+  // dark-purple bar with a pixelated staircase outline — in stage 2 temple
+  // it read as a translucent rectangular band pasted across the painting,
+  // and the world-frame rims drew full-height vertical / full-width
+  // horizontal strips at the map edges. The fix, in order: faces and
+  // shadows became stacked steps fading toward their far edge (a bevel and
+  // a cast shadow, not a bar), the south/east shadows grew longer and drift
+  // SE, rims facing the world frame are skipped (the world rim border
+  // already marks the edge) — and, crucially, each maximal rim RUN is drawn
+  // as one shape instead of one square per 15u cell: per-cell rects kept
+  // their hard 90° corners and read as purple Lego bricks on the grass,
+  // however the alpha was varied. Runs are still dappled in 3-cell lengths
+  // so a long rim breaks into lighter/darker stretches like real shade.
+  // Still plain fillRects — no gradient dependency — so the vector path and
+  // the Node stubs render the identical treatment.
   _drawMapRelief(ctx, theme, mapKey, left, top, right, bottom) {
     if (!sceneMaskHas(mapKey)) return;
     if (!this._reliefSet || this._reliefSetKey !== mapKey) {
@@ -1082,21 +1100,69 @@ class GameRenderer {
     const cell = RELIEF_CELL;
     const c0 = Math.max(0, Math.floor(left / cell)), c1 = Math.min(SCENE_MASK_COLS - 1, Math.floor(right / cell));
     const r0 = Math.max(0, Math.floor(top / cell)), r1 = Math.min(SCENE_MASK_ROWS - 1, Math.floor(bottom / cell));
+    // [offset, size, alpha] steps, offsets measured from the face's far edge.
+    const SOUTH_FACE = [[0, 5, .18], [5, 5, .34], [10, 6, .52]];
+    // [offset south of the rim, size, alpha, east drift] — the shadow fades
+    // and slides SE as it leaves the rim: a cast shadow, not a bar.
+    const SOUTH_SHADOW = [[2, RELIEF_SHADOW_SOUTH, .30, 0], [16, RELIEF_SHADOW_SOUTH, .18, 4], [30, RELIEF_SHADOW_SOUTH, .08, 8]];
+    const EAST_FACE = [[0, 4, .13], [4, 4, .25], [8, 4, .38]];
+    const EAST_SHADOW = [[2, RELIEF_SHADOW_EAST, .22, 0], [12, RELIEF_SHADOW_EAST, .13, 3], [22, RELIEF_SHADOW_EAST, .06, 6]];
+    // Dapple in 3-cell lengths (stable hash, no Math.random) so a long run
+    // breaks into lighter/darker stretches like real shade.
+    const varyFor = (s, r) => 0.70 + 0.55 * hash2(Math.floor(s / 3) * 1.31 + 7.7, r * 1.97 + 3.3);
+    const shade = (a, vary) => Math.min(.65, a * vary);
+    // A rim whose open neighbour is outside the mask grid faces the world
+    // frame, not open ground — the world rim border already marks that edge,
+    // and a face/shadow there draws a full-map straight strip.
+    const southRim = (c, r) => r + 1 < SCENE_MASK_ROWS && blocked.has(`${c},${r}`) && !blocked.has(`${c},${r + 1}`);
+    const eastRim = (c, r) => c + 1 < SCENE_MASK_COLS && blocked.has(`${c},${r}`) && !blocked.has(`${c + 1},${r}`);
+    for (let r = r0; r <= r1; r++) {
+      let c = c0;
+      while (c <= c1) {
+        if (!southRim(c, r)) { c++; continue; }
+        let ce = c;
+        while (ce + 1 <= c1 && southRim(ce + 1, r)) ce++;
+        const y = r * cell;
+        for (let s = c; s <= ce; s += 3) {
+          const se = Math.min(s + 2, ce);
+          const sx0 = s * cell, sx1 = (se + 1) * cell;
+          const vary = varyFor(s, r);
+          for (const [off, size, a, drift] of SOUTH_SHADOW) {
+            paint(ctx, alphaColor(theme.deep, shade(a, vary))); method(ctx, 'fillRect', sx0 + drift, y + cell + off, sx1 - sx0, size);
+          }
+          for (const [off, size, a] of SOUTH_FACE) {
+            paint(ctx, alphaColor(theme.deep, shade(a, vary))); method(ctx, 'fillRect', sx0, y + cell - RELIEF_FACE_SOUTH + off, sx1 - sx0, size);
+          }
+        }
+        c = ce + 1;
+      }
+    }
+    for (let c = c0; c <= c1; c++) {
+      let r = r0;
+      while (r <= r1) {
+        if (!eastRim(c, r)) { r++; continue; }
+        let re = r;
+        while (re + 1 <= r1 && eastRim(c, re + 1)) re++;
+        const x = c * cell;
+        for (let s = r; s <= re; s += 3) {
+          const se = Math.min(s + 2, re);
+          const sy0 = s * cell, sy1 = (se + 1) * cell;
+          const vary = varyFor(c, s);
+          for (const [off, size, a, drift] of EAST_SHADOW) {
+            paint(ctx, alphaColor(theme.deep, shade(a, vary))); method(ctx, 'fillRect', x + cell + off, sy0 + drift, size, sy1 - sy0);
+          }
+          for (const [off, size, a] of EAST_FACE) {
+            paint(ctx, alphaColor(theme.deep, shade(a, vary))); method(ctx, 'fillRect', x + cell - RELIEF_FACE_EAST + off, sy0, size, sy1 - sy0);
+          }
+        }
+        r = re + 1;
+      }
+    }
     for (let r = r0; r <= r1; r++) {
       for (let c = c0; c <= c1; c++) {
         if (!blocked.has(`${c},${r}`)) continue;
-        const x = c * cell, y = r * cell;
-        if (!blocked.has(`${c},${r + 1}`)) {
-          paint(ctx, alphaColor(theme.deep, .45)); method(ctx, 'fillRect', x, y + cell + 2, cell, RELIEF_SHADOW_SOUTH);
-          paint(ctx, alphaColor(theme.deep, .62)); method(ctx, 'fillRect', x, y + cell - RELIEF_FACE_SOUTH, cell, RELIEF_FACE_SOUTH);
-          paint(ctx, alphaColor(theme.deep, .72)); method(ctx, 'fillRect', x, y + cell - 2, cell, 2);
-        }
-        if (!blocked.has(`${c + 1},${r}`)) {
-          paint(ctx, alphaColor(theme.deep, .32)); method(ctx, 'fillRect', x + cell + 2, y, RELIEF_SHADOW_EAST, cell);
-          paint(ctx, alphaColor(theme.deep, .45)); method(ctx, 'fillRect', x + cell - RELIEF_FACE_EAST, y, RELIEF_FACE_EAST, cell);
-        }
-        if (!blocked.has(`${c},${r - 1}`)) {
-          paint(ctx, alphaColor(theme.sky, .22)); method(ctx, 'fillRect', x, y, cell, 3);
+        if (r - 1 >= 0 && !blocked.has(`${c},${r - 1}`)) {
+          paint(ctx, alphaColor(theme.sky, .22)); method(ctx, 'fillRect', c * cell, r * cell, cell, 3);
         }
       }
     }
@@ -1142,14 +1208,15 @@ class GameRenderer {
   // a vertical depth cue without touching its art. Guarded like the other
   // gradient uses: contexts without gradients simply skip it. Shared by the
   // painted path and the vector fallback, so the depth cue survives while a
-  // scene image is still loading. 0.30 at the north rim: the original 0.12
-  // was invisible against the temple purple in browser acceptance.
+  // scene image is still loading. 0.36 at the north rim over the top 60%:
+  // the first 0.30/55% was barely noticeable against the temple painting's
+  // own pale far mountains in browser re-acceptance.
   _drawAltitudeHaze(ctx, theme) {
     if (typeof ctx.createLinearGradient !== 'function') return;
-    const g = ctx.createLinearGradient(0, 0, 0, WORLD_SIZE * .55);
-    g.addColorStop(0, alphaColor(theme.deep, .30));
+    const g = ctx.createLinearGradient(0, 0, 0, WORLD_SIZE * .60);
+    g.addColorStop(0, alphaColor(theme.deep, .36));
     g.addColorStop(1, alphaColor(theme.deep, 0));
-    paint(ctx, g); method(ctx, 'fillRect', 0, 0, WORLD_SIZE, WORLD_SIZE * .55);
+    paint(ctx, g); method(ctx, 'fillRect', 0, 0, WORLD_SIZE, WORLD_SIZE * .60);
   }
 
   _drawPaintedBattleMap(ctx, theme, back, left, top, right, bottom) {
@@ -1432,14 +1499,23 @@ class GameRenderer {
   // camera-relative parallax shift, fading out toward its top edge so it
   // reads as near foliage/rock the actors pass behind rather than a second
   // copy of the ground. Only the band's own pixels are reused, so the art
-  // stays the authored painting. Skipped when the band is off-view or no
-  // painted scene is loaded (the vector fallback keeps its own front layer).
+  // stays the authored painting. Skipped when no painted scene is loaded
+  // (the vector fallback keeps its own front layer).
+  //
+  // Second pass (2026-11-26, browser re-acceptance): the band used to be
+  // the world's absolute south 220u, so it only appeared when the camera
+  // reached the map's south edge — a 74-second stage-2 play that moved
+  // south repeatedly never showed it. The band is now the bottom 220u of
+  // the CURRENT view (clamped to the world's south band at the map edge),
+  // so near terrain occludes actors at the bottom of the screen during
+  // ordinary play anywhere on the map. The hero sits at the view centre,
+  // above the band, so it is never covered; enemies near the screen's
+  // bottom edge are.
   _drawMapForeground(ctx, theme, mapKey = null) {
     const scene = this._sceneFor(theme, mapKey);
     const back = scene?.back || scene?.background || scene;
     if (!imageReady(back)) return;
-    const bandTop = WORLD_SIZE - FOREGROUND_BAND;
-    if (this._view.bottom <= bandTop || this._view.top >= WORLD_SIZE) return;
+    const bandTop = Math.min(this._view.bottom - FOREGROUND_BAND, WORLD_SIZE - FOREGROUND_BAND);
     const px = clamp((this.camera.x - WORLD_SIZE / 2) * .05, -12, 12) + 6;
     const py = clamp((this.camera.y - WORLD_SIZE / 2) * .05, -12, 12) + 14;
     const { sx, sy, sw, sh } = this._paintedSourceRect(back);
