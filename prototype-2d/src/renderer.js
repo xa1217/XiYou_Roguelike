@@ -10,19 +10,20 @@
 
 import { battleEnemyAnimation } from './battle-enemy-animation.js';
 import { skillFxIdForEffect, skillFxFrameRect } from './skill-fx-animation.js';
-import { CAVE_MOUTHS, sceneBlockedCells, sceneMaskHas, SCENE_MASK_COLS, SCENE_MASK_ROWS } from './scene-collision.js';
+import { CAVE_MOUTHS } from './scene-collision.js';
 
 const TAU = Math.PI * 2;
 const WORLD_SIZE = 1800;
-// 3D map relief (2026-11-26): raised terrain is read from the collision
-// mask — the same cells that block movement — so the side faces and shadows
-// always agree with walkability. Light comes from the north-west, so the
-// south/east faces are shaded and shadows fall south-east, like the Zombie
-// perspective work. One mask cell is 15 world units.
-const RELIEF_CELL = WORLD_SIZE / SCENE_MASK_COLS;
-const RELIEF_FACE_SOUTH = 16, RELIEF_FACE_EAST = 12;
-const RELIEF_SHADOW_SOUTH = 14, RELIEF_SHADOW_EAST = 10;
-const FOREGROUND_BAND = 220;
+// 3D map treatment (2026-11-26, third pass): the painted scenes are
+// already 3/4-view art, so depth comes from the art itself plus altitude
+// haze and squashed SE cast shadows under the actors. Two earlier layers
+// were REMOVED after three browser rounds proved they fight the art:
+// mask-derived relief faces/shadows drew as a solid dark-purple band
+// along every long mask rim (the temple stage's east-mass foot read as a
+// translucent rectangular band pasted across the painting, with pixel
+// block dapple inside), and the foreground veil only ghosted the same
+// flat ground it covered, so it was invisible in real play. A clean
+// painted map with real actor shadows beats a banded fake relief.
 const EMPTY_LIST = Object.freeze([]);
 const compareEnemyDepth = (a, b) => n(a.y) - n(b.y);
 const STATUS_BADGES = Object.freeze({
@@ -59,6 +60,25 @@ const THEMES = Object.freeze({
   fire: { paper: '#b53b3e', paperDark: '#e9683e', ink: '#291323', leaf: '#ffad3e', accent: '#ff3b2f', road: '#ffdf4a', motif: '#8b55ff', sky: '#ef7260', deep: '#5c1c31', sticker: '#fff06a' },
   water: { paper: '#168eaa', paperDark: '#4ee0d2', ink: '#071e35', leaf: '#55f0b3', accent: '#ff6445', road: '#ffe04e', motif: '#658cff', sky: '#64ecf2', deep: '#0a4f75', sticker: '#fff069' },
   temple: { paper: '#4e2d91', paperDark: '#8657d3', ink: '#0b0d1d', leaf: '#5ce8ac', accent: '#ff4b55', road: '#ffda4c', motif: '#45e4ee', sky: '#7652d5', deep: '#241552', sticker: '#ffe84f' }
+});
+
+// Edge colours for the camera overshoot (2026-11-26, third pass): the mean
+// colour of each painting's 40u edge band, sampled from the authored JPGs
+// with the same cover-crop mapping _paintedSourceRect uses. The margin past
+// the world rim is filled with the painting's own edge tone — pale sky
+// above, dark ground below — so the world reads as continuing instead of
+// ending in a solid block of the theme's saturated paper colour (temple
+// paper purple made a full-width purple band across the top of the screen
+// whenever the hero pushed north; browser round 3). Re-sample if a
+// painting is replaced.
+const EDGE_COLORS = Object.freeze({
+  forest: { top: '#afaf90', bottom: '#55553f', left: '#68684e', right: '#777744' },
+  temple: { top: '#bbad90', bottom: '#535642', left: '#6e6951', right: '#887747' },
+  water: { top: '#acb9b1', bottom: '#457677', left: '#4b6858', right: '#66694c' },
+  fire: { top: '#b67a5a', bottom: '#4a211a', left: '#4c342a', right: '#4c332d' },
+  sand: { top: '#dfd3ae', bottom: '#715938', left: '#7c623c', right: '#77603a' },
+  snow: { top: '#afb0ae', bottom: '#455168', left: '#5c677a', right: '#505864' },
+  doublefork: { top: '#a69b78', bottom: '#574a2a', left: '#475251', right: '#746b4b' },
 });
 
 const HEROES = Object.freeze({
@@ -552,10 +572,6 @@ class GameRenderer {
       this._drawEnemy(ctx, enemy, player, mapTheme);
     }
     if (!playerDrawn) this._drawPlayer(ctx, player, safeState.character?.id);
-    // Foreground veil: the near band of the painted scene, drawn after the
-    // actors so nearer terrain overlaps them (Y-sorted occlusion), before
-    // the combat feedback so labels stay readable.
-    this._drawMapForeground(ctx, mapTheme, mapKey);
     // Damage labels are the only transient world text that can land on top of
     // the hero silhouette.  Keep the direct helper API unchanged for Node and
     // adapter callers, while the full render pass enables its conservative,
@@ -979,13 +995,12 @@ class GameRenderer {
         }
         return;
       }
-      this._drawPaintedBattleMap(ctx, theme, sceneBack, left, top, right, bottom); this._drawWorldRim(ctx, theme, left, top, right, bottom); this._drawMapRelief(ctx, theme, mapKey || themeName, left, top, right, bottom); this._drawCaveMouths(ctx, mapKey); return;
+      this._drawPaintedBattleMap(ctx, theme, sceneBack, left, top, right, bottom, mapKey); this._drawWorldRim(ctx, theme, left, top, right, bottom); this._drawCaveMouths(ctx, mapKey); return;
     }
     if (this.battleSceneMode === 'vector') {
       this._drawVectorBattleMap(ctx, theme, left, top, right, bottom, mapKey);
       this._drawAltitudeHaze(ctx, theme);
       this._drawWorldRim(ctx, theme, left, top, right, bottom);
-      this._drawMapRelief(ctx, theme, mapKey || themeName, left, top, right, bottom);
       this._drawCaveMouths(ctx, mapKey);
       return;
     }
@@ -1027,7 +1042,6 @@ class GameRenderer {
       paint(ctx, null, alphaColor(i % 2 ? theme.motif : theme.sticker, .46), 5 + (i % 2) * 2); method(ctx, 'stroke');
     }
     this._drawFrontLayer(ctx, theme, left, top, right, bottom, mapKey);
-    this._drawMapRelief(ctx, theme, mapKey || themeName, left, top, right, bottom);
     this._drawCaveMouths(ctx, mapKey);
   }
 
@@ -1063,110 +1077,6 @@ class GameRenderer {
     }
   }
 
-  // Mask-driven relief (2026-11-26): every blocked mask cell whose south or
-  // east neighbour is open gets a shaded side face on its rim and a soft
-  // shadow cast onto the open ground south-east of it; north rims get a
-  // faint lit edge. Faces sit inside blocked territory and shadows lie on
-  // open ground, so both bake below the actors and can never cover one.
-  // Culled to the given rect; the baked cache calls this once for the whole
-  // world, the direct path once per frame for the visible rect only.
-  //
-  // Second pass (2026-11-26, browser re-acceptance): the first version drew
-  // each face/shadow as ONE flat rect at one alpha (.62 face + .45 shadow +
-  // .72 rim line). Along a long mask rim those fused into a solid ~30u
-  // dark-purple bar with a pixelated staircase outline — in stage 2 temple
-  // it read as a translucent rectangular band pasted across the painting,
-  // and the world-frame rims drew full-height vertical / full-width
-  // horizontal strips at the map edges. The fix, in order: faces and
-  // shadows became stacked steps fading toward their far edge (a bevel and
-  // a cast shadow, not a bar), the south/east shadows grew longer and drift
-  // SE, rims facing the world frame are skipped (the world rim border
-  // already marks the edge) — and, crucially, each maximal rim RUN is drawn
-  // as one shape instead of one square per 15u cell: per-cell rects kept
-  // their hard 90° corners and read as purple Lego bricks on the grass,
-  // however the alpha was varied. Runs are still dappled in 3-cell lengths
-  // so a long rim breaks into lighter/darker stretches like real shade.
-  // Still plain fillRects — no gradient dependency — so the vector path and
-  // the Node stubs render the identical treatment.
-  _drawMapRelief(ctx, theme, mapKey, left, top, right, bottom) {
-    if (!sceneMaskHas(mapKey)) return;
-    if (!this._reliefSet || this._reliefSetKey !== mapKey) {
-      const set = new Set();
-      for (const [c, r] of sceneBlockedCells(mapKey)) set.add(`${c},${r}`);
-      this._reliefSet = set; this._reliefSetKey = mapKey;
-    }
-    const blocked = this._reliefSet;
-    if (!blocked.size) return;
-    const cell = RELIEF_CELL;
-    const c0 = Math.max(0, Math.floor(left / cell)), c1 = Math.min(SCENE_MASK_COLS - 1, Math.floor(right / cell));
-    const r0 = Math.max(0, Math.floor(top / cell)), r1 = Math.min(SCENE_MASK_ROWS - 1, Math.floor(bottom / cell));
-    // [offset, size, alpha] steps, offsets measured from the face's far edge.
-    const SOUTH_FACE = [[0, 5, .18], [5, 5, .34], [10, 6, .52]];
-    // [offset south of the rim, size, alpha, east drift] — the shadow fades
-    // and slides SE as it leaves the rim: a cast shadow, not a bar.
-    const SOUTH_SHADOW = [[2, RELIEF_SHADOW_SOUTH, .30, 0], [16, RELIEF_SHADOW_SOUTH, .18, 4], [30, RELIEF_SHADOW_SOUTH, .08, 8]];
-    const EAST_FACE = [[0, 4, .13], [4, 4, .25], [8, 4, .38]];
-    const EAST_SHADOW = [[2, RELIEF_SHADOW_EAST, .22, 0], [12, RELIEF_SHADOW_EAST, .13, 3], [22, RELIEF_SHADOW_EAST, .06, 6]];
-    // Dapple in 3-cell lengths (stable hash, no Math.random) so a long run
-    // breaks into lighter/darker stretches like real shade.
-    const varyFor = (s, r) => 0.70 + 0.55 * hash2(Math.floor(s / 3) * 1.31 + 7.7, r * 1.97 + 3.3);
-    const shade = (a, vary) => Math.min(.65, a * vary);
-    // A rim whose open neighbour is outside the mask grid faces the world
-    // frame, not open ground — the world rim border already marks that edge,
-    // and a face/shadow there draws a full-map straight strip.
-    const southRim = (c, r) => r + 1 < SCENE_MASK_ROWS && blocked.has(`${c},${r}`) && !blocked.has(`${c},${r + 1}`);
-    const eastRim = (c, r) => c + 1 < SCENE_MASK_COLS && blocked.has(`${c},${r}`) && !blocked.has(`${c + 1},${r}`);
-    for (let r = r0; r <= r1; r++) {
-      let c = c0;
-      while (c <= c1) {
-        if (!southRim(c, r)) { c++; continue; }
-        let ce = c;
-        while (ce + 1 <= c1 && southRim(ce + 1, r)) ce++;
-        const y = r * cell;
-        for (let s = c; s <= ce; s += 3) {
-          const se = Math.min(s + 2, ce);
-          const sx0 = s * cell, sx1 = (se + 1) * cell;
-          const vary = varyFor(s, r);
-          for (const [off, size, a, drift] of SOUTH_SHADOW) {
-            paint(ctx, alphaColor(theme.deep, shade(a, vary))); method(ctx, 'fillRect', sx0 + drift, y + cell + off, sx1 - sx0, size);
-          }
-          for (const [off, size, a] of SOUTH_FACE) {
-            paint(ctx, alphaColor(theme.deep, shade(a, vary))); method(ctx, 'fillRect', sx0, y + cell - RELIEF_FACE_SOUTH + off, sx1 - sx0, size);
-          }
-        }
-        c = ce + 1;
-      }
-    }
-    for (let c = c0; c <= c1; c++) {
-      let r = r0;
-      while (r <= r1) {
-        if (!eastRim(c, r)) { r++; continue; }
-        let re = r;
-        while (re + 1 <= r1 && eastRim(c, re + 1)) re++;
-        const x = c * cell;
-        for (let s = r; s <= re; s += 3) {
-          const se = Math.min(s + 2, re);
-          const sy0 = s * cell, sy1 = (se + 1) * cell;
-          const vary = varyFor(c, s);
-          for (const [off, size, a, drift] of EAST_SHADOW) {
-            paint(ctx, alphaColor(theme.deep, shade(a, vary))); method(ctx, 'fillRect', x + cell + off, sy0 + drift, size, sy1 - sy0);
-          }
-          for (const [off, size, a] of EAST_FACE) {
-            paint(ctx, alphaColor(theme.deep, shade(a, vary))); method(ctx, 'fillRect', x + cell - RELIEF_FACE_EAST + off, sy0, size, sy1 - sy0);
-          }
-        }
-        r = re + 1;
-      }
-    }
-    for (let r = r0; r <= r1; r++) {
-      for (let c = c0; c <= c1; c++) {
-        if (!blocked.has(`${c},${r}`)) continue;
-        if (r - 1 >= 0 && !blocked.has(`${c},${r - 1}`)) {
-          paint(ctx, alphaColor(theme.sky, .22)); method(ctx, 'fillRect', c * cell, r * cell, cell, 3);
-        }
-      }
-    }
-  }
 
   // Baked painted-map cache (perf batch, 2026-10-28). The cache covers
   // the world plus a 640-unit margin on every side — beyond the furthest
@@ -1192,9 +1102,8 @@ class GameRenderer {
     paint(c2, theme.paper);
     method(c2, 'fillRect', -margin, -margin, span, span);
     const L = -margin, T = -margin, R = WORLD_SIZE + margin, B = WORLD_SIZE + margin;
-    this._drawPaintedBattleMap(c2, theme, sceneBack, L, T, R, B);
+    this._drawPaintedBattleMap(c2, theme, sceneBack, L, T, R, B, mapKey);
     this._drawWorldRim(c2, theme, L, T, R, B);
-    this._drawMapRelief(c2, theme, mapKey || themeName, L, T, R, B);
     const savedView = this._view;
     this._view = { left: L, top: T, right: R, bottom: B };
     try { this._drawCaveMouths(c2, mapKey); } finally { this._view = savedView; }
@@ -1208,18 +1117,35 @@ class GameRenderer {
   // a vertical depth cue without touching its art. Guarded like the other
   // gradient uses: contexts without gradients simply skip it. Shared by the
   // painted path and the vector fallback, so the depth cue survives while a
-  // scene image is still loading. 0.36 at the north rim over the top 60%:
-  // the first 0.30/55% was barely noticeable against the temple painting's
-  // own pale far mountains in browser re-acceptance.
+  // scene image is still loading.
+  //
+  // Third pass (2026-11-26, browser round 3): the old single fade — .36
+  // spread over the top 60% of the world — was too gradual to read as a
+  // gradient on the ground (the browser saw uniformly tan ground; only the
+  // painting's own far mountains looked hazy). The tint now peaks at the
+  // playable ground's north edge (y≈210, the mountain foot) and is gone
+  // by y=850, so the far ground is visibly duskier than the near ground;
+  // the sky/mountain zone above the foot gets only a light wash.
+  // Altitude haze (third pass): a smooth dark-purple wash over the far
+  // (north) ground, so the playable ground itself reads as receding into
+  // haze instead of staying uniformly tan from north to south. (The
+  // original 3-stop gradient peaked at y=210 - above the playable ground,
+  // which starts around y=450 for temple - so the ground only got the
+  // gradient's tail and the browser saw no ground haze at all in round 3;
+  // only the painting's own distant haze was visible.) The peak now sits
+  // at y=350, on the ground's north edge, and the wash fades out by y=1200
+  // so the near ground stays clear. It is a smooth gradient, never a
+  // hard-edged band: the purple tint deepens gradually toward the north.
   _drawAltitudeHaze(ctx, theme) {
     if (typeof ctx.createLinearGradient !== 'function') return;
-    const g = ctx.createLinearGradient(0, 0, 0, WORLD_SIZE * .60);
-    g.addColorStop(0, alphaColor(theme.deep, .36));
+    const g = ctx.createLinearGradient(0, 0, 0, 1200);
+    g.addColorStop(0, alphaColor(theme.deep, .14));
+    g.addColorStop(350 / 1200, alphaColor(theme.deep, .32));
     g.addColorStop(1, alphaColor(theme.deep, 0));
-    paint(ctx, g); method(ctx, 'fillRect', 0, 0, WORLD_SIZE, WORLD_SIZE * .60);
+    paint(ctx, g); method(ctx, 'fillRect', 0, 0, WORLD_SIZE, 1200);
   }
 
-  _drawPaintedBattleMap(ctx, theme, back, left, top, right, bottom) {
+  _drawPaintedBattleMap(ctx, theme, back, left, top, right, bottom, mapKey = null) {
     // One quiet cover draw of the authored scene over the whole world — no
     // mid/front sticker layers compete with the actors. A portrait scene
     // (the doublefork valley) is geometry-authored: it is drawn stretched
@@ -1232,49 +1158,51 @@ class GameRenderer {
       : drawImageCover(ctx, back, 0, 0, WORLD_SIZE, WORLD_SIZE);
     if (drawn) this.mapAssetDraws += 1;
     // Continue the painting past the world rim: when the centred camera
-    // looks beyond the map edge, stretch a thin slice sampled just inside
-    // the rim across the whole overshoot, however deep it goes, and let it
-    // recede under a deepening shade. (The earlier mirror strip repeated
-    // the painting's own frame lines as hard stripes, and its fixed depth
-    // left a flat block of shade colour once the camera overshot further.)
-    if (drawn && iw > 0 && ih > iw) {
-      const sx = iw / WORLD_SIZE, sy = ih / WORLD_SIZE;
+    // looks beyond the map edge, the margin shows the painting's own edge
+    // tone instead of a solid block of the theme's saturated paper colour.
+    // (The old code filled the margin with deep .85/.92 shade, stretched
+    // only a 34u slice, and only for portrait scenes - so landscape stages
+    // like temple showed bare paper purple: whenever the hero pushed north,
+    // a solid purple band spanned the top of the screen below the HUD.
+    // Stretching the edge band over the full overshoot was tried next and
+    // smeared into vertical streaks - the painting's top edge carries
+    // mountain and roof silhouettes. Browser round 3.) So each side gets
+    // two layers: a near band - the painting's 40u edge, squashed to at
+    // most 34u, so the world edge continues almost 1:1 with no streaks -
+    // and beyond it a flat fill in the edge's sampled mean colour, which
+    // reads as sky haze (top) or dark ground (bottom) rather than a band.
+    if (drawn) {
+      const themeName = Object.keys(THEMES).find(key => THEMES[key] === theme) || 'forest';
+      // The edge colour must match the painting on screen, not the stage
+      // theme: stage 1 is theme forest but shows the doublefork painting.
+      const edgeKey = (mapKey && EDGE_COLORS[mapKey]) ? mapKey : themeName;
+      const edge = EDGE_COLORS[edgeKey] || EDGE_COLORS.forest;
+      const { sx, sy, sw, sh } = this._paintedSourceRect(back);
+      const BAND = 40, NEAR = 34;
+      const su = sw / WORLD_SIZE, sv = sh / WORLD_SIZE;
       const ovB = bottom - WORLD_SIZE, ovT = -top, ovL = -left, ovR = right - WORLD_SIZE;
       const fx = Math.min(0, left), fw = right - fx;
-      paint(ctx, alphaColor(theme.deep, .85));
-      if (ovB > 0) method(ctx, 'fillRect', fx, WORLD_SIZE, fw, ovB);
-      if (ovT > 0) method(ctx, 'fillRect', fx, top, fw, ovT);
-      if (ovL > 0) method(ctx, 'fillRect', left, 0, ovL, WORLD_SIZE);
-      if (ovR > 0) method(ctx, 'fillRect', WORLD_SIZE, 0, ovR, WORLD_SIZE);
-      // The stretch only carries the first few dozen units past the rim;
-      // stretched further, a thin slice smears into vertical streaks that
-      // read as a glitch. Beyond it the shade takes over completely, like
-      // the dark mat around a scroll painting.
-      const IN = 14, SL = 5, ST = 34, FD = 64;
-      const sB = Math.min(ovB, ST), sT = Math.min(ovT, ST), sL = Math.min(ovL, ST), sR = Math.min(ovR, ST);
-      if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, 0, SL * sx, ih, 0 - sL, 0, sL, WORLD_SIZE);
-      if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, 0, SL * sx, ih, WORLD_SIZE, 0, sR, WORLD_SIZE);
-      if (ovB > 0) {
-        drawImageIfReady(ctx, back, 0, ih - (IN + SL) * sy, iw, SL * sy, 0, WORLD_SIZE, WORLD_SIZE, sB);
-        if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, ih - (IN + SL) * sy, SL * sx, SL * sy, 0 - sL, WORLD_SIZE, sL, sB);
-        if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, ih - (IN + SL) * sy, SL * sx, SL * sy, WORLD_SIZE, WORLD_SIZE, sR, sB);
-      }
+      const near = (ov) => Math.min(NEAR, ov);
       if (ovT > 0) {
-        drawImageIfReady(ctx, back, 0, IN * sy, iw, SL * sy, 0, 0 - sT, WORLD_SIZE, sT);
-        if (ovL > 0) drawImageIfReady(ctx, back, IN * sx, IN * sy, SL * sx, SL * sy, 0 - sL, 0 - sT, sL, sT);
-        if (ovR > 0) drawImageIfReady(ctx, back, iw - (IN + SL) * sx, IN * sy, SL * sx, SL * sy, WORLD_SIZE, 0 - sT, sR, sT);
+        const n = near(ovT);
+        drawImageIfReady(ctx, back, sx, sy, sw, BAND * sv, fx, -n, fw, n);
+        if (ovT > n) { paint(ctx, edge.top); method(ctx, 'fillRect', fx, top, fw, ovT - n); }
       }
-      const fade = (x0, y0, x1, y1, rx, ry, rw, rh) => {
-        if (typeof ctx.createLinearGradient !== 'function') return;
-        const g = ctx.createLinearGradient(x0, y0, x1, y1);
-        g.addColorStop(0, alphaColor(theme.deep, 0));
-        g.addColorStop(1, alphaColor(theme.deep, .92));
-        paint(ctx, g); method(ctx, 'fillRect', rx, ry, rw, rh);
-      };
-      if (ovB > 0) { const d = Math.min(ovB, FD); fade(0, WORLD_SIZE, 0, WORLD_SIZE + d, fx, WORLD_SIZE, fw, d); if (ovB > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', fx, WORLD_SIZE + d, fw, ovB - d); } }
-      if (ovT > 0) { const d = Math.min(ovT, FD); fade(0, 0, 0, -d, fx, -d, fw, d); if (ovT > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', fx, top, fw, ovT - d); } }
-      if (ovL > 0) { const d = Math.min(ovL, FD); fade(0, 0, -d, 0, -d, 0, d, WORLD_SIZE); if (ovL > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', left, 0, ovL - d, WORLD_SIZE); } }
-      if (ovR > 0) { const d = Math.min(ovR, FD); fade(WORLD_SIZE, 0, WORLD_SIZE + d, 0, WORLD_SIZE, 0, d, WORLD_SIZE); if (ovR > d) { paint(ctx, alphaColor(theme.deep, .92)); method(ctx, 'fillRect', WORLD_SIZE + d, 0, ovR - d, WORLD_SIZE); } }
+      if (ovB > 0) {
+        const n = near(ovB);
+        drawImageIfReady(ctx, back, sx, sy + sh - BAND * sv, sw, BAND * sv, fx, WORLD_SIZE, fw, n);
+        if (ovB > n) { paint(ctx, edge.bottom); method(ctx, 'fillRect', fx, WORLD_SIZE + n, fw, ovB - n); }
+      }
+      if (ovL > 0) {
+        const n = near(ovL);
+        drawImageIfReady(ctx, back, sx, sy, BAND * su, sh, -n, 0, n, WORLD_SIZE);
+        if (ovL > n) { paint(ctx, edge.left); method(ctx, 'fillRect', left, 0, ovL - n, WORLD_SIZE); }
+      }
+      if (ovR > 0) {
+        const n = near(ovR);
+        drawImageIfReady(ctx, back, sx + sw - BAND * su, sy, BAND * su, sh, WORLD_SIZE, 0, n, WORLD_SIZE);
+        if (ovR > n) { paint(ctx, edge.right); method(ctx, 'fillRect', WORLD_SIZE + n, 0, ovR - n, WORLD_SIZE); }
+      }
     }
     this._drawAltitudeHaze(ctx, theme);
     // A light wash keeps the HUD's warm ink palette coherent and the actors
@@ -1482,8 +1410,8 @@ class GameRenderer {
 
   // Painted-image -> world source rect (2026-11-26): the same mapping
   // _drawPaintedBattleMap uses — portrait scenes stretch to the full world,
-  // square/landscape scenes cover-crop — so the foreground veil below samples
-  // exactly the pixels the base map shows.
+  // square/landscape scenes cover-crop — so the rim-overshoot extension
+  // below samples exactly the pixels the base map shows.
   _paintedSourceRect(back) {
     const iw = Math.max(1, n(back.naturalWidth || back.videoWidth || back.width, WORLD_SIZE));
     const ih = Math.max(1, n(back.naturalHeight || back.videoHeight || back.height, WORLD_SIZE));
@@ -1494,42 +1422,6 @@ class GameRenderer {
     return { sx, sy, sw, sh };
   }
 
-  // Foreground veil (2026-11-26): the near (south) band of the painted
-  // scene, drawn AFTER the actors with a small south-east offset and a
-  // camera-relative parallax shift, fading out toward its top edge so it
-  // reads as near foliage/rock the actors pass behind rather than a second
-  // copy of the ground. Only the band's own pixels are reused, so the art
-  // stays the authored painting. Skipped when no painted scene is loaded
-  // (the vector fallback keeps its own front layer).
-  //
-  // Second pass (2026-11-26, browser re-acceptance): the band used to be
-  // the world's absolute south 220u, so it only appeared when the camera
-  // reached the map's south edge — a 74-second stage-2 play that moved
-  // south repeatedly never showed it. The band is now the bottom 220u of
-  // the CURRENT view (clamped to the world's south band at the map edge),
-  // so near terrain occludes actors at the bottom of the screen during
-  // ordinary play anywhere on the map. The hero sits at the view centre,
-  // above the band, so it is never covered; enemies near the screen's
-  // bottom edge are.
-  _drawMapForeground(ctx, theme, mapKey = null) {
-    const scene = this._sceneFor(theme, mapKey);
-    const back = scene?.back || scene?.background || scene;
-    if (!imageReady(back)) return;
-    const bandTop = Math.min(this._view.bottom - FOREGROUND_BAND, WORLD_SIZE - FOREGROUND_BAND);
-    const px = clamp((this.camera.x - WORLD_SIZE / 2) * .05, -12, 12) + 6;
-    const py = clamp((this.camera.y - WORLD_SIZE / 2) * .05, -12, 12) + 14;
-    const { sx, sy, sw, sh } = this._paintedSourceRect(back);
-    const slices = 5, alphas = [.14, .24, .34, .44, .55];
-    method(ctx, 'save');
-    for (let i = 0; i < slices; i += 1) {
-      const wy0 = bandTop + (i * FOREGROUND_BAND) / slices, wh = FOREGROUND_BAND / slices;
-      if (wy0 + wh < this._view.top || wy0 > this._view.bottom) continue;
-      const sY = sy + (wy0 / WORLD_SIZE) * sh, sH = (wh / WORLD_SIZE) * sh;
-      ctx.globalAlpha = alphas[i];
-      method(ctx, 'drawImage', back, sx, sY, sw, sH, px, wy0 + py, WORLD_SIZE, wh);
-    }
-    method(ctx, 'restore');
-  }
 
   _drawScenery(ctx, x, y, theme, themeName) {
     if (themeName === 'forest') { this._drawTree(ctx, x, y, theme); return; }
